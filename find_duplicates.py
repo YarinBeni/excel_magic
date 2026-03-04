@@ -1,5 +1,11 @@
-import pandas as pd
 import sys
+import io
+
+# Force UTF-8 output — fixes Hebrew printing on Windows 7
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+
+import pandas as pd
 from pathlib import Path
 
 
@@ -30,7 +36,15 @@ def main():
 
     df = pd.read_excel(input_path)
 
+    if df.empty:
+        print("שגיאה: הקובץ ריק.")
+        sys.exit(1)
+
     all_cols = df.columns.tolist()
+
+    if len(all_cols) < 10:
+        print(f"שגיאה: הקובץ מכיל רק {len(all_cols)} עמודות, נדרשות לפחות 10.")
+        sys.exit(1)
 
     # עמודות לבדיקת כפילויות: כל העמודות חוץ מ-A (index 0), D (index 3), J (index 9)
     exclude_indices = {0, 3, 9}
@@ -55,7 +69,12 @@ def main():
     output_name = input_path.stem + "_מסומן" + input_path.suffix
     output_path = input_path.parent / output_name
 
-    df_result.to_excel(output_path, index=False)
+    try:
+        df_result.to_excel(output_path, index=False)
+    except PermissionError:
+        print(f"\nשגיאה: לא ניתן לשמור את הקובץ {output_name}")
+        print("ייתכן שהקובץ פתוח ב-Excel. סגור אותו ונסה שנית.")
+        sys.exit(1)
 
     total = len(df_result)
     duplicates = int(df_result["האם כפילות"].sum())
@@ -69,4 +88,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(f"\nשגיאה לא צפויה: {e}")
+        sys.exit(1)
