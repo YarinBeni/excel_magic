@@ -1,7 +1,7 @@
 @echo off
-chcp 65001 >nul
 cd /d "%~dp0"
-py -m pip install --target "%~dp0packages" pandas openpyxl
+py -m pip install --target "%~dp0packages" pandas openpyxl >nul 2>&1
+chcp 65001 >nul
 set PYTHONPATH=%~dp0packages
 py find_duplicates.py
 echo.
