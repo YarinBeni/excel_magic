@@ -1,10 +1,4 @@
 import sys
-import io
-
-# Force UTF-8 output — fixes Hebrew printing on Windows 7
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
-sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
-
 import pandas as pd
 from pathlib import Path
 
@@ -17,14 +11,14 @@ def find_input_file():
     ]
 
     if len(xlsx_files) == 0:
-        print("שגיאה: לא נמצא קובץ Excel בתיקייה.")
-        print("אנא הכנס קובץ .xlsx לתיקייה והרץ שנית.")
+        print("Error: No Excel file found in the folder.")
+        print("Please place a .xlsx file in the folder and try again.")
         sys.exit(1)
     elif len(xlsx_files) > 1:
-        print("נמצאו מספר קבצי Excel בתיקייה:")
+        print("Multiple Excel files found in the folder:")
         for i, f in enumerate(xlsx_files, 1):
             print(f"  {i}. {f.name}")
-        print("\nאנא השאר רק קובץ אחד בתיקייה והרץ שנית.")
+        print("\nPlease keep only one file in the folder and try again.")
         sys.exit(1)
 
     return xlsx_files[0]
@@ -32,38 +26,38 @@ def find_input_file():
 
 def main():
     input_path = find_input_file()
-    print(f"קורא קובץ: {input_path.name}")
+    print(f"Reading file: {input_path.name}")
 
     df = pd.read_excel(input_path)
 
     if df.empty:
-        print("שגיאה: הקובץ ריק.")
+        print("Error: The file is empty.")
         sys.exit(1)
 
     all_cols = df.columns.tolist()
 
     if len(all_cols) < 10:
-        print(f"שגיאה: הקובץ מכיל רק {len(all_cols)} עמודות, נדרשות לפחות 10.")
+        print(f"Error: The file has only {len(all_cols)} columns, at least 10 are required.")
         sys.exit(1)
 
-    # עמודות לבדיקת כפילויות: כל העמודות חוץ מ-A (index 0), D (index 3), J (index 9)
+    # Columns to check for duplicates: all columns except A (index 0), D (index 3), J (index 9)
     exclude_indices = {0, 3, 9}
     check_cols = [col for i, col in enumerate(all_cols) if i not in exclude_indices]
 
-    # עמודה D (index 3) = זמן מערכת — לפיה קובעים מי ראשון בכל קבוצת כפילויות
+    # Column D (index 3) = system timestamp — used to determine which row came first
     time_col = all_cols[3]
 
-    print(f"עמודת זמן (קביעת ראשוניות): {time_col}")
-    print(f"בודק כפילויות לפי עמודות: {check_cols}")
+    print(f"Timestamp column: {time_col}")
+    print(f"Checking duplicates by columns: {check_cols}")
 
-    # ממיינים לפי זמן מערכת בסדר עולה — הראשון הוא הישן ביותר
+    # Sort by timestamp ascending — the first row is the oldest
     df_sorted = df.sort_values(by=time_col, ascending=True)
 
-    # keep='first' → השורה הראשונה (עם הזמן הנמוך ביותר) מקבלת False=0
-    # כל השאר מקבלות True=1
+    # keep='first' — the first row (oldest timestamp) gets False=0
+    # all others get True=1
     df_sorted["האם כפילות"] = df_sorted.duplicated(subset=check_cols, keep="first").astype(int)
 
-    # מחזירים לסדר המקורי של הקובץ
+    # Restore original row order
     df_result = df_sorted.sort_index()
 
     output_name = input_path.stem + "_מסומן" + input_path.suffix
@@ -72,24 +66,24 @@ def main():
     try:
         df_result.to_excel(output_path, index=False)
     except PermissionError:
-        print(f"\nשגיאה: לא ניתן לשמור את הקובץ {output_name}")
-        print("ייתכן שהקובץ פתוח ב-Excel. סגור אותו ונסה שנית.")
+        print(f"\nError: Cannot save file {output_name}")
+        print("The file may be open in Excel. Close it and try again.")
         sys.exit(1)
 
     total = len(df_result)
     duplicates = int(df_result["האם כפילות"].sum())
     originals = total - duplicates
 
-    print(f"\nסיום!")
-    print(f"סה\"כ שורות:              {total}")
-    print(f"שורות מקוריות (ללא כפילות): {originals}")
-    print(f"שורות כפילות (מסומנות 1):   {duplicates}")
-    print(f"\nהקובץ נשמר בשם: {output_name}")
+    print(f"\nDone!")
+    print(f"Total rows:      {total}")
+    print(f"Original rows:   {originals}")
+    print(f"Duplicate rows:  {duplicates}")
+    print(f"\nOutput saved as: {output_name}")
 
 
 if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        print(f"\nשגיאה לא צפויה: {e}")
+        print(f"\nUnexpected error: {e}")
         sys.exit(1)
