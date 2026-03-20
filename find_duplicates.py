@@ -51,14 +51,21 @@ def main():
     print(f"Checking duplicates by columns: {check_cols}")
 
     # Sort by timestamp ascending — the first row is the oldest
-    df_sorted = df.sort_values(by=time_col, ascending=True)
+    df_sorted = df.sort_values(by=time_col, ascending=True).copy()
 
-    # Rank within each duplicate group (sorted by time ascending):
-    # 1 = unique row (group size == 1)
-    # 2 = first in a duplicate group, 3 = second, etc.
-    group_sizes = df_sorted.groupby(check_cols)[time_col].transform("count")
-    rank_in_group = df_sorted.groupby(check_cols).cumcount() + 1
-    df_sorted["האם כפילות"] = rank_in_group + (group_sizes > 1).astype(int)
+    # Rows with NaN in any grouping column cannot be reliably compared,
+    # so treat them as unique (not duplicates).
+    has_nan = df_sorted[check_cols].isna().any(axis=1)
+
+    # Only group rows that have NO NaN in any grouping column.
+    # Rows with NaN are marked as 1 (unique).
+    df_sorted["האם כפילות"] = 1
+
+    clean_mask = ~has_nan
+    if clean_mask.any():
+        clean = df_sorted.loc[clean_mask]
+        rank_in_group = clean.groupby(check_cols).cumcount() + 1
+        df_sorted.loc[clean_mask, "האם כפילות"] = rank_in_group
 
     # Restore original row order
     df_result = df_sorted.sort_index()
@@ -74,13 +81,13 @@ def main():
         sys.exit(1)
 
     total = len(df_result)
-    unique_rows = int((df_result["האם כפילות"] == 1).sum())
-    dup_rows = total - unique_rows
+    originals = int((df_result["האם כפילות"] == 1).sum())
+    dup_rows = total - originals
 
     print(f"\nDone!")
-    print(f"Total rows:      {total}")
-    print(f"Unique rows:     {unique_rows}")
-    print(f"Duplicate rows:  {dup_rows}")
+    print(f"Total rows:       {total}")
+    print(f"Original rows:    {originals}")
+    print(f"Duplicate rows:   {dup_rows}")
     print(f"\nOutput saved as: {output_name}")
 
 
