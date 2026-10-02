@@ -1,0 +1,12 @@
+# 017_relbench_hm_svd  host=g0377  start=Fri Oct  2 17:26:56 UTC 2026  timeout=300s
+# HEAD=fcc934f
+# ---------------------------------------------------------
+J7d: 50399
+     50192   AGENT_runner  RUNNING    1:54:24 g0377
+     50375        J3_vllm  RUNNING       2:41 g0379
+     50376   J5_llm_sweep  PENDING       0:00 (Priority)
+     50377  J6_cli_agents  PENDING       0:00 (Priority)
+     50399 J7d_relbench_h  PENDING       0:00 (Priority)
+ARRAY_JOB_           NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 17:26:56 UTC 2026
