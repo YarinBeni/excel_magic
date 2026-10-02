@@ -55,11 +55,12 @@ def supervised_probe(model: str, X: np.ndarray, y: np.ndarray, folds, device: st
             clf = HistGradientBoostingClassifier(random_state=0).fit(X[tr], y[tr])
             scores[te] = clf.predict_proba(X[te])[:, 1]
         elif model == "tabpfn":
+            import torch
             from tabpfn import TabPFNClassifier
 
             rng = np.random.default_rng(0)
             ctx = rng.choice(tr, min(len(tr), 3000), replace=False)  # in-context budget
-            clf = TabPFNClassifier(device=device, n_estimators=4, inference_precision="float32").fit(X[ctx], y[ctx])
+            clf = TabPFNClassifier(device=device, n_estimators=4, inference_precision=torch.float32).fit(X[ctx], y[ctx])
             scores[te] = clf.predict_proba(X[te])[:, 1]
         else:
             raise KeyError(model)

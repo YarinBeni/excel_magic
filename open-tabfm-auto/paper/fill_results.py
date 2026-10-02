@@ -139,6 +139,22 @@ def t6_relbench(roots):
     return df.pivot_table(index="method", columns="split", values="MAP@K x100").to_markdown(floatfmt=".3f")
 
 
+def t7_churn(roots):
+    rows = []
+    for root in roots:
+        for m in Path(root).glob("*/metrics.json"):
+            d = json.load(open(m))
+            if "churn" not in d or "smoke" in m.parent.name:
+                continue
+            for name, r in d["churn"]["rows"].items():
+                if "auroc" in r:
+                    rows.append({"run": m.parent.name, "method": name, "AUROC": r["auroc"]})
+    if not rows:
+        return "_no churn-probe runs yet_"
+    df = pd.DataFrame(rows).drop_duplicates(subset=["method"], keep="last").sort_values("AUROC", ascending=False)
+    return df[["method", "AUROC"]].to_markdown(index=False, floatfmt=".4f")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--roots", nargs="+", default=["runs"])
@@ -151,7 +167,8 @@ def main():
           "## T3. TabArena protocol vs the paper (per-dataset test error, P0 / P* vs TabFM / TabFM-Auto Opus 5)", t3_tabarena(a.roots), "",
           "## T4. Backbone transfer of discovered pipelines", t4_transfer(runs), "",
           "## T5. Retrieval benchmark (synthetic shop DB; mean/std over seeds)", t5_retrieval(a.roots), "",
-          "## T6. RelBench rel-hm user-item-purchase (official evaluator)", t6_relbench(a.roots), ""]
+          "## T6. RelBench rel-hm user-item-purchase (official evaluator)", t6_relbench(a.roots), "",
+          "## T7. RelBench rel-hm user-churn, entity-level kNN probe (AUROC, random customer folds)", t7_churn(a.roots), ""]
     Path(a.out).write_text("\n".join(md))
     print("\n".join(md))
 

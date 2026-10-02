@@ -65,3 +65,12 @@ purchase matrix, test MAP@12 x100 0.83 by plain kNN), the frozen TabPFN hidden s
 (random). The paper's honest framing is therefore: frozen TFM hidden states are usable *segment-level* entity embeddings
 when the in-context target is chosen well (synthetic 0.82 vs GNN 0.88), and they are not item-level retrieval embeddings
 on a real purchase graph, where they lose to their own input and to sparse cosine on the interaction matrix.
+
+**2026-10-02 J12 status note.** Segment level on real data (rel-hm user-churn, kNN probe): frozen TabPFN over the customer
+aggregates 0.648 AUROC vs 0.653 for the raw aggregates and 0.673 for supervised HGB. The embedding is as good as its input,
+not better. Combined with J7c/J7d, the defensible paper claim is narrow: frozen TFM hidden states with a k-means
+in-context target are a *target-agnostic* entity representation that preserves (synthetic: recovers) the structure of the
+features it is given, at no training cost; they do not add relational signal the features lack, and they lose to the
+interaction matrix for item retrieval. A paper needs either a setting where that target-agnosticity is the point (many
+downstream tasks per entity, one embedding) or a relational FM whose hidden state actually carries neighbour information
+(OpenRFM 0.25 and Kumo Relational 0.62 did not beat TabPFN-over-aggregates 0.82 on the synthetic segments).

@@ -284,3 +284,23 @@ TabFM-Auto on 15/17 and below the paper's TabFM on 13/17. Heuristic (J2): +0.47%
 | qsar-biodeg | 1-auroc | -1.2% | +0.1% |  | -0.3% |
 
 Runs: `reports/runs/*J8_pi_qwen3coder_*`, `reports/runs/*J8_openai_glm45air_*`.
+
+## RelBench rel-hm user-churn, entity-level kNN probe (cluster job J12, 50618, 2026-10-02)
+
+20,000 customers at the last train timestamp (churn rate 0.817), 365-day history, 5 random folds over customers, kNN
+probe k = 50 (mean neighbour label), AUROC. Not the official temporal test split.
+
+| method | AUROC |
+|---|---|
+| Supervised HGB on aggregates | 0.673 |
+| kNN[agg] | 0.653 |
+| kNN[tabpfn_agg_kmeans] | 0.648 |
+| kNN[tabpfn_svd_kmeans] | 0.645 |
+| kNN[tabpfn_agg_random] | 0.643 |
+| kNN[svd_agg] | 0.638 |
+| kNN[svd] | 0.590 |
+| kNN[row] | 0.520 |
+| majority prior | 0.500 |
+
+Frozen embedding = its input; supervised TabPFN reference row failed on a dtype argument and is rerun (J12b).
+Source: `reports/runs/20261002T203451Z_J12_churn_full/`.

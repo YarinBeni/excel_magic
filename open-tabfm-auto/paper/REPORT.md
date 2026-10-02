@@ -259,6 +259,14 @@ aggregates to the factors already drops them to 0.65. At item level on a real pu
 worse than its own input, which is worse than sparse cosine on the interaction matrix (1.20). The hypothesis survives
 only at segment level (synthetic, with a well-chosen in-context target), which is how the paper plan now frames it.
 
+**Entity-level probe on real data (J12, rel-hm user-churn, 20k customers at one timestamp, 5-fold kNN probe, AUROC):**
+supervised HGB on the aggregates 0.673; kNN on the raw aggregates 0.653; kNN on the frozen TabPFN hidden state over the
+same aggregates 0.648 (k-means target) / 0.643 (random); SVD factors 0.590; row-only 0.520. The frozen embedding
+equals its input and does not add what a supervised model extracts. Together with J7c/J7d the retrieval claim reduces
+to: a frozen TFM with a k-means in-context target is a target-agnostic entity representation that preserves the structure
+of the features it is given (and recovers planted segments from them), at zero training cost; it is not a better
+representation than those features, and it is not an item-level retrieval embedding.
+
 ## 6. Ablations and analysis
 - **Harness at fixed LLM** (§5.2): pi +50% > aider +42% > Qwen Code +26% > tool loop ~0% on synth_entities with
   Qwen3-Coder-30B. The CLI agents read the task text and the data files themselves and iterate on eval output; the

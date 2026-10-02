@@ -105,3 +105,17 @@ value (0.83 -> 0.42-0.48); the k-means pseudo-target, which helped on the synthe
 random target). On rel-hm at item level the frozen-TFM-as-graph-embedding hypothesis is closed: every embedding row is
 below the model-free factors, which are themselves below plain sparse cosine on the purchase matrix.
 Run: reports/runs/20261002T173110Z_J7d_hm_svd_full (cluster branch).
+
+## 2026-10-02 J12 (cluster job 50618): segment-level probe on rel-hm user-churn — frozen embedding = raw aggregates, no gain
+20,000 customers labelled at the last train timestamp (2020-08-31, churn rate 0.817), 365-day history, 5-fold over customers,
+kNN probe (k = 50, cosine, mean neighbour label), AUROC:
+- Supervised HGB on the aggregates **0.673**; kNN[agg] 0.653; kNN[tabpfn_agg_kmeans] 0.648; kNN[tabpfn_agg_random] 0.643;
+  kNN[tabpfn_svd_kmeans] 0.645; kNN[svd_agg] 0.638; kNN[svd] 0.590; kNN[row] 0.520; prior 0.5.
+- The supervised-TabPFN reference row failed (inference_precision must be a torch dtype) -> fixed, rerun as J12b.
+Reading: on a real entity-level label the frozen TabPFN hidden state neither destroys nor adds information relative to its
+input (0.648 vs 0.653 for the same kNN on the raw aggregates), and both sit 2 AUROC points below a supervised GBDT on the
+same features. The k-means pseudo-target gives +0.6 over a random target here (synthetic: +0.3 P@10). So the segment-level
+version of H1 holds only in the weak form "a frozen TFM embedding is as good as the hand aggregates it was fed"; it is not a
+better entity representation than its input on rel-hm. (Not comparable to the official user-churn leaderboard: random
+customer folds at one timestamp, not the temporal test split.)
+Run: reports/runs/20261002T203451Z_J12_churn_full (cluster branch).

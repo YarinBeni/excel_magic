@@ -78,3 +78,5 @@
 - Goal: end with the best open-source option (backbone x harness x LLM x judge) with evidence, in README/REPORT.
 - J8 pi + Qwen3-Coder done 17/17: mean -0.9% (median 0.0%, 8/17 wins) vs heuristic +0.5% vs paper +4.6%; loses where the
   paper gains most (anneal -5.2%, Marketing -14.2%). GLM loop 6/17 so far (-2.9%). REPORT 5.3 / RESULTS updated.
+- J12 done (50618): rel-hm user-churn kNN probe AUROC: HGB 0.673, kNN[agg] 0.653, kNN[tabpfn_agg_kmeans] 0.648 -> frozen
+  embedding = its input, not better. Supervised-TabPFN row failed (dtype arg) -> fixed, inbox 028 reruns (J12b).
