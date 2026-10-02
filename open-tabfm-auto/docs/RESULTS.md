@@ -241,3 +241,18 @@ Same setup as the aider / Qwen Code rows. First attempt (50377_0) died creating 
 
 Entity task, one frozen backbone, one open LLM: pi +50.3% > aider +41.7% > Qwen Code +25.5% ~ heuristic +25-29% > our
 tool loop ~0. All CLI agents found the same role x resource frequency encodings.
+
+## Open LLM via vLLM: Qwen3-32B (cluster job J5 task 1, 50405, 2026-10-02)
+
+Same setup (frozen Kumo Tabular-S, our OpenAI tool loop, `--reasoning-parser qwen3`, 40k context).
+
+| dataset | metric | P0 | P* | gain | evals | tokens in / out | wall |
+|---|---|---|---|---|---|---|---|
+| synth_physics | rmse | 0.0862 | 0.0863 | -0.2% | 1 | 3.5k / 4.4k | 84 s (stopped after describe_data) |
+| synth_entities | 1-auroc | 0.4546 | 0.4718 | -3.8% | 16 | 830k / 88k | 1789 s |
+| breast_cancer | 1-auroc | 0.0051 | 0.0053 | -2.9% | 6 | 114k / 52k | 1034 s |
+| airfoil_self_noise (Lite) | rmse | 0.8318 | 0.8261 | +0.7% | | | |
+| blood-transfusion (Lite) | 1-auroc | 0.2656 | 0.2639 | +0.6% | | | |
+| credit-g (Lite) | 1-auroc | 0.2062 | 0.2055 | +0.3% | | | |
+
+Weakest open model in the sweep: long reasoning, many rewrites, no useful features.

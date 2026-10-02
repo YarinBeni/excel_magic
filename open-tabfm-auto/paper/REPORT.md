@@ -148,6 +148,10 @@ blood +1.4%, credit-g +1.4%. It uses the full 16-eval budget (write → eval eve
 ~5 min per search). Among open LLMs in our tool loop the order on the synthetic tasks is GLM-4.5-Air > gpt-oss-20b >
 Qwen3-Coder-30B; the small-data overfit on breast_cancer is common to all of them.
 
+**Qwen3-32B (J5 task 1, reasoning model, hermes parser):** synth_physics −0.2% (it answered in text after one
+`describe_data` call and never evaluated), synth_entities −3.8% (37 writes, 16 evals, 30 min, 830k input / 88k output
+tokens), breast_cancer −2.9%; TabArena-Lite airfoil +0.7%, blood +0.6%, credit-g +0.3%. Weakest of the sweep.
+
 ### 5.3 TabArena protocol vs the paper (T3 **[auto]**)
 Wave 1 (the 17 datasets with <= 2,500 rows, all 30 official splits each, frozen Kumo Tabular-S, **no LLM**):
 mean relative test-error gain **+0.5%** against **+4.6%** for the paper's Opus 5 agent on the same datasets; P* beats P0

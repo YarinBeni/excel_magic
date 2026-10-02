@@ -63,3 +63,5 @@
 - J6 task 0 pi (50377_0) failed in 4 min: conda create node22 raced with task 1 (same env); creation now under flock, inbox 024
   resubmits task 0. Qwen3-32B (J5 task 1) still running.
 - J6 task 0 pi + Qwen3-Coder (50515): entities +50.3% (best of all), physics -0.9%, breast_cancer -17.1%. Only Qwen3-32B left.
+- J5 task 1 Qwen3-32B (50405): physics -0.2% (1 eval), entities -3.8%, breast_cancer -2.9%, TabArena-Lite +0.7/+0.6/+0.3%. Weakest.
+  LLM sweep (J3/J5) and CLI sweep (J6) complete.

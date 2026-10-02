@@ -1,5 +1,5 @@
 # Auto-generated results tables
-_from 89 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
+_from 90 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
 
 ## T1. Frozen backbones with the identity pipeline (3-fold CV, lower is better)
 |                               |     hgb |   kumo-tabular-l |   kumo-tabular-m |   kumo-tabular-s |   tabicl |   tabpfn |   tabpfn-2.5 |
@@ -72,6 +72,9 @@ _from 89 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen
 | Fitness_Club                          |    0.1787 |    0.1774 |       0.7010 |    0.1789 |             0.1787 |               0.1118 | 20261002T155643Z_J2_heuristic_Fitness_Club                          |
 | concrete_compressive_strength         |    3.8268 |    3.8782 |      -1.3426 |    3.9666 |             3.8169 |               3.7740 | 20261002T155239Z_J2_heuristic_concrete_compressive_strength         |
 | anneal                                |    0.0118 |    0.0108 |       8.4950 |    0.0125 |             0.0103 |              17.6000 | 20261002T155211Z_J2_heuristic_anneal                                |
+| airfoil_self_noise                    |    0.8318 |    0.8261 |       0.6887 |    1.0734 |             0.9165 |              14.6171 | 20261002T182208Z_J5_Qwen3-32B_tabarena                              |
+| blood-transfusion-service-center      |    0.2656 |    0.2639 |       0.6605 |    0.2441 |             0.2431 |               0.4097 | 20261002T182208Z_J5_Qwen3-32B_tabarena                              |
+| credit-g                              |    0.2062 |    0.2055 |       0.3523 |    0.1944 |             0.1940 |               0.2058 | 20261002T182208Z_J5_Qwen3-32B_tabarena                              |
 | Marketing_Campaign                    |    0.0660 |    0.0659 |       0.1272 |    0.0732 |             0.0616 |              15.8470 | 20261002T155712Z_J2_heuristic_Marketing_Campaign                    |
 | Is-this-a-good-customer               |    0.2474 |    0.2532 |      -2.3436 |    0.2466 |             0.2432 |               1.3788 | 20261002T155709Z_J2_heuristic_Is-this-a-good-customer               |
 | Another-Dataset-on-used-Fiat-500      |  713.9073 |  719.0253 |      -0.7169 |  703.2700 |           693.4900 |               1.3906 | 20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500      |
