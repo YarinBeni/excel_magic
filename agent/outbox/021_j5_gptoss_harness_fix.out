@@ -1,0 +1,14 @@
+# 021_j5_gptoss_harness_fix  host=g0377  start=Fri Oct  2 17:43:36 UTC 2026  timeout=300s
+# HEAD=37aa9ca
+# ---------------------------------------------------------
+J5 task3: 50431
+     50192   AGENT_runner  RUNNING    2:11:04 g0377
+     50376   J5_llm_sweep  RUNNING      14:50 g0379
+     50377  J6_cli_agents  RUNNING      13:20 g0377
+     50399 J7d_relbench_h  RUNNING      13:20 g0377
+     50414   J5_llm_sweep  RUNNING      10:50 g0379
+     50428  J6_cli_agents  RUNNING       3:19 g0379
+     50431   J5_llm_sweep  PENDING       0:00 (None)
+ARRAY_JOB_           NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 17:43:36 UTC 2026
