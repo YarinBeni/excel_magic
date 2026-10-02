@@ -60,4 +60,9 @@ def run_cli_agent(prompt: str, ws: Path, log_path: Path, agent_cmd: str, model: 
         except subprocess.TimeoutExpired:
             rc = 124
             logf.write(f"\n# harness: timeout after {timeout_s}s\n")
+    if rc != 0:  # surface the failure where a batch log will show it
+        tail = log_path.read_text(errors="replace").splitlines()[-25:]
+        print(f"[cli-agent] exit {rc} after {time.time() - t0:.1f}s; last lines of {log_path.name}:", flush=True)
+        for line in tail:
+            print("  | " + line[:400], flush=True)
     return {"rc": rc, "elapsed_s": round(time.time() - t0, 1), "agent_cmd": cmd, "model": model, "harness": "cli"}
