@@ -1,0 +1,12 @@
+# 001_setup_and_smoke  host=g0377  start=Fri Oct  2 15:32:38 UTC 2026  timeout=300s
+# HEAD=c93590f
+# ---------------------------------------------------------
+J0: 50193
+J1: 50194 (after J0)
+     JOBID           NAME    STATE       TIME NODELIST(REASON)
+     50194       J1_smoke  PENDING       0:00 (Dependency)
+     50193       J0_setup  PENDING       0:00 (Priority)
+33642_[0-7   C8_ssl_probe  PENDING       0:00 (DependencyNeverSatisfied)
+     50192   AGENT_runner  RUNNING       0:06 g0377
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 15:32:38 UTC 2026
