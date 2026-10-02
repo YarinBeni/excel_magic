@@ -1,0 +1,58 @@
+{
+  "splits": {
+    "val": {
+      "split": "val",
+      "cutoff": "2020-09-07",
+      "n_queries": 3000,
+      "hist_days": 365,
+      "K": 12,
+      "rows": {
+        "GlobalPopularity": {
+          "map": 0.0036725488926057106
+        },
+        "PastVisit": {
+          "map": 0.019637471913007624
+        },
+        "kNN-CF[purchase_matrix]": {
+          "map": 0.010039683742183742,
+          "seconds": 7.1
+        },
+        "Past+kNN-CF[purchase_matrix]": {
+          "map": 0.019703326891362605
+        },
+        "ItemKNN": {
+          "map": 0.00879268539644712,
+          "seconds": 4.0
+        },
+        "Past+ItemKNN": {
+          "map": 0.019281345169380883
+        },
+        "kNN-CF[row]": {
+          "map": 0.0009934002725669395,
+          "seconds": 6.9
+        },
+        "Past+kNN-CF[row]": {
+          "map": 0.019145794624247002
+        },
+        "kNN-CF[agg]": {
+          "map": 0.00216604657687991,
+          "seconds": 6.8
+        },
+        "Past+kNN-CF[agg]": {
+          "map": 0.019307611603563986
+        },
+        "kNN-CF[tabpfn_agg_kmeans]": {
+          "map": 0.0013595340307840308,
+          "seconds": 8.3
+        },
+        "Past+kNN-CF[tabpfn_agg_kmeans]": {
+          "map": 0.01937418427471999
+        }
+      },
+      "official_evaluator": false,
+      "seconds": 34.3
+    }
+  },
+  "elapsed_s": 45.55,
+  "status": "ok"
+}
