@@ -1,0 +1,70 @@
+# job 50655 J12_relbench_churn exit=0 Fri Oct  2 20:42:05 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J12_relbench_churn_50655.out
+=== J12 relbench churn === job 50655 Fri Oct  2 20:39:24 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 7570.95it/s]
+[churn] MajorityPrior                        AUROC=0.5000
+[churn] Supervised[hgb on agg]               AUROC=0.5793
+[churn] kNN[agg]                             AUROC=0.6032
+[churn] kNN[tabpfn_agg_kmeans]               AUROC=0.6094
+2026-10-02 20:40:21,338 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203927Z_J12_churn_smoke/metrics.json
+| method | AUROC |
+|---|---|
+| MajorityPrior | 0.5000 |
+| Supervised[hgb on agg] | 0.5793 |
+| Supervised[tabpfn on agg] | ERR |
+| kNN[agg] | 0.6032 |
+| kNN[tabpfn_agg_kmeans] | 0.6094 |
+
+customers=3000 at 2020-08-31, pos_rate=0.813, hist_days=365, k=50, 3-fold over customers (not the official temporal test split)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 11565.18it/s]
+[churn] MajorityPrior                        AUROC=0.5000
+[churn] Supervised[hgb on agg]               AUROC=0.6725
+[churn] kNN[row]                             AUROC=0.5198
+[churn] kNN[agg]                             AUROC=0.6530
+[churn] kNN[svd]                             AUROC=0.5901
+[churn] kNN[svd_agg]                         AUROC=0.6375
+[churn] kNN[tabpfn_agg_kmeans]               AUROC=0.6484
+[churn] kNN[tabpfn_agg_random]               AUROC=0.6425
+[churn] kNN[tabpfn_svd_kmeans]               AUROC=0.6450
+2026-10-02 20:41:53,286 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T204023Z_J12_churn_full/metrics.json
+| method | AUROC |
+|---|---|
+| MajorityPrior | 0.5000 |
+| Supervised[hgb on agg] | 0.6725 |
+| Supervised[tabpfn on agg] | ERR |
+| kNN[row] | 0.5198 |
+| kNN[agg] | 0.6530 |
+| kNN[svd] | 0.5901 |
+| kNN[svd_agg] | 0.6375 |
+| kNN[tabpfn_agg_kmeans] | 0.6484 |
+| kNN[tabpfn_agg_random] | 0.6425 |
+| kNN[tabpfn_svd_kmeans] | 0.6450 |
+
+customers=20000 at 2020-08-31, pos_rate=0.817, hist_days=365, k=50, 5-fold over customers (not the official temporal test split)
+[collect] copied 1040 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 13abb2c] J12: relbench user-churn probe (job 50655)
+ 12 files changed, 1112 insertions(+)
+ create mode 100644 reports/runs/20261002T203813Z_J9_heuristic_kumoL_QSAR_fish_toxicity/search/QSAR_fish_toxicity/best_pipeline.py
+ create mode 100644 reports/runs/20261002T203813Z_J9_heuristic_kumoL_QSAR_fish_toxicity/search/QSAR_fish_toxicity/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T203813Z_J9_heuristic_kumoL_QSAR_fish_toxicity/search/QSAR_fish_toxicity/metrics.json
+ create mode 100644 reports/runs/20261002T203813Z_J9_heuristic_kumoL_QSAR_fish_toxicity/search/QSAR_fish_toxicity/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T203926Z_J13_rich_qwen3coder_breast_cancer/agent_result.md
+ create mode 100644 reports/runs/20261002T203926Z_J13_rich_qwen3coder_breast_cancer/best_pipeline.py
+ create mode 100644 reports/runs/20261002T203926Z_J13_rich_qwen3coder_breast_cancer/metrics.json
+ create mode 100644 reports/runs/20261002T204023Z_J12_churn_full/metrics.json
+ create mode 100644 reports/runs/20261002T204023Z_J12_churn_full/results.md
+ create mode 100644 reports/runs/20261002T204144Z_J9_heuristic_tabiclv2_maternal_health_risk/config.json
+ create mode 100644 reports/runs/20261002T204144Z_J9_heuristic_tabiclv2_maternal_health_risk/search/maternal_health_risk/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   8bbe265..13abb2c  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J12 done Fri Oct  2 20:42:05 UTC 2026 ===
