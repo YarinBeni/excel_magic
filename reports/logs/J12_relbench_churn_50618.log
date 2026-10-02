@@ -1,0 +1,65 @@
+# job 50618 J12_relbench_churn exit=0 Fri Oct  2 20:36:27 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J12_relbench_churn_50618.out
+=== J12 relbench churn === job 50618 Fri Oct  2 20:33:53 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 6836.06it/s]
+[churn] MajorityPrior                        AUROC=0.5000
+[churn] Supervised[hgb on agg]               AUROC=0.5793
+[churn] kNN[agg]                             AUROC=0.6032
+[churn] kNN[tabpfn_agg_kmeans]               AUROC=0.6094
+2026-10-02 20:34:49,054 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203357Z_J12_churn_smoke/metrics.json
+| method | AUROC |
+|---|---|
+| MajorityPrior | 0.5000 |
+| Supervised[hgb on agg] | 0.5793 |
+| Supervised[tabpfn on agg] | ERR |
+| kNN[agg] | 0.6032 |
+| kNN[tabpfn_agg_kmeans] | 0.6094 |
+
+customers=3000 at 2020-08-31, pos_rate=0.813, hist_days=365, k=50, 3-fold over customers (not the official temporal test split)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 8062.52it/s]
+[churn] MajorityPrior                        AUROC=0.5000
+[churn] Supervised[hgb on agg]               AUROC=0.6725
+[churn] kNN[row]                             AUROC=0.5198
+[churn] kNN[agg]                             AUROC=0.6530
+[churn] kNN[svd]                             AUROC=0.5901
+[churn] kNN[svd_agg]                         AUROC=0.6375
+[churn] kNN[tabpfn_agg_kmeans]               AUROC=0.6484
+[churn] kNN[tabpfn_agg_random]               AUROC=0.6425
+[churn] kNN[tabpfn_svd_kmeans]               AUROC=0.6450
+2026-10-02 20:36:13,764 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203451Z_J12_churn_full/metrics.json
+| method | AUROC |
+|---|---|
+| MajorityPrior | 0.5000 |
+| Supervised[hgb on agg] | 0.6725 |
+| Supervised[tabpfn on agg] | ERR |
+| kNN[row] | 0.5198 |
+| kNN[agg] | 0.6530 |
+| kNN[svd] | 0.5901 |
+| kNN[svd_agg] | 0.6375 |
+| kNN[tabpfn_agg_kmeans] | 0.6484 |
+| kNN[tabpfn_agg_random] | 0.6425 |
+| kNN[tabpfn_svd_kmeans] | 0.6450 |
+
+customers=20000 at 2020-08-31, pos_rate=0.817, hist_days=365, k=50, 5-fold over customers (not the official temporal test split)
+[collect] copied 919 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 7823a10] J12: relbench user-churn probe (job 50618)
+ 6 files changed, 841 insertions(+)
+ create mode 100644 reports/runs/20261002T203451Z_J12_churn_full/metrics.json
+ create mode 100644 reports/runs/20261002T203451Z_J12_churn_full/results.md
+ create mode 100644 reports/runs/20261002T203505Z_J10_pi_qwen3coder_b64_hazelnut-spread-contaminant-detection/config.json
+ create mode 100644 reports/runs/20261002T203505Z_J10_pi_qwen3coder_b64_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/agent_stream.log
+ create mode 100644 reports/runs/20261002T203505Z_J10_pi_qwen3coder_b64_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/config.json
+ create mode 100644 reports/runs/20261002T203541Z_J13_rich_qwen3coder_synth_physics/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   9eb5937..7823a10  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J12 done Fri Oct  2 20:36:27 UTC 2026 ===
