@@ -1,0 +1,233 @@
+[
+  {
+    "config": {
+      "regression": false
+    },
+    "score": 0.06654741607155464
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true
+    },
+    "score": 0.06908440178770299,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true
+    },
+    "score": 0.06644111203193404,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "drop_constant": true
+    },
+    "score": 0.06644111203193404,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true
+    },
+    "score": 0.06687942016254984,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true
+    },
+    "score": 0.0650760502191227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "crosses_top_k": 3
+    },
+    "score": 0.06540116379846883,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "crosses_top_k": 5
+    },
+    "score": 0.06642336672725846,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "svd_components": 8
+    },
+    "score": 0.06566959397078435,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "svd_components": 16
+    },
+    "score": 0.0650760502191227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "prune_to": 64
+    },
+    "score": 0.0650760502191227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "balanced_views": true
+    },
+    "score": 0.0650760502191227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "random_views": 3
+    },
+    "score": 0.0650760502191227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "prior_correction": true
+    },
+    "score": 0.0650760502191227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "temperature": 0.8
+    },
+    "score": 0.0650760502191227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "temperature": 1.25
+    },
+    "score": 0.0650760502191227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 0.0650760502191227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "sentinel_to_nan": true
+    },
+    "score": 0.06723554551867517,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "drop_constant": true
+    },
+    "score": 0.0650760502191227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "count_encode": true
+    },
+    "score": 0.06543217557524805,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "crosses_top_k": 3
+    },
+    "score": 0.06540116379846883,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "crosses_top_k": 5
+    },
+    "score": 0.06642336672725846,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "svd_components": 8
+    },
+    "score": 0.06566959397078435,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "log_skewed": true,
+      "svd_components": 16
+    },
+    "score": 0.0650760502191227,
+    "error": null
+  }
+]
