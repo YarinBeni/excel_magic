@@ -1,0 +1,34 @@
+# job 50253 J2_tabarena exit=0 Fri Oct  2 15:57:02 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_0.out
+=== J2 tabarena task 0 === job 50253 Fri Oct  2 15:52:05 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=blood-transfusion-service-center model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:52:46,943 INFO P0 cv 1-auroc = 0.2457249534513314
+2026-10-02 15:56:14,073 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155211Z_J2_heuristic_blood-transfusion-service-center/search/blood-transfusion-service-center/metrics.json
+2026-10-02 15:56:57,818 INFO blood-transfusion-service-center         P0=0.24578 P*=0.24527 | paper TabFM=0.2441 TabFM-Auto(Opus5)=0.2431 | 274s
+2026-10-02 15:56:57,871 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155211Z_J2_heuristic_blood-transfusion-service-center/metrics.json
+1 datasets: ['blood-transfusion-service-center']
+pipeline                                P*        P0
+dataset                                             
+blood-transfusion-service-center  0.245268  0.245784
+[collect] copied 101 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 45a3b58] J2: tabarena blood-transfusion-service-center heuristic (job 50253)
+ 8 files changed, 240 insertions(+)
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_blood-transfusion-service-center/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_blood-transfusion-service-center/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_blood-transfusion-service-center/metrics.json
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_blood-transfusion-service-center/results.csv
+ create mode 100644 reports/runs/20261002T155640Z_J2_heuristic_airfoil_self_noise/config.json
+ create mode 100644 reports/runs/20261002T155640Z_J2_heuristic_airfoil_self_noise/search/airfoil_self_noise/config.json
+ create mode 100644 reports/runs/20261002T155643Z_J2_heuristic_Fitness_Club/config.json
+ create mode 100644 reports/runs/20261002T155643Z_J2_heuristic_Fitness_Club/search/Fitness_Club/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   0de11fc..45a3b58  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 blood-transfusion-service-center done Fri Oct  2 15:57:02 UTC 2026 ===
