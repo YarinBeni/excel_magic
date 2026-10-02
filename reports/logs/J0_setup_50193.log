@@ -1,0 +1,81 @@
+# job 50193 J0_setup exit=0 Fri Oct  2 15:37:27 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J0_setup_50193.out
+=== J0 setup === job 50193 Fri Oct  2 15:33:02 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Created autostash: ccd554c
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+Applied autostash.
+torch 2.9.1+cu128 cuda True
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+  WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+  WARNING: Generating metadata for package sdm produced metadata for project name structured-data-models. Fix your #egg=sdm fragments.
+ERROR: Could not find a version that satisfies the requirement sdm (unavailable) (from versions: 1.0.0, 1.0.1, 1.1.1, 1.1.4, 1.2.0, 1.3.0, 1.4.0, 1.5.0, 1.6.0)
+ERROR: No matching distribution found for sdm (unavailable)
+[J0] WARN: sdm install failed (Kumo backbones unavailable)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+  WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+tabpfn:
+  https://storage.googleapis.com/tabpfn-v2-model-files/05152025/tabpfn-v2-classifier.ckpt -> /home/yarin.b/projects/excel_magic/artifacts/weights/tabpfn/tabpfn-v2-classifier.ckpt
+  https://storage.googleapis.com/tabpfn-v2-model-files/05152025/tabpfn-v2-regressor.ckpt -> /home/yarin.b/projects/excel_magic/artifacts/weights/tabpfn/tabpfn-v2-regressor.ckpt
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/tabpfn/tabpfn-v2-classifier.ckpt
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/tabpfn/tabpfn-v2-regressor.ckpt
+tabicl:
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--jingang--TabICL/snapshots/4dcd344ece2c00be9e831fdd35bed57b5ad83e19/tabicl-classifier-v2-20260212.ckpt
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--jingang--TabICL/snapshots/4dcd344ece2c00be9e831fdd35bed57b5ad83e19/tabicl-regressor-v2-20260212.ckpt
+kumo-tabular-s:
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--nvidia--Kumo-Tabular/snapshots/bd7fa122b516c7355583873ffcf38f5e79403ebd/small/classifier.pt
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--nvidia--Kumo-Tabular/snapshots/bd7fa122b516c7355583873ffcf38f5e79403ebd/small/regressor.pt
+kumo-relational:
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--nvidia--Kumo-Relational/snapshots/3d5176e4e713d734b71c2846fc9cd19e49e4c7d1/classifier.pt
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--nvidia--Kumo-Relational/snapshots/3d5176e4e713d734b71c2846fc9cd19e49e4c7d1/regressor.pt
+tabpfn-2.5:
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--Prior-Labs--tabpfn_2_5/snapshots/6c45f3a6d0d07c6c5f62572e04a0c2929de91b8b/tabpfn-v2.5-classifier-v2.5_default.ckpt
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--Prior-Labs--tabpfn_2_5/snapshots/6c45f3a6d0d07c6c5f62572e04a0c2929de91b8b/tabpfn-v2.5-regressor-v2.5_default.ckpt
+exaone:
+Fetching 23 files:   0%|          | 0/23 [00:00<?, ?it/s]Fetching 23 files:   4%|▍         | 1/23 [00:00<00:06,  3.47it/s]Fetching 23 files:   9%|▊         | 2/23 [00:00<00:06,  3.41it/s]Fetching 23 files:  35%|███▍      | 8/23 [00:02<00:05,  2.61it/s]Fetching 23 files:  43%|████▎     | 10/23 [00:03<00:03,  3.32it/s]Fetching 23 files:  48%|████▊     | 11/23 [00:03<00:03,  3.46it/s]Fetching 23 files:  52%|█████▏    | 12/23 [00:03<00:03,  3.56it/s]Fetching 23 files:  65%|██████▌   | 15/23 [00:04<00:01,  4.57it/s]Fetching 23 files:  70%|██████▉   | 16/23 [00:05<00:03,  2.20it/s]Fetching 23 files:  78%|███████▊  | 18/23 [00:05<00:01,  2.88it/s]Fetching 23 files: 100%|██████████| 23/23 [00:05<00:00,  3.89it/s]
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--LG-AI-Research--EXAONE-Tabular/snapshots/093ad1c2613e1e95d26df8610451d2e02ed53cbe
+weights dir: /home/yarin.b/projects/excel_magic/artifacts/weights   huggingface.co reachable: True   host: g0381
+| model            | kind       | state                    | TabArena Elo                       | licence                        | cpu |
+|---|---|---|---|---|---|
+| tabpfn           | tabular    | ready                    | not in pool; below RealTabPFN-2.5 (1522) | Prior Labs License (Apache-2.0 | yes (<=10k rows) |
+| tabpfn-2.5       | tabular    | ready                    | 1522 (RealTabPFN-2.5)              | TabPFN-2.5 license (non-commer | yes |
+| tabpfn-2.6       | tabular    | needs huggingface.co     | 1605                               | TabPFN-2.6 license (non-commer | yes |
+| tabpfn-3         | tabular    | needs huggingface.co     | 1660                               | non-commercial                 | slow (default limit 5000 rows) |
+| tabpfn-3.5       | tabular    | needs huggingface.co     | ~1855                              | academic + evaluation          | slow |
+| tabpfn-3.5-fast  | tabular    | needs huggingface.co     | ~1770                              | academic + evaluation          | probably |
+| tabicl           | tabular    | ready                    | 1590                               | BSD-3                          | yes (GPU recommended) |
+| tabiclv2-sdm     | tabular    | package sdm missing      | 1590                               | BSD-3                          | yes |
+| kumo-tabular-s   | tabular    | package sdm missing      | ~1790                              | OpenMDW-1.1 (commercial OK)    | expected (TabICLv2-size) |
+| kumo-tabular-m   | tabular    | package sdm missing      | ~1910                              | OpenMDW-1.1                    | slow |
+| kumo-tabular-l   | tabular    | package sdm missing      | ~1960 (#1)                         | OpenMDW-1.1                    | impractical |
+| exaone           | tabular    | ready                    | 1765                               | code BSD-3; weights non-commer | slow |
+| openrfm          | relational | package kumorfm_repro (vendored) missing | RelBench 12-task AUROC ~69 (KumoRFM-2: 79.6) | MIT                            | yes |
+| kumo-relational  | relational | package sdm missing      | KumoRFM-2 adapted                  | OpenMDW-1.1                    | expected |
+| rt-j             | relational | package rt missing       | RelBench zero-shot 93% of supervised | see repo                       | eager flex_attention |
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+15 passed, 10 warnings in 57.65s
+ln: failed to create symbolic link 'weights/openrfm': No such file or directory
+ln: failed to create symbolic link 'weights/tabpfn': No such file or directory
+..                                                                       [100%]
+2 passed in 0.71s
+[claude/tabular-model-agent-exp-wvni5o 710e9aa] J0: env + weights + tests (job 50193)
+ 4 files changed, 35 insertions(+)
+ create mode 100644 reports/J0_env.md
+ create mode 100644 reports/J0_models_status.md
+ create mode 100644 reports/J0_tests_fer.txt
+ create mode 100644 reports/J0_tests_open-tabfm-auto.txt
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   c170a3f..710e9aa  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J0 done Fri Oct  2 15:37:26 UTC 2026 ===
