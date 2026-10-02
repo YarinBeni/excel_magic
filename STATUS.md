@@ -92,3 +92,5 @@
 - 22:27 UTC: no cluster push since 21:14 and inbox 030 not picked up -> runner 50192 may be dead or the push token rotated.
   Queued anyway: inbox 031 -> J14 (Kumo Relational on rel-hm: churn probe + item-level rows) and J15 (selection rules
   p0/best/gated1/gated2/ens3 re-scored on the finished J2/J8/J10 searches). Library: --select gated1|gated2, scripts/rescore_selection.py.
+- Re-collect worked (159 files). All of J8/J9/J10/J11 done. J9: Kumo-L identity pipeline beats paper TabFM on 10/17 (+1.6%),
+  heuristic search hurts it (-1.1%); TabICLv2 -10.9% behind. GLM loop final -1.4%. J14 (50826) / J15 (50827) queued.

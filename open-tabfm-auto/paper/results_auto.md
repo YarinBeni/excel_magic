@@ -1,5 +1,5 @@
 # Auto-generated results tables
-_from 183 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
+_from 199 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
 
 ## T1. Frozen backbones with the identity pipeline (3-fold CV, lower is better)
 |                               |     hgb |   kumo-tabular-l |   kumo-tabular-m |   kumo-tabular-s |   tabicl |   tabpfn |   tabpfn-2.5 |
@@ -80,9 +80,11 @@ _from 183 runs under runs, /home/user/excel_magic/reports/runs, /home/user/froze
 | qsar-biodeg                           |    0.0583 |    0.0584 |      -0.0523 |    0.0580 |             0.0582 |              -0.3448 | 20261002T204850Z_J9_heuristic_tabiclv2_qsar-biodeg                             |
 | hazelnut-spread-contaminant-detection |    0.0048 |    0.0050 |      -4.6840 |    0.0023 |             0.0021 |               8.6957 | 20261002T204330Z_J10_heuristic_b64_hazelnut-spread-contaminant-detection       |
 | concrete_compressive_strength         |    3.8471 |    3.7847 |       1.6205 |    3.9666 |             3.8169 |               3.7740 | 20261002T201544Z_J8_openai_glm45air_concrete_compressive_strength              |
+| hazelnut-spread-contaminant-detection |    0.0049 |    0.0048 |       0.9607 |    0.0023 |             0.0021 |               8.6957 | 20261002T212629Z_J8_openai_glm45air_hazelnut-spread-contaminant-detection      |
 | diabetes                              |    0.1596 |    0.1623 |      -1.6644 |    0.1580 |             0.1471 |               6.8987 | 20261002T155211Z_J2_heuristic_diabetes                                         |
 | airfoil_self_noise                    |    0.9786 |    0.9422 |       3.7172 |    1.0734 |             0.9165 |              14.6171 | 20261002T194956Z_J8_pi_qwen3coder_airfoil_self_noise                           |
 | healthcare_insurance_expenses         | 4555.6918 | 4539.1575 |       0.3629 | 4417.6000 |          4344.1000 |               1.6638 | 20261002T202730Z_J8_openai_glm45air_healthcare_insurance_expenses              |
+| Another-Dataset-on-used-Fiat-500      |  703.8739 |  696.2335 |       1.0855 |  703.2700 |           693.4900 |               1.3906 | 20261002T213412Z_J9_heuristic_kumoL_Another-Dataset-on-used-Fiat-500           |
 | QSAR_fish_toxicity                    |    0.8549 |    0.8531 |       0.2140 |    0.8535 |             0.8483 |               0.6046 | 20261002T204302Z_J11_heuristic_cv3_QSAR_fish_toxicity                          |
 | diabetes                              |    0.1596 |    0.1597 |      -0.0493 |    0.1580 |             0.1471 |               6.8987 | 20261002T203810Z_J10_pi_qwen3coder_b64_diabetes                                |
 | diabetes                              |    0.1611 |    0.1616 |      -0.2854 |    0.1580 |             0.1471 |               6.8987 | 20261002T202622Z_J9_heuristic_tabiclv2_diabetes                                |
@@ -96,6 +98,7 @@ _from 183 runs under runs, /home/user/excel_magic/reports/runs, /home/user/froze
 | QSAR_fish_toxicity                    |    0.8547 |    0.8529 |       0.2184 |    0.8535 |             0.8483 |               0.6046 | 20261002T155220Z_J2_heuristic_QSAR_fish_toxicity                               |
 | healthcare_insurance_expenses         | 4553.6089 | 4613.8992 |      -1.3240 | 4417.6000 |          4344.1000 |               1.6638 | 20261002T155549Z_J2_heuristic_healthcare_insurance_expenses                    |
 | concrete_compressive_strength         |    3.8327 |    3.8148 |       0.4664 |    3.9666 |             3.8169 |               3.7740 | 20261002T193646Z_J8_pi_qwen3coder_concrete_compressive_strength                |
+| airfoil_self_noise                    |    0.8913 |    0.8594 |       3.5837 |    1.0734 |             0.9165 |              14.6171 | 20261002T212726Z_J9_heuristic_kumoL_airfoil_self_noise                         |
 | credit-g                              |    0.1977 |    0.1989 |      -0.5972 |    0.1944 |             0.1940 |               0.2058 | 20261002T204907Z_J11_heuristic_cv3_credit-g                                    |
 | anneal                                |    0.0179 |    0.0274 |     -52.4885 |    0.0125 |             0.0103 |              17.6000 | 20261002T202959Z_J9_heuristic_tabiclv2_anneal                                  |
 | website_phishing                      |    0.2228 |    0.2216 |       0.5513 |    0.2104 |             0.2067 |               1.7586 | 20261002T205817Z_J9_heuristic_tabiclv2_website_phishing                        |
@@ -117,7 +120,10 @@ _from 183 runs under runs, /home/user/excel_magic/reports/runs, /home/user/froze
 | diabetes                              |    0.1595 |    0.1543 |       3.2518 |    0.1580 |             0.1471 |               6.8987 | 20261002T210641Z_J10_openai_glm45air_b64_diabetes                              |
 | concrete_compressive_strength         |    3.8018 |    3.8080 |      -0.1633 |    3.9666 |             3.8169 |               3.7740 | 20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength              |
 | credit-g                              |    0.1979 |    0.1983 |      -0.1901 |    0.1944 |             0.1940 |               0.2058 | 20261002T155220Z_J2_heuristic_credit-g                                         |
+| Is-this-a-good-customer               |    0.2446 |    0.2534 |      -3.6171 |    0.2466 |             0.2432 |               1.3788 | 20261002T215057Z_J9_heuristic_kumoL_Is-this-a-good-customer                    |
+| hazelnut-spread-contaminant-detection |    0.0027 |    0.0028 |      -5.1672 |    0.0023 |             0.0021 |               8.6957 | 20261002T220722Z_J9_heuristic_kumoL_hazelnut-spread-contaminant-detection      |
 | blood-transfusion-service-center      |    0.2458 |    0.2453 |       0.2097 |    0.2441 |             0.2431 |               0.4097 | 20261002T155211Z_J2_heuristic_blood-transfusion-service-center                 |
+| hazelnut-spread-contaminant-detection |    0.0051 |    0.0051 |       0.0000 |    0.0023 |             0.0021 |               8.6957 | 20261002T213509Z_J9_heuristic_tabiclv2_hazelnut-spread-contaminant-detection   |
 | hazelnut-spread-contaminant-detection |    0.0049 |    0.0051 |      -3.9991 |    0.0023 |             0.0021 |               8.6957 | 20261002T203505Z_J10_pi_qwen3coder_b64_hazelnut-spread-contaminant-detection   |
 | website_phishing                      |    0.2141 |    0.2154 |      -0.5939 |    0.2104 |             0.2067 |               1.7586 | 20261002T203348Z_J8_openai_glm45air_website_phishing                           |
 | hazelnut-spread-contaminant-detection |    0.0048 |    0.0049 |      -1.6362 |    0.0023 |             0.0021 |               8.6957 | 20261002T205621Z_J10_openai_glm45air_b64_hazelnut-spread-contaminant-detection |
@@ -135,17 +141,20 @@ _from 183 runs under runs, /home/user/excel_magic/reports/runs, /home/user/froze
 | credit-g                              |    0.2062 |    0.2055 |       0.3523 |    0.1944 |             0.1940 |               0.2058 | 20261002T182208Z_J5_Qwen3-32B_tabarena                                         |
 | Marketing_Campaign                    |    0.0660 |    0.0659 |       0.1272 |    0.0732 |             0.0616 |              15.8470 | 20261002T155712Z_J2_heuristic_Marketing_Campaign                               |
 | airfoil_self_noise                    |    0.9749 |    0.9281 |       4.7997 |    1.0734 |             0.9165 |              14.6171 | 20261002T203824Z_J10_heuristic_b64_airfoil_self_noise                          |
+| Another-Dataset-on-used-Fiat-500      |  715.1929 |  712.7047 |       0.3479 |  703.2700 |           693.4900 |               1.3906 | 20261002T211345Z_J9_heuristic_tabiclv2_Another-Dataset-on-used-Fiat-500        |
 | airfoil_self_noise                    |    0.9775 |    0.9530 |       2.5067 |    1.0734 |             0.9165 |              14.6171 | 20261002T203207Z_J10_pi_qwen3coder_b64_airfoil_self_noise                      |
 | healthcare_insurance_expenses         | 4559.0442 | 4521.9604 |       0.8134 | 4417.6000 |          4344.1000 |               1.6638 | 20261002T194237Z_J8_pi_qwen3coder_healthcare_insurance_expenses                |
 | QSAR_fish_toxicity                    |    0.8584 |    0.8585 |      -0.0056 |    0.8535 |             0.8483 |               0.6046 | 20261002T203422Z_J9_heuristic_tabiclv2_QSAR_fish_toxicity                      |
 | Is-this-a-good-customer               |    0.2474 |    0.2532 |      -2.3436 |    0.2466 |             0.2432 |               1.3788 | 20261002T155709Z_J2_heuristic_Is-this-a-good-customer                          |
 | Another-Dataset-on-used-Fiat-500      |  713.9073 |  719.0253 |      -0.7169 |  703.2700 |           693.4900 |               1.3906 | 20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500                 |
+| website_phishing                      |    0.2096 |    0.2082 |       0.6982 |    0.2104 |             0.2067 |               1.7586 | 20261002T211431Z_J9_heuristic_kumoL_website_phishing                           |
 | Marketing_Campaign                    |    0.0661 |    0.0755 |     -14.2093 |    0.0732 |             0.0616 |              15.8470 | 20261002T200211Z_J8_pi_qwen3coder_Marketing_Campaign                           |
 | diabetes                              |    0.1596 |    0.1588 |       0.5094 |    0.1580 |             0.1471 |               6.8987 | 20261002T205108Z_J10_heuristic_b64_diabetes                                    |
 | Marketing_Campaign                    |    0.0658 |    0.0759 |     -15.2510 |    0.0732 |             0.0616 |              15.8470 | 20261002T202911Z_J10_pi_qwen3coder_b64_Marketing_Campaign                      |
 | Marketing_Campaign                    |    0.0657 |    0.0662 |      -0.7262 |    0.0732 |             0.0616 |              15.8470 | 20261002T203313Z_J10_heuristic_b64_Marketing_Campaign                          |
 | diabetes                              |    0.1595 |    0.1582 |       0.8293 |    0.1580 |             0.1471 |               6.8987 | 20261002T192134Z_J8_pi_qwen3coder_diabetes                                     |
 | QSAR_fish_toxicity                    |    0.8549 |    0.8546 |       0.0334 |    0.8535 |             0.8483 |               0.6046 | 20261002T195829Z_J8_openai_glm45air_QSAR_fish_toxicity                         |
+| MIC                                   |    0.4445 |    0.4392 |       1.1988 |    0.4282 |             0.4178 |               2.4288 | 20261002T211843Z_J9_heuristic_tabiclv2_MIC                                     |
 | MIC                                   |    0.4324 |    0.4329 |      -0.1076 |    0.4282 |             0.4178 |               2.4288 | 20261002T195641Z_J8_pi_qwen3coder_MIC                                          |
 | airfoil_self_noise                    |    0.9793 |    0.9161 |       6.4590 |    1.0734 |             0.9165 |              14.6171 | 20261002T155640Z_J2_heuristic_airfoil_self_noise                               |
 | airfoil_self_noise                    |    0.9757 |    0.9311 |       4.5719 |    1.0734 |             0.9165 |              14.6171 | 20261002T204818Z_J10_openai_glm45air_b64_airfoil_self_noise                    |
@@ -156,6 +165,7 @@ _from 183 runs under runs, /home/user/excel_magic/reports/runs, /home/user/froze
 | airfoil_self_noise                    |    0.9810 |    0.9636 |       1.7709 |    1.0734 |             0.9165 |              14.6171 | 20261002T204626Z_J8_openai_glm45air_airfoil_self_noise                         |
 | Fitness_Club                          |    0.1786 |    0.1783 |       0.1872 |    0.1789 |             0.1787 |               0.1118 | 20261002T203852Z_J8_openai_glm45air_Fitness_Club                               |
 | credit-g                              |    0.1980 |    0.2024 |      -2.2303 |    0.1944 |             0.1940 |               0.2058 | 20261002T193116Z_J8_pi_qwen3coder_credit-g                                     |
+| Fitness_Club                          |    0.1784 |    0.1780 |       0.2261 |    0.1789 |             0.1787 |               0.1118 | 20261002T212032Z_J9_heuristic_kumoL_Fitness_Club                               |
 | QSAR_fish_toxicity                    |    0.8546 |    0.8549 |      -0.0350 |    0.8535 |             0.8483 |               0.6046 | 20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity                      |
 | anneal                                |    0.0115 |    0.0120 |      -4.5678 |    0.0125 |             0.0103 |              17.6000 | 20261002T202510Z_J10_pi_qwen3coder_b64_anneal                                  |
 | blood-transfusion-service-center      |    0.2455 |    0.2469 |      -0.5656 |    0.2441 |             0.2431 |               0.4097 | 20261002T203336Z_J11_heuristic_cv3_blood-transfusion-service-center            |
@@ -163,13 +173,19 @@ _from 183 runs under runs, /home/user/excel_magic/reports/runs, /home/user/froze
 | blood-transfusion-service-center      |    0.2631 |    0.2655 |      -0.9336 |    0.2441 |             0.2431 |               0.4097 | 20261002T173650Z_J5_Qwen3-Coder-30B-A3B-Instruct_tabarena                      |
 | credit-g                              |    0.2054 |    0.2062 |      -0.3537 |    0.1944 |             0.1940 |               0.2058 | 20261002T173650Z_J5_Qwen3-Coder-30B-A3B-Instruct_tabarena                      |
 | diabetes                              |    0.1564 |    0.1592 |      -1.7509 |    0.1580 |             0.1471 |               6.8987 | 20261002T202533Z_J9_heuristic_kumoL_diabetes                                   |
+| Marketing_Campaign                    |    0.0640 |    0.0636 |       0.7107 |    0.0732 |             0.0616 |              15.8470 | 20261002T215909Z_J9_heuristic_kumoL_Marketing_Campaign                         |
+| Marketing_Campaign                    |    0.0666 |    0.0666 |       0.0434 |    0.0732 |             0.0616 |              15.8470 | 20261002T212906Z_J9_heuristic_tabiclv2_Marketing_Campaign                      |
+| Marketing_Campaign                    |    0.0658 |    0.0730 |     -10.8372 |    0.0732 |             0.0616 |              15.8470 | 20261002T211654Z_J8_openai_glm45air_Marketing_Campaign                         |
 | concrete_compressive_strength         |    3.9654 |    4.0204 |      -1.3860 |    3.9666 |             3.8169 |               3.7740 | 20261002T204512Z_J9_heuristic_tabiclv2_concrete_compressive_strength           |
 | credit-g                              |    0.1976 |    0.2008 |      -1.6505 |    0.1944 |             0.1940 |               0.2058 | 20261002T200408Z_J8_openai_glm45air_credit-g                                   |
 | airfoil_self_noise                    |    0.8173 |    0.8007 |       2.0251 |    1.0734 |             0.9165 |              14.6171 | 20261002T181125Z_J5_gpt-oss-20b_tabarena                                       |
 | blood-transfusion-service-center      |    0.2627 |    0.2657 |      -1.1352 |    0.2441 |             0.2431 |               0.4097 | 20261002T181125Z_J5_gpt-oss-20b_tabarena                                       |
 | credit-g                              |    0.2071 |    0.2076 |      -0.2476 |    0.1944 |             0.1940 |               0.2058 | 20261002T181125Z_J5_gpt-oss-20b_tabarena                                       |
+| Is-this-a-good-customer               |    0.2522 |    0.2557 |      -1.3815 |    0.2466 |             0.2432 |               1.3788 | 20261002T212439Z_J9_heuristic_tabiclv2_Is-this-a-good-customer                 |
+| Is-this-a-good-customer               |    0.2478 |    0.2499 |      -0.8477 |    0.2466 |             0.2432 |               1.3788 | 20261002T211058Z_J8_openai_glm45air_Is-this-a-good-customer                    |
 | anneal                                |    0.0118 |    0.0112 |       5.6938 |    0.0125 |             0.0103 |              17.6000 | 20261002T202358Z_J10_heuristic_b64_anneal                                      |
 | maternal_health_risk                  |    0.3843 |    0.3835 |       0.2021 |    0.3706 |             0.3648 |               1.5650 | 20261002T193345Z_J8_pi_qwen3coder_maternal_health_risk                         |
+| MIC                                   |    0.4187 |    0.4177 |       0.2422 |    0.4282 |             0.4178 |               2.4288 | 20261002T214135Z_J9_heuristic_kumoL_MIC                                        |
 | diabetes                              |    0.1595 |    0.1574 |       1.3163 |    0.1580 |             0.1471 |               6.8987 | 20261002T194551Z_J8_openai_glm45air_diabetes                                   |
 | Another-Dataset-on-used-Fiat-500      |  714.3111 |  718.8844 |      -0.6403 |  703.2700 |           693.4900 |               1.3906 | 20261002T205405Z_J8_openai_glm45air_Another-Dataset-on-used-Fiat-500           |
 | maternal_health_risk                  |    0.3845 |    0.4377 |     -13.8281 |    0.3706 |             0.3648 |               1.5650 | 20261002T200854Z_J8_openai_glm45air_maternal_health_risk                       |

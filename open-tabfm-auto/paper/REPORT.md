@@ -222,12 +222,44 @@ Reading: at this budget the open LLM agents do not beat a generic greedy search 
 only where the task text names an entity structure (§5.2). J10 (64 evals + repeated CV on the five high-gain datasets)
 and J11 (repeated-CV judge on the small tables) test whether the gap is budget and judge noise rather than the model.
 
+**Final J8 numbers (17/17 each):** pi + Qwen3-Coder-30B mean −0.9% (8/17 wins); GLM-4.5-Air tool loop mean −1.4%
+(8/17 wins; Marketing_Campaign −10.8%, maternal_health_risk −13.8%, the rest within ±3%). Heuristic +0.5%, paper +4.6%.
+
 ### 5.4 Backbone transfer (T4 **[auto]**)
 The pipeline found for TabPFN also helps HistGB on the physics table (0.328 → 0.181, −45%), the paper's Section B.3
 effect. Across the open TFMs the picture differs from the paper: pipelines found around the *weakest* backbone
 (TabPFN v2) transfer unevenly to stronger ones (physics: +15.5% on TabPFN, −11.3% on TabPFN-2.5, ≈0 on Kumo;
 entities: +26% on Kumo-S, −18% on Kumo-M). The paper transfers from the strongest model downwards; we transfer upwards,
 and features that a weak model needs are often redundant or harmful for a stronger one. Search should run per backbone.
+
+
+**Per-backbone search on TabArena (J9, heuristic, 17 datasets, all official splits):**
+
+| dataset | metric | Kumo-S P0 / P* | Kumo-L P0 / P* | TabICLv2 P0 / P* | paper TabFM / TabFM-Auto |
+|---|---|---|---|---|---|
+| Another-Dataset-on-used-Fiat-500 | rmse | 713.9 / 719 | 703.9 / 696.2 | 715.2 / 712.7 | 703.3 / 693.5 |
+| Fitness_Club | 1-auroc | 0.1787 / 0.1774 | 0.1784 / 0.178 | 0.1787 / 0.178 | 0.1789 / 0.1787 |
+| Is-this-a-good-customer | 1-auroc | 0.2474 / 0.2532 | 0.2446 / 0.2534 | 0.2522 / 0.2557 | 0.2466 / 0.2432 |
+| MIC | logloss | 0.4318 / 0.4254 | 0.4187 / 0.4177 | 0.4445 / 0.4392 | 0.4282 / 0.4178 |
+| Marketing_Campaign | 1-auroc | 0.06597 / 0.06588 | 0.06401 / 0.06356 | 0.06659 / 0.06657 | 0.0732 / 0.0616 |
+| QSAR_fish_toxicity | rmse | 0.8547 / 0.8529 | 0.8565 / 0.8529 | 0.8584 / 0.8585 | 0.8535 / 0.8483 |
+| airfoil_self_noise | rmse | 0.9793 / 0.9161 | 0.8913 / 0.8594 | 1.076 / 1.007 | 1.073 / 0.9165 |
+| anneal | logloss | 0.01183 / 0.01083 | 0.01101 / 0.01198 | 0.01795 / 0.02737 | 0.0125 / 0.0103 |
+| blood-transfusion-service-center | 1-auroc | 0.2458 / 0.2453 | 0.2475 / 0.2495 | 0.2446 / 0.2467 | 0.2441 / 0.2431 |
+| concrete_compressive_strength | rmse | 3.827 / 3.878 | 3.802 / 3.808 | 3.965 / 4.02 | 3.967 / 3.817 |
+| credit-g | 1-auroc | 0.1979 / 0.1983 | 0.1925 / 0.1957 | 0.2031 / 0.206 | 0.1944 / 0.194 |
+| diabetes | 1-auroc | 0.1596 / 0.1623 | 0.1564 / 0.1592 | 0.1611 / 0.1616 | 0.158 / 0.1471 |
+| hazelnut-spread-contaminant-detection | 1-auroc | 0.004792 / 0.004729 | 0.002673 / 0.002811 | 0.005089 / 0.005089 | 0.0023 / 0.0021 |
+| healthcare_insurance_expenses | rmse | 4554 / 4614 | 4548 / 4535 | 4451 / 4451 | 4418 / 4344 |
+| maternal_health_risk | logloss | 0.3847 / 0.3952 | 0.3763 / 0.3868 | 0.3986 / 0.3985 | 0.3706 / 0.3648 |
+| qsar-biodeg | 1-auroc | 0.0596 / 0.06031 | 0.059 / 0.05937 | 0.05833 / 0.05836 | 0.058 / 0.0582 |
+| website_phishing | logloss | 0.2144 / 0.2134 | 0.2096 / 0.2082 | 0.2228 / 0.2216 | 0.2104 / 0.2067 |
+
+Kumo Tabular-L's *identity* pipeline beats the paper's TabFM on 10/17 datasets (mean +1.6% relative) and the paper's
+TabFM-Auto on 4/17; Kumo-S is −5.8% behind TabFM, TabICLv2 −10.9%. The heuristic search then *hurts* Kumo-L on
+average (−1.1%, 8/17 wins; anneal −8.8%) and TabICLv2 (−2.9%; anneal −52%), while it helps Kumo-S (+0.5%). The
+stronger the backbone, the less there is for a generic feature search to add and the more a noisy judge costs: the
+best free pipeline on this benchmark is the strongest open backbone with no search at all. (Judge-noise fixes: §6.)
 
 ### 5.5 SQL mode
 On a synthetic shop database (customers / products / orders / order items / tickets; churn in the 90 days after a
@@ -278,7 +310,7 @@ representation than those features, and it is not an item-level retrieval embedd
   (reading eval output, editing in place, shell access), not in the information it starts with.
 - **Judge noise (J11)**: a repeated 3-fold judge (3 repeats = 9 folds) at the same budget on the five TabArena tables
   with < 1000 training rows moves the heuristic's mean gain from +1.4% to +2.1% (anneal +8.5% → +10.5%, diabetes
-  −1.7% → +1.2%) and pi + Qwen3-Coder from −1.4% to −0.5% on the four done so far; on the 569-row breast_cancer table pi's
+  −1.7% → +1.2%) and pi + Qwen3-Coder from −1.4% to −0.5% (anneal −5.2% → −0.5%); on the 569-row breast_cancer table pi's
   loss shrinks from −17.1% to −5.4% and the heuristic's stays at 0. Repeated CV is cheap (the folds are ~1 s each on an
   H200) and is now the recommended default for n < 1000 (`--cv-repeats auto`).
 - **Budget (J10, paper Fig. 4)**: raising the budget from 16–24 to 64 evaluations (and `--cv-repeats auto`) on the five

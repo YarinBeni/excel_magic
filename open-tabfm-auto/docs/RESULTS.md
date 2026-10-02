@@ -370,3 +370,36 @@ and the fraction of splits where P* beats P0):
 
 A candidate selected by 3-fold CV on one split of a 500-2500-row table is as likely to hurt as to help on another split
 of the same data: the search is selecting CV noise. Runs: `reports/runs/*J10_*`, per-split rows in each `results.csv`.
+
+## Per-backbone TabArena wave 1 (cluster job J9, 2026-10-02): heuristic search around Kumo Tabular-L and TabICLv2
+
+Same protocol as J2 (24 evals / 90 min, search on r0f0 train, P0 / P* on all 30 official splits).
+
+| dataset | metric | Kumo-S P0 / P* | Kumo-L P0 / P* | TabICLv2 P0 / P* | paper TabFM / TabFM-Auto |
+|---|---|---|---|---|---|
+| Another-Dataset-on-used-Fiat-500 | rmse | 713.9 / 719 | 703.9 / 696.2 | 715.2 / 712.7 | 703.3 / 693.5 |
+| Fitness_Club | 1-auroc | 0.1787 / 0.1774 | 0.1784 / 0.178 | 0.1787 / 0.178 | 0.1789 / 0.1787 |
+| Is-this-a-good-customer | 1-auroc | 0.2474 / 0.2532 | 0.2446 / 0.2534 | 0.2522 / 0.2557 | 0.2466 / 0.2432 |
+| MIC | logloss | 0.4318 / 0.4254 | 0.4187 / 0.4177 | 0.4445 / 0.4392 | 0.4282 / 0.4178 |
+| Marketing_Campaign | 1-auroc | 0.06597 / 0.06588 | 0.06401 / 0.06356 | 0.06659 / 0.06657 | 0.0732 / 0.0616 |
+| QSAR_fish_toxicity | rmse | 0.8547 / 0.8529 | 0.8565 / 0.8529 | 0.8584 / 0.8585 | 0.8535 / 0.8483 |
+| airfoil_self_noise | rmse | 0.9793 / 0.9161 | 0.8913 / 0.8594 | 1.076 / 1.007 | 1.073 / 0.9165 |
+| anneal | logloss | 0.01183 / 0.01083 | 0.01101 / 0.01198 | 0.01795 / 0.02737 | 0.0125 / 0.0103 |
+| blood-transfusion-service-center | 1-auroc | 0.2458 / 0.2453 | 0.2475 / 0.2495 | 0.2446 / 0.2467 | 0.2441 / 0.2431 |
+| concrete_compressive_strength | rmse | 3.827 / 3.878 | 3.802 / 3.808 | 3.965 / 4.02 | 3.967 / 3.817 |
+| credit-g | 1-auroc | 0.1979 / 0.1983 | 0.1925 / 0.1957 | 0.2031 / 0.206 | 0.1944 / 0.194 |
+| diabetes | 1-auroc | 0.1596 / 0.1623 | 0.1564 / 0.1592 | 0.1611 / 0.1616 | 0.158 / 0.1471 |
+| hazelnut-spread-contaminant-detection | 1-auroc | 0.004792 / 0.004729 | 0.002673 / 0.002811 | 0.005089 / 0.005089 | 0.0023 / 0.0021 |
+| healthcare_insurance_expenses | rmse | 4554 / 4614 | 4548 / 4535 | 4451 / 4451 | 4418 / 4344 |
+| maternal_health_risk | logloss | 0.3847 / 0.3952 | 0.3763 / 0.3868 | 0.3986 / 0.3985 | 0.3706 / 0.3648 |
+| qsar-biodeg | 1-auroc | 0.0596 / 0.06031 | 0.059 / 0.05937 | 0.05833 / 0.05836 | 0.058 / 0.0582 |
+| website_phishing | logloss | 0.2144 / 0.2134 | 0.2096 / 0.2082 | 0.2228 / 0.2216 | 0.2104 / 0.2067 |
+
+| backbone | mean gain P*/P0 | wins | P0 beats paper TabFM | P0 vs paper TabFM (mean rel.) | P* beats paper TabFM-Auto |
+|---|---|---|---|---|---|
+| Kumo Tabular-S (J2) | +0.5% | 9/17 | 5/17 | -5.8% | 2/17 |
+| Kumo Tabular-L | -1.1% | 8/17 | 10/17 | +1.6% | 4/17 |
+| TabICLv2 | -2.9% | 7/17 | 3/17 | -10.9% | 1/17 |
+
+GLM-4.5-Air tool loop, final 17/17 (J8): mean -1.4%, 8/17 wins. J11 pi cv3 final: anneal -0.5% (was -5.2% with one repeat).
+Runs: `reports/runs/*J9_heuristic_kumoL_*`, `*J9_heuristic_tabiclv2_*`.
