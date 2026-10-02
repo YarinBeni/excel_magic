@@ -271,6 +271,11 @@ representation than those features, and it is not an item-level retrieval embedd
 - **Harness at fixed LLM** (§5.2): pi +50% > aider +42% > Qwen Code +26% > tool loop ~0% on synth_entities with
   Qwen3-Coder-30B. The CLI agents read the task text and the data files themselves and iterate on eval output; the
   minimal loop exposes the same information through tools, yet the 30B model does not use it there.
+- **Affordances vs agency (J13)**: giving the minimal tool loop what the CLI agents see (file listing, pipeline.py,
+  the data summary, in the first message) does not close the gap: Qwen3-Coder-30B then scores −0.7% / −4.9% / −23.5%
+  on physics / entities / breast_cancer (plain loop: +1.3 to +2.9% / −1.1 to +1.0% / −2.9 to −56.7%; pi: −0.9% / +50.3% /
+  −17.1%). TabArena-Lite airfoil +3.3%, blood +0.4%, credit-g +1.4%. The harness effect is in how the agent iterates
+  (reading eval output, editing in place, shell access), not in the information it starts with.
 - **LLM at fixed harness** (§5.2): GLM-4.5-Air (106B-A12B) > gpt-oss-20b > Qwen3-Coder-30B-A3B > Qwen3-32B in the
   tool loop; the reasoning model spends its budget on rewrites (37 writes / 16 evals) and finds nothing.
 - **LLM vs no LLM**: the greedy heuristic matches the mid-tier CLI agents on the entity task (+25–29%) because

@@ -80,3 +80,6 @@
   paper gains most (anneal -5.2%, Marketing -14.2%). GLM loop 6/17 so far (-2.9%). REPORT 5.3 / RESULTS updated.
 - J12 done (50618): rel-hm user-churn kNN probe AUROC: HGB 0.673, kNN[agg] 0.653, kNN[tabpfn_agg_kmeans] 0.648 -> frozen
   embedding = its input, not better. Supervised-TabPFN row failed (dtype arg) -> fixed, inbox 028 reruns (J12b).
+- J13 done (50619): rich-context tool loop with Qwen3-Coder: physics -0.7%, entities -4.9%, breast_cancer -23.5%, Lite +3.3/+0.4/+1.4%.
+  Does not close the gap to pi -> harness effect is the agent loop itself. Early J9: Kumo-L (4 ds) -2.8%, TabICLv2 (6 ds) -9.2%;
+  J10 budget64 heuristic (3 ds) +3.3%, pi (5) -4.3%; J11 cv3: heuristic entities +8.3%, pi entities +28.1% / breast -5.4%.

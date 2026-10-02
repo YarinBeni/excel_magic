@@ -304,3 +304,19 @@ probe k = 50 (mean neighbour label), AUROC. Not the official temporal test split
 
 Frozen embedding = its input; supervised TabPFN reference row failed on a dtype argument and is rerun (J12b).
 Source: `reports/runs/20261002T203451Z_J12_churn_full/`.
+
+## Rich-context tool loop (cluster job J13, 50619): Qwen3-Coder-30B with the CLI agents' context in the first message
+
+`TABFM_LOOP_RICH=1`: file listing + pipeline.py + data summary prepended to the brief; otherwise identical to J3/J5.
+
+| dataset | metric | P0 | P* | gain | evals |
+|---|---|---|---|---|---|
+| synth_physics | rmse | 0.0860 | 0.0866 | -0.7% | 8 |
+| synth_entities | 1-auroc | 0.4440 | 0.4658 | -4.9% | 10 |
+| breast_cancer | 1-auroc | 0.0050 | 0.0061 | -23.5% | 12 |
+| airfoil_self_noise (Lite) | rmse | 0.8222 | 0.7953 | +3.3% | |
+| blood-transfusion (Lite) | 1-auroc | 0.2650 | 0.2639 | +0.4% | |
+| credit-g (Lite) | 1-auroc | 0.2071 | 0.2043 | +1.4% | |
+
+No improvement over the plain loop on the synthetic tasks (pi with the same LLM: +50% on entities): the harness gap is
+not the starting information.
