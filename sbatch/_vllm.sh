@@ -1,13 +1,16 @@
 # _vllm.sh — start a vLLM server for $LLM on $PORT with tool calling, trying parsers in order; sets VLLM_PID.
 #   LLM=Qwen/Qwen3-Coder-30B-A3B-Instruct PORT=8000 start_vllm "qwen3_coder hermes"
-VLLM_VENV="$HOME/venvs/vllm"
+# vLLM lives in its OWN conda env (python 3.12): a venv on top of the thesis python mixed conda's libicu with the
+# system libstdc++ (CXXABI_1.3.15 not found when vllm imported sqlite3).
+VLLM_VENV="$HOME/miniconda3/envs/vllm"
 ensure_vllm() {
     # one installer at a time (several GPU jobs start together): flock + an .ok marker written only after `vllm --version`
     ( flock -w 3600 9 || { echo "[vllm] could not get install lock"; exit 1; }
       if [ -f "$VLLM_VENV/.ok" ] && [ -x "$VLLM_VENV/bin/vllm" ]; then exit 0; fi
       echo "[vllm] installing into $VLLM_VENV (one-time, under lock)"
-      rm -rf "$VLLM_VENV"
-      python3 -m venv "$VLLM_VENV" || exit 1
+      source ~/miniconda3/etc/profile.d/conda.sh
+      conda env remove -y -n vllm >/dev/null 2>&1 || true
+      conda create -y -q -n vllm python=3.12 pip || exit 1
       "$VLLM_VENV/bin/pip" install -q --upgrade pip || exit 1
       "$VLLM_VENV/bin/pip" install -q --no-cache-dir vllm || exit 1
       "$VLLM_VENV/bin/vllm" --version || exit 1

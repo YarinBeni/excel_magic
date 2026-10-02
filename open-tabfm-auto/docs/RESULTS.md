@@ -45,3 +45,34 @@ The heuristic (generic crosses of the top-5 informative features, count encoding
 recovers most of the physics gain without knowing physics: pairwise ratios of the right columns happen to be in its
 library. Where the signal needs a formula or domain reading, the LLM's margin should grow; on an already-saturated dataset
 neither helps. Cost: 7-10 CPU minutes per dataset, no API.
+
+## TabArena protocol, wave 1 (cluster job J2, 2026-10-02): the 17 datasets with <= 2,500 rows
+
+Frozen **Kumo Tabular-S** (n_estimators=8, H200), **no LLM** (greedy heuristic, 24 evals / <= 90 min), search on fold 0's
+training split, P0 and P* scored on all 30 official splits; paper rows from Table 9 (TabFM 400M + Claude Code/Opus 5).
+
+| dataset | metric | our P0 | our P* | our gain | paper TabFM | paper TabFM-Auto | paper gain |
+|---|---|---|---|---|---|---|---|
+| anneal | logloss | 0.0118 | 0.0108 | +8.5% | 0.0125 | 0.0103 | +17.6% |
+| airfoil_self_noise | rmse | 0.9793 | 0.9161 | +6.5% | 1.0734 | 0.9165 | +14.6% |
+| hazelnut-spread-contaminant-detection | 1-auroc | 0.0048 | 0.0047 | +1.3% | 0.0023 | 0.0021 | +8.7% |
+| Fitness_Club | 1-auroc | 0.1787 | 0.1774 | +0.7% | 0.1789 | 0.1787 | +0.1% |
+| website_phishing | logloss | 0.2144 | 0.2134 | +0.4% | 0.2104 | 0.2067 | +1.8% |
+| QSAR_fish_toxicity | rmse | 0.8547 | 0.8529 | +0.2% | 0.8535 | 0.8483 | +0.6% |
+| blood-transfusion-service-center | 1-auroc | 0.2458 | 0.2453 | +0.2% | 0.2441 | 0.2431 | +0.4% |
+| Marketing_Campaign | 1-auroc | 0.0660 | 0.0659 | +0.1% | 0.0732 | 0.0616 | +15.8% |
+| credit-g | 1-auroc | 0.1979 | 0.1983 | -0.2% | 0.1944 | 0.1940 | +0.2% |
+| Another-Dataset-on-used-Fiat-500 | rmse | 713.9 | 719.0 | -0.7% | 703.3 | 693.5 | +1.4% |
+| qsar-biodeg | 1-auroc | 0.0596 | 0.0603 | -1.2% | 0.0580 | 0.0582 | -0.3% |
+| healthcare_insurance_expenses | rmse | 4553.6 | 4613.9 | -1.3% | 4417.6 | 4344.1 | +1.7% |
+| concrete_compressive_strength | rmse | 3.8268 | 3.8782 | -1.3% | 3.9666 | 3.8169 | +3.8% |
+| diabetes | 1-auroc | 0.1596 | 0.1623 | -1.7% | 0.1580 | 0.1471 | +6.9% |
+| maternal_health_risk | logloss | 0.3847 | 0.3952 | -2.7% | 0.3706 | 0.3648 | +1.6% |
+| MIC | logloss | 0.4318 | 0.4254 | +1.5% | 0.4282 | 0.4178 | +2.4% |
+| Is-this-a-good-customer | 1-auroc | 0.2474 | 0.2532 | -2.3% | 0.2466 | 0.2432 | +1.4% |
+
+Summary (17/17): mean relative gain +0.5% (paper's Opus 5 agent: +4.6% on the same 17); P* beats P0 on 9/17; the frozen
+open model's identity pipeline is within a few percent of the paper's TabFM on 16/17 (better on 5; the exception is
+hazelnut, where TabFM is 2x better). The no-LLM search captures a third to a half of the paper's gain where the signal
+is generic (anneal, airfoil) and overfits fold-0 CV on small noisy tables (diabetes, maternal_health_risk), the same
+regime where the paper reports its own small losses (credit-g). Runs: `reports/runs/*J2_heuristic_*` on the cluster branch.

@@ -102,9 +102,13 @@ The Sonnet agent rediscovered the planted physical ratio in four evaluations; th
 gain because pairwise ratios of the top features are in its library. Open LLMs (J3, J5) and CLI harnesses (J6): **TBD**.
 
 ### 5.3 TabArena protocol vs the paper (T3 **[auto]**)
-**TBD (J2: 17 datasets, heuristic, Kumo-S).** The comparison table reports, per dataset, our P0 and P* next to the
-paper's TabFM and TabFM-Auto numbers and both relative gains; the headline is whether the *gain* reproduces, since the
-absolute level is set by the backbone.
+Wave 1 (the 17 datasets with <= 2,500 rows, all 30 official splits each, frozen Kumo Tabular-S, **no LLM**):
+mean relative test-error gain **+0.5%** against **+4.6%** for the paper's Opus 5 agent on the same datasets; P* beats P0
+on 9/17. The open backbone's identity pipeline is within a few percent of the paper's unreleased TabFM on 16/17
+datasets (better on 5). The generic search recovers a third to a half of the paper's gain on datasets with generic
+structure (anneal +8.5% vs +17.6%; airfoil +6.5% vs +14.6%) and loses on small noisy tables where fold-0 CV gains do
+not transfer (diabetes -1.7%, maternal_health_risk -2.7%), the regime where the paper also reports its own losses.
+Full table: `docs/RESULTS.md`. Open-LLM and CLI-agent runs on the same protocol: **TBD (J3/J5/J6)**.
 
 ### 5.4 Backbone transfer (T4 **[auto]**)
 The pipeline found for TabPFN also helps HistGB on the physics table (0.328 → 0.181, −45%), the paper's Section B.3

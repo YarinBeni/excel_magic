@@ -22,3 +22,5 @@
 - J1 done (50213): Kumo Relational hook works (512-d; seg P@10 0.48 / 0.26 over seeds, random target); TabPFN embeddings failed on GPU
   (bf16) -> fixed (float32); heuristic+Kumo-S: synth_entities -29% (0.462->0.328). J7 smoke failed on subset evaluation -> fixed.
   inbox 011 reruns J1 and J7.
+- J2 wave 1 complete (17/17): mean gain +0.5% (paper +4.6%), wins 9/17, Kumo-S P0 within a few % of TabFM on 16/17. J0v failed on
+  libstdc++ (venv on thesis python) -> vLLM in its own conda env; inbox 012 reruns J0v and re-chains J3/J5/J6.
