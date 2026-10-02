@@ -65,3 +65,5 @@
 - J6 task 0 pi + Qwen3-Coder (50515): entities +50.3% (best of all), physics -0.9%, breast_cancer -17.1%. Only Qwen3-32B left.
 - J5 task 1 Qwen3-32B (50405): physics -0.2% (1 eval), entities -3.8%, breast_cancer -2.9%, TabArena-Lite +0.7/+0.6/+0.3%. Weakest.
   LLM sweep (J3/J5) and CLI sweep (J6) complete.
+- inbox 025 / J8: TabArena wave 1 (17 datasets, all official splits) with pi + Qwen3-Coder (task 0) and tool loop + GLM-4.5-Air-FP8
+  (task 1), 16 evals / 40 min per dataset, to compare with J2 (heuristic +0.5%) and the paper (+4.6%). Results land per dataset.
