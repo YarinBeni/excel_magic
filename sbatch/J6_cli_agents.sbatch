@@ -21,9 +21,12 @@ start_vllm "${PARSERS:-qwen3_coder hermes}" || { echo "FAILED: vllm could not st
 trap 'kill $VLLM_PID 2>/dev/null || true' EXIT
 BASE="http://localhost:$PORT/v1"
 if [ "$AGENT" = "pi" ] || [ "$AGENT" = "qwen-code" ]; then
-    if [ ! -x "$HOME/miniconda3/envs/node22/bin/node" ]; then
-        conda create -y -q -n node22 -c conda-forge "nodejs>=22" || { echo "FAILED conda node22"; exit 1; }
-    fi
+    # tasks 0 and 1 start together: create the env under a lock (the pi task lost that race on the first run)
+    ( flock -w 1800 8 || exit 1
+      if [ ! -x "$HOME/miniconda3/envs/node22/bin/node" ]; then
+          conda create -y -q -n node22 -c conda-forge "nodejs>=22" || exit 1
+      fi
+    ) 8>"$HOME/.node22_install.lock" || { echo "FAILED conda node22"; exit 1; }
     export PATH="$HOME/miniconda3/envs/node22/bin:$PATH"
     node --version
 fi

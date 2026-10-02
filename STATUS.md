@@ -60,3 +60,5 @@
 - J5 task 3 gpt-oss-20b rerun (50434, clean harness): physics +4.1%, entities -8.9%, breast_cancer -7.9%, TabArena-Lite +2.0/-1.1/-0.2%.
 - J5 task 2 GLM-4.5-Air-FP8 (50414): physics +5.1%, entities +43.6% (best of all runs), breast_cancer -38.9%, TabArena-Lite
   -0.9/+1.4/+1.4%. Best open LLM in our tool loop. Remaining: Qwen3-32B (J5 task 1), pi (J6 task 0).
+- J6 task 0 pi (50377_0) failed in 4 min: conda create node22 raced with task 1 (same env); creation now under flock, inbox 024
+  resubmits task 0. Qwen3-32B (J5 task 1) still running.
