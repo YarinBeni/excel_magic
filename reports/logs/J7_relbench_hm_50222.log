@@ -1,0 +1,44 @@
+# job 50222 J7_relbench_hm exit=1 Fri Oct  2 15:52:21 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J7_relbench_hm_50222.out
+=== J7 relbench hm === job 50222 Fri Oct  2 15:52:05 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 2507.89it/s]
+2026-10-02 15:52:18,642 ERROR run failed: The shape of pred must be (74575, 12), but (3000, 12) given.
+Traceback (most recent call last):
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/experiments/exp02_relbench_hm.py", line 33, in main
+    out[split] = run_split(task, db, split, a.embedders.split(","), a.hist_days, a.k_neighbors, a.seed, a.device,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/relbench_hm.py", line 189, in run_split
+    evaluate("GlobalPopularity", np.tile(pop_top, (len(queries), 1)))
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/relbench_hm.py", line 182, in evaluate
+    r = task.evaluate(aligned, target)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/venvs/tabfm/lib/python3.11/site-packages/relbench/base/task_recommendation.py", line 94, in evaluate
+    raise ValueError(
+ValueError: The shape of pred must be (74575, 12), but (3000, 12) given.
+2026-10-02 15:52:18,648 INFO run finished (error) -> /home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/runs/20261002T155207Z_J7_hm_smoke/metrics.json
+Traceback (most recent call last):
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/experiments/exp02_relbench_hm.py", line 53, in <module>
+    main()
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/experiments/exp02_relbench_hm.py", line 33, in main
+    out[split] = run_split(task, db, split, a.embedders.split(","), a.hist_days, a.k_neighbors, a.seed, a.device,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/relbench_hm.py", line 189, in run_split
+    evaluate("GlobalPopularity", np.tile(pop_top, (len(queries), 1)))
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/relbench_hm.py", line 182, in evaluate
+    r = task.evaluate(aligned, target)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/venvs/tabfm/lib/python3.11/site-packages/relbench/base/task_recommendation.py", line 94, in evaluate
+    raise ValueError(
+ValueError: The shape of pred must be (74575, 12), but (3000, 12) given.
+FAILED smoke
+[collect] copied 21 files into reports/runs
+[commit_push_sandbox] nothing to commit
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+Everything up-to-date
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
