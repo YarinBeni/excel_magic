@@ -1,0 +1,28 @@
+# job 50235 J2_tabarena exit=0 Fri Oct  2 15:47:42 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50215_10.out
+=== J2 tabarena task 10 === job 50235 Fri Oct  2 15:47:34 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=Fitness_Club model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+usage: 05_tabarena_protocol.py [-h] [--datasets DATASETS] [--all]
+                               [--max-instances MAX_INSTANCES]
+                               [--max-features MAX_FEATURES] [--lite]
+                               [--model MODEL] [--harness {claude-code,none}]
+                               [--llm LLM] [--budget-evals BUDGET_EVALS]
+                               [--budget-minutes BUDGET_MINUTES]
+                               [--max-rows MAX_ROWS] [--name NAME]
+05_tabarena_protocol.py: error: argument --harness: invalid choice: 'heuristic' (choose from 'claude-code', 'none')
+[J2] Fitness_Club FAILED
+[collect] copied 13 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 7d5e2d1] J2: tabarena Fitness_Club heuristic (job 50235)
+ 1 file changed, 25 insertions(+)
+ create mode 100644 reports/logs/J2_tabarena_50236.log
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   56a4d63..7d5e2d1  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 Fitness_Club done Fri Oct  2 15:47:41 UTC 2026 ===
