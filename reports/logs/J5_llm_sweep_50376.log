@@ -1,0 +1,42 @@
+# job 50376 J5_llm_sweep exit=1 Fri Oct  2 17:34:18 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J5_llm_sweep_50376_3.out
+=== J5 llm sweep task 3 === job 50376 Fri Oct  2 17:29:16 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+[vllm] serving openai/gpt-oss-20b on :8103 with --tool-call-parser openai
+[vllm] failed with parser openai:
+(APIServer pid=2990850)     await init_generate_state(
+(APIServer pid=2990850)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/generate/api_router.py", line 76, in init_generate_state
+(APIServer pid=2990850)     OpenAIServingResponses(
+(APIServer pid=2990850)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/responses/serving.py", line 257, in __init__
+(APIServer pid=2990850)     get_stop_tokens_for_assistant_actions()
+(APIServer pid=2990850)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/parser/harmony_utils.py", line 785, in get_stop_tokens_for_assistant_actions
+(APIServer pid=2990850)     return get_encoding().stop_tokens_for_assistant_actions()
+(APIServer pid=2990850)            ^^^^^^^^^^^^^^
+(APIServer pid=2990850)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/parser/harmony_utils.py", line 91, in get_encoding
+(APIServer pid=2990850)     _harmony_encoding = load_harmony_encoding(HarmonyEncodingName.HARMONY_GPT_OSS)
+(APIServer pid=2990850)                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=2990850)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/openai_harmony/__init__.py", line 699, in load_harmony_encoding
+(APIServer pid=2990850)     inner: _PyHarmonyEncoding = _load_harmony_encoding(name)
+(APIServer pid=2990850)                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=2990850) openai_harmony.HarmonyError: error downloading or loading vocab file: an underlying IO error occurred while creating file "/tmp/tiktoken-rs-cache/fb374d419588a4632f3f557e76b4b70aebbca790": Permission denied (os error 13)
+[vllm] serving openai/gpt-oss-20b on :8103 with --tool-call-parser hermes
+[vllm] failed with parser hermes:
+(APIServer pid=2996417)     await init_generate_state(
+(APIServer pid=2996417)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/generate/api_router.py", line 76, in init_generate_state
+(APIServer pid=2996417)     OpenAIServingResponses(
+(APIServer pid=2996417)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/responses/serving.py", line 257, in __init__
+(APIServer pid=2996417)     get_stop_tokens_for_assistant_actions()
+(APIServer pid=2996417)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/parser/harmony_utils.py", line 785, in get_stop_tokens_for_assistant_actions
+(APIServer pid=2996417)     return get_encoding().stop_tokens_for_assistant_actions()
+(APIServer pid=2996417)            ^^^^^^^^^^^^^^
+(APIServer pid=2996417)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/parser/harmony_utils.py", line 91, in get_encoding
+(APIServer pid=2996417)     _harmony_encoding = load_harmony_encoding(HarmonyEncodingName.HARMONY_GPT_OSS)
+(APIServer pid=2996417)                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=2996417)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/openai_harmony/__init__.py", line 699, in load_harmony_encoding
+(APIServer pid=2996417)     inner: _PyHarmonyEncoding = _load_harmony_encoding(name)
+(APIServer pid=2996417)                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=2996417) openai_harmony.HarmonyError: error downloading or loading vocab file: an underlying IO error occurred while creating file "/tmp/tiktoken-rs-cache/fb374d419588a4632f3f557e76b4b70aebbca790": Permission denied (os error 13)
+FAILED: vllm could not start for openai/gpt-oss-20b
