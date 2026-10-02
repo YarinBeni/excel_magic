@@ -1,0 +1,291 @@
+[
+  {
+    "config": {
+      "regression": false
+    },
+    "score": 0.06733134152803089
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true
+    },
+    "score": 0.06565874141493706,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "winsorize": true
+    },
+    "score": 0.06590546200119973,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true
+    },
+    "score": 0.0653076116797573,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "count_encode": true
+    },
+    "score": 0.06644921285747996,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true
+    },
+    "score": 0.06465273342570199,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "crosses_top_k": 3
+    },
+    "score": 0.0646754765885023,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "crosses_top_k": 5
+    },
+    "score": 0.06516857323544507,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 8
+    },
+    "score": 0.06446872544416278,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 16
+    },
+    "score": 0.06424233634162331,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 16,
+      "prune_to": 64
+    },
+    "score": 0.0642395801369637,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 16,
+      "prune_to": 64,
+      "balanced_views": true
+    },
+    "score": 0.06394496154602318,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 16,
+      "prune_to": 64,
+      "balanced_views": true,
+      "random_views": 3
+    },
+    "score": 0.06486947581193274,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 16,
+      "prune_to": 64,
+      "balanced_views": true,
+      "prior_correction": true
+    },
+    "score": 0.0641872032997139,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 16,
+      "prune_to": 64,
+      "balanced_views": true,
+      "temperature": 0.8
+    },
+    "score": 0.06484225381656039,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 16,
+      "prune_to": 64,
+      "balanced_views": true,
+      "temperature": 1.25
+    },
+    "score": 0.06448802335113861,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 16,
+      "prune_to": 64,
+      "balanced_views": true,
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 0.0642140807695037,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 16,
+      "prune_to": 64,
+      "balanced_views": true,
+      "winsorize": true
+    },
+    "score": 0.06530485547509761,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 16,
+      "prune_to": 64,
+      "balanced_views": true,
+      "count_encode": true
+    },
+    "score": 0.06421373624392124,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 16,
+      "prune_to": 64,
+      "balanced_views": true,
+      "crosses_top_k": 3
+    },
+    "score": 0.06543958734962911,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 16,
+      "prune_to": 64,
+      "balanced_views": true,
+      "crosses_top_k": 5
+    },
+    "score": 0.06653260147150904,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 8,
+      "prune_to": 64,
+      "balanced_views": true
+    },
+    "score": 0.06321272387563177,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 16,
+      "prune_to": 64,
+      "balanced_views": true
+    },
+    "score": 0.06508621819816345,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 8,
+      "prune_to": 64,
+      "balanced_views": true,
+      "random_views": 3
+    },
+    "score": 0.06392204612043162,
+    "error": null
+  }
+]

@@ -1,0 +1,2 @@
+dataset,P*,P0,metric,tabfm,tabfm_auto_opus5,tabfm_auto_gemini38flash,our_gain_%,paper_gain_opus5_%,ours_vs_paper_tabfm
+qsar-biodeg,0.05937468607869421,0.05900260591615709,1-auroc,0.058,0.0582,0.0413,-0.6306164901696829,-0.34482758620689447,1.0237014841154173
