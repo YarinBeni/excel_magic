@@ -1,0 +1,11 @@
+# 031_j14_j15  host=g0377  start=Fri Oct  2 23:09:44 UTC 2026  timeout=300s
+# HEAD=4676faf
+# ---------------------------------------------------------
+J14_relational_relbench: 50826
+J15_selection_rules: 50827
+       50192           AGENT_runner  RUNNING    7:37:12 g0377
+       50826 J14_relational_relbenc  PENDING       0:00 (None)
+       50827    J15_selection_rules  PENDING       0:00 (Priority)
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 23:09:44 UTC 2026
