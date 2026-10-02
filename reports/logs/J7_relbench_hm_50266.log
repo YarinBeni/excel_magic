@@ -1,0 +1,87 @@
+# job 50266 J7_relbench_hm exit=0 Fri Oct  2 16:29:36 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J7_relbench_hm_50266.out
+=== J7 relbench hm === job 50266 Fri Oct  2 16:00:36 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Created autostash: 2e3b4c9
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+Applied autostash.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 1641.43it/s]
+[val] GlobalPopularity             map=0.367
+[val] PastVisit                    map=1.964
+[val] kNN-CF[row]                  map=0.099
+[val] PastVisit+kNN-CF[row]        map=1.954
+[val] kNN-CF[agg]                  map=0.217
+[val] PastVisit+kNN-CF[agg]        map=1.954
+[val] kNN-CF[tabpfn_agg_kmeans]    map=0.136
+[val] PastVisit+kNN-CF[tabpfn_agg_kmeans] map=1.954
+2026-10-02 16:01:09,986 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T160040Z_J7_hm_smoke/metrics.json
+| method | val MAP@K x100 |
+|---|---|
+| GlobalPopularity | 0.367 |
+| PastVisit | 1.964 |
+| kNN-CF[row] | 0.099 |
+| PastVisit+kNN-CF[row] | 1.954 |
+| kNN-CF[agg] | 0.217 |
+| PastVisit+kNN-CF[agg] | 1.954 |
+| kNN-CF[tabpfn_agg_kmeans] | 0.136 |
+| PastVisit+kNN-CF[tabpfn_agg_kmeans] | 1.954 |
+
+queries: val=3000; hist_days=365; k_neighbors=50; published test rows (x100): GlobalPop 0.30, PastVisit 0.89, LightGBM 0.38, GraphSAGE 0.80, ID-GNN 2.81, KumoRFM zero-shot 2.73, ContextGNN 2.93
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 7552.01it/s]
+[val] GlobalPopularity             map=0.342
+[val] PastVisit                    map=1.904
+[val] kNN-CF[row]                  map=0.136
+[val] PastVisit+kNN-CF[row]        map=1.897
+[val] kNN-CF[agg]                  map=0.258
+[val] PastVisit+kNN-CF[agg]        map=1.897
+[val] kNN-CF[tabpfn_agg_kmeans]    map=0.248
+[val] PastVisit+kNN-CF[tabpfn_agg_kmeans] map=1.897
+[val] kNN-CF[tabpfn_agg_random]    map=0.207
+[val] PastVisit+kNN-CF[tabpfn_agg_random] map=1.897
+[val] kNN-CF[tabpfn_row_kmeans]    map=0.135
+[val] PastVisit+kNN-CF[tabpfn_row_kmeans] map=1.897
+[test] GlobalPopularity             map=0.292
+[test] PastVisit                    map=2.199
+[test] kNN-CF[row]                  map=0.144
+[test] PastVisit+kNN-CF[row]        map=2.191
+[test] kNN-CF[agg]                  map=0.259
+[test] PastVisit+kNN-CF[agg]        map=2.191
+[test] kNN-CF[tabpfn_agg_kmeans]    map=0.227
+[test] PastVisit+kNN-CF[tabpfn_agg_kmeans] map=2.191
+[test] kNN-CF[tabpfn_agg_random]    map=0.170
+[test] PastVisit+kNN-CF[tabpfn_agg_random] map=2.191
+[test] kNN-CF[tabpfn_row_kmeans]    map=0.140
+[test] PastVisit+kNN-CF[tabpfn_row_kmeans] map=2.191
+2026-10-02 16:29:30,067 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T160111Z_J7_hm_full/metrics.json
+| method | val MAP@K x100 | test MAP@K x100 |
+|---|---|---|
+| GlobalPopularity | 0.342 | 0.292 |
+| PastVisit | 1.904 | 2.199 |
+| kNN-CF[row] | 0.136 | 0.144 |
+| PastVisit+kNN-CF[row] | 1.897 | 2.191 |
+| kNN-CF[agg] | 0.258 | 0.259 |
+| PastVisit+kNN-CF[agg] | 1.897 | 2.191 |
+| kNN-CF[tabpfn_agg_kmeans] | 0.248 | 0.227 |
+| PastVisit+kNN-CF[tabpfn_agg_kmeans] | 1.897 | 2.191 |
+| kNN-CF[tabpfn_agg_random] | 0.207 | 0.170 |
+| PastVisit+kNN-CF[tabpfn_agg_random] | 1.897 | 2.191 |
+| kNN-CF[tabpfn_row_kmeans] | 0.135 | 0.140 |
+| PastVisit+kNN-CF[tabpfn_row_kmeans] | 1.897 | 2.191 |
+
+queries: val=74575, test=67144; hist_days=365; k_neighbors=50; published test rows (x100): GlobalPop 0.30, PastVisit 0.89, LightGBM 0.38, GraphSAGE 0.80, ID-GNN 2.81, KumoRFM zero-shot 2.73, ContextGNN 2.93
+[collect] copied 222 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o b335fb4] J7: relbench rel-hm results (job 50266)
+ 2 files changed, 126 insertions(+)
+ create mode 100644 reports/runs/20261002T160111Z_J7_hm_full/metrics.json
+ create mode 100644 reports/runs/20261002T160111Z_J7_hm_full/results.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   8768565..b335fb4  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J7 done Fri Oct  2 16:29:36 UTC 2026 ===
