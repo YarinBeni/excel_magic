@@ -15,9 +15,18 @@ ensure_vllm() {
       conda env remove -y -n vllm >/dev/null 2>&1 || true
       conda create -y -q -n vllm python=3.12 pip || exit 1
       "$VLLM_VENV/bin/pip" install -q --upgrade pip || exit 1
-      "$VLLM_VENV/bin/pip" install -q --no-cache-dir vllm || exit 1
       vllm_env
-      "$VLLM_VENV/bin/python" -c "import vllm; print('vllm', vllm.__version__)" || exit 1   # not `vllm --version`: the CLI parser infers the device and fails on a CPU node
+      # The cluster driver is CUDA 12.8 (torch reports "driver too old" for cu130 wheels, which vllm >= 0.18 pulls via torch 2.10+).
+      # Pin a vLLM whose torch is a CUDA 12 build (0.16.0 -> torch 2.9.1+cu128); fall back to 0.11.0 (torch 2.8.0+cu128).
+      # The check runs on the CPU install node, so it asserts the CUDA build, not a device: not `vllm --version` either (that
+      # builds the CLI parser, which infers a device).
+      ok=""
+      for pin in "${VLLM_PIN:-0.16.0}" 0.11.0; do
+        echo "[vllm] pip install vllm==$pin"
+        "$VLLM_VENV/bin/pip" install -q --no-cache-dir "vllm==$pin" || continue
+        "$VLLM_VENV/bin/python" -c "import torch, vllm; c=torch.version.cuda; assert c and c.startswith('12.'), f'torch CUDA {c} is not a 12.x build'; print('vllm', vllm.__version__, 'torch', torch.__version__, 'cuda', c)" && { ok=1; break; }
+      done
+      [ -n "$ok" ] || exit 1
       touch "$VLLM_VENV/.ok"
     ) 9>"$HOME/.vllm_install.lock" || { echo "FAILED vllm install"; return 1; }
 }
