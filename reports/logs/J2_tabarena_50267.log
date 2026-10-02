@@ -1,0 +1,46 @@
+# job 50267 J2_tabarena exit=0 Fri Oct  2 16:00:04 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_9.out
+=== J2 tabarena task 9 === job 50267 Fri Oct  2 15:56:05 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=website_phishing model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:56:36,012 INFO P0 cv logloss = 0.26704521849899837
+2026-10-02 15:59:34,402 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155610Z_J2_heuristic_website_phishing/search/website_phishing/metrics.json
+2026-10-02 15:59:58,720 INFO website_phishing                         P0=0.21438 P*=0.21344 | paper TabFM=0.2104 TabFM-Auto(Opus5)=0.2067 | 222s
+2026-10-02 15:59:58,773 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155610Z_J2_heuristic_website_phishing/metrics.json
+1 datasets: ['website_phishing']
+pipeline                P*        P0
+dataset                             
+website_phishing  0.213445  0.214382
+[collect] copied 139 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 48cdf8a] J2: tabarena website_phishing heuristic (job 50267)
+ 21 files changed, 2280 insertions(+), 2 deletions(-)
+ create mode 100644 reports/runs/20261002T155549Z_J2_heuristic_healthcare_insurance_expenses/search/healthcare_insurance_expenses/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155549Z_J2_heuristic_healthcare_insurance_expenses/search/healthcare_insurance_expenses/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155549Z_J2_heuristic_healthcare_insurance_expenses/search/healthcare_insurance_expenses/metrics.json
+ create mode 100644 reports/runs/20261002T155549Z_J2_heuristic_healthcare_insurance_expenses/search/healthcare_insurance_expenses/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T155610Z_J2_heuristic_website_phishing/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155610Z_J2_heuristic_website_phishing/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155610Z_J2_heuristic_website_phishing/metrics.json
+ create mode 100644 reports/runs/20261002T155610Z_J2_heuristic_website_phishing/results.csv
+ create mode 100644 reports/runs/20261002T155610Z_J2_heuristic_website_phishing/search/website_phishing/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155610Z_J2_heuristic_website_phishing/search/website_phishing/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155610Z_J2_heuristic_website_phishing/search/website_phishing/metrics.json
+ create mode 100644 reports/runs/20261002T155610Z_J2_heuristic_website_phishing/search/website_phishing/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/metrics.json
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T155840Z_J1_backbones/config.json
+ create mode 100644 reports/runs/20261002T155840Z_J1_backbones/metrics.json
+ create mode 100644 reports/runs/20261002T155840Z_J1_backbones/results.md
+ create mode 100644 reports/runs/20261002T155935Z_J1_heur_kumo_synth_physics/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   07e3c78..48cdf8a  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 website_phishing done Fri Oct  2 16:00:04 UTC 2026 ===
