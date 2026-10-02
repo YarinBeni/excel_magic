@@ -1,0 +1,33 @@
+# job 50238 J2_tabarena exit=0 Fri Oct  2 15:48:11 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50215_13.out
+=== J2 tabarena task 13 === job 50238 Fri Oct  2 15:48:04 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=MIC model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+usage: 05_tabarena_protocol.py [-h] [--datasets DATASETS] [--all]
+                               [--max-instances MAX_INSTANCES]
+                               [--max-features MAX_FEATURES] [--lite]
+                               [--model MODEL] [--harness {claude-code,none}]
+                               [--llm LLM] [--budget-evals BUDGET_EVALS]
+                               [--budget-minutes BUDGET_MINUTES]
+                               [--max-rows MAX_ROWS] [--name NAME]
+05_tabarena_protocol.py: error: argument --harness: invalid choice: 'heuristic' (choose from 'claude-code', 'none')
+[J2] MIC FAILED
+[collect] copied 20 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 47fcd00] J2: tabarena MIC heuristic (job 50238)
+ 6 files changed, 532 insertions(+)
+ create mode 100644 reports/runs/20261002T154501Z_J1_heur_kumo_synth_entities/best_pipeline.py
+ create mode 100644 reports/runs/20261002T154501Z_J1_heur_kumo_synth_entities/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T154501Z_J1_heur_kumo_synth_entities/metrics.json
+ create mode 100644 reports/runs/20261002T154746Z_J1_transfer/config.json
+ create mode 100644 reports/runs/20261002T154746Z_J1_transfer/metrics.json
+ create mode 100644 reports/runs/20261002T154746Z_J1_transfer/results.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   3b05658..47fcd00  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 MIC done Fri Oct  2 15:48:11 UTC 2026 ===
