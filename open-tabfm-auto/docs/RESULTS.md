@@ -172,3 +172,17 @@ Qwen Code requests max_tokens = the full context and the server was 32k; served 
 
 Entity task, all with Qwen3-Coder-30B and the same frozen backbone: aider loop +41.7% > Qwen Code +25.5% ~ no-LLM
 heuristic +25-29% > our OpenAI tool loop -1..+1%.
+
+## Open LLM via vLLM: gpt-oss-20b (cluster job J5 task 3, 50431, 2026-10-02)
+
+Same setup as the Qwen3-Coder rows (frozen Kumo Tabular-S, our OpenAI tool loop, 16 evals / 40 min).
+
+| dataset | metric | P0 | P* | gain | evals |
+|---|---|---|---|---|---|
+| synth_physics | rmse | 0.0864 | 0.0875 | -1.3% | 2 |
+| synth_entities | 1-auroc | 0.4307 | 0.4726 | -9.7% | 6 |
+| breast_cancer | 1-auroc | 0.0055 | 0.0051 | +7.9% | 6 |
+
+vLLM 0.16's harmony tool parser leaked channel markers into the tool names (`run_eval<|channel|>commentary`), which the
+harness counted as unknown tools; names are now normalised. The TabArena-Lite run failed on an empty response
+(`choices=None`), now guarded; task resubmitted.

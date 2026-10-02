@@ -54,6 +54,15 @@ def _run_eval(ws: Path, timeout_s: int) -> str:
     return (p.stdout + ("\n" + p.stderr[-1500:] if p.returncode not in (0, 1) else ""))[-6000:]
 
 
+def _clean_tool_name(name: str) -> str:
+    """gpt-oss (harmony) through vLLM's parser leaks channel markers into the tool name
+    (``run_eval<|channel|>commentary``, ``run_eval..commentary``); keep the identifier only."""
+    name = (name or "").strip()
+    for sep in ("<|", "..", "<", " ", "\n"):
+        name = name.split(sep)[0]
+    return name.strip()
+
+
 _BINARY_SUFFIXES = {".parquet", ".npy", ".npz", ".pkl", ".pickle", ".feather", ".arrow", ".zip", ".gz", ".pt", ".bin"}
 
 
@@ -131,6 +140,10 @@ def run_openai_agent(prompt: str, ws: Path, log_path: Path, model: str, base_url
                 logf.write(json.dumps({"turn": turn, "error": repr(e)}) + "\n")
                 rc = 1
                 break
+            if not getattr(resp, "choices", None):  # vLLM can answer with choices=None on a parser/length failure
+                logf.write(json.dumps({"turn": turn, "error": f"empty response: {str(resp)[:500]}"}) + "\n")
+                rc = 1
+                break
             msg = resp.choices[0].message
             u = getattr(resp, "usage", None)
             if u is not None:
@@ -145,7 +158,7 @@ def run_openai_agent(prompt: str, ws: Path, log_path: Path, model: str, base_url
                 break
             finished = False
             for tc in msg.tool_calls:
-                name = tc.function.name
+                name = _clean_tool_name(tc.function.name)
                 try:
                     args = json.loads(tc.function.arguments or "{}")
                 except json.JSONDecodeError:

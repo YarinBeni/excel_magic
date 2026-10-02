@@ -160,7 +160,10 @@ class RunLogger:
         if exc is not None:
             self.log.exception("run failed: %s", exc)
             try:
-                self.finish({"error": repr(exc)}, status="error")
+                import traceback
+
+                self.finish({"error": repr(exc), "traceback": "".join(traceback.format_exception(exc_type, exc, tb))[-4000:]},
+                            status="error")
             except Exception:
                 pass
 
