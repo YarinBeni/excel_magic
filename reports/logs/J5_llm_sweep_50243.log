@@ -1,0 +1,13 @@
+# job 50243 J5_llm_sweep exit=1 Fri Oct  2 15:50:13 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J5_llm_sweep_50217_0.out
+=== J5 llm sweep task 0 === job 50243 Fri Oct  2 15:49:05 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+   82d54fe..6512492  claude/tabular-model-agent-exp-wvni5o -> origin/claude/tabular-model-agent-exp-wvni5o
+[KSuccessfully rebased and updated refs/heads/claude/tabular-model-agent-exp-wvni5o.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+[vllm] installing into /home/yarin.b/venvs/vllm (one-time)
+ERROR: Could not install packages due to an OSError: [Errno 2] No such file or directory: '/home/yarin.b/venvs/vllm/lib/python3.11/site-packages/z3/lib/libz3.so.4.15'
+
+FAILED vllm install
+FAILED: vllm could not start for Qwen/Qwen3-Coder-30B-A3B-Instruct
