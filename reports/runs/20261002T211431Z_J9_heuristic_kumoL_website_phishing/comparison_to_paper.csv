@@ -1,0 +1,2 @@
+dataset,P*,P0,metric,tabfm,tabfm_auto_opus5,tabfm_auto_gemini38flash,our_gain_%,paper_gain_opus5_%,ours_vs_paper_tabfm
+website_phishing,0.20816574351393163,0.20962932400463533,logloss,0.2104,0.2067,0.2024,0.6981754569181025,1.7585551330798521,0.9893809102373177

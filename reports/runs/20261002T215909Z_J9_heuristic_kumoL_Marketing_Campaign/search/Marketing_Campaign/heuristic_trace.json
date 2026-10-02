@@ -1,0 +1,231 @@
+[
+  {
+    "config": {
+      "regression": false
+    },
+    "score": 0.12950575257446664
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true
+    },
+    "score": 0.12917339927911323,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "winsorize": true
+    },
+    "score": 0.1293987551046296,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true
+    },
+    "score": 0.13000183208767443,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "count_encode": true
+    },
+    "score": 0.13536287391365676,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "log_skewed": true
+    },
+    "score": 0.12991848063773662,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 3
+    },
+    "score": 0.13013161595959666,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5
+    },
+    "score": 0.1285581131780784,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5,
+      "svd_components": 8
+    },
+    "score": 0.13231114863023063,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5,
+      "svd_components": 16
+    },
+    "score": 0.13035891136687336,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5,
+      "prune_to": 64
+    },
+    "score": 0.13159447886264428,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5,
+      "balanced_views": true
+    },
+    "score": 0.13047266689947,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5,
+      "random_views": 3
+    },
+    "score": 0.12923310269991653,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5,
+      "prior_correction": true
+    },
+    "score": 0.13066365676528935,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5,
+      "temperature": 0.8
+    },
+    "score": 0.1301345551358933,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5,
+      "temperature": 1.25
+    },
+    "score": 0.13036002314371106,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5,
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 0.13012339718281107,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5,
+      "winsorize": true
+    },
+    "score": 0.13102920564080744,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5,
+      "drop_constant": true
+    },
+    "score": 0.1317139064663487,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5,
+      "count_encode": true
+    },
+    "score": 0.13639139105651887,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5,
+      "log_skewed": true
+    },
+    "score": 0.1311872872471026,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 3
+    },
+    "score": 0.1295669465129521,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5,
+      "svd_components": 8
+    },
+    "score": 0.13210744030528587,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5,
+      "svd_components": 16
+    },
+    "score": 0.13165206421462275,
+    "error": null
+  }
+]

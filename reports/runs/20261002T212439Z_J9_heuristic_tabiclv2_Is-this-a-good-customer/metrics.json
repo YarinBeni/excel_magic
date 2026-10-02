@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "Is-this-a-good-customer",
+      "P*": 0.2557339222663388,
+      "P0": 0.25224902798576665,
+      "metric": "1-auroc",
+      "tabfm": 0.2466,
+      "tabfm_auto_opus5": 0.2432,
+      "tabfm_auto_gemini38flash": 0.2499,
+      "our_gain_%": -1.381529319815169,
+      "paper_gain_opus5_%": 1.3787510137875159,
+      "ours_vs_paper_tabfm": 1.0370394252487378
+    }
+  ],
+  "elapsed_s": 197.54,
+  "status": "ok"
+}

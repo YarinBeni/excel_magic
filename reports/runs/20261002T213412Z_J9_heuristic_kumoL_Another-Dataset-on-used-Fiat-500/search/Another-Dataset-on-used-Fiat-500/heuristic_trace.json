@@ -1,0 +1,242 @@
+[
+  {
+    "config": {
+      "regression": true
+    },
+    "score": 733.4732925545486
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true
+    },
+    "score": 732.3454458882316,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "winsorize": true
+    },
+    "score": 734.4677172405709,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "drop_constant": true
+    },
+    "score": 733.5573140535374,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "count_encode": true
+    },
+    "score": 733.4442120790127,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "log_skewed": true
+    },
+    "score": 734.2505895121285,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 3
+    },
+    "score": 737.1410996042363,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5
+    },
+    "score": 739.8970849900079,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "svd_components": 8
+    },
+    "score": 734.7550926155396,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "svd_components": 16
+    },
+    "score": 734.1173098323637,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "prune_to": 64
+    },
+    "score": 734.9375943651461,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "random_views": 3
+    },
+    "score": 734.3790195293219,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "target_transform": "log1p"
+    },
+    "score": 731.5897085468856,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "target_transform": "log1p",
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 733.3203861487692,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "target_transform": "log1p",
+      "winsorize": true
+    },
+    "score": 732.2178699280731,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "target_transform": "log1p",
+      "drop_constant": true
+    },
+    "score": 735.8098399530551,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "target_transform": "log1p",
+      "count_encode": true
+    },
+    "score": 729.5661689972754,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "target_transform": "log1p",
+      "count_encode": true,
+      "log_skewed": true
+    },
+    "score": 729.2006404767611,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "target_transform": "log1p",
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3
+    },
+    "score": 729.2595601759472,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "target_transform": "log1p",
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 5
+    },
+    "score": 737.5433257110448,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "target_transform": "log1p",
+      "count_encode": true,
+      "log_skewed": true,
+      "svd_components": 8
+    },
+    "score": 733.2030528563778,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "target_transform": "log1p",
+      "count_encode": true,
+      "log_skewed": true,
+      "svd_components": 16
+    },
+    "score": 729.1215169790402,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "target_transform": "log1p",
+      "count_encode": true,
+      "log_skewed": true,
+      "svd_components": 16,
+      "prune_to": 64
+    },
+    "score": 732.9910444865673,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "target_transform": "log1p",
+      "count_encode": true,
+      "log_skewed": true,
+      "svd_components": 16,
+      "random_views": 3
+    },
+    "score": 728.3669042030241,
+    "error": null
+  }
+]

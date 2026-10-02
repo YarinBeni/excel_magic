@@ -1,0 +1,257 @@
+[
+  {
+    "config": {
+      "regression": true
+    },
+    "score": 743.4567542515973
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true
+    },
+    "score": 743.4567542515973,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true
+    },
+    "score": 743.4547961749967,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "drop_constant": true
+    },
+    "score": 743.4547961749967,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true
+    },
+    "score": 738.0833084652613,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true
+    },
+    "score": 738.0074672891242,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3
+    },
+    "score": 737.8223691636455,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 5
+    },
+    "score": 742.9965977564267,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3,
+      "svd_components": 8
+    },
+    "score": 737.8223975877307,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3,
+      "svd_components": 16
+    },
+    "score": 737.8223691636455,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3,
+      "prune_to": 64
+    },
+    "score": 737.8223975877307,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3,
+      "random_views": 3
+    },
+    "score": 737.8223975877307,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3,
+      "target_transform": "log1p"
+    },
+    "score": 738.050721319165,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3,
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 737.8223975877307,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3,
+      "sentinel_to_nan": true
+    },
+    "score": 737.8223691636455,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3,
+      "drop_constant": true
+    },
+    "score": 737.8223975877307,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 5
+    },
+    "score": 742.9965860750468,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3,
+      "svd_components": 8
+    },
+    "score": 737.8223691636455,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3,
+      "svd_components": 16
+    },
+    "score": 737.8223975877307,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3,
+      "prune_to": 64
+    },
+    "score": 737.8223691636455,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3,
+      "random_views": 3
+    },
+    "score": 737.8223975877307,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3,
+      "target_transform": "log1p"
+    },
+    "score": 738.0505376731106,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3,
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 737.8223691636455,
+    "error": null
+  }
+]

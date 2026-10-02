@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "MIC",
+      "P*": 0.41768285138102634,
+      "P0": 0.41869682002027486,
+      "metric": "logloss",
+      "tabfm": 0.4282,
+      "tabfm_auto_opus5": 0.4178,
+      "tabfm_auto_gemini38flash": 0.4199,
+      "our_gain_%": 0.2421725197720439,
+      "paper_gain_opus5_%": 2.428771602055119,
+      "ours_vs_paper_tabfm": 0.9754387000958111
+    }
+  ],
+  "elapsed_s": 486.19,
+  "status": "ok"
+}

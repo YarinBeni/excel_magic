@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "website_phishing",
+      "P*": 0.20816574351393163,
+      "P0": 0.20962932400463533,
+      "metric": "logloss",
+      "tabfm": 0.2104,
+      "tabfm_auto_opus5": 0.2067,
+      "tabfm_auto_gemini38flash": 0.2024,
+      "our_gain_%": 0.6981754569181025,
+      "paper_gain_opus5_%": 1.7585551330798521,
+      "ours_vs_paper_tabfm": 0.9893809102373177
+    }
+  ],
+  "elapsed_s": 298.97,
+  "status": "ok"
+}
