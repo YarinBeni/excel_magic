@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "healthcare_insurance_expenses",
+      "P*": 4539.157469810238,
+      "P0": 4555.691827289038,
+      "metric": "rmse",
+      "tabfm": 4417.6,
+      "tabfm_auto_opus5": 4344.1,
+      "tabfm_auto_gemini38flash": 4392.3,
+      "our_gain_%": 0.36293845382073237,
+      "paper_gain_opus5_%": 1.6637993480622961,
+      "ours_vs_paper_tabfm": 1.0275166311595068
+    }
+  ],
+  "elapsed_s": 362.67,
+  "status": "ok"
+}
