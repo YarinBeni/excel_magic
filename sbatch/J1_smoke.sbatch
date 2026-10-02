@@ -15,15 +15,16 @@ set -uo pipefail
 echo "=== J1 smoke === job ${SLURM_JOB_ID} $(date)"
 cd ~/projects/excel_magic && source sbatch/_common.sh && job_prologue
 cd open-tabfm-auto
+tabfm-models download kumo-tabular-m kumo-tabular-l 2>&1 | tail -3 || true
 tabfm-models status > ../reports/J1_models_status.md
 python examples/01_tfm_vs_baselines.py --name J1_backbones \
-    --models "tabpfn:n_estimators=4,device=cuda,tabicl:device=cuda,kumo-tabular-s:n_estimators=4,device=cuda,tabpfn-2.5:n_estimators=4,device=cuda,hgb" \
+    --models "tabpfn:n_estimators=4,device=cuda,tabpfn-2.5:n_estimators=4,device=cuda,tabicl:device=cuda,kumo-tabular-s:n_estimators=4,device=cuda,kumo-tabular-m:n_estimators=4,device=cuda,kumo-tabular-l:n_estimators=4,device=cuda,exaone:device=cuda,hgb" \
     --datasets wine,breast_cancer,diabetes,synth_physics,synth_entities || echo "[J1] a) FAILED"
 for ds in synth_physics synth_entities; do
     tabfm-auto search --dataset $ds --harness heuristic --model "kumo-tabular-s:n_estimators=4,device=cuda" \
         --budget-evals 20 --budget-minutes 30 --baselines hgb --run-name "J1_heur_kumo_$ds" || echo "[J1] b) $ds FAILED"
 done
-python examples/04_backbone_transfer.py --models "tabpfn,tabicl,kumo-tabular-s,tabpfn-2.5,hgb" --name J1_transfer || echo "[J1] c) FAILED"
+python examples/04_backbone_transfer.py --models "tabpfn,tabpfn-2.5,tabicl,kumo-tabular-s,kumo-tabular-m,kumo-tabular-l,exaone,hgb" --name J1_transfer || echo "[J1] c) FAILED"
 cd ../frozen-embeddings-retrieval
 for s in 0 1 2; do
     python experiments/exp01_retrieval_benchmark.py --seed $s --name "J1_retrieval_seed$s" \

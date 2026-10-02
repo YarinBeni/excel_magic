@@ -41,7 +41,7 @@ python -m pip install -q --no-deps -e frozen-embeddings-retrieval || { echo "FAI
 export TABFM_WEIGHTS_DIR="$PWD/artifacts/weights"
 export HF_HUB_DOWNLOAD_TIMEOUT=60
 cd open-tabfm-auto
-tabfm-models download tabpfn tabicl kumo-tabular-s kumo-relational tabpfn-2.5 exaone 2>&1 | tail -20
+tabfm-models download tabpfn tabicl kumo-tabular-s kumo-tabular-m kumo-tabular-l kumo-relational tabpfn-2.5 exaone 2>&1 | tail -20
 mkdir -p "$TABFM_WEIGHTS_DIR/openrfm"
 [ -s "$TABFM_WEIGHTS_DIR/openrfm/openrfm-pretrain-ctx96.pt" ] || curl -sS -L --fail -o "$TABFM_WEIGHTS_DIR/openrfm/openrfm-pretrain-ctx96.pt" \
     https://github.com/T-Lab/OpenRFM/releases/download/v0.1.0/openrfm-pretrain-ctx96.pt || echo "[J0] WARN: OpenRFM download failed"
