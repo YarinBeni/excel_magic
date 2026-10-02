@@ -21,6 +21,16 @@ Qwen Code, aider)? (4) can the same loop start from a relational database instea
 per-dataset numbers for direct comparison, and pluggable backbones, LLMs and harnesses. As a side result we study
 whether the hidden states of frozen TFMs and relational FMs are useful graph-aware entity embeddings for retrieval.
 
+**Findings so far (2026-10-02, cluster).** With a frozen open backbone (Kumo Tabular-S) the identity pipeline is already
+within a few percent of the paper's TabFM on 16/17 small TabArena datasets. The no-LLM greedy search recovers a mean
++0.5% on those 17 (paper: +4.6% with Opus 5). Open LLMs served locally differ far more by *harness* than by model: on
+the entity-aggregation task the same Qwen3-Coder-30B gives +50% through pi, +42% through aider, +26% through Qwen Code
+and ~0% through a minimal tool loop; GLM-4.5-Air-FP8 reaches +44% even in the minimal loop. Every open setup overfits
+3-fold CV on the smallest table. On retrieval, frozen TFM hidden states are usable segment-level entity embeddings on a
+synthetic DB (0.82 P@10 vs GNN 0.88) when the in-context target is chosen well, but on RelBench rel-hm at item level
+they lose to their own input (0.42 vs 0.83 MAP@12×100 for the raw interaction factors) and to sparse cosine on the
+purchase matrix (1.20).
+
 ## 1. Introduction
 
 The paper's claim is a mechanism: keep the predictor frozen, let the LLM turn metadata (column names, task text) into
@@ -134,6 +144,25 @@ all with Qwen3-Coder-30B: aider loop +41.7% > Qwen Code +25.5% ≈ no-LLM heuris
 +41.7% > Qwen Code +25.5% ≈ heuristic +25–29% > our tool loop ±1%; all three CLI agents converge on the same
 role×resource frequency encodings, and all lose on breast_cancer.
 
+**Summary of the LLM/harness study (synthetic tasks, frozen Kumo Tabular-S, held-out test, relative error reduction):**
+
+| setup | physics | entities | breast_cancer | wall / search |
+|---|---|---|---|---|
+| no LLM, greedy heuristic (J1) | +0.6 / 0.0% | +29.0 / +24.6% | 0% | ~10 min |
+| tool loop + Qwen3-Coder-30B (J3, J5) | +1.3 / +2.9% | −1.1 / +1.0% | −2.9 / −56.7% | 1.5 min |
+| tool loop + Qwen3-32B | −0.2% | −3.8% | −2.9% | 17–30 min |
+| tool loop + gpt-oss-20b | +4.1% | −8.9% | −7.9% | ~5 min |
+| tool loop + GLM-4.5-Air-FP8 | **+5.1%** | +43.6% | −38.9% | 5 min |
+| Qwen Code + Qwen3-Coder-30B | +1.0% | +25.5% | −16.1% | 2.3 min |
+| aider loop + Qwen3-Coder-30B | −2.2% | +41.7% | −40.0% | 2.5–4 min |
+| pi + Qwen3-Coder-30B | −0.9% | **+50.3%** | −17.1% | 1.5–2.5 min |
+| Claude Code + Sonnet (local, TabPFN v2) | +25.1% | TBD | TBD | $0.15 |
+
+Two regularities. The *harness* decides whether the entity encodings are found: three different CLI agents converge on
+the same role×resource frequency features with the same 30B model that finds nothing in a minimal tool loop; the
+larger GLM finds them in the minimal loop. And every open setup loses on the 569-row breast_cancer table, where the
+3-fold CV signal is too noisy for a 16-eval search; the paper's own small losses (credit-g) are the same regime.
+
 **gpt-oss-20b (J5 task 3, our tool loop):** synth_physics −1.3% (2 evals), synth_entities −9.7%, breast_cancer +7.9%;
 vLLM's harmony parser leaked channel markers into tool names (`run_eval<|channel|>commentary`), wasting calls; the
 harness now normalises names. Its TabArena-Lite run died on an empty vLLM response (now guarded); rerun queued.
@@ -198,14 +227,28 @@ aggregates to the factors already drops them to 0.65. At item level on a real pu
 worse than its own input, which is worse than sparse cosine on the interaction matrix (1.20). The hypothesis survives
 only at segment level (synthetic, with a well-chosen in-context target), which is how the paper plan now frames it.
 
-## 6. Ablations and analysis (planned)
-LLM vs no-LLM gap per dataset category (domain-readable vs anonymised schemas, paper Table 6); budget curves
-(paper Fig. 4); harness effect at fixed LLM; backbone strength vs relative gain; cost per dataset.
+## 6. Ablations and analysis
+- **Harness at fixed LLM** (§5.2): pi +50% > aider +42% > Qwen Code +26% > tool loop ~0% on synth_entities with
+  Qwen3-Coder-30B. The CLI agents read the task text and the data files themselves and iterate on eval output; the
+  minimal loop exposes the same information through tools, yet the 30B model does not use it there.
+- **LLM at fixed harness** (§5.2): GLM-4.5-Air (106B-A12B) > gpt-oss-20b > Qwen3-Coder-30B-A3B > Qwen3-32B in the
+  tool loop; the reasoning model spends its budget on rewrites (37 writes / 16 evals) and finds nothing.
+- **LLM vs no LLM**: the greedy heuristic matches the mid-tier CLI agents on the entity task (+25–29%) because
+  group-by frequency encodings are in its operation library; it cannot discover the physics ratio that domain text
+  suggests, which Sonnet found in four evals. Open LLMs found neither on physics (≤ +5%).
+- **Backbone strength vs gain** (§5.4): pipelines found for TabPFN v2 transfer upward unevenly (Kumo-M −18% on
+  entities, Kumo-L +5%), supporting the paper's conclusion that search should be run per backbone.
+- **Small-data overfitting**: on breast_cancer every LLM setup's CV-best candidate is worse on test (−3% to −57%);
+  a budget or a repeated-CV judge for n < 1000 is the obvious fix and is not implemented.
+- **Cost**: one H200 serves a 30B-A3B coder at ~1.5 min per 16-eval search and GLM-4.5-Air-FP8 at ~5 min; the
+  17-dataset TabArena wave costs ~1–2 GPU-hours per setup versus the paper's $17.6K sweep (J8, running).
 
 ## 7. Limitations
-Budgets are 4–6× smaller than the paper's; isolation is best-effort; TabPFN v2 is far below the paper's backbone;
-open-LLM tool calling quality varies by model and vLLM parser; the synthetic tables are easy to over-interpret and are
-there for diagnosis, not as benchmarks.
+Budgets are 4–6× smaller than the paper's (16–24 evals vs ~100); isolation is best-effort; the frozen backbone (Kumo
+Tabular-S, ~1850 Elo) is below the paper's TabFM on most datasets; open-LLM tool calling depends on the vLLM parser
+(harmony leaked channel markers into tool names, Qwen Code needs a 128k server context); the synthetic tables are
+diagnostic, not benchmarks; the retrieval study covers one real benchmark (rel-hm) and one TFM (TabPFN v2) at item
+level, so the negative result is about that setting, not about all relational FMs.
 
 ## Reproducibility
 `open-tabfm-auto` (MIT): `tabfm-auto search|db|models`, `examples/05_tabarena_protocol.py`, `scripts/slurm_tabarena.sh`;
