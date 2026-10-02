@@ -133,6 +133,10 @@ all with Qwen3-Coder-30B: aider loop +41.7% > Qwen Code +25.5% ≈ no-LLM heuris
 vLLM's harmony parser leaked channel markers into tool names (`run_eval<|channel|>commentary`), wasting calls; the
 harness now normalises names. Its TabArena-Lite run died on an empty vLLM response (now guarded); rerun queued.
 
+**gpt-oss-20b rerun with the fixed harness (job 50434):** synth_physics **+4.1%** (0.0869 → 0.0834), synth_entities −8.9%,
+breast_cancer −7.9%; TabArena-Lite airfoil +2.0%, blood −1.1%, credit-g −0.2%. It writes far more candidates than it
+evaluates (33 writes / 8 evals on entities) and still misses the aggregation features.
+
 ### 5.3 TabArena protocol vs the paper (T3 **[auto]**)
 Wave 1 (the 17 datasets with <= 2,500 rows, all 30 official splits each, frozen Kumo Tabular-S, **no LLM**):
 mean relative test-error gain **+0.5%** against **+4.6%** for the paper's Opus 5 agent on the same datasets; P* beats P0
@@ -172,6 +176,12 @@ PastVisit+kNN-CF[purchase matrix] 2.22 is the only hybrid above PastVisit. So th
 features, with or without the frozen TFM on top, do not carry item-level co-purchase structure. J7d feeds the interaction
 signal itself (SVD factors of the purchase matrix, plus aggregates) through the frozen TabPFN and compares it with the raw
 factors; that is the last version of the hypothesis still open at item level.
+
+**J7d closes it** (job 50399): with 64 SVD factors of the purchase matrix as input, plain kNN scores 0.83 test; the frozen
+TabPFN hidden state over the same input scores 0.42 (k-means target) / 0.48 (random target), and adding the customer
+aggregates to the factors already drops them to 0.65. At item level on a real purchase graph the frozen TFM embedding is
+worse than its own input, which is worse than sparse cosine on the interaction matrix (1.20). The hypothesis survives
+only at segment level (synthetic, with a well-chosen in-context target), which is how the paper plan now frames it.
 
 ## 6. Ablations and analysis (planned)
 LLM vs no-LLM gap per dataset category (domain-readable vs anonymised schemas, paper Table 6); budget curves

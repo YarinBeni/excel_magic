@@ -59,3 +59,9 @@ test MAP@12 x100 (4x popularity, above published LightGBM/GraphSAGE), and Past+k
 hybrid above PastVisit. The frozen-embedding rows (0.14-0.26) therefore fail because customer-level features do not
 carry item-level co-purchase structure, not because of the retrieval step. J7d tests the remaining version of H1: the
 frozen TFM over SVD factors of the interaction matrix vs the raw factors.
+
+**2026-10-02 J7d status note.** H1 is closed at item level on rel-hm: with the interaction factors as input (SVD(64) of the
+purchase matrix, test MAP@12 x100 0.83 by plain kNN), the frozen TabPFN hidden state scores 0.42 (k-means target) / 0.48
+(random). The paper's honest framing is therefore: frozen TFM hidden states are usable *segment-level* entity embeddings
+when the in-context target is chosen well (synthetic 0.82 vs GNN 0.88), and they are not item-level retrieval embeddings
+on a real purchase graph, where they lose to their own input and to sparse cosine on the interaction matrix.

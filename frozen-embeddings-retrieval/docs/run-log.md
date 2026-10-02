@@ -93,3 +93,15 @@ as the TFM input, k-means / random target — and compare kNN-CF[svd], [svd_agg]
 against kNN-CF[purchase_matrix]. If the TFM row is below the raw SVD row, the "frozen TFM as graph-aware embedding" story
 is dead at item level on rel-hm; if above, the TFM adds something over the factors.
 Run: reports/runs/20261002T163801Z_J7_hm_full (cluster branch).
+
+## 2026-10-02 J7d (cluster job 50399): the interaction signal through the frozen TFM — the hidden state is worse than its input
+Official evaluator, MAP@12 x100, val / test, same queries, k = 50, TabPFN v2 get_embeddings (float32), k-means / random target.
+- kNN-CF[svd] (64 SVD factors of the log1p purchase matrix, no model): 0.82 / **0.83** (vs raw sparse cosine 1.16 / 1.20).
+- kNN-CF[svd_agg] (factors + customer aggregates): 0.66 / 0.65 — the aggregates dilute the interaction signal.
+- kNN-CF[tabpfn_svd_kmeans] (frozen TabPFN over svd_agg, k-means target): 0.40 / **0.42**; random target 0.51 / 0.48.
+- All Past+ hybrids 2.18-2.20, none above PastVisit (2.20) or Past+kNN-CF[purchase_matrix] (2.22).
+Reading: given the interaction factors as input, the frozen TFM's hidden state keeps roughly half of their retrieval
+value (0.83 -> 0.42-0.48); the k-means pseudo-target, which helped on the synthetic segments, does not help here (below the
+random target). On rel-hm at item level the frozen-TFM-as-graph-embedding hypothesis is closed: every embedding row is
+below the model-free factors, which are themselves below plain sparse cosine on the purchase matrix.
+Run: reports/runs/20261002T173110Z_J7d_hm_svd_full (cluster branch).

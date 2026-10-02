@@ -186,3 +186,29 @@ Same setup as the Qwen3-Coder rows (frozen Kumo Tabular-S, our OpenAI tool loop,
 vLLM 0.16's harmony tool parser leaked channel markers into the tool names (`run_eval<|channel|>commentary`), which the
 harness counted as unknown tools; names are now normalised. The TabArena-Lite run failed on an empty response
 (`choices=None`), now guarded; task resubmitted.
+
+## RelBench rel-hm, interaction factors through the frozen TFM (cluster job J7d, 50399, official evaluator, MAP@12 x100)
+
+| method | val | test |
+|---|---|---|
+| kNN-CF[purchase_matrix] (sparse cosine, no model) | 1.162 | 1.200 |
+| kNN-CF[svd] (64 SVD factors of log1p counts) | 0.822 | 0.833 |
+| kNN-CF[svd_agg] (factors + customer aggregates) | 0.661 | 0.654 |
+| kNN-CF[tabpfn_svd_kmeans] (frozen TabPFN over svd_agg, k-means target) | 0.401 | 0.419 |
+| kNN-CF[tabpfn_svd_random] | 0.514 | 0.475 |
+| kNN-CF[agg] / [tabpfn_agg_kmeans] | 0.258 / 0.248 | 0.259 / 0.227 |
+| best hybrid: Past+kNN-CF[purchase_matrix] | 1.919 | 2.216 |
+
+The frozen TFM hidden state keeps about half the retrieval value of its input; the k-means pseudo-target does not help
+here. Negative at item level, closed. Source: `reports/runs/20261002T173110Z_J7d_hm_svd_full/`.
+
+## gpt-oss-20b rerun with the fixed harness (J5 task 3, 50434)
+
+| dataset | metric | P0 | P* | gain | evals |
+|---|---|---|---|---|---|
+| synth_physics | rmse | 0.0869 | 0.0834 | +4.1% | 6 |
+| synth_entities | 1-auroc | 0.3803 | 0.4144 | -8.9% | 9 (33 writes) |
+| breast_cancer | 1-auroc | 0.0055 | 0.0060 | -7.9% | 10 |
+| airfoil_self_noise (Lite) | rmse | 0.8173 | 0.8007 | +2.0% | |
+| blood-transfusion (Lite) | 1-auroc | 0.2627 | 0.2657 | -1.1% | |
+| credit-g (Lite) | 1-auroc | 0.2071 | 0.2076 | -0.2% | |

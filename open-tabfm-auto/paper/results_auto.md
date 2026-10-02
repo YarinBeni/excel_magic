@@ -1,5 +1,5 @@
 # Auto-generated results tables
-_from 76 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
+_from 84 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
 
 ## T1. Frozen backbones with the identity pipeline (3-fold CV, lower is better)
 |                               |     hgb |   kumo-tabular-l |   kumo-tabular-m |   kumo-tabular-s |   tabicl |   tabpfn |   tabpfn-2.5 |
@@ -19,15 +19,20 @@ _from 76 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen
 | breast_cancer  | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.0051 |    0.0053 |  -2.8570 |      16 |   0.0108 |
 | breast_cancer  | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.0044 |    0.0069 | -56.6670 |       9 |   0.0108 |
 | breast_cancer  | kumo-tabular-s | openai      | openai/gpt-oss-20b                | 1-auroc  |    0.0055 |    0.0051 |   7.8950 |       6 |   0.0108 |
+| breast_cancer  | kumo-tabular-s | openai      | openai/gpt-oss-20b                | 1-auroc  |    0.0055 |    0.0060 |  -7.8950 |      10 |   0.0108 |
+| breast_cancer  | kumo-tabular-s | openai      | zai-org/GLM-4.5-Air-FP8           | 1-auroc  |    0.0053 |    0.0073 | -38.8890 |       9 |   0.0108 |
 | breast_cancer  | tabpfn         | heuristic   | -                                 | 1-auroc  |    0.0061 |    0.0061 |   0.0000 |      20 |   0.0108 |
 | synth_entities | kumo-tabular-s | cli         | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.4688 |    0.4585 |   2.1950 |       1 |   0.4733 |
 | synth_entities | kumo-tabular-s | cli         | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.3842 |    0.2239 |  41.7220 |       9 |   0.4733 |
 | synth_entities | kumo-tabular-s | cli         | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.4592 |    0.3422 |  25.4840 |       9 |   0.4733 |
 | synth_entities | kumo-tabular-s | heuristic   | -                                 | 1-auroc  |    0.4623 |    0.3281 |  29.0230 |      20 |   0.4733 |
 | synth_entities | kumo-tabular-s | heuristic   | -                                 | 1-auroc  |    0.4412 |    0.3327 |  24.5890 |      20 |   0.4733 |
+| synth_entities | kumo-tabular-s | openai      | Qwen/Qwen3-32B                    | 1-auroc  |    0.4546 |    0.4718 |  -3.7890 |      16 |   0.4733 |
 | synth_entities | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.4387 |    0.4437 |  -1.1460 |       9 |   0.4733 |
 | synth_entities | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.4545 |    0.4499 |   1.0030 |      12 |   0.4733 |
 | synth_entities | kumo-tabular-s | openai      | openai/gpt-oss-20b                | 1-auroc  |    0.4307 |    0.4726 |  -9.7370 |       6 |   0.4733 |
+| synth_entities | kumo-tabular-s | openai      | openai/gpt-oss-20b                | 1-auroc  |    0.3803 |    0.4144 |  -8.9450 |       9 |   0.4733 |
+| synth_entities | kumo-tabular-s | openai      | zai-org/GLM-4.5-Air-FP8           | 1-auroc  |    0.3972 |    0.2240 |  43.6130 |      16 |   0.4733 |
 | synth_entities | tabpfn         | heuristic   | -                                 | 1-auroc  |    0.4676 |    0.4266 |   8.7750 |      20 |   0.4585 |
 | synth_physics  | kumo-tabular-s | cli         | Qwen/Qwen3-Coder-30B-A3B-Instruct | rmse     |    0.0877 |    0.0859 |   2.1040 |       1 |   0.3238 |
 | synth_physics  | kumo-tabular-s | cli         | Qwen/Qwen3-Coder-30B-A3B-Instruct | rmse     |    0.0861 |    0.0880 |  -2.1770 |       9 |   0.3238 |
@@ -38,6 +43,7 @@ _from 76 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen
 | synth_physics  | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | rmse     |    0.0869 |    0.0857 |   1.3240 |       8 |   0.3238 |
 | synth_physics  | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | rmse     |    0.0865 |    0.0840 |   2.9280 |      12 |   0.3238 |
 | synth_physics  | kumo-tabular-s | openai      | openai/gpt-oss-20b                | rmse     |    0.0864 |    0.0875 |  -1.2590 |       2 |   0.3238 |
+| synth_physics  | kumo-tabular-s | openai      | openai/gpt-oss-20b                | rmse     |    0.0869 |    0.0834 |   4.0730 |       6 |   0.3238 |
 | synth_physics  | kumo-tabular-s | openai      | zai-org/GLM-4.5-Air-FP8           | rmse     |    0.0884 |    0.0839 |   5.0630 |      16 |   0.3238 |
 | synth_physics  | tabpfn         | claude-code | sonnet                            | rmse     |    0.1108 |    0.0830 |  25.0620 |       4 |   0.3277 |
 | synth_physics  | tabpfn         | heuristic   | -                                 | rmse     |    0.1108 |    0.0852 |  23.1440 |      20 |   0.3277 |
@@ -66,6 +72,9 @@ _from 76 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen
 | airfoil_self_noise                    |    0.8277 |    0.8088 |       2.2844 |    1.0734 |             0.9165 |              14.6171 | 20261002T173650Z_J5_Qwen3-Coder-30B-A3B-Instruct_tabarena           |
 | blood-transfusion-service-center      |    0.2631 |    0.2655 |      -0.9336 |    0.2441 |             0.2431 |               0.4097 | 20261002T173650Z_J5_Qwen3-Coder-30B-A3B-Instruct_tabarena           |
 | credit-g                              |    0.2054 |    0.2062 |      -0.3537 |    0.1944 |             0.1940 |               0.2058 | 20261002T173650Z_J5_Qwen3-Coder-30B-A3B-Instruct_tabarena           |
+| airfoil_self_noise                    |    0.8173 |    0.8007 |       2.0251 |    1.0734 |             0.9165 |              14.6171 | 20261002T181125Z_J5_gpt-oss-20b_tabarena                            |
+| blood-transfusion-service-center      |    0.2627 |    0.2657 |      -1.1352 |    0.2441 |             0.2431 |               0.4097 | 20261002T181125Z_J5_gpt-oss-20b_tabarena                            |
+| credit-g                              |    0.2071 |    0.2076 |      -0.2476 |    0.1944 |             0.1940 |               0.2058 | 20261002T181125Z_J5_gpt-oss-20b_tabarena                            |
 | airfoil_self_noise                    |    0.8209 |    0.8282 |      -0.8832 |    1.0734 |             0.9165 |              14.6171 | 20261002T173553Z_J3_tabarena_openai                                 |
 | blood-transfusion-service-center      |    0.2647 |    0.2582 |       2.4520 |    0.2441 |             0.2431 |               0.4097 | 20261002T173553Z_J3_tabarena_openai                                 |
 | credit-g                              |    0.2056 |    0.2062 |      -0.2911 |    0.1944 |             0.1940 |               0.2058 | 20261002T173553Z_J3_tabarena_openai                                 |
@@ -115,9 +124,13 @@ _from 76 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen
 | Past+kNN-CF[agg]                    |  2.184 | 1.889 |
 | Past+kNN-CF[purchase_matrix]        |  2.216 | 1.919 |
 | Past+kNN-CF[row]                    |  2.160 | 1.857 |
+| Past+kNN-CF[svd]                    |  2.195 | 1.894 |
+| Past+kNN-CF[svd_agg]                |  2.185 | 1.888 |
 | Past+kNN-CF[tabpfn_agg_kmeans]      |  2.187 | 1.889 |
 | Past+kNN-CF[tabpfn_agg_random]      |  2.177 | 1.886 |
 | Past+kNN-CF[tabpfn_row_kmeans]      |  2.161 | 1.857 |
+| Past+kNN-CF[tabpfn_svd_kmeans]      |  2.180 | 1.886 |
+| Past+kNN-CF[tabpfn_svd_random]      |  2.182 | 1.885 |
 | PastVisit                           |  2.199 | 1.904 |
 | PastVisit+kNN-CF[agg]               |  2.191 | 1.897 |
 | PastVisit+kNN-CF[row]               |  2.191 | 1.897 |
@@ -127,6 +140,10 @@ _from 76 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen
 | kNN-CF[agg]                         |  0.259 | 0.258 |
 | kNN-CF[purchase_matrix]             |  1.200 | 1.162 |
 | kNN-CF[row]                         |  0.144 | 0.136 |
+| kNN-CF[svd]                         |  0.833 | 0.822 |
+| kNN-CF[svd_agg]                     |  0.654 | 0.661 |
 | kNN-CF[tabpfn_agg_kmeans]           |  0.227 | 0.248 |
 | kNN-CF[tabpfn_agg_random]           |  0.170 | 0.207 |
 | kNN-CF[tabpfn_row_kmeans]           |  0.140 | 0.135 |
+| kNN-CF[tabpfn_svd_kmeans]           |  0.419 | 0.401 |
+| kNN-CF[tabpfn_svd_random]           |  0.475 | 0.514 |

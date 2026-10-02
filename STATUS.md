@@ -55,3 +55,6 @@
   with the same LLM: aider +41.7% > Qwen Code +25.5% ~ heuristic > our tool loop ~0.
 - J5 task 3 gpt-oss-20b (50431): physics -1.3%, entities -9.7%, breast_cancer +7.9%; harmony parser leaked channel markers
   into tool names (now normalised); TabArena run died on choices=None (now guarded; run errors keep a traceback). inbox 022 reruns.
+- J7d done (50399): SVD factors of the purchase matrix 0.83 test MAP@12 x100 by plain kNN; frozen TabPFN over them 0.42 (k-means)
+  / 0.48 (random). The frozen hidden state is worse than its input -> H1 closed at item level on rel-hm (segment-level only).
+- J5 task 3 gpt-oss-20b rerun (50434, clean harness): physics +4.1%, entities -8.9%, breast_cancer -7.9%, TabArena-Lite +2.0/-1.1/-0.2%.
