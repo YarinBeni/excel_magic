@@ -1,0 +1,118 @@
+{
+  "dataset": "synth_physics",
+  "task_type": "regression",
+  "model": "kumo-tabular-s:n_estimators=4,device=cuda",
+  "metric": "rmse",
+  "harness": "heuristic",
+  "llm_model": null,
+  "n_evals": 16,
+  "n_evals_ok": 16,
+  "p0_cv": 0.09384133857743829,
+  "best_cv": 0.0893133620120504,
+  "best_candidate": "eval_007.py",
+  "agent": {
+    "harness": "heuristic",
+    "best_config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "count_encode": true,
+      "crosses_top_k": 3
+    },
+    "best_cv": 0.0893133620120504,
+    "n_evals": 16,
+    "elapsed_s": 137.0
+  },
+  "p0_test": 0.08660396629171283,
+  "p0_test_secondary": {
+    "rmse": 0.08660396629171283,
+    "mae": 0.07078361288621236,
+    "r2": 0.9966894096003881
+  },
+  "best_test": 0.08742757338877159,
+  "best_test_secondary": {
+    "rmse": 0.08742757338877159,
+    "mae": 0.07017670384025021,
+    "r2": 0.9966261425001736
+  },
+  "best_test_info": {
+    "n_features": 11,
+    "t_features": 0.024,
+    "n_views": 1,
+    "view_sizes": [
+      350
+    ],
+    "t_model": 0.287,
+    "t_total": 0.312,
+    "model_spec": "kumo-tabular-s:n_estimators=4,device=cuda"
+  },
+  "test_improvement_pct": -0.951,
+  "baseline_hgb_test": 0.3238426519182118,
+  "cv_trajectory": [
+    [
+      1,
+      0.09384133857743829
+    ],
+    [
+      2,
+      0.09334548593728628
+    ],
+    [
+      3,
+      0.10679080844120831
+    ],
+    [
+      4,
+      0.0938687500316512
+    ],
+    [
+      5,
+      0.09306374662586891
+    ],
+    [
+      6,
+      0.09331585071598188
+    ],
+    [
+      7,
+      0.0893133620120504
+    ],
+    [
+      8,
+      0.09005047125282693
+    ],
+    [
+      9,
+      0.08993779018733557
+    ],
+    [
+      10,
+      0.09075299422228444
+    ],
+    [
+      11,
+      0.08989233813721946
+    ],
+    [
+      12,
+      0.08988853439795205
+    ],
+    [
+      13,
+      0.09016660469422541
+    ],
+    [
+      14,
+      0.08960949039221254
+    ],
+    [
+      15,
+      0.10578054161002355
+    ],
+    [
+      16,
+      0.09041226241382665
+    ]
+  ],
+  "elapsed_s": 155.81,
+  "status": "ok"
+}

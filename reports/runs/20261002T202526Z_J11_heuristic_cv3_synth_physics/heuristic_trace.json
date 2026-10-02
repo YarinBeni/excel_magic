@@ -1,0 +1,163 @@
+[
+  {
+    "config": {
+      "regression": true
+    },
+    "score": 0.09384133857743829
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true
+    },
+    "score": 0.09334548593728628,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "winsorize": true
+    },
+    "score": 0.10679080844120831,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "drop_constant": true
+    },
+    "score": 0.0938687500316512,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "count_encode": true
+    },
+    "score": 0.09306374662586891,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "count_encode": true,
+      "log_skewed": true
+    },
+    "score": 0.09331585071598188,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "count_encode": true,
+      "crosses_top_k": 3
+    },
+    "score": 0.0893133620120504,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "count_encode": true,
+      "crosses_top_k": 5
+    },
+    "score": 0.09005047125282693,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "count_encode": true,
+      "crosses_top_k": 3,
+      "svd_components": 8
+    },
+    "score": 0.08993779018733557,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "count_encode": true,
+      "crosses_top_k": 3,
+      "svd_components": 16
+    },
+    "score": 0.09075299422228444,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "count_encode": true,
+      "crosses_top_k": 3,
+      "prune_to": 64
+    },
+    "score": 0.08989233813721946,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "count_encode": true,
+      "crosses_top_k": 3,
+      "random_views": 3
+    },
+    "score": 0.08988853439795205,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "count_encode": true,
+      "crosses_top_k": 3,
+      "target_transform": "log1p"
+    },
+    "score": 0.09016660469422541,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "count_encode": true,
+      "crosses_top_k": 3,
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 0.08960949039221254,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "count_encode": true,
+      "crosses_top_k": 3,
+      "winsorize": true
+    },
+    "score": 0.10578054161002355,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "count_encode": true,
+      "crosses_top_k": 3,
+      "drop_constant": true
+    },
+    "score": 0.09041226241382665,
+    "error": null
+  }
+]
