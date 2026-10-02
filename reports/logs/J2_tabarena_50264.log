@@ -1,0 +1,31 @@
+# job 50264 J2_tabarena exit=0 Fri Oct  2 16:00:25 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_8.out
+=== J2 tabarena task 8 === job 50264 Fri Oct  2 15:55:35 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+   0f4fcd5..af62d25  claude/tabular-model-agent-exp-wvni5o -> origin/claude/tabular-model-agent-exp-wvni5o
+[KSuccessfully rebased and updated refs/heads/claude/tabular-model-agent-exp-wvni5o.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=healthcare_insurance_expenses model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:56:46,300 INFO P0 cv rmse = 4889.882748663604
+2026-10-02 15:59:53,896 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155549Z_J2_heuristic_healthcare_insurance_expenses/search/healthcare_insurance_expenses/metrics.json
+2026-10-02 16:00:19,827 INFO healthcare_insurance_expenses            P0=4553.60890 P*=4613.89920 | paper TabFM=4417.6 TabFM-Auto(Opus5)=4344.1 | 236s
+2026-10-02 16:00:19,895 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155549Z_J2_heuristic_healthcare_insurance_expenses/metrics.json
+1 datasets: ['healthcare_insurance_expenses']
+pipeline                                P*         P0
+dataset                                              
+healthcare_insurance_expenses  4613.899202  4553.6089
+[collect] copied 155 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 8a3e9d1] J2: tabarena healthcare_insurance_expenses heuristic (job 50264)
+ 4 files changed, 86 insertions(+)
+ create mode 100644 reports/runs/20261002T155549Z_J2_heuristic_healthcare_insurance_expenses/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155549Z_J2_heuristic_healthcare_insurance_expenses/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155549Z_J2_heuristic_healthcare_insurance_expenses/metrics.json
+ create mode 100644 reports/runs/20261002T155549Z_J2_heuristic_healthcare_insurance_expenses/results.csv
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   c28c583..8a3e9d1  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 healthcare_insurance_expenses done Fri Oct  2 16:00:25 UTC 2026 ===
