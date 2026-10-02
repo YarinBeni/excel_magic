@@ -1,0 +1,2 @@
+dataset,P*,P0,metric,tabfm,tabfm_auto_opus5,tabfm_auto_gemini38flash,our_gain_%,paper_gain_opus5_%,ours_vs_paper_tabfm
+airfoil_self_noise,0.9530040646445571,0.9775072009959336,rmse,1.0734,0.9165,0.8878,2.5066962500543664,14.617104527669083,0.8878368405483111

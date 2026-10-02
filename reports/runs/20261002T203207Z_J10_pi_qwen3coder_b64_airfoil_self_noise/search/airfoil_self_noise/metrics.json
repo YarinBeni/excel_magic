@@ -1,0 +1,96 @@
+{
+  "dataset": "airfoil_self_noise",
+  "task_type": "regression",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "rmse",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 12,
+  "n_evals_ok": 10,
+  "p0_cv": 1.3538099378575277,
+  "best_cv": 1.3194868302936946,
+  "best_candidate": "eval_010.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 124.5,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203207Z_J10_pi_qwen3coder_b64_airfoil_self_noise/search/airfoil_self_noise/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.8190137742946971,
+  "p0_test_secondary": {
+    "rmse": 0.8190137742946971,
+    "mae": 0.5622868885032669,
+    "r2": 0.9860976541831941
+  },
+  "best_test": 0.8308722082036486,
+  "best_test_secondary": {
+    "rmse": 0.8308722082036486,
+    "mae": 0.5626694677309642,
+    "r2": 0.9856921578365173
+  },
+  "best_test_info": {
+    "n_features": 37,
+    "t_features": 0.017,
+    "n_views": 1,
+    "view_sizes": [
+      1002
+    ],
+    "t_model": 0.571,
+    "t_total": 0.589,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": -1.448,
+  "cv_trajectory": [
+    [
+      1,
+      1.3538099378575277
+    ],
+    [
+      2,
+      1.3493336257917001
+    ],
+    [
+      3,
+      1.333343849649059
+    ],
+    [
+      4,
+      1.3341348079778494
+    ],
+    [
+      5,
+      1.3283335136923757
+    ],
+    [
+      6,
+      1.3296743018157413
+    ],
+    [
+      7,
+      1.3318876830727715
+    ],
+    [
+      8,
+      null
+    ],
+    [
+      9,
+      1.3252349461393442
+    ],
+    [
+      10,
+      1.3194868302936946
+    ],
+    [
+      11,
+      null
+    ],
+    [
+      12,
+      1.3257774813939622
+    ]
+  ],
+  "elapsed_s": 134.23,
+  "status": "ok"
+}
