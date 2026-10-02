@@ -51,3 +51,5 @@
   tool errors go back to the model; inbox 021 resubmits task 3.
 - J6 task 2 aider + Qwen3-Coder (50377): synth_entities +41.7% (0.384 -> 0.224; frequency encodings + 4 context views),
   physics -2.2%, breast_cancer -40%. Same LLM in our tool loop never found the encodings -> harness matters more than the LLM here.
+- J6 task 1 Qwen Code + Qwen3-Coder (50428, 128k context): physics +1.0%, entities +25.5%, breast_cancer -16.1%. Entity ranking
+  with the same LLM: aider +41.7% > Qwen Code +25.5% ~ heuristic > our tool loop ~0.

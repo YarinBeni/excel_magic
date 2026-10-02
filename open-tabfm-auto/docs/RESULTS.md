@@ -158,3 +158,17 @@ The synth_entities pipeline (`reports/runs/*J6_aider_synth_entities/best_pipelin
 manager / role / resource counts over train+test, their ratios and logs, a label-encoded triple, 4 context views
 (all, class-balanced, random, minority-oversampled), sigmoid sharpening in postprocess. CV 0.470 -> 0.317 at eval 2,
 best 0.296 at eval 5. The same LLM in our tool loop (J3/J5) never found the frequency encodings.
+
+## CLI harness: Qwen Code 0.24.7 + Qwen3-Coder-30B-A3B via vLLM (cluster job J6 task 1, 50428, 2026-10-02)
+
+Same setup as the aider row (frozen Kumo Tabular-S, 16 evals / 40 min). First attempt (50408) failed on every turn because
+Qwen Code requests max_tokens = the full context and the server was 32k; served at 128k it works.
+
+| dataset | metric | P0 | P* | gain | evals | agent |
+|---|---|---|---|---|---|---|
+| synth_physics | rmse | 0.0858 | 0.0849 | +1.0% | 9 | 138 s |
+| synth_entities | 1-auroc | 0.4592 | 0.3422 | **+25.5%** | 9 | 143 s, 22 API calls, 616k prompt tokens |
+| breast_cancer | 1-auroc | 0.0045 | 0.0053 | -16.1% | 6 | 96 s |
+
+Entity task, all with Qwen3-Coder-30B and the same frozen backbone: aider loop +41.7% > Qwen Code +25.5% ~ no-LLM
+heuristic +25-29% > our OpenAI tool loop -1..+1%.

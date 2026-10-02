@@ -1,5 +1,5 @@
 # Auto-generated results tables
-_from 69 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
+_from 73 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
 
 ## T1. Frozen backbones with the identity pipeline (3-fold CV, lower is better)
 |                               |     hgb |   kumo-tabular-l |   kumo-tabular-m |   kumo-tabular-s |   tabicl |   tabpfn |   tabpfn-2.5 |
@@ -15,11 +15,13 @@ _from 69 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen
 |:---------------|:---------------|:------------|:----------------------------------|:---------|----------:|----------:|---------:|--------:|---------:|
 | breast_cancer  | kumo-tabular-s | cli         | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.0045 |    0.0050 |  -9.6770 |       1 |   0.0108 |
 | breast_cancer  | kumo-tabular-s | cli         | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.0051 |    0.0072 | -40.0000 |       9 |   0.0108 |
+| breast_cancer  | kumo-tabular-s | cli         | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.0045 |    0.0053 | -16.1290 |       6 |   0.0108 |
 | breast_cancer  | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.0051 |    0.0053 |  -2.8570 |      16 |   0.0108 |
 | breast_cancer  | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.0044 |    0.0069 | -56.6670 |       9 |   0.0108 |
 | breast_cancer  | tabpfn         | heuristic   | -                                 | 1-auroc  |    0.0061 |    0.0061 |   0.0000 |      20 |   0.0108 |
 | synth_entities | kumo-tabular-s | cli         | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.4688 |    0.4585 |   2.1950 |       1 |   0.4733 |
 | synth_entities | kumo-tabular-s | cli         | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.3842 |    0.2239 |  41.7220 |       9 |   0.4733 |
+| synth_entities | kumo-tabular-s | cli         | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.4592 |    0.3422 |  25.4840 |       9 |   0.4733 |
 | synth_entities | kumo-tabular-s | heuristic   | -                                 | 1-auroc  |    0.4623 |    0.3281 |  29.0230 |      20 |   0.4733 |
 | synth_entities | kumo-tabular-s | heuristic   | -                                 | 1-auroc  |    0.4412 |    0.3327 |  24.5890 |      20 |   0.4733 |
 | synth_entities | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.4387 |    0.4437 |  -1.1460 |       9 |   0.4733 |
@@ -33,6 +35,8 @@ _from 69 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen
 | synth_physics  | kumo-tabular-s | openai      | Qwen/Qwen3-32B                    | rmse     |    0.0862 |    0.0863 |  -0.1880 |       1 |   0.3238 |
 | synth_physics  | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | rmse     |    0.0869 |    0.0857 |   1.3240 |       8 |   0.3238 |
 | synth_physics  | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | rmse     |    0.0865 |    0.0840 |   2.9280 |      12 |   0.3238 |
+| synth_physics  | kumo-tabular-s | openai      | openai/gpt-oss-20b                | rmse     |    0.0864 |    0.0875 |  -1.2590 |       2 |   0.3238 |
+| synth_physics  | kumo-tabular-s | openai      | zai-org/GLM-4.5-Air-FP8           | rmse     |    0.0884 |    0.0839 |   5.0630 |      16 |   0.3238 |
 | synth_physics  | tabpfn         | claude-code | sonnet                            | rmse     |    0.1108 |    0.0830 |  25.0620 |       4 |   0.3277 |
 | synth_physics  | tabpfn         | heuristic   | -                                 | rmse     |    0.1108 |    0.0852 |  23.1440 |      20 |   0.3277 |
 | wine           | tabpfn         | none        | -                                 | logloss  |    0.0085 |    0.0085 |   0.0000 |       1 |   0.0069 |

@@ -125,6 +125,10 @@ single-turn aider loop wrote the entity frequency encodings (role×resource pair
 ratios) that the task's description hints at, plus a 4-view class-balanced context sample. Same LLM, different harness:
 the tool-loop runs above never found this. CV trajectory 0.470 → 0.317 on the second eval, then flat.
 
+**Qwen Code (same LLM, J6 task 1, 128k server context):** synth_physics +1.0%, synth_entities **+25.5%** (0.459 → 0.342),
+breast_cancer −16.1%; 22 API calls, 616k prompt tokens, 10 shell evals, ~140 s per search. Ranking on the entity task,
+all with Qwen3-Coder-30B: aider loop +41.7% > Qwen Code +25.5% ≈ no-LLM heuristic +25–29% > our tool loop ±1%.
+
 ### 5.3 TabArena protocol vs the paper (T3 **[auto]**)
 Wave 1 (the 17 datasets with <= 2,500 rows, all 30 official splits each, frozen Kumo Tabular-S, **no LLM**):
 mean relative test-error gain **+0.5%** against **+4.6%** for the paper's Opus 5 agent on the same datasets; P* beats P0
