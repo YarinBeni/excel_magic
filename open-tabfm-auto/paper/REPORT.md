@@ -129,6 +129,11 @@ the tool-loop runs above never found this. CV trajectory 0.470 → 0.317 on the 
 breast_cancer −16.1%; 22 API calls, 616k prompt tokens, 10 shell evals, ~140 s per search. Ranking on the entity task,
 all with Qwen3-Coder-30B: aider loop +41.7% > Qwen Code +25.5% ≈ no-LLM heuristic +25–29% > our tool loop ±1%.
 
+**pi (J6 task 0, same LLM):** synth_physics −0.9%, synth_entities **+50.3%** (0.452 → 0.224, 6 evals, 89 s), breast_cancer
+−17.1%. Final entity-task ranking with one fixed open LLM (Qwen3-Coder-30B) and one frozen backbone: pi +50.3% > aider
++41.7% > Qwen Code +25.5% ≈ heuristic +25–29% > our tool loop ±1%; all three CLI agents converge on the same
+role×resource frequency encodings, and all lose on breast_cancer.
+
 **gpt-oss-20b (J5 task 3, our tool loop):** synth_physics −1.3% (2 evals), synth_entities −9.7%, breast_cancer +7.9%;
 vLLM's harmony parser leaked channel markers into tool names (`run_eval<|channel|>commentary`), wasting calls; the
 harness now normalises names. Its TabArena-Lite run died on an empty vLLM response (now guarded); rerun queued.

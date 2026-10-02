@@ -228,3 +228,16 @@ GPU memory on one H200 (bf16 does not fit).
 | credit-g (Lite) | 1-auroc | 0.2069 | 0.2039 | +1.4% | | | |
 
 Best open LLM in our tool loop so far; the entity pipeline uses group-by frequency features like aider's.
+
+## CLI harness: pi + Qwen3-Coder-30B-A3B via vLLM (cluster job J6 task 0, 50515, 2026-10-02)
+
+Same setup as the aider / Qwen Code rows. First attempt (50377_0) died creating the Node env in a race with task 1.
+
+| dataset | metric | P0 | P* | gain | evals | agent |
+|---|---|---|---|---|---|---|
+| synth_physics | rmse | 0.0880 | 0.0888 | -0.9% | 10 | 108 s |
+| synth_entities | 1-auroc | 0.4515 | 0.2242 | **+50.3%** | 6 | 89 s |
+| breast_cancer | 1-auroc | 0.0051 | 0.0060 | -17.1% | 12 | 146 s |
+
+Entity task, one frozen backbone, one open LLM: pi +50.3% > aider +41.7% > Qwen Code +25.5% ~ heuristic +25-29% > our
+tool loop ~0. All CLI agents found the same role x resource frequency encodings.

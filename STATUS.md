@@ -62,3 +62,4 @@
   -0.9/+1.4/+1.4%. Best open LLM in our tool loop. Remaining: Qwen3-32B (J5 task 1), pi (J6 task 0).
 - J6 task 0 pi (50377_0) failed in 4 min: conda create node22 raced with task 1 (same env); creation now under flock, inbox 024
   resubmits task 0. Qwen3-32B (J5 task 1) still running.
+- J6 task 0 pi + Qwen3-Coder (50515): entities +50.3% (best of all), physics -0.9%, breast_cancer -17.1%. Only Qwen3-32B left.
