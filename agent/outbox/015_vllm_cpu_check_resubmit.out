@@ -1,0 +1,19 @@
+# 015_vllm_cpu_check_resubmit  host=g0377  start=Fri Oct  2 16:36:58 UTC 2026  timeout=300s
+# HEAD=8cc7c40
+# ---------------------------------------------------------
+cancelled J3 50317
+cancelled J5 50318
+cancelled J6 50319
+J0v: 50342
+J3: 50343
+J5: 50344
+J6: 50345
+     50192   AGENT_runner  RUNNING    1:04:29 g0377
+     50341 J7_relbench_hm  PENDING       0:00 (Priority)
+     50342       J0v_vllm  PENDING       0:00 (Priority)
+     50343        J3_vllm  PENDING       0:00 (Dependency)
+     50344   J5_llm_sweep  PENDING       0:00 (None)
+     50345  J6_cli_agents  PENDING       0:00 (None)
+ARRAY_JOB_           NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 16:37:01 UTC 2026
