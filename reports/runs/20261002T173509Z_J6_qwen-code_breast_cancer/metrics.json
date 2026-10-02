@@ -1,0 +1,55 @@
+{
+  "dataset": "breast_cancer",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=4,device=cuda",
+  "metric": "1-auroc",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 1,
+  "n_evals_ok": 1,
+  "p0_cv": 0.004342267027292864,
+  "best_cv": 0.004342267027292864,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 1,
+    "elapsed_s": 1.8,
+    "agent_cmd": "qwen -p \"$(cat /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T173509Z_J6_qwen-code_breast_cancer/workspace/TASK.md)\" --approval-mode yolo --output-format json --max-session-turns 60 --max-wall-time 50m -m Qwen/Qwen3-Coder-30B-A3B-Instruct",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.004526869158878455,
+  "p0_test_secondary": {
+    "logloss": 0.08662272424326502,
+    "acc": 0.9649122807017544,
+    "auroc": 0.9954731308411215,
+    "1-auroc": 0.004526869158878455
+  },
+  "best_test": 0.004964953271028083,
+  "best_test_secondary": {
+    "logloss": 0.09006754167444844,
+    "acc": 0.9649122807017544,
+    "auroc": 0.9950350467289719,
+    "1-auroc": 0.004964953271028083
+  },
+  "best_test_info": {
+    "n_features": 30,
+    "t_features": 0.014,
+    "n_views": 1,
+    "view_sizes": [
+      398
+    ],
+    "t_model": 0.285,
+    "t_total": 0.3,
+    "model_spec": "kumo-tabular-s:n_estimators=4,device=cuda"
+  },
+  "test_improvement_pct": -9.677,
+  "baseline_hgb_test": 0.0108060747663552,
+  "cv_trajectory": [
+    [
+      1,
+      0.004342267027292864
+    ]
+  ],
+  "elapsed_s": 17.05,
+  "status": "ok"
+}

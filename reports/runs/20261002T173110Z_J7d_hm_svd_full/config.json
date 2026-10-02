@@ -1,0 +1,32 @@
+{
+  "name": "J7d_hm_svd_full",
+  "config": {
+    "dataset": "rel-hm",
+    "task": "user-item-purchase",
+    "splits": "val,test",
+    "embedders": "svd,svd_agg,tabpfn_svd_kmeans,tabpfn_svd_random,agg,tabpfn_agg_kmeans",
+    "hist_days": 365,
+    "k_neighbors": 50,
+    "sample_queries": null,
+    "device": "cuda",
+    "seed": 0,
+    "name": "J7d_hm_svd_full"
+  },
+  "env": {
+    "python": "3.11.15",
+    "platform": "Linux-5.15.0-152-generic-x86_64-with-glibc2.35",
+    "cpu_count": 104,
+    "git_sha": "96fa235",
+    "numpy": "2.4.0",
+    "pandas": "2.3.3",
+    "sklearn": "1.8.0",
+    "torch": "2.9.1+cu128",
+    "tabpfn": "9.1.0",
+    "tabicl": "?",
+    "torch_geometric": "2.8.0.post1",
+    "lightgbm": "4.7.0",
+    "torch_cuda": true,
+    "torch_threads": 16
+  },
+  "started_utc": "2026-10-02T17:31:16.855748+00:00"
+}

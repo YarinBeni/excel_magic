@@ -1,0 +1,5 @@
+
+
+<tool_call>
+{"name": "write_pipeline", "arguments": {"source": "import numpy as np\nimport pandas as pd\nfrom typing import Dict, Any\n\nMODEL_KWARGS = dict(\n    model_name=\"kumo-tabular-s:n_estimators=4,device=cuda\",\n    task_type=\"regression\",\n    max_rows=10000,\n)\n\ndef preprocess(df: pd.DataFrame) -> pd.DataFrame:\n    df = df.copy()\n    df[\"strouhal_ratio\"] = (df[\"frequency_hz\"] * df[\"chord_length_m\"]) / df[\"free_stream_velocity_m_s\"]\n    df[\"strouhal_scaled\"] = df[\"strouhal_ratio\"] * df[\"suction_side_thickness_m\"]\n    df[\"attack_angle_rad\"] = np.radians(df[\"attack_angle_deg\"])\n    df[\"sin_attack_angle\"] = np.sin(df[\"attack_angle_rad\"])\n    return df\n\ndef select_features(df: pd.DataFrame) -> pd.DataFrame:\n    return df.drop(columns=[\"target\"])\n\ndef postprocess(y_pred: np.ndarray, context: Dict[str, Any]) -> np.ndarray:\n    return y_pred\n\ndef get_context() -> Dict[str, Any]:\n    return {}\n"}}}
+</tool_call>

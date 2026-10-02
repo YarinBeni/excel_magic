@@ -1,0 +1,60 @@
+{
+  "dataset": "synth_physics",
+  "task_type": "regression",
+  "model": "kumo-tabular-s:n_estimators=4,device=cuda",
+  "metric": "rmse",
+  "harness": "openai",
+  "llm_model": "Qwen/Qwen3-32B",
+  "n_evals": 1,
+  "n_evals_ok": 1,
+  "p0_cv": 0.08918087831966226,
+  "best_cv": 0.08918087831966226,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "openai",
+    "rc": 0,
+    "elapsed_s": 84.2,
+    "n_turns": 2,
+    "tool_counts": {
+      "describe_data": 1
+    },
+    "usage": {
+      "input_tokens": 3501,
+      "output_tokens": 4419
+    },
+    "model": "Qwen/Qwen3-32B"
+  },
+  "p0_test": 0.08617529381846281,
+  "p0_test_secondary": {
+    "rmse": 0.08617529381846281,
+    "mae": 0.07006039646624528,
+    "r2": 0.9967221020221622
+  },
+  "best_test": 0.08633747846194283,
+  "best_test_secondary": {
+    "rmse": 0.08633747846194283,
+    "mae": 0.07017259492688073,
+    "r2": 0.9967097521952307
+  },
+  "best_test_info": {
+    "n_features": 5,
+    "t_features": 0.003,
+    "n_views": 1,
+    "view_sizes": [
+      350
+    ],
+    "t_model": 0.276,
+    "t_total": 0.28,
+    "model_spec": "kumo-tabular-s:n_estimators=4,device=cuda"
+  },
+  "test_improvement_pct": -0.188,
+  "baseline_hgb_test": 0.3238426519182118,
+  "cv_trajectory": [
+    [
+      1,
+      0.08918087831966226
+    ]
+  ],
+  "elapsed_s": 99.83,
+  "status": "ok"
+}

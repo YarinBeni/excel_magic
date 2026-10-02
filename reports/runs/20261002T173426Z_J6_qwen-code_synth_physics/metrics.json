@@ -1,0 +1,53 @@
+{
+  "dataset": "synth_physics",
+  "task_type": "regression",
+  "model": "kumo-tabular-s:n_estimators=4,device=cuda",
+  "metric": "rmse",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 1,
+  "n_evals_ok": 1,
+  "p0_cv": 0.08892531793380455,
+  "best_cv": 0.08892531793380455,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 1,
+    "elapsed_s": 2.3,
+    "agent_cmd": "qwen -p \"$(cat /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T173426Z_J6_qwen-code_synth_physics/workspace/TASK.md)\" --approval-mode yolo --output-format json --max-session-turns 60 --max-wall-time 50m -m Qwen/Qwen3-Coder-30B-A3B-Instruct",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.08771982961798101,
+  "p0_test_secondary": {
+    "rmse": 0.08771982961798101,
+    "mae": 0.07129350476627322,
+    "r2": 0.9966035482795331
+  },
+  "best_test": 0.08587437703994663,
+  "best_test_secondary": {
+    "rmse": 0.08587437703994663,
+    "mae": 0.07026652155591037,
+    "r2": 0.9967449543337317
+  },
+  "best_test_info": {
+    "n_features": 5,
+    "t_features": 0.003,
+    "n_views": 1,
+    "view_sizes": [
+      350
+    ],
+    "t_model": 0.295,
+    "t_total": 0.298,
+    "model_spec": "kumo-tabular-s:n_estimators=4,device=cuda"
+  },
+  "test_improvement_pct": 2.104,
+  "baseline_hgb_test": 0.3238426519182118,
+  "cv_trajectory": [
+    [
+      1,
+      0.08892531793380455
+    ]
+  ],
+  "elapsed_s": 21.29,
+  "status": "ok"
+}
