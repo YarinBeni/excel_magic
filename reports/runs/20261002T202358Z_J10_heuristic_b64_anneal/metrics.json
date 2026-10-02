@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "anneal",
+      "P*": 0.011151434768697172,
+      "P0": 0.01182471126374,
+      "metric": "logloss",
+      "tabfm": 0.0125,
+      "tabfm_auto_opus5": 0.0103,
+      "tabfm_auto_gemini38flash": 0.0114,
+      "our_gain_%": 5.693809176613077,
+      "paper_gain_opus5_%": 17.600000000000005,
+      "ours_vs_paper_tabfm": 0.8921147814957737
+    }
+  ],
+  "elapsed_s": 536.8,
+  "status": "ok"
+}

@@ -1,0 +1,124 @@
+{
+  "dataset": "healthcare_insurance_expenses",
+  "task_type": "regression",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "rmse",
+  "harness": "openai",
+  "llm_model": "zai-org/GLM-4.5-Air-FP8",
+  "n_evals": 16,
+  "n_evals_ok": 13,
+  "p0_cv": 4888.109422623301,
+  "best_cv": 4721.647382340901,
+  "best_candidate": "eval_010.py",
+  "agent": {
+    "harness": "openai",
+    "rc": 0,
+    "elapsed_s": 312.3,
+    "n_turns": 33,
+    "tool_counts": {
+      "read_file": 1,
+      "describe_data": 1,
+      "write_pipeline": 15,
+      "run_eval": 15,
+      "finish": 1
+    },
+    "usage": {
+      "input_tokens": 502048,
+      "output_tokens": 23785
+    },
+    "model": "zai-org/GLM-4.5-Air-FP8",
+    "rich_context": false
+  },
+  "p0_test": 4141.663677355405,
+  "p0_test_secondary": {
+    "rmse": 4141.663677355405,
+    "mae": 1148.7595218662416,
+    "r2": 0.8710033451734343
+  },
+  "best_test": 4136.613460513961,
+  "best_test_secondary": {
+    "rmse": 4136.613460513961,
+    "mae": 1138.8065342619982,
+    "r2": 0.8713177424512671
+  },
+  "best_test_info": {
+    "n_features": 15,
+    "t_features": 0.015,
+    "n_views": 1,
+    "view_sizes": [
+      892
+    ],
+    "t_model": 1.014,
+    "t_total": 1.03,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda,n_estimators=16"
+  },
+  "test_improvement_pct": 0.122,
+  "cv_trajectory": [
+    [
+      1,
+      4888.109422623301
+    ],
+    [
+      2,
+      null
+    ],
+    [
+      3,
+      4725.769240865612
+    ],
+    [
+      4,
+      4740.777213693404
+    ],
+    [
+      5,
+      null
+    ],
+    [
+      6,
+      null
+    ],
+    [
+      7,
+      4726.727254442943
+    ],
+    [
+      8,
+      4723.9562276278775
+    ],
+    [
+      9,
+      4773.499311880158
+    ],
+    [
+      10,
+      4721.647382340901
+    ],
+    [
+      11,
+      4722.203847571818
+    ],
+    [
+      12,
+      4723.069606757576
+    ],
+    [
+      13,
+      4731.034238263485
+    ],
+    [
+      14,
+      4724.049239484833
+    ],
+    [
+      15,
+      1463166.5627287242
+    ],
+    [
+      16,
+      4722.4589639496635
+    ]
+  ],
+  "elapsed_s": 322.94,
+  "status": "ok"
+}
