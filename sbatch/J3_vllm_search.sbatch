@@ -12,24 +12,10 @@
 set -uo pipefail
 echo "=== J3 vllm search === job ${SLURM_JOB_ID} $(date)"
 cd ~/projects/excel_magic && source sbatch/_common.sh && job_prologue
-VLLM_VENV="$HOME/venvs/vllm"
-LLM="${LLM:-Qwen/Qwen3-Coder-30B-A3B-Instruct}"
-if [ ! -f "$VLLM_VENV/bin/vllm" ]; then
-    echo "[J3] installing vllm into $VLLM_VENV (one-time, ~10 min)"
-    python3 -m venv "$VLLM_VENV" && "$VLLM_VENV/bin/pip" install -q --upgrade pip && "$VLLM_VENV/bin/pip" install -q vllm || { echo "FAILED vllm install"; exit 1; }
-fi
-mkdir -p artifacts/vllm
-"$VLLM_VENV/bin/vllm" serve "$LLM" --port 8000 --enable-auto-tool-choice --tool-call-parser hermes \
-    --max-model-len 32768 --gpu-memory-utilization 0.70 > artifacts/vllm/server_${SLURM_JOB_ID}.log 2>&1 &
-VLLM_PID=$!
+source sbatch/_vllm.sh
+LLM="${LLM:-Qwen/Qwen3-Coder-30B-A3B-Instruct}"; PORT=8000
+start_vllm "${PARSERS:-qwen3_coder hermes}" || { echo "FAILED: vllm could not start"; exit 1; }
 trap 'kill $VLLM_PID 2>/dev/null || true' EXIT
-for i in $(seq 1 120); do
-    curl -sf http://localhost:8000/v1/models >/dev/null 2>&1 && break
-    kill -0 $VLLM_PID 2>/dev/null || { echo "FAILED: vllm died"; tail -40 artifacts/vllm/server_${SLURM_JOB_ID}.log; exit 1; }
-    sleep 15
-done
-curl -sf http://localhost:8000/v1/models | head -c 400 || { echo "FAILED: vllm not up after 30 min"; exit 1; }
-echo; echo "[J3] vllm up"
 cd open-tabfm-auto
 export OPENAI_BASE_URL=http://localhost:8000/v1 OPENAI_API_KEY=EMPTY
 for ds in synth_physics synth_entities breast_cancer; do

@@ -18,13 +18,14 @@ from pathlib import Path
 from typing import Any
 
 PRESETS: dict[str, str] = {
-    # verified against upstream READMEs on 2026-10-02 where possible; see docs/LLM_BACKENDS.md
-    "pi": "pi -p {prompt}",
-    "qwen-code": "qwen -p {prompt} --yolo",
-    "gemini-cli": "gemini -p {prompt} --yolo",
-    "aider": "aider --yes-always --no-git --no-auto-commits --model openai/{model} --message {prompt} pipeline.py",
-    "codex": "codex exec --full-auto --skip-git-repo-check -m {model} {prompt}",
-    "claude-code": "claude -p {prompt} --model {model} --permission-mode acceptEdits --allowedTools Read,Edit,Write,Bash",
+    # verified against upstream docs on 2026-10-02 (docs/LLM_BACKENDS.md has the provider setup for each)
+    "pi": "pi -a --provider vllm --model {model} --mode json @{prompt_file}",
+    "qwen-code": "qwen -p \"$(cat {prompt_file})\" --approval-mode yolo --output-format json --max-session-turns 60 --max-wall-time 50m -m {model}",
+    "gemini-cli": "gemini -p \"$(cat {prompt_file})\" --approval-mode yolo --output-format json",
+    "aider": "aider --message-file {prompt_file} --yes-always --no-git --no-auto-commits --no-show-model-warnings --no-check-update --no-analytics --model openai/{model} pipeline.py",
+    "codex": "codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check -C . -m {model} --json \"$(cat {prompt_file})\"",
+    "openhands": "openhands --headless --json --override-with-envs -f {prompt_file}",
+    "claude-code": "claude -p \"$(cat {prompt_file})\" --model {model} --permission-mode acceptEdits --allowedTools Read,Edit,Write,Bash --max-turns 60 --output-format json",
 }
 
 
@@ -38,10 +39,15 @@ def run_cli_agent(prompt: str, ws: Path, log_path: Path, agent_cmd: str, model: 
     cmd = template.format(prompt_file=shlex.quote(str(prompt_file)), prompt=shlex.quote(prompt),
                           model=shlex.quote(model) if model else "", base_url=shlex.quote(base_url) if base_url else "")
     env = dict(os.environ)
-    if base_url:
-        env.setdefault("OPENAI_BASE_URL", base_url)
-        env.setdefault("OPENAI_API_BASE", base_url)
+    if base_url:  # the env names the different CLIs read
+        env.setdefault("OPENAI_BASE_URL", base_url)   # Qwen Code
+        env.setdefault("OPENAI_API_BASE", base_url)   # aider
+        env.setdefault("LLM_BASE_URL", base_url)      # OpenHands
         env.setdefault("OPENAI_API_KEY", env.get("OPENAI_API_KEY", "EMPTY"))
+        env.setdefault("LLM_API_KEY", "EMPTY")
+        if model:
+            env.setdefault("OPENAI_MODEL", model)
+            env.setdefault("LLM_MODEL", f"openai/{model}")
     env.update(env_extra or {})
     t0 = time.time()
     with open(log_path, "a", encoding="utf-8") as logf:
