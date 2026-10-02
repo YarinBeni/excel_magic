@@ -93,9 +93,9 @@ _from 48 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen
 | Past+kNN-CF[tabpfn_agg_random]      |  2.177 | 1.886 |
 | Past+kNN-CF[tabpfn_row_kmeans]      |  2.161 | 1.857 |
 | PastVisit                           |  2.199 | 1.904 |
-| PastVisit+kNN-CF[agg]               |  2.191 | 1.954 |
-| PastVisit+kNN-CF[row]               |  2.191 | 1.954 |
-| PastVisit+kNN-CF[tabpfn_agg_kmeans] |  2.191 | 1.954 |
+| PastVisit+kNN-CF[agg]               |  2.191 | 1.897 |
+| PastVisit+kNN-CF[row]               |  2.191 | 1.897 |
+| PastVisit+kNN-CF[tabpfn_agg_kmeans] |  2.191 | 1.897 |
 | PastVisit+kNN-CF[tabpfn_agg_random] |  2.191 | 1.897 |
 | PastVisit+kNN-CF[tabpfn_row_kmeans] |  2.191 | 1.897 |
 | kNN-CF[agg]                         |  0.259 | 0.258 |

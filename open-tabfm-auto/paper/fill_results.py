@@ -128,8 +128,8 @@ def t6_relbench(roots):
             out = json.load(open(f))
             out = out.get("splits", out)
             for split, s in out.items():
-                if not isinstance(s, dict) or "rows" not in s:
-                    continue
+                if not isinstance(s, dict) or "rows" not in s or not s.get("official_evaluator", True):
+                    continue  # smoke runs on a query subset are not comparable
                 for name, r in s["rows"].items():
                     if "map" in r:
                         rows.append({"run": f.parent.name, "split": split, "method": name, "MAP@K x100": 100 * r["map"]})
