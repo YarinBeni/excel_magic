@@ -1,0 +1,31 @@
+# job 50256 J2_tabarena exit=0 Fri Oct  2 15:56:47 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_3.out
+=== J2 tabarena task 3 === job 50256 Fri Oct  2 15:52:05 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=QSAR_fish_toxicity model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:53:16,287 INFO P0 cv rmse = 0.8614449409942501
+2026-10-02 15:56:18,728 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155220Z_J2_heuristic_QSAR_fish_toxicity/search/QSAR_fish_toxicity/metrics.json
+2026-10-02 15:56:42,813 INFO QSAR_fish_toxicity                       P0=0.85472 P*=0.85285 | paper TabFM=0.85345 TabFM-Auto(Opus5)=0.84829 | 228s
+2026-10-02 15:56:42,858 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155220Z_J2_heuristic_QSAR_fish_toxicity/metrics.json
+1 datasets: ['QSAR_fish_toxicity']
+pipeline                  P*       P0
+dataset                              
+QSAR_fish_toxicity  0.852853  0.85472
+[collect] copied 93 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 959c13e] J2: tabarena QSAR_fish_toxicity heuristic (job 50256)
+ 5 files changed, 116 insertions(+)
+ create mode 100644 reports/logs/J2_tabarena_50258.log
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_QSAR_fish_toxicity/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_QSAR_fish_toxicity/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_QSAR_fish_toxicity/metrics.json
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_QSAR_fish_toxicity/results.csv
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   f028f42..959c13e  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 QSAR_fish_toxicity done Fri Oct  2 15:56:47 UTC 2026 ===
