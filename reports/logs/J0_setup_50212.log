@@ -1,0 +1,71 @@
+# job 50212 J0_setup exit=0 Fri Oct  2 15:40:45 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J0_setup_50212.out
+=== J0 setup === job 50212 Fri Oct  2 15:39:33 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+torch 2.9.1+cu128 cuda True
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+sdm ok ['KumoRelational', 'KumoTabular']
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+tabpfn:
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/tabpfn/tabpfn-v2-classifier.ckpt
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/tabpfn/tabpfn-v2-regressor.ckpt
+tabicl:
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--jingang--TabICL/snapshots/4dcd344ece2c00be9e831fdd35bed57b5ad83e19/tabicl-classifier-v2-20260212.ckpt
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--jingang--TabICL/snapshots/4dcd344ece2c00be9e831fdd35bed57b5ad83e19/tabicl-regressor-v2-20260212.ckpt
+kumo-tabular-s:
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--nvidia--Kumo-Tabular/snapshots/bd7fa122b516c7355583873ffcf38f5e79403ebd/small/classifier.pt
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--nvidia--Kumo-Tabular/snapshots/bd7fa122b516c7355583873ffcf38f5e79403ebd/small/regressor.pt
+kumo-relational:
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--nvidia--Kumo-Relational/snapshots/3d5176e4e713d734b71c2846fc9cd19e49e4c7d1/classifier.pt
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--nvidia--Kumo-Relational/snapshots/3d5176e4e713d734b71c2846fc9cd19e49e4c7d1/regressor.pt
+tabpfn-2.5:
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--Prior-Labs--tabpfn_2_5/snapshots/6c45f3a6d0d07c6c5f62572e04a0c2929de91b8b/tabpfn-v2.5-classifier-v2.5_default.ckpt
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--Prior-Labs--tabpfn_2_5/snapshots/6c45f3a6d0d07c6c5f62572e04a0c2929de91b8b/tabpfn-v2.5-regressor-v2.5_default.ckpt
+exaone:
+Fetching 23 files:   0%|          | 0/23 [00:00<?, ?it/s]Fetching 23 files: 100%|██████████| 23/23 [00:00<00:00, 9602.73it/s]
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--LG-AI-Research--EXAONE-Tabular/snapshots/093ad1c2613e1e95d26df8610451d2e02ed53cbe
+weights dir: /home/yarin.b/projects/excel_magic/artifacts/weights   huggingface.co reachable: True   host: g0381
+| model            | kind       | state                    | TabArena Elo                       | licence                        | cpu |
+|---|---|---|---|---|---|
+| tabpfn           | tabular    | ready                    | not in pool; below RealTabPFN-2.5 (1522) | Prior Labs License (Apache-2.0 | yes (<=10k rows) |
+| tabpfn-2.5       | tabular    | ready                    | 1522 (RealTabPFN-2.5)              | TabPFN-2.5 license (non-commer | yes |
+| tabpfn-2.6       | tabular    | needs huggingface.co     | 1605                               | TabPFN-2.6 license (non-commer | yes |
+| tabpfn-3         | tabular    | needs huggingface.co     | 1660                               | non-commercial                 | slow (default limit 5000 rows) |
+| tabpfn-3.5       | tabular    | needs huggingface.co     | ~1855                              | academic + evaluation          | slow |
+| tabpfn-3.5-fast  | tabular    | needs huggingface.co     | ~1770                              | academic + evaluation          | probably |
+| tabicl           | tabular    | ready                    | 1590                               | BSD-3                          | yes (GPU recommended) |
+| tabiclv2-sdm     | tabular    | needs huggingface.co     | 1590                               | BSD-3                          | yes |
+| kumo-tabular-s   | tabular    | ready                    | ~1790                              | OpenMDW-1.1 (commercial OK)    | expected (TabICLv2-size) |
+| kumo-tabular-m   | tabular    | needs huggingface.co     | ~1910                              | OpenMDW-1.1                    | slow |
+| kumo-tabular-l   | tabular    | needs huggingface.co     | ~1960 (#1)                         | OpenMDW-1.1                    | impractical |
+| exaone           | tabular    | ready                    | 1765                               | code BSD-3; weights non-commer | slow |
+| openrfm          | relational | package kumorfm_repro (vendored) missing | RelBench 12-task AUROC ~69 (KumoRFM-2: 79.6) | MIT                            | yes |
+| kumo-relational  | relational | ready                    | KumoRFM-2 adapted                  | OpenMDW-1.1                    | expected |
+| rt-j             | relational | package rt missing       | RelBench zero-shot 93% of supervised | see repo                       | eager flex_attention |
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+15 passed, 10 warnings in 36.46s
+tee: ../reports/J0_tests_open-tabfm-auto.txt: Stale file handle
+..                                                                       [100%]
+2 passed in 0.51s
+[claude/tabular-model-agent-exp-wvni5o 889ce4a] J0: env + weights + tests (job 50212)
+ 4 files changed, 9 insertions(+), 12 deletions(-)
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   44ee9b7..889ce4a  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J0 done Fri Oct  2 15:40:45 UTC 2026 ===
