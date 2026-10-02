@@ -1,0 +1,84 @@
+{
+  "dataset": "healthcare_insurance_expenses",
+  "task_type": "regression",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "rmse",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 9,
+  "n_evals_ok": 9,
+  "p0_cv": 4884.561078754923,
+  "best_cv": 4694.516429121278,
+  "best_candidate": "eval_003.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 112.4,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T194237Z_J8_pi_qwen3coder_healthcare_insurance_expenses/search/healthcare_insurance_expenses/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 4140.7967402930335,
+  "p0_test_secondary": {
+    "rmse": 4140.7967402930335,
+    "mae": 1145.2857227955087,
+    "r2": 0.8710573429314912
+  },
+  "best_test": 4140.736246817965,
+  "best_test_secondary": {
+    "rmse": 4140.736246817965,
+    "mae": 1145.217701292115,
+    "r2": 0.8710611103863666
+  },
+  "best_test_info": {
+    "n_features": 12,
+    "t_features": 0.011,
+    "n_views": 1,
+    "view_sizes": [
+      892
+    ],
+    "t_model": 0.405,
+    "t_total": 0.416,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 0.001,
+  "cv_trajectory": [
+    [
+      1,
+      4884.561078754923
+    ],
+    [
+      2,
+      4885.470361296468
+    ],
+    [
+      3,
+      4694.516429121278
+    ],
+    [
+      4,
+      4868.8443990900605
+    ],
+    [
+      5,
+      4872.773383129747
+    ],
+    [
+      6,
+      4696.381750924644
+    ],
+    [
+      7,
+      4884.114885958837
+    ],
+    [
+      8,
+      4894.903744666637
+    ],
+    [
+      9,
+      4877.6422441250725
+    ]
+  ],
+  "elapsed_s": 121.91,
+  "status": "ok"
+}
