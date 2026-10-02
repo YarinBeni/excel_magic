@@ -1,0 +1,2 @@
+dataset,P*,P0,metric,tabfm,tabfm_auto_opus5,tabfm_auto_gemini38flash,our_gain_%,paper_gain_opus5_%,ours_vs_paper_tabfm
+QSAR_fish_toxicity,0.852857003705319,0.8564972535293511,rmse,0.85345,0.84829,0.85218,0.4250159365989558,0.6046048391821492,0.9993051774624395
