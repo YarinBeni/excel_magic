@@ -1,0 +1,38 @@
+# job 50245 J2_tabarena exit=0 Fri Oct  2 16:00:18 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_16.out
+=== J2 tabarena task 16 === job 50245 Fri Oct  2 15:57:06 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=hazelnut-spread-contaminant-detection model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:57:31,229 INFO P0 cv 1-auroc = 0.0071806977500703155
+2026-10-02 15:59:43,501 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/metrics.json
+2026-10-02 16:00:13,338 INFO hazelnut-spread-contaminant-detection    P0=0.00479 P*=0.00473 | paper TabFM=0.0023 TabFM-Auto(Opus5)=0.0021 | 175s
+2026-10-02 16:00:13,383 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection/metrics.json
+1 datasets: ['hazelnut-spread-contaminant-detection']
+pipeline                                     P*        P0
+dataset                                                  
+hazelnut-spread-contaminant-detection  0.004729  0.004792
+[collect] copied 151 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 2dc17c8] J2: tabarena hazelnut-spread-contaminant-detection heuristic (job 50245)
+ 12 files changed, 1192 insertions(+)
+ create mode 100644 reports/runs/20261002T155640Z_J2_heuristic_airfoil_self_noise/search/airfoil_self_noise/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155640Z_J2_heuristic_airfoil_self_noise/search/airfoil_self_noise/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155640Z_J2_heuristic_airfoil_self_noise/search/airfoil_self_noise/metrics.json
+ create mode 100644 reports/runs/20261002T155640Z_J2_heuristic_airfoil_self_noise/search/airfoil_self_noise/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T155643Z_J2_heuristic_Fitness_Club/search/Fitness_Club/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155643Z_J2_heuristic_Fitness_Club/search/Fitness_Club/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155643Z_J2_heuristic_Fitness_Club/search/Fitness_Club/metrics.json
+ create mode 100644 reports/runs/20261002T155643Z_J2_heuristic_Fitness_Club/search/Fitness_Club/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection/metrics.json
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection/results.csv
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   d99238f..2dc17c8  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 hazelnut-spread-contaminant-detection done Fri Oct  2 16:00:18 UTC 2026 ===
