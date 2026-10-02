@@ -1,0 +1,2 @@
+dataset,P*,P0,metric,tabfm,tabfm_auto_opus5,tabfm_auto_gemini38flash,our_gain_%,paper_gain_opus5_%,ours_vs_paper_tabfm
+credit-g,0.20083319271731292,0.1975722460658083,1-auroc,0.1944,0.194,0.1978,-1.6505084678839168,0.2057613168724196,1.0330925551302106
