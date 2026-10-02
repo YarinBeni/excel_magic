@@ -1,0 +1,2 @@
+dataset,P*,P0,metric,tabfm,tabfm_auto_opus5,tabfm_auto_gemini38flash,our_gain_%,paper_gain_opus5_%,ours_vs_paper_tabfm
+Another-Dataset-on-used-Fiat-500,717.2733788768771,714.4997263486471,rmse,703.27,693.49,696.52,-0.38819504416109857,1.3906465511112336,1.0199118103671097

@@ -1,0 +1,108 @@
+{
+  "dataset": "Another-Dataset-on-used-Fiat-500",
+  "task_type": "regression",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "rmse",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 15,
+  "n_evals_ok": 7,
+  "p0_cv": 739.0234789762679,
+  "best_cv": 736.5559555777639,
+  "best_candidate": "eval_013.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 150.2,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T195318Z_J8_pi_qwen3coder_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 696.9855364763536,
+  "p0_test_secondary": {
+    "rmse": 696.9855364763536,
+    "mae": 486.2917761254264,
+    "r2": 0.8661315823352991
+  },
+  "best_test": 695.6329181768895,
+  "best_test_secondary": {
+    "rmse": 695.6329181768895,
+    "mae": 479.85584330102796,
+    "r2": 0.8666506667659578
+  },
+  "best_test_info": {
+    "n_features": 8,
+    "t_features": 0.007,
+    "n_views": 1,
+    "view_sizes": [
+      1025
+    ],
+    "t_model": 0.379,
+    "t_total": 0.387,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 0.194,
+  "cv_trajectory": [
+    [
+      1,
+      739.0234789762679
+    ],
+    [
+      2,
+      null
+    ],
+    [
+      3,
+      null
+    ],
+    [
+      4,
+      null
+    ],
+    [
+      5,
+      null
+    ],
+    [
+      6,
+      null
+    ],
+    [
+      7,
+      null
+    ],
+    [
+      8,
+      738.3975821709361
+    ],
+    [
+      9,
+      null
+    ],
+    [
+      10,
+      737.5060209809862
+    ],
+    [
+      11,
+      null
+    ],
+    [
+      12,
+      738.775193990005
+    ],
+    [
+      13,
+      736.5559555777639
+    ],
+    [
+      14,
+      739.9518006082617
+    ],
+    [
+      15,
+      739.4240523345608
+    ]
+  ],
+  "elapsed_s": 159.66,
+  "status": "ok"
+}
