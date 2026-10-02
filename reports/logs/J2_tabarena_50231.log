@@ -1,11 +1,11 @@
-# job 50232 J2_tabarena exit=0 Fri Oct  2 15:46:40 UTC 2026
-# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50215_7.out
-=== J2 tabarena task 7 === job 50232 Fri Oct  2 15:46:34 UTC 2026
+# job 50231 J2_tabarena exit=0 Fri Oct  2 15:46:42 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50215_6.out
+=== J2 tabarena task 6 === job 50231 Fri Oct  2 15:46:34 UTC 2026
 From https://github.com/YarinBeni/excel_magic
  * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
 Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
 python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
-dataset=qsar-biodeg model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+dataset=concrete_compressive_strength model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
 usage: 05_tabarena_protocol.py [-h] [--datasets DATASETS] [--all]
                                [--max-instances MAX_INSTANCES]
                                [--max-features MAX_FEATURES] [--lite]
@@ -14,12 +14,17 @@ usage: 05_tabarena_protocol.py [-h] [--datasets DATASETS] [--all]
                                [--budget-minutes BUDGET_MINUTES]
                                [--max-rows MAX_ROWS] [--name NAME]
 05_tabarena_protocol.py: error: argument --harness: invalid choice: 'heuristic' (choose from 'claude-code', 'none')
-[J2] qsar-biodeg FAILED
+[J2] concrete_compressive_strength FAILED
 [collect] copied 13 files into reports/runs
-[commit_push_sandbox] nothing to commit
+[claude/tabular-model-agent-exp-wvni5o 337a6bc] J2: tabarena concrete_compressive_strength heuristic (job 50231)
+ 1 file changed, 2 insertions(+)
+ create mode 100644 reports/logs/J2_tabarena_50232.log
 From https://github.com/YarinBeni/excel_magic
  * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Created autostash: 0cacc13
 Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
-Everything up-to-date
+Applied autostash.
+To https://github.com/YarinBeni/excel_magic
+   c68da45..337a6bc  HEAD -> claude/tabular-model-agent-exp-wvni5o
 [commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
-=== J2 qsar-biodeg done Fri Oct  2 15:46:40 UTC 2026 ===
+=== J2 concrete_compressive_strength done Fri Oct  2 15:46:42 UTC 2026 ===
