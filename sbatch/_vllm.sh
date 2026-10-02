@@ -3,6 +3,9 @@
 # vLLM lives in its OWN conda env (python 3.12): a venv on top of the thesis python mixed conda's libicu with the
 # system libstdc++ (CXXABI_1.3.15 not found when vllm imported sqlite3).
 VLLM_VENV="$HOME/miniconda3/envs/vllm"
+# conda's libicu needs conda's (newer) libstdc++; without this the system libstdc++ gets loaded first and
+# `import sqlite3` dies with CXXABI_1.3.15 not found.
+vllm_env() { export LD_LIBRARY_PATH="$VLLM_VENV/lib:${LD_LIBRARY_PATH:-}"; }
 ensure_vllm() {
     # one installer at a time (several GPU jobs start together): flock + an .ok marker written only after `vllm --version`
     ( flock -w 3600 9 || { echo "[vllm] could not get install lock"; exit 1; }
@@ -13,6 +16,7 @@ ensure_vllm() {
       conda create -y -q -n vllm python=3.12 pip || exit 1
       "$VLLM_VENV/bin/pip" install -q --upgrade pip || exit 1
       "$VLLM_VENV/bin/pip" install -q --no-cache-dir vllm || exit 1
+      vllm_env
       "$VLLM_VENV/bin/vllm" --version || exit 1
       touch "$VLLM_VENV/.ok"
     ) 9>"$HOME/.vllm_install.lock" || { echo "FAILED vllm install"; return 1; }
@@ -20,6 +24,7 @@ ensure_vllm() {
 start_vllm() {
     local parsers="$1"; local extra="${2:-}"; local p
     ensure_vllm || return 1
+    vllm_env
     mkdir -p artifacts/vllm
     for p in $parsers; do
         echo "[vllm] serving $LLM on :$PORT with --tool-call-parser $p"
