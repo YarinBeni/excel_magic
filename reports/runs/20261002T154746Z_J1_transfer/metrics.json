@@ -1,0 +1,13 @@
+{
+  "models": [
+    "tabpfn",
+    "tabicl",
+    "kumo-tabular-s",
+    "tabpfn-2.5",
+    "hgb"
+  ],
+  "n_rows": 0,
+  "table": [],
+  "elapsed_s": 7.03,
+  "status": "ok"
+}
