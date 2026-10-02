@@ -1,0 +1,9 @@
+# job 50215 J2_tabarena exit=0 Fri Oct  2 15:49:47 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50215_16.out
+=== J2 tabarena task 16 === job 50215 Fri Oct  2 15:49:05 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=hazelnut-spread-contaminant-detection model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+[2026-10-02T15:49:47.444] error: *** JOB 50215 ON g0377 CANCELLED AT 2026-10-02T15:49:47 DUE to SIGNAL Terminated ***
