@@ -1,0 +1,120 @@
+{
+  "dataset": "breast_cancer",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=4,device=cuda",
+  "metric": "1-auroc",
+  "harness": "heuristic",
+  "llm_model": null,
+  "n_evals": 16,
+  "n_evals_ok": 16,
+  "p0_cv": 0.004650555575069968,
+  "best_cv": 0.004379539538133143,
+  "best_candidate": "eval_005.py",
+  "agent": {
+    "harness": "heuristic",
+    "best_config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "winsorize": true,
+      "count_encode": true
+    },
+    "best_cv": 0.004379539538133143,
+    "n_evals": 16,
+    "elapsed_s": 142.3
+  },
+  "p0_test": 0.004964953271028083,
+  "p0_test_secondary": {
+    "logloss": 0.08894102780453395,
+    "acc": 0.9649122807017544,
+    "auroc": 0.9950350467289719,
+    "1-auroc": 0.004964953271028083
+  },
+  "best_test": 0.004964953271028083,
+  "best_test_secondary": {
+    "logloss": 0.08714690607546584,
+    "acc": 0.9649122807017544,
+    "auroc": 0.9950350467289719,
+    "1-auroc": 0.004964953271028083
+  },
+  "best_test_info": {
+    "n_features": 30,
+    "t_features": 0.077,
+    "n_views": 1,
+    "view_sizes": [
+      398
+    ],
+    "t_model": 0.268,
+    "t_total": 0.346,
+    "model_spec": "kumo-tabular-s:n_estimators=4,device=cuda"
+  },
+  "test_improvement_pct": 0.0,
+  "baseline_hgb_test": 0.0108060747663552,
+  "cv_trajectory": [
+    [
+      1,
+      0.004650555575069968
+    ],
+    [
+      2,
+      0.00456717703336836
+    ],
+    [
+      3,
+      0.004487076911468373
+    ],
+    [
+      4,
+      0.0045666306300680875
+    ],
+    [
+      5,
+      0.004379539538133143
+    ],
+    [
+      6,
+      0.004461942359655691
+    ],
+    [
+      7,
+      0.00489020546065053
+    ],
+    [
+      8,
+      0.004729784053610008
+    ],
+    [
+      9,
+      0.004405441656486671
+    ],
+    [
+      10,
+      0.004595590004982713
+    ],
+    [
+      11,
+      0.004542367721615352
+    ],
+    [
+      12,
+      0.004541170838195694
+    ],
+    [
+      13,
+      0.004513629509941324
+    ],
+    [
+      14,
+      0.004567072956549258
+    ],
+    [
+      15,
+      0.004675143723582403
+    ],
+    [
+      16,
+      0.004432215418200208
+    ]
+  ],
+  "elapsed_s": 159.87,
+  "status": "ok"
+}
