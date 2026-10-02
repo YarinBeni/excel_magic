@@ -1,0 +1,21 @@
+# 011_resubmit_j1_j7  host=g0377  start=Fri Oct  2 15:56:04 UTC 2026  timeout=300s
+# HEAD=6d3173f
+# ---------------------------------------------------------
+J1b: 50265
+J7b: 50266
+     50192   AGENT_runner  RUNNING      23:32 g0377
+     50245    J2_tabarena  PENDING       0:00 (Priority)
+     50245    J2_tabarena  RUNNING       0:29 g0379
+     50245    J2_tabarena  RUNNING       2:29 g0381
+     50245    J2_tabarena  RUNNING       3:29 g0381
+     50245    J2_tabarena  RUNNING       3:59 g0376
+     50245    J2_tabarena  RUNNING       3:59 g0377
+     50249       J0v_vllm  RUNNING       3:59 g0380
+     50250        J3_vllm  PENDING       0:00 (Dependency)
+     50251   J5_llm_sweep  PENDING       0:00 (Dependency)
+     50252  J6_cli_agents  PENDING       0:00 (Dependency)
+     50265       J1_smoke  PENDING       0:00 (Priority)
+     50266 J7_relbench_hm  PENDING       0:00 (Priority)
+ARRAY_JOB_           NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 15:56:04 UTC 2026
