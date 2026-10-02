@@ -1,0 +1,32 @@
+# job 50268 J2_tabarena exit=0 Fri Oct  2 16:00:38 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_10.out
+=== J2 tabarena task 10 === job 50268 Fri Oct  2 15:56:36 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=Fitness_Club model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:57:07,388 INFO P0 cv 1-auroc = 0.17457962675059868
+2026-10-02 16:00:08,677 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155643Z_J2_heuristic_Fitness_Club/search/Fitness_Club/metrics.json
+2026-10-02 16:00:32,719 INFO Fitness_Club                             P0=0.17866 P*=0.17741 | paper TabFM=0.1789 TabFM-Auto(Opus5)=0.1787 | 224s
+2026-10-02 16:00:32,763 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155643Z_J2_heuristic_Fitness_Club/metrics.json
+1 datasets: ['Fitness_Club']
+pipeline            P*        P0
+dataset                         
+Fitness_Club  0.177411  0.178663
+[collect] copied 161 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o d0fa71c] J2: tabarena Fitness_Club heuristic (job 50268)
+ 6 files changed, 307 insertions(+)
+ create mode 100644 reports/runs/20261002T155643Z_J2_heuristic_Fitness_Club/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155643Z_J2_heuristic_Fitness_Club/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155643Z_J2_heuristic_Fitness_Club/metrics.json
+ create mode 100644 reports/runs/20261002T155643Z_J2_heuristic_Fitness_Club/results.csv
+ create mode 100644 reports/runs/20261002T155712Z_J2_heuristic_Marketing_Campaign/search/Marketing_Campaign/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155712Z_J2_heuristic_Marketing_Campaign/search/Marketing_Campaign/workspace/NOTES.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   2ca8a1f..d0fa71c  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 Fitness_Club done Fri Oct  2 16:00:38 UTC 2026 ===
