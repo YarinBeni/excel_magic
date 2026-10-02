@@ -1,0 +1,55 @@
+{
+  "models": [
+    "tabpfn",
+    "hgb"
+  ],
+  "n_rows": 4,
+  "table": [
+    {
+      "search_run": "20261002T062524Z_search_synth_physics_tabpfn_claude-code",
+      "dataset": "synth_physics",
+      "model": "tabpfn",
+      "pipeline": "P0",
+      "metric": "rmse",
+      "score": 0.11079828780784956,
+      "status": "ok",
+      "error": null,
+      "seconds": 2.81
+    },
+    {
+      "search_run": "20261002T062524Z_search_synth_physics_tabpfn_claude-code",
+      "dataset": "synth_physics",
+      "model": "tabpfn",
+      "pipeline": "P*",
+      "metric": "rmse",
+      "score": 0.08302997535046631,
+      "status": "ok",
+      "error": null,
+      "seconds": 1.85
+    },
+    {
+      "search_run": "20261002T062524Z_search_synth_physics_tabpfn_claude-code",
+      "dataset": "synth_physics",
+      "model": "hgb",
+      "pipeline": "P0",
+      "metric": "rmse",
+      "score": 0.32773792460973894,
+      "status": "ok",
+      "error": null,
+      "seconds": 0.14
+    },
+    {
+      "search_run": "20261002T062524Z_search_synth_physics_tabpfn_claude-code",
+      "dataset": "synth_physics",
+      "model": "hgb",
+      "pipeline": "P*",
+      "metric": "rmse",
+      "score": 0.18129163832395345,
+      "status": "ok",
+      "error": null,
+      "seconds": 0.17
+    }
+  ],
+  "elapsed_s": 10.02,
+  "status": "ok"
+}

@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it and the TabFM-Auto paper it reimplements."
+title: "open-tabfm-auto: an open-source implementation of TabFM-Auto"
+authors:
+  - family-names: Benizri
+    given-names: Yarin
+version: 0.1.0
+date-released: 2026-10-02
+repository-code: "https://github.com/YarinBeni/open-tabfm-auto"
+license: MIT
+references:
+  - type: article
+    title: "TabFM-Auto: Self-Evolving Pipelines for Tabular Foundation Models"
+    authors:
+      - family-names: Fu
+        given-names: Deqing
+      - family-names: Su
+        given-names: Huangyuan
+      - family-names: Sen
+        given-names: Rajat
+      - family-names: Narayan
+        given-names: Taman
+      - family-names: Sanghavi
+        given-names: Sujay
+      - family-names: Das
+        given-names: Abhimanyu
+      - family-names: Kong
+        given-names: Weihao
+    year: 2026
+    url: "https://arxiv.org/abs/2609.37989"

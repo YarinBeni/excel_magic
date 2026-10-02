@@ -1,0 +1,47 @@
+{
+  "dataset": "wine",
+  "task_type": "multiclass",
+  "model": "tabpfn:n_estimators=2",
+  "metric": "logloss",
+  "harness": "none",
+  "llm_model": null,
+  "n_evals": 1,
+  "n_evals_ok": 1,
+  "p0_cv": 0.08168560597669412,
+  "best_cv": 0.08168560597669412,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "none"
+  },
+  "p0_test": 0.008482798357924362,
+  "p0_test_secondary": {
+    "logloss": 0.008482798357924362,
+    "acc": 1.0
+  },
+  "best_test": 0.008482798357924362,
+  "best_test_secondary": {
+    "logloss": 0.008482798357924362,
+    "acc": 1.0
+  },
+  "best_test_info": {
+    "n_features": 13,
+    "t_features": 0.009,
+    "n_views": 1,
+    "view_sizes": [
+      124
+    ],
+    "t_model": 0.728,
+    "t_total": 0.739,
+    "model_spec": "tabpfn:n_estimators=2"
+  },
+  "test_improvement_pct": 0.0,
+  "baseline_hgb_test": 0.006887084423517261,
+  "cv_trajectory": [
+    [
+      1,
+      0.08168560597669412
+    ]
+  ],
+  "elapsed_s": 93.44,
+  "status": "ok"
+}

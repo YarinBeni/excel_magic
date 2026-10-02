@@ -1,35 +1,22 @@
-# כלי איתור כפילויות בקבצי Excel
+# Cluster work branch: open-tabfm-auto experiments
 
-כלי זה מוסיף עמודה **"האם כפילות"** לקובץ ה-Excel שלך:
-- **0** = שורה מקורית (הישנה ביותר בקבוצה)
-- **1** = כפילות (הגיעה אחרי)
+This branch of `excel_magic` is used ONLY as the cluster's command channel and lab notebook for the TabFM-Auto
+experiments (the repos will move to their own GitHub homes later). `main` still holds the Excel duplicate finder
+(moved here to `legacy_excel_magic/`).
 
----
+- `open-tabfm-auto/`: the library (open-source TabFM-Auto)
+- `frozen-embeddings-retrieval/`: the embeddings research repo
+- `sbatch/`: Slurm jobs J0 (setup) ... J4 (RelBench probe), `_common.sh` prologue, `_sandbox.sh` git helpers
+- `agent/`: git-driven runner (inbox / outbox / done / heartbeat)
+- `reports/`: results pushed back by jobs (`reports/runs/<run>/metrics.json`, `reports/logs/`)
+- `artifacts/` (gitignored): weights, OpenML cache, full run dirs, vLLM logs
+- `STATUS.md`: living status board; `docs/CLUSTER_HANDOFF.md`: the operating manual
 
-## התקנה (פעם אחת בלבד)
-
-הורד והתקן Python מהקישור הבא:
-
-https://www.python.org/downloads/
-
-**חשוב מאוד:** בזמן ההתקנה, סמן את התיבה **"Add Python to PATH"** בתחתית המסך.
-
----
-
-## שימוש יומיומי
-
-1. העתק את קובץ ה-Excel לתוך תיקייה זו
-2. לחץ פעמיים על **run.bat**
-3. קובץ חדש ייווצר באותה תיקייה עם הסיומת **`_מסומן.xlsx`**
-
-> קבצים ישנים עם `_מסומן` בשם ניתן להשאיר — הכלי מתעלם מהם.
-
----
-
-## שאלות נפוצות
-
-**שאלה: יש שגיאה "נמצאו מספר קבצי Excel"?**
-השאר בתיקייה רק קובץ אחד לעיבוד. קבצים עם `_מסומן` בסדר.
-
-**שאלה: מי נחשב כפילות?**
-אם יש כמה שורות זהות, השורה עם הזמן הישן ביותר מקבלת **0** וכל השאר מקבלות **1**.
+## One-time on the cluster (Yarin)
+```
+git clone -b claude/tabular-model-agent-exp-wvni5o https://github.com/YarinBeni/excel_magic ~/projects/excel_magic && cd ~/projects/excel_magic && git remote set-url origin https://<TOKEN>@github.com/YarinBeni/excel_magic && mkdir -p sbatch/logs && sbatch sbatch/AGENT_runner.sbatch && squeue -u $USER | head
+```
+## Per session
+```
+cd ~/projects/excel_magic && sbatch sbatch/AGENT_runner.sbatch
+```

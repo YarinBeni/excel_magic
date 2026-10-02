@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "frozen-embeddings-retrieval"
+version = "0.1.0"
+description = "Are hidden states of frozen tabular / relational foundation models good entity embeddings for retrieval?"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "open-tabfm-auto[tabpfn] @ git+https://github.com/YarinBeni/open-tabfm-auto.git",
+  "numpy>=1.24", "pandas>=2.0", "scikit-learn>=1.3", "torch>=2.5", "torch_geometric>=2.5",
+]
+
+[project.optional-dependencies]
+sdm = ["sdm @ git+https://github.com/NVIDIA/structured-data-models.git"]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[tool.setuptools.packages.find]
+include = ["fer*"]
+
+[tool.ruff]
+line-length = 120
+extend-exclude = ["third_party"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "RUF100"]
+ignore = ["E501", "E702", "E741", "B905"]

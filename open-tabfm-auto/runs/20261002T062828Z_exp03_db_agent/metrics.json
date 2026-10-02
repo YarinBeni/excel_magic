@@ -1,0 +1,204 @@
+{
+  "phase1": {
+    "rc": 0,
+    "elapsed_s": 46.9,
+    "n_events": 29,
+    "usage": {
+      "input_tokens": 12,
+      "cache_creation_input_tokens": 19346,
+      "cache_read_input_tokens": 217583,
+      "output_tokens": 6982,
+      "output_tokens_details": {
+        "thinking_tokens": 119
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 19346,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 393,
+          "cache_read_input_tokens": 43817,
+          "cache_creation_input_tokens": 836,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 836
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "total_cost_usd": 0.1921876,
+    "tool_counts": {
+      "Bash": 3,
+      "bash": 1,
+      "Write": 2
+    }
+  },
+  "agent_table": {
+    "name": "exp03_db_agent_table",
+    "task_type": "binary",
+    "n_rows": 2000,
+    "n_cols": 38,
+    "n_classes": 2,
+    "target": "churned"
+  },
+  "phase2": {
+    "dataset": "exp03_db_agent_table",
+    "task_type": "binary",
+    "model": "tabpfn:n_estimators=2",
+    "metric": "1-auroc",
+    "harness": "claude-code",
+    "llm_model": "sonnet",
+    "n_evals": 3,
+    "n_evals_ok": 3,
+    "p0_cv": 0.31563467106190074,
+    "best_cv": 0.28610018683648597,
+    "best_candidate": "eval_002.py",
+    "agent": {
+      "harness": "claude-code",
+      "rc": 0,
+      "elapsed_s": 203.6,
+      "n_events": 42,
+      "usage": {
+        "input_tokens": 10,
+        "cache_creation_input_tokens": 12122,
+        "cache_read_input_tokens": 177520,
+        "output_tokens": 1606,
+        "output_tokens_details": {
+          "thinking_tokens": 152
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 12122,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 339,
+            "cache_read_input_tokens": 38582,
+            "cache_creation_input_tokens": 327,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 327
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "total_cost_usd": 0.102477,
+      "tool_counts": {
+        "Bash": 4
+      }
+    },
+    "p0_test": 0.29295028021428815,
+    "p0_test_secondary": {
+      "logloss": 0.6214814596312134,
+      "acc": 0.6616666666666666,
+      "auroc": 0.7070497197857118,
+      "1-auroc": 0.29295028021428815
+    },
+    "best_test": 0.2752277092060782,
+    "best_test_secondary": {
+      "logloss": 0.6014750245126046,
+      "acc": 0.6566666666666666,
+      "auroc": 0.7247722907939218,
+      "1-auroc": 0.2752277092060782
+    },
+    "best_test_info": {
+      "n_features": 49,
+      "t_features": 0.046,
+      "n_views": 1,
+      "view_sizes": [
+        1400
+      ],
+      "t_model": 72.833,
+      "t_total": 72.888,
+      "model_spec": "tabpfn:n_estimators=2"
+    },
+    "test_improvement_pct": 6.05,
+    "baseline_hgb_test": 0.3144914026437854,
+    "cv_trajectory": [
+      [
+        1,
+        0.31563467106190074
+      ],
+      [
+        2,
+        0.28610018683648597
+      ],
+      [
+        3,
+        0.3153472906331662
+      ]
+    ]
+  },
+  "reference_p0": {
+    "dataset": "db_churn_reference",
+    "task_type": "binary",
+    "model": "tabpfn:n_estimators=2",
+    "metric": "1-auroc",
+    "harness": "none",
+    "llm_model": null,
+    "n_evals": 1,
+    "n_evals_ok": 1,
+    "p0_cv": 0.30204650118787607,
+    "best_cv": 0.30204650118787607,
+    "best_candidate": "eval_001.py",
+    "agent": {
+      "harness": "none"
+    },
+    "p0_test": 0.3165217391304348,
+    "p0_test_secondary": {
+      "logloss": 0.6297593299278617,
+      "acc": 0.6366666666666667,
+      "auroc": 0.6834782608695652,
+      "1-auroc": 0.3165217391304348
+    },
+    "best_test": 0.3165217391304348,
+    "best_test_secondary": {
+      "logloss": 0.6297593299278617,
+      "acc": 0.6366666666666667,
+      "auroc": 0.6834782608695652,
+      "1-auroc": 0.3165217391304348
+    },
+    "best_test_info": {
+      "n_features": 9,
+      "t_features": 0.018,
+      "n_views": 1,
+      "view_sizes": [
+        1400
+      ],
+      "t_model": 18.185,
+      "t_total": 18.205,
+      "model_spec": "tabpfn:n_estimators=2"
+    },
+    "test_improvement_pct": 0.0,
+    "baseline_hgb_test": 0.36152315998863316,
+    "cv_trajectory": [
+      [
+        1,
+        0.30204650118787607
+      ]
+    ]
+  },
+  "elapsed_s": 606.13,
+  "status": "ok"
+}

@@ -1,0 +1,104 @@
+{
+  "dataset": "synth_physics",
+  "task_type": "regression",
+  "model": "tabpfn:n_estimators=2",
+  "metric": "rmse",
+  "harness": "claude-code",
+  "llm_model": "sonnet",
+  "n_evals": 4,
+  "n_evals_ok": 4,
+  "p0_cv": 0.1077121962255424,
+  "best_cv": 0.0832078024185229,
+  "best_candidate": "eval_003.py",
+  "agent": {
+    "harness": "claude-code",
+    "rc": 0,
+    "elapsed_s": 55.8,
+    "n_events": 50,
+    "usage": {
+      "input_tokens": 18,
+      "cache_creation_input_tokens": 14083,
+      "cache_read_input_tokens": 325951,
+      "output_tokens": 2185,
+      "output_tokens_details": {
+        "thinking_tokens": 76
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 14083,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 323,
+          "cache_read_input_tokens": 38789,
+          "cache_creation_input_tokens": 610,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 610
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "total_cost_usd": 0.14504419999999998,
+    "tool_counts": {
+      "Bash": 8,
+      "Write": 1
+    }
+  },
+  "p0_test": 0.11079828780784956,
+  "p0_test_secondary": {
+    "rmse": 0.11079828780784956,
+    "mae": 0.07942588079234289,
+    "r2": 0.9945812890501805
+  },
+  "best_test": 0.08302997535046631,
+  "best_test_secondary": {
+    "rmse": 0.08302997535046631,
+    "mae": 0.06732736654271157,
+    "r2": 0.9969570157489474
+  },
+  "best_test_info": {
+    "n_features": 6,
+    "t_features": 0.013,
+    "n_views": 1,
+    "view_sizes": [
+      350
+    ],
+    "t_model": 1.498,
+    "t_total": 1.512,
+    "model_spec": "tabpfn:n_estimators=2"
+  },
+  "test_improvement_pct": 25.062,
+  "baseline_hgb_test": 0.32773792460973894,
+  "baseline_rf_test": 0.3183494040033945,
+  "cv_trajectory": [
+    [
+      1,
+      0.1077121962255424
+    ],
+    [
+      2,
+      0.0851133011953079
+    ],
+    [
+      3,
+      0.0832078024185229
+    ],
+    [
+      4,
+      0.0837589801185763
+    ]
+  ],
+  "elapsed_s": 75.47,
+  "status": "ok"
+}

@@ -1,0 +1,28 @@
+{
+  "name": "bench_synth_targets_seed1",
+  "config": {
+    "db": "/home/user/open-tabfm-auto/data_cache/synth_shop.sqlite",
+    "kind": "synth",
+    "embedders": "tabpfn_agg_rand4,tabpfn_agg_kmeans,tabpfn_agg_feat4",
+    "k_neighbors": 20,
+    "seed": 1,
+    "name": "bench_synth_targets_seed1"
+  },
+  "env": {
+    "python": "3.11.15",
+    "platform": "Linux-6.18.44-fc-v51-x86_64-with-glibc2.39",
+    "cpu_count": 4,
+    "git_sha": "e6df62d",
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1",
+    "torch": "2.14.1+cu130",
+    "tabpfn": "9.0.0",
+    "tabicl": "?",
+    "torch_geometric": "2.8.0.post1",
+    "lightgbm": "4.7.0",
+    "torch_cuda": false,
+    "torch_threads": 4
+  },
+  "started_utc": "2026-10-02T07:38:51.173475+00:00"
+}
