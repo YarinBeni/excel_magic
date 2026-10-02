@@ -1,0 +1,10 @@
+alive Fri Oct  2 15:38:25 UTC 2026
+host g0377
+job 50192
+       50209_[0-2] voltagepa J6_cli_a  yarin.b PD       0:00      1 (Priority)
+       50208_[0-3] voltagepa J5_llm_s  yarin.b PD       0:00      1 (Priority)
+             50207 voltagepa  J3_vllm  yarin.b PD       0:00      1 (Priority)
+      50204_[0-16] voltagepa J2_tabar  yarin.b PD       0:00      1 (Priority)
+             50194 voltagepa J1_smoke  yarin.b  R       0:22      1 g0381
+             50195 voltagepa J4_relbe  yarin.b  R       0:22      1 g0380
+             50192 voltagepa AGENT_ru  yarin.b  R       5:53      1 g0377
