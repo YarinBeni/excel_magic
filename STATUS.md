@@ -67,3 +67,5 @@
   LLM sweep (J3/J5) and CLI sweep (J6) complete.
 - inbox 025 / J8: TabArena wave 1 (17 datasets, all official splits) with pi + Qwen3-Coder (task 0) and tool loop + GLM-4.5-Air-FP8
   (task 1), 16 evals / 40 min per dataset, to compare with J2 (heuristic +0.5%) and the paper (+4.6%). Results land per dataset.
+- J8 task 1 (GLM, 50554_1) failed at vLLM start: 128k KV (23 GiB) does not fit next to the FP8 weights (18 GiB free) -> 64k;
+  inbox 026 resubmits task 1. J8 task 0 (pi) running: 4/17 datasets done.

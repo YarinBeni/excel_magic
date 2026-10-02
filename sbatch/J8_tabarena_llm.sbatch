@@ -21,7 +21,7 @@ if [ "$SLURM_ARRAY_TASK_ID" = "0" ]; then
     start_vllm "qwen3_coder hermes" || { echo "FAILED: vllm could not start"; exit 1; }
 else
     LLM="zai-org/GLM-4.5-Air-FP8"; TAG="openai_glm45air"
-    export VLLM_GPU_FRAC=0.90
+    export VLLM_GPU_FRAC=0.90 VLLM_MAX_LEN=65536   # FP8 weights leave ~18 GiB for KV on one H200: 128k needs 23 GiB
     start_vllm "glm45 hermes" || { echo "FAILED: vllm could not start"; exit 1; }
 fi
 trap 'kill $VLLM_PID 2>/dev/null || true' EXIT
