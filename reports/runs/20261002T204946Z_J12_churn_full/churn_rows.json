@@ -1,0 +1,51 @@
+{
+ "task": "rel-hm/user-churn",
+ "t0": "2020-08-31",
+ "n_customers": 20000,
+ "pos_rate": 0.81675,
+ "hist_days": 365,
+ "k": 50,
+ "n_folds": 5,
+ "rows": {
+  "MajorityPrior": {
+   "auroc": 0.5,
+   "seconds": 0.0
+  },
+  "Supervised[hgb on agg]": {
+   "auroc": 0.6724575115744655,
+   "seconds": 87.3
+  },
+  "Supervised[tabpfn on agg]": {
+   "auroc": 0.6715353209635736,
+   "seconds": 12.2
+  },
+  "kNN[row]": {
+   "auroc": 0.5197704274127442,
+   "seconds": 5.1
+  },
+  "kNN[agg]": {
+   "auroc": 0.6529927911969335,
+   "seconds": 5.2
+  },
+  "kNN[svd]": {
+   "auroc": 0.5901082009478389,
+   "seconds": 6.4
+  },
+  "kNN[svd_agg]": {
+   "auroc": 0.6374539140631166,
+   "seconds": 5.2
+  },
+  "kNN[tabpfn_agg_kmeans]": {
+   "auroc": 0.6484280566632048,
+   "seconds": 8.5
+  },
+  "kNN[tabpfn_agg_random]": {
+   "auroc": 0.6425052793426849,
+   "seconds": 7.8
+  },
+  "kNN[tabpfn_svd_kmeans]": {
+   "auroc": 0.6449870401898183,
+   "seconds": 13.5
+  }
+ }
+}

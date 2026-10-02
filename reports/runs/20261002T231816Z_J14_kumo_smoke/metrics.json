@@ -1,0 +1,35 @@
+{
+  "churn": {
+    "task": "rel-hm/user-churn",
+    "t0": "2020-08-31",
+    "n_customers": 2000,
+    "pos_rate": 0.8055,
+    "hist_days": 365,
+    "k": 50,
+    "n_folds": 3,
+    "rows": {
+      "MajorityPrior": {
+        "auroc": 0.5,
+        "seconds": 0.0
+      },
+      "Supervised[hgb on agg]": {
+        "auroc": 0.5834757507432035,
+        "seconds": 54.5
+      },
+      "Supervised[tabpfn on agg]": {
+        "auroc": 0.6313479468755137,
+        "seconds": 2.4
+      },
+      "kNN[agg]": {
+        "auroc": 0.6262751743715682,
+        "seconds": 0.0
+      },
+      "kNN[kumo_relational_kmeans]": {
+        "auroc": 0.6002857922477057,
+        "seconds": 7.4
+      }
+    }
+  },
+  "elapsed_s": 76.67,
+  "status": "ok"
+}

@@ -1,0 +1,30 @@
+{
+ "task": "rel-hm/user-churn",
+ "t0": "2020-08-31",
+ "n_customers": 3000,
+ "pos_rate": 0.813,
+ "hist_days": 365,
+ "k": 50,
+ "n_folds": 3,
+ "rows": {
+  "MajorityPrior": {
+   "auroc": 0.5,
+   "seconds": 0.0
+  },
+  "Supervised[hgb on agg]": {
+   "auroc": 0.57932556152656,
+   "seconds": 41.2
+  },
+  "Supervised[tabpfn on agg]": {
+   "error": "TabPFNValidationError: Unknown inference_precision=float32"
+  },
+  "kNN[agg]": {
+   "auroc": 0.6032446598975794,
+   "seconds": 0.2
+  },
+  "kNN[tabpfn_agg_kmeans]": {
+   "auroc": 0.609438572104081,
+   "seconds": 1.9
+  }
+ }
+}
