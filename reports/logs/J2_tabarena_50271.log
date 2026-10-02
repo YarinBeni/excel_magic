@@ -1,0 +1,30 @@
+# job 50271 J2_tabarena exit=0 Fri Oct  2 16:01:54 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_13.out
+=== J2 tabarena task 13 === job 50271 Fri Oct  2 15:57:06 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=MIC model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:57:33,238 INFO P0 cv logloss = 0.4449707544319749
+2026-10-02 16:01:03,141 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155711Z_J2_heuristic_MIC/search/MIC/metrics.json
+2026-10-02 16:01:48,236 INFO MIC                                      P0=0.43178 P*=0.42538 | paper TabFM=0.4282 TabFM-Auto(Opus5)=0.4178 | 270s
+2026-10-02 16:01:48,291 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155711Z_J2_heuristic_MIC/metrics.json
+1 datasets: ['MIC']
+pipeline        P*        P0
+dataset                     
+MIC       0.425378  0.431782
+[collect] copied 199 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 918aef5] J2: tabarena MIC heuristic (job 50271)
+ 4 files changed, 86 insertions(+)
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_MIC/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_MIC/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_MIC/metrics.json
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_MIC/results.csv
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   1d879a5..918aef5  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 MIC done Fri Oct  2 16:01:54 UTC 2026 ===
