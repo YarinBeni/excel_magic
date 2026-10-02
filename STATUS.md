@@ -16,3 +16,5 @@
 - J4 probe OK: rel-hm loads (15.4M tx); val MAP@12 x100: GlobalPop 0.34, PastVisit 1.90. -> inbox 008 / J7: full rel-hm experiment with our rows.
 - J1 (partial): Kumo-S best open backbone on synth_physics (0.087) / synth_entities (0.447); TabICLv2 best on wine/diabetes. Bugs fixed:
   --harness choices in the TabArena example, comma-in-spec model lists. inbox 009 resubmits J2.
+- J1 (partial): Kumo-S best open backbone on synth_physics (0.087) / synth_entities (0.447); TabICLv2 best on wine/diabetes. Bugs fixed:
+  --harness choices in the TabArena example, comma-in-spec model lists. inbox 009 resubmits J2.
