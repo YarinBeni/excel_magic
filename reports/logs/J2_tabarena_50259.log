@@ -1,0 +1,35 @@
+# job 50259 J2_tabarena exit=0 Fri Oct  2 15:56:40 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_6.out
+=== J2 tabarena task 6 === job 50259 Fri Oct  2 15:52:35 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=concrete_compressive_strength model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:53:01,875 INFO P0 cv rmse = 4.290933995398416
+2026-10-02 15:56:10,356 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155239Z_J2_heuristic_concrete_compressive_strength/search/concrete_compressive_strength/metrics.json
+2026-10-02 15:56:35,063 INFO concrete_compressive_strength            P0=3.82679 P*=3.87817 | paper TabFM=3.9666 TabFM-Auto(Opus5)=3.8169 | 229s
+2026-10-02 15:56:35,107 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155239Z_J2_heuristic_concrete_compressive_strength/metrics.json
+1 datasets: ['concrete_compressive_strength']
+pipeline                             P*        P0
+dataset                                          
+concrete_compressive_strength  3.878169  3.826791
+[collect] copied 85 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o b34f3a7] J2: tabarena concrete_compressive_strength heuristic (job 50259)
+ 9 files changed, 489 insertions(+)
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_QSAR_fish_toxicity/search/QSAR_fish_toxicity/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_QSAR_fish_toxicity/search/QSAR_fish_toxicity/metrics.json
+ create mode 100644 reports/runs/20261002T155239Z_J2_heuristic_concrete_compressive_strength/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155239Z_J2_heuristic_concrete_compressive_strength/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155239Z_J2_heuristic_concrete_compressive_strength/metrics.json
+ create mode 100644 reports/runs/20261002T155239Z_J2_heuristic_concrete_compressive_strength/results.csv
+ create mode 100644 reports/runs/20261002T155549Z_J2_heuristic_healthcare_insurance_expenses/config.json
+ create mode 100644 reports/runs/20261002T155549Z_J2_heuristic_healthcare_insurance_expenses/search/healthcare_insurance_expenses/config.json
+ create mode 100644 reports/runs/20261002T155610Z_J2_heuristic_website_phishing/search/website_phishing/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   14b880a..b34f3a7  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 concrete_compressive_strength done Fri Oct  2 15:56:40 UTC 2026 ===
