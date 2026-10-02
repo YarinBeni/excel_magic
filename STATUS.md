@@ -18,3 +18,4 @@
   --harness choices in the TabArena example, comma-in-spec model lists. inbox 009 resubmits J2.
 - J1 (partial): Kumo-S best open backbone on synth_physics (0.087) / synth_entities (0.447); TabICLv2 best on wine/diabetes. Bugs fixed:
   --harness choices in the TabArena example, comma-in-spec model lists. inbox 009 resubmits J2.
+- J3/J5/J6 died racing on the vLLM venv creation -> _vllm.sh installs under flock with an .ok marker; J0v installs once; inbox 010 resubmits.

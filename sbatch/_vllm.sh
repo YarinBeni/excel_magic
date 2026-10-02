@@ -2,11 +2,17 @@
 #   LLM=Qwen/Qwen3-Coder-30B-A3B-Instruct PORT=8000 start_vllm "qwen3_coder hermes"
 VLLM_VENV="$HOME/venvs/vllm"
 ensure_vllm() {
-    if [ ! -f "$VLLM_VENV/bin/vllm" ]; then
-        echo "[vllm] installing into $VLLM_VENV (one-time)"
-        python3 -m venv "$VLLM_VENV" && "$VLLM_VENV/bin/pip" install -q --upgrade pip && "$VLLM_VENV/bin/pip" install -q vllm \
-            || { echo "FAILED vllm install"; return 1; }
-    fi
+    # one installer at a time (several GPU jobs start together): flock + an .ok marker written only after `vllm --version`
+    ( flock -w 3600 9 || { echo "[vllm] could not get install lock"; exit 1; }
+      if [ -f "$VLLM_VENV/.ok" ] && [ -x "$VLLM_VENV/bin/vllm" ]; then exit 0; fi
+      echo "[vllm] installing into $VLLM_VENV (one-time, under lock)"
+      rm -rf "$VLLM_VENV"
+      python3 -m venv "$VLLM_VENV" || exit 1
+      "$VLLM_VENV/bin/pip" install -q --upgrade pip || exit 1
+      "$VLLM_VENV/bin/pip" install -q --no-cache-dir vllm || exit 1
+      "$VLLM_VENV/bin/vllm" --version || exit 1
+      touch "$VLLM_VENV/.ok"
+    ) 9>"$HOME/.vllm_install.lock" || { echo "FAILED vllm install"; return 1; }
 }
 start_vllm() {
     local parsers="$1"; local extra="${2:-}"; local p
