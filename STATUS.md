@@ -84,3 +84,5 @@
   Does not close the gap to pi -> harness effect is the agent loop itself. Early J9: Kumo-L (4 ds) -2.8%, TabICLv2 (6 ds) -9.2%;
   J10 budget64 heuristic (3 ds) +3.3%, pi (5) -4.3%; J11 cv3: heuristic entities +8.3%, pi entities +28.1% / breast -5.4%.
 - J12c (50659): supervised TabPFN on agg 0.672 = HGB; frozen embedding + kNN 0.648 -> the pseudo-target costs 2.4 AUROC points.
+- J11 (cv3 judge) heuristic done, pi 4/5: on the <1000-row TabArena tables heuristic +1.4% -> +2.1%, pi -1.4% -> -0.5%;
+  breast_cancer pi -17% -> -5%. Recommend --cv-repeats auto. REPORT 6 / RESULTS updated.

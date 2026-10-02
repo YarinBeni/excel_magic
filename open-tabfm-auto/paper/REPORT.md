@@ -276,6 +276,11 @@ representation than those features, and it is not an item-level retrieval embedd
   on physics / entities / breast_cancer (plain loop: +1.3 to +2.9% / −1.1 to +1.0% / −2.9 to −56.7%; pi: −0.9% / +50.3% /
   −17.1%). TabArena-Lite airfoil +3.3%, blood +0.4%, credit-g +1.4%. The harness effect is in how the agent iterates
   (reading eval output, editing in place, shell access), not in the information it starts with.
+- **Judge noise (J11)**: a repeated 3-fold judge (3 repeats = 9 folds) at the same budget on the five TabArena tables
+  with < 1000 training rows moves the heuristic's mean gain from +1.4% to +2.1% (anneal +8.5% → +10.5%, diabetes
+  −1.7% → +1.2%) and pi + Qwen3-Coder from −1.4% to −0.5% on the four done so far; on the 569-row breast_cancer table pi's
+  loss shrinks from −17.1% to −5.4% and the heuristic's stays at 0. Repeated CV is cheap (the folds are ~1 s each on an
+  H200) and is now the recommended default for n < 1000 (`--cv-repeats auto`).
 - **LLM at fixed harness** (§5.2): GLM-4.5-Air (106B-A12B) > gpt-oss-20b > Qwen3-Coder-30B-A3B > Qwen3-32B in the
   tool loop; the reasoning model spends its budget on rewrites (37 writes / 16 evals) and finds nothing.
 - **LLM vs no LLM**: the greedy heuristic matches the mid-tier CLI agents on the entity task (+25–29%) because
@@ -283,8 +288,8 @@ representation than those features, and it is not an item-level retrieval embedd
   suggests, which Sonnet found in four evals. Open LLMs found neither on physics (≤ +5%).
 - **Backbone strength vs gain** (§5.4): pipelines found for TabPFN v2 transfer upward unevenly (Kumo-M −18% on
   entities, Kumo-L +5%), supporting the paper's conclusion that search should be run per backbone.
-- **Small-data overfitting**: on breast_cancer every LLM setup's CV-best candidate is worse on test (−3% to −57%);
-  a budget or a repeated-CV judge for n < 1000 is the obvious fix and is not implemented.
+- **Small-data overfitting**: on breast_cancer every LLM setup's CV-best candidate is worse on test (−3% to −57%)
+  with a single 3-fold judge; the repeated judge above removes most of it.
 - **Cost**: one H200 serves a 30B-A3B coder at ~1.5 min per 16-eval search and GLM-4.5-Air-FP8 at ~5 min; the
   17-dataset TabArena wave costs ~1–2 GPU-hours per setup versus the paper's $17.6K sweep (J8, running).
 

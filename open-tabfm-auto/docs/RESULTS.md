@@ -320,3 +320,22 @@ Source: `reports/runs/20261002T203451Z_J12_churn_full/`.
 
 No improvement over the plain loop on the synthetic tasks (pi with the same LLM: +50% on entities): the harness gap is
 not the starting information.
+
+## Repeated-CV judge on small tables (cluster job J11, 2026-10-02): 3 x 3-fold vs 1 x 3-fold, same budgets
+
+Frozen Kumo Tabular-S; TabArena protocol on the five wave-1 datasets with < 1000 training rows, and the three bundled
+tasks. Gains are relative error reduction P* vs P0 on the official splits (held-out test for the bundled tasks).
+
+| dataset | heuristic 1x3 (J2) | heuristic 3x3 (J11) | pi 1x3 (J8) | pi 3x3 (J11) |
+|---|---|---|---|---|
+| anneal | +8.5% | +10.5% | -5.2% | (running) |
+| diabetes | -1.7% | +1.2% | +0.8% | +0.6% |
+| QSAR_fish_toxicity | +0.2% | +0.2% | -0.1% | -0.0% |
+| blood-transfusion | +0.2% | -0.6% | -0.1% | -0.1% |
+| credit-g | -0.2% | -0.6% | -2.2% | -2.4% |
+| synth_physics | +0.6% (J1) | -1.0% | -0.9% (J6) | -0.1% |
+| synth_entities | +25-29% (J1) | +8.3% | +50.3% (J6) | +28.1% |
+| breast_cancer | 0% | 0% | -17.1% (J6) | -5.4% |
+
+The repeated judge removes most of the small-table loss (pi breast_cancer -17% -> -5%) and lifts the heuristic on
+anneal/diabetes; the synthetic entity gains are smaller under the stricter judge (fewer candidates pass).
