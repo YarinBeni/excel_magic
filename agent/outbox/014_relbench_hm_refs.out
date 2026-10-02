@@ -1,0 +1,12 @@
+# 014_relbench_hm_refs  host=g0377  start=Fri Oct  2 16:36:56 UTC 2026  timeout=300s
+# HEAD=2ac03f7
+# ---------------------------------------------------------
+J7c: 50341
+     50192   AGENT_runner  RUNNING    1:04:24 g0377
+     50317        J3_vllm  PENDING       0:00 (DependencyNeverSatisfied)
+     50318   J5_llm_sweep  PENDING       0:00 (DependencyNeverSatisfied)
+     50319  J6_cli_agents  PENDING       0:00 (DependencyNeverSatisfied)
+     50341 J7_relbench_hm  PENDING       0:00 (Priority)
+ARRAY_JOB_           NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 16:36:56 UTC 2026
