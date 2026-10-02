@@ -1,0 +1,86 @@
+{
+  "dataset": "anneal",
+  "task_type": "multiclass",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "logloss",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 10,
+  "n_evals_ok": 10,
+  "p0_cv": 0.053998507895518154,
+  "best_cv": 0.05316297938646927,
+  "best_candidate": "eval_009.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 140.5,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T192430Z_J8_pi_qwen3coder_anneal/search/anneal/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.01763135818202335,
+  "p0_test_secondary": {
+    "logloss": 0.01763135818202335,
+    "acc": 0.9966666666666667
+  },
+  "best_test": 0.017528561705770804,
+  "best_test_secondary": {
+    "logloss": 0.017528561705770804,
+    "acc": 0.9966666666666667
+  },
+  "best_test_info": {
+    "n_features": 41,
+    "t_features": 0.02,
+    "n_views": 1,
+    "view_sizes": [
+      598
+    ],
+    "t_model": 0.472,
+    "t_total": 0.494,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 0.583,
+  "cv_trajectory": [
+    [
+      1,
+      0.053998507895518154
+    ],
+    [
+      2,
+      0.05468732675028804
+    ],
+    [
+      3,
+      0.054922524686680206
+    ],
+    [
+      4,
+      0.057539668501315866
+    ],
+    [
+      5,
+      0.05428055781289193
+    ],
+    [
+      6,
+      0.05587654744014776
+    ],
+    [
+      7,
+      0.06245956118573618
+    ],
+    [
+      8,
+      0.054194783130026236
+    ],
+    [
+      9,
+      0.05316297938646927
+    ],
+    [
+      10,
+      0.054384390062421635
+    ]
+  ],
+  "elapsed_s": 150.39,
+  "status": "ok"
+}
