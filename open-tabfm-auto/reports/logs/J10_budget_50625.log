@@ -1,0 +1,217 @@
+# job 50625 J10_budget exit=0 Fri Oct  2 21:01:10 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J10_budget_50616_0.out
+=== J10 budget task 0 === job 50625 Fri Oct  2 20:23:52 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+--- anneal Fri Oct  2 20:23:55 UTC 2026
+2026-10-02 20:24:51,321 INFO P0 cv logloss = 0.03076120150055156
+2026-10-02 20:32:30,222 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T202358Z_J10_heuristic_b64_anneal/search/anneal/metrics.json
+2026-10-02 20:32:55,442 INFO anneal                                   P0=0.01182 P*=0.01115 | paper TabFM=0.0125 TabFM-Auto(Opus5)=0.0103 | 502s
+2026-10-02 20:32:55,509 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T202358Z_J10_heuristic_b64_anneal/metrics.json
+1 datasets: ['anneal']
+pipeline        P*        P0
+dataset                     
+anneal    0.011151  0.011825
+[collect] copied 876 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 8ffa5f4] J10: budget64 heuristic anneal (job 50625)
+ 18 files changed, 1764 insertions(+)
+ create mode 100644 reports/runs/20261002T202358Z_J10_heuristic_b64_anneal/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T202358Z_J10_heuristic_b64_anneal/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T202358Z_J10_heuristic_b64_anneal/metrics.json
+ create mode 100644 reports/runs/20261002T202358Z_J10_heuristic_b64_anneal/results.csv
+ create mode 100644 reports/runs/20261002T202358Z_J10_heuristic_b64_anneal/search/anneal/best_pipeline.py
+ create mode 100644 reports/runs/20261002T202358Z_J10_heuristic_b64_anneal/search/anneal/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T202358Z_J10_heuristic_b64_anneal/search/anneal/metrics.json
+ create mode 100644 reports/runs/20261002T202358Z_J10_heuristic_b64_anneal/search/anneal/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T202730Z_J8_openai_glm45air_healthcare_insurance_expenses/search/healthcare_insurance_expenses/agent_result.md
+ create mode 100644 reports/runs/20261002T202730Z_J8_openai_glm45air_healthcare_insurance_expenses/search/healthcare_insurance_expenses/best_pipeline.py
+ create mode 100644 reports/runs/20261002T202730Z_J8_openai_glm45air_healthcare_insurance_expenses/search/healthcare_insurance_expenses/metrics.json
+ create mode 100644 reports/runs/20261002T202730Z_J8_openai_glm45air_healthcare_insurance_expenses/search/healthcare_insurance_expenses/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T203207Z_J10_pi_qwen3coder_b64_airfoil_self_noise/config.json
+ create mode 100644 reports/runs/20261002T203207Z_J10_pi_qwen3coder_b64_airfoil_self_noise/search/airfoil_self_noise/agent_stream.log
+ create mode 100644 reports/runs/20261002T203207Z_J10_pi_qwen3coder_b64_airfoil_self_noise/search/airfoil_self_noise/config.json
+ create mode 100644 reports/runs/20261002T203215Z_J9_heuristic_kumoL_anneal/config.json
+ create mode 100644 reports/runs/20261002T203215Z_J9_heuristic_kumoL_anneal/search/anneal/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   1952b53..8ffa5f4  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- Marketing_Campaign Fri Oct  2 20:33:12 UTC 2026
+2026-10-02 20:33:29,333 INFO P0 cv 1-auroc = 0.13489881290363026
+2026-10-02 20:37:41,080 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203313Z_J10_heuristic_b64_Marketing_Campaign/search/Marketing_Campaign/metrics.json
+2026-10-02 20:38:08,996 INFO Marketing_Campaign                       P0=0.06572 P*=0.06620 | paper TabFM=0.0732 TabFM-Auto(Opus5)=0.0616 | 288s
+2026-10-02 20:38:09,044 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203313Z_J10_heuristic_b64_Marketing_Campaign/metrics.json
+1 datasets: ['Marketing_Campaign']
+pipeline                  P*        P0
+dataset                               
+Marketing_Campaign  0.066201  0.065724
+[collect] copied 976 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 5643829] J10: budget64 heuristic Marketing_Campaign (job 50625)
+ 2 files changed, 79 insertions(+)
+ create mode 100644 reports/runs/20261002T203805Z_J9_heuristic_tabiclv2_credit-g/config.json
+ create mode 100644 reports/runs/20261002T203805Z_J9_heuristic_tabiclv2_credit-g/search/credit-g/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   851c0f2..5643829  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- airfoil_self_noise Fri Oct  2 20:38:22 UTC 2026
+2026-10-02 20:38:39,984 INFO P0 cv rmse = 1.3458511905179282
+2026-10-02 20:42:46,766 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203824Z_J10_heuristic_b64_airfoil_self_noise/search/airfoil_self_noise/metrics.json
+2026-10-02 20:43:12,960 INFO airfoil_self_noise                       P0=0.97490 P*=0.92810 | paper TabFM=1.0734 TabFM-Auto(Opus5)=0.9165 | 282s
+2026-10-02 20:43:13,019 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203824Z_J10_heuristic_b64_airfoil_self_noise/metrics.json
+1 datasets: ['airfoil_self_noise']
+pipeline                  P*        P0
+dataset                               
+airfoil_self_noise  0.928105  0.974897
+[collect] copied 1072 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 2f4b989] J10: budget64 heuristic airfoil_self_noise (job 50625)
+ 9 files changed, 394 insertions(+)
+ create mode 100644 reports/runs/20261002T203824Z_J10_heuristic_b64_airfoil_self_noise/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T203824Z_J10_heuristic_b64_airfoil_self_noise/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T203824Z_J10_heuristic_b64_airfoil_self_noise/metrics.json
+ create mode 100644 reports/runs/20261002T203824Z_J10_heuristic_b64_airfoil_self_noise/results.csv
+ create mode 100644 reports/runs/20261002T204301Z_J9_heuristic_kumoL_credit-g/config.json
+ create mode 100644 reports/runs/20261002T204301Z_J9_heuristic_kumoL_credit-g/search/credit-g/config.json
+ create mode 100644 reports/runs/20261002T204302Z_J11_heuristic_cv3_QSAR_fish_toxicity/config.json
+ create mode 100644 reports/runs/20261002T204302Z_J11_heuristic_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   9ca68ab..2f4b989  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- hazelnut-spread-contaminant-detection Fri Oct  2 20:43:29 UTC 2026
+2026-10-02 20:43:47,032 INFO P0 cv 1-auroc = 0.007471740131093345
+2026-10-02 20:50:14,167 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T204330Z_J10_heuristic_b64_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/metrics.json
+2026-10-02 20:50:49,102 INFO hazelnut-spread-contaminant-detection    P0=0.00476 P*=0.00499 | paper TabFM=0.0023 TabFM-Auto(Opus5)=0.0021 | 431s
+2026-10-02 20:50:49,144 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T204330Z_J10_heuristic_b64_hazelnut-spread-contaminant-detection/metrics.json
+1 datasets: ['hazelnut-spread-contaminant-detection']
+pipeline                                     P*        P0
+dataset                                                  
+hazelnut-spread-contaminant-detection  0.004987  0.004764
+[collect] copied 1184 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 4aa434a] J10: budget64 heuristic hazelnut-spread-contaminant-detection (job 50625)
+ 14 files changed, 1525 insertions(+)
+ create mode 100644 reports/runs/20261002T204330Z_J10_heuristic_b64_hazelnut-spread-contaminant-detection/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T204330Z_J10_heuristic_b64_hazelnut-spread-contaminant-detection/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T204330Z_J10_heuristic_b64_hazelnut-spread-contaminant-detection/metrics.json
+ create mode 100644 reports/runs/20261002T204330Z_J10_heuristic_b64_hazelnut-spread-contaminant-detection/results.csv
+ create mode 100644 reports/runs/20261002T204330Z_J10_heuristic_b64_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/best_pipeline.py
+ create mode 100644 reports/runs/20261002T204330Z_J10_heuristic_b64_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T204330Z_J10_heuristic_b64_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/metrics.json
+ create mode 100644 reports/runs/20261002T204330Z_J10_heuristic_b64_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T204700Z_J12_churn_smoke/metrics.json
+ create mode 100644 reports/runs/20261002T204700Z_J12_churn_smoke/results.md
+ create mode 100644 reports/runs/20261002T204942Z_J11_pi_qwen3coder_cv3_diabetes/config.json
+ create mode 100644 reports/runs/20261002T204942Z_J11_pi_qwen3coder_cv3_diabetes/search/diabetes/agent_stream.log
+ create mode 100644 reports/runs/20261002T204942Z_J11_pi_qwen3coder_cv3_diabetes/search/diabetes/config.json
+ create mode 100644 reports/runs/20261002T204946Z_J12_churn_full/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+   2f0f5cd..ce00240  claude/tabular-model-agent-exp-wvni5o -> origin/claude/tabular-model-agent-exp-wvni5o
+Rebasing (1/1)[KSuccessfully rebased and updated refs/heads/claude/tabular-model-agent-exp-wvni5o.
+To https://github.com/YarinBeni/excel_magic
+   ce00240..74f2264  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- diabetes Fri Oct  2 20:51:07 UTC 2026
+2026-10-02 20:51:25,962 INFO P0 cv 1-auroc = 0.16659079378005934
+2026-10-02 20:58:32,210 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T205108Z_J10_heuristic_b64_diabetes/search/diabetes/metrics.json
+2026-10-02 20:58:56,512 INFO diabetes                                 P0=0.15964 P*=0.15883 | paper TabFM=0.158 TabFM-Auto(Opus5)=0.1471 | 461s
+2026-10-02 20:58:56,558 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T205108Z_J10_heuristic_b64_diabetes/metrics.json
+1 datasets: ['diabetes']
+pipeline       P*        P0
+dataset                    
+diabetes  0.15883  0.159644
+[collect] copied 1298 files into reports/runs
+[detached HEAD 5f3a7b1] J10: budget64 heuristic diabetes (job 50625)
+ 78 files changed, 6936 insertions(+)
+ create mode 100644 reports/runs/20261002T204818Z_J10_openai_glm45air_b64_airfoil_self_noise/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T204818Z_J10_openai_glm45air_b64_airfoil_self_noise/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T204818Z_J10_openai_glm45air_b64_airfoil_self_noise/metrics.json
+ create mode 100644 reports/runs/20261002T204818Z_J10_openai_glm45air_b64_airfoil_self_noise/results.csv
+ create mode 100644 reports/runs/20261002T204818Z_J10_openai_glm45air_b64_airfoil_self_noise/search/airfoil_self_noise/agent_result.md
+ create mode 100644 reports/runs/20261002T204818Z_J10_openai_glm45air_b64_airfoil_self_noise/search/airfoil_self_noise/best_pipeline.py
+ create mode 100644 reports/runs/20261002T204818Z_J10_openai_glm45air_b64_airfoil_self_noise/search/airfoil_self_noise/metrics.json
+ create mode 100644 reports/runs/20261002T204818Z_J10_openai_glm45air_b64_airfoil_self_noise/search/airfoil_self_noise/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T205108Z_J10_heuristic_b64_diabetes/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T205108Z_J10_heuristic_b64_diabetes/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T205108Z_J10_heuristic_b64_diabetes/metrics.json
+ create mode 100644 reports/runs/20261002T205108Z_J10_heuristic_b64_diabetes/results.csv
+ create mode 100644 reports/runs/20261002T205108Z_J10_heuristic_b64_diabetes/search/diabetes/best_pipeline.py
+ create mode 100644 reports/runs/20261002T205108Z_J10_heuristic_b64_diabetes/search/diabetes/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T205108Z_J10_heuristic_b64_diabetes/search/diabetes/metrics.json
+ create mode 100644 reports/runs/20261002T205108Z_J10_heuristic_b64_diabetes/search/diabetes/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T205242Z_J9_heuristic_tabiclv2_healthcare_insurance_expenses/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T205242Z_J9_heuristic_tabiclv2_healthcare_insurance_expenses/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T205242Z_J9_heuristic_tabiclv2_healthcare_insurance_expenses/metrics.json
+ create mode 100644 reports/runs/20261002T205242Z_J9_heuristic_tabiclv2_healthcare_insurance_expenses/results.csv
+ create mode 100644 reports/runs/20261002T205242Z_J9_heuristic_tabiclv2_healthcare_insurance_expenses/search/healthcare_insurance_expenses/best_pipeline.py
+ create mode 100644 reports/runs/20261002T205242Z_J9_heuristic_tabiclv2_healthcare_insurance_expenses/search/healthcare_insurance_expenses/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T205242Z_J9_heuristic_tabiclv2_healthcare_insurance_expenses/search/healthcare_insurance_expenses/metrics.json
+ create mode 100644 reports/runs/20261002T205242Z_J9_heuristic_tabiclv2_healthcare_insurance_expenses/search/healthcare_insurance_expenses/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/metrics.json
+ create mode 100644 reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/results.csv
+ create mode 100644 reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/best_pipeline.py
+ create mode 100644 reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/metrics.json
+ create mode 100644 reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/config.json
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/metrics.json
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/results.csv
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/search/concrete_compressive_strength/best_pipeline.py
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/search/concrete_compressive_strength/config.json
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/search/concrete_compressive_strength/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/search/concrete_compressive_strength/metrics.json
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/search/concrete_compressive_strength/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T205405Z_J8_openai_glm45air_Another-Dataset-on-used-Fiat-500/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T205405Z_J8_openai_glm45air_Another-Dataset-on-used-Fiat-500/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T205405Z_J8_openai_glm45air_Another-Dataset-on-used-Fiat-500/config.json
+ create mode 100644 reports/runs/20261002T205405Z_J8_openai_glm45air_Another-Dataset-on-used-Fiat-500/metrics.json
+ create mode 100644 reports/runs/20261002T205405Z_J8_openai_glm45air_Another-Dataset-on-used-Fiat-500/results.csv
+ create mode 100644 reports/runs/20261002T205405Z_J8_openai_glm45air_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/agent_result.md
+ create mode 100644 reports/runs/20261002T205405Z_J8_openai_glm45air_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/agent_stream.jsonl
+ create mode 100644 reports/runs/20261002T205405Z_J8_openai_glm45air_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/best_pipeline.py
+ create mode 100644 reports/runs/20261002T205405Z_J8_openai_glm45air_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/config.json
+ create mode 100644 reports/runs/20261002T205405Z_J8_openai_glm45air_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/metrics.json
+ create mode 100644 reports/runs/20261002T205405Z_J8_openai_glm45air_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/config.json
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/metrics.json
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/results.csv
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/search/anneal/best_pipeline.py
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/search/anneal/config.json
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/search/anneal/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/search/anneal/metrics.json
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/search/anneal/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T205621Z_J10_openai_glm45air_b64_hazelnut-spread-contaminant-detection/config.json
+ create mode 100644 reports/runs/20261002T205621Z_J10_openai_glm45air_b64_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/agent_stream.jsonl
+ create mode 100644 reports/runs/20261002T205621Z_J10_openai_glm45air_b64_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/config.json
+ create mode 100644 reports/runs/20261002T205723Z_J11_pi_qwen3coder_cv3_credit-g/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T205723Z_J11_pi_qwen3coder_cv3_credit-g/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T205723Z_J11_pi_qwen3coder_cv3_credit-g/config.json
+ create mode 100644 reports/runs/20261002T205723Z_J11_pi_qwen3coder_cv3_credit-g/metrics.json
+ create mode 100644 reports/runs/20261002T205723Z_J11_pi_qwen3coder_cv3_credit-g/results.csv
+ create mode 100644 reports/runs/20261002T205723Z_J11_pi_qwen3coder_cv3_credit-g/search/credit-g/agent_stream.log
+ create mode 100644 reports/runs/20261002T205723Z_J11_pi_qwen3coder_cv3_credit-g/search/credit-g/best_pipeline.py
+ create mode 100644 reports/runs/20261002T205723Z_J11_pi_qwen3coder_cv3_credit-g/search/credit-g/config.json
+ create mode 100644 reports/runs/20261002T205723Z_J11_pi_qwen3coder_cv3_credit-g/search/credit-g/metrics.json
+ create mode 100644 reports/runs/20261002T205723Z_J11_pi_qwen3coder_cv3_credit-g/search/credit-g/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T205817Z_J9_heuristic_tabiclv2_website_phishing/config.json
+ create mode 100644 reports/runs/20261002T205817Z_J9_heuristic_tabiclv2_website_phishing/search/website_phishing/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+HEAD is up to date.
+To https://github.com/YarinBeni/excel_magic
+   724af63..5f3a7b1  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J10 heuristic done Fri Oct  2 21:01:10 UTC 2026 ===

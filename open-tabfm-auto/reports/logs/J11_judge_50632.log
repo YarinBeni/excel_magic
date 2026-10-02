@@ -1,0 +1,217 @@
+# job 50632 J11_judge exit=0 Fri Oct  2 21:00:08 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J11_judge_50617_0.out
+=== J11 judge task 0 === job 50632 Fri Oct  2 20:25:22 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+2026-10-02 20:25:43,963 INFO P0 cv rmse = 0.09384133857743829
+2026-10-02 20:28:02,699 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T202526Z_J11_heuristic_cv3_synth_physics/metrics.json
+{'dataset': 'synth_physics', 'metric': 'rmse', 'p0_cv': 0.09384133857743829, 'best_cv': 0.0893133620120504, 'p0_test': 0.08660396629171283, 'best_test': 0.08742757338877159, 'test_improvement_pct': -0.951, 'n_evals': 16}
+2026-10-02 20:28:19,697 INFO P0 cv 1-auroc = 0.48000917799575515
+2026-10-02 20:30:37,624 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T202804Z_J11_heuristic_cv3_synth_entities/metrics.json
+{'dataset': 'synth_entities', 'metric': '1-auroc', 'p0_cv': 0.48000917799575515, 'best_cv': 0.43621292950152013, 'p0_test': 0.37399166049647325, 'best_test': 0.34289388566306855, 'test_improvement_pct': 8.315, 'n_evals': 16}
+2026-10-02 20:30:55,503 INFO P0 cv 1-auroc = 0.004650555575069968
+2026-10-02 20:33:19,526 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203039Z_J11_heuristic_cv3_breast_cancer/metrics.json
+{'dataset': 'breast_cancer', 'metric': '1-auroc', 'p0_cv': 0.004650555575069968, 'best_cv': 0.004379539538133143, 'p0_test': 0.004964953271028083, 'best_test': 0.004964953271028083, 'test_improvement_pct': 0.0, 'n_evals': 16}
+[collect] copied 886 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o aeaf218] J11: judge cv3 heuristic synthetic (job 50632)
+ 10 files changed, 1257 insertions(+)
+ create mode 100644 reports/runs/20261002T202959Z_J9_heuristic_tabiclv2_anneal/search/anneal/best_pipeline.py
+ create mode 100644 reports/runs/20261002T202959Z_J9_heuristic_tabiclv2_anneal/search/anneal/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T202959Z_J9_heuristic_tabiclv2_anneal/search/anneal/metrics.json
+ create mode 100644 reports/runs/20261002T202959Z_J9_heuristic_tabiclv2_anneal/search/anneal/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T203039Z_J11_heuristic_cv3_breast_cancer/best_pipeline.py
+ create mode 100644 reports/runs/20261002T203039Z_J11_heuristic_cv3_breast_cancer/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T203039Z_J11_heuristic_cv3_breast_cancer/metrics.json
+ create mode 100644 reports/runs/20261002T203313Z_J10_heuristic_b64_Marketing_Campaign/config.json
+ create mode 100644 reports/runs/20261002T203313Z_J10_heuristic_b64_Marketing_Campaign/search/Marketing_Campaign/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   8ffa5f4..aeaf218  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- blood-transfusion-service-center Fri Oct  2 20:33:35 UTC 2026
+2026-10-02 20:33:53,102 INFO P0 cv 1-auroc = 0.23966684987026193
+2026-10-02 20:37:40,344 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203336Z_J11_heuristic_cv3_blood-transfusion-service-center/search/blood-transfusion-service-center/metrics.json
+2026-10-02 20:38:03,762 INFO blood-transfusion-service-center         P0=0.24555 P*=0.24693 | paper TabFM=0.2441 TabFM-Auto(Opus5)=0.2431 | 260s
+2026-10-02 20:38:03,808 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203336Z_J11_heuristic_cv3_blood-transfusion-service-center/metrics.json
+1 datasets: ['blood-transfusion-service-center']
+pipeline                                P*        P0
+dataset                                             
+blood-transfusion-service-center  0.246935  0.245546
+[collect] copied 974 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 851c0f2] J11: judge cv3 heuristic blood-transfusion-service-center (job 50632)
+ 11 files changed, 554 insertions(+)
+ create mode 100644 reports/runs/20261002T203110Z_J10_openai_glm45air_b64_anneal/search/anneal/agent_result.md
+ create mode 100644 reports/runs/20261002T203110Z_J10_openai_glm45air_b64_anneal/search/anneal/best_pipeline.py
+ create mode 100644 reports/runs/20261002T203110Z_J10_openai_glm45air_b64_anneal/search/anneal/metrics.json
+ create mode 100644 reports/runs/20261002T203110Z_J10_openai_glm45air_b64_anneal/search/anneal/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T203313Z_J10_heuristic_b64_Marketing_Campaign/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T203313Z_J10_heuristic_b64_Marketing_Campaign/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T203313Z_J10_heuristic_b64_Marketing_Campaign/metrics.json
+ create mode 100644 reports/runs/20261002T203313Z_J10_heuristic_b64_Marketing_Campaign/results.csv
+ create mode 100644 reports/runs/20261002T203348Z_J8_openai_glm45air_website_phishing/search/website_phishing/best_pipeline.py
+ create mode 100644 reports/runs/20261002T203348Z_J8_openai_glm45air_website_phishing/search/website_phishing/metrics.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   a4cbc5f..851c0f2  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- diabetes Fri Oct  2 20:38:17 UTC 2026
+2026-10-02 20:38:33,330 INFO P0 cv 1-auroc = 0.16706216911019173
+2026-10-02 20:42:22,048 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203818Z_J11_heuristic_cv3_diabetes/search/diabetes/metrics.json
+2026-10-02 20:42:45,191 INFO diabetes                                 P0=0.15970 P*=0.15776 | paper TabFM=0.158 TabFM-Auto(Opus5)=0.1471 | 262s
+2026-10-02 20:42:45,233 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203818Z_J11_heuristic_cv3_diabetes/metrics.json
+1 datasets: ['diabetes']
+pipeline        P*        P0
+dataset                     
+diabetes  0.157762  0.159704
+[collect] copied 1064 files into reports/runs
+[commit_push_sandbox] nothing to commit
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+Everything up-to-date
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- QSAR_fish_toxicity Fri Oct  2 20:43:01 UTC 2026
+2026-10-02 20:43:19,217 INFO P0 cv rmse = 0.8626218057341473
+2026-10-02 20:48:01,204 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T204302Z_J11_heuristic_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/metrics.json
+2026-10-02 20:48:49,147 INFO QSAR_fish_toxicity                       P0=0.85490 P*=0.85307 | paper TabFM=0.85345 TabFM-Auto(Opus5)=0.84829 | 340s
+2026-10-02 20:48:49,192 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T204302Z_J11_heuristic_cv3_QSAR_fish_toxicity/metrics.json
+1 datasets: ['QSAR_fish_toxicity']
+pipeline                  P*      P0
+dataset                             
+QSAR_fish_toxicity  0.853071  0.8549
+[collect] copied 1158 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 1eaee18] J11: judge cv3 heuristic QSAR_fish_toxicity (job 50632)
+ 1 file changed, 17 insertions(+)
+ create mode 100644 reports/runs/20261002T204556Z_J11_pi_qwen3coder_cv3_blood-transfusion-service-center/search/blood-transfusion-service-center/workspace/NOTES.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   dc470c4..1eaee18  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- credit-g Fri Oct  2 20:49:06 UTC 2026
+2026-10-02 20:49:25,448 INFO P0 cv 1-auroc = 0.21125224879437685
+2026-10-02 20:53:26,703 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T204907Z_J11_heuristic_cv3_credit-g/search/credit-g/metrics.json
+2026-10-02 20:53:49,091 INFO credit-g                                 P0=0.19773 P*=0.19892 | paper TabFM=0.1944 TabFM-Auto(Opus5)=0.194 | 274s
+2026-10-02 20:53:49,138 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T204907Z_J11_heuristic_cv3_credit-g/metrics.json
+1 datasets: ['credit-g']
+pipeline        P*        P0
+dataset                     
+credit-g  0.198915  0.197734
+[collect] copied 1232 files into reports/runs
+[commit_push_sandbox] nothing to commit
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+HEAD is up to date.
+Everything up-to-date
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- anneal Fri Oct  2 20:54:05 UTC 2026
+2026-10-02 20:54:24,538 INFO P0 cv logloss = 0.029951937260992465
+2026-10-02 20:58:18,265 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T205407Z_J11_heuristic_cv3_anneal/search/anneal/metrics.json
+2026-10-02 20:58:42,141 INFO anneal                                   P0=0.01204 P*=0.01078 | paper TabFM=0.0125 TabFM-Auto(Opus5)=0.0103 | 268s
+2026-10-02 20:58:42,186 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T205407Z_J11_heuristic_cv3_anneal/metrics.json
+1 datasets: ['anneal']
+pipeline        P*       P0
+dataset                    
+anneal    0.010782  0.01204
+[collect] copied 1290 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 59609c4] J11: judge cv3 heuristic anneal (job 50632)
+ 37 files changed, 3134 insertions(+)
+ create mode 100644 reports/runs/20261002T205108Z_J10_heuristic_b64_diabetes/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T205108Z_J10_heuristic_b64_diabetes/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T205108Z_J10_heuristic_b64_diabetes/metrics.json
+ create mode 100644 reports/runs/20261002T205108Z_J10_heuristic_b64_diabetes/results.csv
+ create mode 100644 reports/runs/20261002T205108Z_J10_heuristic_b64_diabetes/search/diabetes/best_pipeline.py
+ create mode 100644 reports/runs/20261002T205108Z_J10_heuristic_b64_diabetes/search/diabetes/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T205108Z_J10_heuristic_b64_diabetes/search/diabetes/metrics.json
+ create mode 100644 reports/runs/20261002T205108Z_J10_heuristic_b64_diabetes/search/diabetes/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/metrics.json
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/results.csv
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/search/concrete_compressive_strength/best_pipeline.py
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/search/concrete_compressive_strength/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/search/concrete_compressive_strength/metrics.json
+ create mode 100644 reports/runs/20261002T205402Z_J9_heuristic_kumoL_concrete_compressive_strength/search/concrete_compressive_strength/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T205405Z_J8_openai_glm45air_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/agent_result.md
+ create mode 100644 reports/runs/20261002T205405Z_J8_openai_glm45air_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/best_pipeline.py
+ create mode 100644 reports/runs/20261002T205405Z_J8_openai_glm45air_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/metrics.json
+ create mode 100644 reports/runs/20261002T205405Z_J8_openai_glm45air_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/metrics.json
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/results.csv
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/search/anneal/best_pipeline.py
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/search/anneal/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/search/anneal/metrics.json
+ create mode 100644 reports/runs/20261002T205407Z_J11_heuristic_cv3_anneal/search/anneal/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T205621Z_J10_openai_glm45air_b64_hazelnut-spread-contaminant-detection/config.json
+ create mode 100644 reports/runs/20261002T205621Z_J10_openai_glm45air_b64_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/agent_stream.jsonl
+ create mode 100644 reports/runs/20261002T205621Z_J10_openai_glm45air_b64_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/config.json
+ create mode 100644 reports/runs/20261002T205723Z_J11_pi_qwen3coder_cv3_credit-g/config.json
+ create mode 100644 reports/runs/20261002T205723Z_J11_pi_qwen3coder_cv3_credit-g/search/credit-g/agent_stream.log
+ create mode 100644 reports/runs/20261002T205723Z_J11_pi_qwen3coder_cv3_credit-g/search/credit-g/config.json
+ create mode 100644 reports/runs/20261002T205817Z_J9_heuristic_tabiclv2_website_phishing/config.json
+ create mode 100644 reports/runs/20261002T205817Z_J9_heuristic_tabiclv2_website_phishing/search/website_phishing/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Rebasing (1/4)Auto-merging reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/agent_stream.log
+CONFLICT (add/add): Merge conflict in reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/agent_stream.log
+error: could not apply 26dfd1a... J9: tabarena heuristic kumoL maternal_health_risk (job 50620)
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 26dfd1a... J9: tabarena heuristic kumoL maternal_health_risk (job 50620)
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Rebasing (1/4)Auto-merging reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/agent_stream.log
+CONFLICT (add/add): Merge conflict in reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/agent_stream.log
+error: could not apply 26dfd1a... J9: tabarena heuristic kumoL maternal_health_risk (job 50620)
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 26dfd1a... J9: tabarena heuristic kumoL maternal_health_risk (job 50620)
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Created autostash: a0a0325
+Rebasing (1/4)Auto-merging reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/agent_stream.log
+CONFLICT (add/add): Merge conflict in reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/agent_stream.log
+error: could not apply 26dfd1a... J9: tabarena heuristic kumoL maternal_health_risk (job 50620)
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 26dfd1a... J9: tabarena heuristic kumoL maternal_health_risk (job 50620)
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Created autostash: e5c2ab6
+Rebasing (1/4)Auto-merging reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/agent_stream.log
+CONFLICT (add/add): Merge conflict in reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/agent_stream.log
+error: could not apply 26dfd1a... J9: tabarena heuristic kumoL maternal_health_risk (job 50620)
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 26dfd1a... J9: tabarena heuristic kumoL maternal_health_risk (job 50620)
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Created autostash: 5e6535b
+Rebasing (1/4)Auto-merging reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/agent_stream.log
+CONFLICT (add/add): Merge conflict in reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/agent_stream.log
+error: could not apply 26dfd1a... J9: tabarena heuristic kumoL maternal_health_risk (job 50620)
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 26dfd1a... J9: tabarena heuristic kumoL maternal_health_risk (job 50620)
+[commit_push_sandbox] FAILED after 5 attempts
+[collect] push failed; commit kept locally
+=== J11 heuristic done Fri Oct  2 21:00:08 UTC 2026 ===
