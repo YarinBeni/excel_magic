@@ -1,0 +1,84 @@
+{
+  "dataset": "synth_entities",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=4,device=cuda",
+  "metric": "1-auroc",
+  "harness": "openai",
+  "llm_model": "openai/gpt-oss-20b",
+  "n_evals": 6,
+  "n_evals_ok": 4,
+  "p0_cv": 0.4784030287385992,
+  "best_cv": 0.4392746515229737,
+  "best_candidate": "eval_004.py",
+  "agent": {
+    "harness": "openai",
+    "rc": 0,
+    "elapsed_s": 61.3,
+    "n_turns": 13,
+    "tool_counts": {
+      "read_file": 1,
+      "write_pipeline": 6,
+      "run_eval": 5
+    },
+    "usage": {
+      "input_tokens": 65864,
+      "output_tokens": 9513
+    },
+    "model": "openai/gpt-oss-20b"
+  },
+  "p0_test": 0.4306535209072133,
+  "p0_test_secondary": {
+    "logloss": 0.42013417366916467,
+    "acc": 0.8511111111111112,
+    "auroc": 0.5693464790927867,
+    "1-auroc": 0.4306535209072133
+  },
+  "best_test": 0.47258485639686687,
+  "best_test_secondary": {
+    "logloss": 1.0176282261552088,
+    "acc": 0.8133333333333334,
+    "auroc": 0.5274151436031331,
+    "1-auroc": 0.47258485639686687
+  },
+  "best_test_info": {
+    "n_features": 12,
+    "t_features": 0.025,
+    "n_views": 1,
+    "view_sizes": [
+      1050
+    ],
+    "t_model": 0.298,
+    "t_total": 0.324,
+    "model_spec": "kumo-tabular-s:n_estimators=4,device=cuda"
+  },
+  "test_improvement_pct": -9.737,
+  "baseline_hgb_test": 0.4732863099645376,
+  "cv_trajectory": [
+    [
+      1,
+      0.4784030287385992
+    ],
+    [
+      2,
+      null
+    ],
+    [
+      3,
+      null
+    ],
+    [
+      4,
+      0.4392746515229737
+    ],
+    [
+      5,
+      0.5170151436929961
+    ],
+    [
+      6,
+      0.5277921183961453
+    ]
+  ],
+  "elapsed_s": 76.17,
+  "status": "ok"
+}

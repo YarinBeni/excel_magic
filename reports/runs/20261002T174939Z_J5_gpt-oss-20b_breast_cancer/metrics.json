@@ -1,0 +1,88 @@
+{
+  "dataset": "breast_cancer",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=4,device=cuda",
+  "metric": "1-auroc",
+  "harness": "openai",
+  "llm_model": "openai/gpt-oss-20b",
+  "n_evals": 6,
+  "n_evals_ok": 6,
+  "p0_cv": 0.004342267027292901,
+  "best_cv": 0.004342267027292901,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "openai",
+    "rc": 0,
+    "elapsed_s": 76.2,
+    "n_turns": 19,
+    "tool_counts": {
+      "read_file": 2,
+      "describe_data": 1,
+      "write_pipeline": 6,
+      "run_eval": 6,
+      "run_eval..commentary": 1,
+      "run_eval<|channel|>commentary": 1,
+      "write_pipeline<|channel|>commentary": 1
+    },
+    "usage": {
+      "input_tokens": 129505,
+      "output_tokens": 9371
+    },
+    "model": "openai/gpt-oss-20b"
+  },
+  "p0_test": 0.0055490654205607726,
+  "p0_test_secondary": {
+    "logloss": 0.09058962819089228,
+    "acc": 0.9649122807017544,
+    "auroc": 0.9944509345794392,
+    "1-auroc": 0.0055490654205607726
+  },
+  "best_test": 0.005110981308411255,
+  "best_test_secondary": {
+    "logloss": 0.09027797043335949,
+    "acc": 0.9649122807017544,
+    "auroc": 0.9948890186915887,
+    "1-auroc": 0.005110981308411255
+  },
+  "best_test_info": {
+    "n_features": 30,
+    "t_features": 0.014,
+    "n_views": 1,
+    "view_sizes": [
+      398
+    ],
+    "t_model": 0.271,
+    "t_total": 0.286,
+    "model_spec": "kumo-tabular-s:n_estimators=4,device=cuda"
+  },
+  "test_improvement_pct": 7.895,
+  "baseline_hgb_test": 0.0108060747663552,
+  "cv_trajectory": [
+    [
+      1,
+      0.004342267027292901
+    ],
+    [
+      2,
+      0.004581591672813727
+    ],
+    [
+      3,
+      0.005153675928202632
+    ],
+    [
+      4,
+      0.004342267027292901
+    ],
+    [
+      5,
+      0.005229079583640679
+    ],
+    [
+      6,
+      0.004665854867477688
+    ]
+  ],
+  "elapsed_s": 92.51,
+  "status": "ok"
+}
