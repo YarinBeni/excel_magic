@@ -1,0 +1,83 @@
+{
+  "dataset": "breast_cancer",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=4,device=cuda",
+  "metric": "1-auroc",
+  "harness": "openai",
+  "llm_model": "Qwen/Qwen3-32B",
+  "n_evals": 6,
+  "n_evals_ok": 1,
+  "p0_cv": 0.0047455126628965045,
+  "best_cv": 0.0047455126628965045,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "openai",
+    "rc": 0,
+    "elapsed_s": 1034.0,
+    "n_turns": 23,
+    "tool_counts": {
+      "write_pipeline": 13,
+      "run_eval": 9
+    },
+    "usage": {
+      "input_tokens": 113502,
+      "output_tokens": 52074
+    },
+    "model": "Qwen/Qwen3-32B"
+  },
+  "p0_test": 0.005110981308411255,
+  "p0_test_secondary": {
+    "logloss": 0.08775609793296096,
+    "acc": 0.9649122807017544,
+    "auroc": 0.9948890186915887,
+    "1-auroc": 0.005110981308411255
+  },
+  "best_test": 0.005257009345794428,
+  "best_test_secondary": {
+    "logloss": 0.08991824023935661,
+    "acc": 0.9649122807017544,
+    "auroc": 0.9947429906542056,
+    "1-auroc": 0.005257009345794428
+  },
+  "best_test_info": {
+    "n_features": 30,
+    "t_features": 0.014,
+    "n_views": 1,
+    "view_sizes": [
+      398
+    ],
+    "t_model": 0.262,
+    "t_total": 0.277,
+    "model_spec": "kumo-tabular-s:n_estimators=4,device=cuda"
+  },
+  "test_improvement_pct": -2.857,
+  "baseline_hgb_test": 0.0108060747663552,
+  "cv_trajectory": [
+    [
+      1,
+      0.0047455126628965045
+    ],
+    [
+      2,
+      null
+    ],
+    [
+      3,
+      null
+    ],
+    [
+      4,
+      null
+    ],
+    [
+      5,
+      null
+    ],
+    [
+      6,
+      null
+    ]
+  ],
+  "elapsed_s": 1053.3,
+  "status": "ok"
+}
