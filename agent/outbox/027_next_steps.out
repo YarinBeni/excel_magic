@@ -1,0 +1,18 @@
+# 027_next_steps  host=g0377  start=Fri Oct  2 20:17:29 UTC 2026  timeout=300s
+# HEAD=5c60f78
+# ---------------------------------------------------------
+J9_tabarena_backbones: 50615
+J10_budget: 50616
+J11_judge: 50617
+J12_relbench_churn: 50618
+J13_loop_rich: 50619
+       50192           AGENT_runner  RUNNING    4:44:57 g0377
+       50618     J12_relbench_churn  PENDING       0:00 (Priority)
+       50619          J13_loop_rich  PENDING       0:00 (Priority)
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+     50564_1        J8_tabarena_llm  RUNNING      42:43 g0381
+ 50615_[0-1]  J9_tabarena_backbones  PENDING       0:00 (None)
+ 50616_[0-2]             J10_budget  PENDING       0:00 (None)
+ 50617_[0-1]              J11_judge  PENDING       0:00 (None)
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 20:17:29 UTC 2026
