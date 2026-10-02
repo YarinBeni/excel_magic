@@ -34,6 +34,9 @@ ensure_vllm() {
       touch "$VLLM_VENV/.ok"
     ) 9>"$HOME/.vllm_install.lock" || { echo "FAILED vllm install"; return 1; }
 }
+# VLLM_MAX_LEN: Qwen Code asks for max_tokens = the full context (32768), so a 32k server leaves 0 input tokens and every
+# turn fails with a 400. 128k fits in the KV budget of one H200 for the MoE coders; set it lower for models with a shorter
+# native context (Qwen3-32B: 40960).
 start_vllm() {
     local parsers="$1"; local extra="${2:-}"; local p
     ensure_vllm || return 1
@@ -42,7 +45,7 @@ start_vllm() {
     for p in $parsers; do
         echo "[vllm] serving $LLM on :$PORT with --tool-call-parser $p"
         "$VLLM_VENV/bin/vllm" serve "$LLM" --port "$PORT" --enable-auto-tool-choice --tool-call-parser "$p" $extra \
-            --max-model-len 32768 --gpu-memory-utilization "${VLLM_GPU_FRAC:-0.70}" > "artifacts/vllm/${SLURM_JOB_NAME:-job}_${SLURM_JOB_ID:-0}_$p.log" 2>&1 &
+            --max-model-len "${VLLM_MAX_LEN:-131072}" --gpu-memory-utilization "${VLLM_GPU_FRAC:-0.70}" > "artifacts/vllm/${SLURM_JOB_NAME:-job}_${SLURM_JOB_ID:-0}_$p.log" 2>&1 &
         VLLM_PID=$!
         local i
         for i in $(seq 1 160); do

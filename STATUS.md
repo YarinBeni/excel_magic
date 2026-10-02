@@ -41,3 +41,6 @@
   at 0.90 GPU memory; inbox 018 resubmits array task 2 only. vLLM failures now print the engine-side root-cause lines.
 - J5 task 3 (gpt-oss-20b, 50376) failed: openai_harmony tiktoken cache under /tmp not writable (another user's dir) ->
   TIKTOKEN_RS_CACHE_DIR=~/.cache/tiktoken-rs in vllm_env; inbox 019 resubmits array task 3 only.
+- J6 qwen-code (50408): every turn 400 from vLLM: Qwen Code requests max_tokens = 32768 = the whole server context, leaving 0
+  input tokens. vLLM now serves 128k by default (VLLM_MAX_LEN; Qwen3-32B 40k). J6 task 1 resubmitted as 50428 (picks the
+  fix up at job start); J3/J5/J6 jobs already running keep their 32k server (our openai harness sets its own max_tokens).
