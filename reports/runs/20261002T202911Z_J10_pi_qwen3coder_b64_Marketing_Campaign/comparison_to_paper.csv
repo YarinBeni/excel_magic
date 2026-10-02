@@ -1,0 +1,2 @@
+dataset,P*,P0,metric,tabfm,tabfm_auto_opus5,tabfm_auto_gemini38flash,our_gain_%,paper_gain_opus5_%,ours_vs_paper_tabfm
+Marketing_Campaign,0.07588251802113043,0.06584108258246574,1-auroc,0.0732,0.0616,0.0581,-15.251018125480888,15.846994535519125,1.0366464210536943
