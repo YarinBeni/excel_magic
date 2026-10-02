@@ -1,0 +1,40 @@
+# job 50225 J2_tabarena exit=0 Fri Oct  2 15:45:22 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50215_0.out
+=== J2 tabarena task 0 === job 50225 Fri Oct  2 15:45:04 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=blood-transfusion-service-center model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+usage: 05_tabarena_protocol.py [-h] [--datasets DATASETS] [--all]
+                               [--max-instances MAX_INSTANCES]
+                               [--max-features MAX_FEATURES] [--lite]
+                               [--model MODEL] [--harness {claude-code,none}]
+                               [--llm LLM] [--budget-evals BUDGET_EVALS]
+                               [--budget-minutes BUDGET_MINUTES]
+                               [--max-rows MAX_ROWS] [--name NAME]
+05_tabarena_protocol.py: error: argument --harness: invalid choice: 'heuristic' (choose from 'claude-code', 'none')
+[J2] blood-transfusion-service-center FAILED
+[collect] copied 13 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 390adc3] J2: tabarena blood-transfusion-service-center heuristic (job 50225)
+ 12 files changed, 2005 insertions(+)
+ create mode 100644 reports/runs/20261002T153807Z_J1_backbones/config.json
+ create mode 100644 reports/runs/20261002T153807Z_J1_backbones/metrics.json
+ create mode 100644 reports/runs/20261002T153807Z_J1_backbones/results.md
+ create mode 100644 reports/runs/20261002T153856Z_J1_heur_kumo_synth_physics/config.json
+ create mode 100644 reports/runs/20261002T154108Z_J1_backbones/config.json
+ create mode 100644 reports/runs/20261002T154108Z_J1_backbones/metrics.json
+ create mode 100644 reports/runs/20261002T154108Z_J1_backbones/results.md
+ create mode 100644 reports/runs/20261002T154212Z_J1_heur_kumo_synth_physics/best_pipeline.py
+ create mode 100644 reports/runs/20261002T154212Z_J1_heur_kumo_synth_physics/config.json
+ create mode 100644 reports/runs/20261002T154212Z_J1_heur_kumo_synth_physics/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T154212Z_J1_heur_kumo_synth_physics/metrics.json
+ create mode 100644 reports/runs/20261002T154501Z_J1_heur_kumo_synth_entities/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+   a426851..fac988c  claude/tabular-model-agent-exp-wvni5o -> origin/claude/tabular-model-agent-exp-wvni5o
+Rebasing (1/1)[KSuccessfully rebased and updated refs/heads/claude/tabular-model-agent-exp-wvni5o.
+To https://github.com/YarinBeni/excel_magic
+   fac988c..170452a  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 blood-transfusion-service-center done Fri Oct  2 15:45:22 UTC 2026 ===
