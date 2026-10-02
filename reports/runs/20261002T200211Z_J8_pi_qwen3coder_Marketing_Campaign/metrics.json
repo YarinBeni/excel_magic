@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "Marketing_Campaign",
+      "P*": 0.075506639856105,
+      "P0": 0.06611249700259506,
+      "metric": "1-auroc",
+      "tabfm": 0.0732,
+      "tabfm_auto_opus5": 0.0616,
+      "tabfm_auto_gemini38flash": 0.0581,
+      "our_gain_%": -14.209329974545073,
+      "paper_gain_opus5_%": 15.846994535519125,
+      "ours_vs_paper_tabfm": 1.0315114734440574
+    }
+  ],
+  "elapsed_s": 173.85,
+  "status": "ok"
+}
