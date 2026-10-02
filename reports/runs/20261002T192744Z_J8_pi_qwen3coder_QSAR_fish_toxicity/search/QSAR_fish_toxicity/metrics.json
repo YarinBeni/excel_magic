@@ -1,0 +1,112 @@
+{
+  "dataset": "QSAR_fish_toxicity",
+  "task_type": "regression",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "rmse",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 16,
+  "n_evals_ok": 16,
+  "p0_cv": 0.8607785431924567,
+  "best_cv": 0.8607785431924567,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 159.9,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T192744Z_J8_pi_qwen3coder_QSAR_fish_toxicity/search/QSAR_fish_toxicity/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.8924583017667147,
+  "p0_test_secondary": {
+    "rmse": 0.8924583017667147,
+    "mae": 0.6274225941034826,
+    "r2": 0.646261580847504
+  },
+  "best_test": 0.8937735092860678,
+  "best_test_secondary": {
+    "rmse": 0.8937735092860678,
+    "mae": 0.627848582842169,
+    "r2": 0.6452182105581656
+  },
+  "best_test_info": {
+    "n_features": 6,
+    "t_features": 0.003,
+    "n_views": 1,
+    "view_sizes": [
+      604
+    ],
+    "t_model": 0.37,
+    "t_total": 0.374,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": -0.147,
+  "cv_trajectory": [
+    [
+      1,
+      0.8607785431924567
+    ],
+    [
+      2,
+      0.8618470551598358
+    ],
+    [
+      3,
+      0.872343873619907
+    ],
+    [
+      4,
+      0.8725540128572756
+    ],
+    [
+      5,
+      0.872883972724893
+    ],
+    [
+      6,
+      0.8663305502168335
+    ],
+    [
+      7,
+      0.8626873585754046
+    ],
+    [
+      8,
+      0.8629275063226217
+    ],
+    [
+      9,
+      0.866703524247896
+    ],
+    [
+      10,
+      0.8639247524996567
+    ],
+    [
+      11,
+      0.8645059530849681
+    ],
+    [
+      12,
+      0.8641273410765061
+    ],
+    [
+      13,
+      0.8634554796401092
+    ],
+    [
+      14,
+      0.8616674216246077
+    ],
+    [
+      15,
+      0.8629666454101083
+    ],
+    [
+      16,
+      0.8647454849727906
+    ]
+  ],
+  "elapsed_s": 169.5,
+  "status": "ok"
+}
