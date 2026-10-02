@@ -1,0 +1,3 @@
+dataset,tid,repeat,fold,task,method,pipeline,metric,error,status,err_msg,seconds
+blood-transfusion-service-center,363621,0,0,blood-transfusion-service-center/r0f0,kumo-tabular-s+P0,P0,1-auroc,0.2649999999999999,ok,,0.36
+blood-transfusion-service-center,363621,0,0,blood-transfusion-service-center/r0f0,kumo-tabular-s+P*,P*,1-auroc,0.263859649122807,ok,,0.36

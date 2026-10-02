@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "maternal_health_risk",
+      "P*": 0.39845543783331494,
+      "P0": 0.398647749900407,
+      "metric": "logloss",
+      "tabfm": 0.3706,
+      "tabfm_auto_opus5": 0.3648,
+      "tabfm_auto_gemini38flash": 0.361,
+      "our_gain_%": 0.04824110186000716,
+      "paper_gain_opus5_%": 1.565029681597402,
+      "ours_vs_paper_tabfm": 1.0751630810397057
+    }
+  ],
+  "elapsed_s": 191.42,
+  "status": "ok"
+}
