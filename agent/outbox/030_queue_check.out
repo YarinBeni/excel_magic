@@ -1,0 +1,41 @@
+# 030_queue_check  host=g0377  start=Fri Oct  2 23:09:41 UTC 2026  timeout=120s
+# HEAD=6d7356e
+# ---------------------------------------------------------
+       50192           AGENT_runner  RUNNING    7:37:09 g0377
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+== sbatch/logs/J9_tabarena_backbones_50615_0.out
+CONFLICT (add/add): Merge conflict in reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/agent_stream.log
+error: could not apply 26dfd1a... J9: tabarena heuristic kumoL maternal_health_risk (job 50620)
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 26dfd1a... J9: tabarena heuristic kumoL maternal_health_risk (job 50620)
+[commit_push_sandbox] FAILED after 5 attempts
+== sbatch/logs/J9_tabarena_backbones_50615_1.out
+CONFLICT (add/add): Merge conflict in reports/runs/20261002T205251Z_J11_pi_qwen3coder_cv3_QSAR_fish_toxicity/search/QSAR_fish_toxicity/agent_stream.log
+error: could not apply 26dfd1a... J9: tabarena heuristic kumoL maternal_health_risk (job 50620)
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 26dfd1a... J9: tabarena heuristic kumoL maternal_health_risk (job 50620)
+[commit_push_sandbox] FAILED after 5 attempts
+== sbatch/logs/J8_tabarena_llm_50564_1.out
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 26dfd1a... J9: tabarena heuristic kumoL maternal_health_risk (job 50620)
+[commit_push_sandbox] FAILED after 5 attempts
+[collect] push failed; commit kept locally
+=== J8 openai_glm45air done Fri Oct  2 21:33:12 UTC 2026 ===
+10.5.69.1:/home  401T  346T   55T  87% /home
+?? .aider.chat.history.md
+?? agent/outbox/030_queue_check.out
+?? "et --hard FETCH_HEAD"
+?? frozen-embeddings-retrieval/runs/20261002T154754Z_J1_retrieval_seed0/
+?? frozen-embeddings-retrieval/runs/20261002T154911Z_J1_retrieval_seed1/
+6d7356e collect: do not snapshot agent logs of runs still in progress (add/add rebase conflicts)
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 23:09:41 UTC 2026
