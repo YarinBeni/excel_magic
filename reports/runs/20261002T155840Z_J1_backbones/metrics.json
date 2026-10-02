@@ -1,0 +1,676 @@
+{
+  "n_results": 40,
+  "datasets": "wine,breast_cancer,diabetes,synth_physics,synth_entities",
+  "models": "tabpfn:n_estimators=4,device=cuda,tabpfn-2.5:n_estimators=4,device=cuda,tabicl:device=cuda,kumo-tabular-s:n_estimators=4,device=cuda,kumo-tabular-m:n_estimators=4,device=cuda,kumo-tabular-l:n_estimators=4,device=cuda,exaone:device=cuda,hgb",
+  "table": [
+    {
+      "dataset": "wine",
+      "task_type": "multiclass",
+      "n_rows": 178,
+      "model": "tabpfn:n_estimators=4,device=cuda",
+      "metric": "logloss",
+      "score": 0.03562396527443263,
+      "score_std": 0.021807538602836074,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.03562396527443263,
+        "acc": 0.9888888888888889
+      },
+      "cv_seconds": 1.46
+    },
+    {
+      "dataset": "wine",
+      "task_type": "multiclass",
+      "n_rows": 178,
+      "model": "tabpfn-2.5:n_estimators=4,device=cuda",
+      "metric": "logloss",
+      "score": 0.03614283941106726,
+      "score_std": 0.024826172717784555,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.03614283941106726,
+        "acc": 0.9944444444444445
+      },
+      "cv_seconds": 0.52
+    },
+    {
+      "dataset": "wine",
+      "task_type": "multiclass",
+      "n_rows": 178,
+      "model": "tabicl:device=cuda",
+      "metric": "logloss",
+      "score": 0.015843816663871624,
+      "score_std": 0.006219641321205117,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.015843816663871624,
+        "acc": 0.9944444444444445
+      },
+      "cv_seconds": 1.42
+    },
+    {
+      "dataset": "wine",
+      "task_type": "multiclass",
+      "n_rows": 178,
+      "model": "kumo-tabular-s:n_estimators=4,device=cuda",
+      "metric": "logloss",
+      "score": 0.02941425946113117,
+      "score_std": 0.0037219612190841607,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.02941425946113117,
+        "acc": 0.9831450094161959
+      },
+      "cv_seconds": 0.94
+    },
+    {
+      "dataset": "wine",
+      "task_type": "multiclass",
+      "n_rows": 178,
+      "model": "kumo-tabular-m:n_estimators=4,device=cuda",
+      "metric": "logloss",
+      "score": 0.018610772983287813,
+      "score_std": 0.008880783099696435,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.018610772983287813,
+        "acc": 0.9944444444444445
+      },
+      "cv_seconds": 2.13
+    },
+    {
+      "dataset": "wine",
+      "task_type": "multiclass",
+      "n_rows": 178,
+      "model": "kumo-tabular-l:n_estimators=4,device=cuda",
+      "metric": "logloss",
+      "score": 0.017525139553550628,
+      "score_std": 0.008581525477385126,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.017525139553550628,
+        "acc": 0.9887947269303202
+      },
+      "cv_seconds": 3.24
+    },
+    {
+      "dataset": "wine",
+      "task_type": "multiclass",
+      "n_rows": 178,
+      "model": "exaone:device=cuda",
+      "metric": "logloss",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "TypeError: features must be a NumPy array",
+      "secondary": null,
+      "cv_seconds": 1.19
+    },
+    {
+      "dataset": "wine",
+      "task_type": "multiclass",
+      "n_rows": 178,
+      "model": "hgb",
+      "metric": "logloss",
+      "score": 0.09651896164524225,
+      "score_std": 0.03591161610579371,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.09651896164524225,
+        "acc": 0.9608286252354049
+      },
+      "cv_seconds": 0.28
+    },
+    {
+      "dataset": "breast_cancer",
+      "task_type": "binary",
+      "n_rows": 569,
+      "model": "tabpfn:n_estimators=4,device=cuda",
+      "metric": "1-auroc",
+      "score": 0.004159973848694413,
+      "score_std": 0.0029156801990100965,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.07789571000256253,
+        "acc": 0.9701383087347999,
+        "auroc": 0.9958400261513057,
+        "1-auroc": 0.004159973848694413
+      },
+      "cv_seconds": 0.99
+    },
+    {
+      "dataset": "breast_cancer",
+      "task_type": "binary",
+      "n_rows": 569,
+      "model": "tabpfn-2.5:n_estimators=4,device=cuda",
+      "metric": "1-auroc",
+      "score": 0.003922695838898926,
+      "score_std": 0.0024747233572781587,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.06998106811968004,
+        "acc": 0.9771744175252947,
+        "auroc": 0.9960773041611012,
+        "1-auroc": 0.003922695838898926
+      },
+      "cv_seconds": 0.57
+    },
+    {
+      "dataset": "breast_cancer",
+      "task_type": "binary",
+      "n_rows": 569,
+      "model": "tabicl:device=cuda",
+      "metric": "1-auroc",
+      "score": 0.004153210580006617,
+      "score_std": 0.0024230616833948596,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.07045386963144999,
+        "acc": 0.9736656455954701,
+        "auroc": 0.9958467894199933,
+        "1-auroc": 0.004153210580006617
+      },
+      "cv_seconds": 1.77
+    },
+    {
+      "dataset": "breast_cancer",
+      "task_type": "binary",
+      "n_rows": 569,
+      "model": "kumo-tabular-s:n_estimators=4,device=cuda",
+      "metric": "1-auroc",
+      "score": 0.0038736621409127072,
+      "score_std": 0.002217826694033824,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.06867864895460485,
+        "acc": 0.9771744175252947,
+        "auroc": 0.9961263378590872,
+        "1-auroc": 0.0038736621409127072
+      },
+      "cv_seconds": 0.84
+    },
+    {
+      "dataset": "breast_cancer",
+      "task_type": "binary",
+      "n_rows": 569,
+      "model": "kumo-tabular-m:n_estimators=4,device=cuda",
+      "metric": "1-auroc",
+      "score": 0.003757559361772874,
+      "score_std": 0.0016135725759756196,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.06796627959811831,
+        "acc": 0.9754200315603825,
+        "auroc": 0.9962424406382272,
+        "1-auroc": 0.003757559361772874
+      },
+      "cv_seconds": 1.59
+    },
+    {
+      "dataset": "breast_cancer",
+      "task_type": "binary",
+      "n_rows": 569,
+      "model": "kumo-tabular-l:n_estimators=4,device=cuda",
+      "metric": "1-auroc",
+      "score": 0.003324146560032474,
+      "score_std": 0.0017513949706153057,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.0639848096945458,
+        "acc": 0.9789102385593614,
+        "auroc": 0.9966758534399677,
+        "1-auroc": 0.003324146560032474
+      },
+      "cv_seconds": 1.65
+    },
+    {
+      "dataset": "breast_cancer",
+      "task_type": "binary",
+      "n_rows": 569,
+      "model": "exaone:device=cuda",
+      "metric": "1-auroc",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "TypeError: features must be a NumPy array",
+      "secondary": null,
+      "cv_seconds": 0.56
+    },
+    {
+      "dataset": "breast_cancer",
+      "task_type": "binary",
+      "n_rows": 569,
+      "model": "hgb",
+      "metric": "1-auroc",
+      "score": 0.005856427077873409,
+      "score_std": 0.004740477726661418,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.12795349977032797,
+        "acc": 0.9630836350134596,
+        "auroc": 0.9941435729221265,
+        "1-auroc": 0.005856427077873409
+      },
+      "cv_seconds": 0.46
+    },
+    {
+      "dataset": "diabetes",
+      "task_type": "regression",
+      "n_rows": 442,
+      "model": "tabpfn:n_estimators=4,device=cuda",
+      "metric": "rmse",
+      "score": 54.28205137904467,
+      "score_std": 1.5541377027457548,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 54.28205137904467,
+        "mae": 43.602924919732054,
+        "r2": 0.49660815786699103
+      },
+      "cv_seconds": 0.88
+    },
+    {
+      "dataset": "diabetes",
+      "task_type": "regression",
+      "n_rows": 442,
+      "model": "tabpfn-2.5:n_estimators=4,device=cuda",
+      "metric": "rmse",
+      "score": 54.17588974342103,
+      "score_std": 1.5677491805662482,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 54.17588974342103,
+        "mae": 43.55040374559485,
+        "r2": 0.4993335459931328
+      },
+      "cv_seconds": 0.7
+    },
+    {
+      "dataset": "diabetes",
+      "task_type": "regression",
+      "n_rows": 442,
+      "model": "tabicl:device=cuda",
+      "metric": "rmse",
+      "score": 53.72629019100567,
+      "score_std": 1.7349363596294614,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 53.72629019100567,
+        "mae": 43.544750697444584,
+        "r2": 0.5072118571619425
+      },
+      "cv_seconds": 1.58
+    },
+    {
+      "dataset": "diabetes",
+      "task_type": "regression",
+      "n_rows": 442,
+      "model": "kumo-tabular-s:n_estimators=4,device=cuda",
+      "metric": "rmse",
+      "score": 54.593178562681395,
+      "score_std": 2.336669287023818,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 54.593178562681395,
+        "mae": 43.378063993564446,
+        "r2": 0.4899093825407832
+      },
+      "cv_seconds": 0.86
+    },
+    {
+      "dataset": "diabetes",
+      "task_type": "regression",
+      "n_rows": 442,
+      "model": "kumo-tabular-m:n_estimators=4,device=cuda",
+      "metric": "rmse",
+      "score": 54.19921832616367,
+      "score_std": 2.163039868190155,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 54.19921832616367,
+        "mae": 42.93338028826594,
+        "r2": 0.4974279809259429
+      },
+      "cv_seconds": 2.09
+    },
+    {
+      "dataset": "diabetes",
+      "task_type": "regression",
+      "n_rows": 442,
+      "model": "kumo-tabular-l:n_estimators=4,device=cuda",
+      "metric": "rmse",
+      "score": 54.51787423458921,
+      "score_std": 2.4833243677261208,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 54.51787423458921,
+        "mae": 43.26973459356342,
+        "r2": 0.4908887587994824
+      },
+      "cv_seconds": 3.68
+    },
+    {
+      "dataset": "diabetes",
+      "task_type": "regression",
+      "n_rows": 442,
+      "model": "exaone:device=cuda",
+      "metric": "rmse",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "TypeError: features must be a NumPy array",
+      "secondary": null,
+      "cv_seconds": 1.1
+    },
+    {
+      "dataset": "diabetes",
+      "task_type": "regression",
+      "n_rows": 442,
+      "model": "hgb",
+      "metric": "rmse",
+      "score": 60.51727710278673,
+      "score_std": 4.005255940386788,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 60.51727710278673,
+        "mae": 47.87297200605775,
+        "r2": 0.3756444567236977
+      },
+      "cv_seconds": 0.22
+    },
+    {
+      "dataset": "synth_physics",
+      "task_type": "regression",
+      "n_rows": 500,
+      "model": "tabpfn:n_estimators=4,device=cuda",
+      "metric": "rmse",
+      "score": 0.0920303154740862,
+      "score_std": 0.0018290437967703843,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 0.0920303154740862,
+        "mae": 0.07172157693349673,
+        "r2": 0.9964980277069392
+      },
+      "cv_seconds": 0.53
+    },
+    {
+      "dataset": "synth_physics",
+      "task_type": "regression",
+      "n_rows": 500,
+      "model": "tabpfn-2.5:n_estimators=4,device=cuda",
+      "metric": "rmse",
+      "score": 0.09609998702918819,
+      "score_std": 0.0021557021935483126,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 0.09609998702918819,
+        "mae": 0.07165791945988978,
+        "r2": 0.9961743428499649
+      },
+      "cv_seconds": 0.45
+    },
+    {
+      "dataset": "synth_physics",
+      "task_type": "regression",
+      "n_rows": 500,
+      "model": "tabicl:device=cuda",
+      "metric": "rmse",
+      "score": 0.09513500337118165,
+      "score_std": 0.006923864592498915,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 0.09513500337118165,
+        "mae": 0.07383770893600723,
+        "r2": 0.9961940197282938
+      },
+      "cv_seconds": 1.44
+    },
+    {
+      "dataset": "synth_physics",
+      "task_type": "regression",
+      "n_rows": 500,
+      "model": "kumo-tabular-s:n_estimators=4,device=cuda",
+      "metric": "rmse",
+      "score": 0.08677070119188963,
+      "score_std": 0.002254738904218387,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 0.08677070119188963,
+        "mae": 0.06864501451543997,
+        "r2": 0.996889061167393
+      },
+      "cv_seconds": 0.8
+    },
+    {
+      "dataset": "synth_physics",
+      "task_type": "regression",
+      "n_rows": 500,
+      "model": "kumo-tabular-m:n_estimators=4,device=cuda",
+      "metric": "rmse",
+      "score": 0.0853896794411157,
+      "score_std": 0.0029988864853445958,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 0.0853896794411157,
+        "mae": 0.06767418939158502,
+        "r2": 0.9969867086643651
+      },
+      "cv_seconds": 1.53
+    },
+    {
+      "dataset": "synth_physics",
+      "task_type": "regression",
+      "n_rows": 500,
+      "model": "kumo-tabular-l:n_estimators=4,device=cuda",
+      "metric": "rmse",
+      "score": 0.08378141135838028,
+      "score_std": 0.0028419665137204503,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 0.08378141135838028,
+        "mae": 0.066083892241582,
+        "r2": 0.9971075281422527
+      },
+      "cv_seconds": 1.67
+    },
+    {
+      "dataset": "synth_physics",
+      "task_type": "regression",
+      "n_rows": 500,
+      "model": "exaone:device=cuda",
+      "metric": "rmse",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "TypeError: features must be a NumPy array",
+      "secondary": null,
+      "cv_seconds": 0.43
+    },
+    {
+      "dataset": "synth_physics",
+      "task_type": "regression",
+      "n_rows": 500,
+      "model": "hgb",
+      "metric": "rmse",
+      "score": 0.35393055023789577,
+      "score_std": 0.02783518538808799,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 0.35393055023789577,
+        "mae": 0.23426572945625787,
+        "r2": 0.9485120333903478
+      },
+      "cv_seconds": 0.24
+    },
+    {
+      "dataset": "synth_entities",
+      "task_type": "binary",
+      "n_rows": 1500,
+      "model": "tabpfn:n_estimators=4,device=cuda",
+      "metric": "1-auroc",
+      "score": 0.5009727062605274,
+      "score_std": 0.033869642765390846,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.42208270758695066,
+        "acc": 0.8513333333333333,
+        "auroc": 0.49902729373947263,
+        "1-auroc": 0.5009727062605274
+      },
+      "cv_seconds": 0.36
+    },
+    {
+      "dataset": "synth_entities",
+      "task_type": "binary",
+      "n_rows": 1500,
+      "model": "tabpfn-2.5:n_estimators=4,device=cuda",
+      "metric": "1-auroc",
+      "score": 0.4491680372999345,
+      "score_std": 0.02735335723891146,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.4217455834824066,
+        "acc": 0.8513333333333333,
+        "auroc": 0.5508319627000655,
+        "1-auroc": 0.4491680372999345
+      },
+      "cv_seconds": 0.51
+    },
+    {
+      "dataset": "synth_entities",
+      "task_type": "binary",
+      "n_rows": 1500,
+      "model": "tabicl:device=cuda",
+      "metric": "1-auroc",
+      "score": 0.4439055997173644,
+      "score_std": 0.012850287935346259,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.42298830666325005,
+        "acc": 0.8513333333333333,
+        "auroc": 0.5560944002826356,
+        "1-auroc": 0.4439055997173644
+      },
+      "cv_seconds": 1.69
+    },
+    {
+      "dataset": "synth_entities",
+      "task_type": "binary",
+      "n_rows": 1500,
+      "model": "kumo-tabular-s:n_estimators=4,device=cuda",
+      "metric": "1-auroc",
+      "score": 0.4423553475596558,
+      "score_std": 0.012394950236787265,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.4165917530505723,
+        "acc": 0.8513333333333333,
+        "auroc": 0.5576446524403442,
+        "1-auroc": 0.4423553475596558
+      },
+      "cv_seconds": 1.05
+    },
+    {
+      "dataset": "synth_entities",
+      "task_type": "binary",
+      "n_rows": 1500,
+      "model": "kumo-tabular-m:n_estimators=4,device=cuda",
+      "metric": "1-auroc",
+      "score": 0.42125923902361356,
+      "score_std": 0.013984565503266108,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.4074005636626548,
+        "acc": 0.8513333333333333,
+        "auroc": 0.5787407609763865,
+        "1-auroc": 0.42125923902361356
+      },
+      "cv_seconds": 1.24
+    },
+    {
+      "dataset": "synth_entities",
+      "task_type": "binary",
+      "n_rows": 1500,
+      "model": "kumo-tabular-l:n_estimators=4,device=cuda",
+      "metric": "1-auroc",
+      "score": 0.4319325217512458,
+      "score_std": 0.00585578370103456,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.4132793823481314,
+        "acc": 0.8513333333333333,
+        "auroc": 0.5680674782487541,
+        "1-auroc": 0.4319325217512458
+      },
+      "cv_seconds": 2.15
+    },
+    {
+      "dataset": "synth_entities",
+      "task_type": "binary",
+      "n_rows": 1500,
+      "model": "exaone:device=cuda",
+      "metric": "1-auroc",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "TypeError: features must be a NumPy array",
+      "secondary": null,
+      "cv_seconds": 0.4
+    },
+    {
+      "dataset": "synth_entities",
+      "task_type": "binary",
+      "n_rows": 1500,
+      "model": "hgb",
+      "metric": "1-auroc",
+      "score": 0.48730187121670143,
+      "score_std": 0.012571587710195467,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.5934138127686729,
+        "acc": 0.8273333333333333,
+        "auroc": 0.5126981287832986,
+        "1-auroc": 0.48730187121670143
+      },
+      "cv_seconds": 0.43
+    }
+  ],
+  "elapsed_s": 52.63,
+  "status": "ok"
+}
