@@ -1,0 +1,191 @@
+[
+  {
+    "config": {
+      "regression": false
+    },
+    "score": 0.44892230252968507
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true
+    },
+    "score": 0.47513336775081744,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true
+    },
+    "score": 0.46719583548442606,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "drop_constant": true
+    },
+    "score": 0.4660342453966615,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true
+    },
+    "score": 0.4360695233178455,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true,
+      "log_skewed": true
+    },
+    "score": 0.4320469798657718,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 3
+    },
+    "score": 0.47470314919979345,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true,
+      "log_skewed": true,
+      "crosses_top_k": 5
+    },
+    "score": 0.4647005678884873,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true,
+      "log_skewed": true,
+      "svd_components": 8
+    },
+    "score": 0.4511917053863363,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true,
+      "log_skewed": true,
+      "svd_components": 16
+    },
+    "score": 0.4530416451557391,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true,
+      "log_skewed": true,
+      "prune_to": 64
+    },
+    "score": 0.4420925830321803,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true,
+      "log_skewed": true,
+      "balanced_views": true
+    },
+    "score": 0.4449965582515918,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true,
+      "log_skewed": true,
+      "random_views": 3
+    },
+    "score": 0.44994407158836686,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true,
+      "log_skewed": true,
+      "prior_correction": true
+    },
+    "score": 0.4388014111168473,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true,
+      "log_skewed": true,
+      "temperature": 0.8
+    },
+    "score": 0.4487824815006023,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true,
+      "log_skewed": true,
+      "temperature": 1.25
+    },
+    "score": 0.4346713130270177,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true,
+      "log_skewed": true,
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 0.44278093271381863,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true,
+      "log_skewed": true,
+      "sentinel_to_nan": true
+    },
+    "score": 0.45319222164859746,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true,
+      "log_skewed": true,
+      "winsorize": true
+    },
+    "score": 0.4555799346067803,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true,
+      "log_skewed": true,
+      "drop_constant": true
+    },
+    "score": 0.43548872827396307,
+    "error": null
+  }
+]

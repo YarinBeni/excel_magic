@@ -1,0 +1,32 @@
+{
+  "name": "J1_transfer",
+  "config": {
+    "runs": [
+      "/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T154212Z_J1_heur_kumo_synth_physics",
+      "/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T154501Z_J1_heur_kumo_synth_entities",
+      "/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155935Z_J1_heur_kumo_synth_physics",
+      "/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T160211Z_J1_heur_kumo_synth_entities"
+    ],
+    "models": "tabpfn,tabpfn-2.5,tabicl,kumo-tabular-s,kumo-tabular-m,kumo-tabular-l,exaone,hgb",
+    "n_estimators": 4,
+    "skip_unavailable": true,
+    "name": "J1_transfer"
+  },
+  "env": {
+    "python": "3.11.15",
+    "platform": "Linux-5.15.0-152-generic-x86_64-with-glibc2.35",
+    "cpu_count": 104,
+    "git_sha": "2024034",
+    "numpy": "2.4.0",
+    "pandas": "2.3.3",
+    "sklearn": "1.8.0",
+    "torch": "2.9.1+cu128",
+    "tabpfn": "9.1.0",
+    "tabicl": "?",
+    "torch_geometric": "2.8.0.post1",
+    "lightgbm": "4.7.0",
+    "torch_cuda": true,
+    "torch_threads": 8
+  },
+  "started_utc": "2026-10-02T16:04:57.500708+00:00"
+}
