@@ -1,0 +1,15 @@
+# 019_j5_gptoss_tiktoken_cache  host=g0377  start=Fri Oct  2 17:36:08 UTC 2026  timeout=300s
+# HEAD=c891eea
+# ---------------------------------------------------------
+J5 task3: 50425
+     50192   AGENT_runner  RUNNING    2:03:36 g0377
+     50375        J3_vllm  RUNNING      11:53 g0379
+     50376   J5_llm_sweep  RUNNING       7:22 g0379
+     50376   J5_llm_sweep  RUNNING       8:22 g0379
+     50377  J6_cli_agents  RUNNING       5:52 g0377
+     50399 J7d_relbench_h  RUNNING       5:52 g0377
+     50414   J5_llm_sweep  RUNNING       3:22 g0379
+     50425   J5_llm_sweep  PENDING       0:00 (None)
+ARRAY_JOB_           NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 17:36:08 UTC 2026
