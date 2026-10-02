@@ -1,0 +1,42 @@
+# job 50343 J3_vllm exit=1 Fri Oct  2 16:54:14 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J3_vllm_50343.out
+=== J3 vllm search === job 50343 Fri Oct  2 16:51:42 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+[vllm] serving Qwen/Qwen3-Coder-30B-A3B-Instruct on :8000 with --tool-call-parser qwen3_coder
+[vllm] failed with parser qwen3_coder:
+(APIServer pid=3271813)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=3271813)     return func(*args, **kwargs)
+(APIServer pid=3271813)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3271813)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 1060, in __init__
+(APIServer pid=3271813)     super().__init__(
+(APIServer pid=3271813)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 656, in __init__
+(APIServer pid=3271813)     with launch_core_engines(
+(APIServer pid=3271813)          ^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3271813)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/contextlib.py", line 144, in __exit__
+(APIServer pid=3271813)     next(self.gen)
+(APIServer pid=3271813)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1240, in launch_core_engines
+(APIServer pid=3271813)     wait_for_engine_startup(
+(APIServer pid=3271813)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1320, in wait_for_engine_startup
+(APIServer pid=3271813)     raise RuntimeError(
+(APIServer pid=3271813) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+[vllm] serving Qwen/Qwen3-Coder-30B-A3B-Instruct on :8000 with --tool-call-parser hermes
+[vllm] failed with parser hermes:
+(APIServer pid=3272926)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=3272926)     return func(*args, **kwargs)
+(APIServer pid=3272926)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3272926)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 1060, in __init__
+(APIServer pid=3272926)     super().__init__(
+(APIServer pid=3272926)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 656, in __init__
+(APIServer pid=3272926)     with launch_core_engines(
+(APIServer pid=3272926)          ^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3272926)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/contextlib.py", line 144, in __exit__
+(APIServer pid=3272926)     next(self.gen)
+(APIServer pid=3272926)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1240, in launch_core_engines
+(APIServer pid=3272926)     wait_for_engine_startup(
+(APIServer pid=3272926)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1320, in wait_for_engine_startup
+(APIServer pid=3272926)     raise RuntimeError(
+(APIServer pid=3272926) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+FAILED: vllm could not start
