@@ -1,0 +1,2 @@
+dataset,P*,P0,metric,tabfm,tabfm_auto_opus5,tabfm_auto_gemini38flash,our_gain_%,paper_gain_opus5_%,ours_vs_paper_tabfm
+MIC,0.425378408676821,0.43178226878792986,logloss,0.4282,0.4178,0.4199,1.4831225305025537,2.428771602055119,0.9934105760785169
