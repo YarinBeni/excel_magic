@@ -100,3 +100,21 @@ Every 3-fold CV took 0.4–3.7 s on the H200 (Kumo-L the slowest). Kumo Tabular-
 Unlike the paper's finding (pipelines found for TabFM help every weaker model), pipelines found for the *weakest* model
 transfer unevenly to stronger ones: the ratio feature that TabPFN needs is largely redundant for Kumo, and the count
 features help Kumo-S a lot but hurt Kumo-M. The search should be run per backbone, or around the strongest one.
+
+## RelBench rel-hm user-item-purchase (cluster job J7, 2026-10-02, official evaluator, MAP@12 x100)
+
+| method | val | test |
+|---|---|---|
+| GlobalPopularity | 0.342 | 0.292 |
+| PastVisit | 1.904 | 2.199 |
+| kNN-CF[row] | 0.136 | 0.144 |
+| kNN-CF[agg] | 0.258 | 0.259 |
+| kNN-CF[tabpfn_agg_kmeans] | 0.248 | 0.227 |
+| kNN-CF[tabpfn_agg_random] | 0.207 | 0.170 |
+| kNN-CF[tabpfn_row_kmeans] | 0.135 | 0.140 |
+| PastVisit+kNN-CF[any] | 1.897 | 2.191 |
+
+Published test rows (x100): GlobalPop 0.30, PastVisit 0.89, LightGBM 0.38, GraphSAGE 0.80, ID-GNN 2.81, KumoRFM 2.73, ContextGNN 2.93.
+Negative result for the frozen-embedding hypothesis at item level: every kNN row is below the popularity prior and the
+hybrids never improve on PastVisit. Reference rows (user-kNN on the raw purchase matrix, item-kNN) are queued (J7c).
+Source: `reports/runs/20261002T160111Z_J7_hm_full/` in the cluster branch.

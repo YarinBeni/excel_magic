@@ -155,22 +155,71 @@ def map_at_k(pred: np.ndarray, truth_lists, K: int) -> float:
     return float(np.mean(aps)) if aps else float("nan")
 
 
-def past_visit(tx: pd.DataFrame, queries: np.ndarray, pop_articles: np.ndarray, K: int = 12) -> np.ndarray:
+def knn_cf_sparse(E: sp.csr_matrix, P: sp.csr_matrix, query_rows: np.ndarray, k_neighbors: int = 50, K: int = 12,
+                  pop: np.ndarray | None = None, chunk: int = 1024) -> np.ndarray:
+    """knn_cf for a SPARSE embedding (e.g. the purchase matrix itself): cosine neighbours via sparse products."""
+    norms = np.sqrt(np.asarray(E.multiply(E).sum(1)).ravel()) + 1e-9
+    En = sp.diags(1 / norms) @ E
+    EnT = En.T.tocsc()
+    n_items = P.shape[1]
+    pop = np.zeros(n_items, np.float32) if pop is None else pop.astype(np.float32)
+    out = np.zeros((len(query_rows), K), np.int64)
+    for s in range(0, len(query_rows), chunk):
+        q = query_rows[s:s + chunk]
+        S = (En[q] @ EnT).toarray().astype(np.float32)
+        S[np.arange(len(q)), q] = -np.inf
+        nb = np.argpartition(-S, k_neighbors, axis=1)[:, :k_neighbors]
+        w = np.clip(np.take_along_axis(S, nb, 1), 0, None)
+        scores = np.zeros((len(q), n_items), np.float32)
+        for i in range(len(q)):
+            scores[i] = w[i] @ P[nb[i]].toarray()
+        scores += 1e-6 * pop
+        top = np.argpartition(-scores, K, axis=1)[:, :K]
+        order = np.argsort(-np.take_along_axis(scores, top, 1), axis=1)
+        out[s:s + chunk] = np.take_along_axis(top, order, 1)
+    return out
+
+
+def past_visit(tx: pd.DataFrame, queries: np.ndarray, pop_articles: np.ndarray, K: int = 12,
+               pad: bool = True) -> np.ndarray:
+    """Most recent distinct past articles; padded with global popularity (pad=True) or -1 (pad=False)."""
     t = tx[tx["customer_id"].isin(queries)].sort_values("t_dat", ascending=False)
     last = t.groupby("customer_id")["article_id"].apply(lambda s: list(dict.fromkeys(s))[:K])
-    return np.array([(last.get(u, []) + list(pop_articles))[:K] for u in queries])
+    filler = list(pop_articles) if pad else [-1] * K
+    return np.array([(last.get(u, []) + filler)[:K] for u in queries])
+
+
+def item_knn(P: sp.csr_matrix, query_rows: np.ndarray, K: int = 12, k_items: int = 50, pop: np.ndarray | None = None,
+             chunk: int = 2048) -> np.ndarray:
+    """Item-based CF: score(item) = sum over the user's past items of cosine(item, past item), top-K."""
+    Pc = P.tocsc().astype(np.float32)
+    norms = np.sqrt(np.asarray(Pc.multiply(Pc).sum(0)).ravel()) + 1e-9
+    Pn = Pc.multiply(1 / norms).tocsc()
+    S = (Pn.T @ Pn).tocsr()  # item x item cosine (sparse)
+    pop = np.zeros(P.shape[1], np.float32) if pop is None else pop.astype(np.float32)
+    out = np.zeros((len(query_rows), K), np.int64)
+    for s in range(0, len(query_rows), chunk):
+        q = query_rows[s:s + chunk]
+        scores = (P[q] @ S).toarray() + 1e-6 * pop
+        top = np.argpartition(-scores, K, axis=1)[:, :K]
+        order = np.argsort(-np.take_along_axis(scores, top, 1), axis=1)
+        out[s:s + chunk] = np.take_along_axis(top, order, 1)
+    return out
 
 
 def hybrid_fill(primary: np.ndarray, secondary: np.ndarray, K: int = 12) -> np.ndarray:
-    """Primary list first (e.g. PastVisit), then secondary entries not already present (e.g. kNN-CF)."""
-    out = np.zeros((len(primary), K), primary.dtype)
+    """Primary list first (e.g. past purchases, -1 = empty slot), then secondary entries not already present."""
+    out = np.zeros((len(primary), K), secondary.dtype)
     for i in range(len(primary)):
         seen, merged = set(), []
         for a in list(primary[i]) + list(secondary[i]):
-            if a not in seen:
-                seen.add(a); merged.append(a)
+            if a == -1 or a in seen:
+                continue
+            seen.add(a); merged.append(a)
             if len(merged) == K:
                 break
+        while len(merged) < K:
+            merged.append(secondary[i][0])
         out[i] = merged
     return out
 
@@ -209,11 +258,28 @@ def run_split(task, db, split: str, embedders: list[str], hist_days: int = 365, 
     t0 = time.time()
     evaluate("GlobalPopularity", np.tile(pop_top, (len(queries), 1)))
     pv = past_visit(tx, queries, pop_top, K)
+    pv_only = past_visit(tx, queries, pop_top, K, pad=False)
     evaluate("PastVisit", pv)
     P = purchase_matrix(tx, queries, articles)
     row, agg = customer_table(tx, cust, art, queries, cutoff)
     feats = {"row": standardize(row.to_numpy()), "agg": standardize(agg.to_numpy())}
     qrows = np.arange(len(queries))
+    # reference rows that need no embedding model: classic collaborative filtering on the purchase matrix itself
+    try:
+        t1 = time.time()
+        Pd = P.astype(np.float32)
+        E_cf = Pd  # user-kNN over the raw purchase vectors (sparse cosine)
+        pred = knn_cf_sparse(E_cf, P, qrows, k_neighbors=k_neighbors, K=K, pop=pop)
+        evaluate("kNN-CF[purchase_matrix]", articles[pred])
+        evaluate("Past+kNN-CF[purchase_matrix]", hybrid_fill(pv_only, articles[pred], K))
+        res["rows"]["kNN-CF[purchase_matrix]"]["seconds"] = round(time.time() - t1, 1)
+        t1 = time.time()
+        pred = item_knn(P, qrows, K=K, pop=pop)
+        evaluate("ItemKNN", articles[pred])
+        evaluate("Past+ItemKNN", hybrid_fill(pv_only, articles[pred], K))
+        res["rows"]["ItemKNN"]["seconds"] = round(time.time() - t1, 1)
+    except Exception as e:
+        print(f"[{split}] reference CF rows FAILED: {type(e).__name__}: {e}", flush=True)
     for name in embedders:
         t1 = time.time()
         try:
@@ -229,7 +295,7 @@ def run_split(task, db, split: str, embedders: list[str], hist_days: int = 365, 
                 raise KeyError(name)
             pred = knn_cf(E, P, qrows, k_neighbors=k_neighbors, K=K, pop=pop)
             evaluate(f"kNN-CF[{name}]", articles[pred])
-            evaluate(f"PastVisit+kNN-CF[{name}]", hybrid_fill(pv, articles[pred], K))
+            evaluate(f"Past+kNN-CF[{name}]", hybrid_fill(pv_only, articles[pred], K))
             res["rows"][f"kNN-CF[{name}]"]["seconds"] = round(time.time() - t1, 1)
         except Exception as e:
             print(f"[{split}] {name} FAILED: {type(e).__name__}: {e}", flush=True)

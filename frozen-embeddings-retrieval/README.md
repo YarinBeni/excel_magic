@@ -66,4 +66,10 @@ What this says so far:
 
 Every number: `docs/run-log.md` (mean +/- sd over seeds 0-2, `scripts/aggregate_runs.py`).
 
+## Real benchmark: RelBench rel-hm (official evaluator, test MAP@12 x100)
+
+GlobalPopularity 0.29, PastVisit 2.20, published ID-GNN 2.81; **our frozen-embedding kNN rows 0.14-0.26, below popularity.**
+Customer-level embeddings over coarse aggregates do not carry article-level preference (105k articles); see
+`docs/run-log.md`. This is the honest state of the real-data test; the synthetic-DB results above do not transfer yet.
+
 See `docs/PAPER_PLAN.md` for the hypotheses, the experiment matrix and what is still blocked.

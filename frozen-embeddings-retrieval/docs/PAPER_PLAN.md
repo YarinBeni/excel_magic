@@ -14,6 +14,11 @@
   when the relational signal is not captured by hand aggregates. Open reproduction (OpenRFM) is too weak to test
   this (0.25); needs KumoRelational / Relational Transformer weights.
 - **H4** Frozen embeddings transfer across databases without any fitting (zero-shot), unlike the GNN.
+- **Status after rel-hm (2026-10-02):** H1/H3 do NOT hold at item-level retrieval on real data: all embedding kNN rows are
+  below global popularity (0.14-0.26 vs 0.29 MAP@12 x100). The synthetic finding (segment retrieval) measures a coarse
+  group signal; rel-hm needs article-level preference. The paper angle must either (a) move to entity-similarity tasks
+  where group structure is the target (TEmBed-style, customer segmentation, entity matching) or (b) make the embeddings
+  item-aware (two-tower with article embeddings; frozen FM over user x item-feature interactions).
 
 ## Experiment matrix
 

@@ -127,9 +127,17 @@ beating a hand-written 9-feature table (0.317) and HistGB on the agent table (0.
 Synthetic shop DB, 3 seeds, latent-segment retrieval P@10 (chance 0.167): row-only 0.161; hand aggregates 0.726;
 frozen TabPFN over the aggregates with a single random in-context target 0.49 ± 0.34 (unstable); the same with
 k-means pseudo-labels as target **0.824 ± 0.021**; a GNN trained on the DB 0.877 ± 0.007; OpenRFM hidden state 0.249
-(random weights 0.168). The in-context target decides what the embedding keeps: a downstream label collapses it onto
-that label (0.18). RelBench `rel-hm` user-item-purchase with the official evaluator (J7): **TBD**; trivial baselines
-reproduced on val (GlobalPopularity 0.34, PastVisit 1.90, MAP@12 × 100).
+(random weights 0.168); Kumo Relational (frozen, cluster) 0.62 ± 0.05 with k-means target vs 0.33 ± 0.13 random target.
+The in-context target decides what the embedding keeps: a downstream label collapses it onto that label (0.18).
+
+RelBench `rel-hm` user-item-purchase, official evaluator, MAP@12 × 100 (J7, job 50266, 74,575 val / 67,144 test
+queries, 365-day history, k = 50): GlobalPopularity 0.34 / 0.29 (val / test), PastVisit 1.90 / 2.20 (published test
+rows: GlobalPop 0.30, PastVisit 0.89, ID-GNN 2.81, KumoRFM zero-shot 2.73, ContextGNN 2.93). Training-free user-kNN
+over our customer embeddings: row-only 0.14, hand aggregates 0.26, TabPFN(agg, k-means target) 0.23, TabPFN(agg,
+random target) 0.17, TabPFN(row, k-means) 0.14 on test; every PastVisit+kNN hybrid 2.19, i.e. the fill never helps.
+**Negative result**: at item level on real data the frozen-embedding neighbourhoods are below the popularity prior.
+A rerun with reference rows (user-kNN on the raw purchase matrix, item-kNN) is queued to tell "weak embeddings" from
+"weak kNN scoring".
 
 ## 6. Ablations and analysis (planned)
 LLM vs no-LLM gap per dataset category (domain-readable vs anonymised schemas, paper Table 6); budget curves

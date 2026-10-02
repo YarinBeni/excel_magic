@@ -17,7 +17,7 @@ ensure_vllm() {
       "$VLLM_VENV/bin/pip" install -q --upgrade pip || exit 1
       "$VLLM_VENV/bin/pip" install -q --no-cache-dir vllm || exit 1
       vllm_env
-      "$VLLM_VENV/bin/vllm" --version || exit 1
+      "$VLLM_VENV/bin/python" -c "import vllm; print('vllm', vllm.__version__)" || exit 1   # not `vllm --version`: the CLI parser infers the device and fails on a CPU node
       touch "$VLLM_VENV/.ok"
     ) 9>"$HOME/.vllm_install.lock" || { echo "FAILED vllm install"; return 1; }
 }

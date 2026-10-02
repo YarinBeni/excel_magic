@@ -54,3 +54,25 @@ the in-context target is structure-preserving: k-means target 0.62 +/- 0.05 vs r
 below the frozen TabPFN over flattened aggregates (0.82) and the GNN (0.88) and below the raw aggregates (0.73) on this
 synthetic DB, far above the OpenRFM reproduction (0.25). Source: cluster branch `reports/logs/J1_smoke_50265.log`,
 runs `J1_retrieval_seed{0,1,2}`.
+
+## 2026-10-02 cluster J7b: RelBench rel-hm / user-item-purchase, official evaluator (MAP@12 x100)
+hist_days=365, k_neighbors=50, val 74,575 queries, test 67,144 queries. Runs: `J7_hm_full` (cluster branch `reports/runs`).
+
+| method | val | test | published test |
+|---|---|---|---|
+| GlobalPopularity | 0.342 | 0.292 | 0.30 |
+| PastVisit (365-day history, most recent first) | 1.904 | 2.199 | 0.89 (paper's variant) |
+| kNN-CF[row] | 0.136 | 0.144 | |
+| kNN-CF[agg] | 0.258 | 0.259 | |
+| kNN-CF[tabpfn_agg_kmeans] | 0.248 | 0.227 | |
+| kNN-CF[tabpfn_agg_random] | 0.207 | 0.170 | |
+| kNN-CF[tabpfn_row_kmeans] | 0.135 | 0.140 | |
+| PastVisit + kNN fill (any) | 1.897 | 2.191 | |
+| published: LightGBM 0.38, GraphSAGE 0.80, ID-GNN 2.81, KumoRFM zero-shot 2.73, ContextGNN 2.93 | | | |
+
+Reading: NEGATIVE for H1/H3 on real data. Customer embeddings built from coarse aggregates (product-group mix, recency,
+spend) do not encode article-level preference: neighbours' purchases rarely contain the query's next articles, so every
+embedding row is below global popularity; the frozen TabPFN state tracks the aggregates it was fed (0.23 vs 0.26).
+Repeat purchases dominate this task (PastVisit 2.2), which no customer-level embedding can express. Next: reference rows
+that isolate the cause (user-kNN over the raw purchase matrix, item-kNN), a past-only+fill hybrid, and item-aware
+embeddings (two-tower with article embeddings) before claiming anything about relational FMs on rel-hm.

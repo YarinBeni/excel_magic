@@ -122,9 +122,14 @@ def t5_retrieval(roots):
 def t6_relbench(roots):
     rows = []
     for root in roots:
-        for f in Path(root).glob("*/relbench_rows.json"):
+        files = list(Path(root).glob("*/relbench_rows.json"))
+        files += [m for m in Path(root).glob("*/metrics.json") if "splits" in json.load(open(m))]
+        for f in files:
             out = json.load(open(f))
+            out = out.get("splits", out)
             for split, s in out.items():
+                if not isinstance(s, dict) or "rows" not in s:
+                    continue
                 for name, r in s["rows"].items():
                     if "map" in r:
                         rows.append({"run": f.parent.name, "split": split, "method": name, "MAP@K x100": 100 * r["map"]})

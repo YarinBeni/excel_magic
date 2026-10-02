@@ -24,3 +24,9 @@
   inbox 011 reruns J1 and J7.
 - J2 wave 1 complete (17/17): mean gain +0.5% (paper +4.6%), wins 9/17, Kumo-S P0 within a few % of TabFM on 16/17. J0v failed on
   libstdc++ (venv on thesis python) -> vLLM in its own conda env; inbox 012 reruns J0v and re-chains J3/J5/J6.
+- J7 done (50266, official evaluator, test MAP@12 x100): GlobalPop 0.29, PastVisit 2.20, our embedding kNN rows 0.14-0.26 (below
+  popularity), hybrids 2.19 (no gain). NEGATIVE for the frozen-embedding hypothesis at item level; recorded in fer run-log/README/
+  PAPER_PLAN and REPORT 5.6. inbox 014 reruns J7 with reference rows (user-kNN on the purchase matrix, item-kNN). J0v (50316)
+  rerunning with the LD_LIBRARY_PATH fix; J3/J5/J6 chained behind it.
+- J0v (50316) failed on `vllm --version` ("Failed to infer device type": the CLI parser needs a GPU, J0v is a CPU job); the
+  libstdc++ problem is gone. Check is now a plain import; inbox 015 reruns J0v and re-chains J3/J5/J6.
