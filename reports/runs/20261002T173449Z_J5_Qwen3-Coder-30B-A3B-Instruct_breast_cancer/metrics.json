@@ -1,0 +1,98 @@
+{
+  "dataset": "breast_cancer",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=4,device=cuda",
+  "metric": "1-auroc",
+  "harness": "openai",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 9,
+  "n_evals_ok": 9,
+  "p0_cv": 0.004422588312433436,
+  "best_cv": 0.004017703466928942,
+  "best_candidate": "eval_004.py",
+  "agent": {
+    "harness": "openai",
+    "rc": 0,
+    "elapsed_s": 101.4,
+    "n_turns": 18,
+    "tool_counts": {
+      "read_file": 1,
+      "describe_data": 1,
+      "run_eval": 8,
+      "write_pipeline": 7,
+      "finish": 1
+    },
+    "usage": {
+      "input_tokens": 194075,
+      "output_tokens": 8521
+    },
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.0043808411214953935,
+  "p0_test_secondary": {
+    "logloss": 0.0871675561105192,
+    "acc": 0.9649122807017544,
+    "auroc": 0.9956191588785046,
+    "1-auroc": 0.0043808411214953935
+  },
+  "best_test": 0.006863317757009324,
+  "best_test_secondary": {
+    "logloss": 0.11194330710599809,
+    "acc": 0.9590643274853801,
+    "auroc": 0.9931366822429907,
+    "1-auroc": 0.006863317757009324
+  },
+  "best_test_info": {
+    "n_features": 59,
+    "t_features": 0.038,
+    "n_views": 1,
+    "view_sizes": [
+      398
+    ],
+    "t_model": 0.328,
+    "t_total": 0.368,
+    "model_spec": "kumo-tabular-s:n_estimators=4,device=cuda"
+  },
+  "test_improvement_pct": -56.667,
+  "baseline_hgb_test": 0.0108060747663552,
+  "cv_trajectory": [
+    [
+      1,
+      0.004422588312433436
+    ],
+    [
+      2,
+      0.004342267027292864
+    ],
+    [
+      3,
+      0.004099663961970331
+    ],
+    [
+      4,
+      0.004017703466928942
+    ],
+    [
+      5,
+      0.004098024752069514
+    ],
+    [
+      6,
+      0.004178346037210086
+    ],
+    [
+      7,
+      0.004261945742152329
+    ],
+    [
+      8,
+      0.004260306532251475
+    ],
+    [
+      9,
+      0.004260306532251475
+    ]
+  ],
+  "elapsed_s": 119.21,
+  "status": "ok"
+}

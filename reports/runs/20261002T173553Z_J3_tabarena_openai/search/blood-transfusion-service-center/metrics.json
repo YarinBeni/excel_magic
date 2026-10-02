@@ -1,0 +1,106 @@
+{
+  "dataset": "blood-transfusion-service-center",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "1-auroc",
+  "harness": "openai",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 11,
+  "n_evals_ok": 11,
+  "p0_cv": 0.24557292918513393,
+  "best_cv": 0.24182740378606524,
+  "best_candidate": "eval_009.py",
+  "agent": {
+    "harness": "openai",
+    "rc": 0,
+    "elapsed_s": 109.7,
+    "n_turns": 22,
+    "tool_counts": {
+      "read_file": 1,
+      "describe_data": 1,
+      "run_eval": 10,
+      "write_pipeline": 9,
+      "finish": 1
+    },
+    "usage": {
+      "input_tokens": 134252,
+      "output_tokens": 5884
+    },
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.26368421052631574,
+  "p0_test_secondary": {
+    "logloss": 0.48106538588223674,
+    "acc": 0.788,
+    "auroc": 0.7363157894736843,
+    "1-auroc": 0.26368421052631574
+  },
+  "best_test": 0.25377192982456154,
+  "best_test_secondary": {
+    "logloss": 0.4801505765880188,
+    "acc": 0.796,
+    "auroc": 0.7462280701754385,
+    "1-auroc": 0.25377192982456154
+  },
+  "best_test_info": {
+    "n_features": 4,
+    "t_features": 0.003,
+    "n_views": 2,
+    "view_sizes": [
+      249,
+      249
+    ],
+    "t_model": 0.752,
+    "t_total": 0.756,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 3.759,
+  "cv_trajectory": [
+    [
+      1,
+      0.24557292918513393
+    ],
+    [
+      2,
+      0.24658706523864007
+    ],
+    [
+      3,
+      0.25230858562551484
+    ],
+    [
+      4,
+      0.2509869960165236
+    ],
+    [
+      5,
+      0.24857235393652713
+    ],
+    [
+      6,
+      0.2507665107566683
+    ],
+    [
+      7,
+      0.24820441114732458
+    ],
+    [
+      8,
+      0.2473853628873314
+    ],
+    [
+      9,
+      0.24182740378606524
+    ],
+    [
+      10,
+      0.24874753235973712
+    ],
+    [
+      11,
+      0.24215684978480256
+    ]
+  ],
+  "elapsed_s": 120.04,
+  "status": "ok"
+}
