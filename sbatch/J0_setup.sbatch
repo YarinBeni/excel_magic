@@ -33,7 +33,8 @@ if [ "$TORCH_OK" != "1" ]; then
     python -m pip install -q "torch>=2.7" || { echo "FAILED torch upgrade"; exit 1; }
 fi
 python -m pip install -q -e "open-tabfm-auto[tabpfn,tabicl,baselines,dev]" || { echo "FAILED pip open-tabfm-auto"; exit 1; }
-python -m pip install -q "sdm @ git+https://github.com/NVIDIA/structured-data-models.git" || echo "[J0] WARN: sdm install failed (Kumo backbones unavailable)"
+python -m pip install -q "structured-data-models @ git+https://github.com/NVIDIA/structured-data-models.git" || echo "[J0] WARN: sdm install failed (Kumo backbones unavailable)"
+python -c "import sdm; print('sdm ok', [m for m in dir(sdm.models) if m.startswith('Kumo')])" || echo "[J0] WARN: sdm import failed"
 python -m pip install -q "exaonetabular @ git+https://github.com/LGAI-Research/EXAONE-Tabular.git" || echo "[J0] WARN: exaone install failed"
 python -m pip install -q torch_geometric openml relbench tabulate || { echo "FAILED pip extras"; exit 1; }
 python -m pip install -q --no-deps -e frozen-embeddings-retrieval || { echo "FAILED pip fer"; exit 1; }
@@ -47,7 +48,7 @@ mkdir -p "$TABFM_WEIGHTS_DIR/openrfm"
 tabfm-models status | tee ../reports/J0_models_status.md
 python -m pytest -q 2>&1 | tail -3 | tee ../reports/J0_tests_open-tabfm-auto.txt
 cd ../frozen-embeddings-retrieval
-ln -sfn "$TABFM_WEIGHTS_DIR/openrfm" weights/openrfm; ln -sfn "$TABFM_WEIGHTS_DIR/tabpfn" weights/tabpfn
+mkdir -p weights && ln -sfn "$TABFM_WEIGHTS_DIR/openrfm" weights/openrfm && ln -sfn "$TABFM_WEIGHTS_DIR/tabpfn" weights/tabpfn
 python -m pytest -q 2>&1 | tail -3 | tee ../reports/J0_tests_fer.txt
 cd ..
 { echo "# J0 environment ($(date -u))"; python -m pip list 2>/dev/null | grep -iE "^(torch|tabpfn|tabicl|sdm|exaone|torch-geometric|openml|relbench|open-tabfm|frozen)" ; nvidia-smi --query-gpu=name,memory.total --format=csv,noheader; } > reports/J0_env.md
