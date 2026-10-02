@@ -1,6 +1,13 @@
-alive Fri Oct  2 19:39:45 UTC 2026
+alive Fri Oct  2 20:39:57 UTC 2026
 host g0377
 job 50192
-           50564_1 voltagepa J8_tabar  yarin.b  R       4:59      1 g0381
-           50554_0 voltagepa J8_tabar  yarin.b  R      22:01      1 g0379
-             50192 voltagepa AGENT_ru  yarin.b  R    4:07:13      1 g0377
+             50619 voltagepa J13_loop  yarin.b  R       6:04      1 g0376
+           50617_1 voltagepa J11_judg  yarin.b  R       6:04      1 g0381
+           50617_0 voltagepa J11_judg  yarin.b  R      14:35      1 g0376
+           50616_2 voltagepa J10_budg  yarin.b  R      15:05      1 g0380
+           50616_0 voltagepa J10_budg  yarin.b  R      16:06      1 g0380
+           50615_1 voltagepa J9_tabar  yarin.b  R      17:06      1 g0379
+           50615_0 voltagepa J9_tabar  yarin.b  R      19:36      1 g0379
+             50655 voltagepa J12_relb  yarin.b  R       0:33      1 g0379
+           50564_1 voltagepa J8_tabar  yarin.b  R    1:05:11      1 g0381
+             50192 voltagepa AGENT_ru  yarin.b  R    5:07:25      1 g0377
