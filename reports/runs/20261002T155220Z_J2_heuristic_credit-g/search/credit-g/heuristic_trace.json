@@ -1,0 +1,138 @@
+[
+  {
+    "config": {
+      "regression": false
+    },
+    "score": 0.2214254472680086
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true
+    },
+    "score": 0.22468117529504142,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true
+    },
+    "score": 0.22621963932748712,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "drop_constant": true
+    },
+    "score": 0.2249321293375218,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true
+    },
+    "score": 0.23127532874764456,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "log_skewed": true
+    },
+    "score": 0.22451957758890842,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "crosses_top_k": 3
+    },
+    "score": 0.2248372238863333,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "crosses_top_k": 5
+    },
+    "score": 0.23072939248914215,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "svd_components": 8
+    },
+    "score": 0.2265140666320252,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "svd_components": 16
+    },
+    "score": 0.2267669628647,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "prune_to": 64
+    },
+    "score": 0.22774071093762957,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "balanced_views": true
+    },
+    "score": 0.22622324625213405,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "random_views": 3
+    },
+    "score": 0.22631593205738607,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "prior_correction": true
+    },
+    "score": 0.22815714706663184,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "temperature": 0.8
+    },
+    "score": 0.2249368460851369,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "temperature": 1.25
+    },
+    "score": 0.2250334162707779,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 0.22580181591977452,
+    "error": null
+  }
+]
