@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "blood-transfusion-service-center",
+      "P*": 0.24556028843294675,
+      "P0": 0.24535526315789472,
+      "metric": "1-auroc",
+      "tabfm": 0.2441,
+      "tabfm_auto_opus5": 0.2431,
+      "tabfm_auto_gemini38flash": 0.2398,
+      "our_gain_%": -0.08356261545532583,
+      "paper_gain_opus5_%": 0.4096681687832859,
+      "ours_vs_paper_tabfm": 1.005982336882207
+    }
+  ],
+  "elapsed_s": 207.19,
+  "status": "ok"
+}
