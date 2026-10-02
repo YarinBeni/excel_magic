@@ -3,3 +3,5 @@ blood-transfusion-service-center,363621,0,0,blood-transfusion-service-center/r0f
 blood-transfusion-service-center,363621,0,0,blood-transfusion-service-center/r0f0,kumo-tabular-s+P*,P*,1-auroc,0.263859649122807,ok,,0.36
 credit-g,363626,0,0,credit-g/r0f0,kumo-tabular-s+P0,P0,1-auroc,0.2071367521367522,ok,,0.39
 credit-g,363626,0,0,credit-g/r0f0,kumo-tabular-s+P*,P*,1-auroc,0.20431623931623932,ok,,0.39
+airfoil_self_noise,363612,0,0,airfoil_self_noise/r0f0,kumo-tabular-s+P0,P0,rmse,0.8221531892776456,ok,,0.37
+airfoil_self_noise,363612,0,0,airfoil_self_noise/r0f0,kumo-tabular-s+P*,P*,rmse,0.795252638710716,ok,,0.35
