@@ -1,0 +1,32 @@
+# job 50270 J2_tabarena exit=0 Fri Oct  2 16:01:17 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_12.out
+=== J2 tabarena task 12 === job 50270 Fri Oct  2 15:57:06 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=Another-Dataset-on-used-Fiat-500 model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:57:35,536 INFO P0 cv rmse = 739.3040320438205
+2026-10-02 16:00:47,231 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/metrics.json
+2026-10-02 16:01:12,121 INFO Another-Dataset-on-used-Fiat-500         P0=713.90735 P*=719.02532 | paper TabFM=703.27 TabFM-Auto(Opus5)=693.49 | 235s
+2026-10-02 16:01:12,167 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500/metrics.json
+1 datasets: ['Another-Dataset-on-used-Fiat-500']
+pipeline                                  P*          P0
+dataset                                                 
+Another-Dataset-on-used-Fiat-500  719.025323  713.907349
+[collect] copied 190 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o c2136ec] J2: tabarena Another-Dataset-on-used-Fiat-500 heuristic (job 50270)
+ 6 files changed, 142 insertions(+)
+ create mode 100644 reports/runs/20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500/metrics.json
+ create mode 100644 reports/runs/20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500/results.csv
+ create mode 100644 reports/runs/20261002T160040Z_J7_hm_smoke/metrics.json
+ create mode 100644 reports/runs/20261002T160040Z_J7_hm_smoke/results.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   3f22940..c2136ec  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 Another-Dataset-on-used-Fiat-500 done Fri Oct  2 16:01:17 UTC 2026 ===
