@@ -1,0 +1,78 @@
+# 023_j6_pi_diagnose  host=g0377  start=Fri Oct  2 18:52:47 UTC 2026  timeout=300s
+# HEAD=9de297e
+# ---------------------------------------------------------
+JobID|JobName|State|ExitCode|Elapsed|MaxRSS|NodeList
+50377_0|J6_cli_agents|FAILED|1:0|00:03:57||g0381
+50377_0.batch|batch|FAILED|1:0|00:03:57|63450876K|g0381
+50377_0.extern|extern|COMPLETED|0:0|00:03:57||g0381
+50377_1|J6_cli_agents|COMPLETED|0:0|00:05:49||g0376
+50377_1.batch|batch|COMPLETED|0:0|00:05:49|64198064K|g0376
+50377_1.extern|extern|COMPLETED|0:0|00:05:49||g0376
+50377_2|J6_cli_agents|COMPLETED|0:0|00:16:03||g0377
+50377_2.batch|batch|COMPLETED|0:0|00:16:03|65281800K|g0377
+50377_2.extern|extern|COMPLETED|0:0|00:16:03||g0377
+== artifacts
+== sbatch/logs/J6_cli_agents_50377_0.out (filtered tail)
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/walk-up-path/dist/esm/index.js'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/walk-up-path/dist/esm/package.json'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/walk-up-path/package.json'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/which/LICENSE'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/which/README.md'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/which/bin/which.js'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/which/lib/index.js'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/which/package.json'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/write-file-atomic/LICENSE.md'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/write-file-atomic/lib/index.js'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/write-file-atomic/package.json'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/yallist/LICENSE.md'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/yallist/dist/commonjs/index.js'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/yallist/dist/commonjs/package.json'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/yallist/dist/esm/index.js'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/yallist/dist/esm/package.json'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'lib/node_modules/npm/node_modules/yallist/package.json'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'share/doc/node/gdbinit'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'share/doc/node/lldb_commands.py'
+specified in the package manifest cannot be found.
+CondaVerificationError: The package for nodejs located at /home/yarin.b/miniconda3/pkgs/nodejs-26.10.0-ha5cdc1e_0
+appears to be corrupted. The path 'share/man/man1/node.1'
+specified in the package manifest cannot be found.
+FAILED conda node22
+== pi binary
+# ---------------------------------------------------------
+# exit=2  end=Fri Oct  2 18:52:48 UTC 2026
