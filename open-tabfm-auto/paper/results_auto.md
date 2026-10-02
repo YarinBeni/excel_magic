@@ -1,5 +1,5 @@
 # Auto-generated results tables
-_from 158 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
+_from 163 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
 
 ## T1. Frozen backbones with the identity pipeline (3-fold CV, lower is better)
 |                               |     hgb |   kumo-tabular-l |   kumo-tabular-m |   kumo-tabular-s |   tabicl |   tabpfn |   tabpfn-2.5 |
@@ -73,6 +73,8 @@ _from 158 runs under runs, /home/user/excel_magic/reports/runs, /home/user/froze
 | Another-Dataset-on-used-Fiat-500      |  714.4997 |  717.2734 |      -0.3882 |  703.2700 |           693.4900 |               1.3906 | 20261002T195318Z_J8_pi_qwen3coder_Another-Dataset-on-used-Fiat-500           |
 | qsar-biodeg                           |    0.0596 |    0.0603 |      -1.2004 |    0.0580 |             0.0582 |              -0.3448 | 20261002T155339Z_J2_heuristic_qsar-biodeg                                    |
 | blood-transfusion-service-center      |    0.2451 |    0.2462 |      -0.4498 |    0.2441 |             0.2431 |               0.4097 | 20261002T194110Z_J8_openai_glm45air_blood-transfusion-service-center         |
+| qsar-biodeg                           |    0.0583 |    0.0584 |      -0.0523 |    0.0580 |             0.0582 |              -0.3448 | 20261002T204850Z_J9_heuristic_tabiclv2_qsar-biodeg                           |
+| hazelnut-spread-contaminant-detection |    0.0048 |    0.0050 |      -4.6840 |    0.0023 |             0.0021 |               8.6957 | 20261002T204330Z_J10_heuristic_b64_hazelnut-spread-contaminant-detection     |
 | concrete_compressive_strength         |    3.8471 |    3.7847 |       1.6205 |    3.9666 |             3.8169 |               3.7740 | 20261002T201544Z_J8_openai_glm45air_concrete_compressive_strength            |
 | diabetes                              |    0.1596 |    0.1623 |      -1.6644 |    0.1580 |             0.1471 |               6.8987 | 20261002T155211Z_J2_heuristic_diabetes                                       |
 | airfoil_self_noise                    |    0.9786 |    0.9422 |       3.7172 |    1.0734 |             0.9165 |              14.6171 | 20261002T194956Z_J8_pi_qwen3coder_airfoil_self_noise                         |
@@ -90,6 +92,7 @@ _from 158 runs under runs, /home/user/excel_magic/reports/runs, /home/user/froze
 | healthcare_insurance_expenses         | 4553.6089 | 4613.8992 |      -1.3240 | 4417.6000 |          4344.1000 |               1.6638 | 20261002T155549Z_J2_heuristic_healthcare_insurance_expenses                  |
 | concrete_compressive_strength         |    3.8327 |    3.8148 |       0.4664 |    3.9666 |             3.8169 |               3.7740 | 20261002T193646Z_J8_pi_qwen3coder_concrete_compressive_strength              |
 | anneal                                |    0.0179 |    0.0274 |     -52.4885 |    0.0125 |             0.0103 |              17.6000 | 20261002T202959Z_J9_heuristic_tabiclv2_anneal                                |
+| diabetes                              |    0.1594 |    0.1584 |       0.6255 |    0.1580 |             0.1471 |               6.8987 | 20261002T204942Z_J11_pi_qwen3coder_cv3_diabetes                              |
 | maternal_health_risk                  |    0.3847 |    0.3952 |      -2.7479 |    0.3706 |             0.3648 |               1.5650 | 20261002T155220Z_J2_heuristic_maternal_health_risk                           |
 | Is-this-a-good-customer               |    0.2475 |    0.2475 |      -0.0213 |    0.2466 |             0.2432 |               1.3788 | 20261002T195952Z_J8_pi_qwen3coder_Is-this-a-good-customer                    |
 | website_phishing                      |    0.2146 |    0.2149 |      -0.1367 |    0.2104 |             0.2067 |               1.7586 | 20261002T194521Z_J8_pi_qwen3coder_website_phishing                           |
@@ -225,14 +228,15 @@ _from 158 runs under runs, /home/user/excel_magic/reports/runs, /home/user/froze
 | kNN-CF[tabpfn_svd_random]           |  0.475 | 0.514 |
 
 ## T7. RelBench rel-hm user-churn, entity-level kNN probe (AUROC, random customer folds)
-| method                 |   AUROC |
-|:-----------------------|--------:|
-| Supervised[hgb on agg] |  0.6725 |
-| kNN[agg]               |  0.6530 |
-| kNN[tabpfn_agg_kmeans] |  0.6484 |
-| kNN[tabpfn_svd_kmeans] |  0.6450 |
-| kNN[tabpfn_agg_random] |  0.6425 |
-| kNN[svd_agg]           |  0.6375 |
-| kNN[svd]               |  0.5901 |
-| kNN[row]               |  0.5198 |
-| MajorityPrior          |  0.5000 |
+| method                    |   AUROC |
+|:--------------------------|--------:|
+| Supervised[hgb on agg]    |  0.6725 |
+| Supervised[tabpfn on agg] |  0.6715 |
+| kNN[agg]                  |  0.6530 |
+| kNN[tabpfn_agg_kmeans]    |  0.6484 |
+| kNN[tabpfn_svd_kmeans]    |  0.6450 |
+| kNN[tabpfn_agg_random]    |  0.6425 |
+| kNN[svd_agg]              |  0.6375 |
+| kNN[svd]                  |  0.5901 |
+| kNN[row]                  |  0.5198 |
+| MajorityPrior             |  0.5000 |

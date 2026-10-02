@@ -119,3 +119,7 @@ version of H1 holds only in the weak form "a frozen TFM embedding is as good as 
 better entity representation than its input on rel-hm. (Not comparable to the official user-churn leaderboard: random
 customer folds at one timestamp, not the temporal test split.)
 Run: reports/runs/20261002T203451Z_J12_churn_full (cluster branch).
+
+Addendum (J12c, job 50659): the supervised-TabPFN reference row is 0.672 AUROC, equal to HGB (0.673). So the same frozen
+model extracts the label when the label is in its context, and its label-free embedding + kNN (0.648) is 2.4 points below
+that: the price of the pseudo-target is exactly the gap between "frozen embedding" and "frozen model used as a classifier".

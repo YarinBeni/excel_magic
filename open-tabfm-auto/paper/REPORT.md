@@ -261,7 +261,7 @@ only at segment level (synthetic, with a well-chosen in-context target), which i
 
 **Entity-level probe on real data (J12, rel-hm user-churn, 20k customers at one timestamp, 5-fold kNN probe, AUROC):**
 supervised HGB on the aggregates 0.673; kNN on the raw aggregates 0.653; kNN on the frozen TabPFN hidden state over the
-same aggregates 0.648 (k-means target) / 0.643 (random); SVD factors 0.590; row-only 0.520. The frozen embedding
+same aggregates 0.648 (k-means target) / 0.643 (random); SVD factors 0.590; row-only 0.520. The same frozen TabPFN used as a classifier with the labels in context reaches 0.672, equal to HGB: the pseudo-target costs 2.4 AUROC points, which is the whole gap between "frozen embedding" and "frozen model". The frozen embedding
 equals its input and does not add what a supervised model extracts. Together with J7c/J7d the retrieval claim reduces
 to: a frozen TFM with a k-means in-context target is a target-agnostic entity representation that preserves the structure
 of the features it is given (and recovers planted segments from them), at zero training cost; it is not a better

@@ -83,3 +83,4 @@
 - J13 done (50619): rich-context tool loop with Qwen3-Coder: physics -0.7%, entities -4.9%, breast_cancer -23.5%, Lite +3.3/+0.4/+1.4%.
   Does not close the gap to pi -> harness effect is the agent loop itself. Early J9: Kumo-L (4 ds) -2.8%, TabICLv2 (6 ds) -9.2%;
   J10 budget64 heuristic (3 ds) +3.3%, pi (5) -4.3%; J11 cv3: heuristic entities +8.3%, pi entities +28.1% / breast -5.4%.
+- J12c (50659): supervised TabPFN on agg 0.672 = HGB; frozen embedding + kNN 0.648 -> the pseudo-target costs 2.4 AUROC points.

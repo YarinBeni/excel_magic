@@ -302,7 +302,7 @@ probe k = 50 (mean neighbour label), AUROC. Not the official temporal test split
 | kNN[row] | 0.520 |
 | majority prior | 0.500 |
 
-Frozen embedding = its input; supervised TabPFN reference row failed on a dtype argument and is rerun (J12b).
+Supervised TabPFN on the aggregates (labels in context, J12c): 0.672, equal to HGB. Frozen embedding = its input, 2.4 points below the same model used with labels.
 Source: `reports/runs/20261002T203451Z_J12_churn_full/`.
 
 ## Rich-context tool loop (cluster job J13, 50619): Qwen3-Coder-30B with the CLI agents' context in the first message
