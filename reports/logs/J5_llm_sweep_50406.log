@@ -1,0 +1,42 @@
+# job 50406 J5_llm_sweep exit=1 Fri Oct  2 17:30:03 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J5_llm_sweep_50376_2.out
+=== J5 llm sweep task 2 === job 50406 Fri Oct  2 17:28:46 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+[vllm] serving zai-org/GLM-4.5-Air on :8102 with --tool-call-parser glm45
+[vllm] failed with parser glm45:
+(APIServer pid=3283703)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 124, in make_async_mp_client
+(APIServer pid=3283703)     return AsyncMPClient(*client_args)
+(APIServer pid=3283703)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3283703)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 835, in __init__
+(APIServer pid=3283703)     super().__init__(
+(APIServer pid=3283703)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 490, in __init__
+(APIServer pid=3283703)     with launch_core_engines(vllm_config, executor_class, log_stats) as (
+(APIServer pid=3283703)          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3283703)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/contextlib.py", line 144, in __exit__
+(APIServer pid=3283703)     next(self.gen)
+(APIServer pid=3283703)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 925, in launch_core_engines
+(APIServer pid=3283703)     wait_for_engine_startup(
+(APIServer pid=3283703)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 984, in wait_for_engine_startup
+(APIServer pid=3283703)     raise RuntimeError(
+(APIServer pid=3283703) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+[vllm] serving zai-org/GLM-4.5-Air on :8102 with --tool-call-parser hermes
+[vllm] failed with parser hermes:
+(APIServer pid=3284706)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 124, in make_async_mp_client
+(APIServer pid=3284706)     return AsyncMPClient(*client_args)
+(APIServer pid=3284706)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3284706)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 835, in __init__
+(APIServer pid=3284706)     super().__init__(
+(APIServer pid=3284706)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 490, in __init__
+(APIServer pid=3284706)     with launch_core_engines(vllm_config, executor_class, log_stats) as (
+(APIServer pid=3284706)          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3284706)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/contextlib.py", line 144, in __exit__
+(APIServer pid=3284706)     next(self.gen)
+(APIServer pid=3284706)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 925, in launch_core_engines
+(APIServer pid=3284706)     wait_for_engine_startup(
+(APIServer pid=3284706)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 984, in wait_for_engine_startup
+(APIServer pid=3284706)     raise RuntimeError(
+(APIServer pid=3284706) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+FAILED: vllm could not start for zai-org/GLM-4.5-Air
