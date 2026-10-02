@@ -339,3 +339,34 @@ tasks. Gains are relative error reduction P* vs P0 on the official splits (held-
 
 The repeated judge removes most of the small-table loss (pi breast_cancer -17% -> -5%) and lifts the heuristic on
 anneal/diabetes; the synthetic entity gains are smaller under the stricter judge (fewer candidates pass).
+
+## Budget 64 on the paper's high-gain datasets (cluster job J10, 2026-10-02) and split transfer
+
+Frozen Kumo Tabular-S, 64 evals / 150 min, `--cv-repeats auto`; gains = relative error reduction over all 30 official
+splits. Standard-budget rows from J2 (heuristic, 24 evals), J8 (pi / GLM, 16 evals).
+
+| dataset | heuristic 24 | heuristic 64 | pi 16 | pi 64 | GLM 16 | GLM 64 | paper Opus 5 |
+|---|---|---|---|---|---|---|---|
+| anneal | +8.5% | +5.7% | -5.2% | -4.6% | -2.7% | -0.8% | +17.6% |
+| Marketing_Campaign | +0.1% | -0.7% | -14.2% | -15.3% | | -47.7% | +15.8% |
+| airfoil_self_noise | +6.5% | +4.8% | +3.7% | +2.5% | +1.8% | +4.6% | +14.6% |
+| hazelnut | +1.3% | -4.7% | +0.2% | -4.0% | | -1.6% | +8.7% |
+| diabetes | -1.7% | +0.5% | +0.8% | -0.0% | +1.3% | +3.3% | +6.9% |
+| mean | +2.9% | +1.1% | -2.9% | -4.3% | +0.1% | -8.4% | +12.7% |
+
+Evaluations actually used at budget 64: heuristic 31-44, pi 8-14, GLM 13-22.
+
+Split transfer (mean over datasets of the gain on the search split's own test r0f0 vs the mean over the other 29 splits,
+and the fraction of splits where P* beats P0):
+
+| setup | gain on r0f0 | gain on other 29 | splits improved |
+|---|---|---|---|
+| heuristic 24 | -0.5% | -0.1% | 0.51 |
+| heuristic 64 | +0.8% | +0.3% | 0.57 |
+| pi 16 | +1.4% | -1.3% | 0.50 |
+| pi 64 | -0.1% | -6.4% | 0.39 |
+| GLM 16 | -1.3% | -1.2% | 0.50 |
+| GLM 64 | -7.3% | -11.5% | 0.54 |
+
+A candidate selected by 3-fold CV on one split of a 500-2500-row table is as likely to hurt as to help on another split
+of the same data: the search is selecting CV noise. Runs: `reports/runs/*J10_*`, per-split rows in each `results.csv`.

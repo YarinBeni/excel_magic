@@ -86,3 +86,6 @@
 - J12c (50659): supervised TabPFN on agg 0.672 = HGB; frozen embedding + kNN 0.648 -> the pseudo-target costs 2.4 AUROC points.
 - J11 (cv3 judge) heuristic done, pi 4/5: on the <1000-row TabArena tables heuristic +1.4% -> +2.1%, pi -1.4% -> -0.5%;
   breast_cancer pi -17% -> -5%. Recommend --cv-repeats auto. REPORT 6 / RESULTS updated.
+- J10 done (budget 64 on the 5 high-gain datasets): heuristic +2.9% -> +1.1%, pi -2.9% -> -4.3%, GLM +0.1% -> -8.4%; agents stop at
+  8-22 evals. Split analysis: a candidate picked on r0f0 improves only ~50% of the other 29 splits -> the search selects CV noise
+  on small tables. REPORT 6 / RESULTS updated.

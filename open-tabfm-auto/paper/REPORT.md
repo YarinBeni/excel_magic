@@ -281,6 +281,17 @@ representation than those features, and it is not an item-level retrieval embedd
   −1.7% → +1.2%) and pi + Qwen3-Coder from −1.4% to −0.5% on the four done so far; on the 569-row breast_cancer table pi's
   loss shrinks from −17.1% to −5.4% and the heuristic's stays at 0. Repeated CV is cheap (the folds are ~1 s each on an
   H200) and is now the recommended default for n < 1000 (`--cv-repeats auto`).
+- **Budget (J10, paper Fig. 4)**: raising the budget from 16–24 to 64 evaluations (and `--cv-repeats auto`) on the five
+  datasets where the paper gains most (anneal, Marketing_Campaign, airfoil, hazelnut, diabetes; paper mean +12.7%) does
+  not help: heuristic +2.9% → +1.1%, pi + Qwen3-Coder −2.9% → −4.3%, GLM-4.5-Air loop +0.1% → −8.4% (Marketing_Campaign
+  −47.7%). The LLM agents also stop long before the budget (8–22 evaluations); only the heuristic uses 31–44.
+- **Where the gap comes from (split transfer)**: scoring the same pipelines per official split shows that a candidate
+  chosen by CV on the search split (r0f0) is often *not* better on the other 29 splits of the same data. Mean gain on
+  r0f0's own test vs the other 29: heuristic −0.5% / −0.1%, pi +1.4% / −1.3%, pi at budget 64 −0.1% / −6.4%, GLM −1.3% /
+  −1.2%; per dataset, anneal: heuristic +11.5% on r0f0 but −0.5% elsewhere, GLM +13.2% / −5.5%; Marketing_Campaign: pi
+  +4.3% / −24.8%. The fraction of splits a candidate improves is 0.39–0.57, i.e. a coin flip. With 500–2500-row tables a
+  3-fold CV difference of ±1–2% is inside the noise, so the search mostly selects noise, and a bigger budget selects more
+  of it. Repeated CV (J11) is the only lever we found that moves this, and only partly.
 - **LLM at fixed harness** (§5.2): GLM-4.5-Air (106B-A12B) > gpt-oss-20b > Qwen3-Coder-30B-A3B > Qwen3-32B in the
   tool loop; the reasoning model spends its budget on rewrites (37 writes / 16 evals) and finds nothing.
 - **LLM vs no LLM**: the greedy heuristic matches the mid-tier CLI agents on the entity task (+25–29%) because
