@@ -1,0 +1,44 @@
+# job 50255 J2_tabarena exit=0 Fri Oct  2 15:56:18 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_2.out
+=== J2 tabarena task 2 === job 50255 Fri Oct  2 15:52:05 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=anneal model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:52:45,955 INFO P0 cv logloss = 0.054710891208748356
+2026-10-02 15:55:50,284 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155211Z_J2_heuristic_anneal/search/anneal/metrics.json
+2026-10-02 15:56:13,031 INFO anneal                                   P0=0.01183 P*=0.01083 | paper TabFM=0.0125 TabFM-Auto(Opus5)=0.0103 | 229s
+2026-10-02 15:56:13,090 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155211Z_J2_heuristic_anneal/metrics.json
+1 datasets: ['anneal']
+pipeline        P*        P0
+dataset                     
+anneal    0.010827  0.011832
+[collect] copied 67 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o dd18390] J2: tabarena anneal heuristic (job 50255)
+ 18 files changed, 1984 insertions(+)
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_anneal/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_anneal/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_anneal/metrics.json
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_anneal/results.csv
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_anneal/search/anneal/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_anneal/search/anneal/metrics.json
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_blood-transfusion-service-center/search/blood-transfusion-service-center/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_blood-transfusion-service-center/search/blood-transfusion-service-center/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_blood-transfusion-service-center/search/blood-transfusion-service-center/metrics.json
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_blood-transfusion-service-center/search/blood-transfusion-service-center/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_diabetes/search/diabetes/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_diabetes/search/diabetes/metrics.json
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_maternal_health_risk/search/maternal_health_risk/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_maternal_health_risk/search/maternal_health_risk/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T155239Z_J2_heuristic_concrete_compressive_strength/search/concrete_compressive_strength/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155239Z_J2_heuristic_concrete_compressive_strength/search/concrete_compressive_strength/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155239Z_J2_heuristic_concrete_compressive_strength/search/concrete_compressive_strength/metrics.json
+ create mode 100644 reports/runs/20261002T155239Z_J2_heuristic_concrete_compressive_strength/search/concrete_compressive_strength/workspace/NOTES.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   732b521..dd18390  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 anneal done Fri Oct  2 15:56:18 UTC 2026 ===
