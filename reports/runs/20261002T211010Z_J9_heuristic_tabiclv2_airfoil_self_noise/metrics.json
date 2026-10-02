@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "airfoil_self_noise",
+      "P*": 1.006571846024676,
+      "P0": 1.0762980073231758,
+      "metric": "rmse",
+      "tabfm": 1.0734,
+      "tabfm_auto_opus5": 0.9165,
+      "tabfm_auto_gemini38flash": 0.8878,
+      "our_gain_%": 6.478332285675545,
+      "paper_gain_opus5_%": 14.617104527669083,
+      "ours_vs_paper_tabfm": 0.9377416117241253
+    }
+  ],
+  "elapsed_s": 193.38,
+  "status": "ok"
+}

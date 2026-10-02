@@ -1,0 +1,122 @@
+{
+  "dataset": "MIC",
+  "task_type": "multiclass",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "logloss",
+  "harness": "openai",
+  "llm_model": "zai-org/GLM-4.5-Air-FP8",
+  "n_evals": 16,
+  "n_evals_ok": 12,
+  "p0_cv": 0.44527778046835365,
+  "best_cv": 0.433749848833434,
+  "best_candidate": "eval_006.py",
+  "agent": {
+    "harness": "openai",
+    "rc": 0,
+    "elapsed_s": 360.2,
+    "n_turns": 32,
+    "tool_counts": {
+      "read_file": 1,
+      "describe_data": 1,
+      "run_eval": 15,
+      "write_pipeline": 14,
+      "finish": 1
+    },
+    "usage": {
+      "input_tokens": 676925,
+      "output_tokens": 27877
+    },
+    "model": "zai-org/GLM-4.5-Air-FP8",
+    "rich_context": false
+  },
+  "p0_test": 0.45678690550670853,
+  "p0_test_secondary": {
+    "logloss": 0.45678690550670853,
+    "acc": 0.890652557319224
+  },
+  "best_test": 0.44858670490803426,
+  "best_test_secondary": {
+    "logloss": 0.44858670490803426,
+    "acc": 0.8871252204585538
+  },
+  "best_test_info": {
+    "n_features": 130,
+    "t_features": 0.068,
+    "n_views": 1,
+    "view_sizes": [
+      1132
+    ],
+    "t_model": 1.131,
+    "t_total": 1.203,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 1.795,
+  "cv_trajectory": [
+    [
+      1,
+      0.44527778046835365
+    ],
+    [
+      2,
+      0.4452197986348485
+    ],
+    [
+      3,
+      null
+    ],
+    [
+      4,
+      0.4344372017284896
+    ],
+    [
+      5,
+      0.435818772496048
+    ],
+    [
+      6,
+      0.433749848833434
+    ],
+    [
+      7,
+      null
+    ],
+    [
+      8,
+      0.4447596854154073
+    ],
+    [
+      9,
+      null
+    ],
+    [
+      10,
+      0.43656919894187257
+    ],
+    [
+      11,
+      0.4363154967082803
+    ],
+    [
+      12,
+      0.43453247895369534
+    ],
+    [
+      13,
+      0.45915639580587647
+    ],
+    [
+      14,
+      null
+    ],
+    [
+      15,
+      0.43385598948084425
+    ],
+    [
+      16,
+      0.43485897210622987
+    ]
+  ],
+  "elapsed_s": 372.27,
+  "status": "ok"
+}

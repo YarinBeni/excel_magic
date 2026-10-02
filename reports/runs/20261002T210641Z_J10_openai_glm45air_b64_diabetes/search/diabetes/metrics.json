@@ -1,0 +1,114 @@
+{
+  "dataset": "diabetes",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "1-auroc",
+  "harness": "openai",
+  "llm_model": "zai-org/GLM-4.5-Air-FP8",
+  "n_evals": 13,
+  "n_evals_ok": 13,
+  "p0_cv": 0.16735570316078785,
+  "best_cv": 0.15725665132444788,
+  "best_candidate": "eval_009.py",
+  "agent": {
+    "harness": "openai",
+    "rc": 0,
+    "elapsed_s": 325.8,
+    "n_turns": 26,
+    "tool_counts": {
+      "read_file": 1,
+      "describe_data": 1,
+      "run_eval": 12,
+      "write_pipeline": 11,
+      "finish": 1
+    },
+    "usage": {
+      "input_tokens": 355624,
+      "output_tokens": 22372
+    },
+    "model": "zai-org/GLM-4.5-Air-FP8",
+    "rich_context": false
+  },
+  "p0_test": 0.15943775100401614,
+  "p0_test_secondary": {
+    "logloss": 0.46442172864128595,
+    "acc": 0.74609375,
+    "auroc": 0.8405622489959839,
+    "1-auroc": 0.15943775100401614
+  },
+  "best_test": 0.1433734939759036,
+  "best_test_secondary": {
+    "logloss": 0.4494446427288997,
+    "acc": 0.78125,
+    "auroc": 0.8566265060240964,
+    "1-auroc": 0.1433734939759036
+  },
+  "best_test_info": {
+    "n_features": 20,
+    "t_features": 0.027,
+    "n_views": 1,
+    "view_sizes": [
+      512
+    ],
+    "t_model": 0.423,
+    "t_total": 0.451,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 10.076,
+  "cv_trajectory": [
+    [
+      1,
+      0.16735570316078785
+    ],
+    [
+      2,
+      0.16717696308091787
+    ],
+    [
+      3,
+      0.1586666367739814
+    ],
+    [
+      4,
+      0.16438090633005886
+    ],
+    [
+      5,
+      0.15828084945316584
+    ],
+    [
+      6,
+      0.15802867031680592
+    ],
+    [
+      7,
+      0.16431579884969713
+    ],
+    [
+      8,
+      0.16040169507683635
+    ],
+    [
+      9,
+      0.15725665132444788
+    ],
+    [
+      10,
+      0.16070562087511242
+    ],
+    [
+      11,
+      0.15730399487461635
+    ],
+    [
+      12,
+      0.15961872889838988
+    ],
+    [
+      13,
+      0.15806389521078787
+    ]
+  ],
+  "elapsed_s": 338.72,
+  "status": "ok"
+}

@@ -1,0 +1,2 @@
+dataset,P*,P0,metric,tabfm,tabfm_auto_opus5,tabfm_auto_gemini38flash,our_gain_%,paper_gain_opus5_%,ours_vs_paper_tabfm
+Fitness_Club,0.17798121980264356,0.17871916340971816,1-auroc,0.1789,0.1787,0.1785,0.41290681592037753,0.11179429849078017,0.9948642806184659

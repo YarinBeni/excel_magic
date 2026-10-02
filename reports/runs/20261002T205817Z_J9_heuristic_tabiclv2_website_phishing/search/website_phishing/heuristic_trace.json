@@ -1,0 +1,226 @@
+[
+  {
+    "config": {
+      "regression": false
+    },
+    "score": 0.27827226071841077
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true
+    },
+    "score": 0.27827225707838754,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "winsorize": true
+    },
+    "score": 0.27827225707838754,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true
+    },
+    "score": 0.27827225707838754,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "count_encode": true
+    },
+    "score": 0.27827226071841077,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "log_skewed": true
+    },
+    "score": 0.27827225707838754,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 3
+    },
+    "score": 0.27827225707838754,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5
+    },
+    "score": 0.27827226071841077,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "svd_components": 8
+    },
+    "score": 0.27827225707838754,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "svd_components": 16
+    },
+    "score": 0.27827226071841077,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "prune_to": 64
+    },
+    "score": 0.27827225707838754,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "balanced_views": true
+    },
+    "score": 0.27827226071841077,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "random_views": 3
+    },
+    "score": 0.27827226071841077,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "prior_correction": true
+    },
+    "score": 0.2762813845967698,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "prior_correction": true,
+      "temperature": 0.8
+    },
+    "score": 0.29205864592601904,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "prior_correction": true,
+      "temperature": 1.25
+    },
+    "score": 0.2776977986355156,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "prior_correction": true,
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 0.2762813881684247,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "prior_correction": true,
+      "winsorize": true
+    },
+    "score": 0.2762813881684247,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "prior_correction": true,
+      "drop_constant": true
+    },
+    "score": 0.2762813881684247,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "prior_correction": true,
+      "count_encode": true
+    },
+    "score": 0.2762813881684247,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "prior_correction": true,
+      "log_skewed": true
+    },
+    "score": 0.2762813881684247,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "prior_correction": true,
+      "crosses_top_k": 3
+    },
+    "score": 0.2762813845967698,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "prior_correction": true,
+      "crosses_top_k": 5
+    },
+    "score": 0.2762813881684247,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "prior_correction": true,
+      "svd_components": 8
+    },
+    "score": 0.2762813845967698,
+    "error": null
+  }
+]

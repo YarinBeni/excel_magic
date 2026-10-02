@@ -1,0 +1,2 @@
+dataset,P*,P0,metric,tabfm,tabfm_auto_opus5,tabfm_auto_gemini38flash,our_gain_%,paper_gain_opus5_%,ours_vs_paper_tabfm
+diabetes,0.1542965281025873,0.15948252060174284,1-auroc,0.158,0.1471,0.155,3.2517623120002765,6.898734177215186,0.976560304446755

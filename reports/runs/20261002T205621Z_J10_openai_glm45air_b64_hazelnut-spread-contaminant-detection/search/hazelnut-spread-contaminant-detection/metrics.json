@@ -1,0 +1,150 @@
+{
+  "dataset": "hazelnut-spread-contaminant-detection",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "1-auroc",
+  "harness": "openai",
+  "llm_model": "zai-org/GLM-4.5-Air-FP8",
+  "n_evals": 22,
+  "n_evals_ok": 20,
+  "p0_cv": 0.007644621801526474,
+  "best_cv": 0.00709157623821514,
+  "best_candidate": "eval_019.py",
+  "agent": {
+    "harness": "openai",
+    "rc": 0,
+    "elapsed_s": 348.2,
+    "n_turns": 44,
+    "tool_counts": {
+      "read_file": 1,
+      "describe_data": 1,
+      "run_eval": 21,
+      "write_pipeline": 20,
+      "finish": 1
+    },
+    "usage": {
+      "input_tokens": 745491,
+      "output_tokens": 20118
+    },
+    "model": "zai-org/GLM-4.5-Air-FP8",
+    "rich_context": false
+  },
+  "p0_test": 0.006406249999999947,
+  "p0_test_secondary": {
+    "logloss": 0.09249640308502804,
+    "acc": 0.96625,
+    "auroc": 0.99359375,
+    "1-auroc": 0.006406249999999947
+  },
+  "best_test": 0.006706250000000025,
+  "best_test_secondary": {
+    "logloss": 0.09405550266982132,
+    "acc": 0.97125,
+    "auroc": 0.99329375,
+    "1-auroc": 0.006706250000000025
+  },
+  "best_test_info": {
+    "n_features": 33,
+    "t_features": 0.041,
+    "n_views": 1,
+    "view_sizes": [
+      1600
+    ],
+    "t_model": 0.557,
+    "t_total": 0.599,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": -4.683,
+  "cv_trajectory": [
+    [
+      1,
+      0.007644621801526474
+    ],
+    [
+      2,
+      0.007639910841925464
+    ],
+    [
+      3,
+      0.00969112944940024
+    ],
+    [
+      4,
+      0.00981185657828032
+    ],
+    [
+      5,
+      0.007476486247109319
+    ],
+    [
+      6,
+      0.008793322503048095
+    ],
+    [
+      7,
+      0.007644709692563849
+    ],
+    [
+      8,
+      0.007860429454592902
+    ],
+    [
+      9,
+      null
+    ],
+    [
+      10,
+      null
+    ],
+    [
+      11,
+      0.009152744111115921
+    ],
+    [
+      12,
+      0.007521943491617759
+    ],
+    [
+      13,
+      0.007278977508015612
+    ],
+    [
+      14,
+      0.00861043883256655
+    ],
+    [
+      15,
+      0.007357745455673026
+    ],
+    [
+      16,
+      0.007649051509808065
+    ],
+    [
+      17,
+      0.009379520565641434
+    ],
+    [
+      18,
+      0.007602064961250081
+    ],
+    [
+      19,
+      0.00709157623821514
+    ],
+    [
+      20,
+      0.007203795514681273
+    ],
+    [
+      21,
+      0.007605914588685277
+    ],
+    [
+      22,
+      0.0072975225168927516
+    ]
+  ],
+  "elapsed_s": 359.28,
+  "status": "ok"
+}

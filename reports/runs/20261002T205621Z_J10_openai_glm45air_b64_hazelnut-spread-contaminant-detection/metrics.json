@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "hazelnut-spread-contaminant-detection",
+      "P*": 0.004852916666666655,
+      "P0": 0.004774791666666652,
+      "metric": "1-auroc",
+      "tabfm": 0.0023,
+      "tabfm_auto_opus5": 0.0021,
+      "tabfm_auto_gemini38flash": 0.0021,
+      "our_gain_%": -1.6361970417558094,
+      "paper_gain_opus5_%": 8.695652173913048,
+      "ours_vs_paper_tabfm": 2.1099637681159367
+    }
+  ],
+  "elapsed_s": 399.1,
+  "status": "ok"
+}

@@ -1,0 +1,232 @@
+[
+  {
+    "config": {
+      "regression": true
+    },
+    "score": 4890.254236159911
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true
+    },
+    "score": 4895.154054413779,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true
+    },
+    "score": 4892.49226501427,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true
+    },
+    "score": 4889.668518558149,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "count_encode": true
+    },
+    "score": 4899.484869996385,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true
+    },
+    "score": 4887.9631312516685,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "crosses_top_k": 3
+    },
+    "score": 4942.47479858475,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "crosses_top_k": 5
+    },
+    "score": 4933.311757708851,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 8
+    },
+    "score": 4905.426493306993,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 16
+    },
+    "score": 4889.363039962706,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "prune_to": 64
+    },
+    "score": 4889.927632438244,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "random_views": 3
+    },
+    "score": 4889.530340715392,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "target_transform": "log1p"
+    },
+    "score": 4901.913706134325,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 4892.929738352847,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "sentinel_to_nan": true
+    },
+    "score": 4889.100709540578,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "winsorize": true
+    },
+    "score": 4897.262081428106,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "count_encode": true
+    },
+    "score": 4894.112196940499,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "crosses_top_k": 3
+    },
+    "score": 4934.083808671215,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "crosses_top_k": 5
+    },
+    "score": 4894.976528586575,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 8
+    },
+    "score": 4897.990776268303,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "svd_components": 16
+    },
+    "score": 4895.617041475839,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "prune_to": 64
+    },
+    "score": 4904.240911289774,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "random_views": 3
+    },
+    "score": 4892.700467765818,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true,
+      "log_skewed": true,
+      "target_transform": "log1p"
+    },
+    "score": 4886.665013638396,
+    "error": null
+  }
+]
