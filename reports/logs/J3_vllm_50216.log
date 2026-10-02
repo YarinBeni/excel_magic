@@ -1,0 +1,11 @@
+# job 50216 J3_vllm exit=1 Fri Oct  2 15:49:22 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J3_vllm_50216.out
+=== J3 vllm search === job 50216 Fri Oct  2 15:49:05 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+[vllm] installing into /home/yarin.b/venvs/vllm (one-time)
+Error: Command '['/home/yarin.b/venvs/vllm/bin/python3.11', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+FAILED vllm install
+FAILED: vllm could not start
