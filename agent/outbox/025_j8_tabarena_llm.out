@@ -1,0 +1,9 @@
+# 025_j8_tabarena_llm  host=g0377  start=Fri Oct  2 19:16:15 UTC 2026  timeout=300s
+# HEAD=9e304ef
+# ---------------------------------------------------------
+J8: 50554
+     50192   AGENT_runner  RUNNING    3:43:43 g0377
+     50554 J8_tabarena_ll  PENDING       0:00 (None)
+ARRAY_JOB_           NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 19:16:15 UTC 2026
