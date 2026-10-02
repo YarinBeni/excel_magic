@@ -1,0 +1,28 @@
+# job 50237 J2_tabarena exit=0 Fri Oct  2 15:48:13 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50215_12.out
+=== J2 tabarena task 12 === job 50237 Fri Oct  2 15:48:04 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=Another-Dataset-on-used-Fiat-500 model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+usage: 05_tabarena_protocol.py [-h] [--datasets DATASETS] [--all]
+                               [--max-instances MAX_INSTANCES]
+                               [--max-features MAX_FEATURES] [--lite]
+                               [--model MODEL] [--harness {claude-code,none}]
+                               [--llm LLM] [--budget-evals BUDGET_EVALS]
+                               [--budget-minutes BUDGET_MINUTES]
+                               [--max-rows MAX_ROWS] [--name NAME]
+05_tabarena_protocol.py: error: argument --harness: invalid choice: 'heuristic' (choose from 'claude-code', 'none')
+[J2] Another-Dataset-on-used-Fiat-500 FAILED
+[collect] copied 20 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 96d2eb1] J2: tabarena Another-Dataset-on-used-Fiat-500 heuristic (job 50237)
+ 1 file changed, 33 insertions(+)
+ create mode 100644 reports/logs/J2_tabarena_50238.log
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   47fcd00..96d2eb1  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 Another-Dataset-on-used-Fiat-500 done Fri Oct  2 15:48:13 UTC 2026 ===
