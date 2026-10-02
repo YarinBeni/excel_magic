@@ -1,0 +1,2 @@
+dataset,P*,P0,metric,tabfm,tabfm_auto_opus5,tabfm_auto_gemini38flash,our_gain_%,paper_gain_opus5_%,ours_vs_paper_tabfm
+Is-this-a-good-customer,0.24752804606439185,0.24747523596246582,1-auroc,0.2466,0.2432,0.2499,-0.021339550084941445,1.3787510137875159,1.0037633660356522
