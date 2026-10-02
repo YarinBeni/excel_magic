@@ -1,0 +1,30 @@
+{
+  "name": "J12_churn_smoke",
+  "config": {
+    "embedders": "agg,tabpfn_agg_kmeans",
+    "hist_days": 365,
+    "k_neighbors": 50,
+    "n_customers": 3000,
+    "n_folds": 3,
+    "device": "cuda",
+    "seed": 0,
+    "name": "J12_churn_smoke"
+  },
+  "env": {
+    "python": "3.11.15",
+    "platform": "Linux-5.15.0-152-generic-x86_64-with-glibc2.35",
+    "cpu_count": 104,
+    "git_sha": "9d12a6e",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "sklearn": "1.8.0",
+    "torch": "2.9.1+cu128",
+    "tabpfn": "9.1.0",
+    "tabicl": "?",
+    "torch_geometric": "2.8.0.post1",
+    "lightgbm": "4.7.0",
+    "torch_cuda": true,
+    "torch_threads": 16
+  },
+  "started_utc": "2026-10-02T20:34:03.068021+00:00"
+}
