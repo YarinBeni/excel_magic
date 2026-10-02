@@ -1,0 +1,17 @@
+# 018_j5_glm_fp8  host=g0377  start=Fri Oct  2 17:32:03 UTC 2026  timeout=300s
+# HEAD=d7db21c
+# ---------------------------------------------------------
+J5 task2: 50414
+     50192   AGENT_runner  RUNNING    1:59:31 g0377
+     50375        J3_vllm  RUNNING       7:48 g0379
+     50376   J5_llm_sweep  RUNNING       2:47 g0377
+     50376   J5_llm_sweep  RUNNING       3:17 g0379
+     50376   J5_llm_sweep  RUNNING       4:17 g0379
+     50377  J6_cli_agents  RUNNING       1:47 g0377
+     50377  J6_cli_agents  RUNNING       2:17 g0376
+     50377  J6_cli_agents  RUNNING       2:17 g0381
+     50399 J7d_relbench_h  RUNNING       1:47 g0377
+     50414   J5_llm_sweep  PENDING       0:00 (None)
+ARRAY_JOB_           NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 17:32:03 UTC 2026
