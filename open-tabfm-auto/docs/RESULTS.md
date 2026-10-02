@@ -76,3 +76,27 @@ open model's identity pipeline is within a few percent of the paper's TabFM on 1
 hazelnut, where TabFM is 2x better). The no-LLM search captures a third to a half of the paper's gain where the signal
 is generic (anneal, airfoil) and overfits fold-0 CV on small noisy tables (diabetes, maternal_health_risk), the same
 regime where the paper reports its own small losses (credit-g). Runs: `reports/runs/*J2_heuristic_*` on the cluster branch.
+
+## Frozen open backbones, identity pipeline (cluster job J1b, H200, 3-fold CV, lower is better)
+
+| dataset | metric | TabPFN v2 | TabPFN-2.5 | TabICLv2 | Kumo-S | Kumo-M | Kumo-L | HistGB |
+|---|---|---|---|---|---|---|---|---|
+| wine | logloss | 0.0356 | 0.0361 | **0.0158** | 0.0294 | 0.0186 | 0.0175 | 0.0965 |
+| breast_cancer | 1-auroc | 0.0042 | 0.0039 | 0.0042 | 0.0039 | 0.0038 | **0.0033** | 0.0059 |
+| diabetes | rmse | 54.28 | 54.18 | **53.73** | 54.59 | 54.20 | 54.52 | 60.52 |
+| synth_physics | rmse | 0.0920 | 0.0961 | 0.0951 | 0.0868 | 0.0854 | **0.0838** | 0.3539 |
+| synth_entities | 1-auroc | 0.5010 | 0.4492 | 0.4439 | 0.4424 | **0.4213** | 0.4319 | 0.4873 |
+
+Every 3-fold CV took 0.4–3.7 s on the H200 (Kumo-L the slowest). Kumo Tabular-L is best on 3/5, TabICLv2 on 2/5; TabPFN v2
+(the only CPU-mirror model) is last among the TFMs on 4/5. EXAONE-Tabular failed on a NumPy-input requirement (fixed).
+
+## Backbone transfer of the pipelines found for TabPFN v2 (J1b, held-out test)
+
+| dataset | pipeline found by | TabPFN v2 | TabPFN-2.5 | TabICLv2 | Kumo-S | Kumo-M | Kumo-L |
+|---|---|---|---|---|---|---|---|
+| synth_physics | Sonnet (Strouhal ratio) | +15.5% | -11.3% | +4.2% | -1.1% | +0.8% | -1.1% |
+| synth_entities | heuristic (count features) | +11.4% | +13.6% | -0.5% | +26.0% | -18.2% | +5.3% |
+
+Unlike the paper's finding (pipelines found for TabFM help every weaker model), pipelines found for the *weakest* model
+transfer unevenly to stronger ones: the ratio feature that TabPFN needs is largely redundant for Kumo, and the count
+features help Kumo-S a lot but hurt Kumo-M. The search should be run per backbone, or around the strongest one.

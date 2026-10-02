@@ -14,3 +14,6 @@
   sparse customer-product interactions (RelBench rel-hm / rel-amazon once reachable).
 - Added `future_purchase_novel` (candidates and truth exclude products bought before the cutoff) and `scripts/rescore.py`
   (re-score saved `emb_*.npy` with the current benchmark code) + `scripts/aggregate_runs.py` (mean +/- sd over seeds).
+- Cluster J1b: KumoRelational + k-means target = 0.62 +/- 0.05 seg P@10 (random target 0.33 +/- 0.13). H2 (target choice) now shown on
+  two model families. Next: KumoRelational with the TabPFN-kmeans embedding's own labels, more readout tokens / hops, and the
+  RelBench rel-hm rows (J7b).

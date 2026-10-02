@@ -112,11 +112,35 @@ def _sdm(card, task_type: str, kw: dict[str, Any]):
     return SdmEstimator("tabiclv2", task_type, **kw)
 
 
+class _NumpyInputs:
+    """EXAONE-Tabular wants NumPy arrays; the pipeline runner passes DataFrames. Thin adapter."""
+
+    def __init__(self, est):
+        self._est = est
+
+    def fit(self, X, y):
+        import numpy as np
+
+        self._est.fit(np.asarray(X, dtype=np.float32), np.asarray(y))
+        self.classes_ = getattr(self._est, "classes_", None)
+        return self
+
+    def predict(self, X):
+        import numpy as np
+
+        return self._est.predict(np.asarray(X, dtype=np.float32))
+
+    def predict_proba(self, X):
+        import numpy as np
+
+        return self._est.predict_proba(np.asarray(X, dtype=np.float32))
+
+
 def _exaone(card, task_type: str, kw: dict[str, Any]):
     from exaonetabular import EXAONETabularClassifier, EXAONETabularRegressor  # type: ignore
 
     cls = EXAONETabularRegressor if task_type == "regression" else EXAONETabularClassifier
-    return cls.from_pretrained(device=kw.pop("device", "cpu"), **kw)
+    return _NumpyInputs(cls.from_pretrained(device=kw.pop("device", "cpu"), **kw))
 
 
 def _sklearn(name: str, task_type: str, kw: dict[str, Any]):

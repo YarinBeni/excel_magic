@@ -86,8 +86,9 @@ is available (`tabfm_auto.benchmarks.elo`).
 ## 5. Results
 
 ### 5.1 Frozen backbones with the identity pipeline (T1 **[auto]**)
-How strong is each open backbone before any search? **TBD (J1).** Locally, TabPFN v2 beats HistGradientBoosting
-and RandomForest by 3× RMSE on the physics table (0.111 vs 0.328 / 0.318).
+On five small tables (H200, 3-fold CV) Kumo Tabular-L is best on 3/5 and TabICLv2 on 2/5; TabPFN v2, the only model
+with a non-HF mirror, is last among the TFMs on 4/5; all TFMs beat HistGB by 1.3–4× (full table in `docs/RESULTS.md`).
+Inference cost is not a constraint at this scale: 0.4–3.7 s per 3-fold CV for every model.
 
 ### 5.2 Pipeline search: does the gain survive open LLMs and no LLM? (T2 **[auto]**)
 Local, TabPFN v2 as backbone, held-out test:
@@ -112,7 +113,10 @@ Full table: `docs/RESULTS.md`. Open-LLM and CLI-agent runs on the same protocol:
 
 ### 5.4 Backbone transfer (T4 **[auto]**)
 The pipeline found for TabPFN also helps HistGB on the physics table (0.328 → 0.181, −45%), the paper's Section B.3
-effect. Transfer across the seven open TFMs: **TBD (J1).**
+effect. Across the open TFMs the picture differs from the paper: pipelines found around the *weakest* backbone
+(TabPFN v2) transfer unevenly to stronger ones (physics: +15.5% on TabPFN, −11.3% on TabPFN-2.5, ≈0 on Kumo;
+entities: +26% on Kumo-S, −18% on Kumo-M). The paper transfers from the strongest model downwards; we transfer upwards,
+and features that a weak model needs are often redundant or harmful for a stronger one. Search should run per backbone.
 
 ### 5.5 SQL mode
 On a synthetic shop database (customers / products / orders / order items / tickets; churn in the 90 days after a

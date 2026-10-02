@@ -35,3 +35,22 @@ runs: `20261002T063222Z_exp04_relational_retrieval`, `20261002T065947Z_exp04_wit
 | gnn | 0.877 +/- 0.007 | 0.902 | 0.047 +/- 0.001 | 0.141 | 0.056 +/- 0.003 | 2 |
 | openrfm | 0.249 +/- 0.000 | 0.306 | 0.032 +/- 0.000 | 0.095 | 0.039 +/- 0.000 | 23 |
 | openrfm_random | 0.168 +/- 0.000 | 0.169 | 0.013 +/- 0.000 | 0.042 | 0.014 +/- 0.000 | 16 |
+
+## 2026-10-02 cluster J1b (H200, seeds 0-2): first real Kumo Relational numbers
+Synthetic shop DB, segment retrieval P@10 / 10-NN acc (chance 0.167); per seed 0 / 1 / 2.
+
+| embedder | seg P@10 | 10-NN acc | fut MAP@10 |
+|---|---|---|---|
+| kumo_relational (random in-context target, 512-d) | 0.482 / 0.260 / 0.247 | 0.60 / 0.34 / 0.32 | 0.046 / 0.032 / 0.030 |
+| **kumo_relational_kmeans** (k-means pseudo-labels as target) | **0.667 / 0.564 / 0.615** | 0.73 / 0.66 / 0.70 | 0.049 / 0.041 / 0.045 |
+| tabpfn_agg_kmeans (GPU, float32) | 0.827 / 0.803 / 0.841 | 0.87 / 0.86 / 0.89 | 0.047 / 0.050 / 0.047 |
+| tabpfn_agg (random target) | 0.875 / 0.214 / 0.389 | | |
+| gnn (trained) | 0.885 / 0.872 / 0.876 | | |
+| openrfm | 0.249 | | |
+| agg | 0.726 | 0.843 | 0.048 |
+
+Reading: the real relational FM (NVIDIA KumoRelational, a KumoRFM-2 adaptation) gives usable graph embeddings only when
+the in-context target is structure-preserving: k-means target 0.62 +/- 0.05 vs random target 0.33 +/- 0.13. It sits
+below the frozen TabPFN over flattened aggregates (0.82) and the GNN (0.88) and below the raw aggregates (0.73) on this
+synthetic DB, far above the OpenRFM reproduction (0.25). Source: cluster branch `reports/logs/J1_smoke_50265.log`,
+runs `J1_retrieval_seed{0,1,2}`.
