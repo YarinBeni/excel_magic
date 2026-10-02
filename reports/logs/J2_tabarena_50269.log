@@ -1,0 +1,32 @@
+# job 50269 J2_tabarena exit=0 Fri Oct  2 16:00:44 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_11.out
+=== J2 tabarena task 11 === job 50269 Fri Oct  2 15:56:36 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=airfoil_self_noise model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:57:04,022 INFO P0 cv rmse = 1.350810485618488
+2026-10-02 16:00:10,720 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155640Z_J2_heuristic_airfoil_self_noise/search/airfoil_self_noise/metrics.json
+2026-10-02 16:00:36,036 INFO airfoil_self_noise                       P0=0.97934 P*=0.91608 | paper TabFM=1.0734 TabFM-Auto(Opus5)=0.9165 | 228s
+2026-10-02 16:00:36,078 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155640Z_J2_heuristic_airfoil_self_noise/metrics.json
+1 datasets: ['airfoil_self_noise']
+pipeline                  P*        P0
+dataset                               
+airfoil_self_noise  0.916082  0.979338
+[collect] copied 167 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 89f2a83] J2: tabarena airfoil_self_noise heuristic (job 50269)
+ 7 files changed, 368 insertions(+), 7 deletions(-)
+ create mode 100644 reports/runs/20261002T155640Z_J2_heuristic_airfoil_self_noise/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155640Z_J2_heuristic_airfoil_self_noise/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155640Z_J2_heuristic_airfoil_self_noise/metrics.json
+ create mode 100644 reports/runs/20261002T155640Z_J2_heuristic_airfoil_self_noise/results.csv
+ create mode 100644 reports/runs/20261002T155712Z_J2_heuristic_Marketing_Campaign/search/Marketing_Campaign/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155712Z_J2_heuristic_Marketing_Campaign/search/Marketing_Campaign/metrics.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   43be19c..89f2a83  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 airfoil_self_noise done Fri Oct  2 16:00:44 UTC 2026 ===
