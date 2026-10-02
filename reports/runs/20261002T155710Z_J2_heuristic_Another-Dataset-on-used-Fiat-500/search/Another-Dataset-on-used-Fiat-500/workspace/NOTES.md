@@ -1,7 +1,6 @@
 Heuristic (no-LLM) greedy search. Best config:
 {
- "regression": false,
- "winsorize": true,
+ "regression": true,
  "crosses_top_k": 3,
- "svd_components": 16
+ "prune_to": 64
 }
