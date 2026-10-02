@@ -1,0 +1,88 @@
+{
+  "dataset": "concrete_compressive_strength",
+  "task_type": "regression",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "rmse",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 10,
+  "n_evals_ok": 10,
+  "p0_cv": 4.286322151913315,
+  "best_cv": 4.26956837807769,
+  "best_candidate": "eval_008.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 121.0,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T193646Z_J8_pi_qwen3coder_concrete_compressive_strength/search/concrete_compressive_strength/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 3.6787997717035683,
+  "p0_test_secondary": {
+    "rmse": 3.6787997717035683,
+    "mae": 2.1791026427142346,
+    "r2": 0.9530542786547602
+  },
+  "best_test": 3.588052355266511,
+  "best_test_secondary": {
+    "rmse": 3.588052355266511,
+    "mae": 2.1715450571616635,
+    "r2": 0.9553417955338384
+  },
+  "best_test_info": {
+    "n_features": 11,
+    "t_features": 0.008,
+    "n_views": 1,
+    "view_sizes": [
+      686
+    ],
+    "t_model": 0.405,
+    "t_total": 0.414,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 2.467,
+  "cv_trajectory": [
+    [
+      1,
+      4.286322151913315
+    ],
+    [
+      2,
+      4.272526140228989
+    ],
+    [
+      3,
+      4.324597791451775
+    ],
+    [
+      4,
+      4.285450673640691
+    ],
+    [
+      5,
+      4.278631660969597
+    ],
+    [
+      6,
+      4.346201901915532
+    ],
+    [
+      7,
+      4.283250760877608
+    ],
+    [
+      8,
+      4.26956837807769
+    ],
+    [
+      9,
+      4.318500957452517
+    ],
+    [
+      10,
+      4.320538890431455
+    ]
+  ],
+  "elapsed_s": 130.67,
+  "status": "ok"
+}
