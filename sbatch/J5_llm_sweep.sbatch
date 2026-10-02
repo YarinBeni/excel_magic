@@ -13,10 +13,14 @@
 set -uo pipefail
 echo "=== J5 llm sweep task ${SLURM_ARRAY_TASK_ID} === job ${SLURM_JOB_ID} $(date)"
 cd ~/projects/excel_magic && source sbatch/_common.sh && job_prologue
-LLMS=("Qwen/Qwen3-Coder-30B-A3B-Instruct" "Qwen/Qwen3-32B" "zai-org/GLM-4.5-Air" "openai/gpt-oss-20b")
+# GLM-4.5-Air is 106B-A12B: bf16 weights (~220 GB) do not fit one H200 (141 GB), so the FP8 checkpoint (~110 GB) with a
+# 0.90 memory fraction (KV cache for 32k tokens needs ~6 GB more).
+LLMS=("Qwen/Qwen3-Coder-30B-A3B-Instruct" "Qwen/Qwen3-32B" "zai-org/GLM-4.5-Air-FP8" "openai/gpt-oss-20b")
 PARSERS=("qwen3_coder" "hermes" "glm45" "openai")
 EXTRA=("" "--reasoning-parser qwen3" "" "")
+GPU_FRAC=("0.70" "0.70" "0.90" "0.70")
 LLM="${LLMS[$SLURM_ARRAY_TASK_ID]}"; PARSER="${PARSERS[$SLURM_ARRAY_TASK_ID]}"; XTRA="${EXTRA[$SLURM_ARRAY_TASK_ID]}"
+export VLLM_GPU_FRAC="${GPU_FRAC[$SLURM_ARRAY_TASK_ID]}"
 TAG=$(echo "$LLM" | sed 's#.*/##; s/[^0-9A-Za-z_.-]/_/g')
 source sbatch/_vllm.sh
 PORT=$((8100 + SLURM_ARRAY_TASK_ID))

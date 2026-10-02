@@ -47,7 +47,12 @@ start_vllm() {
             sleep 15
         done
         kill "$VLLM_PID" 2>/dev/null || true
-        echo "[vllm] failed with parser $p:"; tail -15 "artifacts/vllm/${SLURM_JOB_NAME:-job}_${SLURM_JOB_ID:-0}_$p.log"
+        local lg="artifacts/vllm/${SLURM_JOB_NAME:-job}_${SLURM_JOB_ID:-0}_$p.log"
+        echo "[vllm] failed with parser $p; root-cause lines from $lg:"
+        # the APIServer traceback only says "see root cause above": show the engine-side errors instead
+        grep -aiE "error|exception|out of memory|memory|not supported|unrecognized|no such|not found|assert" "$lg" \
+            | grep -av "APIServer pid" | grep -av "^\s*File " | tail -14
+        tail -3 "$lg"
     done
     return 1
 }
