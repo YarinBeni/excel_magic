@@ -1,0 +1,98 @@
+{
+  "dataset": "maternal_health_risk",
+  "task_type": "multiclass",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "logloss",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 13,
+  "n_evals_ok": 13,
+  "p0_cv": 0.5321224776536587,
+  "best_cv": 0.5318107935921653,
+  "best_candidate": "eval_007.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 129.2,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T193345Z_J8_pi_qwen3coder_maternal_health_risk/search/maternal_health_risk/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.3352884837596606,
+  "p0_test_secondary": {
+    "logloss": 0.3352884837596606,
+    "acc": 0.8875739644970414
+  },
+  "best_test": 0.33642166304586124,
+  "best_test_secondary": {
+    "logloss": 0.33642166304586124,
+    "acc": 0.8846153846153846
+  },
+  "best_test_info": {
+    "n_features": 7,
+    "t_features": 0.005,
+    "n_views": 1,
+    "view_sizes": [
+      676
+    ],
+    "t_model": 0.367,
+    "t_total": 0.373,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": -0.338,
+  "cv_trajectory": [
+    [
+      1,
+      0.5321224776536587
+    ],
+    [
+      2,
+      0.5334722317873086
+    ],
+    [
+      3,
+      0.5776150137944603
+    ],
+    [
+      4,
+      0.5499742753900259
+    ],
+    [
+      5,
+      0.5459553557879923
+    ],
+    [
+      6,
+      0.5836230986770666
+    ],
+    [
+      7,
+      0.5318107935921653
+    ],
+    [
+      8,
+      0.5610998255213917
+    ],
+    [
+      9,
+      0.6744326140437318
+    ],
+    [
+      10,
+      0.5365471390089557
+    ],
+    [
+      11,
+      0.5385107049877008
+    ],
+    [
+      12,
+      0.5328346277701198
+    ],
+    [
+      13,
+      0.5480551517320008
+    ]
+  ],
+  "elapsed_s": 138.91,
+  "status": "ok"
+}

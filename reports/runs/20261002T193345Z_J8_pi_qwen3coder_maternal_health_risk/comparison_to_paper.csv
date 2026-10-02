@@ -1,0 +1,2 @@
+dataset,P*,P0,metric,tabfm,tabfm_auto_opus5,tabfm_auto_gemini38flash,our_gain_%,paper_gain_opus5_%,ours_vs_paper_tabfm
+maternal_health_risk,0.38349407950780523,0.38427052346923507,logloss,0.3706,0.3648,0.361,0.2020566017970938,1.565029681597402,1.0347924433561932
