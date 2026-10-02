@@ -1,0 +1,44 @@
+{
+  "splits": {
+    "val": {
+      "split": "val",
+      "cutoff": "2020-09-07",
+      "n_queries": 3000,
+      "hist_days": 365,
+      "K": 12,
+      "rows": {
+        "GlobalPopularity": {
+          "map": 0.0036725488926057106
+        },
+        "PastVisit": {
+          "map": 0.019637471913007624
+        },
+        "kNN-CF[row]": {
+          "map": 0.0009934002725669395,
+          "seconds": 5.9
+        },
+        "PastVisit+kNN-CF[row]": {
+          "map": 0.01954103131656703
+        },
+        "kNN-CF[agg]": {
+          "map": 0.00216604657687991,
+          "seconds": 5.9
+        },
+        "PastVisit+kNN-CF[agg]": {
+          "map": 0.01954103131656703
+        },
+        "kNN-CF[tabpfn_agg_kmeans]": {
+          "map": 0.0013595340307840308,
+          "seconds": 7.0
+        },
+        "PastVisit+kNN-CF[tabpfn_agg_kmeans]": {
+          "map": 0.01954103131656703
+        }
+      },
+      "official_evaluator": false,
+      "seconds": 19.8
+    }
+  },
+  "elapsed_s": 29.54,
+  "status": "ok"
+}
