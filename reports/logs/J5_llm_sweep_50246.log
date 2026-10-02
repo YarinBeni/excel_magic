@@ -1,0 +1,9 @@
+# job 50246 J5_llm_sweep exit=0 Fri Oct  2 15:51:53 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J5_llm_sweep_50217_2.out
+=== J5 llm sweep task 2 === job 50246 Fri Oct  2 15:50:05 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+[vllm] installing into /home/yarin.b/venvs/vllm (one-time)
+[2026-10-02T15:51:53.898] error: *** JOB 50246 ON g0377 CANCELLED AT 2026-10-02T15:51:53 DUE to SIGNAL Terminated ***
