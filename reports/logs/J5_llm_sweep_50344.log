@@ -1,0 +1,42 @@
+# job 50344 J5_llm_sweep exit=1 Fri Oct  2 16:56:30 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J5_llm_sweep_50344_3.out
+=== J5 llm sweep task 3 === job 50344 Fri Oct  2 16:54:42 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+[vllm] serving openai/gpt-oss-20b on :8103 with --tool-call-parser openai
+[vllm] failed with parser openai:
+(APIServer pid=3273812)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=3273812)     return func(*args, **kwargs)
+(APIServer pid=3273812)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3273812)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 1060, in __init__
+(APIServer pid=3273812)     super().__init__(
+(APIServer pid=3273812)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 656, in __init__
+(APIServer pid=3273812)     with launch_core_engines(
+(APIServer pid=3273812)          ^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3273812)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/contextlib.py", line 144, in __exit__
+(APIServer pid=3273812)     next(self.gen)
+(APIServer pid=3273812)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1240, in launch_core_engines
+(APIServer pid=3273812)     wait_for_engine_startup(
+(APIServer pid=3273812)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1320, in wait_for_engine_startup
+(APIServer pid=3273812)     raise RuntimeError(
+(APIServer pid=3273812) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+[vllm] serving openai/gpt-oss-20b on :8103 with --tool-call-parser hermes
+[vllm] failed with parser hermes:
+(APIServer pid=3274503)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=3274503)     return func(*args, **kwargs)
+(APIServer pid=3274503)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3274503)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 1060, in __init__
+(APIServer pid=3274503)     super().__init__(
+(APIServer pid=3274503)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 656, in __init__
+(APIServer pid=3274503)     with launch_core_engines(
+(APIServer pid=3274503)          ^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3274503)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/contextlib.py", line 144, in __exit__
+(APIServer pid=3274503)     next(self.gen)
+(APIServer pid=3274503)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1240, in launch_core_engines
+(APIServer pid=3274503)     wait_for_engine_startup(
+(APIServer pid=3274503)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1320, in wait_for_engine_startup
+(APIServer pid=3274503)     raise RuntimeError(
+(APIServer pid=3274503) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+FAILED: vllm could not start for openai/gpt-oss-20b
