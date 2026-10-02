@@ -1,0 +1,31 @@
+# job 50272 J2_tabarena exit=0 Fri Oct  2 16:01:39 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_14.out
+=== J2 tabarena task 14 === job 50272 Fri Oct  2 15:57:06 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=Is-this-a-good-customer model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:57:32,591 INFO P0 cv 1-auroc = 0.2413761111471849
+2026-10-02 16:00:56,124 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155709Z_J2_heuristic_Is-this-a-good-customer/search/Is-this-a-good-customer/metrics.json
+2026-10-02 16:01:33,236 INFO Is-this-a-good-customer                  P0=0.24741 P*=0.25321 | paper TabFM=0.2466 TabFM-Auto(Opus5)=0.2432 | 257s
+2026-10-02 16:01:33,310 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155709Z_J2_heuristic_Is-this-a-good-customer/metrics.json
+1 datasets: ['Is-this-a-good-customer']
+pipeline                       P*        P0
+dataset                                    
+Is-this-a-good-customer  0.253207  0.247409
+[collect] copied 195 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o befeabd] J2: tabarena Is-this-a-good-customer heuristic (job 50272)
+ 5 files changed, 118 insertions(+)
+ create mode 100644 reports/runs/20261002T155709Z_J2_heuristic_Is-this-a-good-customer/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155709Z_J2_heuristic_Is-this-a-good-customer/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155709Z_J2_heuristic_Is-this-a-good-customer/metrics.json
+ create mode 100644 reports/runs/20261002T155709Z_J2_heuristic_Is-this-a-good-customer/results.csv
+ create mode 100644 reports/runs/20261002T160111Z_J7_hm_full/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   8bc12f1..befeabd  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 Is-this-a-good-customer done Fri Oct  2 16:01:39 UTC 2026 ===
