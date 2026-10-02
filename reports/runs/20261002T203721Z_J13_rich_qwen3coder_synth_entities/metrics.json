@@ -1,0 +1,101 @@
+{
+  "dataset": "synth_entities",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=4,device=cuda",
+  "metric": "1-auroc",
+  "harness": "openai",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 10,
+  "n_evals_ok": 10,
+  "p0_cv": 0.47399328859060397,
+  "best_cv": 0.47399328859060397,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "openai",
+    "rc": 0,
+    "elapsed_s": 107.2,
+    "n_turns": 19,
+    "tool_counts": {
+      "write_pipeline": 9,
+      "run_eval": 9,
+      "finish": 1
+    },
+    "usage": {
+      "input_tokens": 146262,
+      "output_tokens": 8968
+    },
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+    "rich_context": true
+  },
+  "p0_test": 0.4439811386929582,
+  "p0_test_secondary": {
+    "logloss": 0.4203393601570154,
+    "acc": 0.8511111111111112,
+    "auroc": 0.5560188613070418,
+    "1-auroc": 0.4439811386929582
+  },
+  "best_test": 0.4658041385760493,
+  "best_test_secondary": {
+    "logloss": 0.42050736216812107,
+    "acc": 0.8511111111111112,
+    "auroc": 0.5341958614239507,
+    "1-auroc": 0.4658041385760493
+  },
+  "best_test_info": {
+    "n_features": 4,
+    "t_features": 0.003,
+    "n_views": 1,
+    "view_sizes": [
+      1050
+    ],
+    "t_model": 0.259,
+    "t_total": 0.262,
+    "model_spec": "kumo-tabular-s:n_estimators=4,device=cuda"
+  },
+  "test_improvement_pct": -4.915,
+  "baseline_hgb_test": 0.4732863099645376,
+  "cv_trajectory": [
+    [
+      1,
+      0.47399328859060397
+    ],
+    [
+      2,
+      0.4993116503183617
+    ],
+    [
+      3,
+      0.4963861641713991
+    ],
+    [
+      4,
+      0.4938693856479093
+    ],
+    [
+      5,
+      0.492105489588711
+    ],
+    [
+      6,
+      0.4918258475305455
+    ],
+    [
+      7,
+      0.5549389089657546
+    ],
+    [
+      8,
+      0.5171549647220788
+    ],
+    [
+      9,
+      0.4942135604887283
+    ],
+    [
+      10,
+      0.5214679056960936
+    ]
+  ],
+  "elapsed_s": 122.62,
+  "status": "ok"
+}
