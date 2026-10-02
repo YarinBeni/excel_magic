@@ -1,0 +1,255 @@
+[
+  {
+    "config": {
+      "regression": false
+    },
+    "score": 0.23966684987026193
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true
+    },
+    "score": 0.24040869090081685,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true
+    },
+    "score": 0.23880609341567346,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "drop_constant": true
+    },
+    "score": 0.23935956322767346,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true
+    },
+    "score": 0.23752082405297628,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "log_skewed": true
+    },
+    "score": 0.2389383685479486,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "crosses_top_k": 3
+    },
+    "score": 0.24705215133364739,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "crosses_top_k": 5
+    },
+    "score": 0.2466389818259897,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "svd_components": 8
+    },
+    "score": 0.23715766164913146,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "svd_components": 16
+    },
+    "score": 0.2378244586413878,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "svd_components": 8,
+      "prune_to": 64
+    },
+    "score": 0.23728993678140656,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "svd_components": 8,
+      "balanced_views": true
+    },
+    "score": 0.23841814778494566,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "svd_components": 8,
+      "random_views": 3
+    },
+    "score": 0.23814895066535488,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "svd_components": 8,
+      "prior_correction": true
+    },
+    "score": 0.23738780115092453,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "svd_components": 8,
+      "temperature": 0.8
+    },
+    "score": 0.2371468189873702,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "svd_components": 8,
+      "temperature": 1.25
+    },
+    "score": 0.23712980722495158,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "svd_components": 8,
+      "temperature": 1.25,
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 0.2385190833517605,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "svd_components": 8,
+      "temperature": 1.25,
+      "sentinel_to_nan": true
+    },
+    "score": 0.23776064450277046,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "svd_components": 8,
+      "temperature": 1.25,
+      "drop_constant": true
+    },
+    "score": 0.23728993678140656,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "svd_components": 8,
+      "temperature": 1.25,
+      "log_skewed": true
+    },
+    "score": 0.2390822608178251,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "svd_components": 8,
+      "temperature": 1.25,
+      "crosses_top_k": 3
+    },
+    "score": 0.24618190755001773,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "svd_components": 8,
+      "temperature": 1.25,
+      "crosses_top_k": 5
+    },
+    "score": 0.24556606572682688,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "svd_components": 16,
+      "temperature": 1.25
+    },
+    "score": 0.23787743011824375,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "svd_components": 8,
+      "temperature": 1.25,
+      "prune_to": 64
+    },
+    "score": 0.2382920684593913,
+    "error": null
+  }
+]

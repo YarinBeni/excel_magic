@@ -1,0 +1,2 @@
+# cmd: pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203743Z_J11_pi_qwen3coder_cv3_synth_physics/workspace/TASK.md
+# cwd: /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203743Z_J11_pi_qwen3coder_cv3_synth_physics/workspace

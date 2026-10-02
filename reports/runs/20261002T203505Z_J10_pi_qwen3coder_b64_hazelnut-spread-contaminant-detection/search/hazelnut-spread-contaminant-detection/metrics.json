@@ -1,0 +1,90 @@
+{
+  "dataset": "hazelnut-spread-contaminant-detection",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "1-auroc",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 10,
+  "n_evals_ok": 10,
+  "p0_cv": 0.007232377680021829,
+  "best_cv": 0.007015568069129878,
+  "best_candidate": "eval_009.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 124.8,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203505Z_J10_pi_qwen3coder_b64_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.006093750000000009,
+  "p0_test_secondary": {
+    "logloss": 0.09193271083610723,
+    "acc": 0.9675,
+    "auroc": 0.99390625,
+    "1-auroc": 0.006093750000000009
+  },
+  "best_test": 0.007106250000000092,
+  "best_test_secondary": {
+    "logloss": 0.09754350422552825,
+    "acc": 0.96875,
+    "auroc": 0.9928937499999999,
+    "1-auroc": 0.007106250000000092
+  },
+  "best_test_info": {
+    "n_features": 37,
+    "t_features": 0.036,
+    "n_views": 1,
+    "view_sizes": [
+      1600
+    ],
+    "t_model": 0.526,
+    "t_total": 0.564,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": -16.615,
+  "cv_trajectory": [
+    [
+      1,
+      0.007232377680021829
+    ],
+    [
+      2,
+      0.007414364861922669
+    ],
+    [
+      3,
+      0.007995693761047659
+    ],
+    [
+      4,
+      0.00732468084742847
+    ],
+    [
+      5,
+      0.00806516283695539
+    ],
+    [
+      6,
+      0.0073815815049976434
+    ],
+    [
+      7,
+      0.007282739244413398
+    ],
+    [
+      8,
+      0.007376694763321923
+    ],
+    [
+      9,
+      0.007015568069129878
+    ],
+    [
+      10,
+      0.007254332861147517
+    ]
+  ],
+  "elapsed_s": 137.19,
+  "status": "ok"
+}
