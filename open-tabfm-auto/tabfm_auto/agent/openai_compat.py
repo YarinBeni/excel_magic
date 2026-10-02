@@ -12,6 +12,7 @@ Every request/response is appended to a JSONL log. Requires the ``openai`` packa
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import subprocess
@@ -53,25 +54,49 @@ def _run_eval(ws: Path, timeout_s: int) -> str:
     return (p.stdout + ("\n" + p.stderr[-1500:] if p.returncode not in (0, 1) else ""))[-6000:]
 
 
+_BINARY_SUFFIXES = {".parquet", ".npy", ".npz", ".pkl", ".pickle", ".feather", ".arrow", ".zip", ".gz", ".pt", ".bin"}
+
+
 def execute_tool(name: str, args: dict[str, Any], ws: Path, eval_timeout_s: int) -> str:
+    """Run one tool call. Every failure comes back to the model as an ``error: ...`` string; a tool bug or a bad
+    argument must never abort the whole search (gpt-oss read a parquet file and the UnicodeDecodeError killed the run)."""
+    try:
+        return _execute_tool(name, args, ws, eval_timeout_s)
+    except Exception as e:
+        return f"error: {type(e).__name__}: {str(e)[:500]}"
+
+
+def _execute_tool(name: str, args: dict[str, Any], ws: Path, eval_timeout_s: int) -> str:
     if name == "read_file":
-        p = (ws / args["path"]).resolve()
+        p = (ws / str(args.get("path", ""))).resolve()
         if ws.resolve() not in p.parents and p != ws.resolve():
             return "error: path outside the workspace"
-        return p.read_text()[-20000:] if p.exists() else f"error: {args['path']} not found"
+        if not p.exists():
+            return f"error: {args.get('path')} not found"
+        if p.suffix.lower() in _BINARY_SUFFIXES:
+            return f"error: {p.name} is a binary data file; use describe_data for the schema and summary statistics"
+        return p.read_text(errors="replace")[-20000:]
     if name == "describe_data":
         return _describe(ws)
     if name == "write_pipeline":
-        src = args["source"]
+        src = str(args.get("source", ""))
         for hook in ("def preprocess", "def engineer", "def sample", "def postprocess"):
             if hook not in src:
                 return f"error: pipeline.py must define {hook}(...)"
         (ws / "pipeline.py").write_text(src)
         return f"pipeline.py written ({len(src)} chars). Call run_eval to score it."
     if name == "run_eval":
-        return _run_eval(ws, eval_timeout_s)
+        # a run_eval without a change in between burns budget for an identical score (Qwen3-Coder looped 38 times)
+        src = (ws / "pipeline.py").read_bytes() if (ws / "pipeline.py").exists() else b""
+        digest = hashlib.sha1(src).hexdigest()
+        marker = ws / ".last_eval_sha1"
+        if marker.exists() and marker.read_text() == digest:
+            return "error: pipeline.py is unchanged since the last run_eval (same score would come back); call write_pipeline with a different pipeline first, or finish"
+        out = _run_eval(ws, eval_timeout_s)
+        marker.write_text(digest)
+        return out
     if name == "finish":
-        (ws / "NOTES.md").write_text(args.get("notes", ""))
+        (ws / "NOTES.md").write_text(str(args.get("notes", "")))
         return "done"
     return f"error: unknown tool {name}"
 

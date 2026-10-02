@@ -1,5 +1,5 @@
 # Auto-generated results tables
-_from 48 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
+_from 66 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
 
 ## T1. Frozen backbones with the identity pipeline (3-fold CV, lower is better)
 |                               |     hgb |   kumo-tabular-l |   kumo-tabular-m |   kumo-tabular-s |   tabicl |   tabpfn |   tabpfn-2.5 |
@@ -11,17 +11,28 @@ _from 48 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen
 | ('wine', 'logloss')           |  0.0965 |           0.0175 |           0.0186 |           0.0294 |   0.0158 |   0.0356 |       0.0361 |
 
 ## T2. Pipeline search: harness x LLM x backbone (held-out test error)
-| dataset        | backbone       | harness     | llm    | metric   |   P0 test |   P* test |   gain % |   evals |   HistGB |
-|:---------------|:---------------|:------------|:-------|:---------|----------:|----------:|---------:|--------:|---------:|
-| breast_cancer  | tabpfn         | heuristic   | -      | 1-auroc  |    0.0061 |    0.0061 |   0.0000 |      20 |   0.0108 |
-| synth_entities | kumo-tabular-s | heuristic   | -      | 1-auroc  |    0.4623 |    0.3281 |  29.0230 |      20 |   0.4733 |
-| synth_entities | kumo-tabular-s | heuristic   | -      | 1-auroc  |    0.4412 |    0.3327 |  24.5890 |      20 |   0.4733 |
-| synth_entities | tabpfn         | heuristic   | -      | 1-auroc  |    0.4676 |    0.4266 |   8.7750 |      20 |   0.4585 |
-| synth_physics  | kumo-tabular-s | heuristic   | -      | rmse     |    0.0876 |    0.0872 |   0.5530 |      20 |   0.3238 |
-| synth_physics  | kumo-tabular-s | heuristic   | -      | rmse     |    0.0872 |    0.0872 |   0.0350 |      20 |   0.3238 |
-| synth_physics  | tabpfn         | claude-code | sonnet | rmse     |    0.1108 |    0.0830 |  25.0620 |       4 |   0.3277 |
-| synth_physics  | tabpfn         | heuristic   | -      | rmse     |    0.1108 |    0.0852 |  23.1440 |      20 |   0.3277 |
-| wine           | tabpfn         | none        | -      | logloss  |    0.0085 |    0.0085 |   0.0000 |       1 |   0.0069 |
+| dataset        | backbone       | harness     | llm                               | metric   |   P0 test |   P* test |   gain % |   evals |   HistGB |
+|:---------------|:---------------|:------------|:----------------------------------|:---------|----------:|----------:|---------:|--------:|---------:|
+| breast_cancer  | kumo-tabular-s | cli         | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.0045 |    0.0050 |  -9.6770 |       1 |   0.0108 |
+| breast_cancer  | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.0051 |    0.0053 |  -2.8570 |      16 |   0.0108 |
+| breast_cancer  | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.0044 |    0.0069 | -56.6670 |       9 |   0.0108 |
+| breast_cancer  | tabpfn         | heuristic   | -                                 | 1-auroc  |    0.0061 |    0.0061 |   0.0000 |      20 |   0.0108 |
+| synth_entities | kumo-tabular-s | cli         | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.4688 |    0.4585 |   2.1950 |       1 |   0.4733 |
+| synth_entities | kumo-tabular-s | heuristic   | -                                 | 1-auroc  |    0.4623 |    0.3281 |  29.0230 |      20 |   0.4733 |
+| synth_entities | kumo-tabular-s | heuristic   | -                                 | 1-auroc  |    0.4412 |    0.3327 |  24.5890 |      20 |   0.4733 |
+| synth_entities | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.4387 |    0.4437 |  -1.1460 |       9 |   0.4733 |
+| synth_entities | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | 1-auroc  |    0.4545 |    0.4499 |   1.0030 |      12 |   0.4733 |
+| synth_entities | tabpfn         | heuristic   | -                                 | 1-auroc  |    0.4676 |    0.4266 |   8.7750 |      20 |   0.4585 |
+| synth_physics  | kumo-tabular-s | cli         | Qwen/Qwen3-Coder-30B-A3B-Instruct | rmse     |    0.0877 |    0.0859 |   2.1040 |       1 |   0.3238 |
+| synth_physics  | kumo-tabular-s | cli         | Qwen/Qwen3-Coder-30B-A3B-Instruct | rmse     |    0.0861 |    0.0880 |  -2.1770 |       9 |   0.3238 |
+| synth_physics  | kumo-tabular-s | heuristic   | -                                 | rmse     |    0.0876 |    0.0872 |   0.5530 |      20 |   0.3238 |
+| synth_physics  | kumo-tabular-s | heuristic   | -                                 | rmse     |    0.0872 |    0.0872 |   0.0350 |      20 |   0.3238 |
+| synth_physics  | kumo-tabular-s | openai      | Qwen/Qwen3-32B                    | rmse     |    0.0862 |    0.0863 |  -0.1880 |       1 |   0.3238 |
+| synth_physics  | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | rmse     |    0.0869 |    0.0857 |   1.3240 |       8 |   0.3238 |
+| synth_physics  | kumo-tabular-s | openai      | Qwen/Qwen3-Coder-30B-A3B-Instruct | rmse     |    0.0865 |    0.0840 |   2.9280 |      12 |   0.3238 |
+| synth_physics  | tabpfn         | claude-code | sonnet                            | rmse     |    0.1108 |    0.0830 |  25.0620 |       4 |   0.3277 |
+| synth_physics  | tabpfn         | heuristic   | -                                 | rmse     |    0.1108 |    0.0852 |  23.1440 |      20 |   0.3277 |
+| wine           | tabpfn         | none        | -                                 | logloss  |    0.0085 |    0.0085 |   0.0000 |       1 |   0.0069 |
 
 ## T3. TabArena protocol vs the paper (per-dataset test error, P0 / P* vs TabFM / TabFM-Auto Opus 5)
 | dataset                               |        P0 |        P* |   our_gain_% |     tabfm |   tabfm_auto_opus5 |   paper_gain_opus5_% | run                                                                 |
@@ -43,6 +54,12 @@ _from 48 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen
 | Is-this-a-good-customer               |    0.2474 |    0.2532 |      -2.3436 |    0.2466 |             0.2432 |               1.3788 | 20261002T155709Z_J2_heuristic_Is-this-a-good-customer               |
 | Another-Dataset-on-used-Fiat-500      |  713.9073 |  719.0253 |      -0.7169 |  703.2700 |           693.4900 |               1.3906 | 20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500      |
 | airfoil_self_noise                    |    0.9793 |    0.9161 |       6.4590 |    1.0734 |             0.9165 |              14.6171 | 20261002T155640Z_J2_heuristic_airfoil_self_noise                    |
+| airfoil_self_noise                    |    0.8277 |    0.8088 |       2.2844 |    1.0734 |             0.9165 |              14.6171 | 20261002T173650Z_J5_Qwen3-Coder-30B-A3B-Instruct_tabarena           |
+| blood-transfusion-service-center      |    0.2631 |    0.2655 |      -0.9336 |    0.2441 |             0.2431 |               0.4097 | 20261002T173650Z_J5_Qwen3-Coder-30B-A3B-Instruct_tabarena           |
+| credit-g                              |    0.2054 |    0.2062 |      -0.3537 |    0.1944 |             0.1940 |               0.2058 | 20261002T173650Z_J5_Qwen3-Coder-30B-A3B-Instruct_tabarena           |
+| airfoil_self_noise                    |    0.8209 |    0.8282 |      -0.8832 |    1.0734 |             0.9165 |              14.6171 | 20261002T173553Z_J3_tabarena_openai                                 |
+| blood-transfusion-service-center      |    0.2647 |    0.2582 |       2.4520 |    0.2441 |             0.2431 |               0.4097 | 20261002T173553Z_J3_tabarena_openai                                 |
+| credit-g                              |    0.2056 |    0.2062 |      -0.2911 |    0.1944 |             0.1940 |               0.2058 | 20261002T173553Z_J3_tabarena_openai                                 |
 
 ## T4. Backbone transfer of discovered pipelines
 |                                      |     P* |     P0 |   gain % |

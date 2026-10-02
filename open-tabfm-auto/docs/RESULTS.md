@@ -124,3 +124,21 @@ purchase matrix reaches 1.20 and is the only hybrid above PastVisit, so the cust
 step) lack the item signal. J7d feeds SVD factors of the purchase matrix through the frozen TabPFN and compares with the
 raw factors.
 Source: `reports/runs/20261002T160111Z_J7_hm_full/` in the cluster branch.
+
+## Open LLM via vLLM: Qwen3-Coder-30B-A3B-Instruct (cluster jobs J3 50375 / J5 50402, 2026-10-02)
+
+Frozen Kumo Tabular-S (n_estimators=4; 8 for TabArena), OpenAI-compatible tool loop (`--harness openai`) over vLLM 0.16,
+budget 16 evals / 40 min (TabArena-Lite: 24 / 60), held-out test, two independent runs.
+
+| dataset | metric | P0 J3 | P* J3 | gain J3 | P0 J5 | P* J5 | gain J5 |
+|---|---|---|---|---|---|---|---|
+| synth_physics | rmse | 0.0869 | 0.0857 | +1.3% | 0.0865 | 0.0840 | +2.9% |
+| synth_entities | 1-auroc | 0.4387 | 0.4437 | -1.1% | 0.4545 | 0.4499 | +1.0% |
+| breast_cancer | 1-auroc | 0.0051 | 0.0053 | -2.9% | 0.0044 | 0.0069 | -56.7% |
+| airfoil_self_noise (Lite r0f0) | rmse | 0.8209 | 0.8282 | -0.9% | 0.8277 | 0.8088 | +2.3% |
+| blood-transfusion (Lite) | 1-auroc | 0.2647 | 0.2582 | +2.5% | 0.2631 | 0.2655 | -0.9% |
+| credit-g (Lite) | 1-auroc | 0.2056 | 0.2062 | -0.3% | 0.2054 | 0.2062 | -0.4% |
+
+Agent stats per search: 16-41 turns, ~100-310k input tokens, 0.6-7k output tokens, 90-134 s wall on one H200. One run
+called `run_eval` 38 times on an unchanged pipeline (harness now refuses that). Runs: `reports/runs/*J3_openai_*`,
+`reports/runs/*J5_Qwen3-Coder-30B-A3B-Instruct_*` on the cluster branch.

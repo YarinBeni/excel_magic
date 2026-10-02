@@ -100,7 +100,24 @@ Local, TabPFN v2 as backbone, held-out test:
 | breast_cancer (1−AUROC) | 0.0061 | TBD | 0.0061 (0%) | 0.0108 |
 
 The Sonnet agent rediscovered the planted physical ratio in four evaluations; the heuristic recovers most of that
-gain because pairwise ratios of the top features are in its library. Open LLMs (J3, J5) and CLI harnesses (J6): **TBD**.
+gain because pairwise ratios of the top features are in its library.
+
+**Open LLM, first results (cluster, Kumo Tabular-S frozen, our OpenAI-compatible tool loop over vLLM 0.16, Qwen3-Coder-30B-A3B,
+two independent runs J3 / J5, held-out test, gain = relative error reduction):**
+
+| dataset | P0 (J3 / J5) | Qwen3-Coder gain (J3 / J5) | evals | no-LLM heuristic (J1, same backbone) |
+|---|---|---|---|---|
+| synth_physics (RMSE) | 0.0869 / 0.0865 | +1.3% / +2.9% | 8 / 12 | +0.6% / 0.0% |
+| synth_entities (1−AUROC) | 0.4387 / 0.4545 | −1.1% / +1.0% | 9 / 12 | +29.0% / +24.6% |
+| breast_cancer (1−AUROC) | 0.0051 / 0.0044 | −2.9% / −56.7% | 16 / 9 | 0% (TabPFN) |
+| TabArena-Lite airfoil / blood / credit-g | | −0.9% +2.5% −0.3% / +2.3% −0.9% −0.4% | 24 | |
+
+Qwen3-Coder uses the tools correctly (describe, write, eval, finish; ~100k input tokens, ~7k output per search, 1.5 min
+on one H200) but its pipelines barely move the frozen Kumo-S, and on breast_cancer (569 rows) the CV-best candidate loses
+badly on test. On synth_entities the LLM misses the entity-aggregation trick the greedy heuristic finds. One J3 run
+looped `run_eval` 38 times without changing the pipeline; the harness now refuses an unchanged re-evaluation. gpt-oss-20b
+crashed the loop by reading a parquet file (tool errors now return to the model); it, Qwen3-32B, GLM-4.5-Air-FP8 and the
+CLI harnesses (pi, Qwen Code, aider) are queued/running.
 
 ### 5.3 TabArena protocol vs the paper (T3 **[auto]**)
 Wave 1 (the 17 datasets with <= 2,500 rows, all 30 official splits each, frozen Kumo Tabular-S, **no LLM**):

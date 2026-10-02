@@ -44,3 +44,8 @@
 - J6 qwen-code (50408): every turn 400 from vLLM: Qwen Code requests max_tokens = 32768 = the whole server context, leaving 0
   input tokens. vLLM now serves 128k by default (VLLM_MAX_LEN; Qwen3-32B 40k). J6 task 1 resubmitted as 50428 (picks the
   fix up at job start); J3/J5/J6 jobs already running keep their 32k server (our openai harness sets its own max_tokens).
+- J3 (50375) + J5 task 0 (50402), Qwen3-Coder-30B via our openai harness: tools used correctly, but gains are small or negative
+  (physics +1.3/+2.9%, entities -1.1/+1.0%, breast_cancer -2.9/-56.7%, TabArena-Lite -0.9..+2.5%); heuristic finds more on
+  synth_entities. Harness: run_eval on an unchanged pipeline now refused (one run looped 38x). RESULTS.md / REPORT 5.2 updated.
+- J5 task 3 (gpt-oss-20b, 50425): vLLM OK, but read_file on a .parquet raised UnicodeDecodeError and killed every search ->
+  tool errors go back to the model; inbox 021 resubmits task 3.
