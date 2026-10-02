@@ -1,0 +1,25 @@
+# job 50227 J2_tabarena exit=0 Fri Oct  2 15:45:39 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50215_2.out
+=== J2 tabarena task 2 === job 50227 Fri Oct  2 15:45:34 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=anneal model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+usage: 05_tabarena_protocol.py [-h] [--datasets DATASETS] [--all]
+                               [--max-instances MAX_INSTANCES]
+                               [--max-features MAX_FEATURES] [--lite]
+                               [--model MODEL] [--harness {claude-code,none}]
+                               [--llm LLM] [--budget-evals BUDGET_EVALS]
+                               [--budget-minutes BUDGET_MINUTES]
+                               [--max-rows MAX_ROWS] [--name NAME]
+05_tabarena_protocol.py: error: argument --harness: invalid choice: 'heuristic' (choose from 'claude-code', 'none')
+[J2] anneal FAILED
+[collect] copied 13 files into reports/runs
+[commit_push_sandbox] nothing to commit
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+Everything up-to-date
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 anneal done Fri Oct  2 15:45:39 UTC 2026 ===
