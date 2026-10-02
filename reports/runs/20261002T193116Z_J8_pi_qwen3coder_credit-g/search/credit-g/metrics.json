@@ -1,0 +1,78 @@
+{
+  "dataset": "credit-g",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "1-auroc",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 7,
+  "n_evals_ok": 7,
+  "p0_cv": 0.22535161747968682,
+  "best_cv": 0.22166344818005868,
+  "best_candidate": "eval_006.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 97.7,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T193116Z_J8_pi_qwen3coder_credit-g/search/credit-g/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.20585470085470092,
+  "p0_test_secondary": {
+    "logloss": 0.48899435913887995,
+    "acc": 0.7664670658682635,
+    "auroc": 0.7941452991452991,
+    "1-auroc": 0.20585470085470092
+  },
+  "best_test": 0.2069444444444445,
+  "best_test_secondary": {
+    "logloss": 0.49047787341903565,
+    "acc": 0.7604790419161677,
+    "auroc": 0.7930555555555555,
+    "1-auroc": 0.2069444444444445
+  },
+  "best_test_info": {
+    "n_features": 29,
+    "t_features": 0.032,
+    "n_views": 1,
+    "view_sizes": [
+      666
+    ],
+    "t_model": 0.375,
+    "t_total": 0.409,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": -0.529,
+  "cv_trajectory": [
+    [
+      1,
+      0.22535161747968682
+    ],
+    [
+      2,
+      0.22532201700473245
+    ],
+    [
+      3,
+      0.22361529632834398
+    ],
+    [
+      4,
+      0.22724038029767446
+    ],
+    [
+      5,
+      0.22255996067984515
+    ],
+    [
+      6,
+      0.22166344818005868
+    ],
+    [
+      7,
+      0.22586684344026664
+    ]
+  ],
+  "elapsed_s": 106.9,
+  "status": "ok"
+}

@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "credit-g",
+      "P*": 0.20241635792279572,
+      "P0": 0.19800036682440117,
+      "metric": "1-auroc",
+      "tabfm": 0.1944,
+      "tabfm_auto_opus5": 0.194,
+      "tabfm_auto_gemini38flash": 0.1978,
+      "our_gain_%": -2.2302944025911433,
+      "paper_gain_opus5_%": 0.2057613168724196,
+      "ours_vs_paper_tabfm": 1.0412364090678792
+    }
+  ],
+  "elapsed_s": 138.76,
+  "status": "ok"
+}
