@@ -1,0 +1,43 @@
+# job 50273 J2_tabarena exit=0 Fri Oct  2 16:01:10 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_15.out
+=== J2 tabarena task 15 === job 50273 Fri Oct  2 15:57:06 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=Marketing_Campaign model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:57:35,150 INFO P0 cv 1-auroc = 0.1347624290287879
+2026-10-02 16:00:36,707 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155712Z_J2_heuristic_Marketing_Campaign/search/Marketing_Campaign/metrics.json
+2026-10-02 16:01:04,065 INFO Marketing_Campaign                       P0=0.06597 P*=0.06588 | paper TabFM=0.0732 TabFM-Auto(Opus5)=0.0616 | 225s
+2026-10-02 16:01:04,112 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155712Z_J2_heuristic_Marketing_Campaign/metrics.json
+1 datasets: ['Marketing_Campaign']
+pipeline                  P*        P0
+dataset                               
+Marketing_Campaign  0.065883  0.065967
+[collect] copied 184 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o d667a46] J2: tabarena Marketing_Campaign heuristic (job 50273)
+ 18 files changed, 1727 insertions(+)
+ create mode 100644 reports/runs/20261002T155709Z_J2_heuristic_Is-this-a-good-customer/search/Is-this-a-good-customer/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155709Z_J2_heuristic_Is-this-a-good-customer/search/Is-this-a-good-customer/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155709Z_J2_heuristic_Is-this-a-good-customer/search/Is-this-a-good-customer/metrics.json
+ create mode 100644 reports/runs/20261002T155709Z_J2_heuristic_Is-this-a-good-customer/search/Is-this-a-good-customer/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/metrics.json
+ create mode 100644 reports/runs/20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_MIC/search/MIC/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_MIC/search/MIC/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_MIC/search/MIC/metrics.json
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_MIC/search/MIC/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T155712Z_J2_heuristic_Marketing_Campaign/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155712Z_J2_heuristic_Marketing_Campaign/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155712Z_J2_heuristic_Marketing_Campaign/metrics.json
+ create mode 100644 reports/runs/20261002T155712Z_J2_heuristic_Marketing_Campaign/results.csv
+ create mode 100644 reports/runs/20261002T160040Z_J7_hm_smoke/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   8b0cdda..d667a46  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 Marketing_Campaign done Fri Oct  2 16:01:10 UTC 2026 ===
