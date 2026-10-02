@@ -1,7 +1,7 @@
 import numpy as np
 import scipy.sparse as sp
 
-from fer.relbench_hm import hybrid_fill, knn_cf
+from fer.relbench_hm import hybrid_fill, knn_cf, svd_features
 
 
 def test_knn_cf_recovers_group_purchases():
@@ -40,3 +40,11 @@ def test_item_knn_and_sparse_user_knn_recover_group_purchases():
 def test_hybrid_fill_skips_empty_slots():
     out = hybrid_fill(np.array([[7, -1, -1]]), np.array([[7, 3, 4, 5]]), K=3)
     assert out.tolist() == [[7, 3, 4]]
+
+
+def test_svd_features_shape():
+    P = sp.random(40, 30, density=0.2, random_state=0, format="csr")
+    Z = svd_features(P, n_components=8, seed=0)
+    assert Z.shape == (40, 8)
+    assert np.isfinite(Z).all()
+    assert abs(Z.mean()) < 0.2

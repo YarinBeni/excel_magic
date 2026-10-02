@@ -135,9 +135,12 @@ queries, 365-day history, k = 50): GlobalPopularity 0.34 / 0.29 (val / test), Pa
 rows: GlobalPop 0.30, PastVisit 0.89, ID-GNN 2.81, KumoRFM zero-shot 2.73, ContextGNN 2.93). Training-free user-kNN
 over our customer embeddings: row-only 0.14, hand aggregates 0.26, TabPFN(agg, k-means target) 0.23, TabPFN(agg,
 random target) 0.17, TabPFN(row, k-means) 0.14 on test; every PastVisit+kNN hybrid 2.19, i.e. the fill never helps.
-**Negative result**: at item level on real data the frozen-embedding neighbourhoods are below the popularity prior.
-A rerun with reference rows (user-kNN on the raw purchase matrix, item-kNN) is queued to tell "weak embeddings" from
-"weak kNN scoring".
+**Negative result, attributed** (J7c, job 50341): with the same kNN scoring, user-kNN on the raw purchase matrix
+reaches 1.20 test (4× popularity, above the published LightGBM 0.38 and GraphSAGE 0.80), item-kNN 1.07, and
+PastVisit+kNN-CF[purchase matrix] 2.22 is the only hybrid above PastVisit. So the retrieval step is fine; the customer-level
+features, with or without the frozen TFM on top, do not carry item-level co-purchase structure. J7d feeds the interaction
+signal itself (SVD factors of the purchase matrix, plus aggregates) through the frozen TabPFN and compares it with the raw
+factors; that is the last version of the hypothesis still open at item level.
 
 ## 6. Ablations and analysis (planned)
 LLM vs no-LLM gap per dataset category (domain-readable vs anonymised schemas, paper Table 6); budget curves

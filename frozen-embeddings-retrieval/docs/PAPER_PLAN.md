@@ -53,3 +53,9 @@ already a published (weak) baseline. `fer/relbench_adapter.py` maps rel-hm onto 
 - Workshop-length first: 4 pages, Tables A/B on synthetic + Northwind + 1 RelBench task, 3 seeds, ablation on target
   choice (H2), cost table.
 - Keep every number traceable: `runs/<id>/metrics.json` -> `docs/run-log.md` -> paper table.
+
+**2026-10-02 J7c status note.** Reference rows settle the attribution: user-kNN on the raw purchase matrix reaches 1.20
+test MAP@12 x100 (4x popularity, above published LightGBM/GraphSAGE), and Past+kNN-CF[purchase_matrix] 2.22 is the only
+hybrid above PastVisit. The frozen-embedding rows (0.14-0.26) therefore fail because customer-level features do not
+carry item-level co-purchase structure, not because of the retrieval step. J7d tests the remaining version of H1: the
+frozen TFM over SVD factors of the interaction matrix vs the raw factors.

@@ -110,6 +110,18 @@ def purchase_matrix(tx: pd.DataFrame, customers: np.ndarray, articles: np.ndarra
                          shape=(len(customers), len(articles)))
 
 
+def svd_features(P: sp.csr_matrix, n_components: int = 64, seed: int = 0) -> np.ndarray:
+    """Dense customer features from the purchase matrix itself: truncated SVD of log1p counts, standardized.
+    This is the interaction (graph) signal the customer table never sees; fed to the frozen TFM to test whether its
+    hidden state adds anything over the raw factors."""
+    from sklearn.decomposition import TruncatedSVD
+    X = P.astype(np.float32).copy()
+    X.data = np.log1p(X.data)
+    n_components = int(min(n_components, X.shape[1] - 1, X.shape[0] - 1))
+    Z = TruncatedSVD(n_components=n_components, random_state=seed).fit_transform(X)
+    return standardize(Z.astype(np.float32))
+
+
 def knn_cf(E: np.ndarray, P: sp.csr_matrix, query_rows: np.ndarray, k_neighbors: int = 50, K: int = 12,
            pop: np.ndarray | None = None, exclude_seen: bool = False, chunk: int = 1024,
            time_decay_weights: np.ndarray | None = None) -> np.ndarray:
@@ -283,8 +295,15 @@ def run_split(task, db, split: str, embedders: list[str], hist_days: int = 365, 
     for name in embedders:
         t1 = time.time()
         try:
+            if name in ("svd", "svd_agg", "tabpfn_svd_kmeans", "tabpfn_svd_random") and "svd" not in feats:
+                feats["svd"] = svd_features(P, seed=seed)
+                feats["svd_agg"] = np.hstack([feats["svd"], feats["agg"]])
             if name in feats:
                 E = feats[name]
+            elif name == "tabpfn_svd_kmeans":
+                E = embed_tabpfn(feats["svd_agg"], "kmeans", seed, device=device)
+            elif name == "tabpfn_svd_random":
+                E = embed_tabpfn(feats["svd_agg"], "random", seed, device=device)
             elif name == "tabpfn_agg_kmeans":
                 E = embed_tabpfn(feats["agg"], "kmeans", seed, device=device)
             elif name == "tabpfn_agg_random":

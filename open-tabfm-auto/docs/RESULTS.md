@@ -112,9 +112,15 @@ features help Kumo-S a lot but hurt Kumo-M. The search should be run per backbon
 | kNN-CF[tabpfn_agg_kmeans] | 0.248 | 0.227 |
 | kNN-CF[tabpfn_agg_random] | 0.207 | 0.170 |
 | kNN-CF[tabpfn_row_kmeans] | 0.135 | 0.140 |
-| PastVisit+kNN-CF[any] | 1.897 | 2.191 |
+| PastVisit+kNN-CF[any embedding] | 1.86-1.89 | 2.16-2.19 |
+| kNN-CF[purchase_matrix] (user-kNN, no model) | 1.162 | 1.200 |
+| PastVisit+kNN-CF[purchase_matrix] | 1.919 | 2.216 |
+| ItemKNN | 1.035 | 1.073 |
+| PastVisit+ItemKNN | 1.901 | 2.197 |
 
 Published test rows (x100): GlobalPop 0.30, PastVisit 0.89, LightGBM 0.38, GraphSAGE 0.80, ID-GNN 2.81, KumoRFM 2.73, ContextGNN 2.93.
-Negative result for the frozen-embedding hypothesis at item level: every kNN row is below the popularity prior and the
-hybrids never improve on PastVisit. Reference rows (user-kNN on the raw purchase matrix, item-kNN) are queued (J7c).
+Negative result for the frozen-embedding hypothesis at item level, and attributed: the same kNN scoring over the raw
+purchase matrix reaches 1.20 and is the only hybrid above PastVisit, so the customer-level embeddings (not the retrieval
+step) lack the item signal. J7d feeds SVD factors of the purchase matrix through the frozen TabPFN and compares with the
+raw factors.
 Source: `reports/runs/20261002T160111Z_J7_hm_full/` in the cluster branch.

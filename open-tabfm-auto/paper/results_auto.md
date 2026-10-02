@@ -1,5 +1,5 @@
 # Auto-generated results tables
-_from 45 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
+_from 48 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
 
 ## T1. Frozen backbones with the identity pipeline (3-fold CV, lower is better)
 |                               |     hgb |   kumo-tabular-l |   kumo-tabular-m |   kumo-tabular-s |   tabicl |   tabpfn |   tabpfn-2.5 |
@@ -81,4 +81,26 @@ _from 45 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen
 | ('synth_shop', 'tabpfn_row')             |           0.171 |          0.005 |            4.000 |              0.174 |             0.012 |               4.000 |             0.021 |            0.001 |              4.000 |
 
 ## T6. RelBench rel-hm user-item-purchase (official evaluator)
-_no RelBench runs yet_
+| method                              |   test |   val |
+|:------------------------------------|-------:|------:|
+| GlobalPopularity                    |  0.292 | 0.342 |
+| ItemKNN                             |  1.073 | 1.035 |
+| Past+ItemKNN                        |  2.197 | 1.901 |
+| Past+kNN-CF[agg]                    |  2.184 | 1.889 |
+| Past+kNN-CF[purchase_matrix]        |  2.216 | 1.919 |
+| Past+kNN-CF[row]                    |  2.160 | 1.857 |
+| Past+kNN-CF[tabpfn_agg_kmeans]      |  2.187 | 1.889 |
+| Past+kNN-CF[tabpfn_agg_random]      |  2.177 | 1.886 |
+| Past+kNN-CF[tabpfn_row_kmeans]      |  2.161 | 1.857 |
+| PastVisit                           |  2.199 | 1.904 |
+| PastVisit+kNN-CF[agg]               |  2.191 | 1.954 |
+| PastVisit+kNN-CF[row]               |  2.191 | 1.954 |
+| PastVisit+kNN-CF[tabpfn_agg_kmeans] |  2.191 | 1.954 |
+| PastVisit+kNN-CF[tabpfn_agg_random] |  2.191 | 1.897 |
+| PastVisit+kNN-CF[tabpfn_row_kmeans] |  2.191 | 1.897 |
+| kNN-CF[agg]                         |  0.259 | 0.258 |
+| kNN-CF[purchase_matrix]             |  1.200 | 1.162 |
+| kNN-CF[row]                         |  0.144 | 0.136 |
+| kNN-CF[tabpfn_agg_kmeans]           |  0.227 | 0.248 |
+| kNN-CF[tabpfn_agg_random]           |  0.170 | 0.207 |
+| kNN-CF[tabpfn_row_kmeans]           |  0.140 | 0.135 |

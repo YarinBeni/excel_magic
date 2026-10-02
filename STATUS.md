@@ -33,3 +33,7 @@
 - J0v (50342) installed vllm 0.30.0 = torch 2.13+cu130; the node driver is CUDA 12.8 -> cuda unavailable, every vLLM server
   in J3 (50343) / J5 (50362, 50365) died at engine start. Installer now pins vllm 0.16.0 (torch 2.9.1 cu128; fallback 0.11.0)
   and asserts a CUDA 12 torch build at install time. inbox 016 reruns J0v and re-chains J3/J5/J6.
+- J7c done (50341): user-kNN on the raw purchase matrix 1.20 test MAP@12 x100 (4x popularity, > published LightGBM/GraphSAGE),
+  Past+kNN-CF[purchase_matrix] 2.22 > PastVisit 2.20; embedding rows unchanged 0.14-0.26. The kNN step works; the customer-level
+  embeddings lack the item signal. inbox 017 / J7d: SVD(64) of the purchase matrix (+agg) through the frozen TabPFN vs raw factors.
+- J0v (50374) OK: vllm 0.16.0, torch 2.9.1+cu128. J3 (50375) / J5 (50376) / J6 (50377) released.

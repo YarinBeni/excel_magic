@@ -76,3 +76,20 @@ embedding row is below global popularity; the frozen TabPFN state tracks the agg
 Repeat purchases dominate this task (PastVisit 2.2), which no customer-level embedding can express. Next: reference rows
 that isolate the cause (user-kNN over the raw purchase matrix, item-kNN), a past-only+fill hybrid, and item-aware
 embeddings (two-tower with article embeddings) before claiming anything about relational FMs on rel-hm.
+
+## 2026-10-02 J7c (cluster job 50341): rel-hm with reference CF rows — the scoring is fine, the embeddings are the weak part
+Official evaluator, MAP@12 x100, val / test. Same 74,575 / 67,144 queries, 365-day history, k = 50.
+- kNN-CF over the raw purchase matrix (sparse cosine user-kNN, no model): **1.16 / 1.20** — 4x popularity, above the
+  published LightGBM (0.38) and GraphSAGE (0.80) test rows. ItemKNN: 1.04 / 1.07.
+- Past+kNN-CF[purchase_matrix]: 1.92 / **2.22** — the only hybrid above PastVisit alone (1.90 / 2.20).
+- Our frozen-embedding rows unchanged: kNN-CF[row] 0.14, [agg] 0.26, [tabpfn_agg_kmeans] 0.23, [tabpfn_agg_random] 0.17,
+  [tabpfn_row_kmeans] 0.14 (test); their Past+ hybrids 2.16-2.19, all slightly *below* PastVisit (the filler pushes popular
+  items out of the padded slots).
+Reading: the same kNN-CF machinery gets 1.2 when the neighbourhood is defined by co-purchase, and 0.14-0.26 when it is
+defined by the customer table + aggregates (with or without the frozen TFM on top). The item-level signal is in the
+interaction matrix, which the customer-level features (and therefore the TFM hidden state over them) do not carry.
+Next (J7d): feed the interaction signal itself to the frozen TFM — truncated SVD(64) of the purchase matrix (+ aggregates)
+as the TFM input, k-means / random target — and compare kNN-CF[svd], [svd_agg], [tabpfn_svd_kmeans], [tabpfn_svd_random]
+against kNN-CF[purchase_matrix]. If the TFM row is below the raw SVD row, the "frozen TFM as graph-aware embedding" story
+is dead at item level on rel-hm; if above, the TFM adds something over the factors.
+Run: reports/runs/20261002T163801Z_J7_hm_full (cluster branch).
