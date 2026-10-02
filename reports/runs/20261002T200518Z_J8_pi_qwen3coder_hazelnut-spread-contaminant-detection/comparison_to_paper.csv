@@ -1,0 +1,2 @@
+dataset,P*,P0,metric,tabfm,tabfm_auto_opus5,tabfm_auto_gemini38flash,our_gain_%,paper_gain_opus5_%,ours_vs_paper_tabfm
+hazelnut-spread-contaminant-detection,0.004793958333333322,0.004805833333333313,1-auroc,0.0023,0.0021,0.0021,0.24709554361001096,8.695652173913048,2.0843297101449227
