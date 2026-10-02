@@ -142,3 +142,19 @@ budget 16 evals / 40 min (TabArena-Lite: 24 / 60), held-out test, two independen
 Agent stats per search: 16-41 turns, ~100-310k input tokens, 0.6-7k output tokens, 90-134 s wall on one H200. One run
 called `run_eval` 38 times on an unchanged pipeline (harness now refuses that). Runs: `reports/runs/*J3_openai_*`,
 `reports/runs/*J5_Qwen3-Coder-30B-A3B-Instruct_*` on the cluster branch.
+
+## CLI harness: aider + Qwen3-Coder-30B-A3B via vLLM (cluster job J6 task 2, 50377, 2026-10-02)
+
+Frozen Kumo Tabular-S (n_estimators=4), `--harness cli --agent-cmd <aider loop>` (8 rounds of aider --message-file
+-> tabfm-eval -> score appended to the brief), budget 16 evals / 40 min, held-out test.
+
+| dataset | metric | P0 | P* | gain | evals | HistGB |
+|---|---|---|---|---|---|---|
+| synth_physics | rmse | 0.0861 | 0.0880 | -2.2% | 9 | 0.324 |
+| synth_entities | 1-auroc | 0.3842 | 0.2239 | **+41.7%** | 9 | 0.473 |
+| breast_cancer | 1-auroc | 0.0051 | 0.0072 | -40.0% | 9 | 0.011 |
+
+The synth_entities pipeline (`reports/runs/*J6_aider_synth_entities/best_pipeline.py`): role x resource pair counts,
+manager / role / resource counts over train+test, their ratios and logs, a label-encoded triple, 4 context views
+(all, class-balanced, random, minority-oversampled), sigmoid sharpening in postprocess. CV 0.470 -> 0.317 at eval 2,
+best 0.296 at eval 5. The same LLM in our tool loop (J3/J5) never found the frequency encodings.

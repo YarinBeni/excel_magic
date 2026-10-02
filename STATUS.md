@@ -49,3 +49,5 @@
   synth_entities. Harness: run_eval on an unchanged pipeline now refused (one run looped 38x). RESULTS.md / REPORT 5.2 updated.
 - J5 task 3 (gpt-oss-20b, 50425): vLLM OK, but read_file on a .parquet raised UnicodeDecodeError and killed every search ->
   tool errors go back to the model; inbox 021 resubmits task 3.
+- J6 task 2 aider + Qwen3-Coder (50377): synth_entities +41.7% (0.384 -> 0.224; frequency encodings + 4 context views),
+  physics -2.2%, breast_cancer -40%. Same LLM in our tool loop never found the encodings -> harness matters more than the LLM here.

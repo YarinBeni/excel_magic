@@ -119,6 +119,12 @@ looped `run_eval` 38 times without changing the pipeline; the harness now refuse
 crashed the loop by reading a parquet file (tool errors now return to the model); it, Qwen3-32B, GLM-4.5-Air-FP8 and the
 CLI harnesses (pi, Qwen Code, aider) are queued/running.
 
+**CLI harness, first result (J6, aider + Qwen3-Coder-30B-A3B over vLLM, same frozen Kumo-S, 8 write→eval rounds):**
+synth_physics −2.2%, breast_cancer −40.0%, and synth_entities **+41.7%** (1−AUROC 0.384 → 0.224, HistGB 0.473): the
+single-turn aider loop wrote the entity frequency encodings (role×resource pair counts, manager request counts, their
+ratios) that the task's description hints at, plus a 4-view class-balanced context sample. Same LLM, different harness:
+the tool-loop runs above never found this. CV trajectory 0.470 → 0.317 on the second eval, then flat.
+
 ### 5.3 TabArena protocol vs the paper (T3 **[auto]**)
 Wave 1 (the 17 datasets with <= 2,500 rows, all 30 official splits each, frozen Kumo Tabular-S, **no LLM**):
 mean relative test-error gain **+0.5%** against **+4.6%** for the paper's Opus 5 agent on the same datasets; P* beats P0
