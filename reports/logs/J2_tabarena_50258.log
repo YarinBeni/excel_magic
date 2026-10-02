@@ -1,0 +1,30 @@
+# job 50258 J2_tabarena exit=0 Fri Oct  2 15:56:45 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_5.out
+=== J2 tabarena task 5 === job 50258 Fri Oct  2 15:52:05 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=maternal_health_risk model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:53:16,054 INFO P0 cv logloss = 0.5383948478917121
+2026-10-02 15:56:16,501 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155220Z_J2_heuristic_maternal_health_risk/search/maternal_health_risk/metrics.json
+2026-10-02 15:56:39,077 INFO maternal_health_risk                     P0=0.38468 P*=0.39525 | paper TabFM=0.3706 TabFM-Auto(Opus5)=0.3648 | 224s
+2026-10-02 15:56:39,126 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155220Z_J2_heuristic_maternal_health_risk/metrics.json
+1 datasets: ['maternal_health_risk']
+pipeline                    P*        P0
+dataset                                 
+maternal_health_risk  0.395249  0.384678
+[collect] copied 89 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o f028f42] J2: tabarena maternal_health_risk heuristic (job 50258)
+ 4 files changed, 86 insertions(+)
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_maternal_health_risk/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_maternal_health_risk/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_maternal_health_risk/metrics.json
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_maternal_health_risk/results.csv
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   e232ac6..f028f42  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 maternal_health_risk done Fri Oct  2 15:56:45 UTC 2026 ===
