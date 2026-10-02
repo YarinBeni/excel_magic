@@ -1,0 +1,2 @@
+dataset,P*,P0,metric,tabfm,tabfm_auto_opus5,tabfm_auto_gemini38flash,our_gain_%,paper_gain_opus5_%,ours_vs_paper_tabfm
+healthcare_insurance_expenses,4613.899201807103,4553.608899871484,rmse,4417.6,4344.1,4392.3,-1.3240114217389332,1.6637993480622961,1.0444357121077288
