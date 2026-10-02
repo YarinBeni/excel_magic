@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "Fitness_Club",
+      "P*": 0.17741056912512698,
+      "P0": 0.17866301019830383,
+      "metric": "1-auroc",
+      "tabfm": 0.1789,
+      "tabfm_auto_opus5": 0.1787,
+      "tabfm_auto_gemini38flash": 0.1785,
+      "our_gain_%": 0.7010074843061929,
+      "paper_gain_opus5_%": 0.11179429849078017,
+      "ours_vs_paper_tabfm": 0.9916745060096533
+    }
+  ],
+  "elapsed_s": 229.47,
+  "status": "ok"
+}

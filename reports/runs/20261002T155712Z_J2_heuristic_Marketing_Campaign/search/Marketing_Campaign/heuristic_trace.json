@@ -1,0 +1,216 @@
+[
+  {
+    "config": {
+      "regression": false
+    },
+    "score": 0.1347624290287879
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true
+    },
+    "score": 0.1320678911883916,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "winsorize": true
+    },
+    "score": 0.13539073329987286,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true
+    },
+    "score": 0.13608312045485868,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "count_encode": true
+    },
+    "score": 0.14040459133025707,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "log_skewed": true
+    },
+    "score": 0.13415316828939203,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 3
+    },
+    "score": 0.1388227803609846,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5
+    },
+    "score": 0.14077766110818432,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "svd_components": 8
+    },
+    "score": 0.13518077189996094,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "svd_components": 16
+    },
+    "score": 0.13362279380946582,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "prune_to": 64
+    },
+    "score": 0.13467310546194533,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "balanced_views": true
+    },
+    "score": 0.13851608700899476,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "random_views": 3
+    },
+    "score": 0.13441711449171645,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "prior_correction": true
+    },
+    "score": 0.1341022418779009,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "temperature": 0.8
+    },
+    "score": 0.13528207821095553,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "temperature": 1.25
+    },
+    "score": 0.13457755560993886,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 0.1355622871633844,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "winsorize": true
+    },
+    "score": 0.1326010504683728,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "drop_constant": true
+    },
+    "score": 0.13514758569622753,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "count_encode": true
+    },
+    "score": 0.14014283318511875,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "log_skewed": true
+    },
+    "score": 0.1357480556965369,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 3
+    },
+    "score": 0.13920513581961458,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5
+    },
+    "score": 0.1389248960589119,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true,
+      "svd_components": 8
+    },
+    "score": 0.13490704139171952,
+    "error": null
+  }
+]
