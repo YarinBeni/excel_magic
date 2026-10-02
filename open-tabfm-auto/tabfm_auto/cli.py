@@ -41,7 +41,7 @@ def cmd_search(a) -> int:
                    budget_minutes=a.budget_minutes, max_turns=a.max_turns, test_size=a.test_size, n_folds=a.n_folds,
                    seed=a.seed, max_rows=a.max_rows, baselines=tuple(b for b in a.baselines.split(",") if b), name=a.run_name,
                    llm_base_url=a.llm_base_url, agent_cmd=a.agent_cmd,
-                   cv_repeats=a.cv_repeats if a.cv_repeats == "auto" else int(a.cv_repeats))
+                   cv_repeats=a.cv_repeats if a.cv_repeats == "auto" else int(a.cv_repeats), select_rule=a.select)
     keys = ["dataset", "metric", "p0_cv", "best_cv", "p0_test", "best_test", "test_improvement_pct", "n_evals"]
     print({k: m.get(k) for k in keys})
     return 0
@@ -88,6 +88,7 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--max-turns", type=int, default=80); s.add_argument("--test-size", type=float, default=0.3)
     s.add_argument("--n-folds", type=int, default=3); s.add_argument("--seed", type=int, default=0)
     s.add_argument("--cv-repeats", default="1", help="repeats of the k-fold judge; 'auto' = 3 when n_train < 1000")
+    s.add_argument("--select", default="best", help="final pick: best | gated1 | gated2 (paired per-fold gate vs P0)")
     s.add_argument("--baselines", default="hgb")
     common(s); s.set_defaults(fn=cmd_search)
 

@@ -102,6 +102,11 @@ def run_probe(embedders: list[str], hist_days: int = 365, n_customers: int | Non
                 feats["svd_agg"] = np.hstack([feats["svd"], feats["agg"]])
             if name in feats:
                 E = feats[name]
+            elif name.startswith("kumo_relational"):
+                from fer.relbench_kumo import embed_kumo_relational_relbench
+
+                E = embed_kumo_relational_relbench(cust, art, tx, customers, agg=feats["agg"],
+                                                   target="random" if name.endswith("random") else "kmeans", seed=seed, log=log)
             elif name.startswith("tabpfn_"):
                 _, src, tgt = name.split("_", 2)
                 E = embed_tabpfn(feats[src if src != "svd" else "svd_agg"], tgt, seed, device=device)

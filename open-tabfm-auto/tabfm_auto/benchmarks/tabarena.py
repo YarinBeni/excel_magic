@@ -103,11 +103,12 @@ def run_tabarena(datasets: list[TabArenaDataset], model_spec: str = "tabpfn:n_es
                  harness: str = "claude-code", llm_model: str = "sonnet", budget_evals: int = 24, budget_minutes: int = 120,
                  max_turns: int = 150, max_rows: int = 10000, eval_timeout_s: int = 1800, baselines: tuple[str, ...] = (),
                  name: str = "tabarena", cache_dir: str | Path | None = None, run_root: Path | None = None,
-                 llm_base_url: str | None = None, agent_cmd: str | None = None, cv_repeats: int | str = 1) -> pd.DataFrame:
+                 llm_base_url: str | None = None, agent_cmd: str | None = None, cv_repeats: int | str = 1,
+                 select_rule: str = "best") -> pd.DataFrame:
     """Paper protocol over ``datasets``. Returns the long results frame (also saved as results.csv)."""
     cfg = {"datasets": [d.name for d in datasets], "model": model_spec, "lite": lite, "harness": harness,
            "llm_model": llm_model, "budget_evals": budget_evals, "budget_minutes": budget_minutes, "max_rows": max_rows,
-           "cv_repeats": cv_repeats}
+           "cv_repeats": cv_repeats, "select_rule": select_rule}
     rows: list[dict[str, Any]] = []
     with RunLogger(name, cfg, root=run_root) as run:
         paper = paper_table9().set_index("dataset")
@@ -126,7 +127,7 @@ def run_tabarena(datasets: list[TabArenaDataset], model_spec: str = "tabpfn:n_es
                            budget_minutes=budget_minutes, max_turns=max_turns, max_rows=max_rows,
                            eval_timeout_s=eval_timeout_s, baselines=baselines, split=(tr0, te0),
                            name=f"{name}_{d.name}", run_dir=run.run_dir / "search" / d.name,
-                           llm_base_url=llm_base_url, agent_cmd=agent_cmd, cv_repeats=cv_repeats)
+                           llm_base_url=llm_base_url, agent_cmd=agent_cmd, cv_repeats=cv_repeats, select_rule=select_rule)
             sdir = run.run_dir / "search" / d.name
             p0 = sdir / "workspace" / "candidates" / "eval_001.py"
             pstar = sdir / "best_pipeline.py" if (sdir / "best_pipeline.py").exists() else p0

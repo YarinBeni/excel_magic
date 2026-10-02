@@ -76,7 +76,7 @@ def run_search(task: TabularTask, model_spec: str = "tabpfn", harness: str = "cl
                n_folds: int = 3, seed: int = 0, max_rows: int = 10000, eval_timeout_s: int = 900,
                baselines: tuple[str, ...] = ("hgb",), name: str | None = None, run_dir: Path | None = None,
                split: tuple[np.ndarray, np.ndarray] | None = None, llm_base_url: str | None = None,
-               agent_cmd: str | None = None, cv_repeats: int | str = 1) -> dict[str, Any]:
+               agent_cmd: str | None = None, cv_repeats: int | str = 1, select_rule: str = "best") -> dict[str, Any]:
     """Run one TabFM-Auto search. ``split`` = (train_idx, test_idx) overrides the random hold-out (e.g. an
     official benchmark split); the agent only ever sees ``train_idx`` rows. ``cv_repeats``: repeats of the k-fold
     judge (``"auto"`` = 3 when the training split has < 1000 rows, else 1)."""
@@ -154,11 +154,16 @@ def run_search(task: TabularTask, model_spec: str = "tabpfn", harness: str = "cl
         # pick the best candidate by CV
         evals = read_evals(ws)
         ok = [r for r in evals if r.get("status") == "ok" and r.get("score") is not None]
-        best = min(ok, key=lambda r: r["score"]) if ok else None
+        from ..harness.selection import select
+
+        chosen = select(evals, select_rule if not select_rule.startswith("ens") else "best")  # ensembles: scripts/rescore_selection.py
+        best = next((r for r in ok if r["candidate"] == chosen[0]), None) if chosen else None
+        if best is not None and select_rule != "best":
+            run.event("selection", rule=select_rule, candidate=best["candidate"], cv_best=min(r["score"] for r in ok))
         metrics: dict[str, Any] = {"dataset": task.name, "task_type": task.task_type, "model": model_spec,
                                    "metric": primary_metric_name(task.task_type), "harness": harness,
                                    "llm_model": llm_model if harness in ("claude-code", "openai", "cli") else None,
-                                   "n_evals": len(evals), "n_evals_ok": len(ok),
+                                   "n_evals": len(evals), "n_evals_ok": len(ok), "select_rule": select_rule,
                                    "p0_cv": p0.get("score"), "best_cv": best["score"] if best else None,
                                    "best_candidate": best["candidate"] if best else None,
                                    "agent": {k: v for k, v in agent_info.items() if k != "result"}}

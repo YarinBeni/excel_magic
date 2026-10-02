@@ -30,7 +30,8 @@ import os, shutil, pathlib
 src = pathlib.Path("artifacts/runs"); dst = pathlib.Path("reports/runs"); dst.mkdir(parents=True, exist_ok=True)
 keep = {"metrics.json", "config.json", "results.md", "results.csv", "best_pipeline.py", "build_table.sql", "agent_result.md",
         "comparison_to_paper.md", "comparison_to_paper.csv", "heuristic_trace.json", "rescored.json", "NOTES.md",
-        "agent_stream.log", "agent_stream.jsonl", "agent_result.md", "relbench_rows.json"}
+        "agent_stream.log", "agent_stream.jsonl", "agent_result.md", "relbench_rows.json", "churn_rows.json",
+        "selection_rules.md", "selection_rules.csv"}
 n = 0
 for run in sorted(src.glob("*")):
     if not run.is_dir(): continue

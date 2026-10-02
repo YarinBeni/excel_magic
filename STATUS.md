@@ -89,3 +89,6 @@
 - J10 done (budget 64 on the 5 high-gain datasets): heuristic +2.9% -> +1.1%, pi -2.9% -> -4.3%, GLM +0.1% -> -8.4%; agents stop at
   8-22 evals. Split analysis: a candidate picked on r0f0 improves only ~50% of the other 29 splits -> the search selects CV noise
   on small tables. REPORT 6 / RESULTS updated.
+- 22:27 UTC: no cluster push since 21:14 and inbox 030 not picked up -> runner 50192 may be dead or the push token rotated.
+  Queued anyway: inbox 031 -> J14 (Kumo Relational on rel-hm: churn probe + item-level rows) and J15 (selection rules
+  p0/best/gated1/gated2/ens3 re-scored on the finished J2/J8/J10 searches). Library: --select gated1|gated2, scripts/rescore_selection.py.

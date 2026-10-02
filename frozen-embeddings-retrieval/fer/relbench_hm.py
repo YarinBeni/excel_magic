@@ -300,6 +300,11 @@ def run_split(task, db, split: str, embedders: list[str], hist_days: int = 365, 
                 feats["svd_agg"] = np.hstack([feats["svd"], feats["agg"]])
             if name in feats:
                 E = feats[name]
+            elif name.startswith("kumo_relational"):
+                from fer.relbench_kumo import embed_kumo_relational_relbench
+
+                E = embed_kumo_relational_relbench(cust, art, tx, queries, agg=feats["agg"],
+                                                   target="random" if name.endswith("random") else "kmeans", seed=seed, log=log)
             elif name == "tabpfn_svd_kmeans":
                 E = embed_tabpfn(feats["svd_agg"], "kmeans", seed, device=device)
             elif name == "tabpfn_svd_random":
