@@ -1,0 +1,277 @@
+# job 50213 J1_smoke exit=0 Fri Oct  2 15:51:37 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J1_smoke_50213.out
+=== J1 smoke === job 50213 Fri Oct  2 15:41:03 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Created autostash: 996a78b
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+Applied autostash.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+2026-10-02 15:41:17,262 INFO wine             tabpfn:n_estimators=4    logloss=0.03588 (0.9s) 
+2026-10-02 15:41:17,272 INFO wine             device=cuda              logloss=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:41:19,592 INFO wine             tabicl:device=cuda       logloss=0.01584 (2.3s) 
+2026-10-02 15:41:21,861 INFO wine             kumo-tabular-s:n_estimators=4 logloss=0.02942 (2.3s) 
+2026-10-02 15:41:21,869 INFO wine             device=cuda              logloss=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:41:24,359 INFO wine             tabpfn-2.5:n_estimators=4 logloss=0.036 (2.5s) 
+2026-10-02 15:41:24,367 INFO wine             device=cuda              logloss=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:41:25,199 INFO wine             hgb                      logloss=0.09652 (0.8s) 
+2026-10-02 15:41:36,629 INFO breast_cancer    tabpfn:n_estimators=4    1-auroc=0.004 (11.4s) 
+2026-10-02 15:41:36,648 INFO breast_cancer    device=cuda              1-auroc=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:41:38,089 INFO breast_cancer    tabicl:device=cuda       1-auroc=0.00415 (1.4s) 
+2026-10-02 15:41:41,191 INFO breast_cancer    kumo-tabular-s:n_estimators=4 1-auroc=0.00344 (3.1s) 
+2026-10-02 15:41:41,207 INFO breast_cancer    device=cuda              1-auroc=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:41:44,708 INFO breast_cancer    tabpfn-2.5:n_estimators=4 1-auroc=0.004 (3.5s) 
+2026-10-02 15:41:44,724 INFO breast_cancer    device=cuda              1-auroc=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:41:45,072 INFO breast_cancer    hgb                      1-auroc=0.00586 (0.3s) 
+2026-10-02 15:41:47,275 INFO diabetes         tabpfn:n_estimators=4    rmse=54.25442 (2.2s) 
+2026-10-02 15:41:47,283 INFO diabetes         device=cuda              rmse=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:41:48,675 INFO diabetes         tabicl:device=cuda       rmse=53.72629 (1.4s) 
+2026-10-02 15:41:50,877 INFO diabetes         kumo-tabular-s:n_estimators=4 rmse=54.50063 (2.2s) 
+2026-10-02 15:41:50,884 INFO diabetes         device=cuda              rmse=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:41:52,250 INFO diabetes         tabpfn-2.5:n_estimators=4 rmse=54.17483 (1.4s) 
+2026-10-02 15:41:52,257 INFO diabetes         device=cuda              rmse=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:41:52,479 INFO diabetes         hgb                      rmse=60.51728 (0.2s) 
+2026-10-02 15:41:53,686 INFO synth_physics    tabpfn:n_estimators=4    rmse=0.09365 (1.2s) 
+2026-10-02 15:41:53,691 INFO synth_physics    device=cuda              rmse=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:41:54,912 INFO synth_physics    tabicl:device=cuda       rmse=0.09514 (1.2s) 
+2026-10-02 15:41:56,886 INFO synth_physics    kumo-tabular-s:n_estimators=4 rmse=0.08673 (2.0s) 
+2026-10-02 15:41:56,890 INFO synth_physics    device=cuda              rmse=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:41:58,108 INFO synth_physics    tabpfn-2.5:n_estimators=4 rmse=0.09659 (1.2s) 
+2026-10-02 15:41:58,113 INFO synth_physics    device=cuda              rmse=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:41:58,348 INFO synth_physics    hgb                      rmse=0.35393 (0.2s) 
+2026-10-02 15:42:01,299 INFO synth_entities   tabpfn:n_estimators=4    1-auroc=0.50102 (2.9s) 
+2026-10-02 15:42:01,308 INFO synth_entities   device=cuda              1-auroc=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:42:03,146 INFO synth_entities   tabicl:device=cuda       1-auroc=0.44391 (1.8s) 
+2026-10-02 15:42:06,570 INFO synth_entities   kumo-tabular-s:n_estimators=4 1-auroc=0.44736 (3.4s) 
+2026-10-02 15:42:06,576 INFO synth_entities   device=cuda              1-auroc=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:42:09,109 INFO synth_entities   tabpfn-2.5:n_estimators=4 1-auroc=0.45101 (2.5s) 
+2026-10-02 15:42:09,115 INFO synth_entities   device=cuda              1-auroc=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:42:09,590 INFO synth_entities   hgb                      1-auroc=0.4873 (0.5s) 
+2026-10-02 15:42:09,604 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T154108Z_J1_backbones/metrics.json
+| dataset | model | metric | score | std | cv s |
+|---|---|---|---|---|---|
+| wine | tabpfn:n_estimators=4 | logloss | 0.0359 | 0.0220 | 0.91 |
+| wine | device=cuda | logloss | ERR | 0.0000 | 0.01 |
+| wine | tabicl:device=cuda | logloss | 0.0158 | 0.0062 | 2.32 |
+| wine | kumo-tabular-s:n_estimators=4 | logloss | 0.0294 | 0.0063 | 2.27 |
+| wine | device=cuda | logloss | ERR | 0.0000 | 0.01 |
+| wine | tabpfn-2.5:n_estimators=4 | logloss | 0.0360 | 0.0247 | 2.49 |
+| wine | device=cuda | logloss | ERR | 0.0000 | 0.01 |
+| wine | hgb | logloss | 0.0965 | 0.0359 | 0.83 |
+| breast_cancer | tabpfn:n_estimators=4 | 1-auroc | 0.0040 | 0.0028 | 11.42 |
+| breast_cancer | device=cuda | 1-auroc | ERR | 0.0000 | 0.02 |
+| breast_cancer | tabicl:device=cuda | 1-auroc | 0.0042 | 0.0024 | 1.44 |
+| breast_cancer | kumo-tabular-s:n_estimators=4 | 1-auroc | 0.0034 | 0.0021 | 3.1 |
+| breast_cancer | device=cuda | 1-auroc | ERR | 0.0000 | 0.02 |
+| breast_cancer | tabpfn-2.5:n_estimators=4 | 1-auroc | 0.0040 | 0.0026 | 3.5 |
+| breast_cancer | device=cuda | 1-auroc | ERR | 0.0000 | 0.02 |
+| breast_cancer | hgb | 1-auroc | 0.0059 | 0.0047 | 0.35 |
+| diabetes | tabpfn:n_estimators=4 | rmse | 54.2544 | 1.5246 | 2.2 |
+| diabetes | device=cuda | rmse | ERR | 0.0000 | 0.01 |
+| diabetes | tabicl:device=cuda | rmse | 53.7263 | 1.7349 | 1.39 |
+| diabetes | kumo-tabular-s:n_estimators=4 | rmse | 54.5006 | 2.3968 | 2.2 |
+| diabetes | device=cuda | rmse | ERR | 0.0000 | 0.01 |
+| diabetes | tabpfn-2.5:n_estimators=4 | rmse | 54.1748 | 1.5635 | 1.37 |
+| diabetes | device=cuda | rmse | ERR | 0.0000 | 0.01 |
+| diabetes | hgb | rmse | 60.5173 | 4.0053 | 0.22 |
+| synth_physics | tabpfn:n_estimators=4 | rmse | 0.0936 | 0.0018 | 1.21 |
+| synth_physics | device=cuda | rmse | ERR | 0.0000 | 0.0 |
+| synth_physics | tabicl:device=cuda | rmse | 0.0951 | 0.0069 | 1.22 |
+| synth_physics | kumo-tabular-s:n_estimators=4 | rmse | 0.0867 | 0.0019 | 1.97 |
+| synth_physics | device=cuda | rmse | ERR | 0.0000 | 0.0 |
+| synth_physics | tabpfn-2.5:n_estimators=4 | rmse | 0.0966 | 0.0018 | 1.22 |
+| synth_physics | device=cuda | rmse | ERR | 0.0000 | 0.0 |
+| synth_physics | hgb | rmse | 0.3539 | 0.0278 | 0.24 |
+| synth_entities | tabpfn:n_estimators=4 | 1-auroc | 0.5010 | 0.0402 | 2.94 |
+| synth_entities | device=cuda | 1-auroc | ERR | 0.0000 | 0.01 |
+| synth_entities | tabicl:device=cuda | 1-auroc | 0.4439 | 0.0129 | 1.84 |
+| synth_entities | kumo-tabular-s:n_estimators=4 | 1-auroc | 0.4474 | 0.0089 | 3.42 |
+| synth_entities | device=cuda | 1-auroc | ERR | 0.0000 | 0.01 |
+| synth_entities | tabpfn-2.5:n_estimators=4 | 1-auroc | 0.4510 | 0.0284 | 2.53 |
+| synth_entities | device=cuda | 1-auroc | ERR | 0.0000 | 0.01 |
+| synth_entities | hgb | 1-auroc | 0.4873 | 0.0126 | 0.47 |
+2026-10-02 15:42:28,764 INFO P0 cv rmse = 0.08947379673573906
+2026-10-02 15:44:59,542 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T154212Z_J1_heur_kumo_synth_physics/metrics.json
+{'dataset': 'synth_physics', 'metric': 'rmse', 'p0_cv': 0.08947379673573906, 'best_cv': 0.0869840346841964, 'p0_test': 0.08764374277790017, 'best_test': 0.08715887799958015, 'test_improvement_pct': 0.553, 'n_evals': 20}
+2026-10-02 15:45:16,191 INFO P0 cv 1-auroc = 0.4475563586301842
+2026-10-02 15:47:43,840 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T154501Z_J1_heur_kumo_synth_entities/metrics.json
+{'dataset': 'synth_entities', 'metric': '1-auroc', 'p0_cv': 0.4475563586301842, 'best_cv': 0.4340259852004819, 'p0_test': 0.4622968707376953, 'best_test': 0.32812439109933367, 'test_improvement_pct': 29.023, 'n_evals': 20}
+2026-10-02 15:47:53,282 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T154746Z_J1_transfer/metrics.json
+| dataset | model | metric | P0 test | P* test | gain % |
+|---|---|---|---|---|---|
+2026-10-02 15:48:03,398 INFO row              {'dim': 10, 'segment': {'P@10': 0.16105, 'MAP@10': 0.06366186507936508, 'kNN_acc': 0.146, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.022076792771038974, 'recall@10': 0.06079063083841537, 'hit@10': 0.2154648132059079, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.02395591412975851, 'recall@10': 0.06672133077412581, 'hit@10': 0.2085181898846495, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 0.4, 'status': 'ok'}
+2026-10-02 15:48:03,712 INFO agg              {'dim': 23, 'segment': {'P@10': 0.7262, 'MAP@10': 0.6464883730158731, 'kNN_acc': 0.8425, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.04829439573396691, 'recall@10': 0.141780157288411, 'hit@10': 0.4474370112945265, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.05424096852089943, 'recall@10': 0.16331535220177631, 'hit@10': 0.45785270629991126, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 0.3, 'status': 'ok'}
+2026-10-02 15:48:07,505 ERROR embedder tabpfn_agg_kmeans failed
+Traceback (most recent call last):
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/experiments/exp01_retrieval_benchmark.py", line 48, in main
+    E = EMBEDDERS[name](db, seed=a.seed, log=run)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/embedders.py", line 446, in <lambda>
+    EMBEDDERS["tabpfn_agg_kmeans"] = lambda db, **kw: embed_tabpfn_multi(db, target="kmeans", **kw)
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/embedders.py", line 428, in embed_tabpfn_multi
+    E = np.asarray(clf.get_embeddings(Xdf, data_source="test"), dtype=np.float32)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/venvs/tabfm/lib/python3.11/site-packages/tabpfn/classifier.py", line 2092, in get_embeddings
+    return get_embeddings(self, X, data_source)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/venvs/tabfm/lib/python3.11/site-packages/tabpfn/base.py", line 747, in get_embeddings
+    embeddings.append(embed.squeeze().cpu().numpy())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Got unsupported ScalarType BFloat16
+2026-10-02 15:48:07,514 INFO tabpfn_agg_kmeans {'status': 'error', 'error': 'TypeError: Got unsupported ScalarType BFloat16', 'seconds': 3.8}
+2026-10-02 15:48:10,930 ERROR embedder tabpfn_agg failed
+Traceback (most recent call last):
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/experiments/exp01_retrieval_benchmark.py", line 48, in main
+    E = EMBEDDERS[name](db, seed=a.seed, log=run)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/embedders.py", line 384, in <lambda>
+    EMBEDDERS["tabpfn_agg"] = lambda db, **kw: embed_tabpfn(db, table="agg", **kw)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/embedders.py", line 374, in embed_tabpfn
+    E = clf.get_embeddings(Xdf, data_source="test")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/venvs/tabfm/lib/python3.11/site-packages/tabpfn/classifier.py", line 2092, in get_embeddings
+    return get_embeddings(self, X, data_source)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/venvs/tabfm/lib/python3.11/site-packages/tabpfn/base.py", line 747, in get_embeddings
+    embeddings.append(embed.squeeze().cpu().numpy())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Got unsupported ScalarType BFloat16
+2026-10-02 15:48:10,933 INFO tabpfn_agg       {'status': 'error', 'error': 'TypeError: Got unsupported ScalarType BFloat16', 'seconds': 3.4}
+2026-10-02 15:48:12,007 INFO gnn              {'dim': 64, 'segment': {'P@10': 0.885, 'MAP@10': 0.8544844841269841, 'kNN_acc': 0.9075, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.04870640669467259, 'recall@10': 0.14064331025668994, 'hit@10': 0.4422241529105126, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.059164130233578194, 'recall@10': 0.1612326547552812, 'hit@10': 0.44631765749778174, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 1.1, 'status': 'ok'}
+2026-10-02 15:48:20,298 INFO openrfm          {'dim': 256, 'segment': {'P@10': 0.2493, 'MAP@10': 0.13097142857142857, 'kNN_acc': 0.306, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.03185855576744969, 'recall@10': 0.09467879957671443, 'hit@10': 0.29365768896611644, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.038529913394915294, 'recall@10': 0.11141926076486855, 'hit@10': 0.2981366459627329, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 8.3, 'status': 'ok'}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-10-02 15:49:10,116 INFO kumo_relational  {'dim': 512, 'segment': {'P@10': 0.48185, 'MAP@10': 0.368287003968254, 'kNN_acc': 0.601, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.04617324994160872, 'recall@10': 0.11954692667116644, 'hit@10': 0.3822762814943527, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.05171446584812242, 'recall@10': 0.13826634520955727, 'hit@10': 0.3824312333629104, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 49.8, 'status': 'ok'}
+2026-10-02 15:49:10,124 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/runs/20261002T154754Z_J1_retrieval_seed0/metrics.json
+| embedder | dim | seg P@10 | seg MAP@10 | seg kNN acc | fut MAP@10 | fut recall@10 | fut hit@10 | s |
+|---|---|---|---|---|---|---|---|---|
+| row | 10 | 0.161 | 0.064 | 0.146 | 0.022 | 0.061 | 0.215 | 0.4 |
+| agg | 23 | 0.726 | 0.646 | 0.843 | 0.048 | 0.142 | 0.447 | 0.3 |
+| tabpfn_agg_kmeans | ERR | | | | | | | 3.8 |
+| tabpfn_agg | ERR | | | | | | | 3.4 |
+| gnn | 64 | 0.885 | 0.854 | 0.907 | 0.049 | 0.141 | 0.442 | 1.1 |
+| openrfm | 256 | 0.249 | 0.131 | 0.306 | 0.032 | 0.095 | 0.294 | 8.3 |
+| kumo_relational | 512 | 0.482 | 0.368 | 0.601 | 0.046 | 0.120 | 0.382 | 49.8 |
+| popularity baseline | - | 0.167 (chance) | | | 0.034 | 0.089 | | |
+2026-10-02 15:49:20,626 INFO row              {'dim': 10, 'segment': {'P@10': 0.16105, 'MAP@10': 0.06366186507936508, 'kNN_acc': 0.146, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.022076792771038974, 'recall@10': 0.06079063083841537, 'hit@10': 0.2154648132059079, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.02395591412975851, 'recall@10': 0.06672133077412581, 'hit@10': 0.2085181898846495, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 0.3, 'status': 'ok'}
+2026-10-02 15:49:21,028 INFO agg              {'dim': 23, 'segment': {'P@10': 0.7262, 'MAP@10': 0.6464883730158731, 'kNN_acc': 0.8425, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.04829439573396691, 'recall@10': 0.141780157288411, 'hit@10': 0.4474370112945265, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.05424096852089943, 'recall@10': 0.16331535220177631, 'hit@10': 0.45785270629991126, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 0.4, 'status': 'ok'}
+2026-10-02 15:49:24,492 ERROR embedder tabpfn_agg_kmeans failed
+Traceback (most recent call last):
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/experiments/exp01_retrieval_benchmark.py", line 48, in main
+    E = EMBEDDERS[name](db, seed=a.seed, log=run)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/embedders.py", line 446, in <lambda>
+    EMBEDDERS["tabpfn_agg_kmeans"] = lambda db, **kw: embed_tabpfn_multi(db, target="kmeans", **kw)
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/embedders.py", line 428, in embed_tabpfn_multi
+    E = np.asarray(clf.get_embeddings(Xdf, data_source="test"), dtype=np.float32)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/venvs/tabfm/lib/python3.11/site-packages/tabpfn/classifier.py", line 2092, in get_embeddings
+    return get_embeddings(self, X, data_source)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/venvs/tabfm/lib/python3.11/site-packages/tabpfn/base.py", line 747, in get_embeddings
+    embeddings.append(embed.squeeze().cpu().numpy())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Got unsupported ScalarType BFloat16
+2026-10-02 15:49:24,499 INFO tabpfn_agg_kmeans {'status': 'error', 'error': 'TypeError: Got unsupported ScalarType BFloat16', 'seconds': 3.5}
+2026-10-02 15:49:27,796 ERROR embedder tabpfn_agg failed
+Traceback (most recent call last):
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/experiments/exp01_retrieval_benchmark.py", line 48, in main
+    E = EMBEDDERS[name](db, seed=a.seed, log=run)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/embedders.py", line 384, in <lambda>
+    EMBEDDERS["tabpfn_agg"] = lambda db, **kw: embed_tabpfn(db, table="agg", **kw)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/embedders.py", line 374, in embed_tabpfn
+    E = clf.get_embeddings(Xdf, data_source="test")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/venvs/tabfm/lib/python3.11/site-packages/tabpfn/classifier.py", line 2092, in get_embeddings
+    return get_embeddings(self, X, data_source)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/venvs/tabfm/lib/python3.11/site-packages/tabpfn/base.py", line 747, in get_embeddings
+    embeddings.append(embed.squeeze().cpu().numpy())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Got unsupported ScalarType BFloat16
+2026-10-02 15:49:27,800 INFO tabpfn_agg       {'status': 'error', 'error': 'TypeError: Got unsupported ScalarType BFloat16', 'seconds': 3.3}
+2026-10-02 15:49:29,067 INFO gnn              {'dim': 64, 'segment': {'P@10': 0.87175, 'MAP@10': 0.8372014880952381, 'kNN_acc': 0.8985, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.045817978806865285, 'recall@10': 0.13699620318864453, 'hit@10': 0.4291920069504778, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.05280695004183934, 'recall@10': 0.1603385953984889, 'hit@10': 0.4409937888198758, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 1.3, 'status': 'ok'}
+2026-10-02 15:49:35,409 INFO openrfm          {'dim': 256, 'segment': {'P@10': 0.2493, 'MAP@10': 0.13097142857142857, 'kNN_acc': 0.306, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.03185855576744969, 'recall@10': 0.09467879957671443, 'hit@10': 0.29365768896611644, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.038529913394915294, 'recall@10': 0.11141926076486855, 'hit@10': 0.2981366459627329, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 6.3, 'status': 'ok'}
+2026-10-02 15:50:18,375 INFO kumo_relational  {'dim': 512, 'segment': {'P@10': 0.26005, 'MAP@10': 0.13754591269841268, 'kNN_acc': 0.342, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.031571621995968316, 'recall@10': 0.08518889523450773, 'hit@10': 0.2893136403127715, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.03704638703389601, 'recall@10': 0.1031843316892119, 'hit@10': 0.2990239574090506, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 43.0, 'status': 'ok'}
+2026-10-02 15:50:18,385 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/runs/20261002T154911Z_J1_retrieval_seed1/metrics.json
+| embedder | dim | seg P@10 | seg MAP@10 | seg kNN acc | fut MAP@10 | fut recall@10 | fut hit@10 | s |
+|---|---|---|---|---|---|---|---|---|
+| row | 10 | 0.161 | 0.064 | 0.146 | 0.022 | 0.061 | 0.215 | 0.3 |
+| agg | 23 | 0.726 | 0.646 | 0.843 | 0.048 | 0.142 | 0.447 | 0.4 |
+| tabpfn_agg_kmeans | ERR | | | | | | | 3.5 |
+| tabpfn_agg | ERR | | | | | | | 3.3 |
+| gnn | 64 | 0.872 | 0.837 | 0.898 | 0.046 | 0.137 | 0.429 | 1.3 |
+| openrfm | 256 | 0.249 | 0.131 | 0.306 | 0.032 | 0.095 | 0.294 | 6.3 |
+| kumo_relational | 512 | 0.260 | 0.138 | 0.342 | 0.032 | 0.085 | 0.289 | 43.0 |
+| popularity baseline | - | 0.167 (chance) | | | 0.034 | 0.089 | | |
+2026-10-02 15:50:29,630 INFO row              {'dim': 10, 'segment': {'P@10': 0.16105, 'MAP@10': 0.06366186507936508, 'kNN_acc': 0.146, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.022076792771038974, 'recall@10': 0.06079063083841537, 'hit@10': 0.2154648132059079, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.02395591412975851, 'recall@10': 0.06672133077412581, 'hit@10': 0.2085181898846495, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 0.4, 'status': 'ok'}
+2026-10-02 15:50:30,091 INFO agg              {'dim': 23, 'segment': {'P@10': 0.7262, 'MAP@10': 0.6464883730158731, 'kNN_acc': 0.8425, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.04829439573396691, 'recall@10': 0.141780157288411, 'hit@10': 0.4474370112945265, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.05424096852089943, 'recall@10': 0.16331535220177631, 'hit@10': 0.45785270629991126, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 0.5, 'status': 'ok'}
+2026-10-02 15:50:33,707 ERROR embedder tabpfn_agg_kmeans failed
+Traceback (most recent call last):
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/experiments/exp01_retrieval_benchmark.py", line 48, in main
+    E = EMBEDDERS[name](db, seed=a.seed, log=run)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/embedders.py", line 446, in <lambda>
+    EMBEDDERS["tabpfn_agg_kmeans"] = lambda db, **kw: embed_tabpfn_multi(db, target="kmeans", **kw)
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/embedders.py", line 428, in embed_tabpfn_multi
+    E = np.asarray(clf.get_embeddings(Xdf, data_source="test"), dtype=np.float32)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/venvs/tabfm/lib/python3.11/site-packages/tabpfn/classifier.py", line 2092, in get_embeddings
+    return get_embeddings(self, X, data_source)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/venvs/tabfm/lib/python3.11/site-packages/tabpfn/base.py", line 747, in get_embeddings
+    embeddings.append(embed.squeeze().cpu().numpy())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Got unsupported ScalarType BFloat16
+2026-10-02 15:50:33,712 INFO tabpfn_agg_kmeans {'status': 'error', 'error': 'TypeError: Got unsupported ScalarType BFloat16', 'seconds': 3.6}
+2026-10-02 15:50:37,005 ERROR embedder tabpfn_agg failed
+Traceback (most recent call last):
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/experiments/exp01_retrieval_benchmark.py", line 48, in main
+    E = EMBEDDERS[name](db, seed=a.seed, log=run)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/embedders.py", line 384, in <lambda>
+    EMBEDDERS["tabpfn_agg"] = lambda db, **kw: embed_tabpfn(db, table="agg", **kw)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/embedders.py", line 374, in embed_tabpfn
+    E = clf.get_embeddings(Xdf, data_source="test")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/venvs/tabfm/lib/python3.11/site-packages/tabpfn/classifier.py", line 2092, in get_embeddings
+    return get_embeddings(self, X, data_source)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/venvs/tabfm/lib/python3.11/site-packages/tabpfn/base.py", line 747, in get_embeddings
+    embeddings.append(embed.squeeze().cpu().numpy())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Got unsupported ScalarType BFloat16
+2026-10-02 15:50:37,010 INFO tabpfn_agg       {'status': 'error', 'error': 'TypeError: Got unsupported ScalarType BFloat16', 'seconds': 3.3}
+2026-10-02 15:50:38,084 INFO gnn              {'dim': 64, 'segment': {'P@10': 0.87555, 'MAP@10': 0.8432360317460318, 'kNN_acc': 0.899, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.046607064463974605, 'recall@10': 0.14322460650653523, 'hit@10': 0.46568201563857514, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.05468785399400813, 'recall@10': 0.1698108851613732, 'hit@10': 0.4800354924578527, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 1.1, 'status': 'ok'}
+2026-10-02 15:50:46,138 INFO openrfm          {'dim': 256, 'segment': {'P@10': 0.2493, 'MAP@10': 0.13097142857142857, 'kNN_acc': 0.306, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.03185855576744969, 'recall@10': 0.09467879957671443, 'hit@10': 0.29365768896611644, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.038529913394915294, 'recall@10': 0.11141926076486855, 'hit@10': 0.2981366459627329, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 8.1, 'status': 'ok'}
+2026-10-02 15:51:31,463 INFO kumo_relational  {'dim': 512, 'segment': {'P@10': 0.2469, 'MAP@10': 0.12855654761904758, 'kNN_acc': 0.3225, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.03018205944571734, 'recall@10': 0.08326743726396202, 'hit@10': 0.2684622067767159, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.03411257355977325, 'recall@10': 0.09954672287192251, 'hit@10': 0.27151730257320317, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 45.3, 'status': 'ok'}
+2026-10-02 15:51:31,471 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/runs/20261002T155020Z_J1_retrieval_seed2/metrics.json
+| embedder | dim | seg P@10 | seg MAP@10 | seg kNN acc | fut MAP@10 | fut recall@10 | fut hit@10 | s |
+|---|---|---|---|---|---|---|---|---|
+| row | 10 | 0.161 | 0.064 | 0.146 | 0.022 | 0.061 | 0.215 | 0.4 |
+| agg | 23 | 0.726 | 0.646 | 0.843 | 0.048 | 0.142 | 0.447 | 0.5 |
+| tabpfn_agg_kmeans | ERR | | | | | | | 3.6 |
+| tabpfn_agg | ERR | | | | | | | 3.3 |
+| gnn | 64 | 0.876 | 0.843 | 0.899 | 0.047 | 0.143 | 0.466 | 1.1 |
+| openrfm | 256 | 0.249 | 0.131 | 0.306 | 0.032 | 0.095 | 0.294 | 8.1 |
+| kumo_relational | 512 | 0.247 | 0.129 | 0.323 | 0.030 | 0.083 | 0.268 | 45.3 |
+| popularity baseline | - | 0.167 (chance) | | | 0.034 | 0.089 | | |
+[collect] copied 21 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 003cb29] J1: smoke results (job 50213)
+ 2 files changed, 47 insertions(+)
+ create mode 100644 reports/J1_retrieval_aggregate.md
+ create mode 100644 reports/runs/20261002T154910Z_J2_heuristic_hazelnut-spread-contaminant-detection/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+   b55eb8a..e4634c0  claude/tabular-model-agent-exp-wvni5o -> origin/claude/tabular-model-agent-exp-wvni5o
+Rebasing (1/1)[KSuccessfully rebased and updated refs/heads/claude/tabular-model-agent-exp-wvni5o.
+To https://github.com/YarinBeni/excel_magic
+   e4634c0..9046f3d  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J1 done Fri Oct  2 15:51:37 UTC 2026 ===
