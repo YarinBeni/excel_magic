@@ -1,9 +1,12 @@
-alive Fri Oct  2 16:39:05 UTC 2026
+alive Fri Oct  2 17:39:27 UTC 2026
 host g0377
 job 50192
-       50345_[0-2] voltagepa J6_cli_a  yarin.b PD       0:00      1 (Dependency)
-       50344_[0-3] voltagepa J5_llm_s  yarin.b PD       0:00      1 (Dependency)
-             50343 voltagepa  J3_vllm  yarin.b PD       0:00      1 (Dependency)
-             50341 voltagepa J7_relbe  yarin.b  R       1:55      1 g0379
-             50342 voltagepa J0v_vllm  yarin.b  R       1:55      1 g0377
-             50192 voltagepa AGENT_ru  yarin.b  R    1:06:33      1 g0377
+         50428_[1] voltagepa J6_cli_a  yarin.b PD       0:00      1 (Priority)
+           50377_2 voltagepa J6_cli_a  yarin.b  R       9:11      1 g0377
+           50376_1 voltagepa J5_llm_s  yarin.b  R      10:41      1 g0379
+           50376_0 voltagepa J5_llm_s  yarin.b  R      11:41      1 g0379
+             50375 voltagepa  J3_vllm  yarin.b  R      15:12      1 g0379
+           50425_3 voltagepa J5_llm_s  yarin.b  R       3:10      1 g0376
+           50414_2 voltagepa J5_llm_s  yarin.b  R       6:41      1 g0379
+             50399 voltagepa J7d_relb  yarin.b  R       9:11      1 g0377
+             50192 voltagepa AGENT_ru  yarin.b  R    2:06:55      1 g0377
