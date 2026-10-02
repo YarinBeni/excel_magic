@@ -1,0 +1,110 @@
+{
+  "splits": {
+    "val": {
+      "split": "val",
+      "cutoff": "2020-09-07",
+      "n_queries": 74575,
+      "hist_days": 365,
+      "K": 12,
+      "rows": {
+        "GlobalPopularity": {
+          "map": 0.003417955724543488
+        },
+        "PastVisit": {
+          "map": 0.019035265558743804
+        },
+        "kNN-CF[row]": {
+          "map": 0.0013625627702214293,
+          "seconds": 174.6
+        },
+        "PastVisit+kNN-CF[row]": {
+          "map": 0.018967770855312125
+        },
+        "kNN-CF[agg]": {
+          "map": 0.0025793324729244073,
+          "seconds": 174.5
+        },
+        "PastVisit+kNN-CF[agg]": {
+          "map": 0.01896755800897122
+        },
+        "kNN-CF[tabpfn_agg_kmeans]": {
+          "map": 0.0024753741110547646,
+          "seconds": 180.9
+        },
+        "PastVisit+kNN-CF[tabpfn_agg_kmeans]": {
+          "map": 0.018969074539150168
+        },
+        "kNN-CF[tabpfn_agg_random]": {
+          "map": 0.0020719599792240135,
+          "seconds": 180.0
+        },
+        "PastVisit+kNN-CF[tabpfn_agg_random]": {
+          "map": 0.018968329576957002
+        },
+        "kNN-CF[tabpfn_row_kmeans]": {
+          "map": 0.001347127548407819,
+          "seconds": 176.8
+        },
+        "PastVisit+kNN-CF[tabpfn_row_kmeans]": {
+          "map": 0.018966839652570663
+        }
+      },
+      "official_evaluator": true,
+      "seconds": 895.1
+    },
+    "test": {
+      "split": "test",
+      "cutoff": "2020-09-14",
+      "n_queries": 67144,
+      "hist_days": 365,
+      "K": 12,
+      "rows": {
+        "GlobalPopularity": {
+          "map": 0.0029247254335640167
+        },
+        "PastVisit": {
+          "map": 0.021985482465455758
+        },
+        "kNN-CF[row]": {
+          "map": 0.001436136280092716,
+          "seconds": 155.8
+        },
+        "PastVisit+kNN-CF[row]": {
+          "map": 0.0219058792104757
+        },
+        "kNN-CF[agg]": {
+          "map": 0.0025877917430917833,
+          "seconds": 155.6
+        },
+        "PastVisit+kNN-CF[agg]": {
+          "map": 0.0219074400048847
+        },
+        "kNN-CF[tabpfn_agg_kmeans]": {
+          "map": 0.002268393638180687,
+          "seconds": 160.5
+        },
+        "PastVisit+kNN-CF[tabpfn_agg_kmeans]": {
+          "map": 0.021906375655926274
+        },
+        "kNN-CF[tabpfn_agg_random]": {
+          "map": 0.0017002507317249863,
+          "seconds": 159.7
+        },
+        "PastVisit+kNN-CF[tabpfn_agg_random]": {
+          "map": 0.021906292915017847
+        },
+        "kNN-CF[tabpfn_row_kmeans]": {
+          "map": 0.0013981782082244057,
+          "seconds": 154.6
+        },
+        "PastVisit+kNN-CF[tabpfn_row_kmeans]": {
+          "map": 0.021905672358204627
+        }
+      },
+      "official_evaluator": true,
+      "seconds": 793.8
+    }
+  },
+  "elapsed_s": 1698.42,
+  "status": "ok"
+}
