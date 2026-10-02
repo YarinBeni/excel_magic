@@ -1,0 +1,20 @@
+# 012_vllm_conda_resubmit  host=g0377  start=Fri Oct  2 16:04:18 UTC 2026  timeout=300s
+# HEAD=65ce0af
+# ---------------------------------------------------------
+cancelled J3 50250
+cancelled J5 50251
+cancelled J6 50252
+J0v: 50280
+J3: 50281
+J5: 50282
+J6: 50283
+     50192   AGENT_runner  RUNNING      31:49 g0377
+     50265       J1_smoke  RUNNING       6:16 g0381
+     50266 J7_relbench_hm  RUNNING       3:45 g0376
+     50280       J0v_vllm  PENDING       0:00 (Priority)
+     50281        J3_vllm  PENDING       0:00 (Dependency)
+     50282   J5_llm_sweep  PENDING       0:00 (None)
+     50283  J6_cli_agents  PENDING       0:00 (None)
+ARRAY_JOB_           NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 16:04:21 UTC 2026
