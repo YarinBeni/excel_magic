@@ -1,0 +1,54 @@
+# job 50257 J2_tabarena exit=0 Fri Oct  2 15:55:52 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_4.out
+=== J2 tabarena task 4 === job 50257 Fri Oct  2 15:52:05 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=credit-g model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:53:16,286 INFO P0 cv 1-auroc = 0.2214254472680086
+2026-10-02 15:55:23,715 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155220Z_J2_heuristic_credit-g/search/credit-g/metrics.json
+2026-10-02 15:55:47,826 INFO credit-g                                 P0=0.19789 P*=0.19827 | paper TabFM=0.1944 TabFM-Auto(Opus5)=0.194 | 173s
+2026-10-02 15:55:47,889 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155220Z_J2_heuristic_credit-g/metrics.json
+1 datasets: ['credit-g']
+pipeline       P*        P0
+dataset                    
+credit-g  0.19827  0.197894
+[collect] copied 49 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 3d98633] J2: tabarena credit-g heuristic (job 50257)
+ 28 files changed, 1566 insertions(+)
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_anneal/config.json
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_anneal/search/anneal/config.json
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_anneal/search/anneal/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_anneal/search/anneal/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_blood-transfusion-service-center/config.json
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_blood-transfusion-service-center/search/blood-transfusion-service-center/config.json
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_diabetes/config.json
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_diabetes/search/diabetes/config.json
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_diabetes/search/diabetes/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_diabetes/search/diabetes/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_QSAR_fish_toxicity/config.json
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_QSAR_fish_toxicity/search/QSAR_fish_toxicity/config.json
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_credit-g/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_credit-g/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_credit-g/config.json
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_credit-g/metrics.json
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_credit-g/results.csv
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_credit-g/search/credit-g/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_credit-g/search/credit-g/config.json
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_credit-g/search/credit-g/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_credit-g/search/credit-g/metrics.json
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_credit-g/search/credit-g/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_maternal_health_risk/config.json
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_maternal_health_risk/search/maternal_health_risk/config.json
+ create mode 100644 reports/runs/20261002T155239Z_J2_heuristic_concrete_compressive_strength/config.json
+ create mode 100644 reports/runs/20261002T155239Z_J2_heuristic_concrete_compressive_strength/search/concrete_compressive_strength/config.json
+ create mode 100644 reports/runs/20261002T155339Z_J2_heuristic_qsar-biodeg/config.json
+ create mode 100644 reports/runs/20261002T155339Z_J2_heuristic_qsar-biodeg/search/qsar-biodeg/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   af62d25..3d98633  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 credit-g done Fri Oct  2 15:55:52 UTC 2026 ===
