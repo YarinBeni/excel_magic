@@ -36,6 +36,9 @@ n = 0
 for run in sorted(src.glob("*")):
     if not run.is_dir(): continue
     for f in run.rglob("*"):
+        if f.name.startswith("agent_stream") and not (f.parents[0] / "metrics.json").exists() \
+                and not (run / "metrics.json").exists():
+            continue  # a growing log of a run still in progress: snapshotting it twice makes add/add conflicts
         if f.is_file() and f.name in keep and f.stat().st_size < 5_000_000:
             out = dst / run.name / f.relative_to(run)
             out.parent.mkdir(parents=True, exist_ok=True)
