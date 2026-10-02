@@ -1,5 +1,5 @@
 # Auto-generated results tables
-_from 84 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
+_from 85 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
 
 ## T1. Frozen backbones with the identity pipeline (3-fold CV, lower is better)
 |                               |     hgb |   kumo-tabular-l |   kumo-tabular-m |   kumo-tabular-s |   tabicl |   tabpfn |   tabpfn-2.5 |
@@ -59,6 +59,9 @@ _from 84 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen
 | healthcare_insurance_expenses         | 4553.6089 | 4613.8992 |      -1.3240 | 4417.6000 |          4344.1000 |               1.6638 | 20261002T155549Z_J2_heuristic_healthcare_insurance_expenses         |
 | maternal_health_risk                  |    0.3847 |    0.3952 |      -2.7479 |    0.3706 |             0.3648 |               1.5650 | 20261002T155220Z_J2_heuristic_maternal_health_risk                  |
 | MIC                                   |    0.4318 |    0.4254 |       1.4831 |    0.4282 |             0.4178 |               2.4288 | 20261002T155711Z_J2_heuristic_MIC                                   |
+| airfoil_self_noise                    |    0.8264 |    0.8337 |      -0.8860 |    1.0734 |             0.9165 |              14.6171 | 20261002T175823Z_J5_GLM-4.5-Air-FP8_tabarena                        |
+| blood-transfusion-service-center      |    0.2639 |    0.2602 |       1.4290 |    0.2441 |             0.2431 |               0.4097 | 20261002T175823Z_J5_GLM-4.5-Air-FP8_tabarena                        |
+| credit-g                              |    0.2069 |    0.2039 |       1.4460 |    0.1944 |             0.1940 |               0.2058 | 20261002T175823Z_J5_GLM-4.5-Air-FP8_tabarena                        |
 | credit-g                              |    0.1979 |    0.1983 |      -0.1901 |    0.1944 |             0.1940 |               0.2058 | 20261002T155220Z_J2_heuristic_credit-g                              |
 | blood-transfusion-service-center      |    0.2458 |    0.2453 |       0.2097 |    0.2441 |             0.2431 |               0.4097 | 20261002T155211Z_J2_heuristic_blood-transfusion-service-center      |
 | website_phishing                      |    0.2144 |    0.2134 |       0.4375 |    0.2104 |             0.2067 |               1.7586 | 20261002T155610Z_J2_heuristic_website_phishing                      |

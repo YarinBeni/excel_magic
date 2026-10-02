@@ -212,3 +212,19 @@ here. Negative at item level, closed. Source: `reports/runs/20261002T173110Z_J7d
 | airfoil_self_noise (Lite) | rmse | 0.8173 | 0.8007 | +2.0% | |
 | blood-transfusion (Lite) | 1-auroc | 0.2627 | 0.2657 | -1.1% | |
 | credit-g (Lite) | 1-auroc | 0.2071 | 0.2076 | -0.2% | |
+
+## Open LLM via vLLM: GLM-4.5-Air-FP8 (cluster job J5 task 2, 50414, 2026-10-02)
+
+Same setup (frozen Kumo Tabular-S, our OpenAI tool loop, 16 evals / 40 min; TabArena-Lite 24 / 60). Served FP8 at 0.90
+GPU memory on one H200 (bf16 does not fit).
+
+| dataset | metric | P0 | P* | gain | evals | tokens in / out | wall |
+|---|---|---|---|---|---|---|---|
+| synth_physics | rmse | 0.0884 | 0.0839 | +5.1% | 16 | 471k / 22k | 293 s |
+| synth_entities | 1-auroc | 0.3972 | 0.2240 | **+43.6%** | 16 | 523k / 28k | 350 s |
+| breast_cancer | 1-auroc | 0.0053 | 0.0073 | -38.9% | 9 | 301k / 26k | 306 s |
+| airfoil_self_noise (Lite) | rmse | 0.8264 | 0.8337 | -0.9% | | | |
+| blood-transfusion (Lite) | 1-auroc | 0.2639 | 0.2602 | +1.4% | | | |
+| credit-g (Lite) | 1-auroc | 0.2069 | 0.2039 | +1.4% | | | |
+
+Best open LLM in our tool loop so far; the entity pipeline uses group-by frequency features like aider's.

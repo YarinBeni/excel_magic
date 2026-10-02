@@ -137,6 +137,12 @@ harness now normalises names. Its TabArena-Lite run died on an empty vLLM respon
 breast_cancer −7.9%; TabArena-Lite airfoil +2.0%, blood −1.1%, credit-g −0.2%. It writes far more candidates than it
 evaluates (33 writes / 8 evals on entities) and still misses the aggregation features.
 
+**GLM-4.5-Air-FP8 (J5 task 2, our tool loop, 106B-A12B, one H200):** synth_physics **+5.1%**, synth_entities **+43.6%**
+(0.397 → 0.224, the best entity result of any run, matching aider's), breast_cancer −38.9%; TabArena-Lite airfoil −0.9%,
+blood +1.4%, credit-g +1.4%. It uses the full 16-eval budget (write → eval every turn, ~500k input / 25k output tokens,
+~5 min per search). Among open LLMs in our tool loop the order on the synthetic tasks is GLM-4.5-Air > gpt-oss-20b >
+Qwen3-Coder-30B; the small-data overfit on breast_cancer is common to all of them.
+
 ### 5.3 TabArena protocol vs the paper (T3 **[auto]**)
 Wave 1 (the 17 datasets with <= 2,500 rows, all 30 official splits each, frozen Kumo Tabular-S, **no LLM**):
 mean relative test-error gain **+0.5%** against **+4.6%** for the paper's Opus 5 agent on the same datasets; P* beats P0

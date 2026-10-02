@@ -58,3 +58,5 @@
 - J7d done (50399): SVD factors of the purchase matrix 0.83 test MAP@12 x100 by plain kNN; frozen TabPFN over them 0.42 (k-means)
   / 0.48 (random). The frozen hidden state is worse than its input -> H1 closed at item level on rel-hm (segment-level only).
 - J5 task 3 gpt-oss-20b rerun (50434, clean harness): physics +4.1%, entities -8.9%, breast_cancer -7.9%, TabArena-Lite +2.0/-1.1/-0.2%.
+- J5 task 2 GLM-4.5-Air-FP8 (50414): physics +5.1%, entities +43.6% (best of all runs), breast_cancer -38.9%, TabArena-Lite
+  -0.9/+1.4/+1.4%. Best open LLM in our tool loop. Remaining: Qwen3-32B (J5 task 1), pi (J6 task 0).
