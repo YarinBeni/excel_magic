@@ -1,0 +1,10 @@
+# 024_j6_pi_resubmit  host=g0377  start=Fri Oct  2 18:53:51 UTC 2026  timeout=300s
+# HEAD=e81a1b3
+# ---------------------------------------------------------
+J6 task0 (pi): 50515
+     50192   AGENT_runner  RUNNING    3:21:19 g0377
+     50376   J5_llm_sweep  RUNNING    1:25:05 g0379
+     50515  J6_cli_agents  PENDING       0:00 (None)
+ARRAY_JOB_           NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 18:53:51 UTC 2026
