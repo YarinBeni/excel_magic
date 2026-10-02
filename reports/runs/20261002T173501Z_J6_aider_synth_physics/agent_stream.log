@@ -1,0 +1,616 @@
+# cmd: /tmp/aider_loop_50377.sh /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T173501Z_J6_aider_synth_physics/workspace/TASK.md Qwen/Qwen3-Coder-30B-A3B-Instruct
+# cwd: /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T173501Z_J6_aider_synth_physics/workspace
+Warning: Input is not a terminal (fd=0).
+────────────────────────────────────────────────────────────────────────────────
+Aider v0.86.2
+Model: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct with whole edit format
+Git repo: none
+Repo-map: disabled
+Added pipeline.py to the chat.
+
+
+https://aider.chat/HISTORY.html#release-notes
+Note: in-chat filenames are always relative to the git working dir, not the 
+current working dir.
+Cur working dir: 
+/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T173501Z_J6_aider_synt
+h_physics/workspace
+Git working dir: /home/yarin.b/projects/excel_magic
+
+I'll analyze the dataset and create an improved pipeline for the synth_physics  
+regression task. Let me start by examining the data structure and then implement
+feature engineering and preprocessing steps that should help improve the model  
+performance.                                                                    
+
+First, let me check the data structure:                                         
+
+                                                                                
+import pandas as pd                                                             
+                                                                                
+df = pd.read_parquet('train.parquet')                                           
+                                                                                
+print(df.describe(include='all').T)                                             
+                                                                                
+
+Based on the task description, I need to create a pipeline that:                
+
+ 1 Preprocesses the data appropriately                                          
+ 2 Engineers meaningful features from the physics-based columns                 
+ 3 Uses appropriate sampling strategies                                         
+ 4 Applies postprocessing for calibration                                       
+
+Let me implement an improved pipeline:                                          
+
+Tokens: 1.6k sent, 136 received.
+
+First, let me check the data structure
+Applied edit to First, let me check the data structure
+eval #2: rmse = 0.08877 (+/- 0.0023 over 3 folds) NEW BEST
+  features=5 views=1 time=5.9s | P0=0.08928 best_before=0.08928
+  secondary: rmse=0.0888, mae=0.0700, r2=0.9968
+  budget: 2/16 evaluations used
+Warning: Input is not a terminal (fd=0).
+────────────────────────────────────────────────────────────────────────────────
+Aider v0.86.2
+Model: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct with whole edit format
+Git repo: none
+Repo-map: disabled
+Added pipeline.py to the chat.
+Note: in-chat filenames are always relative to the git working dir, not the 
+current working dir.
+Cur working dir: 
+/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T173501Z_J6_aider_synt
+h_physics/workspace
+Git working dir: /home/yarin.b/projects/excel_magic
+
+I'll analyze the dataset and improve the pipeline to reduce the RMSE. Let me    
+start by examining the data structure and then implement improvements.          
+
+First, let me check what's in the train.parquet file to understand the data     
+better.                                                                         
+
+Tokens: 1.7k sent, 47 received.
+eval #3: rmse = 0.08929 (+/- 0.0030 over 3 folds) 
+  features=5 views=1 time=5.73s | P0=0.08928 best_before=0.08877
+  secondary: rmse=0.0893, mae=0.0700, r2=0.9968
+  budget: 3/16 evaluations used
+Warning: Input is not a terminal (fd=0).
+────────────────────────────────────────────────────────────────────────────────
+Aider v0.86.2
+Model: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct with whole edit format
+Git repo: none
+Repo-map: disabled
+Added pipeline.py to the chat.
+Note: in-chat filenames are always relative to the git working dir, not the 
+current working dir.
+Cur working dir: 
+/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T173501Z_J6_aider_synt
+h_physics/workspace
+Git working dir: /home/yarin.b/projects/excel_magic
+
+I'll analyze the dataset and improve the pipeline to reduce the RMSE. Let me    
+start by examining the data structure and then implement improvements.          
+
+First, let me check what's in the train.parquet file to understand the data     
+better:                                                                         
+
+                                                                                
+python -c "import pandas as pd; df=pd.read_parquet('train.parquet');            
+print(df.describe(include='all').T)"                                            
+                                                                                
+
+Based on the task description, I need to create a better pipeline for the       
+synthetic physics dataset. Looking at the dataset description, it involves      
+aeroacoustic-style regression where the response depends on Strouhal-like ratios
+and physical parameters.                                                        
+
+Let me implement an improved pipeline that:                                     
+
+ 1 Creates relevant engineered features based on the physics description        
+ 2 Uses appropriate scaling/log transforms                                      
+ 3 Possibly implements stratified sampling for better context views             
+
+pipeline.py                                                                     
+
+                                                                                
+@@ -1,4 +1,5 @@                                                                 
+ """Candidate data pipeline around a FROZEN tabular foundation model.           
+target. All inputs are pandas                                                   
+ objects; X_train / X_test share columns. Do not read any file other than the   
+ones in this directory.                                                         
+ """                                                                            
+ import numpy as np                                                             
+ import pandas as pd                                                            
++from sklearn.preprocessing import StandardScaler                               
++from sklearn.decomposition import PCA                                          
+                                                                                
+ MODEL_KWARGS = {}  # constructor settings for the frozen model; {} keeps the   
+defaults                                                                        
+                                                                                
+                                                                                
+ def preprocess(X_train, y_train, X_test):                                      
++    # No preprocessing needed for this dataset                                 
+     return X_train, y_train, X_test                                            
+                                                                                
+                                                                                
+ def engineer(X_train, y_train, X_test):                                        
++    # Create physics-based features based on the description                   
++    # Strouhal-like ratio: frequency * chord / velocity                        
++    X_train_engineered = X_train.copy()                                        
++    X_test_engineered = X_test.copy()                                          
++                                                                               
++    # Create Strouhal-like ratio feature                                       
++    X_train_engineered['strouhal_ratio'] = (                                   
++        X_train_engineered['frequency_hz'] *                                   
++        X_train_engineered['chord_length_m'] /                                 
++        X_train_engineered['free_stream_velocity_m_s']                         
++    )                                                                          
++                                                                               
++    X_test_engineered['strouhal_ratio'] = (                                    
++        X_test_engineered['frequency_hz'] *                                    
++        X_test_engineered['chord_length_m'] /                                  
++        X_test_engineered['free_stream_velocity_m_s']                          
++    )                                                                          
++                                                                               
++    # Add thickness ratio feature                                              
++    X_train_engineered['thickness_ratio'] = (                                  
++        X_train_engineered['suction_side_thickness_m'] /                       
++        X_train_engineered['chord_length_m']                                   
++    )                                                                          
++                                                                               
++    X_test_engineered['thickness_ratio'] = (                                   
++        X_test_engineered['suction_side_thickness_m'] /                        
++        X_test_engineered['chord_length_m']                                    
++    )                                                                          
++                                                                               
++    # Add angle feature (convert to radians for potential trig functions)      
++    X_train_engineered['attack_angle_rad'] =                                   
+np.radians(X_train_engineered['attack_angle_deg'])                              
++    X_test_engineered['attack_angle_rad'] =                                    
+np.radians(X_test_engineered['attack_angle_deg'])                               
++                                                                               
++    # Add interaction terms                                                    
++    X_train_engineered['freq_chord_interaction'] = (                           
++        X_train_engineered['frequency_hz'] *                                   
++        X_train_engineered['chord_length_m']                                   
++    )                                                                          
++                                                                               
++    X_test_engineered['freq_chord_interaction'] = (                            
++        X_test_engineered['frequency_hz'] *                                    
++        X_test_engineered['chord_length_m']                                    
++    )                                                                          
++                                                                               
++    # Add logarithmic transformations for skewed features                      
++    # Log of velocity might help with scaling                                  
++    X_train_engineered['log_velocity'] =                                       
+np.log1p(X_train_engineered['free_stream_velocity_m_s'])                        
++    X_test_engineered['log_velocity'] =                                        
+np.log1p(X_test_engineered['free_stream_velocity_m_s'])                         
++                                                                               
++    # Log of frequency                                                         
++    X_train_engineered['log_frequency'] =                                      
+np.log1p(X_train_engineered['frequency_hz'])                                    
++    X_test_engineered['log_frequency'] =                                       
+np.log1p(X_test_engineered['frequency_hz'])                                     
++                                                                               
++    # Remove original columns that are now redundant                           
++    X_train_engineered = X_train_engineered.drop(['frequency_hz',              
+'free_stream_velocity_m_s',                                                     
++                                                 'chord_length_m',             
+'attack_angle_deg',                                                             
++                                                 'suction_side_thickness_m'],  
+axis=1)                                                                         
++                                                                               
++    X_test_engineered = X_test_engineered.drop(['frequency_hz',                
+'free_stream_velocity_m_s',                                                     
++                                               'chord_length_m',               
++                                               'chord_length_m',               
+'attack_angle_deg',                                                             
++                                               'suction_side_thickness_m'],    
+axis=1)                                                                         
++                                                                               
++    return X_train_engineered, X_test_engineered                               
+                                                                                
+                                                                                
+ def sample(X_train, y_train, X_test, max_rows):                                
++    # Create multiple context views to capture different aspects of the data   
++    # Use stratified sampling based on target values to ensure good            
+representation                                                                  
++                                                                               
++    n_samples = len(X_train)                                                   
++                                                                               
++    # Create 3 different context views                                         
++    # View 1: All data                                                         
++    view1 = np.arange(n_samples)                                               
++                                                                               
++    # View 2: Stratified sampling to balance target distribution               
++    # For regression, we'll create bins based on target values                 
++    y_binned = pd.cut(y_train, bins=3, labels=False)                           
++    view2_indices = []                                                         
++    for i in range(3):                                                         
++        indices = np.where(y_binned == i)[0]                                   
++        if len(indices) > 0:                                                   
++            # Sample roughly 1/3 of each bin                                   
++            sample_size = max(1, len(indices) // 3)                            
++            sampled_indices = np.random.choice(indices, size=sample_size,      
+replace=False)                                                                  
++            view2_indices.extend(sampled_indices)                              
++                                                                               
++    view2 = np.array(view2_indices) if view2_indices else np.arange(n_samples) 
++                                                                               
++    # View 3: Random sampling with some bias towards extreme values            
++    # View 3: Random sampling with some bias towards extreme values            
++    # This helps capture outliers and edge cases                               
++    view3 = np.random.choice(n_samples, size=min(n_samples, max_rows),         
+replace=False)                                                                  
++                                                                               
++    return [view1, view2, view3]                                               
+                                                                                
+                                                                                
+ def postprocess(pred, y_train_orig, X_test):                                   
++    # Return predictions as-is since this is a regression problem              
++    # No transformation needed for the frozen model                            
+     return pred                                                                
+                                                                                
+
+Tokens: 1.8k sent, 1.5k received.
+
+First, let me check what's in the train.parquet file to understand the data 
+better
+Applied edit to First, let me check what's in the train.parquet file to 
+understand the data better
+Applied edit to pipeline.py
+Summarization failed for model openai/Qwen/Qwen3-Coder-30B-A3B-Instruct: cannot schedule new futures after shutdown
+Summarization failed for model openai/Qwen/Qwen3-Coder-30B-A3B-Instruct: cannot schedule new futures after shutdown
+summarizer unexpectedly failed for all models
+eval #4: rmse = 0.10150 (+/- 0.0053 over 3 folds) 
+  features=6 views=3 time=8.14s | P0=0.08928 best_before=0.08877
+  secondary: rmse=0.1015, mae=0.0774, r2=0.9958
+  budget: 4/16 evaluations used
+Warning: Input is not a terminal (fd=0).
+────────────────────────────────────────────────────────────────────────────────
+Aider v0.86.2
+Model: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct with whole edit format
+Git repo: none
+Repo-map: disabled
+Added pipeline.py to the chat.
+Note: in-chat filenames are always relative to the git working dir, not the 
+current working dir.
+Cur working dir: 
+/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T173501Z_J6_aider_synt
+h_physics/workspace
+Git working dir: /home/yarin.b/projects/excel_magic
+
+I'll analyze the current pipeline and try to improve it. Looking at the results,
+I can see that:                                                                 
+
+ 1 Evaluation 1 showed improvement (0.08877 vs 0.08928)                         
+ 2 Evaluation 2 reverted back to previous score                                 
+ 3 Evaluation 3 worsened significantly                                          
+ 4 Evaluation 4 showed a large drop in performance                              
+
+Let me examine the data first to understand what's happening, then optimize the 
+pipeline.                                                                       
+
+Looking at the current implementation, I notice several issues:                 
+
+ 1 The engineer function creates too many features (6) but the initial version  
+   had only 5                                                                   
+ 2 The sampling strategy might be causing problems                              
+ 3 Some features might be redundant or poorly constructed                       
+
+Let me revise the pipeline to focus on the most important physics-based features
+while maintaining good sampling.                                                
+
+Tokens: 2.9k sent, 162 received.
+eval #5: rmse = 0.10195 (+/- 0.0064 over 3 folds) 
+  features=6 views=3 time=7.46s | P0=0.08928 best_before=0.08877
+  secondary: rmse=0.1019, mae=0.0755, r2=0.9958
+  budget: 5/16 evaluations used
+Warning: Input is not a terminal (fd=0).
+────────────────────────────────────────────────────────────────────────────────
+Aider v0.86.2
+Model: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct with whole edit format
+Git repo: none
+Repo-map: disabled
+Added pipeline.py to the chat.
+Note: in-chat filenames are always relative to the git working dir, not the 
+current working dir.
+Cur working dir: 
+/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T173501Z_J6_aider_synt
+h_physics/workspace
+Git working dir: /home/yarin.b/projects/excel_magic
+
+I'll analyze the current pipeline and try to improve it. Looking at the results,
+I can see that:                                                                 
+
+ 1 The first improvement (0.08877) was achieved with 5 features and 1 view      
+ 2 Subsequent attempts with more features and views worsened the score          
+ 3 The current baseline is 0.08928                                              
+
+Let me examine the data structure first and then optimize the pipeline.         
+
+pipeline.py                                                                     
+
+                                                                                
+@@ -1,4 +1,5 @@                                                                 
+ """Candidate data pipeline around a FROZEN tabular foundation model.           
+                                                                                
+ The harness calls, in order:                                                   
+np.log1p(X_test_engineered['free_stream_velocity_m_s'])                         
+     X_test_engineered['log_frequency'] =                                       
+np.log1p(X_test_engineered['frequency_hz'])                                     
+                                                                                
+-    # Remove original columns that are now redundant                           
+-    X_train_engineered = X_train_engineered.drop(['frequency_hz',              
+'free_stream_velocity_m_s',                                                     
+-                                                 'chord_length_m',             
+'attack_angle_deg',                                                             
+-                                                 'suction_side_thickness_m'],  
+axis=1)                                                                         
++    # Add trigonometric features of angle                                      
++    X_train_engineered['sin_attack_angle'] =                                   
+np.sin(X_train_engineered['attack_angle_rad'])                                  
++    X_test_engineered['sin_attack_angle'] =                                    
+np.sin(X_test_engineered['attack_angle_rad'])                                   
+                                                                                
+-    X_test_engineered = X_test_engineered.drop(['frequency_hz',                
+'free_stream_velocity_m_s',                                                     
+-                                               'chord_length_m',               
+'attack_angle_deg',                                                             
+-                                               'suction_side_thickness_m'],    
+axis=1)                                                                         
++    X_train_engineered['cos_attack_angle'] =                                   
+np.cos(X_train_engineered['attack_angle_rad'])                                  
++    X_test_engineered['cos_attack_angle'] =                                    
+np.cos(X_test_engineered['attack_angle_rad'])                                   
+                                                                                
+-    return X_train_engineered, X_test_engineered                               
+-                                                                               
+-                                                                               
+-def sample(X_train, y_train, X_test, max_rows):                                
+-    # Create multiple context views to capture different aspects of the data   
+-    # Use stratified sampling based on target values to ensure good            
+representation                                                                  
++    # Add polynomial features                                                  
++    X_train_engineered['velocity_squared'] =                                   
+X_train_engineered['free_stream_velocity_m_s'] ** 2                             
++    X_test_engineered['velocity_squared'] =                                    
+X_test_engineered['free_stream_velocity_m_s'] ** 2                              
+                                                                                
++    # Add ratio of frequency to velocity                                       
++    X_train_engineered['freq_to_velocity_ratio'] = (                           
++        X_train_engineered['frequency_hz'] /                                   
++        X_train_engineered['frequency_hz'] /                                   
++        X_train_engineered['free_stream_velocity_m_s']                         
++    )                                                                          
++    X_test_engineered['freq_to_velocity_ratio'] = (                            
++        X_test_engineered['frequency_hz'] /                                    
++        X_test_engineered['free_stream_velocity_m_s']                          
++    )                                                                          
+                                                                                
++  99 / 128 lines [███████████████████████░░░░░░░]  77%                         
+                                                                                
+Tokens: 3.1k sent, 1.6k received.
+Applied edit to pipeline.py
+Summarization failed for model openai/Qwen/Qwen3-Coder-30B-A3B-Instruct: cannot schedule new futures after shutdown
+Summarization failed for model openai/Qwen/Qwen3-Coder-30B-A3B-Instruct: cannot schedule new futures after shutdown
+summarizer unexpectedly failed for all models
+eval #6: rmse = 0.10630 (+/- 0.0125 over 3 folds) 
+  features=10 views=3 time=7.56s | P0=0.08928 best_before=0.08877
+  secondary: rmse=0.1063, mae=0.0774, r2=0.9955
+  budget: 6/16 evaluations used
+Warning: Input is not a terminal (fd=0).
+────────────────────────────────────────────────────────────────────────────────
+Aider v0.86.2
+Model: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct with whole edit format
+Git repo: none
+Repo-map: disabled
+Added pipeline.py to the chat.
+Note: in-chat filenames are always relative to the git working dir, not the 
+current working dir.
+Cur working dir: 
+/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T173501Z_J6_aider_synt
+h_physics/workspace
+Git working dir: /home/yarin.b/projects/excel_magic
+
+I'll analyze the current pipeline and try to improve it. Looking at the results,
+I can see that:                                                                 
+
+ 1 The first evaluation improved from 0.08928 to 0.08877 (good)                 
+ 2 Subsequent evaluations either stayed the same or got worse                   
+ 3 The best performance was with 5 features and 1 view                          
+ 4 Adding more features and views seems to hurt performance                     
+
+Let me examine the data first to understand what's happening.                   
+
+Tokens: 3.5k sent, 95 received.
+eval #7: rmse = 0.10304 (+/- 0.0075 over 3 folds) 
+  features=10 views=3 time=7.54s | P0=0.08928 best_before=0.08877
+  secondary: rmse=0.1030, mae=0.0781, r2=0.9957
+  budget: 7/16 evaluations used
+Warning: Input is not a terminal (fd=0).
+────────────────────────────────────────────────────────────────────────────────
+Aider v0.86.2
+Model: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct with whole edit format
+Git repo: none
+Repo-map: disabled
+Added pipeline.py to the chat.
+Note: in-chat filenames are always relative to the git working dir, not the 
+current working dir.
+Cur working dir: 
+/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T173501Z_J6_aider_synt
+h_physics/workspace
+Git working dir: /home/yarin.b/projects/excel_magic
+
+I'll analyze the current pipeline and try to improve it. Looking at the results,
+I can see that:                                                                 
+
+ 1 The first evaluation improved from 0.08928 to 0.08877 (best so far)          
+ 2 Some later evaluations made things worse                                     
+ 3 The current approach uses 5 features and 1 view, but the best was achieved   
+   with 5 features and 1 view                                                   
+
+Let me examine the data structure first to understand what's available.         
+
+Tokens: 3.6k sent, 95 received.
+eval #8: rmse = 0.09869 (+/- 0.0082 over 3 folds) 
+  features=10 views=3 time=8.18s | P0=0.08928 best_before=0.08877
+  secondary: rmse=0.0987, mae=0.0743, r2=0.9960
+  budget: 8/16 evaluations used
+Warning: Input is not a terminal (fd=0).
+────────────────────────────────────────────────────────────────────────────────
+Aider v0.86.2
+Model: openai/Qwen/Qwen3-Coder-30B-A3B-Instruct with whole edit format
+Git repo: none
+Repo-map: disabled
+Added pipeline.py to the chat.
+Note: in-chat filenames are always relative to the git working dir, not the 
+current working dir.
+Cur working dir: 
+/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T173501Z_J6_aider_synt
+h_physics/workspace
+Git working dir: /home/yarin.b/projects/excel_magic
+
+I'll analyze the current pipeline and try to improve it. Looking at the results,
+I can see that the best performance was achieved with 5 features and 1 view     
+(eval #2), but then performance degraded when adding more features and views.   
+Let me examine what might be helping and what's hurting.                        
+
+The key insight is that the frozen model has limitations, so we should focus on 
+creating high-quality, relevant features rather than just adding many features. 
+Let me simplify and optimize the approach.                                      
+
+pipeline.py                                                                     
+
+                                                                                
+@@ -1,4 +1,5 @@                                                                 
+ """Candidate data pipeline around a FROZEN tabular foundation model.           
+                                                                                
+ The harness calls, in order:                                                   
+     X_test_engineered = X_test.copy()                                          
+                                                                                
+-    # Create Strouhal-like ratio feature                                       
++    # Create core physics-based features                                       
+     X_train_engineered['strouhal_ratio'] = (                                   
+         X_train_engineered['frequency_hz'] *                                   
+         X_train_engineered['chord_length_m'] /                                 
+         X_train_engineered['free_stream_velocity_m_s']                         
+     )                                                                          
+@@ -42,5 +42,6 @@                                                               
+         X_test_engineered['frequency_hz'] *                                    
+     )                                                                          
+     X_train_engineered['attack_angle_rad'] =                                   
+np.radians(X_train_engineered['attack_angle_deg'])                              
+     X_test_engineered['attack_angle_rad'] =                                    
+np.radians(X_test_engineered['attack_angle_deg'])                               
+                                                                                
+-    # Add interaction terms                                                    
+-    X_train_engineered['freq_chord_interaction'] = (                           
+-        X_train_engineered['frequency_hz'] *                                   
+-        X_train_engineered['chord_length_m']                                   
+-    )                                                                          
+-                                                                               
+-    X_test_engineered['freq_chord_interaction'] = (                            
+-        X_test_engineered['frequency_hz'] *                                    
+-        X_test_engineered['chord_length_m']                                    
+-    )                                                                          
+-                                                                               
+-    # Add logarithmic transformations for skewed features                      
+-    # Log of velocity might help with scaling                                  
+-    X_train_engineered['log_velocity'] =                                       
+np.log1p(X_train_engineered['free_stream_velocity_m_s'])                        
+-    X_test_engineered['log_velocity'] =                                        
+np.log1p(X_test_engineered['free_stream_velocity_m_s'])                         
+-                                                                               
+-    # Log of frequency                                                         
+-    X_train_engineered['log_frequency'] =                                      
+np.log1p(X_train_engineered['frequency_hz'])                                    
+-    X_test_engineered['log_frequency'] =                                       
+np.log1p(X_test_engineered['frequency_hz'])                                     
+-                                                                               
+     # Add trigonometric features of angle                                      
+     X_train_engineered['sin_attack_angle'] =                                   
+np.sin(X_train_engineered['attack_angle_rad'])                                  
+     X_test_engineered['sin_attack_angle'] =                                    
+np.sin(X_test_engineered['attack_angle_rad'])                                   
+                                                                                
+     X_train_engineered['cos_attack_angle'] =                                   
+np.cos(X_train_engineered['attack_angle_rad'])                                  
+     X_test_engineered['cos_attack_angle'] =                                    
+np.cos(X_test_engineered['attack_angle_rad'])                                   
+                                                                                
+-    # Add polynomial features                                                  
+-    X_train_engineered['velocity_squared'] =                                   
+X_train_engineered['free_stream_velocity_m_s'] ** 2                             
+-    X_test_engineered['velocity_squared'] =                                    
+X_test_engineered['free_stream_velocity_m_s'] ** 2                              
+-                                                                               
+-    # Add ratio of frequency to velocity                                       
+-    X_train_engineered['freq_to_velocity_ratio'] = (                           
+-        X_train_engineered['frequency_hz'] /                                   
+-        X_train_engineered['free_stream_velocity_m_s']                         
+-    )                                                                          
+-    X_test_engineered['freq_to_velocity_ratio'] = (                            
+-        X_test_engineered['frequency_hz'] /                                    
+-        X_test_engineered['free_stream_velocity_m_s']                          
++    # Add interaction terms that are likely to be important                    
++    X_train_engineered['freq_chord_interaction'] = (                           
++        X_train_engineered['frequency_hz'] *                                   
+                                                                                
+     # Add ratio of frequency to velocity                                       
+         X_train_engineered['frequency_hz'] /                                   
+     )                                                                          
+     # Remove original columns that are now redundant                           
+                                                  'chord_length_m',             
+                                                  'suction_side_thickness_m'],  
+-    # Create multiple context views to capture different aspects of the data   
+-    # Use stratified sampling based on target values to ensure good            
+representation                                                                  
+-                                                                               
++    # Create a single context view to avoid overfitting                        
++    # Use all data for the single view to maximize information                 
+     n_samples = len(X_train)                                                   
+-                                                                               
+-    # Create 3 different context views                                         
+-    # View 1: All data                                                         
+     view1 = np.arange(n_samples)                                               
+-                                                                               
+-    # View 2: Stratified sampling to balance target distribution               
+-    # For regression, we'll create bins based on target values                 
+-    y_binned = pd.cut(y_train, bins=3, labels=False)                           
+-    view2_indices = []                                                         
+-    for i in range(3):                                                         
+-        indices = np.where(y_binned == i)[0]                                   
+-        if len(indices) > 0:                                                   
+-            # Sample roughly 1/3 of each bin                                   
+-            sample_size = max(1, len(indices) // 3)                            
+-            sampled_indices = np.random.choice(indices, size=sample_size,      
+replace=False)                                                                  
+-            view2_indices.extend(sampled_indices)                              
+-                                                                               
+-    view2 = np.array(view2_indices) if view2_indices else np.arange(n_samples) 
+-                                                                               
+-    # View 3: Random sampling with some bias towards extreme values            
+-    # This helps capture outliers and edge cases                               
+-    view3 = np.random.choice(n_samples, size=min(n_samples, max_rows),         
+replace=False)                                                                  
+-                                                                               
+-    return [view1, view2, view3]                                               
++    return [view1]                                                             
+                                                                                
+                                                                                
+ def postprocess(pred, y_train_orig, X_test):                                   
+     # Return predictions as-is since this is a regression problem              
+     # No transformation needed for the frozen model                            
+                                                                                
+
+Tokens: 3.7k sent, 1.3k received.
+Applied edit to pipeline.py
+Summarization failed for model openai/Qwen/Qwen3-Coder-30B-A3B-Instruct: cannot schedule new futures after shutdown
+Summarization failed for model openai/Qwen/Qwen3-Coder-30B-A3B-Instruct: cannot schedule new futures after shutdown
+summarizer unexpectedly failed for all models
+eval #9: rmse = 0.09546 (+/- 0.0021 over 3 folds) 
+  features=8 views=1 time=6.03s | P0=0.08928 best_before=0.08877
+  secondary: rmse=0.0955, mae=0.0746, r2=0.9963
+  budget: 9/16 evaluations used

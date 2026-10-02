@@ -1,0 +1,134 @@
+{
+ "val": {
+  "split": "val",
+  "cutoff": "2020-09-07",
+  "n_queries": 74575,
+  "hist_days": 365,
+  "K": 12,
+  "rows": {
+   "GlobalPopularity": {
+    "map": 0.003417955724543488
+   },
+   "PastVisit": {
+    "map": 0.019035265558743804
+   },
+   "kNN-CF[purchase_matrix]": {
+    "map": 0.011621151079485937,
+    "seconds": 240.7
+   },
+   "Past+kNN-CF[purchase_matrix]": {
+    "map": 0.01919477901275773
+   },
+   "ItemKNN": {
+    "map": 0.01034968898891201,
+    "seconds": 135.9
+   },
+   "Past+ItemKNN": {
+    "map": 0.01901363475776056
+   },
+   "kNN-CF[row]": {
+    "map": 0.0013625627702214293,
+    "seconds": 202.7
+   },
+   "Past+kNN-CF[row]": {
+    "map": 0.01857446592335352
+   },
+   "kNN-CF[agg]": {
+    "map": 0.0025793324729244073,
+    "seconds": 197.2
+   },
+   "Past+kNN-CF[agg]": {
+    "map": 0.01888794273017037
+   },
+   "kNN-CF[tabpfn_agg_kmeans]": {
+    "map": 0.0024753741110547646,
+    "seconds": 216.7
+   },
+   "Past+kNN-CF[tabpfn_agg_kmeans]": {
+    "map": 0.018894970311844467
+   },
+   "kNN-CF[tabpfn_agg_random]": {
+    "map": 0.0020719599792240135,
+    "seconds": 230.3
+   },
+   "Past+kNN-CF[tabpfn_agg_random]": {
+    "map": 0.01885708097417383
+   },
+   "kNN-CF[tabpfn_row_kmeans]": {
+    "map": 0.001347127548407819,
+    "seconds": 243.3
+   },
+   "Past+kNN-CF[tabpfn_row_kmeans]": {
+    "map": 0.01857183786725671
+   }
+  },
+  "official_evaluator": true,
+  "seconds": 1477.1
+ },
+ "test": {
+  "split": "test",
+  "cutoff": "2020-09-14",
+  "n_queries": 67144,
+  "hist_days": 365,
+  "K": 12,
+  "rows": {
+   "GlobalPopularity": {
+    "map": 0.0029247254335640167
+   },
+   "PastVisit": {
+    "map": 0.021985482465455758
+   },
+   "kNN-CF[purchase_matrix]": {
+    "map": 0.01200199542257723,
+    "seconds": 224.8
+   },
+   "Past+kNN-CF[purchase_matrix]": {
+    "map": 0.0221563316928042
+   },
+   "ItemKNN": {
+    "map": 0.010729143324430066,
+    "seconds": 120.5
+   },
+   "Past+ItemKNN": {
+    "map": 0.021965871274952264
+   },
+   "kNN-CF[row]": {
+    "map": 0.001436136280092716,
+    "seconds": 171.4
+   },
+   "Past+kNN-CF[row]": {
+    "map": 0.021599039884270393
+   },
+   "kNN-CF[agg]": {
+    "map": 0.0025877917430917833,
+    "seconds": 165.4
+   },
+   "Past+kNN-CF[agg]": {
+    "map": 0.021842667048850673
+   },
+   "kNN-CF[tabpfn_agg_kmeans]": {
+    "map": 0.002268393638180687,
+    "seconds": 189.6
+   },
+   "Past+kNN-CF[tabpfn_agg_kmeans]": {
+    "map": 0.021872321353120606
+   },
+   "kNN-CF[tabpfn_agg_random]": {
+    "map": 0.0017002507317249863,
+    "seconds": 191.9
+   },
+   "Past+kNN-CF[tabpfn_agg_random]": {
+    "map": 0.021769217733790935
+   },
+   "kNN-CF[tabpfn_row_kmeans]": {
+    "map": 0.0013981782082244057,
+    "seconds": 198.4
+   },
+   "Past+kNN-CF[tabpfn_row_kmeans]": {
+    "map": 0.02161046734117097
+   }
+  },
+  "official_evaluator": true,
+  "seconds": 1271.2
+ }
+}

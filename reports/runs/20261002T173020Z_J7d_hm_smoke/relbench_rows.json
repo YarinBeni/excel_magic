@@ -1,0 +1,47 @@
+{
+ "val": {
+  "split": "val",
+  "cutoff": "2020-09-07",
+  "n_queries": 3000,
+  "hist_days": 365,
+  "K": 12,
+  "rows": {
+   "GlobalPopularity": {
+    "map": 0.0036725488926057106
+   },
+   "PastVisit": {
+    "map": 0.019637471913007624
+   },
+   "kNN-CF[purchase_matrix]": {
+    "map": 0.010039683742183742,
+    "seconds": 5.8
+   },
+   "Past+kNN-CF[purchase_matrix]": {
+    "map": 0.019703326891362605
+   },
+   "ItemKNN": {
+    "map": 0.00879268539644712,
+    "seconds": 2.7
+   },
+   "Past+ItemKNN": {
+    "map": 0.019281345169380883
+   },
+   "kNN-CF[svd]": {
+    "map": 0.005352744708994708,
+    "seconds": 7.5
+   },
+   "Past+kNN-CF[svd]": {
+    "map": 0.019203462573581617
+   },
+   "kNN-CF[tabpfn_svd_kmeans]": {
+    "map": 0.0017909488450262257,
+    "seconds": 11.6
+   },
+   "Past+kNN-CF[tabpfn_svd_kmeans]": {
+    "map": 0.01924316575620147
+   }
+  },
+  "official_evaluator": false,
+  "seconds": 28.8
+ }
+}
