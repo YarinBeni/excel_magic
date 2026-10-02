@@ -1,0 +1,634 @@
+{
+  "n_results": 40,
+  "datasets": "wine,breast_cancer,diabetes,synth_physics,synth_entities",
+  "models": "tabpfn:n_estimators=4,device=cuda,tabicl:device=cuda,kumo-tabular-s:n_estimators=4,device=cuda,tabpfn-2.5:n_estimators=4,device=cuda,hgb",
+  "table": [
+    {
+      "dataset": "wine",
+      "task_type": "multiclass",
+      "n_rows": 178,
+      "model": "tabpfn:n_estimators=4",
+      "metric": "logloss",
+      "score": 0.03587615986701657,
+      "score_std": 0.02204415519110078,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.03587615986701657,
+        "acc": 0.9888888888888889
+      },
+      "cv_seconds": 0.91
+    },
+    {
+      "dataset": "wine",
+      "task_type": "multiclass",
+      "n_rows": 178,
+      "model": "device=cuda",
+      "metric": "logloss",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "KeyError: \"unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']\"",
+      "secondary": null,
+      "cv_seconds": 0.01
+    },
+    {
+      "dataset": "wine",
+      "task_type": "multiclass",
+      "n_rows": 178,
+      "model": "tabicl:device=cuda",
+      "metric": "logloss",
+      "score": 0.015843816663871624,
+      "score_std": 0.006219641321205117,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.015843816663871624,
+        "acc": 0.9944444444444445
+      },
+      "cv_seconds": 2.32
+    },
+    {
+      "dataset": "wine",
+      "task_type": "multiclass",
+      "n_rows": 178,
+      "model": "kumo-tabular-s:n_estimators=4",
+      "metric": "logloss",
+      "score": 0.029419220173635824,
+      "score_std": 0.006273120936058816,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.029419220173635824,
+        "acc": 0.9831450094161959
+      },
+      "cv_seconds": 2.27
+    },
+    {
+      "dataset": "wine",
+      "task_type": "multiclass",
+      "n_rows": 178,
+      "model": "device=cuda",
+      "metric": "logloss",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "KeyError: \"unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']\"",
+      "secondary": null,
+      "cv_seconds": 0.01
+    },
+    {
+      "dataset": "wine",
+      "task_type": "multiclass",
+      "n_rows": 178,
+      "model": "tabpfn-2.5:n_estimators=4",
+      "metric": "logloss",
+      "score": 0.03600377861781039,
+      "score_std": 0.02472457576804433,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.03600377861781039,
+        "acc": 0.9944444444444445
+      },
+      "cv_seconds": 2.49
+    },
+    {
+      "dataset": "wine",
+      "task_type": "multiclass",
+      "n_rows": 178,
+      "model": "device=cuda",
+      "metric": "logloss",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "KeyError: \"unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']\"",
+      "secondary": null,
+      "cv_seconds": 0.01
+    },
+    {
+      "dataset": "wine",
+      "task_type": "multiclass",
+      "n_rows": 178,
+      "model": "hgb",
+      "metric": "logloss",
+      "score": 0.09651896164524225,
+      "score_std": 0.03591161610579371,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.09651896164524225,
+        "acc": 0.9608286252354049
+      },
+      "cv_seconds": 0.83
+    },
+    {
+      "dataset": "breast_cancer",
+      "task_type": "binary",
+      "n_rows": 569,
+      "model": "tabpfn:n_estimators=4",
+      "metric": "1-auroc",
+      "score": 0.004001600640256083,
+      "score_std": 0.0027686869463962875,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.07709506990175662,
+        "acc": 0.9701383087347999,
+        "auroc": 0.995998399359744,
+        "1-auroc": 0.004001600640256083
+      },
+      "cv_seconds": 11.42
+    },
+    {
+      "dataset": "breast_cancer",
+      "task_type": "binary",
+      "n_rows": 569,
+      "model": "device=cuda",
+      "metric": "1-auroc",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "KeyError: \"unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']\"",
+      "secondary": null,
+      "cv_seconds": 0.02
+    },
+    {
+      "dataset": "breast_cancer",
+      "task_type": "binary",
+      "n_rows": 569,
+      "model": "tabicl:device=cuda",
+      "metric": "1-auroc",
+      "score": 0.004153210580006617,
+      "score_std": 0.0024230616833948596,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.07045386963144999,
+        "acc": 0.9736656455954701,
+        "auroc": 0.9958467894199933,
+        "1-auroc": 0.004153210580006617
+      },
+      "cv_seconds": 1.44
+    },
+    {
+      "dataset": "breast_cancer",
+      "task_type": "binary",
+      "n_rows": 569,
+      "model": "kumo-tabular-s:n_estimators=4",
+      "metric": "1-auroc",
+      "score": 0.003439685733448291,
+      "score_std": 0.002112911029344429,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.06712470960680354,
+        "acc": 0.9789380859556299,
+        "auroc": 0.9965603142665517,
+        "1-auroc": 0.003439685733448291
+      },
+      "cv_seconds": 3.1
+    },
+    {
+      "dataset": "breast_cancer",
+      "task_type": "binary",
+      "n_rows": 569,
+      "model": "device=cuda",
+      "metric": "1-auroc",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "KeyError: \"unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']\"",
+      "secondary": null,
+      "cv_seconds": 0.02
+    },
+    {
+      "dataset": "breast_cancer",
+      "task_type": "binary",
+      "n_rows": 569,
+      "model": "tabpfn-2.5:n_estimators=4",
+      "metric": "1-auroc",
+      "score": 0.004001600640256083,
+      "score_std": 0.002576498154551073,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.07008330450923832,
+        "acc": 0.9771744175252947,
+        "auroc": 0.995998399359744,
+        "1-auroc": 0.004001600640256083
+      },
+      "cv_seconds": 3.5
+    },
+    {
+      "dataset": "breast_cancer",
+      "task_type": "binary",
+      "n_rows": 569,
+      "model": "device=cuda",
+      "metric": "1-auroc",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "KeyError: \"unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']\"",
+      "secondary": null,
+      "cv_seconds": 0.02
+    },
+    {
+      "dataset": "breast_cancer",
+      "task_type": "binary",
+      "n_rows": 569,
+      "model": "hgb",
+      "metric": "1-auroc",
+      "score": 0.005856427077873409,
+      "score_std": 0.004740477726661418,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.12795349977032797,
+        "acc": 0.9630836350134596,
+        "auroc": 0.9941435729221265,
+        "1-auroc": 0.005856427077873409
+      },
+      "cv_seconds": 0.35
+    },
+    {
+      "dataset": "diabetes",
+      "task_type": "regression",
+      "n_rows": 442,
+      "model": "tabpfn:n_estimators=4",
+      "metric": "rmse",
+      "score": 54.25442369481391,
+      "score_std": 1.5246368076409298,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 54.25442369481391,
+        "mae": 43.590630304141655,
+        "r2": 0.4972427386992008
+      },
+      "cv_seconds": 2.2
+    },
+    {
+      "dataset": "diabetes",
+      "task_type": "regression",
+      "n_rows": 442,
+      "model": "device=cuda",
+      "metric": "rmse",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "KeyError: \"unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']\"",
+      "secondary": null,
+      "cv_seconds": 0.01
+    },
+    {
+      "dataset": "diabetes",
+      "task_type": "regression",
+      "n_rows": 442,
+      "model": "tabicl:device=cuda",
+      "metric": "rmse",
+      "score": 53.72629019100567,
+      "score_std": 1.7349363596294614,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 53.72629019100567,
+        "mae": 43.544750697444584,
+        "r2": 0.5072118571619425
+      },
+      "cv_seconds": 1.39
+    },
+    {
+      "dataset": "diabetes",
+      "task_type": "regression",
+      "n_rows": 442,
+      "model": "kumo-tabular-s:n_estimators=4",
+      "metric": "rmse",
+      "score": 54.50063100600909,
+      "score_std": 2.3968270083167025,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 54.50063100600909,
+        "mae": 43.395387212939504,
+        "r2": 0.49122322798686796
+      },
+      "cv_seconds": 2.2
+    },
+    {
+      "dataset": "diabetes",
+      "task_type": "regression",
+      "n_rows": 442,
+      "model": "device=cuda",
+      "metric": "rmse",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "KeyError: \"unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']\"",
+      "secondary": null,
+      "cv_seconds": 0.01
+    },
+    {
+      "dataset": "diabetes",
+      "task_type": "regression",
+      "n_rows": 442,
+      "model": "tabpfn-2.5:n_estimators=4",
+      "metric": "rmse",
+      "score": 54.17482522520019,
+      "score_std": 1.5634796388926024,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 54.17482522520019,
+        "mae": 43.54588707636167,
+        "r2": 0.49937724727158406
+      },
+      "cv_seconds": 1.37
+    },
+    {
+      "dataset": "diabetes",
+      "task_type": "regression",
+      "n_rows": 442,
+      "model": "device=cuda",
+      "metric": "rmse",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "KeyError: \"unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']\"",
+      "secondary": null,
+      "cv_seconds": 0.01
+    },
+    {
+      "dataset": "diabetes",
+      "task_type": "regression",
+      "n_rows": 442,
+      "model": "hgb",
+      "metric": "rmse",
+      "score": 60.51727710278673,
+      "score_std": 4.005255940386788,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 60.51727710278673,
+        "mae": 47.87297200605775,
+        "r2": 0.3756444567236977
+      },
+      "cv_seconds": 0.22
+    },
+    {
+      "dataset": "synth_physics",
+      "task_type": "regression",
+      "n_rows": 500,
+      "model": "tabpfn:n_estimators=4",
+      "metric": "rmse",
+      "score": 0.09364758675274087,
+      "score_std": 0.0018286793395044774,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 0.09364758675274087,
+        "mae": 0.07226465021820301,
+        "r2": 0.996366834548427
+      },
+      "cv_seconds": 1.21
+    },
+    {
+      "dataset": "synth_physics",
+      "task_type": "regression",
+      "n_rows": 500,
+      "model": "device=cuda",
+      "metric": "rmse",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "KeyError: \"unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']\"",
+      "secondary": null,
+      "cv_seconds": 0.0
+    },
+    {
+      "dataset": "synth_physics",
+      "task_type": "regression",
+      "n_rows": 500,
+      "model": "tabicl:device=cuda",
+      "metric": "rmse",
+      "score": 0.09513500337118165,
+      "score_std": 0.006923864592498915,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 0.09513500337118165,
+        "mae": 0.07383770893600723,
+        "r2": 0.9961940197282938
+      },
+      "cv_seconds": 1.22
+    },
+    {
+      "dataset": "synth_physics",
+      "task_type": "regression",
+      "n_rows": 500,
+      "model": "kumo-tabular-s:n_estimators=4",
+      "metric": "rmse",
+      "score": 0.08672867473073127,
+      "score_std": 0.0018572962107529598,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 0.08672867473073127,
+        "mae": 0.06880400297105577,
+        "r2": 0.9968898418316224
+      },
+      "cv_seconds": 1.97
+    },
+    {
+      "dataset": "synth_physics",
+      "task_type": "regression",
+      "n_rows": 500,
+      "model": "device=cuda",
+      "metric": "rmse",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "KeyError: \"unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']\"",
+      "secondary": null,
+      "cv_seconds": 0.0
+    },
+    {
+      "dataset": "synth_physics",
+      "task_type": "regression",
+      "n_rows": 500,
+      "model": "tabpfn-2.5:n_estimators=4",
+      "metric": "rmse",
+      "score": 0.09658970306723419,
+      "score_std": 0.0018161519806927187,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 0.09658970306723419,
+        "mae": 0.0721256232771317,
+        "r2": 0.9961352058218479
+      },
+      "cv_seconds": 1.22
+    },
+    {
+      "dataset": "synth_physics",
+      "task_type": "regression",
+      "n_rows": 500,
+      "model": "device=cuda",
+      "metric": "rmse",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "KeyError: \"unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']\"",
+      "secondary": null,
+      "cv_seconds": 0.0
+    },
+    {
+      "dataset": "synth_physics",
+      "task_type": "regression",
+      "n_rows": 500,
+      "model": "hgb",
+      "metric": "rmse",
+      "score": 0.35393055023789577,
+      "score_std": 0.02783518538808799,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "rmse": 0.35393055023789577,
+        "mae": 0.23426572945625787,
+        "r2": 0.9485120333903478
+      },
+      "cv_seconds": 0.24
+    },
+    {
+      "dataset": "synth_entities",
+      "task_type": "binary",
+      "n_rows": 1500,
+      "model": "tabpfn:n_estimators=4",
+      "metric": "1-auroc",
+      "score": 0.5010227561447114,
+      "score_std": 0.04024521648288575,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.42212501253546025,
+        "acc": 0.8513333333333333,
+        "auroc": 0.4989772438552886,
+        "1-auroc": 0.5010227561447114
+      },
+      "cv_seconds": 2.94
+    },
+    {
+      "dataset": "synth_entities",
+      "task_type": "binary",
+      "n_rows": 1500,
+      "model": "device=cuda",
+      "metric": "1-auroc",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "KeyError: \"unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']\"",
+      "secondary": null,
+      "cv_seconds": 0.01
+    },
+    {
+      "dataset": "synth_entities",
+      "task_type": "binary",
+      "n_rows": 1500,
+      "model": "tabicl:device=cuda",
+      "metric": "1-auroc",
+      "score": 0.4439055997173644,
+      "score_std": 0.012850287935346259,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.42298830666325005,
+        "acc": 0.8513333333333333,
+        "auroc": 0.5560944002826356,
+        "1-auroc": 0.4439055997173644
+      },
+      "cv_seconds": 1.84
+    },
+    {
+      "dataset": "synth_entities",
+      "task_type": "binary",
+      "n_rows": 1500,
+      "model": "kumo-tabular-s:n_estimators=4",
+      "metric": "1-auroc",
+      "score": 0.44735533611490536,
+      "score_std": 0.00888731189285784,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.4162625568879825,
+        "acc": 0.8513333333333333,
+        "auroc": 0.5526446638850946,
+        "1-auroc": 0.44735533611490536
+      },
+      "cv_seconds": 3.42
+    },
+    {
+      "dataset": "synth_entities",
+      "task_type": "binary",
+      "n_rows": 1500,
+      "model": "device=cuda",
+      "metric": "1-auroc",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "KeyError: \"unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']\"",
+      "secondary": null,
+      "cv_seconds": 0.01
+    },
+    {
+      "dataset": "synth_entities",
+      "task_type": "binary",
+      "n_rows": 1500,
+      "model": "tabpfn-2.5:n_estimators=4",
+      "metric": "1-auroc",
+      "score": 0.45100882589300156,
+      "score_std": 0.028350992075681133,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.42181838793079945,
+        "acc": 0.8513333333333333,
+        "auroc": 0.5489911741069985,
+        "1-auroc": 0.45100882589300156
+      },
+      "cv_seconds": 2.53
+    },
+    {
+      "dataset": "synth_entities",
+      "task_type": "binary",
+      "n_rows": 1500,
+      "model": "device=cuda",
+      "metric": "1-auroc",
+      "score": null,
+      "score_std": null,
+      "status": "error",
+      "error": "KeyError: \"unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']\"",
+      "secondary": null,
+      "cv_seconds": 0.01
+    },
+    {
+      "dataset": "synth_entities",
+      "task_type": "binary",
+      "n_rows": 1500,
+      "model": "hgb",
+      "metric": "1-auroc",
+      "score": 0.48730187121670143,
+      "score_std": 0.012571587710195467,
+      "status": "ok",
+      "error": null,
+      "secondary": {
+        "logloss": 0.5934138127686729,
+        "acc": 0.8273333333333333,
+        "auroc": 0.5126981287832986,
+        "1-auroc": 0.48730187121670143
+      },
+      "cv_seconds": 0.47
+    }
+  ],
+  "elapsed_s": 60.71,
+  "status": "ok"
+}
