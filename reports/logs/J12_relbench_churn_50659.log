@@ -1,0 +1,60 @@
+# job 50659 J12_relbench_churn exit=0 Fri Oct  2 20:52:53 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J12_relbench_churn_50659.out
+=== J12 relbench churn === job 50659 Fri Oct  2 20:46:55 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 7415.53it/s]
+[churn] MajorityPrior                        AUROC=0.5000
+[churn] Supervised[hgb on agg]               AUROC=0.5793
+[churn] Supervised[tabpfn on agg]            AUROC=0.6432
+[churn] kNN[agg]                             AUROC=0.6032
+[churn] kNN[tabpfn_agg_kmeans]               AUROC=0.6094
+2026-10-02 20:49:43,023 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T204700Z_J12_churn_smoke/metrics.json
+| method | AUROC |
+|---|---|
+| MajorityPrior | 0.5000 |
+| Supervised[hgb on agg] | 0.5793 |
+| Supervised[tabpfn on agg] | 0.6432 |
+| kNN[agg] | 0.6032 |
+| kNN[tabpfn_agg_kmeans] | 0.6094 |
+
+customers=3000 at 2020-08-31, pos_rate=0.813, hist_days=365, k=50, 3-fold over customers (not the official temporal test split)
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 5509.16it/s]
+[churn] MajorityPrior                        AUROC=0.5000
+[churn] Supervised[hgb on agg]               AUROC=0.6725
+[churn] Supervised[tabpfn on agg]            AUROC=0.6715
+[churn] kNN[row]                             AUROC=0.5198
+[churn] kNN[agg]                             AUROC=0.6530
+[churn] kNN[svd]                             AUROC=0.5901
+[churn] kNN[svd_agg]                         AUROC=0.6375
+[churn] kNN[tabpfn_agg_kmeans]               AUROC=0.6484
+[churn] kNN[tabpfn_agg_random]               AUROC=0.6425
+[churn] kNN[tabpfn_svd_kmeans]               AUROC=0.6450
+2026-10-02 20:52:30,937 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T204946Z_J12_churn_full/metrics.json
+| method | AUROC |
+|---|---|
+| MajorityPrior | 0.5000 |
+| Supervised[hgb on agg] | 0.6725 |
+| Supervised[tabpfn on agg] | 0.6715 |
+| kNN[row] | 0.5198 |
+| kNN[agg] | 0.6530 |
+| kNN[svd] | 0.5901 |
+| kNN[svd_agg] | 0.6375 |
+| kNN[tabpfn_agg_kmeans] | 0.6484 |
+| kNN[tabpfn_agg_random] | 0.6425 |
+| kNN[tabpfn_svd_kmeans] | 0.6450 |
+
+customers=20000 at 2020-08-31, pos_rate=0.817, hist_days=365, k=50, 5-fold over customers (not the official temporal test split)
+[collect] copied 1207 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 649e0f3] J12: relbench user-churn probe (job 50659)
+ 1 file changed, 105 insertions(+)
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   8ab300b..649e0f3  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J12 done Fri Oct  2 20:52:53 UTC 2026 ===
