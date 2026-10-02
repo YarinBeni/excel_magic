@@ -1,0 +1,19 @@
+# 013_vllm_ldpath_resubmit  host=g0377  start=Fri Oct  2 16:18:36 UTC 2026  timeout=300s
+# HEAD=83f6ca5
+# ---------------------------------------------------------
+cancelled J3 50281
+cancelled J5 50282
+cancelled J6 50283
+J0v: 50316
+J3: 50317
+J5: 50318
+J6: 50319
+     50192   AGENT_runner  RUNNING      46:08 g0377
+     50266 J7_relbench_hm  RUNNING      18:04 g0376
+     50316       J0v_vllm  PENDING       0:00 (Priority)
+     50317        J3_vllm  PENDING       0:00 (Dependency)
+     50318   J5_llm_sweep  PENDING       0:00 (None)
+     50319  J6_cli_agents  PENDING       0:00 (None)
+ARRAY_JOB_           NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 16:18:40 UTC 2026
