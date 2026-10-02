@@ -1,0 +1,10 @@
+# 026_j8_glm_resubmit  host=g0377  start=Fri Oct  2 19:32:34 UTC 2026  timeout=300s
+# HEAD=26161c8
+# ---------------------------------------------------------
+J8 task1 (GLM): 50564
+     50192   AGENT_runner  RUNNING    4:00:02 g0377
+     50554 J8_tabarena_ll  RUNNING      14:50 g0379
+     50564 J8_tabarena_ll  PENDING       0:00 (None)
+ARRAY_JOB_           NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 19:32:34 UTC 2026
