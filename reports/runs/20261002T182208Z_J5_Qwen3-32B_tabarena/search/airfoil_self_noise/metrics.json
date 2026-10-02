@@ -1,0 +1,106 @@
+{
+  "dataset": "airfoil_self_noise",
+  "task_type": "regression",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "rmse",
+  "harness": "openai",
+  "llm_model": "Qwen/Qwen3-32B",
+  "n_evals": 12,
+  "n_evals_ok": 7,
+  "p0_cv": 1.337190389263607,
+  "best_cv": 1.337190389263607,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "openai",
+    "rc": 0,
+    "elapsed_s": 972.2,
+    "n_turns": 31,
+    "tool_counts": {
+      "describe_data": 1,
+      "write_pipeline": 18,
+      "run_eval": 11,
+      "finish": 1
+    },
+    "usage": {
+      "input_tokens": 247339,
+      "output_tokens": 45767
+    },
+    "model": "Qwen/Qwen3-32B"
+  },
+  "p0_test": 0.8243235710581943,
+  "p0_test_secondary": {
+    "rmse": 0.8243235710581943,
+    "mae": 0.5650498508598035,
+    "r2": 0.9859168076037622
+  },
+  "best_test": 0.8253661866111212,
+  "best_test_secondary": {
+    "rmse": 0.8253661866111212,
+    "mae": 0.5699742339052362,
+    "r2": 0.9858811598513605
+  },
+  "best_test_info": {
+    "n_features": 5,
+    "t_features": 0.003,
+    "n_views": 1,
+    "view_sizes": [
+      1002
+    ],
+    "t_model": 0.386,
+    "t_total": 0.389,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": -0.126,
+  "cv_trajectory": [
+    [
+      1,
+      1.337190389263607
+    ],
+    [
+      2,
+      null
+    ],
+    [
+      3,
+      null
+    ],
+    [
+      4,
+      null
+    ],
+    [
+      5,
+      null
+    ],
+    [
+      6,
+      null
+    ],
+    [
+      7,
+      1.3836557062948043
+    ],
+    [
+      8,
+      1.3638799463526219
+    ],
+    [
+      9,
+      1.3704080281585753
+    ],
+    [
+      10,
+      1.3596434815383056
+    ],
+    [
+      11,
+      1.3987178470717694
+    ],
+    [
+      12,
+      1.3626289712379733
+    ]
+  ],
+  "elapsed_s": 981.53,
+  "status": "ok"
+}

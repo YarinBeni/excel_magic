@@ -1,0 +1,1 @@
+After extensive feature engineering attempts (log transforms, interaction terms, standardization), the initial pipeline with raw features achieved the lowest RMSE of 1.337. All engineered pipelines resulted in higher error. The physical relationships in the airfoil dataset may already be well-captured by the frozen TabPFN model without additional transformations.
