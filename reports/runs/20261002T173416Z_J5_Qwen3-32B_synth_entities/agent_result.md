@@ -1,0 +1,1 @@
+Added entity co-occurrence counts (role-resource), frequency features for all IDs, and role_resource_ratio (co-occurrence / manager count). Target included in context via preprocess(). Final features: 9 columns (4 original + 5 engineered).

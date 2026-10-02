@@ -1,0 +1,80 @@
+{
+  "dataset": "blood-transfusion-service-center",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "1-auroc",
+  "harness": "openai",
+  "llm_model": "openai/gpt-oss-20b",
+  "n_evals": 5,
+  "n_evals_ok": 3,
+  "p0_cv": 0.24656034582215688,
+  "best_cv": 0.24656034582215688,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "openai",
+    "rc": 0,
+    "elapsed_s": 48.9,
+    "n_turns": 12,
+    "tool_counts": {
+      "read_file": 2,
+      "run_eval": 4,
+      "describe_data": 1,
+      "write_pipeline": 4
+    },
+    "usage": {
+      "input_tokens": 49459,
+      "output_tokens": 8520
+    },
+    "model": "openai/gpt-oss-20b"
+  },
+  "p0_test": 0.2617543859649123,
+  "p0_test_secondary": {
+    "logloss": 0.4802250728899153,
+    "acc": 0.788,
+    "auroc": 0.7382456140350877,
+    "1-auroc": 0.2617543859649123
+  },
+  "best_test": 0.2635087719298246,
+  "best_test_secondary": {
+    "logloss": 0.4807955995126969,
+    "acc": 0.788,
+    "auroc": 0.7364912280701754,
+    "1-auroc": 0.2635087719298246
+  },
+  "best_test_info": {
+    "n_features": 4,
+    "t_features": 0.003,
+    "n_views": 1,
+    "view_sizes": [
+      498
+    ],
+    "t_model": 0.369,
+    "t_total": 0.373,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": -0.67,
+  "cv_trajectory": [
+    [
+      1,
+      0.24656034582215688
+    ],
+    [
+      2,
+      0.24799221812017083
+    ],
+    [
+      3,
+      null
+    ],
+    [
+      4,
+      null
+    ],
+    [
+      5,
+      0.263887226436439
+    ]
+  ],
+  "elapsed_s": 58.99,
+  "status": "ok"
+}

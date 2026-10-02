@@ -1,0 +1,124 @@
+{
+  "dataset": "synth_entities",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=4,device=cuda",
+  "metric": "1-auroc",
+  "harness": "openai",
+  "llm_model": "Qwen/Qwen3-32B",
+  "n_evals": 16,
+  "n_evals_ok": 1,
+  "p0_cv": 0.4673679229048357,
+  "best_cv": 0.4673679229048357,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "openai",
+    "rc": 0,
+    "elapsed_s": 1789.2,
+    "n_turns": 54,
+    "tool_counts": {
+      "write_pipeline": 37,
+      "run_eval": 16,
+      "finish": 1
+    },
+    "usage": {
+      "input_tokens": 830004,
+      "output_tokens": 87937
+    },
+    "model": "Qwen/Qwen3-32B"
+  },
+  "p0_test": 0.45461985113596515,
+  "p0_test_secondary": {
+    "logloss": 0.42042058825261297,
+    "acc": 0.8511111111111112,
+    "auroc": 0.5453801488640349,
+    "1-auroc": 0.45461985113596515
+  },
+  "best_test": 0.4718444331865477,
+  "best_test_secondary": {
+    "logloss": 0.42049322895678337,
+    "acc": 0.8511111111111112,
+    "auroc": 0.5281555668134523,
+    "1-auroc": 0.4718444331865477
+  },
+  "best_test_info": {
+    "n_features": 4,
+    "t_features": 0.003,
+    "n_views": 1,
+    "view_sizes": [
+      1050
+    ],
+    "t_model": 0.259,
+    "t_total": 0.263,
+    "model_spec": "kumo-tabular-s:n_estimators=4,device=cuda"
+  },
+  "test_improvement_pct": -3.789,
+  "baseline_hgb_test": 0.4732863099645376,
+  "cv_trajectory": [
+    [
+      1,
+      0.4673679229048357
+    ],
+    [
+      2,
+      null
+    ],
+    [
+      3,
+      null
+    ],
+    [
+      4,
+      null
+    ],
+    [
+      5,
+      null
+    ],
+    [
+      6,
+      null
+    ],
+    [
+      7,
+      null
+    ],
+    [
+      8,
+      null
+    ],
+    [
+      9,
+      null
+    ],
+    [
+      10,
+      null
+    ],
+    [
+      11,
+      null
+    ],
+    [
+      12,
+      null
+    ],
+    [
+      13,
+      null
+    ],
+    [
+      14,
+      null
+    ],
+    [
+      15,
+      null
+    ],
+    [
+      16,
+      null
+    ]
+  ],
+  "elapsed_s": 1812.85,
+  "status": "ok"
+}
