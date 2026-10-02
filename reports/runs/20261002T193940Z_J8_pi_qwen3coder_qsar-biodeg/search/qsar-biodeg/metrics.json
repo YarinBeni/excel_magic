@@ -1,0 +1,90 @@
+{
+  "dataset": "qsar-biodeg",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "1-auroc",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 10,
+  "n_evals_ok": 10,
+  "p0_cv": 0.06719471476279593,
+  "best_cv": 0.06703103826497987,
+  "best_candidate": "eval_007.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 123.7,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T193940Z_J8_pi_qwen3coder_qsar-biodeg/search/qsar-biodeg/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.06343996826198284,
+  "p0_test_secondary": {
+    "logloss": 0.29867324294355363,
+    "acc": 0.8920454545454546,
+    "auroc": 0.9365600317380172,
+    "1-auroc": 0.06343996826198284
+  },
+  "best_test": 0.06416128683232947,
+  "best_test_secondary": {
+    "logloss": 0.2999866022378035,
+    "acc": 0.8892045454545454,
+    "auroc": 0.9358387131676705,
+    "1-auroc": 0.06416128683232947
+  },
+  "best_test_info": {
+    "n_features": 49,
+    "t_features": 0.026,
+    "n_views": 1,
+    "view_sizes": [
+      702
+    ],
+    "t_model": 0.39,
+    "t_total": 0.418,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": -1.137,
+  "cv_trajectory": [
+    [
+      1,
+      0.06719471476279593
+    ],
+    [
+      2,
+      0.06754791165147041
+    ],
+    [
+      3,
+      0.0671692153953359
+    ],
+    [
+      4,
+      0.06708513773014195
+    ],
+    [
+      5,
+      0.06724812517679306
+    ],
+    [
+      6,
+      0.06746659019093608
+    ],
+    [
+      7,
+      0.06703103826497987
+    ],
+    [
+      8,
+      0.06746831281884835
+    ],
+    [
+      9,
+      0.06779394318656813
+    ],
+    [
+      10,
+      0.06716542561392895
+    ]
+  ],
+  "elapsed_s": 133.08,
+  "status": "ok"
+}
