@@ -102,7 +102,8 @@ def official_split(task, repeat: int, fold: int) -> tuple[np.ndarray, np.ndarray
 def run_tabarena(datasets: list[TabArenaDataset], model_spec: str = "tabpfn:n_estimators=8", lite: bool = True,
                  harness: str = "claude-code", llm_model: str = "sonnet", budget_evals: int = 24, budget_minutes: int = 120,
                  max_turns: int = 150, max_rows: int = 10000, eval_timeout_s: int = 1800, baselines: tuple[str, ...] = (),
-                 name: str = "tabarena", cache_dir: str | Path | None = None, run_root: Path | None = None) -> pd.DataFrame:
+                 name: str = "tabarena", cache_dir: str | Path | None = None, run_root: Path | None = None,
+                 llm_base_url: str | None = None, agent_cmd: str | None = None) -> pd.DataFrame:
     """Paper protocol over ``datasets``. Returns the long results frame (also saved as results.csv)."""
     cfg = {"datasets": [d.name for d in datasets], "model": model_spec, "lite": lite, "harness": harness,
            "llm_model": llm_model, "budget_evals": budget_evals, "budget_minutes": budget_minutes, "max_rows": max_rows}
@@ -123,7 +124,8 @@ def run_tabarena(datasets: list[TabArenaDataset], model_spec: str = "tabpfn:n_es
             m = run_search(task, model_spec=model_spec, harness=harness, llm_model=llm_model, budget_evals=budget_evals,
                            budget_minutes=budget_minutes, max_turns=max_turns, max_rows=max_rows,
                            eval_timeout_s=eval_timeout_s, baselines=baselines, split=(tr0, te0),
-                           name=f"{name}_{d.name}", run_dir=run.run_dir / "search" / d.name)
+                           name=f"{name}_{d.name}", run_dir=run.run_dir / "search" / d.name,
+                           llm_base_url=llm_base_url, agent_cmd=agent_cmd)
             sdir = run.run_dir / "search" / d.name
             p0 = sdir / "workspace" / "candidates" / "eval_001.py"
             pstar = sdir / "best_pipeline.py" if (sdir / "best_pipeline.py").exists() else p0

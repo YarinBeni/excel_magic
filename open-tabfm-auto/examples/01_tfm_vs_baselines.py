@@ -14,6 +14,7 @@ from pathlib import Path
 from tabfm_auto.data import load_task
 from tabfm_auto.harness import evaluate_cv
 from tabfm_auto.logging_utils import RunLogger
+from tabfm_auto.models import split_model_specs
 from tabfm_auto.pipeline import IDENTITY_PIPELINE
 
 warnings.filterwarnings("ignore")
@@ -35,7 +36,7 @@ def main() -> None:
         for ds in a.datasets.split(","):
             task = load_task(ds)
             run.event("dataset", **task.summary())
-            for spec in a.models.split(","):
+            for spec in split_model_specs(a.models):
                 t0 = time.time()
                 r = evaluate_cv(p0, task.X, task.y, task.task_type, spec, n_folds=a.n_folds, seed=a.seed, log=run)
                 row = {"dataset": ds, "task_type": task.task_type, "n_rows": len(task.X), "model": spec,

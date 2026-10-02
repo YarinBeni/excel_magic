@@ -9,6 +9,7 @@ Switching backbone = changing this string. Weights are resolved by ``tabfm_auto.
 """
 from __future__ import annotations
 
+import re
 from typing import Any
 
 from . import weights as W
@@ -30,6 +31,22 @@ def parse_model_spec(spec: str) -> tuple[str, dict[str, Any]]:
             except ValueError:
                 kw[k] = {"true": True, "false": False}.get(v.lower(), v)
     return name, kw
+
+
+def split_model_specs(text: str) -> list[str]:
+    """Split a comma-separated list of specs where specs themselves contain commas
+    (``"tabpfn:n_estimators=4,device=cuda,hgb"`` -> ``["tabpfn:n_estimators=4,device=cuda", "hgb"]``).
+    A token with '=' and no ':' continues the previous spec. ';' is also accepted as a separator."""
+    out: list[str] = []
+    for tok in re.split(r"[;,]", text):
+        tok = tok.strip()
+        if not tok:
+            continue
+        if out and "=" in tok and ":" not in tok:
+            out[-1] += "," + tok
+        else:
+            out.append(tok)
+    return out
 
 
 def list_models() -> list[str]:

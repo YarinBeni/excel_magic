@@ -19,7 +19,7 @@ import numpy as np
 from tabfm_auto.data import load_task
 from tabfm_auto.harness.evaluator import evaluate_holdout
 from tabfm_auto.logging_utils import RUNS_ROOT, RunLogger
-from tabfm_auto.models import is_available
+from tabfm_auto.models import is_available, split_model_specs
 
 warnings.filterwarnings("ignore")
 
@@ -39,7 +39,7 @@ def main() -> None:
     runs = [Path(r) for r in a.runs.split(",")] if a.runs else find_search_runs(RUNS_ROOT)
     with RunLogger(a.name, vars(a) | {"runs": [str(r) for r in runs]}) as run:
         models = []
-        for m in a.models.split(","):
+        for m in split_model_specs(a.models):
             if is_available(m):
                 models.append(m)
             else:
@@ -53,7 +53,10 @@ def main() -> None:
             Xtr, ytr = task.X.iloc[tr].reset_index(drop=True), task.y.iloc[tr].reset_index(drop=True)
             Xte, yte = task.X.iloc[te].reset_index(drop=True), task.y.iloc[te].reset_index(drop=True)
             for m in models:
-                spec = m if m in ("hgb", "rf", "logreg", "lightgbm", "dummy") else f"{m}:n_estimators={a.n_estimators}"
+                if m in ("hgb", "rf", "logreg", "lightgbm", "dummy") or ":" in m:
+                    spec = m
+                else:
+                    spec = f"{m}:n_estimators={a.n_estimators}"
                 for label, pipe in (("P0", rd / "workspace" / "candidates" / "eval_001.py"), ("P*", rd / "best_pipeline.py")):
                     r = evaluate_holdout(pipe, Xtr, ytr, Xte, yte, task.task_type, spec, cfg.get("seed", 0),
                                          cfg.get("max_rows", 10000), run)

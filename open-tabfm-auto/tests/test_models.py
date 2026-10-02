@@ -20,3 +20,11 @@ def test_manifest_and_status_cover_every_model():
 
 def test_classical_always_available():
     assert is_available("hgb") and is_available("rf")
+
+
+def test_split_model_specs_keeps_commas_inside_specs():
+    from tabfm_auto.models import split_model_specs
+
+    assert split_model_specs("tabpfn:n_estimators=4,device=cuda,tabicl:device=cuda,hgb") == [
+        "tabpfn:n_estimators=4,device=cuda", "tabicl:device=cuda", "hgb"]
+    assert split_model_specs("a;b:x=1,y=2;c") == ["a", "b:x=1,y=2", "c"]

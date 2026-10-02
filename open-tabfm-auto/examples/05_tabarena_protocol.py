@@ -25,7 +25,8 @@ def main() -> None:
     ap.add_argument("--max-features", type=int, default=200)
     ap.add_argument("--lite", action="store_true", help="score split r0f0 only (TabArena-Lite)")
     ap.add_argument("--model", default="tabpfn:n_estimators=8")
-    ap.add_argument("--harness", default="claude-code", choices=["claude-code", "none"])
+    ap.add_argument("--harness", default="claude-code", choices=["claude-code", "openai", "cli", "heuristic", "none"])
+    ap.add_argument("--llm-base-url", default=None); ap.add_argument("--agent-cmd", default=None)
     ap.add_argument("--llm", default="sonnet")
     ap.add_argument("--budget-evals", type=int, default=24)
     ap.add_argument("--budget-minutes", type=int, default=120)
@@ -41,7 +42,8 @@ def main() -> None:
         ds = list_datasets(max_instances=a.max_instances, max_features=a.max_features)
     print(f"{len(ds)} datasets:", [d.name for d in ds])
     res = run_tabarena(ds, model_spec=a.model, lite=a.lite, harness=a.harness, llm_model=a.llm, budget_evals=a.budget_evals,
-                       budget_minutes=a.budget_minutes, max_rows=a.max_rows, name=a.name)
+                       budget_minutes=a.budget_minutes, max_rows=a.max_rows, name=a.name, llm_base_url=a.llm_base_url,
+                       agent_cmd=a.agent_cmd)
     print(res.groupby(["dataset", "pipeline"]).error.mean().unstack())
 
 
