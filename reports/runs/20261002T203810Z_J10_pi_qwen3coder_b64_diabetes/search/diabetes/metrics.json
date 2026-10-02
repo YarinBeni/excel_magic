@@ -1,0 +1,54 @@
+{
+  "dataset": "diabetes",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "1-auroc",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 1,
+  "n_evals_ok": 1,
+  "p0_cv": 0.16673946949370677,
+  "best_cv": 0.16673946949370677,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 14.6,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T203810Z_J10_pi_qwen3coder_b64_diabetes/search/diabetes/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.1609772423025434,
+  "p0_test_secondary": {
+    "logloss": 0.46523578002827015,
+    "acc": 0.7421875,
+    "auroc": 0.8390227576974566,
+    "1-auroc": 0.1609772423025434
+  },
+  "best_test": 0.15943775100401603,
+  "best_test_secondary": {
+    "logloss": 0.4636284591554502,
+    "acc": 0.7421875,
+    "auroc": 0.840562248995984,
+    "1-auroc": 0.15943775100401603
+  },
+  "best_test_info": {
+    "n_features": 8,
+    "t_features": 0.005,
+    "n_views": 1,
+    "view_sizes": [
+      512
+    ],
+    "t_model": 0.38,
+    "t_total": 0.386,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 0.956,
+  "cv_trajectory": [
+    [
+      1,
+      0.16673946949370677
+    ]
+  ],
+  "elapsed_s": 25.91,
+  "status": "ok"
+}
