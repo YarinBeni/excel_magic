@@ -32,6 +32,7 @@ def main() -> None:
     ap.add_argument("--budget-minutes", type=int, default=120)
     ap.add_argument("--max-rows", type=int, default=10000)
     ap.add_argument("--name", default="tabarena")
+    ap.add_argument("--cv-repeats", default="1", help="repeats of the 3-fold judge; 'auto' = 3 when n_train < 1000")
     a = ap.parse_args()
     if a.datasets:
         wanted = set(a.datasets.split(","))
@@ -43,7 +44,7 @@ def main() -> None:
     print(f"{len(ds)} datasets:", [d.name for d in ds])
     res = run_tabarena(ds, model_spec=a.model, lite=a.lite, harness=a.harness, llm_model=a.llm, budget_evals=a.budget_evals,
                        budget_minutes=a.budget_minutes, max_rows=a.max_rows, name=a.name, llm_base_url=a.llm_base_url,
-                       agent_cmd=a.agent_cmd)
+                       agent_cmd=a.agent_cmd, cv_repeats=a.cv_repeats if a.cv_repeats == "auto" else int(a.cv_repeats))
     print(res.groupby(["dataset", "pipeline"]).error.mean().unstack())
 
 

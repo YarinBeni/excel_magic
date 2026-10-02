@@ -69,3 +69,10 @@
   (task 1), 16 evals / 40 min per dataset, to compare with J2 (heuristic +0.5%) and the paper (+4.6%). Results land per dataset.
 - J8 task 1 (GLM, 50554_1) failed at vLLM start: 128k KV (23 GiB) does not fit next to the FP8 weights (18 GiB free) -> 64k;
   inbox 026 resubmits task 1. J8 task 0 (pi) running: 4/17 datasets done.
+
+## 2026-10-02 next steps (inbox 027)
+- Library: repeated k-fold judge (`--cv-repeats N|auto`), rich first message for the minimal tool loop (TABFM_LOOP_RICH=1).
+  Research: exp03 rel-hm user-churn segment-level probe.
+- J9 per-backbone TabArena (heuristic x Kumo-L / TabICLv2), J10 budget 64 + auto repeats on anneal/Marketing/airfoil/hazelnut/
+  diabetes (heuristic, pi, GLM), J11 cv3 judge on < 1000-row tables (heuristic, pi), J12 churn probe, J13 rich loop (Qwen3-Coder).
+- Goal: end with the best open-source option (backbone x harness x LLM x judge) with evidence, in README/REPORT.

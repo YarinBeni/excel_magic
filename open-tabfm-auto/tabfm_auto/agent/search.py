@@ -10,6 +10,7 @@ For one dataset:
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -36,7 +37,8 @@ def make_split(task: TabularTask, test_size: float, seed: int):
 
 
 def build_workspace(run: RunLogger, task: TabularTask, tr_idx: np.ndarray, model_spec: str, budget_evals: int,
-                    budget_minutes: int, max_rows: int, n_folds: int, seed: int, eval_timeout_s: int) -> Path:
+                    budget_minutes: int, max_rows: int, n_folds: int, seed: int, eval_timeout_s: int,
+                    cv_repeats: int = 1) -> Path:
     ws = run.run_dir / "workspace"
     ws.mkdir(exist_ok=True)
     df = task.X.iloc[tr_idx].reset_index(drop=True).copy()
@@ -45,7 +47,8 @@ def build_workspace(run: RunLogger, task: TabularTask, tr_idx: np.ndarray, model
     task_json = {"dataset": task.name, "task_type": task.task_type, "target": task.y.name,
                  "metric": primary_metric_name(task.task_type), "model_spec": model_spec, "n_folds": n_folds,
                  "seed": seed, "max_rows": max_rows, "budget_evals": budget_evals, "budget_minutes": budget_minutes,
-                 "eval_timeout_s": eval_timeout_s, "n_train": int(len(df)), "n_cols": int(task.X.shape[1])}
+                 "eval_timeout_s": eval_timeout_s, "n_train": int(len(df)), "n_cols": int(task.X.shape[1]),
+                 "cv_repeats": int(cv_repeats)}
     (ws / "task.json").write_text(dumps(task_json, indent=2))
     (ws / "metadata.json").write_text(dumps(task.metadata, indent=2))
     (ws / "pipeline.py").write_text(IDENTITY_PIPELINE)
@@ -73,9 +76,10 @@ def run_search(task: TabularTask, model_spec: str = "tabpfn", harness: str = "cl
                n_folds: int = 3, seed: int = 0, max_rows: int = 10000, eval_timeout_s: int = 900,
                baselines: tuple[str, ...] = ("hgb",), name: str | None = None, run_dir: Path | None = None,
                split: tuple[np.ndarray, np.ndarray] | None = None, llm_base_url: str | None = None,
-               agent_cmd: str | None = None) -> dict[str, Any]:
+               agent_cmd: str | None = None, cv_repeats: int | str = 1) -> dict[str, Any]:
     """Run one TabFM-Auto search. ``split`` = (train_idx, test_idx) overrides the random hold-out (e.g. an
-    official benchmark split); the agent only ever sees ``train_idx`` rows."""
+    official benchmark split); the agent only ever sees ``train_idx`` rows. ``cv_repeats``: repeats of the k-fold
+    judge (``"auto"`` = 3 when the training split has < 1000 rows, else 1)."""
     cfg = {k: v for k, v in locals().items() if k not in ("task", "run_dir", "split")}
     cfg.update({"dataset": task.name, "model": model_spec, "official_split": split is not None, **task.summary()})
     name = name or f"search_{task.name}_{model_spec.split(':')[0]}_{harness}"
@@ -87,9 +91,10 @@ def run_search(task: TabularTask, model_spec: str = "tabpfn", harness: str = "cl
         dte = task.X.iloc[te_idx].reset_index(drop=True).copy()
         dte[task.y.name] = task.y.iloc[te_idx].to_numpy()
         dte.to_parquet(heldout / "test.parquet", index=False)
+        reps = (3 if len(tr_idx) < 1000 else 1) if str(cv_repeats) == "auto" else int(cv_repeats)
         ws = build_workspace(run, task, tr_idx, model_spec, budget_evals, budget_minutes, max_rows, n_folds, seed,
-                             eval_timeout_s)
-        run.event("workspace_ready", path=str(ws), n_train=len(tr_idx), n_test=len(te_idx))
+                             eval_timeout_s, cv_repeats=reps)
+        run.event("workspace_ready", path=str(ws), n_train=len(tr_idx), n_test=len(te_idx), cv_repeats=reps)
 
         # P0
         p0 = tabfm_eval(ws)
@@ -115,10 +120,12 @@ def run_search(task: TabularTask, model_spec: str = "tabpfn", harness: str = "cl
 
             prompt = (ws / "TASK.md").read_text()
             run.event("agent_start", model=llm_model, harness="openai", base_url=llm_base_url, max_turns=max_turns)
+            rich = os.environ.get("TABFM_LOOP_RICH", "0") == "1"
             agent_info.update(run_openai_agent(prompt, ws, run.run_dir / "agent_stream.jsonl", model=llm_model,
                                                base_url=llm_base_url, max_turns=max_turns, timeout_s=budget_minutes * 60,
                                                budget_evals=budget_evals, eval_timeout_s=eval_timeout_s,
-                                               system_prompt=prompts.SYSTEM_RULES))
+                                               system_prompt=prompts.SYSTEM_RULES, rich=rich))
+            agent_info["rich_context"] = rich
             run.event("agent_end", **{k: v for k, v in agent_info.items() if k != "result"})
             run.save_text("agent_result.md", str(agent_info.get("result") or ""))
         elif harness == "cli":

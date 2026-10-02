@@ -48,3 +48,17 @@ def test_svd_features_shape():
     assert Z.shape == (40, 8)
     assert np.isfinite(Z).all()
     assert abs(Z.mean()) < 0.2
+
+
+def test_knn_probe_recovers_label_structure():
+    from sklearn.model_selection import StratifiedKFold
+
+    from fer.relbench_churn import knn_probe
+
+    rng = np.random.default_rng(0)
+    y = (rng.random(300) < 0.3).astype(int)
+    E = rng.normal(size=(300, 8)) + y[:, None] * 2.0  # embedding carries the label
+    folds = list(StratifiedKFold(3, shuffle=True, random_state=0).split(np.zeros(300), y))
+    assert knn_probe(E, y, folds, k=10) > 0.9
+    E0 = rng.normal(size=(300, 8))  # embedding without the label
+    assert abs(knn_probe(E0, y, folds, k=10) - 0.5) < 0.15

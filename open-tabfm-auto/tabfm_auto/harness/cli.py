@@ -30,7 +30,8 @@ def _read_workspace(ws: Path):
 def _inner(ws: Path, pipeline: Path) -> None:
     task, X, y = _read_workspace(ws)
     res = evaluate_cv(pipeline, X, y, task["task_type"], task.get("model_spec", "tabpfn"),
-                      n_folds=task.get("n_folds", 3), seed=task.get("seed", 0), max_rows=task.get("max_rows", 10000))
+                      n_folds=task.get("n_folds", 3), seed=task.get("seed", 0), max_rows=task.get("max_rows", 10000),
+                      n_repeats=task.get("cv_repeats", 1))
     print(json.dumps(res))
 
 
@@ -78,7 +79,7 @@ def main(argv: list[str] | None = None) -> int:
     if res.get("status") == "ok":
         s = res["score"]
         flag = "NEW BEST" if best_prev is None or s < best_prev else ""
-        print(f"eval #{n}: {metric} = {s:.5f} (+/- {res.get('score_std', 0):.4f} over {res.get('n_folds')} folds) "
+        print(f"eval #{n}: {metric} = {s:.5f} (+/- {res.get('score_std', 0):.4f} over {res.get('n_folds', 0) * res.get('n_repeats', 1)} folds) "
               f"{flag}")
         print(f"  features={res.get('n_features')} views={res.get('n_views')} time={res['wall_s']}s | "
               f"P0={p0 if p0 is None else round(p0, 5)} best_before={best_prev if best_prev is None else round(best_prev, 5)}")

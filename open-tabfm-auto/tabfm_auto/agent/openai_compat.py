@@ -113,8 +113,10 @@ def _execute_tool(name: str, args: dict[str, Any], ws: Path, eval_timeout_s: int
 def run_openai_agent(prompt: str, ws: Path, log_path: Path, model: str, base_url: str | None = None,
                      api_key: str | None = None, max_turns: int = 80, timeout_s: int = 3600, budget_evals: int | None = None,
                      eval_timeout_s: int = 900, system_prompt: str | None = None, temperature: float = 0.2,
-                     client: Any = None) -> dict[str, Any]:
-    """Returns {"rc", "elapsed_s", "result", "n_turns", "tool_counts", "usage"}. ``client`` may be injected (tests)."""
+                     client: Any = None, rich: bool = False) -> dict[str, Any]:
+    """Returns {"rc", "elapsed_s", "result", "n_turns", "tool_counts", "usage"}. ``client`` may be injected (tests).
+    ``rich`` prepends what a CLI coding agent sees anyway (file listing, pipeline.py, the data summary) to the first
+    message, to test whether the harness gap is affordances rather than agency."""
     if client is None:
         from openai import OpenAI
 
@@ -123,6 +125,15 @@ def run_openai_agent(prompt: str, ws: Path, log_path: Path, model: str, base_url
     messages: list[dict[str, Any]] = []
     if system_prompt:
         messages.append({"role": "system", "content": system_prompt})
+    if rich:
+        try:
+            listing = "\n".join(sorted(p.name for p in ws.iterdir()))
+            pipe = (ws / "pipeline.py").read_text()[:6000] if (ws / "pipeline.py").exists() else ""
+            prompt = (f"{prompt}\n\n## Workspace files\n{listing}\n\n## Current pipeline.py\n```python\n{pipe}\n```\n\n"
+                      f"## Data summary (train.parquet)\n{_describe(ws)[:12000]}\n\nStart by calling write_pipeline with "
+                      "your first candidate, then run_eval; iterate on the score.")
+        except Exception as e:  # never let the preamble break the run
+            prompt = f"{prompt}\n\n(rich context unavailable: {type(e).__name__}: {e})"
     messages.append({"role": "user", "content": prompt})
     t0 = time.time()
     tool_counts: dict[str, int] = {}
