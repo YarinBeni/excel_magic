@@ -1,0 +1,44 @@
+{
+  "n_datasets": 3,
+  "n_rows": 6,
+  "comparison": [
+    {
+      "dataset": "airfoil_self_noise",
+      "P*": 0.808813934175232,
+      "P0": 0.8277226701375077,
+      "metric": "rmse",
+      "tabfm": 1.0734,
+      "tabfm_auto_opus5": 0.9165,
+      "tabfm_auto_gemini38flash": 0.8878,
+      "our_gain_%": 2.2844289089163703,
+      "paper_gain_opus5_%": 14.617104527669083,
+      "ours_vs_paper_tabfm": 0.7535065531723794
+    },
+    {
+      "dataset": "blood-transfusion-service-center",
+      "P*": 0.2655263157894736,
+      "P0": 0.26307017543859657,
+      "metric": "1-auroc",
+      "tabfm": 0.2441,
+      "tabfm_auto_opus5": 0.2431,
+      "tabfm_auto_gemini38flash": 0.2398,
+      "our_gain_%": -0.9336445481826712,
+      "paper_gain_opus5_%": 0.4096681687832859,
+      "ours_vs_paper_tabfm": 1.0877767955324604
+    },
+    {
+      "dataset": "credit-g",
+      "P*": 0.20615384615384613,
+      "P0": 0.20542735042735027,
+      "metric": "1-auroc",
+      "tabfm": 0.1944,
+      "tabfm_auto_opus5": 0.194,
+      "tabfm_auto_gemini38flash": 0.1978,
+      "our_gain_%": -0.3536509257333695,
+      "paper_gain_opus5_%": 0.2057613168724196,
+      "ours_vs_paper_tabfm": 1.0604621715732827
+    }
+  ],
+  "elapsed_s": 249.83,
+  "status": "ok"
+}
