@@ -1,0 +1,70 @@
+{
+  "dataset": "Fitness_Club",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "1-auroc",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 5,
+  "n_evals_ok": 5,
+  "p0_cv": 0.17448065592410947,
+  "best_cv": 0.17377122661207955,
+  "best_candidate": "eval_004.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 75.5,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T194749Z_J8_pi_qwen3coder_Fitness_Club/search/Fitness_Club/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.1893905021173623,
+  "p0_test_secondary": {
+    "logloss": 0.47485941620986183,
+    "acc": 0.778,
+    "auroc": 0.8106094978826377,
+    "1-auroc": 0.1893905021173623
+  },
+  "best_test": 0.1897496975196613,
+  "best_test_secondary": {
+    "logloss": 0.47454955097326507,
+    "acc": 0.776,
+    "auroc": 0.8102503024803387,
+    "1-auroc": 0.1897496975196613
+  },
+  "best_test_info": {
+    "n_features": 9,
+    "t_features": 0.009,
+    "n_views": 1,
+    "view_sizes": [
+      1000
+    ],
+    "t_model": 0.402,
+    "t_total": 0.412,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": -0.19,
+  "cv_trajectory": [
+    [
+      1,
+      0.17448065592410947
+    ],
+    [
+      2,
+      0.17514378439471887
+    ],
+    [
+      3,
+      0.17439516335827754
+    ],
+    [
+      4,
+      0.17377122661207955
+    ],
+    [
+      5,
+      0.1743385883652743
+    ]
+  ],
+  "elapsed_s": 84.72,
+  "status": "ok"
+}
