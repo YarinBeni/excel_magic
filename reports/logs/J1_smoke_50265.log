@@ -1,0 +1,277 @@
+# job 50265 J1_smoke exit=0 Fri Oct  2 16:11:59 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J1_smoke_50265.out
+=== J1 smoke === job 50265 Fri Oct  2 15:58:06 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+kumo-tabular-l:
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--nvidia--Kumo-Tabular/snapshots/bd7fa122b516c7355583873ffcf38f5e79403ebd/large/classifier.pt
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--nvidia--Kumo-Tabular/snapshots/bd7fa122b516c7355583873ffcf38f5e79403ebd/large/regressor.pt
+2026-10-02 15:58:48,627 INFO wine             tabpfn:n_estimators=4,device=cuda logloss=0.03562 (1.5s) 
+2026-10-02 15:58:49,151 INFO wine             tabpfn-2.5:n_estimators=4,device=cuda logloss=0.03614 (0.5s) 
+2026-10-02 15:58:50,575 INFO wine             tabicl:device=cuda       logloss=0.01584 (1.4s) 
+2026-10-02 15:58:51,511 INFO wine             kumo-tabular-s:n_estimators=4,device=cuda logloss=0.02941 (0.9s) 
+2026-10-02 15:58:53,645 INFO wine             kumo-tabular-m:n_estimators=4,device=cuda logloss=0.01861 (2.1s) 
+2026-10-02 15:58:56,888 INFO wine             kumo-tabular-l:n_estimators=4,device=cuda logloss=0.01753 (3.2s) 
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+manifest pins no checkpoint_sha256; loading /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--LG-AI-Research--EXAONE-Tabular/snapshots/093ad1c2613e1e95d26df8610451d2e02ed53cbe/exaone-tabular-classifier-v1_default.safetensors without an integrity check (structural validation still runs)
+2026-10-02 15:58:58,081 INFO wine             exaone:device=cuda       logloss=None (1.2s) TypeError: features must be a NumPy array
+2026-10-02 15:58:58,362 INFO wine             hgb                      logloss=0.09652 (0.3s) 
+2026-10-02 15:58:59,354 INFO breast_cancer    tabpfn:n_estimators=4,device=cuda 1-auroc=0.00416 (1.0s) 
+2026-10-02 15:58:59,926 INFO breast_cancer    tabpfn-2.5:n_estimators=4,device=cuda 1-auroc=0.00392 (0.6s) 
+2026-10-02 15:59:01,693 INFO breast_cancer    tabicl:device=cuda       1-auroc=0.00415 (1.8s) 
+2026-10-02 15:59:02,534 INFO breast_cancer    kumo-tabular-s:n_estimators=4,device=cuda 1-auroc=0.00387 (0.8s) 
+2026-10-02 15:59:04,121 INFO breast_cancer    kumo-tabular-m:n_estimators=4,device=cuda 1-auroc=0.00376 (1.6s) 
+2026-10-02 15:59:05,772 INFO breast_cancer    kumo-tabular-l:n_estimators=4,device=cuda 1-auroc=0.00332 (1.6s) 
+manifest pins no checkpoint_sha256; loading /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--LG-AI-Research--EXAONE-Tabular/snapshots/093ad1c2613e1e95d26df8610451d2e02ed53cbe/exaone-tabular-classifier-v1_default.safetensors without an integrity check (structural validation still runs)
+2026-10-02 15:59:06,333 INFO breast_cancer    exaone:device=cuda       1-auroc=None (0.6s) TypeError: features must be a NumPy array
+2026-10-02 15:59:06,792 INFO breast_cancer    hgb                      1-auroc=0.00586 (0.5s) 
+2026-10-02 15:59:07,677 INFO diabetes         tabpfn:n_estimators=4,device=cuda rmse=54.28205 (0.9s) 
+2026-10-02 15:59:08,379 INFO diabetes         tabpfn-2.5:n_estimators=4,device=cuda rmse=54.17589 (0.7s) 
+2026-10-02 15:59:09,961 INFO diabetes         tabicl:device=cuda       rmse=53.72629 (1.6s) 
+2026-10-02 15:59:10,826 INFO diabetes         kumo-tabular-s:n_estimators=4,device=cuda rmse=54.59318 (0.9s) 
+2026-10-02 15:59:12,915 INFO diabetes         kumo-tabular-m:n_estimators=4,device=cuda rmse=54.19922 (2.1s) 
+2026-10-02 15:59:16,600 INFO diabetes         kumo-tabular-l:n_estimators=4,device=cuda rmse=54.51787 (3.7s) 
+manifest pins no checkpoint_sha256; loading /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--LG-AI-Research--EXAONE-Tabular/snapshots/093ad1c2613e1e95d26df8610451d2e02ed53cbe/exaone-tabular-regressor-v1_default.safetensors without an integrity check (structural validation still runs)
+2026-10-02 15:59:17,695 INFO diabetes         exaone:device=cuda       rmse=None (1.1s) TypeError: features must be a NumPy array
+2026-10-02 15:59:17,915 INFO diabetes         hgb                      rmse=60.51728 (0.2s) 
+2026-10-02 15:59:18,444 INFO synth_physics    tabpfn:n_estimators=4,device=cuda rmse=0.09203 (0.5s) 
+2026-10-02 15:59:18,897 INFO synth_physics    tabpfn-2.5:n_estimators=4,device=cuda rmse=0.0961 (0.5s) 
+2026-10-02 15:59:20,335 INFO synth_physics    tabicl:device=cuda       rmse=0.09514 (1.4s) 
+2026-10-02 15:59:21,130 INFO synth_physics    kumo-tabular-s:n_estimators=4,device=cuda rmse=0.08677 (0.8s) 
+2026-10-02 15:59:22,657 INFO synth_physics    kumo-tabular-m:n_estimators=4,device=cuda rmse=0.08539 (1.5s) 
+2026-10-02 15:59:24,327 INFO synth_physics    kumo-tabular-l:n_estimators=4,device=cuda rmse=0.08378 (1.7s) 
+manifest pins no checkpoint_sha256; loading /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--LG-AI-Research--EXAONE-Tabular/snapshots/093ad1c2613e1e95d26df8610451d2e02ed53cbe/exaone-tabular-regressor-v1_default.safetensors without an integrity check (structural validation still runs)
+2026-10-02 15:59:24,760 INFO synth_physics    exaone:device=cuda       rmse=None (0.4s) TypeError: features must be a NumPy array
+2026-10-02 15:59:24,996 INFO synth_physics    hgb                      rmse=0.35393 (0.2s) 
+2026-10-02 15:59:25,368 INFO synth_entities   tabpfn:n_estimators=4,device=cuda 1-auroc=0.50097 (0.4s) 
+2026-10-02 15:59:25,881 INFO synth_entities   tabpfn-2.5:n_estimators=4,device=cuda 1-auroc=0.44917 (0.5s) 
+2026-10-02 15:59:27,569 INFO synth_entities   tabicl:device=cuda       1-auroc=0.44391 (1.7s) 
+2026-10-02 15:59:28,615 INFO synth_entities   kumo-tabular-s:n_estimators=4,device=cuda 1-auroc=0.44236 (1.1s) 
+2026-10-02 15:59:29,856 INFO synth_entities   kumo-tabular-m:n_estimators=4,device=cuda 1-auroc=0.42126 (1.2s) 
+2026-10-02 15:59:32,010 INFO synth_entities   kumo-tabular-l:n_estimators=4,device=cuda 1-auroc=0.43193 (2.1s) 
+manifest pins no checkpoint_sha256; loading /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--LG-AI-Research--EXAONE-Tabular/snapshots/093ad1c2613e1e95d26df8610451d2e02ed53cbe/exaone-tabular-classifier-v1_default.safetensors without an integrity check (structural validation still runs)
+2026-10-02 15:59:32,406 INFO synth_entities   exaone:device=cuda       1-auroc=None (0.4s) TypeError: features must be a NumPy array
+2026-10-02 15:59:32,841 INFO synth_entities   hgb                      1-auroc=0.4873 (0.4s) 
+2026-10-02 15:59:32,882 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155840Z_J1_backbones/metrics.json
+| dataset | model | metric | score | std | cv s |
+|---|---|---|---|---|---|
+| wine | tabpfn:n_estimators=4,device=cuda | logloss | 0.0356 | 0.0218 | 1.46 |
+| wine | tabpfn-2.5:n_estimators=4,device=cuda | logloss | 0.0361 | 0.0248 | 0.52 |
+| wine | tabicl:device=cuda | logloss | 0.0158 | 0.0062 | 1.42 |
+| wine | kumo-tabular-s:n_estimators=4,device=cuda | logloss | 0.0294 | 0.0037 | 0.94 |
+| wine | kumo-tabular-m:n_estimators=4,device=cuda | logloss | 0.0186 | 0.0089 | 2.13 |
+| wine | kumo-tabular-l:n_estimators=4,device=cuda | logloss | 0.0175 | 0.0086 | 3.24 |
+| wine | exaone:device=cuda | logloss | ERR | 0.0000 | 1.19 |
+| wine | hgb | logloss | 0.0965 | 0.0359 | 0.28 |
+| breast_cancer | tabpfn:n_estimators=4,device=cuda | 1-auroc | 0.0042 | 0.0029 | 0.99 |
+| breast_cancer | tabpfn-2.5:n_estimators=4,device=cuda | 1-auroc | 0.0039 | 0.0025 | 0.57 |
+| breast_cancer | tabicl:device=cuda | 1-auroc | 0.0042 | 0.0024 | 1.77 |
+| breast_cancer | kumo-tabular-s:n_estimators=4,device=cuda | 1-auroc | 0.0039 | 0.0022 | 0.84 |
+| breast_cancer | kumo-tabular-m:n_estimators=4,device=cuda | 1-auroc | 0.0038 | 0.0016 | 1.59 |
+| breast_cancer | kumo-tabular-l:n_estimators=4,device=cuda | 1-auroc | 0.0033 | 0.0018 | 1.65 |
+| breast_cancer | exaone:device=cuda | 1-auroc | ERR | 0.0000 | 0.56 |
+| breast_cancer | hgb | 1-auroc | 0.0059 | 0.0047 | 0.46 |
+| diabetes | tabpfn:n_estimators=4,device=cuda | rmse | 54.2821 | 1.5541 | 0.88 |
+| diabetes | tabpfn-2.5:n_estimators=4,device=cuda | rmse | 54.1759 | 1.5677 | 0.7 |
+| diabetes | tabicl:device=cuda | rmse | 53.7263 | 1.7349 | 1.58 |
+| diabetes | kumo-tabular-s:n_estimators=4,device=cuda | rmse | 54.5932 | 2.3367 | 0.86 |
+| diabetes | kumo-tabular-m:n_estimators=4,device=cuda | rmse | 54.1992 | 2.1630 | 2.09 |
+| diabetes | kumo-tabular-l:n_estimators=4,device=cuda | rmse | 54.5179 | 2.4833 | 3.68 |
+| diabetes | exaone:device=cuda | rmse | ERR | 0.0000 | 1.1 |
+| diabetes | hgb | rmse | 60.5173 | 4.0053 | 0.22 |
+| synth_physics | tabpfn:n_estimators=4,device=cuda | rmse | 0.0920 | 0.0018 | 0.53 |
+| synth_physics | tabpfn-2.5:n_estimators=4,device=cuda | rmse | 0.0961 | 0.0022 | 0.45 |
+| synth_physics | tabicl:device=cuda | rmse | 0.0951 | 0.0069 | 1.44 |
+| synth_physics | kumo-tabular-s:n_estimators=4,device=cuda | rmse | 0.0868 | 0.0023 | 0.8 |
+| synth_physics | kumo-tabular-m:n_estimators=4,device=cuda | rmse | 0.0854 | 0.0030 | 1.53 |
+| synth_physics | kumo-tabular-l:n_estimators=4,device=cuda | rmse | 0.0838 | 0.0028 | 1.67 |
+| synth_physics | exaone:device=cuda | rmse | ERR | 0.0000 | 0.43 |
+| synth_physics | hgb | rmse | 0.3539 | 0.0278 | 0.24 |
+| synth_entities | tabpfn:n_estimators=4,device=cuda | 1-auroc | 0.5010 | 0.0339 | 0.36 |
+| synth_entities | tabpfn-2.5:n_estimators=4,device=cuda | 1-auroc | 0.4492 | 0.0274 | 0.51 |
+| synth_entities | tabicl:device=cuda | 1-auroc | 0.4439 | 0.0129 | 1.69 |
+| synth_entities | kumo-tabular-s:n_estimators=4,device=cuda | 1-auroc | 0.4424 | 0.0124 | 1.05 |
+| synth_entities | kumo-tabular-m:n_estimators=4,device=cuda | 1-auroc | 0.4213 | 0.0140 | 1.24 |
+| synth_entities | kumo-tabular-l:n_estimators=4,device=cuda | 1-auroc | 0.4319 | 0.0059 | 2.15 |
+| synth_entities | exaone:device=cuda | 1-auroc | ERR | 0.0000 | 0.4 |
+| synth_entities | hgb | 1-auroc | 0.4873 | 0.0126 | 0.43 |
+2026-10-02 15:59:48,485 INFO P0 cv rmse = 0.08893103293165372
+2026-10-02 16:02:09,188 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155935Z_J1_heur_kumo_synth_physics/metrics.json
+{'dataset': 'synth_physics', 'metric': 'rmse', 'p0_cv': 0.08893103293165372, 'best_cv': 0.0872139596557726, 'p0_test': 0.08724973854292414, 'best_test': 0.0872189547095953, 'test_improvement_pct': 0.035, 'n_evals': 20}
+2026-10-02 16:02:25,234 INFO P0 cv 1-auroc = 0.44892230252968507
+2026-10-02 16:04:47,782 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T160211Z_J1_heur_kumo_synth_entities/metrics.json
+{'dataset': 'synth_entities', 'metric': '1-auroc', 'p0_cv': 0.44892230252968507, 'best_cv': 0.4320469798657718, 'p0_test': 0.4412142940649234, 'best_test': 0.33272280893184225, 'test_improvement_pct': 24.589, 'n_evals': 20}
+2026-10-02 16:04:58,501 INFO synth_physics  tabpfn           P0  rmse=0.10453 (1.0s) 
+2026-10-02 16:04:59,570 INFO synth_physics  tabpfn           P*  rmse=0.08833 (1.1s) 
+2026-10-02 16:04:59,951 INFO synth_physics  tabpfn-2.5       P0  rmse=0.09301 (0.4s) 
+2026-10-02 16:05:01,279 INFO synth_physics  tabpfn-2.5       P*  rmse=0.10349 (1.3s) 
+2026-10-02 16:05:02,012 INFO synth_physics  tabicl           P0  rmse=0.09282 (0.7s) 
+2026-10-02 16:05:04,169 INFO synth_physics  tabicl           P*  rmse=0.08894 (2.2s) 
+2026-10-02 16:05:04,900 INFO synth_physics  kumo-tabular-s   P0  rmse=0.08615 (0.7s) 
+2026-10-02 16:05:06,108 INFO synth_physics  kumo-tabular-s   P*  rmse=0.08753 (1.2s) 
+2026-10-02 16:05:07,376 INFO synth_physics  kumo-tabular-m   P0  rmse=0.08389 (1.3s) 
+2026-10-02 16:05:10,779 INFO synth_physics  kumo-tabular-m   P*  rmse=0.08361 (3.4s) 
+2026-10-02 16:05:13,678 INFO synth_physics  kumo-tabular-l   P0  rmse=0.08372 (2.9s) 
+2026-10-02 16:05:19,049 INFO synth_physics  kumo-tabular-l   P*  rmse=0.08425 (5.4s) 
+2026-10-02 16:05:19,093 INFO synth_physics  exaone           P0  rmse=None (0.0s) TypeError: EXAONETabularRegressor.from_pretrained() got an unexpected keyword argument 'n_estimators'
+2026-10-02 16:05:19,116 INFO synth_physics  exaone           P*  rmse=None (0.0s) TypeError: EXAONETabularRegressor.from_pretrained() got an unexpected keyword argument 'n_estimators'
+2026-10-02 16:05:19,196 INFO synth_physics  hgb              P0  rmse=0.32384 (0.1s) 
+2026-10-02 16:05:19,217 INFO synth_physics  hgb              P*  rmse=None (0.0s) TypeError: HistGradientBoostingRegressor.__init__() got an unexpected keyword argument 'n_estimators'
+2026-10-02 16:05:20,288 INFO synth_entities tabpfn           P0  1-auroc=0.46569 (1.1s) 
+2026-10-02 16:05:21,638 INFO synth_entities tabpfn           P*  1-auroc=0.4086 (1.4s) 
+2026-10-02 16:05:22,520 INFO synth_entities tabpfn-2.5       P0  1-auroc=0.48622 (0.9s) 
+2026-10-02 16:05:23,596 INFO synth_entities tabpfn-2.5       P*  1-auroc=0.41101 (1.1s) 
+2026-10-02 16:05:24,945 INFO synth_entities tabicl           P0  1-auroc=0.37945 (1.4s) 
+2026-10-02 16:05:26,450 INFO synth_entities tabicl           P*  1-auroc=0.38108 (1.5s) 
+2026-10-02 16:05:27,627 INFO synth_entities kumo-tabular-s   P0  1-auroc=0.45626 (1.2s) 
+2026-10-02 16:05:28,921 INFO synth_entities kumo-tabular-s   P*  1-auroc=0.35244 (1.3s) 
+2026-10-02 16:05:31,593 INFO synth_entities kumo-tabular-m   P0  1-auroc=0.29145 (2.7s) 
+2026-10-02 16:05:35,187 INFO synth_entities kumo-tabular-m   P*  1-auroc=0.35517 (3.6s) 
+2026-10-02 16:05:40,890 INFO synth_entities kumo-tabular-l   P0  1-auroc=0.3436 (5.7s) 
+2026-10-02 16:05:47,239 INFO synth_entities kumo-tabular-l   P*  1-auroc=0.35069 (6.3s) 
+2026-10-02 16:05:47,244 INFO synth_entities exaone           P0  1-auroc=None (0.0s) TypeError: EXAONETabularClassifier.from_pretrained() got an unexpected keyword argument 'n_estimators'
+2026-10-02 16:05:47,262 INFO synth_entities exaone           P*  1-auroc=None (0.0s) TypeError: EXAONETabularClassifier.from_pretrained() got an unexpected keyword argument 'n_estimators'
+2026-10-02 16:05:47,411 INFO synth_entities hgb              P0  1-auroc=0.47329 (0.1s) 
+2026-10-02 16:05:47,572 INFO synth_entities hgb              P*  1-auroc=0.43775 (0.2s) 
+2026-10-02 16:05:47,999 INFO synth_physics  tabpfn           P0  rmse=0.10453 (0.4s) 
+2026-10-02 16:05:49,075 INFO synth_physics  tabpfn           P*  rmse=0.08833 (1.1s) 
+2026-10-02 16:05:49,467 INFO synth_physics  tabpfn-2.5       P0  rmse=0.09301 (0.4s) 
+2026-10-02 16:05:50,408 INFO synth_physics  tabpfn-2.5       P*  rmse=0.10349 (0.9s) 
+2026-10-02 16:05:51,078 INFO synth_physics  tabicl           P0  rmse=0.09282 (0.7s) 
+2026-10-02 16:05:52,208 INFO synth_physics  tabicl           P*  rmse=0.08894 (1.1s) 
+2026-10-02 16:05:52,789 INFO synth_physics  kumo-tabular-s   P0  rmse=0.08614 (0.6s) 
+2026-10-02 16:05:54,003 INFO synth_physics  kumo-tabular-s   P*  rmse=0.08708 (1.2s) 
+2026-10-02 16:05:55,251 INFO synth_physics  kumo-tabular-m   P0  rmse=0.08417 (1.2s) 
+2026-10-02 16:05:58,536 INFO synth_physics  kumo-tabular-m   P*  rmse=0.08347 (3.3s) 
+2026-10-02 16:06:00,724 INFO synth_physics  kumo-tabular-l   P0  rmse=0.0832 (2.2s) 
+2026-10-02 16:06:05,796 INFO synth_physics  kumo-tabular-l   P*  rmse=0.08411 (5.1s) 
+2026-10-02 16:06:05,802 INFO synth_physics  exaone           P0  rmse=None (0.0s) TypeError: EXAONETabularRegressor.from_pretrained() got an unexpected keyword argument 'n_estimators'
+2026-10-02 16:06:05,822 INFO synth_physics  exaone           P*  rmse=None (0.0s) TypeError: EXAONETabularRegressor.from_pretrained() got an unexpected keyword argument 'n_estimators'
+2026-10-02 16:06:05,907 INFO synth_physics  hgb              P0  rmse=0.32384 (0.1s) 
+2026-10-02 16:06:05,927 INFO synth_physics  hgb              P*  rmse=None (0.0s) TypeError: HistGradientBoostingRegressor.__init__() got an unexpected keyword argument 'n_estimators'
+2026-10-02 16:06:06,941 INFO synth_entities tabpfn           P0  1-auroc=0.46569 (1.0s) 
+2026-10-02 16:06:08,249 INFO synth_entities tabpfn           P*  1-auroc=0.41261 (1.3s) 
+2026-10-02 16:06:09,120 INFO synth_entities tabpfn-2.5       P0  1-auroc=0.48622 (0.9s) 
+2026-10-02 16:06:10,157 INFO synth_entities tabpfn-2.5       P*  1-auroc=0.41998 (1.0s) 
+2026-10-02 16:06:11,499 INFO synth_entities tabicl           P0  1-auroc=0.37945 (1.3s) 
+2026-10-02 16:06:12,899 INFO synth_entities tabicl           P*  1-auroc=0.3812 (1.4s) 
+2026-10-02 16:06:14,033 INFO synth_entities kumo-tabular-s   P0  1-auroc=0.43837 (1.1s) 
+2026-10-02 16:06:15,312 INFO synth_entities kumo-tabular-s   P*  1-auroc=0.32423 (1.3s) 
+2026-10-02 16:06:17,992 INFO synth_entities kumo-tabular-m   P0  1-auroc=0.31195 (2.7s) 
+2026-10-02 16:06:21,504 INFO synth_entities kumo-tabular-m   P*  1-auroc=0.36873 (3.5s) 
+2026-10-02 16:06:26,939 INFO synth_entities kumo-tabular-l   P0  1-auroc=0.36935 (5.4s) 
+2026-10-02 16:06:33,061 INFO synth_entities kumo-tabular-l   P*  1-auroc=0.34964 (6.1s) 
+2026-10-02 16:06:33,066 INFO synth_entities exaone           P0  1-auroc=None (0.0s) TypeError: EXAONETabularClassifier.from_pretrained() got an unexpected keyword argument 'n_estimators'
+2026-10-02 16:06:33,076 INFO synth_entities exaone           P*  1-auroc=None (0.0s) TypeError: EXAONETabularClassifier.from_pretrained() got an unexpected keyword argument 'n_estimators'
+2026-10-02 16:06:33,221 INFO synth_entities hgb              P0  1-auroc=0.47329 (0.1s) 
+2026-10-02 16:06:33,380 INFO synth_entities hgb              P*  1-auroc=0.43775 (0.2s) 
+2026-10-02 16:06:33,389 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T160450Z_J1_transfer/metrics.json
+| dataset | model | metric | P0 test | P* test | gain % |
+|---|---|---|---|---|---|
+| synth_physics | tabpfn | rmse | 0.1045 | 0.0883 | +15.5 |
+| synth_physics | tabpfn-2.5 | rmse | 0.0930 | 0.1035 | -11.3 |
+| synth_physics | tabicl | rmse | 0.0928 | 0.0889 | +4.2 |
+| synth_physics | kumo-tabular-s | rmse | 0.0861 | 0.0871 | -1.1 |
+| synth_physics | kumo-tabular-m | rmse | 0.0842 | 0.0835 | +0.8 |
+| synth_physics | kumo-tabular-l | rmse | 0.0832 | 0.0841 | -1.1 |
+| synth_physics | exaone | rmse | ERR | ERR |  |
+| synth_physics | hgb | rmse | 0.3238 | ERR |  |
+| synth_entities | tabpfn | 1-auroc | 0.4657 | 0.4126 | +11.4 |
+| synth_entities | tabpfn-2.5 | 1-auroc | 0.4862 | 0.4200 | +13.6 |
+| synth_entities | tabicl | 1-auroc | 0.3794 | 0.3812 | -0.5 |
+| synth_entities | kumo-tabular-s | 1-auroc | 0.4384 | 0.3242 | +26.0 |
+| synth_entities | kumo-tabular-m | 1-auroc | 0.3120 | 0.3687 | -18.2 |
+| synth_entities | kumo-tabular-l | 1-auroc | 0.3694 | 0.3496 | +5.3 |
+| synth_entities | exaone | 1-auroc | ERR | ERR |  |
+| synth_entities | hgb | 1-auroc | 0.4733 | 0.4377 | +7.5 |
+2026-10-02 16:06:44,028 INFO row              {'dim': 10, 'segment': {'P@10': 0.16105, 'MAP@10': 0.06366186507936508, 'kNN_acc': 0.146, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.022076792771038974, 'recall@10': 0.06079063083841537, 'hit@10': 0.2154648132059079, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.02395591412975851, 'recall@10': 0.06672133077412581, 'hit@10': 0.2085181898846495, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 0.3, 'status': 'ok'}
+2026-10-02 16:06:44,314 INFO agg              {'dim': 23, 'segment': {'P@10': 0.7262, 'MAP@10': 0.6464883730158731, 'kNN_acc': 0.8425, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.04829439573396691, 'recall@10': 0.141780157288411, 'hit@10': 0.4474370112945265, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.05424096852089943, 'recall@10': 0.16331535220177631, 'hit@10': 0.45785270629991126, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 0.3, 'status': 'ok'}
+2026-10-02 16:06:45,567 INFO tabpfn_agg_kmeans {'dim': 192, 'segment': {'P@10': 0.82685, 'MAP@10': 0.7795106349206349, 'kNN_acc': 0.8725, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.04699024698691138, 'recall@10': 0.139898672859142, 'hit@10': 0.4439617723718506, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.05766635943871123, 'recall@10': 0.17096234757059958, 'hit@10': 0.4605146406388642, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 1.3, 'status': 'ok'}
+2026-10-02 16:06:46,101 INFO tabpfn_agg       {'dim': 192, 'segment': {'P@10': 0.87515, 'MAP@10': 0.8445546031746033, 'kNN_acc': 0.9, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.0498248264295904, 'recall@10': 0.1420860874813959, 'hit@10': 0.4465682015638575, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.06060347084872267, 'recall@10': 0.16834135498731773, 'hit@10': 0.45607808340727596, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 0.5, 'status': 'ok'}
+2026-10-02 16:06:47,113 INFO gnn              {'dim': 64, 'segment': {'P@10': 0.885, 'MAP@10': 0.8544694841269841, 'kNN_acc': 0.9075, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.04863538494684806, 'recall@10': 0.14039507890507022, 'hit@10': 0.4422241529105126, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.0590688264115663, 'recall@10': 0.16078899903212238, 'hit@10': 0.4454303460514641, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 1.0, 'status': 'ok'}
+2026-10-02 16:06:53,834 INFO openrfm          {'dim': 256, 'segment': {'P@10': 0.2493, 'MAP@10': 0.13097142857142857, 'kNN_acc': 0.306, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.03185855576744969, 'recall@10': 0.09467879957671443, 'hit@10': 0.29365768896611644, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.038529913394915294, 'recall@10': 0.11141926076486855, 'hit@10': 0.2981366459627329, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 6.7, 'status': 'ok'}
+2026-10-02 16:07:36,284 INFO kumo_relational  {'dim': 512, 'segment': {'P@10': 0.48185, 'MAP@10': 0.368287003968254, 'kNN_acc': 0.601, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.04617324994160872, 'recall@10': 0.11954692667116644, 'hit@10': 0.3822762814943527, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.05171446584812242, 'recall@10': 0.13826634520955727, 'hit@10': 0.3824312333629104, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 42.4, 'status': 'ok'}
+2026-10-02 16:08:19,172 INFO kumo_relational_kmeans {'dim': 512, 'segment': {'P@10': 0.667, 'MAP@10': 0.5742203373015874, 'kNN_acc': 0.729, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.0489994930301496, 'recall@10': 0.13473257122257992, 'hit@10': 0.41963509991311904, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.055366061801499326, 'recall@10': 0.152975296664294, 'hit@10': 0.42945874001774625, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 42.9, 'status': 'ok'}
+2026-10-02 16:08:19,179 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T160635Z_J1_retrieval_seed0/metrics.json
+| embedder | dim | seg P@10 | seg MAP@10 | seg kNN acc | fut MAP@10 | fut recall@10 | fut hit@10 | s |
+|---|---|---|---|---|---|---|---|---|
+| row | 10 | 0.161 | 0.064 | 0.146 | 0.022 | 0.061 | 0.215 | 0.3 |
+| agg | 23 | 0.726 | 0.646 | 0.843 | 0.048 | 0.142 | 0.447 | 0.3 |
+| tabpfn_agg_kmeans | 192 | 0.827 | 0.780 | 0.873 | 0.047 | 0.140 | 0.444 | 1.3 |
+| tabpfn_agg | 192 | 0.875 | 0.845 | 0.900 | 0.050 | 0.142 | 0.447 | 0.5 |
+| gnn | 64 | 0.885 | 0.854 | 0.907 | 0.049 | 0.140 | 0.442 | 1.0 |
+| openrfm | 256 | 0.249 | 0.131 | 0.306 | 0.032 | 0.095 | 0.294 | 6.7 |
+| kumo_relational | 512 | 0.482 | 0.368 | 0.601 | 0.046 | 0.120 | 0.382 | 42.4 |
+| kumo_relational_kmeans | 512 | 0.667 | 0.574 | 0.729 | 0.049 | 0.135 | 0.420 | 42.9 |
+| popularity baseline | - | 0.167 (chance) | | | 0.034 | 0.089 | | |
+2026-10-02 16:08:29,937 INFO row              {'dim': 10, 'segment': {'P@10': 0.16105, 'MAP@10': 0.06366186507936508, 'kNN_acc': 0.146, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.022076792771038974, 'recall@10': 0.06079063083841537, 'hit@10': 0.2154648132059079, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.02395591412975851, 'recall@10': 0.06672133077412581, 'hit@10': 0.2085181898846495, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 0.4, 'status': 'ok'}
+2026-10-02 16:08:30,326 INFO agg              {'dim': 23, 'segment': {'P@10': 0.7262, 'MAP@10': 0.6464883730158731, 'kNN_acc': 0.8425, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.04829439573396691, 'recall@10': 0.141780157288411, 'hit@10': 0.4474370112945265, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.05424096852089943, 'recall@10': 0.16331535220177631, 'hit@10': 0.45785270629991126, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 0.4, 'status': 'ok'}
+2026-10-02 16:08:31,684 INFO tabpfn_agg_kmeans {'dim': 192, 'segment': {'P@10': 0.80255, 'MAP@10': 0.7518436309523809, 'kNN_acc': 0.8635, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.04968937931545498, 'recall@10': 0.14396041139090662, 'hit@10': 0.44917463075586445, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.05865612752380192, 'recall@10': 0.1636533436001049, 'hit@10': 0.4454303460514641, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 1.4, 'status': 'ok'}
+2026-10-02 16:08:32,765 INFO tabpfn_agg       {'dim': 192, 'segment': {'P@10': 0.21415, 'MAP@10': 0.10481013888888888, 'kNN_acc': 0.2675, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.023024149172813896, 'recall@10': 0.07188158520695445, 'hit@10': 0.2311033883579496, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.024559247768251864, 'recall@10': 0.07736327066406924, 'hit@10': 0.22803904170363798, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 1.1, 'status': 'ok'}
+2026-10-02 16:08:33,764 INFO gnn              {'dim': 64, 'segment': {'P@10': 0.87175, 'MAP@10': 0.8371973214285715, 'kNN_acc': 0.8985, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.04576327597197131, 'recall@10': 0.13699620318864453, 'hit@10': 0.4291920069504778, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.05278215579011518, 'recall@10': 0.1603385953984889, 'hit@10': 0.4409937888198758, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 1.0, 'status': 'ok'}
+2026-10-02 16:08:39,668 INFO openrfm          {'dim': 256, 'segment': {'P@10': 0.2493, 'MAP@10': 0.13097142857142857, 'kNN_acc': 0.306, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.03185855576744969, 'recall@10': 0.09467879957671443, 'hit@10': 0.29365768896611644, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.038529913394915294, 'recall@10': 0.11141926076486855, 'hit@10': 0.2981366459627329, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 5.9, 'status': 'ok'}
+2026-10-02 16:09:20,941 INFO kumo_relational  {'dim': 512, 'segment': {'P@10': 0.26005, 'MAP@10': 0.13754591269841268, 'kNN_acc': 0.342, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.031571621995968316, 'recall@10': 0.08518889523450773, 'hit@10': 0.2893136403127715, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.03704638703389601, 'recall@10': 0.1031843316892119, 'hit@10': 0.2990239574090506, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 41.3, 'status': 'ok'}
+2026-10-02 16:10:01,996 INFO kumo_relational_kmeans {'dim': 512, 'segment': {'P@10': 0.56405, 'MAP@10': 0.4606530555555556, 'kNN_acc': 0.6555, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.040502896278696826, 'recall@10': 0.12241937399409163, 'hit@10': 0.40225890529973934, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.045688562988046445, 'recall@10': 0.14210163296232506, 'hit@10': 0.4090505767524401, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 41.1, 'status': 'ok'}
+2026-10-02 16:10:02,004 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T160821Z_J1_retrieval_seed1/metrics.json
+| embedder | dim | seg P@10 | seg MAP@10 | seg kNN acc | fut MAP@10 | fut recall@10 | fut hit@10 | s |
+|---|---|---|---|---|---|---|---|---|
+| row | 10 | 0.161 | 0.064 | 0.146 | 0.022 | 0.061 | 0.215 | 0.4 |
+| agg | 23 | 0.726 | 0.646 | 0.843 | 0.048 | 0.142 | 0.447 | 0.4 |
+| tabpfn_agg_kmeans | 192 | 0.803 | 0.752 | 0.864 | 0.050 | 0.144 | 0.449 | 1.4 |
+| tabpfn_agg | 192 | 0.214 | 0.105 | 0.268 | 0.023 | 0.072 | 0.231 | 1.1 |
+| gnn | 64 | 0.872 | 0.837 | 0.898 | 0.046 | 0.137 | 0.429 | 1.0 |
+| openrfm | 256 | 0.249 | 0.131 | 0.306 | 0.032 | 0.095 | 0.294 | 5.9 |
+| kumo_relational | 512 | 0.260 | 0.138 | 0.342 | 0.032 | 0.085 | 0.289 | 41.3 |
+| kumo_relational_kmeans | 512 | 0.564 | 0.461 | 0.655 | 0.041 | 0.122 | 0.402 | 41.1 |
+| popularity baseline | - | 0.167 (chance) | | | 0.034 | 0.089 | | |
+2026-10-02 16:10:12,794 INFO row              {'dim': 10, 'segment': {'P@10': 0.16105, 'MAP@10': 0.06366186507936508, 'kNN_acc': 0.146, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.022076792771038974, 'recall@10': 0.06079063083841537, 'hit@10': 0.2154648132059079, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.02395591412975851, 'recall@10': 0.06672133077412581, 'hit@10': 0.2085181898846495, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 0.5, 'status': 'ok'}
+2026-10-02 16:10:13,149 INFO agg              {'dim': 23, 'segment': {'P@10': 0.7262, 'MAP@10': 0.6464883730158731, 'kNN_acc': 0.8425, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.04829439573396691, 'recall@10': 0.141780157288411, 'hit@10': 0.4474370112945265, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.05424096852089943, 'recall@10': 0.16331535220177631, 'hit@10': 0.45785270629991126, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 0.4, 'status': 'ok'}
+2026-10-02 16:10:14,292 INFO tabpfn_agg_kmeans {'dim': 192, 'segment': {'P@10': 0.84085, 'MAP@10': 0.7978862698412699, 'kNN_acc': 0.89, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.04744606303762938, 'recall@10': 0.13852286939819522, 'hit@10': 0.4326672458731538, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.05640051682706011, 'recall@10': 0.171025612463057, 'hit@10': 0.4587400177462289, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 1.1, 'status': 'ok'}
+2026-10-02 16:10:14,821 INFO tabpfn_agg       {'dim': 192, 'segment': {'P@10': 0.3889, 'MAP@10': 0.2649530753968254, 'kNN_acc': 0.545, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.03437393218380765, 'recall@10': 0.10428476340726557, 'hit@10': 0.3344917463075586, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.040299772214252294, 'recall@10': 0.12303264737825517, 'hit@10': 0.34250221827861577, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 0.5, 'status': 'ok'}
+2026-10-02 16:10:15,911 INFO gnn              {'dim': 64, 'segment': {'P@10': 0.87565, 'MAP@10': 0.8433251984126985, 'kNN_acc': 0.899, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.046607064463974605, 'recall@10': 0.14322460650653523, 'hit@10': 0.46568201563857514, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.054677290762504355, 'recall@10': 0.1698108851613732, 'hit@10': 0.4800354924578527, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 1.1, 'status': 'ok'}
+2026-10-02 16:10:22,629 INFO openrfm          {'dim': 256, 'segment': {'P@10': 0.2493, 'MAP@10': 0.13097142857142857, 'kNN_acc': 0.306, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.03185855576744969, 'recall@10': 0.09467879957671443, 'hit@10': 0.29365768896611644, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.038529913394915294, 'recall@10': 0.11141926076486855, 'hit@10': 0.2981366459627329, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 6.7, 'status': 'ok'}
+2026-10-02 16:11:06,909 INFO kumo_relational  {'dim': 512, 'segment': {'P@10': 0.2469, 'MAP@10': 0.12855654761904758, 'kNN_acc': 0.3225, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.03018205944571734, 'recall@10': 0.08326743726396202, 'hit@10': 0.2684622067767159, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.03411257355977325, 'recall@10': 0.09954672287192251, 'hit@10': 0.27151730257320317, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 44.3, 'status': 'ok'}
+2026-10-02 16:11:51,708 INFO kumo_relational_kmeans {'dim': 512, 'segment': {'P@10': 0.61485, 'MAP@10': 0.5134170436507937, 'kNN_acc': 0.699, 'chance_P@10': 0.16679739869934967}, 'future_purchase': {'MAP@10': 0.04482851569691171, 'recall@10': 0.12827812934242128, 'hit@10': 0.3961772371850565, 'pop_MAP@10': 0.033615952333889115, 'pop_recall@10': 0.0892543791761863, 'n_queries': 1151}, 'future_purchase_novel': {'MAP@10': 0.050186134618492965, 'recall@10': 0.14309893374888938, 'hit@10': 0.3966282165039929, 'pop_MAP@10': 0.04022399514046639, 'pop_recall@10': 0.11003103423245393, 'n_queries': 1127}, 'seconds': 44.8, 'status': 'ok'}
+2026-10-02 16:11:51,717 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T161003Z_J1_retrieval_seed2/metrics.json
+| embedder | dim | seg P@10 | seg MAP@10 | seg kNN acc | fut MAP@10 | fut recall@10 | fut hit@10 | s |
+|---|---|---|---|---|---|---|---|---|
+| row | 10 | 0.161 | 0.064 | 0.146 | 0.022 | 0.061 | 0.215 | 0.5 |
+| agg | 23 | 0.726 | 0.646 | 0.843 | 0.048 | 0.142 | 0.447 | 0.4 |
+| tabpfn_agg_kmeans | 192 | 0.841 | 0.798 | 0.890 | 0.047 | 0.139 | 0.433 | 1.1 |
+| tabpfn_agg | 192 | 0.389 | 0.265 | 0.545 | 0.034 | 0.104 | 0.334 | 0.5 |
+| gnn | 64 | 0.876 | 0.843 | 0.899 | 0.047 | 0.143 | 0.466 | 1.1 |
+| openrfm | 256 | 0.249 | 0.131 | 0.306 | 0.032 | 0.095 | 0.294 | 6.7 |
+| kumo_relational | 512 | 0.247 | 0.129 | 0.323 | 0.030 | 0.083 | 0.268 | 44.3 |
+| kumo_relational_kmeans | 512 | 0.615 | 0.513 | 0.699 | 0.045 | 0.128 | 0.396 | 44.8 |
+| popularity baseline | - | 0.167 (chance) | | | 0.034 | 0.089 | | |
+[collect] copied 220 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o cef935a] J1: smoke results (job 50265)
+ 20 files changed, 2569 insertions(+), 5 deletions(-)
+ create mode 100644 reports/runs/20261002T155935Z_J1_heur_kumo_synth_physics/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155935Z_J1_heur_kumo_synth_physics/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155935Z_J1_heur_kumo_synth_physics/metrics.json
+ create mode 100644 reports/runs/20261002T160211Z_J1_heur_kumo_synth_entities/best_pipeline.py
+ create mode 100644 reports/runs/20261002T160211Z_J1_heur_kumo_synth_entities/config.json
+ create mode 100644 reports/runs/20261002T160211Z_J1_heur_kumo_synth_entities/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T160211Z_J1_heur_kumo_synth_entities/metrics.json
+ create mode 100644 reports/runs/20261002T160450Z_J1_transfer/config.json
+ create mode 100644 reports/runs/20261002T160450Z_J1_transfer/metrics.json
+ create mode 100644 reports/runs/20261002T160450Z_J1_transfer/results.md
+ create mode 100644 reports/runs/20261002T160635Z_J1_retrieval_seed0/config.json
+ create mode 100644 reports/runs/20261002T160635Z_J1_retrieval_seed0/metrics.json
+ create mode 100644 reports/runs/20261002T160635Z_J1_retrieval_seed0/results.md
+ create mode 100644 reports/runs/20261002T160821Z_J1_retrieval_seed1/config.json
+ create mode 100644 reports/runs/20261002T160821Z_J1_retrieval_seed1/metrics.json
+ create mode 100644 reports/runs/20261002T160821Z_J1_retrieval_seed1/results.md
+ create mode 100644 reports/runs/20261002T161003Z_J1_retrieval_seed2/config.json
+ create mode 100644 reports/runs/20261002T161003Z_J1_retrieval_seed2/metrics.json
+ create mode 100644 reports/runs/20261002T161003Z_J1_retrieval_seed2/results.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   2024034..cef935a  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J1 done Fri Oct  2 16:11:59 UTC 2026 ===
