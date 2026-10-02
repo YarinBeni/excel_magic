@@ -1,0 +1,216 @@
+[
+  {
+    "config": {
+      "regression": true
+    },
+    "score": 4726.929027826271
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true
+    },
+    "score": 4726.9290131746975,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "winsorize": true
+    },
+    "score": 4726.964228840227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "drop_constant": true
+    },
+    "score": 4726.929027826271,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "count_encode": true
+    },
+    "score": 4763.709694865965,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "log_skewed": true
+    },
+    "score": 4726.929027826271,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 3
+    },
+    "score": 4747.5625029385355,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5
+    },
+    "score": 4747.5625029385355,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "svd_components": 8
+    },
+    "score": 4726.9290131746975,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "svd_components": 16
+    },
+    "score": 4726.929027826271,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "prune_to": 64
+    },
+    "score": 4726.9290131746975,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "random_views": 3
+    },
+    "score": 4726.929027826271,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "target_transform": "log1p"
+    },
+    "score": 4751.657982177824,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 4726.9290131746975,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "winsorize": true
+    },
+    "score": 4726.964271236281,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "drop_constant": true
+    },
+    "score": 4726.9290131746975,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "count_encode": true
+    },
+    "score": 4763.70969775426,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "log_skewed": true
+    },
+    "score": 4726.929027826271,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 3
+    },
+    "score": 4747.562531168751,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "crosses_top_k": 5
+    },
+    "score": 4747.5625029385355,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "svd_components": 8
+    },
+    "score": 4726.929027826271,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "svd_components": 16
+    },
+    "score": 4726.9290131746975,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "prune_to": 64
+    },
+    "score": 4726.929027826271,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true,
+      "random_views": 3
+    },
+    "score": 4726.9290131746975,
+    "error": null
+  }
+]

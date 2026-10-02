@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "concrete_compressive_strength",
+      "P*": 3.8080362279973303,
+      "P0": 3.801826359791889,
+      "metric": "rmse",
+      "tabfm": 3.9666,
+      "tabfm_auto_opus5": 3.8169,
+      "tabfm_auto_gemini38flash": 3.8309,
+      "our_gain_%": -0.16333908016202445,
+      "paper_gain_opus5_%": 3.774013008621998,
+      "ours_vs_paper_tabfm": 0.9600252679870243
+    }
+  ],
+  "elapsed_s": 290.32,
+  "status": "ok"
+}

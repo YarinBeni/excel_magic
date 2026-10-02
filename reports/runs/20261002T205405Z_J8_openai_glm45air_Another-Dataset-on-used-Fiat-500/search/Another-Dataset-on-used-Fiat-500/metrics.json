@@ -1,0 +1,120 @@
+{
+  "dataset": "Another-Dataset-on-used-Fiat-500",
+  "task_type": "regression",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "rmse",
+  "harness": "openai",
+  "llm_model": "zai-org/GLM-4.5-Air-FP8",
+  "n_evals": 15,
+  "n_evals_ok": 14,
+  "p0_cv": 740.2209652545938,
+  "best_cv": 736.2621987351922,
+  "best_candidate": "eval_004.py",
+  "agent": {
+    "harness": "openai",
+    "rc": 0,
+    "elapsed_s": 275.0,
+    "n_turns": 31,
+    "tool_counts": {
+      "read_file": 1,
+      "describe_data": 1,
+      "write_pipeline": 14,
+      "run_eval": 14,
+      "finish": 1
+    },
+    "usage": {
+      "input_tokens": 412671,
+      "output_tokens": 19038
+    },
+    "model": "zai-org/GLM-4.5-Air-FP8",
+    "rich_context": false
+  },
+  "p0_test": 696.8561847182046,
+  "p0_test_secondary": {
+    "rmse": 696.8561847182046,
+    "mae": 484.1384253548367,
+    "r2": 0.8661812663171113
+  },
+  "best_test": 689.3605298892807,
+  "best_test_secondary": {
+    "rmse": 689.3605298892807,
+    "mae": 474.8386554218606,
+    "r2": 0.8690445956915159
+  },
+  "best_test_info": {
+    "n_features": 13,
+    "t_features": 0.013,
+    "n_views": 1,
+    "view_sizes": [
+      1025
+    ],
+    "t_model": 0.652,
+    "t_total": 0.666,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 1.076,
+  "cv_trajectory": [
+    [
+      1,
+      740.2209652545938
+    ],
+    [
+      2,
+      737.860837506203
+    ],
+    [
+      3,
+      739.7637113140553
+    ],
+    [
+      4,
+      736.2621987351922
+    ],
+    [
+      5,
+      null
+    ],
+    [
+      6,
+      738.6746407610094
+    ],
+    [
+      7,
+      4671.60408429542
+    ],
+    [
+      8,
+      738.5894495851556
+    ],
+    [
+      9,
+      737.607895068542
+    ],
+    [
+      10,
+      739.217817049288
+    ],
+    [
+      11,
+      736.6924478497825
+    ],
+    [
+      12,
+      737.0562620400651
+    ],
+    [
+      13,
+      795.293976977764
+    ],
+    [
+      14,
+      737.0035026899119
+    ],
+    [
+      15,
+      736.4455088076146
+    ]
+  ],
+  "elapsed_s": 285.23,
+  "status": "ok"
+}

@@ -1,0 +1,132 @@
+{
+  "dataset": "airfoil_self_noise",
+  "task_type": "regression",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "rmse",
+  "harness": "openai",
+  "llm_model": "zai-org/GLM-4.5-Air-FP8",
+  "n_evals": 18,
+  "n_evals_ok": 17,
+  "p0_cv": 1.3458006878558944,
+  "best_cv": 1.2823746550157247,
+  "best_candidate": "eval_014.py",
+  "agent": {
+    "harness": "openai",
+    "rc": 0,
+    "elapsed_s": 346.4,
+    "n_turns": 36,
+    "tool_counts": {
+      "read_file": 1,
+      "describe_data": 1,
+      "run_eval": 17,
+      "write_pipeline": 16,
+      "finish": 1
+    },
+    "usage": {
+      "input_tokens": 494664,
+      "output_tokens": 24805
+    },
+    "model": "zai-org/GLM-4.5-Air-FP8",
+    "rich_context": false
+  },
+  "p0_test": 0.8147960500957947,
+  "p0_test_secondary": {
+    "rmse": 0.8147960500957947,
+    "mae": 0.5648736538154158,
+    "r2": 0.9862404729754558
+  },
+  "best_test": 0.7947589160021183,
+  "best_test_secondary": {
+    "rmse": 0.7947589160021183,
+    "mae": 0.5326970822580257,
+    "r2": 0.9869088893685413
+  },
+  "best_test_info": {
+    "n_features": 20,
+    "t_features": 0.017,
+    "n_views": 1,
+    "view_sizes": [
+      1002
+    ],
+    "t_model": 0.701,
+    "t_total": 0.719,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 2.459,
+  "cv_trajectory": [
+    [
+      1,
+      1.3458006878558944
+    ],
+    [
+      2,
+      1.3534784271717581
+    ],
+    [
+      3,
+      1.3543412568636246
+    ],
+    [
+      4,
+      null
+    ],
+    [
+      5,
+      1.3726449227891384
+    ],
+    [
+      6,
+      1.3240642976263264
+    ],
+    [
+      7,
+      1.311815181890408
+    ],
+    [
+      8,
+      1.320214048961396
+    ],
+    [
+      9,
+      1.3148324916201999
+    ],
+    [
+      10,
+      1.2933752334662103
+    ],
+    [
+      11,
+      1.292210990382305
+    ],
+    [
+      12,
+      1.291443126807349
+    ],
+    [
+      13,
+      1.8278711130118772
+    ],
+    [
+      14,
+      1.2823746550157247
+    ],
+    [
+      15,
+      1.3077209463707773
+    ],
+    [
+      16,
+      1.3789927408975746
+    ],
+    [
+      17,
+      1.2878163457721261
+    ],
+    [
+      18,
+      1.293211169395921
+    ]
+  ],
+  "elapsed_s": 357.66,
+  "status": "ok"
+}
