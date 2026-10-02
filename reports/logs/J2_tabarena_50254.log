@@ -1,2 +1,36 @@
 # job 50254 J2_tabarena exit=0 Fri Oct  2 15:56:20 UTC 2026
 # last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_1.out
+=== J2 tabarena task 1 === job 50254 Fri Oct  2 15:52:05 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=diabetes model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:52:45,830 INFO P0 cv 1-auroc = 0.1682833559952204
+2026-10-02 15:55:50,284 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155211Z_J2_heuristic_diabetes/search/diabetes/metrics.json
+2026-10-02 15:56:15,476 INFO diabetes                                 P0=0.15962 P*=0.16228 | paper TabFM=0.158 TabFM-Auto(Opus5)=0.1471 | 231s
+2026-10-02 15:56:15,522 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155211Z_J2_heuristic_diabetes/metrics.json
+1 datasets: ['diabetes']
+pipeline        P*        P0
+dataset                     
+diabetes  0.162277  0.159621
+[collect] copied 76 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o f8ba97e] J2: tabarena diabetes heuristic (job 50254)
+ 10 files changed, 680 insertions(+)
+ create mode 100644 reports/logs/J2_tabarena_50255.log
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_diabetes/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_diabetes/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_diabetes/metrics.json
+ create mode 100644 reports/runs/20261002T155211Z_J2_heuristic_diabetes/results.csv
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_QSAR_fish_toxicity/search/QSAR_fish_toxicity/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_QSAR_fish_toxicity/search/QSAR_fish_toxicity/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_maternal_health_risk/search/maternal_health_risk/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155220Z_J2_heuristic_maternal_health_risk/search/maternal_health_risk/metrics.json
+ create mode 100644 reports/runs/20261002T155610Z_J2_heuristic_website_phishing/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   dd18390..f8ba97e  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 diabetes done Fri Oct  2 15:56:20 UTC 2026 ===
