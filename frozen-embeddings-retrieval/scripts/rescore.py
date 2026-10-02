@@ -11,7 +11,7 @@ from fer.db import load_northwind, load_shop
 from fer.retrieval_bench import run_benchmark
 
 NORTHWIND = sys.argv[1] if len(sys.argv) > 1 else None
-for d in sorted(glob.glob("runs/*bench_*")):
+for d in sorted(set(glob.glob("runs/*bench_*") + glob.glob("runs/*retrieval*") + glob.glob("runs/*exp04*"))):
     cfg = json.load(open(f"{d}/config.json"))["config"]
     if cfg.get("kind") == "northwind":
         if not NORTHWIND:

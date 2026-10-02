@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import warnings
 from pathlib import Path
 
@@ -26,7 +27,7 @@ def main() -> None:
     ap.add_argument("--device", default="cuda"); ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--name", default="relbench_hm")
     a = ap.parse_args()
-    with RunLogger(a.name, vars(a), root=Path(__file__).resolve().parents[1] / "runs") as run:
+    with RunLogger(a.name, vars(a), root=os.environ.get("TABFM_RUNS_ROOT", Path(__file__).resolve().parents[1] / "runs")) as run:
         task, db = load_task(a.dataset, a.task)
         out = {}
         for split in a.splits.split(","):

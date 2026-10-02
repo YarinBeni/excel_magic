@@ -25,7 +25,9 @@ warnings.filterwarnings("ignore")
 
 
 def find_search_runs(root: Path) -> list[Path]:
-    return sorted(d for d in root.glob("*search_*") if (d / "best_pipeline.py").exists() and (d / "split.json").exists())
+    """Every run dir that holds a discovered pipeline and its split (any harness, any name)."""
+    return sorted(d for d in root.glob("*") if (d / "best_pipeline.py").exists() and (d / "split.json").exists()
+                  and (d / "workspace" / "candidates" / "eval_001.py").exists())
 
 
 def main() -> None:

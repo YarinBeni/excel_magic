@@ -8,7 +8,7 @@ import pandas as pd
 
 rows = []
 used = []
-for d in sorted(glob.glob("runs/*bench_*")):
+for d in sorted(set(glob.glob("runs/*bench_*") + glob.glob("runs/*retrieval*") + glob.glob("runs/*exp04*"))):
     import os
     if not os.path.exists(f"{d}/metrics.json"):
         print("skipping incomplete run", d); continue

@@ -10,6 +10,7 @@ openrfm_random : same architecture with random weights (control: does pre-traini
 """
 from __future__ import annotations
 
+import os
 import sys
 import time
 from collections.abc import Callable
@@ -260,7 +261,8 @@ EMBEDDERS: dict[str, Callable[..., np.ndarray]] = {
 
 
 # -------------------------------------------------------------------------------------------------
-def embed_kumo_relational(db: ShopDB, batch_size: int = 256, seed: int = 0, log: Any = None, **_) -> np.ndarray:
+def embed_kumo_relational(db: ShopDB, batch_size: int = 256, seed: int = 0, log: Any = None, target: str = "random",
+                          n_clusters: int = 8, **_) -> np.ndarray:
     """Graph embedding of each customer from NVIDIA's KumoRelational (sdm): the readout-token state that
     enters the ICL head, captured with a forward pre-hook (same pattern as sdm/examples/tabular/quickstart.py).
 
@@ -311,7 +313,13 @@ def embed_kumo_relational(db: ShopDB, batch_size: int = 256, seed: int = 0, log:
                             task_links=[{"task_columns": "customer_id", "table": "customers", "table_columns": "customer_id"}])
     # a dummy binary target: the model needs *some* labelled context; targets are random so they carry no signal
     rng = np.random.default_rng(seed)
-    task_df = pd.DataFrame({"customer_id": cust.customer_id.to_numpy(), "y": rng.integers(0, 2, len(cust)).astype(str)})
+    if target == "kmeans":  # structure-preserving in-context target: k-means on the hand aggregates (no labels)
+        from sklearn.cluster import KMeans
+
+        y_ctx = KMeans(n_clusters, n_init=4, random_state=seed).fit_predict(embed_agg(db))
+    else:
+        y_ctx = rng.integers(0, 2, len(cust))
+    task_df = pd.DataFrame({"customer_id": cust.customer_id.to_numpy(), "y": y_ctx.astype(str)})
     task = tt(task_df, {"customer_id": "id", "y": "categorical"})
     model = KumoRelational(task="classification", device=dev)
     model.eval()
@@ -344,9 +352,25 @@ def embed_kumo_relational(db: ShopDB, batch_size: int = 256, seed: int = 0, log:
 
 
 EMBEDDERS["kumo_relational"] = embed_kumo_relational
+EMBEDDERS["kumo_relational_kmeans"] = lambda db, **kw: embed_kumo_relational(db, target="kmeans", **kw)
 
 
 # -------------------------------------------------------------------------------------------------
+TABPFN_DEVICE = os.environ.get("FER_DEVICE", "cpu")
+
+
+def _tabpfn_spec(n_estimators: int, task: str = "binary") -> str:
+    """TabPFN spec for embeddings: float32 inference so get_embeddings never returns bfloat16 on GPU."""
+    return f"tabpfn:n_estimators={n_estimators},device={TABPFN_DEVICE},inference_precision=float32"
+
+
+def _to_np(E) -> np.ndarray:
+    if hasattr(E, "detach"):
+        E = E.detach().float().cpu().numpy()
+    E = np.asarray(E, dtype=np.float32)
+    return E.mean(0) if E.ndim == 3 else E
+
+
 def embed_tabpfn(db: ShopDB, table: str = "agg", target: str = "none", n_estimators: int = 1, seed: int = 0,
                  log: Any = None, **_) -> np.ndarray:
     """Hidden-state embeddings of the frozen TABULAR foundation model (TabPFN v2) for each customer row.
@@ -368,13 +392,10 @@ def embed_tabpfn(db: ShopDB, table: str = "agg", target: str = "none", n_estimat
         y = rng.integers(0, 2, len(Xdf))
     n = len(Xdf)
     ctx = rng.choice(n, min(n, 1000), replace=False)  # TabPFN context (CPU budget); all rows are embedded as test rows
-    clf = get_model(f"tabpfn:n_estimators={n_estimators}", "binary")
+    clf = get_model(_tabpfn_spec(n_estimators), "binary")
     t0 = time.time()
     clf.fit(Xdf.iloc[ctx], y[ctx])
-    E = clf.get_embeddings(Xdf, data_source="test")
-    E = np.asarray(E, dtype=np.float32)
-    if E.ndim == 3:  # (n_estimators, n_rows, dim)
-        E = E.mean(0)
+    E = _to_np(clf.get_embeddings(Xdf, data_source="test"))
     if log is not None:
         log.event("tabpfn_embed_done", table=table, target=target, seconds=round(time.time() - t0, 1), dim=int(E.shape[1]))
     return E
@@ -409,10 +430,9 @@ def embed_tabpfn_multi(db: ShopDB, table: str = "agg", target: str = "random", n
         ctx = rng.choice(n, min(n, 1000), replace=False)
         if len(np.unique(y[ctx])) < 2:
             y = y.copy(); y[ctx[0]] = 1 - y[ctx[0]]
-        clf = get_model(f"tabpfn:n_estimators={n_estimators}", "binary")
+        clf = get_model(_tabpfn_spec(n_estimators), "binary")
         clf.fit(Xdf.iloc[ctx], y[ctx])
-        E = np.asarray(clf.get_embeddings(Xdf, data_source="test"), dtype=np.float32)
-        return E.mean(0) if E.ndim == 3 else E
+        return _to_np(clf.get_embeddings(Xdf, data_source="test"))
 
     t0 = time.time()
     if target == "random":
@@ -423,10 +443,9 @@ def embed_tabpfn_multi(db: ShopDB, table: str = "agg", target: str = "random", n
         # TabPFN classifier handles multiclass; map to <=8 classes directly
         Xdf = pd.DataFrame(X, columns=[f"f{i}" for i in range(X.shape[1])])
         ctx = rng.choice(n, min(n, 1000), replace=False)
-        clf = get_model(f"tabpfn:n_estimators={n_estimators}", "multiclass")
+        clf = get_model(_tabpfn_spec(n_estimators), "multiclass")
         clf.fit(Xdf.iloc[ctx], y[ctx])
-        E = np.asarray(clf.get_embeddings(Xdf, data_source="test"), dtype=np.float32)
-        embs.append(E.mean(0) if E.ndim == 3 else E)
+        embs.append(_to_np(clf.get_embeddings(Xdf, data_source="test")))
     elif target == "feature":
         var = X.var(0)
         cols = np.argsort(-var)[:n_targets]

@@ -8,6 +8,7 @@ Example: python experiments/exp01_retrieval_benchmark.py --embedders row,agg,gnn
 from __future__ import annotations
 
 import argparse
+import os
 import time
 import warnings
 from pathlib import Path
@@ -33,7 +34,7 @@ def main() -> None:
     ap.add_argument("--name", default="exp01_retrieval_benchmark")
     a = ap.parse_args()
     cfg = vars(a)
-    with RunLogger(a.name, cfg, root=Path(__file__).resolve().parents[1] / "runs") as run:
+    with RunLogger(a.name, cfg, root=os.environ.get("TABFM_RUNS_ROOT", Path(__file__).resolve().parents[1] / "runs")) as run:
         if a.kind == "synth":
             generate(a.db)
             db = load_shop(a.db)

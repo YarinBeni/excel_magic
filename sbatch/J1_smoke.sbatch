@@ -26,9 +26,11 @@ for ds in synth_physics synth_entities; do
 done
 python examples/04_backbone_transfer.py --models "tabpfn,tabpfn-2.5,tabicl,kumo-tabular-s,kumo-tabular-m,kumo-tabular-l,exaone,hgb" --name J1_transfer || echo "[J1] c) FAILED"
 cd ../frozen-embeddings-retrieval
+export FER_DEVICE=cuda
+mkdir -p weights && ln -sfn "$TABFM_WEIGHTS_DIR/openrfm" weights/openrfm && ln -sfn "$TABFM_WEIGHTS_DIR/tabpfn" weights/tabpfn
 for s in 0 1 2; do
     python experiments/exp01_retrieval_benchmark.py --seed $s --name "J1_retrieval_seed$s" \
-        --embedders row,agg,tabpfn_agg_kmeans,tabpfn_agg,gnn,openrfm,kumo_relational || echo "[J1] d) seed $s FAILED"
+        --embedders row,agg,tabpfn_agg_kmeans,tabpfn_agg,gnn,openrfm,kumo_relational,kumo_relational_kmeans || echo "[J1] d) seed $s FAILED"
 done
 python scripts/rescore.py >/dev/null 2>&1 || true
 python scripts/aggregate_runs.py > ../reports/J1_retrieval_aggregate.md 2>&1 || true

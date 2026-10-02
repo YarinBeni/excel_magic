@@ -82,6 +82,10 @@ def _tabpfn(card, task_type: str, kw: dict[str, Any]):
             model_path = str(local)
     params = {"model_path": model_path, "device": kw.pop("device", "cpu"), "n_estimators": kw.pop("n_estimators", 4),
               "random_state": kw.pop("random_state", 0), "ignore_pretraining_limits": True}
+    if isinstance(kw.get("inference_precision"), str) and kw["inference_precision"] not in ("auto", "autocast"):
+        import torch
+
+        kw["inference_precision"] = getattr(torch, kw["inference_precision"])  # "float32" -> torch.float32
     params.update(kw)
     return (TabPFNRegressor if reg else TabPFNClassifier)(**params)
 

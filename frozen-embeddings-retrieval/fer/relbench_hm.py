@@ -89,11 +89,14 @@ def embed_tabpfn(X: np.ndarray, target: str = "kmeans", seed: int = 0, n_context
         y = rng.integers(0, 2, n)
         task_type = "binary"
     ctx = rng.choice(n, min(n, n_context), replace=False)
-    clf = get_model(f"tabpfn:n_estimators=1,device={device}", task_type)
+    clf = get_model(f"tabpfn:n_estimators=1,device={device},inference_precision=float32", task_type)
     clf.fit(Xdf.iloc[ctx], y[ctx])
     out = []
     for s in range(0, n, chunk):
-        E = np.asarray(clf.get_embeddings(Xdf.iloc[s:s + chunk], data_source="test"), dtype=np.float32)
+        E = clf.get_embeddings(Xdf.iloc[s:s + chunk], data_source="test")
+        if hasattr(E, "detach"):
+            E = E.detach().float().cpu().numpy()
+        E = np.asarray(E, dtype=np.float32)
         out.append(E.mean(0) if E.ndim == 3 else E)
     return np.concatenate(out, 0)
 
@@ -136,6 +139,22 @@ def knn_cf(E: np.ndarray, P: sp.csr_matrix, query_rows: np.ndarray, k_neighbors:
     return out
 
 
+def map_at_k(pred: np.ndarray, truth_lists, K: int) -> float:
+    """Mean average precision @K with per-row truth given as array-likes of destination ids (RelBench's formula)."""
+    aps = []
+    for p, t in zip(pred, truth_lists):
+        t = set(np.atleast_1d(t).tolist())
+        if not t:
+            continue
+        hits, score = 0, 0.0
+        for i, a in enumerate(p[:K]):
+            if a in t:
+                hits += 1
+                score += hits / (i + 1)
+        aps.append(score / min(len(t), K))
+    return float(np.mean(aps)) if aps else float("nan")
+
+
 def past_visit(tx: pd.DataFrame, queries: np.ndarray, pop_articles: np.ndarray, K: int = 12) -> np.ndarray:
     t = tx[tx["customer_id"].isin(queries)].sort_values("t_dat", ascending=False)
     last = t.groupby("customer_id")["article_id"].apply(lambda s: list(dict.fromkeys(s))[:K])
@@ -169,17 +188,19 @@ def run_split(task, db, split: str, embedders: list[str], hist_days: int = 365, 
     pop_counts = tx["article_id"].value_counts()
     pop = pop_counts.reindex(articles).fillna(0).to_numpy(np.float32)
     pop_top = pop_counts.index[:K].to_numpy()
-    target = task.get_table(split)  # masked target table for evaluation
+    subset = sample_queries is not None and len(tbl) < len(task.get_table(split).df)
     res: dict[str, Any] = {"split": split, "cutoff": str(cutoff.date()), "n_queries": len(queries), "hist_days": hist_days,
-                           "K": K, "rows": {}}
+                           "K": K, "rows": {}, "official_evaluator": not subset}
 
     def evaluate(name: str, pred_articles: np.ndarray):
-        pred_df = pd.DataFrame({"customer_id": queries})
-        pred_df = pred_df.merge(tbl[["customer_id"]].drop_duplicates(), on="customer_id")
-        # task.evaluate expects an array aligned with the target table rows
         m = pd.Series(np.arange(len(queries)), index=queries)
-        aligned = pred_articles[m[tbl["customer_id"].to_numpy()].to_numpy()]
-        r = task.evaluate(aligned, target)
+        aligned = pred_articles[m[tbl["customer_id"].to_numpy()].to_numpy()]  # one row per task-table row
+        if subset:  # the official evaluator needs the full table; use the same MAP@K formula on the subset
+            r = {"map": map_at_k(aligned, tbl["article_id"].to_numpy(), K)}
+        elif split == "test":
+            r = task.evaluate(aligned)  # relbench reads the hidden test targets itself
+        else:
+            r = task.evaluate(aligned, task.get_table(split))
         res["rows"][name] = {k: float(v) for k, v in r.items()}
         if log is not None:
             log.event("relbench_row", split=split, name=name, **res["rows"][name])

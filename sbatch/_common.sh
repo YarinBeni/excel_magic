@@ -16,6 +16,7 @@ job_prologue() {
     export OPENML_CACHE_DIR="$REPO/artifacts/openml"
     export HF_HUB_DOWNLOAD_TIMEOUT=60
     export TOKENIZERS_PARALLELISM=false
+    export FER_DEVICE=cuda
     export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-4}"
     if [ -f "$VENV/bin/activate" ]; then source "$VENV/bin/activate"; fi
     echo "python=$(which python) $(python --version 2>&1) gpu=$(nvidia-smi --query-gpu=name --format=csv,noheader 2>/dev/null | head -1)"
