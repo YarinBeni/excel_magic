@@ -1,0 +1,92 @@
+# job 50194 J1_smoke exit=0 Fri Oct  2 15:39:28 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J1_smoke_50194.out
+=== J1 smoke === job 50194 Fri Oct  2 15:38:03 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+2026-10-02 15:38:16,780 INFO wine             tabpfn:n_estimators=4    logloss=0.03588 (1.7s) 
+2026-10-02 15:38:16,790 INFO wine             device=cuda              logloss=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:38:20,636 INFO wine             tabicl:device=cuda       logloss=0.01584 (3.9s) 
+2026-10-02 15:38:20,647 INFO wine             kumo-tabular-s:n_estimators=4 logloss=None (0.0s) RuntimeError: model 'kumo-tabular-s' is not runnable here: package sdm missing. Run `tabfm-models download kumo-tabular-s` (needs huggingface.co unless a mirror exists).
+2026-10-02 15:38:20,654 INFO wine             device=cuda              logloss=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:38:21,725 INFO wine             tabpfn-2.5:n_estimators=4 logloss=0.036 (1.1s) 
+2026-10-02 15:38:21,733 INFO wine             device=cuda              logloss=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:38:22,066 INFO wine             hgb                      logloss=0.09652 (0.3s) 
+2026-10-02 15:38:29,893 INFO breast_cancer    tabpfn:n_estimators=4    1-auroc=0.004 (7.8s) 
+2026-10-02 15:38:29,910 INFO breast_cancer    device=cuda              1-auroc=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:38:31,352 INFO breast_cancer    tabicl:device=cuda       1-auroc=0.00415 (1.4s) 
+2026-10-02 15:38:31,370 INFO breast_cancer    kumo-tabular-s:n_estimators=4 1-auroc=None (0.0s) RuntimeError: model 'kumo-tabular-s' is not runnable here: package sdm missing. Run `tabfm-models download kumo-tabular-s` (needs huggingface.co unless a mirror exists).
+2026-10-02 15:38:31,385 INFO breast_cancer    device=cuda              1-auroc=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:38:34,896 INFO breast_cancer    tabpfn-2.5:n_estimators=4 1-auroc=0.004 (3.5s) 
+2026-10-02 15:38:34,913 INFO breast_cancer    device=cuda              1-auroc=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:38:35,254 INFO breast_cancer    hgb                      1-auroc=0.00586 (0.3s) 
+2026-10-02 15:38:36,866 INFO diabetes         tabpfn:n_estimators=4    rmse=54.25442 (1.6s) 
+2026-10-02 15:38:36,873 INFO diabetes         device=cuda              rmse=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:38:38,688 INFO diabetes         tabicl:device=cuda       rmse=53.72629 (1.8s) 
+2026-10-02 15:38:38,695 INFO diabetes         kumo-tabular-s:n_estimators=4 rmse=None (0.0s) RuntimeError: model 'kumo-tabular-s' is not runnable here: package sdm missing. Run `tabfm-models download kumo-tabular-s` (needs huggingface.co unless a mirror exists).
+2026-10-02 15:38:38,702 INFO diabetes         device=cuda              rmse=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:38:40,417 INFO diabetes         tabpfn-2.5:n_estimators=4 rmse=54.17483 (1.7s) 
+2026-10-02 15:38:40,425 INFO diabetes         device=cuda              rmse=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:38:40,799 INFO diabetes         hgb                      rmse=60.51728 (0.4s) 
+2026-10-02 15:38:42,041 INFO synth_physics    tabpfn:n_estimators=4    rmse=0.09365 (1.2s) 
+2026-10-02 15:38:42,045 INFO synth_physics    device=cuda              rmse=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:38:43,317 INFO synth_physics    tabicl:device=cuda       rmse=0.09514 (1.3s) 
+2026-10-02 15:38:43,322 INFO synth_physics    kumo-tabular-s:n_estimators=4 rmse=None (0.0s) RuntimeError: model 'kumo-tabular-s' is not runnable here: package sdm missing. Run `tabfm-models download kumo-tabular-s` (needs huggingface.co unless a mirror exists).
+2026-10-02 15:38:43,327 INFO synth_physics    device=cuda              rmse=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:38:44,946 INFO synth_physics    tabpfn-2.5:n_estimators=4 rmse=0.09659 (1.6s) 
+2026-10-02 15:38:44,951 INFO synth_physics    device=cuda              rmse=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:38:45,188 INFO synth_physics    hgb                      rmse=0.35393 (0.2s) 
+2026-10-02 15:38:48,431 INFO synth_entities   tabpfn:n_estimators=4    1-auroc=0.50102 (3.2s) 
+2026-10-02 15:38:48,435 INFO synth_entities   device=cuda              1-auroc=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:38:49,904 INFO synth_entities   tabicl:device=cuda       1-auroc=0.44391 (1.5s) 
+2026-10-02 15:38:49,910 INFO synth_entities   kumo-tabular-s:n_estimators=4 1-auroc=None (0.0s) RuntimeError: model 'kumo-tabular-s' is not runnable here: package sdm missing. Run `tabfm-models download kumo-tabular-s` (needs huggingface.co unless a mirror exists).
+2026-10-02 15:38:49,914 INFO synth_entities   device=cuda              1-auroc=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:38:52,472 INFO synth_entities   tabpfn-2.5:n_estimators=4 1-auroc=0.45101 (2.6s) 
+2026-10-02 15:38:52,476 INFO synth_entities   device=cuda              1-auroc=None (0.0s) KeyError: "unknown model 'device=cuda'; known: ['exaone', 'kumo-relational', 'kumo-tabular-l', 'kumo-tabular-m', 'kumo-tabular-s', 'openrfm', 'rt-j', 'tabicl', 'tabiclv2-sdm', 'tabpfn', 'tabpfn-2.5', 'tabpfn-2.6', 'tabpfn-3', 'tabpfn-3.5', 'tabpfn-3.5-fast']"
+2026-10-02 15:38:52,935 INFO synth_entities   hgb                      1-auroc=0.4873 (0.5s) 
+2026-10-02 15:38:52,947 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T153807Z_J1_backbones/metrics.json
+| dataset | model | metric | score | std | cv s |
+|---|---|---|---|---|---|
+| wine | tabpfn:n_estimators=4 | logloss | 0.0359 | 0.0220 | 1.72 |
+| wine | device=cuda | logloss | ERR | 0.0000 | 0.01 |
+| wine | tabicl:device=cuda | logloss | 0.0158 | 0.0062 | 3.85 |
+| wine | kumo-tabular-s:n_estimators=4 | logloss | ERR | 0.0000 | 0.01 |
+| wine | device=cuda | logloss | ERR | 0.0000 | 0.01 |
+| wine | tabpfn-2.5:n_estimators=4 | logloss | 0.0360 | 0.0247 | 1.07 |
+| wine | device=cuda | logloss | ERR | 0.0000 | 0.01 |
+| wine | hgb | logloss | 0.0965 | 0.0359 | 0.33 |
+| breast_cancer | tabpfn:n_estimators=4 | 1-auroc | 0.0040 | 0.0028 | 7.8 |
+| breast_cancer | device=cuda | 1-auroc | ERR | 0.0000 | 0.02 |
+| breast_cancer | tabicl:device=cuda | 1-auroc | 0.0042 | 0.0024 | 1.44 |
+| breast_cancer | kumo-tabular-s:n_estimators=4 | 1-auroc | ERR | 0.0000 | 0.02 |
+| breast_cancer | device=cuda | 1-auroc | ERR | 0.0000 | 0.02 |
+| breast_cancer | tabpfn-2.5:n_estimators=4 | 1-auroc | 0.0040 | 0.0026 | 3.51 |
+| breast_cancer | device=cuda | 1-auroc | ERR | 0.0000 | 0.02 |
+| breast_cancer | hgb | 1-auroc | 0.0059 | 0.0047 | 0.34 |
+| diabetes | tabpfn:n_estimators=4 | rmse | 54.2544 | 1.5246 | 1.6 |
+| diabetes | device=cuda | rmse | ERR | 0.0000 | 0.01 |
+| diabetes | tabicl:device=cuda | rmse | 53.7263 | 1.7349 | 1.81 |
+| diabetes | kumo-tabular-s:n_estimators=4 | rmse | ERR | 0.0000 | 0.01 |
+| diabetes | device=cuda | rmse | ERR | 0.0000 | 0.01 |
+| diabetes | tabpfn-2.5:n_estimators=4 | rmse | 54.1748 | 1.5635 | 1.72 |
+| diabetes | device=cuda | rmse | ERR | 0.0000 | 0.01 |
+| diabetes | hgb | rmse | 60.5173 | 4.0053 | 0.37 |
+| synth_physics | tabpfn:n_estimators=4 | rmse | 0.0936 | 0.0018 | 1.24 |
+| synth_physics | device=cuda | rmse | ERR | 0.0000 | 0.0 |
+| synth_physics | tabicl:device=cuda | rmse | 0.0951 | 0.0069 | 1.27 |
+| synth_physics | kumo-tabular-s:n_estimators=4 | rmse | ERR | 0.0000 | 0.01 |
+| synth_physics | device=cuda | rmse | ERR | 0.0000 | 0.0 |
+| synth_physics | tabpfn-2.5:n_estimators=4 | rmse | 0.0966 | 0.0018 | 1.62 |
+| synth_physics | device=cuda | rmse | ERR | 0.0000 | 0.0 |
+| synth_physics | hgb | rmse | 0.3539 | 0.0278 | 0.24 |
+| synth_entities | tabpfn:n_estimators=4 | 1-auroc | 0.5010 | 0.0402 | 3.23 |
+| synth_entities | device=cuda | 1-auroc | ERR | 0.0000 | 0.0 |
+| synth_entities | tabicl:device=cuda | 1-auroc | 0.4439 | 0.0129 | 1.47 |
+| synth_entities | kumo-tabular-s:n_estimators=4 | 1-auroc | ERR | 0.0000 | 0.01 |
+| synth_entities | device=cuda | 1-auroc | ERR | 0.0000 | 0.0 |
+| synth_entities | tabpfn-2.5:n_estimators=4 | 1-auroc | 0.4510 | 0.0284 | 2.56 |
+| synth_entities | device=cuda | 1-auroc | ERR | 0.0000 | 0.0 |
+| synth_entities | hgb | 1-auroc | 0.4873 | 0.0126 | 0.46 |
+2026-10-02 15:39:06,084 INFO P0 cv rmse = None
+[2026-10-02T15:39:28.022] error: *** JOB 50194 ON g0381 CANCELLED AT 2026-10-02T15:39:28 DUE to SIGNAL Terminated ***
