@@ -1,0 +1,44 @@
+# job 50262 J2_tabarena exit=0 Fri Oct  2 15:57:53 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J2_tabarena_50245_7.out
+=== J2 tabarena task 7 === job 50262 Fri Oct  2 15:53:35 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+dataset=qsar-biodeg model=kumo-tabular-s:n_estimators=8,device=cuda harness=heuristic
+2026-10-02 15:54:06,041 INFO P0 cv 1-auroc = 0.06719247534651
+2026-10-02 15:57:17,858 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155339Z_J2_heuristic_qsar-biodeg/search/qsar-biodeg/metrics.json
+2026-10-02 15:57:46,774 INFO qsar-biodeg                              P0=0.05960 P*=0.06031 | paper TabFM=0.058 TabFM-Auto(Opus5)=0.0582 | 240s
+2026-10-02 15:57:46,848 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261002T155339Z_J2_heuristic_qsar-biodeg/metrics.json
+1 datasets: ['qsar-biodeg']
+pipeline           P*        P0
+dataset                        
+qsar-biodeg  0.060313  0.059598
+[collect] copied 119 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o b5ad4b1] J2: tabarena qsar-biodeg heuristic (job 50262)
+ 18 files changed, 1005 insertions(+)
+ create mode 100644 reports/runs/20261002T155339Z_J2_heuristic_qsar-biodeg/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261002T155339Z_J2_heuristic_qsar-biodeg/comparison_to_paper.md
+ create mode 100644 reports/runs/20261002T155339Z_J2_heuristic_qsar-biodeg/metrics.json
+ create mode 100644 reports/runs/20261002T155339Z_J2_heuristic_qsar-biodeg/results.csv
+ create mode 100644 reports/runs/20261002T155339Z_J2_heuristic_qsar-biodeg/search/qsar-biodeg/best_pipeline.py
+ create mode 100644 reports/runs/20261002T155339Z_J2_heuristic_qsar-biodeg/search/qsar-biodeg/heuristic_trace.json
+ create mode 100644 reports/runs/20261002T155339Z_J2_heuristic_qsar-biodeg/search/qsar-biodeg/metrics.json
+ create mode 100644 reports/runs/20261002T155339Z_J2_heuristic_qsar-biodeg/search/qsar-biodeg/workspace/NOTES.md
+ create mode 100644 reports/runs/20261002T155709Z_J2_heuristic_Is-this-a-good-customer/config.json
+ create mode 100644 reports/runs/20261002T155709Z_J2_heuristic_Is-this-a-good-customer/search/Is-this-a-good-customer/config.json
+ create mode 100644 reports/runs/20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500/config.json
+ create mode 100644 reports/runs/20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/config.json
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_MIC/config.json
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_MIC/search/MIC/config.json
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection/config.json
+ create mode 100644 reports/runs/20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/config.json
+ create mode 100644 reports/runs/20261002T155712Z_J2_heuristic_Marketing_Campaign/config.json
+ create mode 100644 reports/runs/20261002T155712Z_J2_heuristic_Marketing_Campaign/search/Marketing_Campaign/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   4ad5bce..b5ad4b1  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J2 qsar-biodeg done Fri Oct  2 15:57:53 UTC 2026 ===
