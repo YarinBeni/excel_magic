@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "diabetes",
+      "P*": 0.15970643283923858,
+      "P0": 0.15962774164379753,
+      "metric": "1-auroc",
+      "tabfm": 0.158,
+      "tabfm_auto_opus5": 0.1471,
+      "tabfm_auto_gemini38flash": 0.155,
+      "our_gain_%": -0.04929669155919033,
+      "paper_gain_opus5_%": 6.898734177215186,
+      "ours_vs_paper_tabfm": 1.010800207843282
+    }
+  ],
+  "elapsed_s": 54.5,
+  "status": "ok"
+}
