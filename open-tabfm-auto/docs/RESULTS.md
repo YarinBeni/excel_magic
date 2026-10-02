@@ -403,3 +403,16 @@ Same protocol as J2 (24 evals / 90 min, search on r0f0 train, P0 / P* on all 30 
 
 GLM-4.5-Air tool loop, final 17/17 (J8): mean -1.4%, 8/17 wins. J11 pi cv3 final: anneal -0.5% (was -5.2% with one repeat).
 Runs: `reports/runs/*J9_heuristic_kumoL_*`, `*J9_heuristic_tabiclv2_*`.
+
+## Kumo Relational on rel-hm user-churn (cluster job J14, 50826): entity-level kNN probe, AUROC
+
+| method | AUROC |
+|---|---|
+| Supervised HGB on aggregates | 0.673 |
+| Supervised TabPFN on aggregates | 0.672 |
+| kNN[kumo_relational_random] | **0.660** |
+| kNN[agg] | 0.653 |
+| kNN[tabpfn_agg_kmeans] | 0.648 |
+| kNN[kumo_relational_kmeans] | 0.644 |
+
+Graph: customers <- transactions -> articles, 365-day window, 2 hops, 64 context rows; 172 s for 20k customers on one H200.

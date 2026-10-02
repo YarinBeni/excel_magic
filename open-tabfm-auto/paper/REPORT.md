@@ -299,6 +299,11 @@ to: a frozen TFM with a k-means in-context target is a target-agnostic entity re
 of the features it is given (and recovers planted segments from them), at zero training cost; it is not a better
 representation than those features, and it is not an item-level retrieval embedding.
 
+**Relational FM on real data (J14, same churn probe):** frozen Kumo Relational over the rel-hm graph scores **0.660** with
+a random in-context target and 0.644 with the k-means target, against 0.653 for the hand aggregates, 0.648 for TabPFN
+over them and 0.672 supervised. It is the only training-free row above its tabular input, by 0.7 AUROC points: a small
+but real graph signal. The k-means target, which helped every tabular embedding, removes it here. Item-level rows pending.
+
 ## 6. Ablations and analysis
 - **Harness at fixed LLM** (§5.2): pi +50% > aider +42% > Qwen Code +26% > tool loop ~0% on synth_entities with
   Qwen3-Coder-30B. The CLI agents read the task text and the data files themselves and iterate on eval output; the

@@ -68,7 +68,7 @@ Every number: `docs/run-log.md` (mean +/- sd over seeds 0-2, `scripts/aggregate_
 
 ## Real benchmark: RelBench rel-hm (official evaluator, test MAP@12 x100)
 
-GlobalPopularity 0.29, PastVisit 2.20, published ID-GNN 2.81; **our frozen-embedding kNN rows 0.14-0.26, below popularity; classic user-kNN on the raw purchase matrix 1.20 and Past+kNN-CF 2.22 (> PastVisit 2.20), so the kNN scoring is fine and the customer-level embeddings are what lack the item signal; feeding SVD factors of the purchase matrix through the frozen TabPFN keeps only half of their value (0.83 raw factors -> 0.42 TabPFN), so at item level on rel-hm the frozen hidden state is worse than its own input; at entity level (user-churn, kNN probe AUROC) it equals its input (0.648 vs 0.653 raw aggregates; supervised HGB 0.673).**
+GlobalPopularity 0.29, PastVisit 2.20, published ID-GNN 2.81; **our frozen-embedding kNN rows 0.14-0.26, below popularity; classic user-kNN on the raw purchase matrix 1.20 and Past+kNN-CF 2.22 (> PastVisit 2.20), so the kNN scoring is fine and the customer-level embeddings are what lack the item signal; feeding SVD factors of the purchase matrix through the frozen TabPFN keeps only half of their value (0.83 raw factors -> 0.42 TabPFN), so at item level on rel-hm the frozen hidden state is worse than its own input; at entity level (user-churn, kNN probe AUROC) it equals its input (0.648 vs 0.653 raw aggregates; supervised HGB 0.673); the frozen relational model (Kumo Relational, random target) is the one row above its input, 0.660.**
 Customer-level embeddings over coarse aggregates do not carry article-level preference (105k articles); see
 `docs/run-log.md`. This is the honest state of the real-data test; the synthetic-DB results above do not transfer yet.
 

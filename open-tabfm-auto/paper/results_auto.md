@@ -1,5 +1,5 @@
 # Auto-generated results tables
-_from 199 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
+_from 201 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
 
 ## T1. Frozen backbones with the identity pipeline (3-fold CV, lower is better)
 |                               |     hgb |   kumo-tabular-l |   kumo-tabular-m |   kumo-tabular-s |   tabicl |   tabpfn |   tabpfn-2.5 |
@@ -264,15 +264,17 @@ _from 199 runs under runs, /home/user/excel_magic/reports/runs, /home/user/froze
 | kNN-CF[tabpfn_svd_random]           |  0.475 | 0.514 |
 
 ## T7. RelBench rel-hm user-churn, entity-level kNN probe (AUROC, random customer folds)
-| method                    |   AUROC |
-|:--------------------------|--------:|
-| Supervised[hgb on agg]    |  0.6725 |
-| Supervised[tabpfn on agg] |  0.6715 |
-| kNN[agg]                  |  0.6530 |
-| kNN[tabpfn_agg_kmeans]    |  0.6484 |
-| kNN[tabpfn_svd_kmeans]    |  0.6450 |
-| kNN[tabpfn_agg_random]    |  0.6425 |
-| kNN[svd_agg]              |  0.6375 |
-| kNN[svd]                  |  0.5901 |
-| kNN[row]                  |  0.5198 |
-| MajorityPrior             |  0.5000 |
+| method                      |   AUROC |
+|:----------------------------|--------:|
+| Supervised[hgb on agg]      |  0.6725 |
+| Supervised[tabpfn on agg]   |  0.6715 |
+| kNN[kumo_relational_random] |  0.6603 |
+| kNN[agg]                    |  0.6530 |
+| kNN[tabpfn_agg_kmeans]      |  0.6484 |
+| kNN[tabpfn_svd_kmeans]      |  0.6450 |
+| kNN[kumo_relational_kmeans] |  0.6443 |
+| kNN[tabpfn_agg_random]      |  0.6425 |
+| kNN[svd_agg]                |  0.6375 |
+| kNN[svd]                    |  0.5901 |
+| kNN[row]                    |  0.5198 |
+| MajorityPrior               |  0.5000 |

@@ -74,3 +74,10 @@ features it is given, at no training cost; they do not add relational signal the
 interaction matrix for item retrieval. A paper needs either a setting where that target-agnosticity is the point (many
 downstream tasks per entity, one embedding) or a relational FM whose hidden state actually carries neighbour information
 (OpenRFM 0.25 and Kumo Relational 0.62 did not beat TabPFN-over-aggregates 0.82 on the synthetic segments).
+
+**2026-10-02 J14 status note.** Kumo Relational on rel-hm user-churn: 0.660 AUROC by kNN with a random in-context target,
+above the aggregates (0.653) and the tabular TFM over them (0.648), below supervised (0.672). First real-data evidence that
+a *relational* frozen hidden state carries graph signal the hand features lack, by a small margin; the k-means target
+(0.644) removes it. If the item-level rows (pending) show the same ordering, the paper's positive claim becomes: frozen
+relational-FM hidden states are weak but real graph-aware entity embeddings, and the in-context target must be
+uninformative (random) to keep that signal.

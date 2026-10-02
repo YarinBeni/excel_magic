@@ -123,3 +123,16 @@ Run: reports/runs/20261002T203451Z_J12_churn_full (cluster branch).
 Addendum (J12c, job 50659): the supervised-TabPFN reference row is 0.672 AUROC, equal to HGB (0.673). So the same frozen
 model extracts the label when the label is in its context, and its label-free embedding + kNN (0.648) is 2.4 points below
 that: the price of the pseudo-target is exactly the gap between "frozen embedding" and "frozen model used as a classifier".
+
+## 2026-10-02 J14 (cluster job 50826): Kumo Relational on real data — entity level (rel-hm user-churn kNN probe, AUROC)
+Same 20,000 customers / 5 folds as J12. Frozen Kumo Relational (sdm) over the rel-hm graph customers <- transactions ->
+articles (365-day window, <= 200 transactions per customer, 2 hops, 64 context rows), readout-token state, 172 s on one H200.
+- kNN[kumo_relational_random] **0.660**; kNN[kumo_relational_kmeans] 0.644; kNN[agg] 0.653; kNN[tabpfn_agg_kmeans] 0.648;
+  supervised HGB 0.673, supervised TabPFN 0.672.
+Reading: the relational model's graph embedding with a *random* in-context target is the best training-free row, 0.7 AUROC
+points above the hand aggregates and 1.2 above the tabular TFM over them; it is the first row where a frozen embedding adds
+anything beyond its tabular input, and the gain is small (still 1.3 points below supervised). Here the k-means target
+hurts: it pulls the embedding toward the aggregate clusters and discards the graph signal, the opposite of the synthetic
+result (0.33 random -> 0.62 k-means), where the planted segments *were* the aggregate clusters. Item-level rows (user-item
+-purchase, official evaluator) follow in the same job.
+Run: reports/runs/20261002T231936Z_J14_kumo_churn (cluster branch).

@@ -94,3 +94,5 @@
   p0/best/gated1/gated2/ens3 re-scored on the finished J2/J8/J10 searches). Library: --select gated1|gated2, scripts/rescore_selection.py.
 - Re-collect worked (159 files). All of J8/J9/J10/J11 done. J9: Kumo-L identity pipeline beats paper TabFM on 10/17 (+1.6%),
   heuristic search hurts it (-1.1%); TabICLv2 -10.9% behind. GLM loop final -1.4%. J14 (50826) / J15 (50827) queued.
+- J14 churn probe: Kumo Relational (random target) 0.660 AUROC > aggregates 0.653 > TabPFN 0.648; k-means target 0.644. First
+  frozen embedding above its input on real data (small). Item-level rows running.
