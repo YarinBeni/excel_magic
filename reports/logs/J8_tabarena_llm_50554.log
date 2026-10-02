@@ -1,0 +1,46 @@
+# job 50554 J8_tabarena_llm exit=1 Fri Oct  2 19:31:18 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J8_tabarena_llm_50554_1.out
+=== J8 tabarena llm task 1 === job 50554 Fri Oct  2 19:20:15 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+[vllm] serving zai-org/GLM-4.5-Air-FP8 on :8301 with --tool-call-parser glm45
+[vllm] failed with parser glm45; root-cause lines from artifacts/vllm/J8_tabarena_llm_50554_glm45.log:
+(EngineCore_DP0 pid=823056) ERROR 10-02 19:25:40 [core.py:1006]     num_gpu_blocks, num_cpu_blocks, kv_cache_config = self._initialize_kv_caches(
+(EngineCore_DP0 pid=823056) ERROR 10-02 19:25:40 [core.py:1006]                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=823056) ERROR 10-02 19:25:40 [core.py:1006]   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 259, in _initialize_kv_caches
+(EngineCore_DP0 pid=823056) ERROR 10-02 19:25:40 [core.py:1006]     kv_cache_configs = get_kv_cache_configs(
+(EngineCore_DP0 pid=823056) ERROR 10-02 19:25:40 [core.py:1006]                        ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=823056) ERROR 10-02 19:25:40 [core.py:1006]   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 1516, in get_kv_cache_configs
+(EngineCore_DP0 pid=823056) ERROR 10-02 19:25:40 [core.py:1006]     _check_enough_kv_cache_memory(
+(EngineCore_DP0 pid=823056) ERROR 10-02 19:25:40 [core.py:1006]   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 634, in _check_enough_kv_cache_memory
+(EngineCore_DP0 pid=823056) ERROR 10-02 19:25:40 [core.py:1006]     raise ValueError(
+(EngineCore_DP0 pid=823056) ERROR 10-02 19:25:40 [core.py:1006] ValueError: To serve at least one request with the models's max seq len (131072), (23.0 GiB KV cache is needed, which is larger than the available KV cache memory (18.17 GiB). Based on the available memory, the estimated maximum model length is 103520. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+(EngineCore_DP0 pid=823056)     _check_enough_kv_cache_memory(
+(EngineCore_DP0 pid=823056)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 634, in _check_enough_kv_cache_memory
+(EngineCore_DP0 pid=823056)     raise ValueError(
+(EngineCore_DP0 pid=823056) ValueError: To serve at least one request with the models's max seq len (131072), (23.0 GiB KV cache is needed, which is larger than the available KV cache memory (18.17 GiB). Based on the available memory, the estimated maximum model length is 103520. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+(APIServer pid=822462)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 984, in wait_for_engine_startup
+(APIServer pid=822462)     raise RuntimeError(
+(APIServer pid=822462) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+[vllm] serving zai-org/GLM-4.5-Air-FP8 on :8301 with --tool-call-parser hermes
+[vllm] failed with parser hermes; root-cause lines from artifacts/vllm/J8_tabarena_llm_50554_hermes.log:
+(EngineCore_DP0 pid=831441) ERROR 10-02 19:31:10 [core.py:1006]     num_gpu_blocks, num_cpu_blocks, kv_cache_config = self._initialize_kv_caches(
+(EngineCore_DP0 pid=831441) ERROR 10-02 19:31:10 [core.py:1006]                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=831441) ERROR 10-02 19:31:10 [core.py:1006]   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 259, in _initialize_kv_caches
+(EngineCore_DP0 pid=831441) ERROR 10-02 19:31:10 [core.py:1006]     kv_cache_configs = get_kv_cache_configs(
+(EngineCore_DP0 pid=831441) ERROR 10-02 19:31:10 [core.py:1006]                        ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=831441) ERROR 10-02 19:31:10 [core.py:1006]   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 1516, in get_kv_cache_configs
+(EngineCore_DP0 pid=831441) ERROR 10-02 19:31:10 [core.py:1006]     _check_enough_kv_cache_memory(
+(EngineCore_DP0 pid=831441) ERROR 10-02 19:31:10 [core.py:1006]   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 634, in _check_enough_kv_cache_memory
+(EngineCore_DP0 pid=831441) ERROR 10-02 19:31:10 [core.py:1006]     raise ValueError(
+(EngineCore_DP0 pid=831441) ERROR 10-02 19:31:10 [core.py:1006] ValueError: To serve at least one request with the models's max seq len (131072), (23.0 GiB KV cache is needed, which is larger than the available KV cache memory (18.17 GiB). Based on the available memory, the estimated maximum model length is 103520. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+(EngineCore_DP0 pid=831441)     _check_enough_kv_cache_memory(
+(EngineCore_DP0 pid=831441)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 634, in _check_enough_kv_cache_memory
+(EngineCore_DP0 pid=831441)     raise ValueError(
+(EngineCore_DP0 pid=831441) ValueError: To serve at least one request with the models's max seq len (131072), (23.0 GiB KV cache is needed, which is larger than the available KV cache memory (18.17 GiB). Based on the available memory, the estimated maximum model length is 103520. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+(APIServer pid=830966)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 984, in wait_for_engine_startup
+(APIServer pid=830966)     raise RuntimeError(
+(APIServer pid=830966) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+FAILED: vllm could not start
