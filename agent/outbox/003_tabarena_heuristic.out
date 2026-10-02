@@ -1,0 +1,13 @@
+# 003_tabarena_heuristic  host=g0377  start=Fri Oct  2 15:34:28 UTC 2026  timeout=300s
+# HEAD=8d7c6eb
+# ---------------------------------------------------------
+J2 array: 50204 (after J0)
+     33642   C8_ssl_probe  PENDING       0:00 (DependencyNeverSatisfied)
+     50192   AGENT_runner  RUNNING       1:56 g0377
+     50193       J0_setup  RUNNING       1:26 g0381
+     50194       J1_smoke  PENDING       0:00 (Dependency)
+     50195    J4_relbench  PENDING       0:00 (Dependency)
+     50204    J2_tabarena  PENDING       0:00 (None)
+ARRAY_JOB_           NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Fri Oct  2 15:34:28 UTC 2026
