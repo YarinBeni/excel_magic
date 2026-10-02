@@ -1,0 +1,86 @@
+{
+  "dataset": "blood-transfusion-service-center",
+  "task_type": "binary",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "1-auroc",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 9,
+  "n_evals_ok": 9,
+  "p0_cv": 0.24445788427087642,
+  "best_cv": 0.2425781512887812,
+  "best_candidate": "eval_002.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 98.0,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T191905Z_J8_pi_qwen3coder_blood-transfusion-service-center/search/blood-transfusion-service-center/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.26201754385964915,
+  "p0_test_secondary": {
+    "logloss": 0.4809589609735808,
+    "acc": 0.788,
+    "auroc": 0.7379824561403509,
+    "1-auroc": 0.26201754385964915
+  },
+  "best_test": 0.26368421052631574,
+  "best_test_secondary": {
+    "logloss": 0.48041743717386565,
+    "acc": 0.788,
+    "auroc": 0.7363157894736843,
+    "1-auroc": 0.26368421052631574
+  },
+  "best_test_info": {
+    "n_features": 4,
+    "t_features": 0.003,
+    "n_views": 1,
+    "view_sizes": [
+      498
+    ],
+    "t_model": 0.366,
+    "t_total": 0.369,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": -0.636,
+  "cv_trajectory": [
+    [
+      1,
+      0.24445788427087642
+    ],
+    [
+      2,
+      0.2425781512887812
+    ],
+    [
+      3,
+      0.2504983952326472
+    ],
+    [
+      4,
+      0.24741308378119406
+    ],
+    [
+      5,
+      0.24982772586119043
+    ],
+    [
+      6,
+      0.24882288351776538
+    ],
+    [
+      7,
+      0.24538264848304214
+    ],
+    [
+      8,
+      0.2469848921128449
+    ],
+    [
+      9,
+      0.2492255174833915
+    ]
+  ],
+  "elapsed_s": 107.21,
+  "status": "ok"
+}
