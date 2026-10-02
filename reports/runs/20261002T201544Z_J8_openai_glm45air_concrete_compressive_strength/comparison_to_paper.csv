@@ -1,0 +1,2 @@
+dataset,P*,P0,metric,tabfm,tabfm_auto_opus5,tabfm_auto_gemini38flash,our_gain_%,paper_gain_opus5_%,ours_vs_paper_tabfm
+concrete_compressive_strength,3.7847330538004273,3.847076650730111,rmse,3.9666,3.8169,3.8309,1.620544704193818,3.774013008621998,0.9541504194525354
