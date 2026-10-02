@@ -1,0 +1,42 @@
+# job 50365 J5_llm_sweep exit=1 Fri Oct  2 16:55:14 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J5_llm_sweep_50344_2.out
+=== J5 llm sweep task 2 === job 50365 Fri Oct  2 16:53:42 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+[vllm] serving zai-org/GLM-4.5-Air on :8102 with --tool-call-parser glm45
+[vllm] failed with parser glm45:
+(APIServer pid=3273081)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=3273081)     return func(*args, **kwargs)
+(APIServer pid=3273081)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3273081)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 1060, in __init__
+(APIServer pid=3273081)     super().__init__(
+(APIServer pid=3273081)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 656, in __init__
+(APIServer pid=3273081)     with launch_core_engines(
+(APIServer pid=3273081)          ^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3273081)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/contextlib.py", line 144, in __exit__
+(APIServer pid=3273081)     next(self.gen)
+(APIServer pid=3273081)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1240, in launch_core_engines
+(APIServer pid=3273081)     wait_for_engine_startup(
+(APIServer pid=3273081)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1320, in wait_for_engine_startup
+(APIServer pid=3273081)     raise RuntimeError(
+(APIServer pid=3273081) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+[vllm] serving zai-org/GLM-4.5-Air on :8102 with --tool-call-parser hermes
+[vllm] failed with parser hermes:
+(APIServer pid=3273604)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=3273604)     return func(*args, **kwargs)
+(APIServer pid=3273604)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3273604)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 1060, in __init__
+(APIServer pid=3273604)     super().__init__(
+(APIServer pid=3273604)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 656, in __init__
+(APIServer pid=3273604)     with launch_core_engines(
+(APIServer pid=3273604)          ^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=3273604)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/contextlib.py", line 144, in __exit__
+(APIServer pid=3273604)     next(self.gen)
+(APIServer pid=3273604)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1240, in launch_core_engines
+(APIServer pid=3273604)     wait_for_engine_startup(
+(APIServer pid=3273604)   File "/home/yarin.b/miniconda3/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1320, in wait_for_engine_startup
+(APIServer pid=3273604)     raise RuntimeError(
+(APIServer pid=3273604) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+FAILED: vllm could not start for zai-org/GLM-4.5-Air
