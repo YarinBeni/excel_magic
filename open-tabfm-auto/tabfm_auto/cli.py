@@ -40,7 +40,7 @@ def cmd_search(a) -> int:
     m = run_search(task, model_spec=a.model, harness=a.harness, llm_model=a.llm, budget_evals=a.budget_evals,
                    budget_minutes=a.budget_minutes, max_turns=a.max_turns, test_size=a.test_size, n_folds=a.n_folds,
                    seed=a.seed, max_rows=a.max_rows, baselines=tuple(b for b in a.baselines.split(",") if b), name=a.run_name,
-                   llm_base_url=a.llm_base_url)
+                   llm_base_url=a.llm_base_url, agent_cmd=a.agent_cmd)
     keys = ["dataset", "metric", "p0_cv", "best_cv", "p0_test", "best_test", "test_improvement_pct", "n_evals"]
     print({k: m.get(k) for k in keys})
     return 0
@@ -79,8 +79,11 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--target"); s.add_argument("--task-type", choices=["binary", "multiclass", "regression"])
     s.add_argument("--description", default=None, help="what the table is about (helps the agent)")
     s.add_argument("--name", default=None)
-    s.add_argument("--harness", default="claude-code", choices=["claude-code", "openai", "heuristic", "none"],
-                   help="claude-code (headless Claude Code), openai (any OpenAI-compatible LLM), heuristic (no LLM), none (P0 only)")
+    s.add_argument("--harness", default="claude-code", choices=["claude-code", "openai", "cli", "heuristic", "none"],
+                   help="claude-code (headless Claude Code), openai (any OpenAI-compatible LLM), cli (any coding-agent CLI, "
+                        "see --agent-cmd), heuristic (no LLM), none (P0 only)")
+    s.add_argument("--agent-cmd", default=None, help="for --harness cli: a preset (pi, qwen-code, gemini-cli, aider, codex) "
+                                                     "or a command template with {prompt} {prompt_file} {model} {base_url}")
     s.add_argument("--max-turns", type=int, default=80); s.add_argument("--test-size", type=float, default=0.3)
     s.add_argument("--n-folds", type=int, default=3); s.add_argument("--seed", type=int, default=0)
     s.add_argument("--baselines", default="hgb")

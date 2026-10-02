@@ -72,7 +72,8 @@ def run_search(task: TabularTask, model_spec: str = "tabpfn", harness: str = "cl
                budget_evals: int = 12, budget_minutes: int = 30, max_turns: int = 80, test_size: float = 0.3,
                n_folds: int = 3, seed: int = 0, max_rows: int = 10000, eval_timeout_s: int = 900,
                baselines: tuple[str, ...] = ("hgb",), name: str | None = None, run_dir: Path | None = None,
-               split: tuple[np.ndarray, np.ndarray] | None = None, llm_base_url: str | None = None) -> dict[str, Any]:
+               split: tuple[np.ndarray, np.ndarray] | None = None, llm_base_url: str | None = None,
+               agent_cmd: str | None = None) -> dict[str, Any]:
     """Run one TabFM-Auto search. ``split`` = (train_idx, test_idx) overrides the random hold-out (e.g. an
     official benchmark split); the agent only ever sees ``train_idx`` rows."""
     cfg = {k: v for k, v in locals().items() if k not in ("task", "run_dir", "split")}
@@ -120,6 +121,16 @@ def run_search(task: TabularTask, model_spec: str = "tabpfn", harness: str = "cl
                                                system_prompt=prompts.SYSTEM_RULES))
             run.event("agent_end", **{k: v for k, v in agent_info.items() if k != "result"})
             run.save_text("agent_result.md", str(agent_info.get("result") or ""))
+        elif harness == "cli":
+            from .cli_agent import run_cli_agent
+
+            if not agent_cmd:
+                raise ValueError("harness='cli' needs agent_cmd (a preset name like 'pi' or a command template)")
+            prompt = (ws / "TASK.md").read_text()
+            run.event("agent_start", harness="cli", agent_cmd=agent_cmd, model=llm_model, base_url=llm_base_url)
+            agent_info.update(run_cli_agent(prompt, ws, run.run_dir / "agent_stream.log", agent_cmd, model=llm_model,
+                                            base_url=llm_base_url, timeout_s=budget_minutes * 60))
+            run.event("agent_end", **agent_info)
         elif harness == "heuristic":
             from .heuristic import run_heuristic_search
 
@@ -131,7 +142,7 @@ def run_search(task: TabularTask, model_spec: str = "tabpfn", harness: str = "cl
         elif harness == "none":
             run.info("harness=none: only P0 is evaluated")
         else:
-            raise ValueError(f"unknown harness {harness!r}; use claude-code | openai | heuristic | none")
+            raise ValueError(f"unknown harness {harness!r}; use claude-code | openai | cli | heuristic | none")
 
         # pick the best candidate by CV
         evals = read_evals(ws)
@@ -139,7 +150,7 @@ def run_search(task: TabularTask, model_spec: str = "tabpfn", harness: str = "cl
         best = min(ok, key=lambda r: r["score"]) if ok else None
         metrics: dict[str, Any] = {"dataset": task.name, "task_type": task.task_type, "model": model_spec,
                                    "metric": primary_metric_name(task.task_type), "harness": harness,
-                                   "llm_model": llm_model if harness in ("claude-code", "openai") else None,
+                                   "llm_model": llm_model if harness in ("claude-code", "openai", "cli") else None,
                                    "n_evals": len(evals), "n_evals_ok": len(ok),
                                    "p0_cv": p0.get("score"), "best_cv": best["score"] if best else None,
                                    "best_candidate": best["candidate"] if best else None,

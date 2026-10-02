@@ -78,3 +78,24 @@ def test_openai_loop_with_fake_client(tmp_path):
     evals = [json.loads(line) for line in (ws / "evals.jsonl").read_text().splitlines()]
     assert len(evals) == 2 and evals[-1]["status"] == "ok" and evals[-1]["n_features"] == 5
     assert (ws / "NOTES.md").read_text() == "kept identity"
+
+
+def test_cli_harness_with_fake_agent(tmp_path):
+    """A 'coding agent' that is just a shell command: it writes a pipeline and calls tabfm-eval."""
+    import shlex
+    import sys
+
+    t = load_task("iris")
+    fake = tmp_path / "fake_agent.py"
+    fake.write_text(
+        "import pathlib, subprocess, sys\n"
+        "pathlib.Path('pipeline.py').write_text(open(sys.argv[1]).read())\n"
+        "subprocess.run([sys.executable, '-m', 'tabfm_auto.harness.cli'], check=False)\n"
+    )
+    pipe = tmp_path / "pipe.py"
+    pipe.write_text(_PIPE)
+    cmd = f"{shlex.quote(sys.executable)} {shlex.quote(str(fake))} {shlex.quote(str(pipe))} {{prompt_file}}"
+    m = run_search(t, model_spec="logreg", harness="cli", agent_cmd=cmd, budget_evals=4, budget_minutes=5, baselines=(),
+                   name="c", run_dir=tmp_path / "run")
+    assert m["n_evals"] == 2 and m["agent"]["rc"] == 0
+    assert (tmp_path / "run" / "agent_stream.log").read_text().startswith("# cmd:")
