@@ -76,3 +76,5 @@
 - J9 per-backbone TabArena (heuristic x Kumo-L / TabICLv2), J10 budget 64 + auto repeats on anneal/Marketing/airfoil/hazelnut/
   diabetes (heuristic, pi, GLM), J11 cv3 judge on < 1000-row tables (heuristic, pi), J12 churn probe, J13 rich loop (Qwen3-Coder).
 - Goal: end with the best open-source option (backbone x harness x LLM x judge) with evidence, in README/REPORT.
+- J8 pi + Qwen3-Coder done 17/17: mean -0.9% (median 0.0%, 8/17 wins) vs heuristic +0.5% vs paper +4.6%; loses where the
+  paper gains most (anneal -5.2%, Marketing -14.2%). GLM loop 6/17 so far (-2.9%). REPORT 5.3 / RESULTS updated.

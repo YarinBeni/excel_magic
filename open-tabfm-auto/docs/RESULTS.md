@@ -256,3 +256,31 @@ Same setup (frozen Kumo Tabular-S, our OpenAI tool loop, `--reasoning-parser qwe
 | credit-g (Lite) | 1-auroc | 0.2062 | 0.2055 | +0.3% | | | |
 
 Weakest open model in the sweep: long reasoning, many rewrites, no useful features.
+
+## TabArena wave 1 with LLM agents (cluster job J8, 2026-10-02): pi + Qwen3-Coder (17/17), GLM-4.5-Air tool loop (6/17)
+
+Same protocol as the heuristic wave (frozen Kumo Tabular-S n_estimators=8, search on r0f0 train, P0/P* on all 30 official
+splits), 16 evals / 40 min per dataset. pi: mean gain -0.94%, median -0.02%, P* < P0 on 9/17; P* below the paper's
+TabFM-Auto on 15/17 and below the paper's TabFM on 13/17. Heuristic (J2): +0.47% mean. Paper (Opus 5): +4.62%.
+
+| dataset | metric | heuristic gain | pi+Qwen3-Coder gain | GLM loop gain | paper Opus 5 gain |
+|---|---|---|---|---|---|
+| anneal | logloss | +8.5% | -5.2% | -2.7% | +17.6% |
+| Marketing_Campaign | 1-auroc | +0.1% | -14.2% |  | +15.8% |
+| airfoil_self_noise | rmse | +6.5% | +3.7% |  | +14.6% |
+| hazelnut-spread-contaminant-detection | 1-auroc | +1.3% | +0.2% |  | +8.7% |
+| diabetes | 1-auroc | -1.7% | +0.8% | +1.3% | +6.9% |
+| concrete_compressive_strength | rmse | -1.3% | +0.5% |  | +3.8% |
+| MIC | logloss | +1.5% | -0.1% |  | +2.4% |
+| website_phishing | logloss | +0.4% | -0.1% |  | +1.8% |
+| healthcare_insurance_expenses | rmse | -1.3% | +0.8% |  | +1.7% |
+| maternal_health_risk | logloss | -2.7% | +0.2% | -13.8% | +1.6% |
+| Another-Dataset-on-used-Fiat-500 | rmse | -0.7% | -0.4% |  | +1.4% |
+| Is-this-a-good-customer | 1-auroc | -2.3% | -0.0% |  | +1.4% |
+| QSAR_fish_toxicity | rmse | +0.2% | -0.1% | +0.0% | +0.6% |
+| blood-transfusion-service-center | 1-auroc | +0.2% | -0.1% | -0.4% | +0.4% |
+| credit-g | 1-auroc | -0.2% | -2.2% | -1.7% | +0.2% |
+| Fitness_Club | 1-auroc | +0.7% | +0.2% |  | +0.1% |
+| qsar-biodeg | 1-auroc | -1.2% | +0.1% |  | -0.3% |
+
+Runs: `reports/runs/*J8_pi_qwen3coder_*`, `reports/runs/*J8_openai_glm45air_*`.

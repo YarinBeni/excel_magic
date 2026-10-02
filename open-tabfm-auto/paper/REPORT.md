@@ -190,6 +190,38 @@ structure (anneal +8.5% vs +17.6%; airfoil +6.5% vs +14.6%) and loses on small n
 not transfer (diabetes -1.7%, maternal_health_risk -2.7%), the regime where the paper also reports its own losses.
 Full table: `docs/RESULTS.md`. Open-LLM and CLI-agent runs on the same protocol: **TBD (J3/J5/J6)**.
 
+
+**With LLM agents (J8, same protocol and backbone, 16 evals / 40 min per dataset):** pi + Qwen3-Coder-30B finished all
+17 datasets with mean gain −0.9% (median 0.0%, P* beats P0 on 8/17, better than the heuristic on 7/17); the GLM-4.5-Air
+tool loop is at 6/17 (mean −2.9% so far, dragged by maternal_health_risk −13.8%). Neither matches the heuristic's +0.5%,
+and all three are an order of magnitude below the paper's +4.6%. The paper's big wins are exactly where the free LLM
+agents lose: anneal (paper +17.6%, heuristic +8.5%, pi −5.2%) and Marketing_Campaign (paper +15.8%, pi −14.2%); the
+LLM picks a CV-best candidate that does not hold on the other 29 splits. Per dataset:
+
+| dataset | metric | heuristic gain | pi+Qwen3-Coder gain | GLM loop gain | paper Opus 5 gain |
+|---|---|---|---|---|---|
+| anneal | logloss | +8.5% | -5.2% | -2.7% | +17.6% |
+| Marketing_Campaign | 1-auroc | +0.1% | -14.2% |  | +15.8% |
+| airfoil_self_noise | rmse | +6.5% | +3.7% |  | +14.6% |
+| hazelnut-spread-contaminant-detection | 1-auroc | +1.3% | +0.2% |  | +8.7% |
+| diabetes | 1-auroc | -1.7% | +0.8% | +1.3% | +6.9% |
+| concrete_compressive_strength | rmse | -1.3% | +0.5% |  | +3.8% |
+| MIC | logloss | +1.5% | -0.1% |  | +2.4% |
+| website_phishing | logloss | +0.4% | -0.1% |  | +1.8% |
+| healthcare_insurance_expenses | rmse | -1.3% | +0.8% |  | +1.7% |
+| maternal_health_risk | logloss | -2.7% | +0.2% | -13.8% | +1.6% |
+| Another-Dataset-on-used-Fiat-500 | rmse | -0.7% | -0.4% |  | +1.4% |
+| Is-this-a-good-customer | 1-auroc | -2.3% | -0.0% |  | +1.4% |
+| QSAR_fish_toxicity | rmse | +0.2% | -0.1% | +0.0% | +0.6% |
+| blood-transfusion-service-center | 1-auroc | +0.2% | -0.1% | -0.4% | +0.4% |
+| credit-g | 1-auroc | -0.2% | -2.2% | -1.7% | +0.2% |
+| Fitness_Club | 1-auroc | +0.7% | +0.2% |  | +0.1% |
+| qsar-biodeg | 1-auroc | -1.2% | +0.1% |  | -0.3% |
+
+Reading: at this budget the open LLM agents do not beat a generic greedy search on TabArena. Their advantage shows
+only where the task text names an entity structure (§5.2). J10 (64 evals + repeated CV on the five high-gain datasets)
+and J11 (repeated-CV judge on the small tables) test whether the gap is budget and judge noise rather than the model.
+
 ### 5.4 Backbone transfer (T4 **[auto]**)
 The pipeline found for TabPFN also helps HistGB on the physics table (0.328 → 0.181, −45%), the paper's Section B.3
 effect. Across the open TFMs the picture differs from the paper: pipelines found around the *weakest* backbone

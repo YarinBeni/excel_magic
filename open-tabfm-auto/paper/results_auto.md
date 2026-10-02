@@ -1,5 +1,5 @@
 # Auto-generated results tables
-_from 90 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
+_from 113 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
 
 ## T1. Frozen backbones with the identity pipeline (3-fold CV, lower is better)
 |                               |     hgb |   kumo-tabular-l |   kumo-tabular-m |   kumo-tabular-s |   tabicl |   tabpfn |   tabpfn-2.5 |
@@ -54,40 +54,63 @@ _from 90 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen
 | wine           | tabpfn         | none        | -                                 | logloss  |    0.0085 |    0.0085 |   0.0000 |       1 |   0.0069 |
 
 ## T3. TabArena protocol vs the paper (per-dataset test error, P0 / P* vs TabFM / TabFM-Auto Opus 5)
-| dataset                               |        P0 |        P* |   our_gain_% |     tabfm |   tabfm_auto_opus5 |   paper_gain_opus5_% | run                                                                 |
-|:--------------------------------------|----------:|----------:|-------------:|----------:|-------------------:|---------------------:|:--------------------------------------------------------------------|
-| hazelnut-spread-contaminant-detection |    0.0048 |    0.0047 |       1.3302 |    0.0023 |             0.0021 |               8.6957 | 20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection |
-| qsar-biodeg                           |    0.0596 |    0.0603 |      -1.2004 |    0.0580 |             0.0582 |              -0.3448 | 20261002T155339Z_J2_heuristic_qsar-biodeg                           |
-| diabetes                              |    0.1596 |    0.1623 |      -1.6644 |    0.1580 |             0.1471 |               6.8987 | 20261002T155211Z_J2_heuristic_diabetes                              |
-| QSAR_fish_toxicity                    |    0.8547 |    0.8529 |       0.2184 |    0.8535 |             0.8483 |               0.6046 | 20261002T155220Z_J2_heuristic_QSAR_fish_toxicity                    |
-| healthcare_insurance_expenses         | 4553.6089 | 4613.8992 |      -1.3240 | 4417.6000 |          4344.1000 |               1.6638 | 20261002T155549Z_J2_heuristic_healthcare_insurance_expenses         |
-| maternal_health_risk                  |    0.3847 |    0.3952 |      -2.7479 |    0.3706 |             0.3648 |               1.5650 | 20261002T155220Z_J2_heuristic_maternal_health_risk                  |
-| MIC                                   |    0.4318 |    0.4254 |       1.4831 |    0.4282 |             0.4178 |               2.4288 | 20261002T155711Z_J2_heuristic_MIC                                   |
-| airfoil_self_noise                    |    0.8264 |    0.8337 |      -0.8860 |    1.0734 |             0.9165 |              14.6171 | 20261002T175823Z_J5_GLM-4.5-Air-FP8_tabarena                        |
-| blood-transfusion-service-center      |    0.2639 |    0.2602 |       1.4290 |    0.2441 |             0.2431 |               0.4097 | 20261002T175823Z_J5_GLM-4.5-Air-FP8_tabarena                        |
-| credit-g                              |    0.2069 |    0.2039 |       1.4460 |    0.1944 |             0.1940 |               0.2058 | 20261002T175823Z_J5_GLM-4.5-Air-FP8_tabarena                        |
-| credit-g                              |    0.1979 |    0.1983 |      -0.1901 |    0.1944 |             0.1940 |               0.2058 | 20261002T155220Z_J2_heuristic_credit-g                              |
-| blood-transfusion-service-center      |    0.2458 |    0.2453 |       0.2097 |    0.2441 |             0.2431 |               0.4097 | 20261002T155211Z_J2_heuristic_blood-transfusion-service-center      |
-| website_phishing                      |    0.2144 |    0.2134 |       0.4375 |    0.2104 |             0.2067 |               1.7586 | 20261002T155610Z_J2_heuristic_website_phishing                      |
-| Fitness_Club                          |    0.1787 |    0.1774 |       0.7010 |    0.1789 |             0.1787 |               0.1118 | 20261002T155643Z_J2_heuristic_Fitness_Club                          |
-| concrete_compressive_strength         |    3.8268 |    3.8782 |      -1.3426 |    3.9666 |             3.8169 |               3.7740 | 20261002T155239Z_J2_heuristic_concrete_compressive_strength         |
-| anneal                                |    0.0118 |    0.0108 |       8.4950 |    0.0125 |             0.0103 |              17.6000 | 20261002T155211Z_J2_heuristic_anneal                                |
-| airfoil_self_noise                    |    0.8318 |    0.8261 |       0.6887 |    1.0734 |             0.9165 |              14.6171 | 20261002T182208Z_J5_Qwen3-32B_tabarena                              |
-| blood-transfusion-service-center      |    0.2656 |    0.2639 |       0.6605 |    0.2441 |             0.2431 |               0.4097 | 20261002T182208Z_J5_Qwen3-32B_tabarena                              |
-| credit-g                              |    0.2062 |    0.2055 |       0.3523 |    0.1944 |             0.1940 |               0.2058 | 20261002T182208Z_J5_Qwen3-32B_tabarena                              |
-| Marketing_Campaign                    |    0.0660 |    0.0659 |       0.1272 |    0.0732 |             0.0616 |              15.8470 | 20261002T155712Z_J2_heuristic_Marketing_Campaign                    |
-| Is-this-a-good-customer               |    0.2474 |    0.2532 |      -2.3436 |    0.2466 |             0.2432 |               1.3788 | 20261002T155709Z_J2_heuristic_Is-this-a-good-customer               |
-| Another-Dataset-on-used-Fiat-500      |  713.9073 |  719.0253 |      -0.7169 |  703.2700 |           693.4900 |               1.3906 | 20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500      |
-| airfoil_self_noise                    |    0.9793 |    0.9161 |       6.4590 |    1.0734 |             0.9165 |              14.6171 | 20261002T155640Z_J2_heuristic_airfoil_self_noise                    |
-| airfoil_self_noise                    |    0.8277 |    0.8088 |       2.2844 |    1.0734 |             0.9165 |              14.6171 | 20261002T173650Z_J5_Qwen3-Coder-30B-A3B-Instruct_tabarena           |
-| blood-transfusion-service-center      |    0.2631 |    0.2655 |      -0.9336 |    0.2441 |             0.2431 |               0.4097 | 20261002T173650Z_J5_Qwen3-Coder-30B-A3B-Instruct_tabarena           |
-| credit-g                              |    0.2054 |    0.2062 |      -0.3537 |    0.1944 |             0.1940 |               0.2058 | 20261002T173650Z_J5_Qwen3-Coder-30B-A3B-Instruct_tabarena           |
-| airfoil_self_noise                    |    0.8173 |    0.8007 |       2.0251 |    1.0734 |             0.9165 |              14.6171 | 20261002T181125Z_J5_gpt-oss-20b_tabarena                            |
-| blood-transfusion-service-center      |    0.2627 |    0.2657 |      -1.1352 |    0.2441 |             0.2431 |               0.4097 | 20261002T181125Z_J5_gpt-oss-20b_tabarena                            |
-| credit-g                              |    0.2071 |    0.2076 |      -0.2476 |    0.1944 |             0.1940 |               0.2058 | 20261002T181125Z_J5_gpt-oss-20b_tabarena                            |
-| airfoil_self_noise                    |    0.8209 |    0.8282 |      -0.8832 |    1.0734 |             0.9165 |              14.6171 | 20261002T173553Z_J3_tabarena_openai                                 |
-| blood-transfusion-service-center      |    0.2647 |    0.2582 |       2.4520 |    0.2441 |             0.2431 |               0.4097 | 20261002T173553Z_J3_tabarena_openai                                 |
-| credit-g                              |    0.2056 |    0.2062 |      -0.2911 |    0.1944 |             0.1940 |               0.2058 | 20261002T173553Z_J3_tabarena_openai                                 |
+| dataset                               |        P0 |        P* |   our_gain_% |     tabfm |   tabfm_auto_opus5 |   paper_gain_opus5_% | run                                                                     |
+|:--------------------------------------|----------:|----------:|-------------:|----------:|-------------------:|---------------------:|:------------------------------------------------------------------------|
+| hazelnut-spread-contaminant-detection |    0.0048 |    0.0047 |       1.3302 |    0.0023 |             0.0021 |               8.6957 | 20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection     |
+| Another-Dataset-on-used-Fiat-500      |  714.4997 |  717.2734 |      -0.3882 |  703.2700 |           693.4900 |               1.3906 | 20261002T195318Z_J8_pi_qwen3coder_Another-Dataset-on-used-Fiat-500      |
+| qsar-biodeg                           |    0.0596 |    0.0603 |      -1.2004 |    0.0580 |             0.0582 |              -0.3448 | 20261002T155339Z_J2_heuristic_qsar-biodeg                               |
+| blood-transfusion-service-center      |    0.2451 |    0.2462 |      -0.4498 |    0.2441 |             0.2431 |               0.4097 | 20261002T194110Z_J8_openai_glm45air_blood-transfusion-service-center    |
+| diabetes                              |    0.1596 |    0.1623 |      -1.6644 |    0.1580 |             0.1471 |               6.8987 | 20261002T155211Z_J2_heuristic_diabetes                                  |
+| airfoil_self_noise                    |    0.9786 |    0.9422 |       3.7172 |    1.0734 |             0.9165 |              14.6171 | 20261002T194956Z_J8_pi_qwen3coder_airfoil_self_noise                    |
+| qsar-biodeg                           |    0.0596 |    0.0595 |       0.1055 |    0.0580 |             0.0582 |              -0.3448 | 20261002T193940Z_J8_pi_qwen3coder_qsar-biodeg                           |
+| anneal                                |    0.0116 |    0.0122 |      -5.2112 |    0.0125 |             0.0103 |              17.6000 | 20261002T192430Z_J8_pi_qwen3coder_anneal                                |
+| QSAR_fish_toxicity                    |    0.8547 |    0.8529 |       0.2184 |    0.8535 |             0.8483 |               0.6046 | 20261002T155220Z_J2_heuristic_QSAR_fish_toxicity                        |
+| healthcare_insurance_expenses         | 4553.6089 | 4613.8992 |      -1.3240 | 4417.6000 |          4344.1000 |               1.6638 | 20261002T155549Z_J2_heuristic_healthcare_insurance_expenses             |
+| concrete_compressive_strength         |    3.8327 |    3.8148 |       0.4664 |    3.9666 |             3.8169 |               3.7740 | 20261002T193646Z_J8_pi_qwen3coder_concrete_compressive_strength         |
+| maternal_health_risk                  |    0.3847 |    0.3952 |      -2.7479 |    0.3706 |             0.3648 |               1.5650 | 20261002T155220Z_J2_heuristic_maternal_health_risk                      |
+| Is-this-a-good-customer               |    0.2475 |    0.2475 |      -0.0213 |    0.2466 |             0.2432 |               1.3788 | 20261002T195952Z_J8_pi_qwen3coder_Is-this-a-good-customer               |
+| website_phishing                      |    0.2146 |    0.2149 |      -0.1367 |    0.2104 |             0.2067 |               1.7586 | 20261002T194521Z_J8_pi_qwen3coder_website_phishing                      |
+| MIC                                   |    0.4318 |    0.4254 |       1.4831 |    0.4282 |             0.4178 |               2.4288 | 20261002T155711Z_J2_heuristic_MIC                                       |
+| airfoil_self_noise                    |    0.8264 |    0.8337 |      -0.8860 |    1.0734 |             0.9165 |              14.6171 | 20261002T175823Z_J5_GLM-4.5-Air-FP8_tabarena                            |
+| blood-transfusion-service-center      |    0.2639 |    0.2602 |       1.4290 |    0.2441 |             0.2431 |               0.4097 | 20261002T175823Z_J5_GLM-4.5-Air-FP8_tabarena                            |
+| credit-g                              |    0.2069 |    0.2039 |       1.4460 |    0.1944 |             0.1940 |               0.2058 | 20261002T175823Z_J5_GLM-4.5-Air-FP8_tabarena                            |
+| anneal                                |    0.0118 |    0.0122 |      -2.7376 |    0.0125 |             0.0103 |              17.6000 | 20261002T195220Z_J8_openai_glm45air_anneal                              |
+| credit-g                              |    0.1979 |    0.1983 |      -0.1901 |    0.1944 |             0.1940 |               0.2058 | 20261002T155220Z_J2_heuristic_credit-g                                  |
+| blood-transfusion-service-center      |    0.2458 |    0.2453 |       0.2097 |    0.2441 |             0.2431 |               0.4097 | 20261002T155211Z_J2_heuristic_blood-transfusion-service-center          |
+| website_phishing                      |    0.2144 |    0.2134 |       0.4375 |    0.2104 |             0.2067 |               1.7586 | 20261002T155610Z_J2_heuristic_website_phishing                          |
+| Fitness_Club                          |    0.1787 |    0.1774 |       0.7010 |    0.1789 |             0.1787 |               0.1118 | 20261002T155643Z_J2_heuristic_Fitness_Club                              |
+| concrete_compressive_strength         |    3.8268 |    3.8782 |      -1.3426 |    3.9666 |             3.8169 |               3.7740 | 20261002T155239Z_J2_heuristic_concrete_compressive_strength             |
+| blood-transfusion-service-center      |    0.2451 |    0.2454 |      -0.1416 |    0.2441 |             0.2431 |               0.4097 | 20261002T191905Z_J8_pi_qwen3coder_blood-transfusion-service-center      |
+| anneal                                |    0.0118 |    0.0108 |       8.4950 |    0.0125 |             0.0103 |              17.6000 | 20261002T155211Z_J2_heuristic_anneal                                    |
+| hazelnut-spread-contaminant-detection |    0.0048 |    0.0048 |       0.2471 |    0.0023 |             0.0021 |               8.6957 | 20261002T200518Z_J8_pi_qwen3coder_hazelnut-spread-contaminant-detection |
+| airfoil_self_noise                    |    0.8318 |    0.8261 |       0.6887 |    1.0734 |             0.9165 |              14.6171 | 20261002T182208Z_J5_Qwen3-32B_tabarena                                  |
+| blood-transfusion-service-center      |    0.2656 |    0.2639 |       0.6605 |    0.2441 |             0.2431 |               0.4097 | 20261002T182208Z_J5_Qwen3-32B_tabarena                                  |
+| credit-g                              |    0.2062 |    0.2055 |       0.3523 |    0.1944 |             0.1940 |               0.2058 | 20261002T182208Z_J5_Qwen3-32B_tabarena                                  |
+| Marketing_Campaign                    |    0.0660 |    0.0659 |       0.1272 |    0.0732 |             0.0616 |              15.8470 | 20261002T155712Z_J2_heuristic_Marketing_Campaign                        |
+| healthcare_insurance_expenses         | 4559.0442 | 4521.9604 |       0.8134 | 4417.6000 |          4344.1000 |               1.6638 | 20261002T194237Z_J8_pi_qwen3coder_healthcare_insurance_expenses         |
+| Is-this-a-good-customer               |    0.2474 |    0.2532 |      -2.3436 |    0.2466 |             0.2432 |               1.3788 | 20261002T155709Z_J2_heuristic_Is-this-a-good-customer                   |
+| Another-Dataset-on-used-Fiat-500      |  713.9073 |  719.0253 |      -0.7169 |  703.2700 |           693.4900 |               1.3906 | 20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500          |
+| Marketing_Campaign                    |    0.0661 |    0.0755 |     -14.2093 |    0.0732 |             0.0616 |              15.8470 | 20261002T200211Z_J8_pi_qwen3coder_Marketing_Campaign                    |
+| diabetes                              |    0.1595 |    0.1582 |       0.8293 |    0.1580 |             0.1471 |               6.8987 | 20261002T192134Z_J8_pi_qwen3coder_diabetes                              |
+| QSAR_fish_toxicity                    |    0.8549 |    0.8546 |       0.0334 |    0.8535 |             0.8483 |               0.6046 | 20261002T195829Z_J8_openai_glm45air_QSAR_fish_toxicity                  |
+| MIC                                   |    0.4324 |    0.4329 |      -0.1076 |    0.4282 |             0.4178 |               2.4288 | 20261002T195641Z_J8_pi_qwen3coder_MIC                                   |
+| airfoil_self_noise                    |    0.9793 |    0.9161 |       6.4590 |    1.0734 |             0.9165 |              14.6171 | 20261002T155640Z_J2_heuristic_airfoil_self_noise                        |
+| QSAR_fish_toxicity                    |    0.8546 |    0.8551 |      -0.0646 |    0.8535 |             0.8483 |               0.6046 | 20261002T192744Z_J8_pi_qwen3coder_QSAR_fish_toxicity                    |
+| credit-g                              |    0.1980 |    0.2024 |      -2.2303 |    0.1944 |             0.1940 |               0.2058 | 20261002T193116Z_J8_pi_qwen3coder_credit-g                              |
+| airfoil_self_noise                    |    0.8277 |    0.8088 |       2.2844 |    1.0734 |             0.9165 |              14.6171 | 20261002T173650Z_J5_Qwen3-Coder-30B-A3B-Instruct_tabarena               |
+| blood-transfusion-service-center      |    0.2631 |    0.2655 |      -0.9336 |    0.2441 |             0.2431 |               0.4097 | 20261002T173650Z_J5_Qwen3-Coder-30B-A3B-Instruct_tabarena               |
+| credit-g                              |    0.2054 |    0.2062 |      -0.3537 |    0.1944 |             0.1940 |               0.2058 | 20261002T173650Z_J5_Qwen3-Coder-30B-A3B-Instruct_tabarena               |
+| credit-g                              |    0.1976 |    0.2008 |      -1.6505 |    0.1944 |             0.1940 |               0.2058 | 20261002T200408Z_J8_openai_glm45air_credit-g                            |
+| airfoil_self_noise                    |    0.8173 |    0.8007 |       2.0251 |    1.0734 |             0.9165 |              14.6171 | 20261002T181125Z_J5_gpt-oss-20b_tabarena                                |
+| blood-transfusion-service-center      |    0.2627 |    0.2657 |      -1.1352 |    0.2441 |             0.2431 |               0.4097 | 20261002T181125Z_J5_gpt-oss-20b_tabarena                                |
+| credit-g                              |    0.2071 |    0.2076 |      -0.2476 |    0.1944 |             0.1940 |               0.2058 | 20261002T181125Z_J5_gpt-oss-20b_tabarena                                |
+| maternal_health_risk                  |    0.3843 |    0.3835 |       0.2021 |    0.3706 |             0.3648 |               1.5650 | 20261002T193345Z_J8_pi_qwen3coder_maternal_health_risk                  |
+| diabetes                              |    0.1595 |    0.1574 |       1.3163 |    0.1580 |             0.1471 |               6.8987 | 20261002T194551Z_J8_openai_glm45air_diabetes                            |
+| maternal_health_risk                  |    0.3845 |    0.4377 |     -13.8281 |    0.3706 |             0.3648 |               1.5650 | 20261002T200854Z_J8_openai_glm45air_maternal_health_risk                |
+| Fitness_Club                          |    0.1786 |    0.1783 |       0.1843 |    0.1789 |             0.1787 |               0.1118 | 20261002T194749Z_J8_pi_qwen3coder_Fitness_Club                          |
+| airfoil_self_noise                    |    0.8209 |    0.8282 |      -0.8832 |    1.0734 |             0.9165 |              14.6171 | 20261002T173553Z_J3_tabarena_openai                                     |
+| blood-transfusion-service-center      |    0.2647 |    0.2582 |       2.4520 |    0.2441 |             0.2431 |               0.4097 | 20261002T173553Z_J3_tabarena_openai                                     |
+| credit-g                              |    0.2056 |    0.2062 |      -0.2911 |    0.1944 |             0.1940 |               0.2058 | 20261002T173553Z_J3_tabarena_openai                                     |
 
 ## T4. Backbone transfer of discovered pipelines
 |                                      |     P* |     P0 |   gain % |
