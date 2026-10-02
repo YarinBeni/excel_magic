@@ -39,3 +39,5 @@
 - J0v (50374) OK: vllm 0.16.0, torch 2.9.1+cu128. J3 (50375) / J5 (50376) / J6 (50377) released.
 - J5 task 2 (GLM-4.5-Air, 50406) failed at vLLM engine start: 106B-A12B bf16 (~220 GB) does not fit one H200 -> GLM-4.5-Air-FP8
   at 0.90 GPU memory; inbox 018 resubmits array task 2 only. vLLM failures now print the engine-side root-cause lines.
+- J5 task 3 (gpt-oss-20b, 50376) failed: openai_harmony tiktoken cache under /tmp not writable (another user's dir) ->
+  TIKTOKEN_RS_CACHE_DIR=~/.cache/tiktoken-rs in vllm_env; inbox 019 resubmits array task 3 only.

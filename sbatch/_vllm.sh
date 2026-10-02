@@ -5,7 +5,11 @@
 VLLM_VENV="$HOME/miniconda3/envs/vllm"
 # conda's libicu needs conda's (newer) libstdc++; without this the system libstdc++ gets loaded first and
 # `import sqlite3` dies with CXXABI_1.3.15 not found.
-vllm_env() { export LD_LIBRARY_PATH="$VLLM_VENV/lib:${LD_LIBRARY_PATH:-}"; }
+vllm_env() {
+    export LD_LIBRARY_PATH="$VLLM_VENV/lib:${LD_LIBRARY_PATH:-}"
+    # gpt-oss (openai_harmony) caches its tiktoken vocab under /tmp/tiktoken-rs-cache, which another user owns on shared nodes
+    export TIKTOKEN_RS_CACHE_DIR="$HOME/.cache/tiktoken-rs"; mkdir -p "$TIKTOKEN_RS_CACHE_DIR"
+}
 ensure_vllm() {
     # one installer at a time (several GPU jobs start together): flock + an .ok marker written only after `vllm --version`
     ( flock -w 3600 9 || { echo "[vllm] could not get install lock"; exit 1; }
