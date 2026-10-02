@@ -1,0 +1,74 @@
+{
+  "dataset": "website_phishing",
+  "task_type": "multiclass",
+  "model": "kumo-tabular-s:n_estimators=8,device=cuda",
+  "metric": "logloss",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 7,
+  "n_evals_ok": 7,
+  "p0_cv": 0.2668651242778346,
+  "best_cv": 0.2556318830556748,
+  "best_candidate": "eval_004.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 95.7,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261002T194521Z_J8_pi_qwen3coder_website_phishing/search/website_phishing/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.19622014290320144,
+  "p0_test_secondary": {
+    "logloss": 0.19622014290320144,
+    "acc": 0.9334811529933481
+  },
+  "best_test": 0.20100659812455612,
+  "best_test_secondary": {
+    "logloss": 0.20100659812455612,
+    "acc": 0.9290465631929047
+  },
+  "best_test_info": {
+    "n_features": 22,
+    "t_features": 0.024,
+    "n_views": 1,
+    "view_sizes": [
+      902
+    ],
+    "t_model": 0.388,
+    "t_total": 0.413,
+    "model_spec": "kumo-tabular-s:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": -2.439,
+  "cv_trajectory": [
+    [
+      1,
+      0.2668651242778346
+    ],
+    [
+      2,
+      0.26621820949675645
+    ],
+    [
+      3,
+      0.25685605437964387
+    ],
+    [
+      4,
+      0.2556318830556748
+    ],
+    [
+      5,
+      0.25674287102623167
+    ],
+    [
+      6,
+      0.2720082537329859
+    ],
+    [
+      7,
+      0.25712288463843763
+    ]
+  ],
+  "elapsed_s": 105.04,
+  "status": "ok"
+}
