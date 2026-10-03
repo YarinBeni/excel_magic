@@ -1,0 +1,45 @@
+# 047_progress  host=g0377  start=Sat Oct  3 11:19:51 UTC 2026  timeout=120s
+# HEAD=a74115a
+# ---------------------------------------------------------
+== sbatch/logs/J18_relbench_layers_51154.out
+[claude/tabular-model-agent-exp-wvni5o 04ad1de] J18: layer sweep rel-f1/driver-top3 (job 51154)
+ create mode 100644 reports/runs/20261003T092817Z_J18_layers_rel-f1_driver-top3/config.json
+ create mode 100644 reports/runs/20261003T092817Z_J18_layers_rel-f1_driver-top3/layers_rows.json
+ create mode 100644 reports/runs/20261003T092817Z_J18_layers_rel-f1_driver-top3/metrics.json
+ create mode 100644 reports/runs/20261003T092817Z_J18_layers_rel-f1_driver-top3/results.md
+--- rel-trial/study-outcome Sat Oct  3 09:34:46 UTC 2026
+--- rel-trial/study-outcome Sat Oct  3 09:34:46 UTC 2026
+Fetching 38 files:   0%|          | 0/38 [00:00<?, ?it/s]Fetching 38 files: 100%|██████████| 38/38 [00:00<00:00, 7867.68it/s]
+== sbatch/logs/J19_relbench_tab_layers_51133.out
+ create mode 100644 reports/runs/20261003T091752Z_J19_tab_layers_rel-f1_driver-top3/config.json
+ create mode 100644 reports/runs/20261003T091752Z_J19_tab_layers_rel-f1_driver-top3/layers_rows.json
+ create mode 100644 reports/runs/20261003T091752Z_J19_tab_layers_rel-f1_driver-top3/metrics.json
+ create mode 100644 reports/runs/20261003T091752Z_J19_tab_layers_rel-f1_driver-top3/results.md
+ create mode 100644 reports/runs/20261003T091806Z_J18_layers_rel-f1_driver-dnf/config.json
+--- rel-trial/study-outcome Sat Oct  3 09:18:55 UTC 2026
+--- rel-trial/study-outcome Sat Oct  3 09:18:55 UTC 2026
+Fetching 38 files:   0%|          | 0/38 [00:00<?, ?it/s]Fetching 38 files: 100%|██████████| 38/38 [00:00<00:00, 7442.96it/s]
+== sbatch/logs/J21_model_layers_51155.out
+=== J21 model layers === job 51155 Sat Oct  3 09:22:23 UTC 2026
+# rel-f1/driver-dnf: every model, every layer (test AUROC, official evaluator)
+| model | target | raw features | best layer by val | its test | last layer test | own prediction | geometry best predictor (rho) |
+tabpfn label layers 13 degenerate [] best {'layer': 'block_11', 'val_auroc': 0.7266938775510206, 'test_auroc': 0.744381008149124}
+kumo-s label layers 15 degenerate [] best {'layer': 'row_emb', 'val_auroc': 0.7295963718820861, 'test_auroc': 0.7503830576294345}
+--- rel-f1/driver-dnf Sat Oct  3 09:23:39 UTC 2026
+--- rel-f1/driver-dnf Sat Oct  3 09:23:39 UTC 2026
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 8583.89it/s]
+== artifacts/runs/20261003T093447Z_J18_layers_rel-trial_study-outcome
+{"t": 7.94, "utc": "2026-10-03T09:34:55.404139+00:00", "kind": "run_start", "name": "J18_layers_rel-trial_study-outcome"}
+== artifacts/runs/20261003T092817Z_J18_layers_rel-f1_driver-top3
+{"t": 354.329, "utc": "2026-10-03T09:34:11.356604+00:00", "kind": "layer_probe", "dataset": "rel-f1", "task": "driver-top3", "mode": "label", "layer": "icl_11", "linear_val": 0.666714446972819, "knn_val": 0.7151278421816488, "linear_test": 0.7642140468227424, 
+{"t": 366.388, "utc": "2026-10-03T09:34:23.415331+00:00", "kind": "layer_probe", "dataset": "rel-f1", "task": "driver-top3", "mode": "label", "layer": "final", "linear_val": 0.6671982225726112, "knn_val": 0.7132554514343051, "linear_test": 0.7708376881270903, 
+{"t": 366.408, "utc": "2026-10-03T09:34:23.435349+00:00", "kind": "run_end", "status": "ok", "elapsed_s": 366.4}
+== artifacts/runs/20261003T091806Z_J18_layers_rel-f1_driver-dnf
+{"t": 570.397, "utc": "2026-10-03T09:27:37.020007+00:00", "kind": "layer_probe", "dataset": "rel-f1", "task": "driver-dnf", "mode": "label", "layer": "icl_11", "linear_val": 0.7116371882086168, "knn_val": 0.7329977324263038, "linear_test": 0.7848533645635095, 
+{"t": 585.221, "utc": "2026-10-03T09:27:51.844067+00:00", "kind": "layer_probe", "dataset": "rel-f1", "task": "driver-dnf", "mode": "label", "layer": "final", "linear_val": 0.7140498866213153, "knn_val": 0.7361360544217687, "linear_test": 0.7870980334748452, "
+{"t": 585.242, "utc": "2026-10-03T09:27:51.865528+00:00", "kind": "run_end", "status": "ok", "elapsed_s": 585.24}
+               total        used        free      shared  buff/cache   available
+Mem:            1007          59         180           4         767         938
+No devices were found
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 11:19:51 UTC 2026
