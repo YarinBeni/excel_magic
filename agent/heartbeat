@@ -1,8 +1,6 @@
-alive Sat Oct  3 12:16:58 UTC 2026
+alive Sat Oct  3 13:17:35 UTC 2026
 host g0377
 job 50192
              51136 voltagepa AGENT_ru  yarin.b PD       0:00      1 (Dependency)
-             50192 voltagepa AGENT_ru  yarin.b  R   20:44:26      1 g0377
-             51263 voltagepa J18_relb  yarin.b  R      37:49      1 g0378
-             51264 voltagepa J19_relb  yarin.b  R      37:49      1 g0378
-             51265 voltagepa J21_mode  yarin.b  R      37:49      1 g0381
+             50192 voltagepa AGENT_ru  yarin.b  R   21:45:03      1 g0377
+             51265 voltagepa J21_mode  yarin.b  R    1:38:26      1 g0381
