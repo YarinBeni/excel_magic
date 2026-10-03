@@ -1,0 +1,78 @@
+{
+  "dataset": "website_phishing",
+  "task_type": "multiclass",
+  "model": "kumo-tabular-l:n_estimators=8,device=cuda",
+  "metric": "logloss",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 6,
+  "n_evals_ok": 6,
+  "select_rule": "gated1",
+  "p0_cv": 0.2728239605734227,
+  "best_cv": 0.2704592832053836,
+  "best_candidate": "eval_004.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 192.8,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261003T090224Z_J17_pi_qwen3coder_kumoL_rec_website_phishing/search/website_phishing/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "acceptance": {
+    "p0": 0.20496231765807288,
+    "candidate": 0.21239363041694323,
+    "candidate_name": "eval_004.py",
+    "accepted": false,
+    "n_rows": 181
+  },
+  "p0_test": 0.19157855304531568,
+  "p0_test_secondary": {
+    "logloss": 0.19157855304531568,
+    "acc": 0.9379157427937915
+  },
+  "best_test": 0.19157855304531568,
+  "best_test_secondary": {
+    "logloss": 0.19157855304531568,
+    "acc": 0.9379157427937915
+  },
+  "best_test_info": {
+    "n_features": 9,
+    "t_features": 0.005,
+    "n_views": 1,
+    "view_sizes": [
+      902
+    ],
+    "t_model": 1.744,
+    "t_total": 1.75,
+    "model_spec": "kumo-tabular-l:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 0.0,
+  "cv_trajectory": [
+    [
+      1,
+      0.2728239605734227
+    ],
+    [
+      2,
+      0.2728239605734227
+    ],
+    [
+      3,
+      0.27224953674178226
+    ],
+    [
+      4,
+      0.2704592832053836
+    ],
+    [
+      5,
+      0.2717826981451442
+    ],
+    [
+      6,
+      0.2704592832053836
+    ]
+  ],
+  "elapsed_s": 226.74,
+  "status": "ok"
+}
