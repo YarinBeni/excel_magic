@@ -1,0 +1,13 @@
+# 073_v4_resume  host=g0374  start=Sat Oct  3 22:29:17 UTC 2026  timeout=120s
+# HEAD=d608323
+# ---------------------------------------------------------
+resume artifacts/runs/20261003T193118Z_V4_relbench_capability
+49
+Submitted batch job 52039
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+       51838      V4_rel_capability COMPLETI    2:58:01 
+       52039      V4_rel_capability  PENDING       0:00 (None)
+       51914          V6_insight_pi  RUNNING    1:56:32 g0378
+       51136           AGENT_runner  RUNNING    6:56:22 g0374
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 22:29:22 UTC 2026
