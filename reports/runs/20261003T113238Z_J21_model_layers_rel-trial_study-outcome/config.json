@@ -1,0 +1,31 @@
+{
+  "name": "J21_model_layers_rel-trial_study-outcome",
+  "config": {
+    "tasks": "rel-trial/study-outcome",
+    "models": "tabpfn,tabpfn-2.5,tabiclv2,kumo-s,kumo-m,kumo-l",
+    "targets": "random,kmeans,label",
+    "n_ctx": 3000,
+    "n_train": 4000,
+    "max_eval": 5000,
+    "seed": 0,
+    "name": "J21_model_layers",
+    "task": "rel-trial/study-outcome"
+  },
+  "env": {
+    "python": "3.11.15",
+    "platform": "Linux-5.15.0-152-generic-x86_64-with-glibc2.35",
+    "cpu_count": 104,
+    "git_sha": "78f462b",
+    "numpy": "2.3.4",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "torch": "2.9.1+cu128",
+    "tabpfn": "9.1.0",
+    "tabicl": "?",
+    "torch_geometric": "2.8.0.post1",
+    "lightgbm": "4.7.0",
+    "torch_cuda": true,
+    "torch_threads": 16
+  },
+  "started_utc": "2026-10-03T11:32:48.094071+00:00"
+}

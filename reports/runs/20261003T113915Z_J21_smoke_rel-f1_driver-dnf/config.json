@@ -1,0 +1,32 @@
+{
+  "name": "J21_smoke_rel-f1_driver-dnf",
+  "config": {
+    "tasks": "rel-f1/driver-dnf",
+    "models": "tabpfn,kumo-s",
+    "targets": "label",
+    "n_ctx": 500,
+    "n_train": 500,
+    "max_eval": 5000,
+    "seed": 0,
+    "name": "J21_smoke",
+    "ctx_split": "time",
+    "task": "rel-f1/driver-dnf"
+  },
+  "env": {
+    "python": "3.11.15",
+    "platform": "Linux-5.15.0-152-generic-x86_64-with-glibc2.35",
+    "cpu_count": 104,
+    "git_sha": "727bae1",
+    "numpy": "2.3.4",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "torch": "2.9.1+cu128",
+    "tabpfn": "9.1.0",
+    "tabicl": "?",
+    "torch_geometric": "2.8.0.post1",
+    "lightgbm": "4.7.0",
+    "torch_cuda": true,
+    "torch_threads": 16
+  },
+  "started_utc": "2026-10-03T11:39:23.307522+00:00"
+}
