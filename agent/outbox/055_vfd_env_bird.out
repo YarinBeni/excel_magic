@@ -1,0 +1,27 @@
+# 055_vfd_env_bird  host=g0374  start=Sat Oct  3 19:00:53 UTC 2026  timeout=3600s
+# HEAD=c491e4b
+# ---------------------------------------------------------
+== 1. restore tabfm venv
+exaonetabular 1.0.0 requires numpy<3,>=2.3.5, but you have numpy 2.3.4 which is incompatible.
+gliclass 0.1.20 requires transformers>=5.0.0, but you have transformers 4.57.6 which is incompatible.
+tabfm: transformers 4.57.6 torch 2.9.1+cu128 st 3.0.1
+== 2. vfd venv
+vfd: torch 2.9.1+cu128 12.8 transformers 4.57.6 gliner 0.2.29 st 4.1.0
+== 3. BIRD dev databases
+REPO birdsql/bird_sql_dev_20251106 3 files; 0 matching paths; zips: []
+REPO premai-io/birdbench 167 files; 22 matching paths; zips: []
+Fetching 22 files:   0%|          | 0/22 [00:00<?, ?it/s]Fetching 22 files:  36%|███▋      | 8/22 [00:01<00:03,  4.41it/s]Fetching 22 files:  73%|███████▎  | 16/22 [00:04<00:01,  3.72it/s]Fetching 22 files: 100%|██████████| 22/22 [00:06<00:00,  3.64it/s]
+DB california_schools artifacts/bird/premai-io__birdbench/validation/dev_databases/california_schools/california_schools.sqlite 11 MB 3 tables 0 description csvs
+DB card_games artifacts/bird/premai-io__birdbench/validation/dev_databases/card_games/card_games.sqlite 262 MB 7 tables 0 description csvs
+DB codebase_community artifacts/bird/premai-io__birdbench/validation/dev_databases/codebase_community/codebase_community.sqlite 481 MB 8 tables 0 description csvs
+DB debit_card_specializing artifacts/bird/premai-io__birdbench/validation/dev_databases/debit_card_specializing/debit_card_specializing.sqlite 35 MB 6 tables 0 description csvs
+DB european_football_2 artifacts/bird/premai-io__birdbench/validation/dev_databases/european_football_2/european_football_2.sqlite 598 MB 8 tables 0 description csvs
+DB financial artifacts/bird/premai-io__birdbench/validation/dev_databases/financial/financial.sqlite 71 MB 8 tables 0 description csvs
+DB formula_1 artifacts/bird/premai-io__birdbench/validation/dev_databases/formula_1/formula_1.sqlite 22 MB 14 tables 0 description csvs
+DB student_club artifacts/bird/premai-io__birdbench/validation/dev_databases/student_club/student_club.sqlite 3 MB 8 tables 0 description csvs
+DB superhero artifacts/bird/premai-io__birdbench/validation/dev_databases/superhero/superhero.sqlite 0 MB 10 tables 0 description csvs
+DB thrombosis_prediction artifacts/bird/premai-io__birdbench/validation/dev_databases/thrombosis_prediction/thrombosis_prediction.sqlite 7 MB 3 tables 0 description csvs
+DB toxicology artifacts/bird/premai-io__birdbench/validation/dev_databases/toxicology/toxicology.sqlite 3 MB 4 tables 0 description csvs
+1.4G	artifacts/bird
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 19:07:59 UTC 2026
