@@ -31,6 +31,16 @@ synthetic DB (0.82 P@10 vs GNN 0.88) when the in-context target is chosen well, 
 they lose to their own input (0.42 vs 0.83 MAP@12×100 for the raw interaction factors) and to sparse cosine on the
 purchase matrix (1.20).
 
+## Figures
+
+![TabArena overview](figures/fig1_tabarena_overview.png)
+![Backbones vs the paper's TabFM](figures/fig2_backbones_vs_paper.png)
+![Harness at a fixed LLM](figures/fig3_harness_fixed_llm.png)
+![Split transfer](figures/fig4_split_transfer.png)
+![Retrieval on RelBench rel-hm](figures/fig5_retrieval.png)
+
+Regenerate with `python paper/make_figures.py --roots <run dirs> --out paper/figures`.
+
 ## 1. Introduction
 
 The paper's claim is a mechanism: keep the predictor frozen, let the LLM turn metadata (column names, task text) into

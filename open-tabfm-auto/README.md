@@ -120,3 +120,10 @@ This is an independent reimplementation; please cite the original paper (`CITATI
 }
 ```
 Model weights keep their own licences (TabPFN: Prior Labs licence; Kumo Tabular: OpenMDW; EXAONE: non-commercial).
+
+## Results at a glance
+
+![TabArena overview](paper/figures/fig1_tabarena_overview.png)
+![Same LLM, different harness](paper/figures/fig3_harness_fixed_llm.png)
+
+Full write-up and all figures: [`paper/REPORT.md`](paper/REPORT.md).
