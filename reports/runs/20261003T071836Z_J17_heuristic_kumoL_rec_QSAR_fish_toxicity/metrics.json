@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "QSAR_fish_toxicity",
+      "P*": 0.8536867801881151,
+      "P0": 0.8575527756969271,
+      "metric": "rmse",
+      "tabfm": 0.85345,
+      "tabfm_auto_opus5": 0.84829,
+      "tabfm_auto_gemini38flash": 0.85218,
+      "our_gain_%": 0.4508172112987672,
+      "paper_gain_opus5_%": 0.6046048391821492,
+      "ours_vs_paper_tabfm": 1.0002774388518543
+    }
+  ],
+  "elapsed_s": 647.48,
+  "status": "ok"
+}
