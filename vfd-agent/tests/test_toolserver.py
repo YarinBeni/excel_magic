@@ -23,7 +23,13 @@ def test_server_and_cli(tmp_path, monkeypatch, capsys):
     st.cfg, st.Analyst, st.gli, st.deep, st.sessions, st.lock = CONFIGS["F"], Analyst, FakeGli(), None, {}, threading.Lock()
     port = 8799
     threading.Thread(target=toolserver.serve, args=(port, st), daemon=True).start()
-    time.sleep(0.3)
+    import socket
+    for _ in range(100):  # wait until the server accepts connections
+        try:
+            socket.create_connection(("127.0.0.1", port), timeout=0.1).close()
+            break
+        except OSError:
+            time.sleep(0.05)
     monkeypatch.setenv("VFD_PORT", str(port))
     monkeypatch.chdir(ws)
     toolserver.cli(["sql", "SELECT", "category,", "count(*)", "n", "FROM", "data", "GROUP", "BY", "1", "ORDER", "BY", "2", "DESC"])
