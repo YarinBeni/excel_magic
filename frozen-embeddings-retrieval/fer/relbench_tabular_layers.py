@@ -21,7 +21,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
-from fer.relbench_layers import Subgrapher, probe_scores
+from fer.relbench_layers import Subgrapher, probe_scores_multi
 
 
 def row_features(sub: Subgrapher, entity_ids: np.ndarray, times: np.ndarray, k: int = 50) -> pd.DataFrame:
@@ -167,7 +167,7 @@ def run_task(dataset: str, task_name: str, targets=("zeros", "random", "kmeans",
         layers = ["raw_features"] + sorted(k for k in Etr if k.startswith("block_"))
         for layer in layers:
             a, b, c = (F["prb"].to_numpy(), F["va"].to_numpy(), F["te"].to_numpy()) if layer == "raw_features" else (Etr[layer], Eva[layer], Ete[layer])
-            pv, pt = probe_scores(a, ytr, b), probe_scores(a, ytr, c)
+            pv, pt = probe_scores_multi(a, ytr, [b, c])
             m["layers"][layer] = {p: {"val_auroc": float(roc_auc_score(va[tgt], pv[p])),
                                       "test": {k: float(v) for k, v in task.evaluate(pt[p]).items()}} for p in pv}
             if log is not None:

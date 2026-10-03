@@ -270,21 +270,28 @@ def embed_rows(model, sub: Subgrapher, ctx: pd.DataFrame, ctx_y: np.ndarray, row
 
 
 # ----------------------------------------------------------------------------------------------- probes
-def probe_scores(E_tr, y_tr, E_ev, k: int = 50) -> dict[str, np.ndarray]:
+def probe_scores_multi(E_tr, y_tr, E_evs, k: int = 50) -> list[dict[str, np.ndarray]]:
+    """Fit the linear and kNN probes once on E_tr, score every set in E_evs (val and test share one fit)."""
     from sklearn.linear_model import LogisticRegression
     from sklearn.neighbors import NearestNeighbors
     from sklearn.preprocessing import StandardScaler
 
     sc = StandardScaler().fit(E_tr)
-    A, B = sc.transform(E_tr), sc.transform(E_ev)
+    A = sc.transform(E_tr)
     lr = LogisticRegression(max_iter=3000, C=0.1).fit(A, y_tr)
-    out = {"linear": lr.predict_proba(B)[:, 1]}
     An = A / (np.linalg.norm(A, axis=1, keepdims=True) + 1e-9)
-    Bn = B / (np.linalg.norm(B, axis=1, keepdims=True) + 1e-9)
     nn = NearestNeighbors(n_neighbors=min(k, len(An)), metric="cosine").fit(An)
-    _, ix = nn.kneighbors(Bn)
-    out["knn"] = y_tr[ix].mean(1)
-    return out
+    outs = []
+    for E_ev in E_evs:
+        B = sc.transform(E_ev)
+        Bn = B / (np.linalg.norm(B, axis=1, keepdims=True) + 1e-9)
+        _, ix = nn.kneighbors(Bn)
+        outs.append({"linear": lr.predict_proba(B)[:, 1], "knn": y_tr[ix].mean(1)})
+    return outs
+
+
+def probe_scores(E_tr, y_tr, E_ev, k: int = 50) -> dict[str, np.ndarray]:
+    return probe_scores_multi(E_tr, y_tr, [E_ev], k)[0]
 
 
 def run_task(dataset: str, task_name: str, modes=("random", "label"), n_ctx: int = 512, n_train: int = 4000,
@@ -330,8 +337,7 @@ def run_task(dataset: str, task_name: str, modes=("random", "label"), n_ctx: int
             m["icl_head"] = {"val_auroc": float(roc_auc_score(va[tgt], s_va)), "test": {k: float(v) for k, v in task.evaluate(s_te).items()}}
         ytr = prb[tgt].to_numpy().astype(int)
         for layer in Etr:
-            pv = probe_scores(Etr[layer], ytr, Eva[layer])
-            pt = probe_scores(Etr[layer], ytr, Ete[layer])
+            pv, pt = probe_scores_multi(Etr[layer], ytr, [Eva[layer], Ete[layer]])
             m["layers"][layer] = {p: {"val_auroc": float(roc_auc_score(va[tgt], pv[p])),
                                       "test": {k: float(v) for k, v in task.evaluate(pt[p]).items()}} for p in pv}
             if log is not None:

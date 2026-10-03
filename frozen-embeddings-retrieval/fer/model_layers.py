@@ -17,7 +17,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
-from fer.relbench_layers import Subgrapher, classification_module, probe_scores
+from fer.relbench_layers import Subgrapher, classification_module, probe_scores_multi
 from fer.relbench_tabular_layers import BlockTap, row_features
 
 
@@ -208,7 +208,7 @@ def run_task(dataset: str, task_name: str, specs: dict[str, str], targets=("rand
                                  "test": {k: float(v) for k, v in task.evaluate(s_te).items()}}
             Etr["raw_features"], Eva["raw_features"], Ete["raw_features"] = F["prb"].to_numpy(), F["va"].to_numpy(), F["te"].to_numpy()
             for L in _order(Etr):
-                pv, pt = probe_scores(Etr[L], ytr, Eva[L]), probe_scores(Etr[L], ytr, Ete[L])
+                pv, pt = probe_scores_multi(Etr[L], ytr, [Eva[L], Ete[L]])
                 G = Ete[L][geo_idx]
                 if L == "raw_features":  # mixed units (counts, days, means): compare shapes, not scales
                     G = (G - G.mean(0)) / (G.std(0) + 1e-9)

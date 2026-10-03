@@ -143,3 +143,6 @@
 - J18/J19 stalled ~2 h on rel-trial: Subgrapher re-sorted each child table per entity (quadratic). Fixed (sort once;
   1M-row child table now 0.9 s). Inbox 048 restarts J18/J19 on the 6 remaining tasks (the two rel-f1 tasks are done);
   J21 continues (its next task loads the fix) unless it has had no event for 40 min.
+- 048: J18/J19 restarted as 51256/51257 on the 6 remaining tasks. J21 (51155) is alive, ~2 h per task (now on its last
+  model of rel-f1/driver-dnf). Probes now fit once per layer for val and test (same numbers, 2-4x faster), so J21's
+  next tasks and the J18/J19 restarts pick that up.
