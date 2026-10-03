@@ -1,0 +1,13 @@
+# 052_j22_own_pred  host=g0377  start=Sat Oct  3 12:07:37 UTC 2026  timeout=120s
+# HEAD=72392aa
+# ---------------------------------------------------------
+J22: 51312
+       50192           AGENT_runner  RUNNING   20:35:06 g0377
+       51136           AGENT_runner  PENDING       0:00 (Dependency)
+       51263    J18_relbench_layers  RUNNING      28:29 g0378
+       51264 J19_relbench_tab_layer  RUNNING      28:29 g0378
+       51265       J21_model_layers  RUNNING      28:29 g0381
+       51312      J22_kumo_own_pred  PENDING       0:00 (Priority)
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 12:07:38 UTC 2026
