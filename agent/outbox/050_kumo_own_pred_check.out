@@ -1,0 +1,8 @@
+# 050_kumo_own_pred_check  host=g0377  start=Sat Oct  3 12:03:40 UTC 2026  timeout=1800s
+# HEAD=85fa82b
+# ---------------------------------------------------------
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'relbench'
+# ---------------------------------------------------------
+# exit=1  end=Sat Oct  3 12:03:45 UTC 2026
