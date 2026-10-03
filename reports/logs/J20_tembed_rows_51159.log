@@ -1,0 +1,151 @@
+# job 51159 J20_tembed_rows exit=0 Sat Oct  3 09:54:34 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J20_tembed_rows_51159.out
+=== J20 tembed rows === job 51159 Sat Oct  3 09:53:58 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+ContextAwareJoin
+LICENSE
+README.md
+approaches
+assets
+benchmark_src
+benchmark_src.egg-info
+cache
+configs
+prepare_paper_figures
+process_results.py
+pyproject.toml
+reqs_benchmark.txt
+results
+run.sh
+run_experiments.py
+run_paper_experiments.sh
+run_test_before_commit.sh
+setup_benchmark.sh.template
+standalone_comparisons
+│   483 │   │   return value                                                   │
+│                                                                              │
+│ ╭───────────────────────────────── locals ─────────────────────────────────╮ │
+│ │                    key = 'dataset'                                       │ │
+│ │                   self = {'raw_datasets_dir': 'cache/raw_datasets',      │ │
+│ │                          'output_dir': 'cache/row_similarity_data_full', │ │
+│ │                          'table_row_limit': None, 'dataset_name':        │ │
+│ │                          'geological-settlements', 'primary_key_column': │ │
+│ │                          'id', 'url':                                    │ │
+│ │                          'https://dbs.uni-leipzig.de/files/datasets/geo… │ │
+│ │   throw_on_missing_key = True                                            │ │
+│ │ throw_on_missing_value = False                                           │ │
+│ │        validate_access = True                                            │ │
+│ │           validate_key = False                                           │ │
+│ │                  value = None                                            │ │
+│ ╰──────────────────────────────────────────────────────────────────────────╯ │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ConfigAttributeError: Missing key dataset
+    full_key: dataset
+    object_type=dict
+[J20] em dataset creation reported errors
+2026-10-03 09:54:23,788 INFO __main__ - Starting [43/44] | Task: row_similarity_search | Approach: sentence_transformer | Env: benchmark_env | Dataset: MusicBrainz
+2026-10-03 09:54:23,788 INFO __main__ - ================================================================================
+2026-10-03 09:54:23,788 INFO benchmark_src.run_benchmark - ################################################################################
+2026-10-03 09:54:23,789 INFO benchmark_src.run_benchmark - Task: row_similarity_search  |  Approach: sentence_transformer  |  Dataset: MusicBrainz
+2026-10-03 09:54:23,790 INFO benchmark_src.tasks.run_row_similarity_benchmark - Started run_row_similarity_benchmark
+2026-10-03 09:54:23,790 ERROR root - Traceback (most recent call last):
+2026-10-03 09:54:23,790 ERROR root -   File "/home/yarin.b/tembed/benchmark_src/run_benchmark.py", line 43, in run_single
+    run_row_similarity_benchmark.main(cfg)
+2026-10-03 09:54:23,790 ERROR root -   File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_similarity_benchmark.py", line 101, in main
+    input_table, testcase_paths, dataset_information = load_benchmark_data(cfg)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-03 09:54:23,790 ERROR root -   File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_similarity_benchmark.py", line 20, in load_benchmark_data
+    assert dataset_folder.exists(), f"Could not find path {dataset_folder}"
+           ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-03 09:54:23,790 ERROR root - AssertionError: Could not find path /home/yarin.b/tembed/cache/row_similarity_data_full/MusicBrainz
+2026-10-03 09:54:23,790 ERROR benchmark_src.run_benchmark - Error during benchmark run, please check traceback above.
+2026-10-03 09:54:23,790 ERROR __main__ - Failed sentence_transformer/row_similarity_search/MusicBrainz
+Traceback (most recent call last):
+  File "/home/yarin.b/tembed/run_experiments.py", line 274, in _run_job
+    run_single(cfg)
+  File "/home/yarin.b/tembed/benchmark_src/run_benchmark.py", line 43, in run_single
+    run_row_similarity_benchmark.main(cfg)
+  File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_similarity_benchmark.py", line 101, in main
+    input_table, testcase_paths, dataset_information = load_benchmark_data(cfg)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_similarity_benchmark.py", line 20, in load_benchmark_data
+    assert dataset_folder.exists(), f"Could not find path {dataset_folder}"
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Could not find path /home/yarin.b/tembed/cache/row_similarity_data_full/MusicBrainz
+2026-10-03 09:54:23,943 INFO __main__ - ================================================================================
+2026-10-03 09:54:23,943 INFO __main__ - Starting [44/44] | Task: row_similarity_search | Approach: sentence_transformer | Env: benchmark_env | Dataset: Walmart-Amazon
+2026-10-03 09:54:23,943 INFO __main__ - ================================================================================
+2026-10-03 09:54:23,943 INFO benchmark_src.run_benchmark - ################################################################################
+2026-10-03 09:54:23,943 INFO benchmark_src.run_benchmark - Task: row_similarity_search  |  Approach: sentence_transformer  |  Dataset: Walmart-Amazon
+2026-10-03 09:54:23,945 INFO benchmark_src.tasks.run_row_similarity_benchmark - Started run_row_similarity_benchmark
+2026-10-03 09:54:23,945 ERROR root - Traceback (most recent call last):
+2026-10-03 09:54:23,945 ERROR root -   File "/home/yarin.b/tembed/benchmark_src/run_benchmark.py", line 43, in run_single
+    run_row_similarity_benchmark.main(cfg)
+2026-10-03 09:54:23,945 ERROR root -   File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_similarity_benchmark.py", line 101, in main
+    input_table, testcase_paths, dataset_information = load_benchmark_data(cfg)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-03 09:54:23,945 ERROR root -   File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_similarity_benchmark.py", line 20, in load_benchmark_data
+    assert dataset_folder.exists(), f"Could not find path {dataset_folder}"
+           ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-03 09:54:23,945 ERROR root - AssertionError: Could not find path /home/yarin.b/tembed/cache/row_similarity_data_full/Walmart-Amazon
+2026-10-03 09:54:23,945 ERROR benchmark_src.run_benchmark - Error during benchmark run, please check traceback above.
+2026-10-03 09:54:23,945 ERROR __main__ - Failed sentence_transformer/row_similarity_search/Walmart-Amazon
+Traceback (most recent call last):
+  File "/home/yarin.b/tembed/run_experiments.py", line 274, in _run_job
+    run_single(cfg)
+  File "/home/yarin.b/tembed/benchmark_src/run_benchmark.py", line 43, in run_single
+    run_row_similarity_benchmark.main(cfg)
+  File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_similarity_benchmark.py", line 101, in main
+    input_table, testcase_paths, dataset_information = load_benchmark_data(cfg)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_similarity_benchmark.py", line 20, in load_benchmark_data
+    assert dataset_folder.exists(), f"Could not find path {dataset_folder}"
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Could not find path /home/yarin.b/tembed/cache/row_similarity_data_full/Walmart-Amazon
+2026-10-03 09:54:24,089 ERROR __main__ - 44/44 jobs failed
+| run (approach/params/task/dataset) | metrics |
+|---|---|
+| sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books | accuracy=0.7652, accuracy_easy=0.8273, accuracy_medium=0.6806 |
+| sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.8095, accuracy_easy=0.8618, accuracy_medium=0.7382 |
+| sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.6999, accuracy_easy=0.7390, accuracy_medium=0.6466 |
+| sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.7309, accuracy_easy=0.8042, accuracy_medium=0.6309 |
+| sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.8339, accuracy_easy=0.9290, accuracy_medium=0.7042 |
+| tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books | accuracy=0.5471, accuracy_easy=0.5797, accuracy_medium=0.5026 |
+| tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.5471, accuracy_easy=0.5797, accuracy_medium=0.5026 |
+| tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.5748, accuracy_easy=0.5931, accuracy_medium=0.5497 |
+| tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.5471, accuracy_easy=0.5797, accuracy_medium=0.5026 |
+| tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.5736, accuracy_easy=0.6104, accuracy_medium=0.5236 |
+| tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books | accuracy=0.5338, accuracy_easy=0.5893, accuracy_medium=0.4581 |
+| tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.5338, accuracy_easy=0.5893, accuracy_medium=0.4581 |
+| tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.5925, accuracy_easy=0.6200, accuracy_medium=0.5550 |
+| tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.5338, accuracy_easy=0.5893, accuracy_medium=0.4581 |
+| tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.5648, accuracy_easy=0.6257, accuracy_medium=0.4817 |
+| tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books | accuracy=0.5559, accuracy_easy=0.5720, accuracy_medium=0.5340 |
+| tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.5559, accuracy_easy=0.5720, accuracy_medium=0.5340 |
+| tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.5648, accuracy_easy=0.6142, accuracy_medium=0.4974 |
+| tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.5559, accuracy_easy=0.5720, accuracy_medium=0.5340 |
+| tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.4994, accuracy_easy=0.5374, accuracy_medium=0.4476 |
+| tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books | accuracy=0.5847, accuracy_easy=0.6008, accuracy_medium=0.5628 |
+| tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.5847, accuracy_easy=0.6008, accuracy_medium=0.5628 |
+| tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.5858, accuracy_easy=0.5873, accuracy_medium=0.5838 |
+| tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.5847, accuracy_easy=0.6008, accuracy_medium=0.5628 |
+| tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.5559, accuracy_easy=0.6065, accuracy_medium=0.4869 |
+| tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books | accuracy=0.6113, accuracy_easy=0.6296, accuracy_medium=0.5864 |
+| tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.6113, accuracy_easy=0.6296, accuracy_medium=0.5864 |
+| tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.5980, accuracy_easy=0.6027, accuracy_medium=0.5916 |
+| tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.6113, accuracy_easy=0.6296, accuracy_medium=0.5864 |
+| tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.5072, accuracy_easy=0.5528, accuracy_medium=0.4450 |
+[claude/tabular-model-agent-exp-wvni5o 9f465a7] J20: TEmBed row tasks, TabPFN context target / layer (job 51159)
+ 46 files changed, 2751 insertions(+), 60 deletions(-)
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/logs/20261003-095408_top.log
+ rewrite reports/J20_tembed/run_tail.txt (77%)
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   acca27d..9f465a7  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J20 done Sat Oct  3 09:54:34 UTC 2026 ===
