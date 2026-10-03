@@ -38,7 +38,7 @@ MODEL_ORDER = ["tabpfn", "tabpfn-2.5", "tabiclv2", "kumo-s", "kumo-m", "kumo-l",
 MODEL_LABEL = {"tabpfn": "TabPFN v2", "tabpfn-2.5": "TabPFN-2.5", "tabiclv2": "TabICLv2", "kumo-s": "Kumo Tabular S",
                "kumo-m": "Kumo Tabular M", "kumo-l": "Kumo Tabular L", "kumo-relational": "Kumo Relational"}
 TARGET_LABEL = {"random": "random labels", "kmeans": "k-means clusters", "label": "real labels", "zeros": "all zeros"}
-TARGET_COLOR = {"random": BLUE, "kmeans": AQUA, "label": ORANGE}
+TARGET_COLOR = {"random": BLUE, "kmeans": AQUA, "label": ORANGE, "zeros": MUTED}
 GEO = ["effective_rank", "intrinsic_dim", "anisotropy", "kmeans_silhouette"]
 GEO_LABEL = {"effective_rank": "effective rank", "intrinsic_dim": "intrinsic dimension (TwoNN)",
              "anisotropy": "anisotropy (mean cosine)", "kmeans_silhouette": "k-means silhouette"}
@@ -263,20 +263,21 @@ def _header(fig, title, sub):
 
 def fig_depth(L: pd.DataFrame, S: pd.DataFrame, out: Path):
     """Small multiples: one panel per model; x = relative depth, y = test AUROC minus raw features; one line per context."""
-    D = L[L["study"].isin(["J18", "J21"])].merge(S, on=["split", "study", "model", "task", "target"])
+    studies = ["J18", "J21"] if (L["study"].eq("J21") & L["model"].eq("tabpfn")).any() else ["J18", "J19", "J21"]
+    D = L[L["study"].isin(studies)].merge(S, on=["split", "study", "model", "task", "target"])
     if D.empty:
         return
     D["gain"] = D["linear_test"] - D["raw_linear"]
     models = [m for m in MODEL_ORDER if m in D["model"].unique()]
     nc = 4 if len(models) > 4 else len(models)
     nr = int(np.ceil(len(models) / nc))
-    fig, axs = plt.subplots(nr, nc, figsize=(2.55 * nc + 0.4, 2.15 * nr + 0.95), sharey=True, squeeze=False)
+    fig, axs = plt.subplots(nr, nc, figsize=(max(8.4, 2.55 * nc + 0.4), 2.15 * nr + 1.2), sharey=True, squeeze=False)
     top = _header(fig, "Which layer holds the signal? Linear probe on each layer, minus raw features",
                   "Test AUROC gain over a probe on the raw relational features (0 = no better). Mean over RelBench tasks. "
                   "x: relative depth.")
     for ax, m in zip(axs.flat, models):
         g = D[D["model"] == m]
-        for tg in ["random", "kmeans", "label"]:
+        for tg in ["zeros", "random", "kmeans", "label"]:
             h = g[g["target"] == tg]
             if h.empty:
                 continue
