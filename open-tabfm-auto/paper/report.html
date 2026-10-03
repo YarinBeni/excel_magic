@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Open TabFM-Auto</title>
+<style>
+@page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+html { font-family: "DejaVu Serif", Georgia, serif; font-size: 9.6pt; line-height: 1.32; color: #111; }
+body { margin: 0; }
+h1 { font-size: 17pt; margin: 0 0 4pt; line-height: 1.2; text-align: center; }
+.authors { text-align: center; font-size: 10pt; margin-bottom: 2pt; }
+.affil { text-align: center; font-size: 8.6pt; color: #444; margin-bottom: 10pt; }
+.abstract { margin: 0 auto 10pt; width: 86%; font-size: 9.2pt; }
+.abstract b { font-variant: small-caps; }
+.cols { column-count: 2; column-gap: 7mm; }
+h2 { font-size: 11pt; margin: 9pt 0 3pt; break-after: avoid; }
+h3 { font-size: 9.8pt; margin: 7pt 0 2pt; font-style: italic; font-weight: normal; break-after: avoid; }
+p { margin: 0 0 5pt; text-align: justify; hyphens: auto; }
+figure { break-inside: avoid; margin: 4pt 0 8pt; }
+figure img { width: 100%; display: block; }
+figure.wide { column-span: all; width: 100%; margin: 6pt 0 10pt; }
+figure.wide img { width: 100%; }
+figcaption { font-size: 8.3pt; color: #333; margin-top: 3pt; text-align: justify; }
+table { border-collapse: collapse; width: 100%; font-size: 8.2pt; margin: 3pt 0 7pt; break-inside: avoid; }
+table.wide { column-span: all; margin: 6pt 0 9pt; }
+th, td { padding: 2pt 3pt; border-bottom: 0.5pt solid #bbb; text-align: left; }
+th { border-bottom: 1pt solid #333; font-weight: bold; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+caption { caption-side: top; font-size: 8.3pt; text-align: left; padding: 0 0 3pt; color: #333; }
+.ref { font-size: 8.3pt; padding-left: 1.6em; text-indent: -1.6em; margin-bottom: 2.5pt; text-align: left; }
+.small { font-size: 8.3pt; color: #444; }
+ul { margin: 0 0 5pt 1.1em; padding: 0; } li { margin-bottom: 2pt; }
+code { font-family: "DejaVu Sans Mono", monospace; font-size: 8.2pt; }
+</style></head><body>
+<h1>Open TabFM-Auto: What Survives When the Frozen Model, the LLM and the Agent Are All Open?</h1>
+<div class="authors">Yarin Benizri</div>
+<div class="affil">Hebrew University of Jerusalem &middot; experiments run on a Slurm cluster with H200 GPUs &middot; code: <code>open-tabfm-auto</code>, <code>frozen-embeddings-retrieval</code> &middot; working report, 3 October 2026</div>
+
+<div class="abstract"><b>Abstract.</b> TabFM-Auto (Fu et al., 2026) showed that a coding agent which evolves the data pipeline around a <i>frozen</i> tabular foundation model, judged by cross-validation, reaches the top of TabArena. The published result rests on a closed 400M-parameter model and on frontier LLM agents. We re-implement the method with open components only and vary one axis at a time: the frozen backbone (TabPFN v2/2.5, TabICLv2, Kumo Tabular S/M/L, EXAONE), the LLM (Qwen3-Coder-30B, Qwen3-32B, GLM-4.5-Air, gpt-oss-20b, served locally with vLLM), the agent harness (a minimal tool loop, and the free CLI agents pi, aider and Qwen Code), the judge (single vs repeated cross-validation) and the final pick (greedy, gated, ensemble). On the 17 small TabArena datasets, scored on all 30 official splits, no open setup reproduces the paper's mean gain of +4.6%: the best is a greedy search with no LLM at +0.5%, and the two open-LLM agents average below zero. The strongest open backbone, Kumo Tabular-L, already matches the paper's frozen TabFM with no search at all (better on 10 of 17 datasets), and the search then hurts it. Per-split analysis shows why: a candidate chosen by cross-validation on one split improves only about half of the other splits of the same data, and a larger budget selects more of that noise. The harness matters more than the model where an entity structure is present: the same 30B model gains 50% through pi and 0% through a minimal tool loop. As a side study we test frozen hidden states as training-free entity embeddings on RelBench rel-hm and find them no better than their input features for recommendation and marginally better (relational model only) for a customer-level label. We release the code, the per-split results and five reproducible figures.</div>
+
+<div class="cols">
+<h2>1. Introduction</h2>
+<p>The paper's claim is a mechanism: keep the predictor frozen, let an LLM turn column names and task text into code around it, and judge every candidate with a cheap cross-validation (CV) signal. Two things make the result hard to reuse: the frozen model is not released, and the search spends thousands of frontier-LLM calls per dataset. We separate the mechanism from those ingredients and measure what each is worth, keeping the pipeline contract, the judge and the evaluation protocol identical to the paper.</p>
+<p><b>Contributions.</b> (i) An open, MIT-licensed implementation of the full loop with pluggable backbones, LLMs and harnesses, plus a SQL mode. (ii) A backbone study across seven open tabular foundation models (TFMs). (iii) An LLM and harness study including a no-LLM baseline. (iv) A diagnosis of why gains do not reproduce at small scale, with two mitigations (a repeated judge and an acceptance slice). (v) A retrieval study of frozen hidden states as entity embeddings on a synthetic database and on RelBench.</p>
+
+<h2>2. Method and setup</h2>
+<p><b>Contract.</b> A pipeline is a Python file with four hooks (<code>preprocess</code>, <code>engineer</code> &le;500 columns, <code>sample</code> context views, <code>postprocess</code>) and constructor settings for the frozen model. The identity pipeline P0 passes the raw columns through. The judge is 3-fold CV on the training split, run in a sandbox the agent calls as <code>tabfm-eval</code>; the held-out split never enters the workspace. The best-CV candidate P* is frozen and scored once.</p>
+<p><b>Protocol.</b> TabArena v0.1, the 17 datasets with &le;2,500 rows; search on the training part of the first official split, then P0 and P* scored on all 30 official splits; the paper's per-dataset numbers (its Table 9) are vendored for direct comparison. <i>Gain</i> is the relative error reduction of P* over P0. Budgets are 16&ndash;24 evaluations per dataset (the paper: about 100).</p>
+<p><b>Components.</b> Backbones from Hugging Face; LLMs served by vLLM on one H200 each; harnesses: Claude Code (reference, local only), an OpenAI-compatible five-tool loop, free CLI agents (pi, aider, Qwen Code), and a greedy coordinate search over generic operations with no LLM.</p>
+
+<h2>3. Results</h2>
+<figure><img src="figures/fig1_tabarena_overview.png"><figcaption><b>Figure 1.</b> Mean gain of the searched pipeline over the frozen model alone on the 17 small TabArena datasets, all 30 official splits. No free setup reproduces the paper.</figcaption></figure>
+<p><b>No open setup reproduces the paper's gain (Fig. 1).</b> The greedy no-LLM search around Kumo Tabular-S gains +0.5% on average (9 of 17 datasets improve); pi + Qwen3-Coder-30B averages &minus;0.9% and the GLM-4.5-Air tool loop &minus;1.4%. The paper reports +4.6% with Claude Opus on the same datasets. Where the paper gains most (anneal +17.6%, Marketing_Campaign +15.8%, airfoil +14.6%) the open LLM agents lose (pi: &minus;5.2%, &minus;14.2%, +3.7%).</p>
+<figure><img src="figures/fig2_backbones_vs_paper.png"><figcaption><b>Figure 2.</b> Error of each open backbone with the identity pipeline, relative to the paper's frozen TabFM, per dataset. Kumo Tabular-L is better on 10 of 17 with no search.</figcaption></figure>
+<p><b>The best open backbone needs no search (Fig. 2).</b> Kumo Tabular-L's identity pipeline beats the paper's TabFM on 10 of 17 datasets (mean +1.6% relative) and the paper's <i>searched</i> TabFM-Auto on 4; the same greedy search then lowers its average by 1.1%. TabICLv2 is 10.9% behind TabFM and loses 2.9% more under search. The stronger the backbone, the less a generic feature search can add, and the more a noisy judge costs.</p>
+<figure><img src="figures/fig3_harness_fixed_llm.png"><figcaption><b>Figure 3.</b> Entity-ID task, same frozen model, 16 evaluations. The agent harness decides what a fixed open LLM finds.</figcaption></figure>
+<p><b>The harness matters more than the LLM (Fig. 3).</b> On a synthetic task whose description names an entity structure, Qwen3-Coder-30B cuts the error by 50% inside pi, 42% inside an aider loop and 26% inside Qwen Code, and by about 0% inside our minimal tool loop; giving the minimal loop the same starting context (file listing, pipeline, data summary) does not close the gap (&minus;4.9%), so the difference is in how the agent iterates. GLM-4.5-Air finds the same frequency encodings even in the minimal loop (+44%). All three CLI agents converge on the same role&times;resource counts. These gains do not carry to TabArena, where no dataset text names such a structure.</p>
+<figure><img src="figures/fig4_split_transfer.png"><figcaption><b>Figure 4.</b> Gain on the split the search used vs the mean gain on the other 29 official splits, one point per dataset and setup. Points far from the diagonal are candidates that looked good once.</figcaption></figure>
+<p><b>Why: the search selects CV noise (Fig. 4).</b> A candidate chosen by 3-fold CV on one split improves only 41&ndash;57% of the other splits of the same data, a coin flip, for every setup. With 500&ndash;2,500 rows a CV difference of one or two percent is inside the noise. Raising the budget to 64 evaluations on the five datasets where the paper gains most makes every setup worse (heuristic +2.9% &rarr; +1.1%, pi &minus;2.9% &rarr; &minus;4.3%, GLM +0.1% &rarr; &minus;8.4%), and the LLM agents stop on their own after 8&ndash;22 evaluations. The backbone itself is nondeterministic (&plusmn;1% RMSE, &plusmn;30% small-fold log-loss on repeated calls), a noise term now removed by seeding.</p>
+<p><b>Mitigations.</b> A repeated 3&times;3-fold judge on tables under 1,000 rows moves the heuristic from +1.4% to +2.1% and pi from &minus;1.4% to &minus;0.5% on those tables, and shrinks pi's loss on a 569-row table from &minus;17% to &minus;5%. Conservative final picks (replace P0 only if the paired per-fold improvement exceeds 1 or 2 standard errors; or average the three best candidates), re-scored on all splits, change the heuristic's mean gain from +0.25% to +0.49% / +0.29% / +0.25% and cut the datasets losing more than 1% from 6 to 3 at the 2-s.e. gate, but every LLM family keeps at least one dataset whose candidate is confidently better in CV and 10&ndash;15% worse everywhere else. CV-based rules cannot catch those; an acceptance slice of the training split that the pick must beat P0 on (implemented, under evaluation) can.</p>
+
+<table class="wide"><caption><b>Table 1.</b> Open LLMs at a fixed harness (our tool loop), frozen Kumo Tabular-S: held-out gain on the three bundled tasks, on three TabArena-Lite datasets (airfoil / blood-transfusion / credit-g), and wall time per search on one H200.</caption>
+<tr><th>LLM</th><th class="n">physics</th><th class="n">entities</th><th class="n">breast_cancer</th><th class="n">airfoil</th><th class="n">blood</th><th class="n">credit-g</th><th class="n">min / search</th></tr>
+<tr><td>GLM-4.5-Air-FP8 (106B-A12B)</td><td class="n">+5.1%</td><td class="n">+43.6%</td><td class="n">&minus;38.9%</td><td class="n">&minus;0.9%</td><td class="n">+1.4%</td><td class="n">+1.4%</td><td class="n">5</td></tr>
+<tr><td>gpt-oss-20b</td><td class="n">+4.1%</td><td class="n">&minus;8.9%</td><td class="n">&minus;7.9%</td><td class="n">+2.0%</td><td class="n">&minus;1.1%</td><td class="n">&minus;0.2%</td><td class="n">5</td></tr>
+<tr><td>Qwen3-Coder-30B-A3B (two runs)</td><td class="n">+1.3 / +2.9%</td><td class="n">&minus;1.1 / +1.0%</td><td class="n">&minus;2.9 / &minus;57%</td><td class="n">&minus;0.9 / +2.3%</td><td class="n">+2.5 / &minus;0.9%</td><td class="n">&minus;0.3 / &minus;0.4%</td><td class="n">1.5</td></tr>
+<tr><td>Qwen3-32B (reasoning)</td><td class="n">&minus;0.2%</td><td class="n">&minus;3.8%</td><td class="n">&minus;2.9%</td><td class="n">+0.7%</td><td class="n">+0.6%</td><td class="n">+0.3%</td><td class="n">17&ndash;30</td></tr>
+<tr><td><i>no LLM, greedy search</i></td><td class="n">+0.6%</td><td class="n">+25&ndash;29%</td><td class="n">0%</td><td class="n">&mdash;</td><td class="n">&mdash;</td><td class="n">&mdash;</td><td class="n">~10</td></tr>
+</table>
+<p>Every open setup overfits the smallest table (569 rows): the CV-best candidate is worse on test by 3% to 57% under a single 3-fold judge.</p>
+
+<h2>4. Frozen hidden states as entity embeddings</h2>
+<figure class="wide"><img src="figures/fig5_retrieval.png"><figcaption><b>Figure 5.</b> RelBench rel-hm. Left: user-item-purchase, test MAP@12 (&times;100) with the official evaluator, training-free kNN over each customer representation. Right: user-churn, kNN-probe AUROC over 20,000 customers. Blue: frozen foundation-model hidden state used as the embedding.</figcaption></figure>
+<p><b>Synthetic database.</b> On a shop database with planted customer segments (chance P@10 0.17), the frozen TabPFN hidden state over hand aggregates with k-means pseudo-labels as the in-context target scores 0.82 (a GNN trained on the database: 0.88; OpenRFM 0.25; Kumo Relational 0.62 with the k-means target, 0.33 with a random one). The in-context target decides what the embedding keeps.</p>
+<p><b>Real data (Fig. 5).</b> For recommending items, every frozen embedding (0.18&ndash;0.24) is below the hand aggregates (0.26) and far below plain cosine similarity on the purchase matrix (1.20); feeding SVD factors of that matrix through the frozen model halves their value (0.83 &rarr; 0.42). For a customer-level label, the frozen TabPFN equals its input (0.648 vs 0.653) and the frozen relational model with a random target is the single row above its input (0.660), still below a supervised model on the same features (0.673). Frozen FM hidden states are entity-level summaries of the features they are given, not retrieval embeddings; the interaction matrix itself is the right representation for recommendation.</p>
+
+<h2>5. Recommendation and limitations</h2>
+<p>For a free, open setup on small tables: use the strongest open backbone (Kumo Tabular-L) with the identity pipeline; add a search only when the task text names an entity structure, then use a CLI agent (pi) with Qwen3-Coder-30B or GLM-4.5-Air in a tool loop, a repeated judge (<code>--cv-repeats auto</code>), a gated pick (<code>--select gated1</code>) and an acceptance slice (<code>--accept-holdout 0.2</code>); and expect gains from a generic search to be within noise on tables of a few hundred rows. Limitations: budgets 4&ndash;6&times; below the paper's; one backbone family per study; the retrieval study covers one benchmark; and the backbone's nondeterminism adds noise to every comparison before seeding was introduced.</p>
+
+<h2>References</h2>
+<div class="ref">Fu, Z. et al. (2026). TabFM-Auto: Self-Evolving Pipelines for Tabular Foundation Models. arXiv:2609.37989.</div>
+<div class="ref">Erickson, N. et al. (2025). TabArena: A Living Benchmark for Machine Learning on Tabular Data.</div>
+<div class="ref">Robinson, J. et al. (2024). RelBench: A Benchmark for Deep Learning on Relational Databases.</div>
+<div class="ref">Hollmann, N. et al. (2025). Accurate predictions on small data with a tabular foundation model (TabPFN). Nature.</div>
+<div class="ref">Qu, J. et al. (2025). TabICL: A Tabular Foundation Model for In-Context Learning on Large Data.</div>
+<div class="ref">NVIDIA (2026). Structured Data Models: Kumo Tabular and Kumo Relational (open weights).</div>
+<p class="small">Experiments and this report were produced with Claude Code; every number is read from the run directories by <code>paper/fill_results.py</code> and <code>paper/make_figures.py</code>.</p>
+</div></body></html>
