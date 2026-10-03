@@ -1,0 +1,13 @@
+# 043_extend_runner  host=g0377  start=Sat Oct  3 08:17:32 UTC 2026  timeout=120s
+# HEAD=5506e1c
+# ---------------------------------------------------------
+current runner: 50192
+partition max time: 7-00:00:00
+time used 16:45:00 of 1-00:00:00, ends 2026-10-03T15:32:32
+Access/permission denied for job 50192
+successor runner 51136 (2 days) queued after 50192
+     JOBID           NAME      STATE       TIME   TIME_LIMIT NODELIST(REASON)
+     51136   AGENT_runner    PENDING       0:00   2-00:00:00 (Dependency)
+     50192   AGENT_runner    RUNNING   16:45:00   1-00:00:00 g0377
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 08:17:32 UTC 2026
