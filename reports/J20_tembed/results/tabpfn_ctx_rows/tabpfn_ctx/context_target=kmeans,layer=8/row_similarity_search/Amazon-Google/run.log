@@ -28,3 +28,33 @@ Traceback (most recent call last):
     assert dataset_folder.exists(), f"Could not find path {dataset_folder}"
            ^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError: Could not find path /home/yarin.b/tembed/cache/row_similarity_data_full/Amazon-Google
+2026-10-03 09:54:20,517 INFO __main__ - ================================================================================
+2026-10-03 09:54:20,517 INFO __main__ - Starting [22/44] | Task: row_similarity_search | Approach: tabpfn_ctx | Env: benchmark_env | Dataset: Amazon-Google
+2026-10-03 09:54:20,517 INFO __main__ - ================================================================================
+2026-10-03 09:54:20,517 INFO benchmark_src.run_benchmark - ################################################################################
+2026-10-03 09:54:20,517 INFO benchmark_src.run_benchmark - Task: row_similarity_search  |  Approach: tabpfn_ctx  |  Dataset: Amazon-Google
+2026-10-03 09:54:20,518 INFO benchmark_src.tasks.run_row_similarity_benchmark - Started run_row_similarity_benchmark
+2026-10-03 09:54:20,519 ERROR root - Traceback (most recent call last):
+2026-10-03 09:54:20,519 ERROR root -   File "/home/yarin.b/tembed/benchmark_src/run_benchmark.py", line 43, in run_single
+    run_row_similarity_benchmark.main(cfg)
+2026-10-03 09:54:20,519 ERROR root -   File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_similarity_benchmark.py", line 101, in main
+    input_table, testcase_paths, dataset_information = load_benchmark_data(cfg)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-03 09:54:20,519 ERROR root -   File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_similarity_benchmark.py", line 20, in load_benchmark_data
+    assert dataset_folder.exists(), f"Could not find path {dataset_folder}"
+           ^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-03 09:54:20,519 ERROR root - AssertionError: Could not find path /home/yarin.b/tembed/cache/row_similarity_data_full/Amazon-Google
+2026-10-03 09:54:20,519 ERROR benchmark_src.run_benchmark - Error during benchmark run, please check traceback above.
+2026-10-03 09:54:20,519 ERROR __main__ - Failed tabpfn_ctx/row_similarity_search/Amazon-Google
+Traceback (most recent call last):
+  File "/home/yarin.b/tembed/run_experiments.py", line 274, in _run_job
+    run_single(cfg)
+  File "/home/yarin.b/tembed/benchmark_src/run_benchmark.py", line 43, in run_single
+    run_row_similarity_benchmark.main(cfg)
+  File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_similarity_benchmark.py", line 101, in main
+    input_table, testcase_paths, dataset_information = load_benchmark_data(cfg)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_similarity_benchmark.py", line 20, in load_benchmark_data
+    assert dataset_folder.exists(), f"Could not find path {dataset_folder}"
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Could not find path /home/yarin.b/tembed/cache/row_similarity_data_full/Amazon-Google
