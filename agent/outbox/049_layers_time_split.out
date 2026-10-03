@@ -1,0 +1,23 @@
+# 049_layers_time_split  host=g0377  start=Sat Oct  3 11:38:49 UTC 2026  timeout=300s
+# HEAD=aba5048
+# ---------------------------------------------------------
+cancelled J18 51256
+cancelled J19 51257
+cancelled J21 51155
+J18: 51263
+J19: 51264
+J21: 51265
+306:def time_split(tr: pd.DataFrame, time_col: str, n_train: int) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
+321:    info = {"ctx_split": "time", "cut_time": str(cut), "n_ctx_pool": int(len(early)), "n_probe_pool": int(len(late))}
+323:        raise ValueError(f"time split leaves {len(early)} context rows (cut {cut}); use ctx_split='random'")
+       50192           AGENT_runner  RUNNING   20:06:22 1-00:00:00 g0377
+       51136           AGENT_runner  PENDING       0:00 2-00:00:00 (Dependency)
+       51155       J21_model_layers COMPLETI    2:16:26   10:00:00 g0381
+       51256    J18_relbench_layers COMPLETI      13:11   10:00:00 g0378
+       51257 J19_relbench_tab_layer COMPLETI      13:11   10:00:00 g0378
+       51263    J18_relbench_layers  PENDING       0:00   12:00:00 (Priority)
+       51264 J19_relbench_tab_layer  PENDING       0:00   12:00:00 (Priority)
+       51265       J21_model_layers  PENDING       0:00   14:00:00 (Priority)
+       JOBID                   NAME    STATE       TIME TIME_LIMIT NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 11:38:54 UTC 2026
