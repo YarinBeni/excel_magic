@@ -1,0 +1,35 @@
+# 048_restart_layers  host=g0377  start=Sat Oct  3 11:25:02 UTC 2026  timeout=600s
+# HEAD=f2e5885
+# ---------------------------------------------------------
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+== J18 51154
+pid 1989705    02:06:11  100 3706352
+pid 1995245    01:50:20  100 3718664
+pid 2022768       00:00  0.0  3696
+== J19 51133
+pid 1989705    02:06:11  100 3706352
+pid 1995245    01:50:20  100 3718664
+pid 2022795       00:00  0.0  3736
+== J21 51155
+pid 3095165    02:01:27 1564 4558832
+pid 3316791       00:01  0.0  3752
+== J21 run artifacts/runs/20261003T092340Z_J21_model_layers_rel-f1_driver-dnf
+352
+{"t": 7190.524, "utc": "2026-10-03T11:23:31.086118+00:00", "kind": "layer", "model": "kumo-l", "target": "label", "layer": "icl_07", "linear_test": 0.45486751573708095, "knn_test": 0.7588200849070414, "effective_rank": 79.84614307841656, "i
+{"t": 7215.573, "utc": "2026-10-03T11:23:56.135005+00:00", "kind": "layer", "model": "kumo-l", "target": "label", "layer": "icl_08", "linear_test": 0.5142438881569317, "knn_test": 0.7663738837651881, "effective_rank": 82.5786028191081, "int
+{"t": 7241.005, "utc": "2026-10-03T11:24:21.567328+00:00", "kind": "layer", "model": "kumo-l", "target": "label", "layer": "icl_09", "linear_test": 0.5361830869077245, "knn_test": 0.7682574537647001, "effective_rank": 85.10456938837203, "in
+J21 last event 37s ago
+cancelled J18 51154
+cancelled J19 51133
+J18: 51256
+J19: 51257
+       50192           AGENT_runner  RUNNING   19:52:40 g0377
+       51133 J19_relbench_tab_layer COMPLETI    2:12:45 g0378
+       51136           AGENT_runner  PENDING       0:00 (Dependency)
+       51154    J18_relbench_layers COMPLETI    2:07:15 
+       51155       J21_model_layers  RUNNING    2:02:49 g0381
+       51256    J18_relbench_layers  PENDING       0:00 (Priority)
+       51257 J19_relbench_tab_layer  PENDING       0:00 (Priority)
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 11:25:12 UTC 2026
