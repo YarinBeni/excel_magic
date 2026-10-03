@@ -53,6 +53,9 @@ def number_supported(tok: str, vals: list[float]) -> bool:
         return True
     d = len(t.split(".")[1]) if "." in t else 0
     cands = vals + ([c * 100 for c in vals] if pct else [])
+    if pct:  # a share the analyst computed from two evidence numbers (6 of 372 -> 1.6%)
+        vs = [x for x in vals[:60] if x > 0]
+        cands += [100 * a / b for a in vs for b in vs if a <= b]
     return any(abs(v - c) <= max(0.005 * abs(c), 0.5 * 10 ** (-d)) for c in cands)
 
 

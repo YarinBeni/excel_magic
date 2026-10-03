@@ -74,3 +74,9 @@ def test_number_supported():
     assert number_supported("75%", [0.75]) and number_supported("33.3%", [0.33333]) and not number_supported("40%", [0.75])
     assert number_supported("12.5", [12.46]) and not number_supported("12.5", [12.4])
     assert not number_supported("75", [0.75])  # a bare number does not match a fraction
+
+
+def test_number_supported_ratio_percent():
+    from vfd.analyst import number_supported
+    assert number_supported("1.6%", [372.0, 6.0]) and number_supported("72%", [360.0, 91.0, 500.0])
+    assert not number_supported("40%", [360.0, 91.0, 500.0, 47.0])
