@@ -110,3 +110,5 @@
 - J16: Kumo-S is nondeterministic (+-1% rmse, +-30% small-fold logloss), library version irrelevant. ROOT CAUSE of the J15 gap:
   rescore read config.json top level (nested under "config") and fell back to TabPFN v2 -> J15/J15b numbers withdrawn.
   Fixed; runner seeds numpy/torch per evaluation; inbox 038 cancels J15b and runs J15c (3 groups in parallel, Kumo-S).
+- J15c group 1 (heuristic, Kumo-S, seeded): best +0.25%, gated1 +0.49%, gated2 +0.29% (losses>1%: 3), ens3 +0.25%. No rule
+  rescues the search; all within backbone noise. pi / GLM groups running.

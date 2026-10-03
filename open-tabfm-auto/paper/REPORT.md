@@ -332,9 +332,12 @@ k-means target, below the aggregates (0.26) and two orders of magnitude below sp
   +4.3% / −24.8%. The fraction of splits a candidate improves is 0.39–0.57, i.e. a coin flip. With 500–2500-row tables a
   3-fold CV difference of ±1–2% is inside the noise, so the search mostly selects noise, and a bigger budget selects more
   of it. Repeated CV (J11) is the only lever we found that moves this, and only partly.
-- **Final-pick rules (J15, withdrawn → J15c)**: the first re-scoring pass scored every rule with the default backbone
-  (TabPFN v2) instead of the searched one (a nested-config bug), so its numbers are not comparable and are withdrawn; the
-  three groups (heuristic, pi, GLM searches) are being re-scored with Kumo-S as J15c.
+- **Final-pick rules (J15c, re-scored with the searched backbone Kumo-S, seeded)**: on the 17 heuristic searches the
+  mean gain over P0 is best-CV +0.25%, gated at 1 s.e. +0.49%, gated at 2 s.e. +0.29%, top-3 ensemble +0.25%; datasets
+  losing > 1%: 6 / 5 / 3 / 6. No rule turns the search into a reliable win: the 1-s.e. gate is marginally best and the
+  2-s.e. gate is the loss limiter, but all four are within the ±1% the backbone's own nondeterminism produces, and each
+  pick beats P0 on only 44–47% of the individual splits. (A first pass that accidentally scored with TabPFN v2 had
+  suggested the ensemble helped; that was an artifact and is withdrawn.) pi and GLM groups follow.
 - **Backbone nondeterminism (J16)**: the frozen Kumo Tabular-S gives different predictions on repeated calls with the
   same data (anneal r0f2 logloss 0.0035 / 0.0047 / 0.0045 in one process, 0.0031 / 0.0051 / 0.0073 in another; airfoil
   RMSE ±1%), independent of library version. Every P0-vs-P* comparison so far therefore carries this extra noise, which

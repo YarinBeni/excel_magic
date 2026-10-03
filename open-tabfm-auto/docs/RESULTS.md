@@ -473,3 +473,18 @@ then the J8-era library:
 
 The backbone is nondeterministic at the +-1% (RMSE) to +-30% (small-fold logloss) level; the runner now seeds torch
 per evaluation. J15's P0 (anneal 0.023 / 0.0054 / 0.0031, airfoil 0.975 / 1.156 / 1.046) was TabPFN v2, not Kumo-S.
+
+## Final-pick selection rules, corrected (J15c, 51092): heuristic searches re-scored with Kumo Tabular-S, gain over P0 %
+
+| rule | mean | median | wins | losses > 1% | splits where the pick beats P0 |
+|---|---|---|---|---|---|
+| best (CV-best, paper) | +0.25 | 0.00 | 7/17 | 6 | 44% |
+| gated 1 s.e. | +0.49 | 0.00 | 8/17 | 5 | 47% |
+| gated 2 s.e. | +0.29 | 0.00 | 8/17 | 3 | 44% |
+| top-3 ensemble | +0.25 | -0.11 | 7/17 | 6 | 44% |
+
+Per dataset (best / gated1 / gated2 / ens3): airfoil +6.1/+6.1/+6.1/+6.2, anneal +7.0/+7.0/+0.2/+7.0, MIC +1.5 all,
+Fitness_Club +0.7, website_phishing +0.5, maternal_health_risk -2.8/+0.6/+0.6/-2.7, Is-this-a-good-customer -2.3/-2.3/0.0/-2.3,
+diabetes -1.9 all, qsar-biodeg -1.4, concrete -1.3, healthcare -1.3/-1.3/0.0/-1.3, the rest within +-0.7.
+The re-scored P0 agrees with J2's P0 within +-2% (backbone nondeterminism); the J2 run's own +0.47% for the CV-best pick
+is +0.25% here for the same reason.
