@@ -12,7 +12,7 @@ set -uo pipefail
 echo "=== V4 relbench capability === job ${SLURM_JOB_ID} $(date)"
 cd ~/projects/excel_magic && source sbatch/_common.sh && job_prologue
 python -c "import duckdb" 2>/dev/null || pip install -q duckdb 2>&1 | tail -1
-RUN="$TABFM_RUNS_ROOT/$(date -u +%Y%m%dT%H%M%SZ)_V4_relbench_capability"; mkdir -p "$RUN"
+RUN="${RUN:-$TABFM_RUNS_ROOT/$(date -u +%Y%m%dT%H%M%SZ)_V4_relbench_capability}"; mkdir -p "$RUN"
 source sbatch/_vllm.sh
 LLM=Qwen/Qwen3-Coder-30B-A3B-Instruct PORT=8230 VLLM_GPU_FRAC=0.55 VLLM_MAX_LEN=65536 start_vllm "qwen3_coder hermes" \
   || { echo "FAILED vllm"; collect_and_push "V4: vLLM failed (job ${SLURM_JOB_ID})"; exit 1; }

@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import json
 import sys
+import threading
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -89,8 +90,17 @@ class RelEnv:
                              time=self.tcol, target=self.tgt, extra=extra)
 
     # ----------------------------------------------------------------------------------------------- tools
+    def _q(self, query: str, timeout: float = 120.0) -> pd.DataFrame:
+        """Run a query; interrupt it after `timeout` seconds so one runaway join cannot stall the episode."""
+        t = threading.Timer(timeout, self.con.interrupt)
+        t.start()
+        try:
+            return self.con.execute(query).fetchdf()
+        finally:
+            t.cancel()
+
     def sql(self, query: str, n: int = 15) -> str:
-        res = self.con.execute(query).fetchdf()
+        res = self._q(query)
         return f"{len(res)} rows; columns {list(res.columns)}\n{res.head(n).to_string(max_colwidth=50)}"
 
     def reset(self):
@@ -113,7 +123,7 @@ class RelEnv:
         return s.fillna(s.mean() if s.notna().any() else 0.0).to_numpy(float), float(s.notna().mean())
 
     def submit(self, query: str) -> str:
-        df = self.con.execute(query).fetchdf()
+        df = self._q(query)
         missing = {self.ent, self.tcol, "score"} - set(df.columns)
         if missing:
             return f"REJECTED: the query must return columns {self.ent}, {self.tcol}, score (missing {missing})"
@@ -128,8 +138,8 @@ class RelEnv:
         from .deep import DeepTool
         from .tabular import encode_frames
 
-        tr = self.con.execute(train_sql).fetchdf()
-        te = self.con.execute(test_sql).fetchdf()
+        tr = self._q(train_sql, 300)
+        te = self._q(test_sql, 300)
         if self.tgt not in tr.columns:
             return f"train_sql must return the label column {self.tgt}"
         feats = [c for c in tr.columns if c not in (self.ent, self.tcol, self.tgt) and c in te.columns]
