@@ -1,0 +1,93 @@
+{
+  "dataset": "QSAR_fish_toxicity",
+  "task_type": "regression",
+  "model": "kumo-tabular-l:n_estimators=8,device=cuda",
+  "metric": "rmse",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 11,
+  "n_evals_ok": 11,
+  "select_rule": "gated1",
+  "p0_cv": 0.8408955091141638,
+  "best_cv": 0.8408955091141638,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 203.0,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261003T071825Z_J17_pi_qwen3coder_kumoL_rec_QSAR_fish_toxicity/search/QSAR_fish_toxicity/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.896185380544752,
+  "p0_test_secondary": {
+    "rmse": 0.896185380544752,
+    "mae": 0.6202515587429009,
+    "r2": 0.6433008510920037
+  },
+  "best_test": 0.896185380544752,
+  "best_test_secondary": {
+    "rmse": 0.896185380544752,
+    "mae": 0.6202515587429009,
+    "r2": 0.6433008510920037
+  },
+  "best_test_info": {
+    "n_features": 6,
+    "t_features": 0.004,
+    "n_views": 1,
+    "view_sizes": [
+      604
+    ],
+    "t_model": 0.926,
+    "t_total": 0.931,
+    "model_spec": "kumo-tabular-l:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 0.0,
+  "cv_trajectory": [
+    [
+      1,
+      0.8408955091141638
+    ],
+    [
+      2,
+      0.8408955091141638
+    ],
+    [
+      3,
+      0.8515136008968712
+    ],
+    [
+      4,
+      0.8455262949248825
+    ],
+    [
+      5,
+      0.8453996840483377
+    ],
+    [
+      6,
+      0.8474803103269948
+    ],
+    [
+      7,
+      0.8461388146295128
+    ],
+    [
+      8,
+      0.8408955646268459
+    ],
+    [
+      9,
+      0.8474803061572577
+    ],
+    [
+      10,
+      0.8408955646268459
+    ],
+    [
+      11,
+      0.8427930278543254
+    ]
+  ],
+  "elapsed_s": 221.98,
+  "status": "ok"
+}
