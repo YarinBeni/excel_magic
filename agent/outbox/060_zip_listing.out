@@ -1,0 +1,7 @@
+# 060_zip_listing  host=g0374  start=Sat Oct  3 19:16:56 UTC 2026  timeout=900s
+# HEAD=10125b4
+# ---------------------------------------------------------
+Sudnya/bird-sql 22 members; 0 desc members; e.g. [] | first: ['debit_card_specializing/debit_card_specializing.sqlite', 'financial/financial.sqlite', 'formula_1/formula_1.sqlite', 'california_schools/california_schools.sqlite', 'card_games/card_games.sqlite', 'european_football_2/european_football_2.sqlite', 'thrombosis_prediction/thrombosis_prediction.sqlite', 'toxicology/toxicology.sqlite']
+Open-Dataflow/dataflow-Text2SQL-database-example 8 members; 0 desc members; e.g. [] | first: ['databases/', '__MACOSX/._databases', 'databases/thrombosis_prediction.sqlite', '__MACOSX/databases/._thrombosis_prediction.sqlite', 'databases/california_schools.sqlite', '__MACOSX/databases/._california_schools.sqlite', 'databases/student_club.sqlite', '__MACOSX/databases/._student_club.sqlite']
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 19:17:04 UTC 2026
