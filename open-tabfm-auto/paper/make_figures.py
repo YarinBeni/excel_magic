@@ -104,7 +104,7 @@ def fig1(roots, out):
     fig, ax = plt.subplots(figsize=(8.6, 4.6))
     _hbars(ax, labels, values, [NEUTRAL] + [ORANGE if "guards" in r[0] else BLUE for r in rows])
     top = _header(fig, "Free, open setups do not reproduce the paper's gain on TabArena",
-                  f"Mean error reduction over the frozen model alone · {len(ref)} datasets · 30 splits · orange = with guards (repeated judge, gated pick, acceptance slice)")
+                  f"Mean error reduction over the frozen model · {len(ref)} datasets, 30 splits · orange = with guards")
     ax.set_xlabel("Mean gain over the frozen model (%)")
     fig.tight_layout(rect=(0, 0, 1, top))
     fig.savefig(out / "fig1_tabarena_overview.png", dpi=180)
