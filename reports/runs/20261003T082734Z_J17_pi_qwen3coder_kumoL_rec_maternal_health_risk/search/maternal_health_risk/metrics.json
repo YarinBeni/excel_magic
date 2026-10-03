@@ -1,0 +1,83 @@
+{
+  "dataset": "maternal_health_risk",
+  "task_type": "multiclass",
+  "model": "kumo-tabular-l:n_estimators=8,device=cuda",
+  "metric": "logloss",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 9,
+  "n_evals_ok": 9,
+  "select_rule": "gated1",
+  "p0_cv": 0.5509684072663608,
+  "best_cv": 0.5509684072663608,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 305.4,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261003T082734Z_J17_pi_qwen3coder_kumoL_rec_maternal_health_risk/search/maternal_health_risk/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.3342044794901929,
+  "p0_test_secondary": {
+    "logloss": 0.3342044794901929,
+    "acc": 0.8875739644970414
+  },
+  "best_test": 0.3342044794901929,
+  "best_test_secondary": {
+    "logloss": 0.3342044794901929,
+    "acc": 0.8875739644970414
+  },
+  "best_test_info": {
+    "n_features": 6,
+    "t_features": 0.007,
+    "n_views": 1,
+    "view_sizes": [
+      676
+    ],
+    "t_model": 2.067,
+    "t_total": 2.076,
+    "model_spec": "kumo-tabular-l:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 0.0,
+  "cv_trajectory": [
+    [
+      1,
+      0.5509684072663608
+    ],
+    [
+      2,
+      0.5509684072663608
+    ],
+    [
+      3,
+      0.5510939946924689
+    ],
+    [
+      4,
+      0.5506909123205571
+    ],
+    [
+      5,
+      0.5670431124938338
+    ],
+    [
+      6,
+      0.5526110077127271
+    ],
+    [
+      7,
+      0.6256648562860985
+    ],
+    [
+      8,
+      0.5534010898131391
+    ],
+    [
+      9,
+      0.5534010898131391
+    ]
+  ],
+  "elapsed_s": 340.72,
+  "status": "ok"
+}
