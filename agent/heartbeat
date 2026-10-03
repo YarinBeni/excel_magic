@@ -1,6 +1,6 @@
-alive Sat Oct  3 06:12:48 UTC 2026
+alive Sat Oct  3 07:13:08 UTC 2026
 host g0377
 job 50192
-       51091_[1-2] voltagepa J15c_sel  yarin.b PD       0:00      1 (Priority)
-           51091_0 voltagepa J15c_sel  yarin.b  R       7:02      1 g0381
-             50192 voltagepa AGENT_ru  yarin.b  R   14:40:16      1 g0377
+           51110_1 voltagepa J17_reco  yarin.b  R      15:50      1 g0377
+           51110_0 voltagepa J17_reco  yarin.b  R      21:26      1 g0381
+             50192 voltagepa AGENT_ru  yarin.b  R   15:40:36      1 g0377
