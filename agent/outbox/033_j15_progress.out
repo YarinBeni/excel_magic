@@ -1,0 +1,29 @@
+# 033_j15_progress  host=g0377  start=Sat Oct  3 02:29:56 UTC 2026  timeout=120s
+# HEAD=33295ae
+# ---------------------------------------------------------
+       50192           AGENT_runner  RUNNING   10:57:24 g0377
+       50827    J15_selection_rules  RUNNING    3:10:15 g0381
+       50921 J14b_relational_item_r  RUNNING    1:20:04 g0380
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+== sbatch/logs/J15_selection_rules_50827.out
+[rescore] 20261002T155220Z_J2_heuristic_credit-g credit-g: picks={'p0': 'eval_001.py', 'best': 'eval_001.py', 'gated1': 'eval_001.py', 'gated2': 'eval_001.py', 'ens3': 'eval_001.py+eval_006.py+eval_002.py'} 253s
+[rescore] 20261002T155220Z_J2_heuristic_maternal_health_risk maternal_health_risk: picks={'p0': 'eval_001.py', 'best': 'eval_017.py', 'gated1': 'eval_014.py', 'gated2': 'eval_014.py', 'ens3': 'eval_017.py+eval_018.py+eva
+[rescore] 20261002T155239Z_J2_heuristic_concrete_compressive_strength concrete_compressive_strength: picks={'p0': 'eval_001.py', 'best': 'eval_024.py', 'gated1': 'eval_024.py', 'gated2': 'eval_017.py', 'ens3': 'eval_024.
+[rescore] 20261002T155339Z_J2_heuristic_qsar-biodeg qsar-biodeg: picks={'p0': 'eval_001.py', 'best': 'eval_010.py', 'gated1': 'eval_010.py', 'gated2': 'eval_023.py', 'ens3': 'eval_010.py+eval_013.py+eval_015.py'} 1296s
+[rescore] 20261002T155549Z_J2_heuristic_healthcare_insurance_expenses healthcare_insurance_expenses: picks={'p0': 'eval_001.py', 'best': 'eval_024.py', 'gated1': 'eval_024.py', 'gated2': 'eval_001.py', 'ens3': 'eval_024.
+[rescore] 20261002T155610Z_J2_heuristic_website_phishing website_phishing: picks={'p0': 'eval_001.py', 'best': 'eval_020.py', 'gated1': 'eval_020.py', 'gated2': 'eval_020.py', 'ens3': 'eval_020.py+eval_017.py+eval_019.py
+[rescore] 20261002T155640Z_J2_heuristic_airfoil_self_noise airfoil_self_noise: picks={'p0': 'eval_001.py', 'best': 'eval_018.py', 'gated1': 'eval_018.py', 'gated2': 'eval_018.py', 'ens3': 'eval_018.py+eval_023.py+eval_01
+[rescore] 20261002T155643Z_J2_heuristic_Fitness_Club Fitness_Club: picks={'p0': 'eval_001.py', 'best': 'eval_014.py', 'gated1': 'eval_014.py', 'gated2': 'eval_014.py', 'ens3': 'eval_014.py+eval_018.py+eval_023.py'} 236s
+[rescore] 20261002T155709Z_J2_heuristic_Is-this-a-good-customer Is-this-a-good-customer: picks={'p0': 'eval_001.py', 'best': 'eval_013.py', 'gated1': 'eval_013.py', 'gated2': 'eval_001.py', 'ens3': 'eval_013.py+eval_024.
+[rescore] 20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500 Another-Dataset-on-used-Fiat-500: picks={'p0': 'eval_001.py', 'best': 'eval_023.py', 'gated1': 'eval_001.py', 'gated2': 'eval_001.py', 'ens3': 'eva
+[rescore] 20261002T155711Z_J2_heuristic_MIC MIC: picks={'p0': 'eval_001.py', 'best': 'eval_014.py', 'gated1': 'eval_014.py', 'gated2': 'eval_014.py', 'ens3': 'eval_014.py+eval_017.py+eval_023.py'} 3506s
+[rescore] 20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection hazelnut-spread-contaminant-detection: picks={'p0': 'eval_001.py', 'best': 'eval_001.py', 'gated1': 'eval_001.py', 'gated2': 'eval_001.py', 'e
+[rescore] 20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500 Another-Dataset-on-used-Fiat-500: picks={'p0': 'eval_001.py', 'best': 'eval_023.py', 'gated1': 'eval_001.py', 'gated2': 'eval_001.py', 'ens3': 'eva
+[rescore] 20261002T155711Z_J2_heuristic_MIC MIC: picks={'p0': 'eval_001.py', 'best': 'eval_014.py', 'gated1': 'eval_014.py', 'gated2': 'eval_014.py', 'ens3': 'eval_014.py+eval_017.py+eval_023.py'} 3506s
+[rescore] 20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection hazelnut-spread-contaminant-detection: picks={'p0': 'eval_001.py', 'best': 'eval_001.py', 'gated1': 'eval_001.py', 'gated2': 'eval_001.py', 'e
+== sbatch/logs/J14b_relational_item_random_50921.out
+[test] Past+ItemKNN                 map=2.197
+[test] kNN-CF[agg]                  map=0.259
+[test] Past+kNN-CF[agg]             map=2.184
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 02:29:56 UTC 2026
