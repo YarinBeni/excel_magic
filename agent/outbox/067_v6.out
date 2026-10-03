@@ -1,0 +1,12 @@
+# 067_v6  host=g0374  start=Sat Oct  3 20:27:51 UTC 2026  timeout=300s
+# HEAD=d8f1ee8
+# ---------------------------------------------------------
+V6: 51914
+       51136           AGENT_runner  RUNNING    4:54:51 g0374
+       51838      V4_rel_capability  RUNNING      56:35 g0381
+       51863         V5_sql_harness  RUNNING       8:02 g0381
+       51908        V3_insightbench  RUNNING       4:02 g0381
+       51914          V6_insight_pi  PENDING       0:00 (None)
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 20:27:51 UTC 2026
