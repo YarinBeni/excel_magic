@@ -62,3 +62,15 @@ def test_knn_probe_recovers_label_structure():
     assert knn_probe(E, y, folds, k=10) > 0.9
     E0 = rng.normal(size=(300, 8))  # embedding without the label
     assert abs(knn_probe(E0, y, folds, k=10) - 0.5) < 0.15
+
+
+def test_geometry_known_cases():
+    from fer.model_layers import effective_rank, linear_cka
+
+    rng = np.random.default_rng(0)
+    low = rng.normal(size=(500, 3)) @ rng.normal(size=(3, 32))
+    full = rng.normal(size=(500, 32))
+    assert effective_rank(low) < 3.5 < effective_rank(full)
+    rot = np.linalg.qr(rng.normal(size=(32, 32)))[0]
+    assert abs(linear_cka(full, full @ rot) - 1) < 1e-6
+    assert linear_cka(full, rng.normal(size=(500, 32))) < 0.2

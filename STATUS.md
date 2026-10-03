@@ -123,3 +123,6 @@
 - inbox 041: J19 (TabPFN v2 per-block row embeddings on the same 8 RelBench tasks, targets zeros/random/k-means/label) and
   J20 (TEmBed row similarity search + row triplets: TabPFN with context target zeros [= TEmBed default] / random / k-means,
   last vs block 8, plus MiniLM reference). TEmBed add-on lives in tembed_patch/.
+- inbox 042 / J21: all six open tabular FMs (TabPFN v2, TabPFN-2.5, TabICLv2, Kumo Tabular S/M/L), every layer, 5 RelBench
+  entity tasks, targets random/k-means/label: probes (val-selected layer, official test), label-free geometry per layer
+  (effective rank, TwoNN ID, anisotropy, k-means silhouette) and whether it predicts the best layer, CKA within/across models.
