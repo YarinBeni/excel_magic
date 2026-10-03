@@ -128,3 +128,4 @@
   (effective rank, TwoNN ID, anisotropy, k-means silhouette) and whether it predicts the best layer, CKA within/across models.
 - 2026-10-03: runner extended 2 days at Yarin's request (inbox 043: raise the limit in place if allowed, else a 2-day
   successor queued afterany the current runner). Stop everything with `scancel -n AGENT_runner`.
+- J20 (51134) failed at checkout: TEmBed has a folder named '<approach_name>' the cluster FS rejects -> sparse checkout; inbox 044 resubmits.

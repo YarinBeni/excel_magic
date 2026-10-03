@@ -13,7 +13,16 @@ set -uo pipefail
 echo "=== J20 tembed rows === job ${SLURM_JOB_ID} $(date)"
 cd ~/projects/excel_magic && source sbatch/_common.sh && job_prologue
 R=$HOME/tembed; OUT=reports/J20_tembed; mkdir -p $OUT
-[ -d $R/.git ] || git clone -q https://github.com/IBM/table-representation-evals.git $R || { echo "FAILED clone"; exit 1; }
+# the repo holds a template folder literally named "<approach_name>", which this filesystem refuses: sparse-checkout
+# everything except it (and drop a half-checked-out clone left by an earlier attempt)
+[ -f $R/run_experiments.py ] || rm -rf "${R:?}"
+if [ ! -d $R/.git ]; then
+    git clone -q --no-checkout https://github.com/IBM/table-representation-evals.git $R || { echo "FAILED clone"; exit 1; }
+    git -C $R sparse-checkout init --no-cone
+    git -C $R sparse-checkout set --no-cone '/*' '!/approaches/benchmark_approaches_src/<approach_name>/'
+    git -C $R checkout -q || { echo "FAILED checkout"; exit 1; }
+fi
+ls $R | head -20
 cp -r tembed_patch/approaches/benchmark_approaches_src/tabpfn_ctx $R/approaches/benchmark_approaches_src/
 cp tembed_patch/configs/approaches/tabpfn_ctx.yaml $R/configs/approaches/
 cp tembed_patch/configs/runs/tabpfn_ctx_rows.yaml $R/configs/runs/
