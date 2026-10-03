@@ -32,7 +32,7 @@ keep = {"metrics.json", "config.json", "results.md", "results.csv", "best_pipeli
         "comparison_to_paper.md", "comparison_to_paper.csv", "heuristic_trace.json", "rescored.json", "NOTES.md",
         "agent_stream.log", "agent_stream.jsonl", "agent_result.md", "relbench_rows.json", "churn_rows.json",
         "selection_rules.md", "selection_rules.csv", "layers_rows.json",
-        "candidates.jsonl", "signals.csv", "schema_link.csv", "judge.csv", "encoders.csv", "rows.jsonl", "scores.jsonl", "harness_rows.jsonl"}
+        "candidates.jsonl", "signals.csv", "schema_link.csv", "judge.csv", "encoders.csv", "rows.jsonl", "scores.jsonl", "harness_rows.jsonl", "capability_rows.jsonl"}
 n = 0
 for run in sorted(src.glob("*")):
     if not run.is_dir(): continue
