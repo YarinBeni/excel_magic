@@ -74,6 +74,49 @@ is bounded.
 3. Verifier fine-tuning: GLiClass fine-tuned on those traces (8-shot per label already gives +0.2 F1 in the paper).
 4. Auto-research loop over the harness configuration (section 5).
 
+
+## 2b. What the tabular and relational models add that the LLM and GLi cannot do
+
+The LLM reads at most a few thousand rows and reasons about them in words; SQL can only count and sum what already
+happened; GLi only reads text. None of them can *learn a pattern from millions of rows and apply it*. That is the
+tabular / relational FM's job. Seven capabilities, each a tool the LLM calls, each returning a short JSON summary:
+
+| # | capability | example question | why LLM + SQL + GLi cannot | model |
+|---|---|---|---|---|
+| T1 | predict the future for each entity | "which customers will churn next month?", "expected revenue per store next quarter" | SQL describes the past; the LLM cannot fit a function to 50K+ rows | Kumo Tabular-L (one table); Kumo Relational (many tables, no hand joins) |
+| T2 | find the drivers | "what drives churn?", "why did margin drop in region X?" | a few GROUP BYs confuse correlated columns and miss interactions | Kumo Tabular-L + permutation importance / SHAP; TabPFN extensions (CRT p-values) for research |
+| T3 | what-if with uncertainty | "if we raise the price 5%, what happens to orders, with a range?" | the LLM guesses; SQL has no counterfactual | partial dependence / ICE on Kumo Tabular-L; quantile outputs give the range |
+| T4 | find what does not fit | "which transactions / stores look abnormal?" | nobody can read millions of rows | prediction residuals and outlier scores over all rows (Kumo Tabular-S, fast, many calls) |
+| T5 | detect change between periods | "did the customer mix change this quarter? in which columns?" | comparing two periods column by column misses joint shifts | classifier two-sample test: old vs new rows, AUROC = drift, importances = where (Kumo Tabular-S) |
+| T6 | similar entities and segments | "find customers like these 20", "what natural groups exist?" | SQL has no notion of similarity across many columns and tables | Kumo Relational graph-layer embeddings (paper 2: best layer, matches hand features with no feature work); the LLM names the segments, GLi labels them |
+| T7 | judge the LLM's own hypotheses and features | the LLM says "discounts drive retention" or writes a new SQL feature | the LLM cannot test its own idea on held-out data | held-out signal with and without the feature (the TabFM-Auto mechanism of paper 1; on company-size data the judge is far less noisy than on TabArena's few hundred rows) |
+
+Model roles. **Kumo Tabular-S**: fast probe for many repeated calls (T4, T5, importance loops, interactive answers).
+**Kumo Tabular-L**: accuracy for final answers (T1, T2, T3); in paper 1 its plain predictions beat the paper's closed
+TabFM on 10 of 17 datasets. **Kumo Relational**: questions that span tables (T1, T6) straight from the database, about
+one minute per task; its graph layer is the entity embedding (paper 2). **TabPFN-2.5/3** (research only, non-commercial):
+reference numbers and its SHAP / CRT p-value tools. **LightGBM**: a check beside every T1-T3 answer on temporal or very
+large tasks, where trees still win (BeyondArena). Limits to respect: Kumo Tabular keeps the first 500 features; Kumo
+Relational reads numeric and date columns only (text goes through GLi first, G4), 10 classes, ~20K context rows per call
+(the tool samples, time-aware).
+
+How the three work together on one question ("why are we losing customers in the north?"):
+GLi links "customers", "north", "losing" to the customer table, region column and churn definition in the metric layer ->
+the LLM plans: define churn by SQL, build the task table -> Kumo Relational predicts churn risk per customer (T1) ->
+Kumo Tabular-L gives the drivers and what-ifs (T2, T3), LightGBM checks them -> GLi turns the free-text complaint column
+into labels that enter as features (G4) -> T5 tests whether the north changed against last year -> the LLM writes
+claims, every number recomputed by SQL, every text claim checked by GLi -> the answer lists verified facts with ranges.
+
+Experiments that isolate the tabular part (added to section 3): ablation (E) vs (D) on every benchmark, plus
+**C7 capability tasks** where the answer needs T1-T7: RelBench prediction questions (T1), InsightBench planted drivers
+and anomalies (T2, T4), DSGym QRData statistical / causal questions (T2, T3), and a planted-drift set built from RelBench
+time splits (T5). Without the tabular tool the LLM can only describe; the test is how often the answer is right.
+
+**LLM for the experiments.** The company uses GLM-5.2 inside pi. GLM-5-class models (~744B) need a full 8-GPU node. Plan:
+run the harness inside pi (as in paper 1, where pi was the best open harness) with GLM-4.5-Air on one H200 for all
+ablations, and repeat the final configuration with GLM-5.2 on an 8-GPU node or through the company endpoint (questions
+only, company data stays inside).
+
 ## 3. Benchmarks, chosen per claim
 
 | claim | benchmark | why it shows the claim | metric |
