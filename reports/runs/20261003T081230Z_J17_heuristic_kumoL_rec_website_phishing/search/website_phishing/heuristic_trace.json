@@ -1,0 +1,216 @@
+[
+  {
+    "config": {
+      "regression": false
+    },
+    "score": 0.2728239605734227
+  },
+  {
+    "config": {
+      "regression": false,
+      "sentinel_to_nan": true
+    },
+    "score": 0.2728239605734227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "winsorize": true
+    },
+    "score": 0.2728239605734227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "drop_constant": true
+    },
+    "score": 0.2728239605734227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "count_encode": true
+    },
+    "score": 0.2728239605734227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "log_skewed": true
+    },
+    "score": 0.2728239605734227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "crosses_top_k": 3
+    },
+    "score": 0.2728239605734227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "crosses_top_k": 5
+    },
+    "score": 0.2728239605734227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "svd_components": 8
+    },
+    "score": 0.2728239605734227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "svd_components": 16
+    },
+    "score": 0.2728239605734227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "prune_to": 64
+    },
+    "score": 0.2728239605734227,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "balanced_views": true
+    },
+    "score": 0.2727559189917847,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "balanced_views": true,
+      "random_views": 3
+    },
+    "score": 0.2727559189917847,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "balanced_views": true,
+      "prior_correction": true
+    },
+    "score": 0.27145550681102293,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "balanced_views": true,
+      "prior_correction": true,
+      "temperature": 0.8
+    },
+    "score": 0.275513817925874,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "balanced_views": true,
+      "prior_correction": true,
+      "temperature": 1.25
+    },
+    "score": 0.28394490711768633,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "balanced_views": true,
+      "prior_correction": true,
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 0.27145550681102293,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "balanced_views": true,
+      "prior_correction": true,
+      "sentinel_to_nan": true
+    },
+    "score": 0.27145550681102293,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "balanced_views": true,
+      "prior_correction": true,
+      "winsorize": true
+    },
+    "score": 0.27145550681102293,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "balanced_views": true,
+      "prior_correction": true,
+      "drop_constant": true
+    },
+    "score": 0.27145550681102293,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "balanced_views": true,
+      "prior_correction": true,
+      "count_encode": true
+    },
+    "score": 0.27145550681102293,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "balanced_views": true,
+      "prior_correction": true,
+      "log_skewed": true
+    },
+    "score": 0.27145550681102293,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "balanced_views": true,
+      "prior_correction": true,
+      "crosses_top_k": 3
+    },
+    "score": 0.27145550681102293,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": false,
+      "balanced_views": true,
+      "prior_correction": true,
+      "crosses_top_k": 5
+    },
+    "score": 0.27145550681102293,
+    "error": null
+  }
+]
