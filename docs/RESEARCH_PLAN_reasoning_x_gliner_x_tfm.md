@@ -104,3 +104,28 @@ https://www.arxiv.org/pdf/2508.07662 ; InsightBench: https://arxiv.org/abs/2407.
 https://github.com/ServiceNow/insight-bench ; multimodal benchmark: https://arxiv.org/abs/2111.02705 ,
 https://github.com/sxjscience/automl_multimodal_benchmark ; Spider 2.0: https://arxiv.org/abs/2411.07763 ,
 https://github.com/xlang-ai/Spider2 ; BIRD/Spider annotation audit: https://arxiv.org/abs/2601.08778
+
+## 8. How we build it (added after discussion)
+
+**One harness, three tools.** The agent is a pipeline harness like `open-tabfm-auto`: a fixed contract (plan step ->
+tool call -> result -> verdict) with three pluggable tools: `llm` (reasoning: plan, SQL, explain), `gli` (GLiNER /
+GLiClass: label text, score a plan step or a claim against labels, link question words to columns) and `tfm` (frozen
+tabular / relational model: fit in context on a SQL result or a subgraph, return accuracy, importances, dependence,
+anomalies). The LLM drives. Before each step `gli` scores the step ("useful / redundant / risky / needs data") and the
+LLM sees the score; after each tool result `gli` scores the LLM's claim against the result text. The outer harness is
+swappable (our tool loop, pi, aider, Qwen Code), so the same three tools can be tested under different agent styles,
+as in paper 1.
+
+**An auto-research loop on top (Karpathy-style).** `autoresearch` (Karpathy, March 2026) runs an agent that edits an
+experiment, runs it for a fixed budget, keeps the change if the metric improves, and reverts if not; 100+ experiments
+overnight on one GPU. We run the same loop over the harness itself: the agent may change prompts, the verifier's label
+sets and thresholds, the TFM tool's settings, and the step policy, with the benchmark score as the metric. Guards
+against overfitting, learned from paper 1: (1) the loop sees only a development slice of each benchmark; a frozen
+held-out slice is scored once at the end; (2) a change must improve the development score by more than its standard
+error over tasks (paired per-task test), not just the mean; (3) an acceptance slice inside development that the change
+must also not hurt; (4) a budget of experiments and a log of every change, kept with the paper.
+
+**Paper.** Title candidate: "Verified, Fast, Deep: a three-model harness for data-analysis agents". Sections: tradeoffs
+of the three families (E0, with community-reported limits), the harness, E1-E4, the auto-research run (what the loop
+found, with its held-out check), ablations removing each tool, cost. Every table filled from run directories as in
+papers 1 and 2.
