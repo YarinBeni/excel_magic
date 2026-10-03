@@ -294,8 +294,39 @@ def probe_scores(E_tr, y_tr, E_ev, k: int = 50) -> dict[str, np.ndarray]:
     return probe_scores_multi(E_tr, y_tr, [E_ev], k)[0]
 
 
+def safe_auc(y, s) -> float:
+    """AUROC, or NaN when it is undefined (one class, missing scores): diagnostics must not stop a run."""
+    from sklearn.metrics import roc_auc_score
+    try:
+        return float(roc_auc_score(np.asarray(y).astype(int), s))
+    except (ValueError, TypeError):
+        return float("nan")
+
+
+def time_split(tr: pd.DataFrame, time_col: str, n_train: int) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
+    """Context pool = training rows strictly before a cut time; probe pool = the latest training timestamps holding at
+    least min(n_train, half the rows).
+
+    Why: with a random split, most probe-train rows have their own entity in the context at a neighbouring timestamp, so
+    with real labels in context the late layers carry a copy of that neighbour's label, which validation / test rows
+    (later than every context row) do not get. A linear probe then learns the copy and fails on val/test (J21 rel-f1:
+    late-layer linear val AUROC 0.44-0.55 while kNN on the same layers stays ~0.70). The time split makes probe-train rows
+    relate to the context exactly as val/test rows do.
+    """
+    counts = tr.groupby(time_col).size().sort_index(ascending=False)
+    need = max(1, min(n_train, len(tr) // 2))
+    cum = counts.cumsum().to_numpy()
+    cut = counts.index[min(int(np.searchsorted(cum, need)), len(counts) - 1)]
+    early, late = tr[tr[time_col] < cut], tr[tr[time_col] >= cut]
+    info = {"ctx_split": "time", "cut_time": str(cut), "n_ctx_pool": int(len(early)), "n_probe_pool": int(len(late))}
+    if len(early) < 50:  # one timestamp only: nothing earlier to put in context
+        raise ValueError(f"time split leaves {len(early)} context rows (cut {cut}); use ctx_split='random'")
+    return early, late, info
+
+
 def run_task(dataset: str, task_name: str, modes=("random", "label"), n_ctx: int = 512, n_train: int = 4000,
-             k_children: int = 50, seed: int = 0, device: str = "cuda", log: Any = None, max_eval: int | None = None) -> dict[str, Any]:
+             k_children: int = 50, seed: int = 0, device: str = "cuda", log: Any = None, max_eval: int | None = None,
+             ctx_split: str = "time") -> dict[str, Any]:
     import relbench
     import torch
     from sdm.models import KumoRelational
@@ -312,12 +343,16 @@ def run_task(dataset: str, task_name: str, modes=("random", "label"), n_ctx: int
     if max_eval and len(va) > max_eval:
         va = va.iloc[np.sort(rng.choice(len(va), max_eval, replace=False))].reset_index(drop=True)
     sub = Subgrapher(db, ent_table, k_children=k_children)
-    # context: unique entities, stratified over labels, latest timestamps first
-    trs = tr.sample(frac=1.0, random_state=seed).drop_duplicates(ent_col)
+    # context: unique entities, stratified over labels; probe-train rows from the rest (time split: strictly later)
+    if ctx_split == "time":
+        pool_ctx, pool_prb, split_info = time_split(tr, time_col, n_train)
+    else:
+        pool_ctx, pool_prb, split_info = tr, None, {"ctx_split": "random"}
+    trs = pool_ctx.sample(frac=1.0, random_state=seed).drop_duplicates(ent_col)
     pos, neg = trs[trs[tgt] == 1], trs[trs[tgt] != 1]
     nc_pos = min(len(pos), max(n_ctx // 2, int(n_ctx * len(pos) / max(len(trs), 1))))
     ctx_all = pd.concat([pos.head(nc_pos), neg.head(n_ctx - nc_pos)])
-    rest = tr.drop(index=ctx_all.index)
+    rest = tr.drop(index=ctx_all.index) if pool_prb is None else pool_prb
     ctx = ctx_all.reset_index(drop=True)
     prb = rest.iloc[rng.choice(len(rest), min(n_train, len(rest)), replace=False)].reset_index(drop=True)
     torch.manual_seed(seed)
@@ -325,7 +360,7 @@ def run_task(dataset: str, task_name: str, modes=("random", "label"), n_ctx: int
     model.eval()
     res: dict[str, Any] = {"dataset": dataset, "task": task_name, "n_ctx": len(ctx), "n_probe_train": len(prb),
                            "n_val": len(va), "n_test": len(te), "pos_rate_train": float(tr[tgt].mean()),
-                           "tables": list(sub.s), "children": sub.children, "modes": {}}
+                           "tables": list(sub.s), "children": sub.children, **split_info, "modes": {}}
     for mode in modes:
         y_ctx = ctx[tgt].to_numpy().astype(int) if mode == "label" else rng.integers(0, 2, len(ctx))
         t0 = time.time()
@@ -334,7 +369,8 @@ def run_task(dataset: str, task_name: str, modes=("random", "label"), n_ctx: int
         Ete, s_te = embed_rows(model, sub, ctx, y_ctx, te, ent_col, time_col, device, log=log)
         m: dict[str, Any] = {"embed_seconds": round(time.time() - t0, 1), "layers": {}}
         if mode == "label":
-            m["icl_head"] = {"val_auroc": float(roc_auc_score(va[tgt], s_va)), "test": {k: float(v) for k, v in task.evaluate(s_te).items()}}
+            m["icl_head"] = {"val_auroc": float(roc_auc_score(va[tgt], s_va)), "test": {k: float(v) for k, v in task.evaluate(s_te).items()},
+                             "probe_train_auroc": safe_auc(prb[tgt], s_tr)}
         ytr = prb[tgt].to_numpy().astype(int)
         for layer in Etr:
             pv, pt = probe_scores_multi(Etr[layer], ytr, [Eva[layer], Ete[layer]])

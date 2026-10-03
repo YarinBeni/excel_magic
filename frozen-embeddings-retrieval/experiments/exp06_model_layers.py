@@ -53,6 +53,8 @@ def main() -> None:
     ap.add_argument("--n-ctx", type=int, default=3000); ap.add_argument("--n-train", type=int, default=4000)
     ap.add_argument("--max-eval", type=int, default=5000); ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--name", default="model_layers")
+    ap.add_argument("--ctx-split", default="time", choices=["time", "random"],
+                    help="time: probe-train rows strictly later than the context (default); random: the J18-J21 first pass")
     a = ap.parse_args()
     specs = {m: SPECS[m] for m in a.models.split(",")}
     root = os.environ.get("TABFM_RUNS_ROOT", Path(__file__).resolve().parents[1] / "runs")
@@ -60,7 +62,7 @@ def main() -> None:
         dataset, task_name = spec.split("/")
         with RunLogger(f"{a.name}_{dataset}_{task_name}", {**vars(a), "task": spec}, root=root) as run:
             res = run_task(dataset, task_name, specs, targets=tuple(a.targets.split(",")), n_ctx=a.n_ctx,
-                           n_train=a.n_train, seed=a.seed, max_eval=a.max_eval, log=run)
+                           n_train=a.n_train, seed=a.seed, max_eval=a.max_eval, ctx_split=a.ctx_split, log=run)
             md = summary(res)
             run.save_text("results.md", md)
             json.dump(res, open(run.run_dir / "layers_rows.json", "w"), indent=1, default=float)

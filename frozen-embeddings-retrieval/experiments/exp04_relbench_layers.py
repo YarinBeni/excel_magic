@@ -28,13 +28,15 @@ def main() -> None:
     ap.add_argument("--k-children", type=int, default=50); ap.add_argument("--max-eval", type=int, default=20000)
     ap.add_argument("--device", default="cuda"); ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--name", default="relbench_layers")
+    ap.add_argument("--ctx-split", default="time", choices=["time", "random"],
+                    help="time: probe-train rows strictly later than the context (default); random: the J18-J21 first pass")
     a = ap.parse_args()
     root = os.environ.get("TABFM_RUNS_ROOT", Path(__file__).resolve().parents[1] / "runs")
     for spec in a.tasks.split(","):
         dataset, task_name = spec.split("/")
         with RunLogger(f"{a.name}_{dataset}_{task_name}", {**vars(a), "task": spec}, root=root) as run:
             res = run_task(dataset, task_name, modes=tuple(a.modes.split(",")), n_ctx=a.n_ctx, n_train=a.n_train,
-                           k_children=a.k_children, seed=a.seed, device=a.device, log=run, max_eval=a.max_eval)
+                           k_children=a.k_children, seed=a.seed, device=a.device, ctx_split=a.ctx_split, log=run, max_eval=a.max_eval)
             lines = [f"# {spec}: layer-wise probes of frozen Kumo Relational (val AUROC / official test metric)", ""]
             for mode, m in res["modes"].items():
                 lines += [f"## context = {mode}", "", "| layer | linear val | linear test | kNN val | kNN test |", "|---|---|---|---|---|"]

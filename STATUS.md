@@ -146,3 +146,7 @@
 - 048: J18/J19 restarted as 51256/51257 on the 6 remaining tasks. J21 (51155) is alive, ~2 h per task (now on its last
   model of rel-f1/driver-dnf). Probes now fit once per layer for val and test (same numbers, 2-4x faster), so J21's
   next tasks and the J18/J19 restarts pick that up.
+- J21 rel-f1/driver-dnf (first pass) showed a probe-protocol leak: with real labels in context, late-layer linear probes
+  fail on val/test (val 0.44-0.55) while kNN on the same layers holds ~0.70 and the model's own prediction is 0.81.
+  Cause: probe-train rows were drawn from the same period as the context. Fixed with a time split (probe-train rows
+  strictly later than the context, like val/test). Inbox 049 cancels J18/J19/J21 and reruns all tasks under it.

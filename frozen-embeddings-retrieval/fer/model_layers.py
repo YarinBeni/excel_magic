@@ -17,7 +17,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
-from fer.relbench_layers import Subgrapher, classification_module, probe_scores_multi
+from fer.relbench_layers import Subgrapher, classification_module, probe_scores_multi, safe_auc, time_split
 from fer.relbench_tabular_layers import BlockTap, row_features
 
 
@@ -155,7 +155,7 @@ def _order(layers):
 
 def run_task(dataset: str, task_name: str, specs: dict[str, str], targets=("random", "kmeans", "label"),
              n_ctx: int = 3000, n_train: int = 4000, k_children: int = 50, n_geom: int = 2000, seed: int = 0,
-             max_eval: int | None = 5000, log: Any = None) -> dict[str, Any]:
+             max_eval: int | None = 5000, log: Any = None, ctx_split: str = "time") -> dict[str, Any]:
     import relbench
     from scipy.stats import spearmanr
     from sklearn.cluster import KMeans
@@ -172,15 +172,22 @@ def run_task(dataset: str, task_name: str, specs: dict[str, str], targets=("rand
     if max_eval and len(va) > max_eval:
         va = va.iloc[np.sort(rng.choice(len(va), max_eval, replace=False))].reset_index(drop=True)
     sub = Subgrapher(db, task.entity_table, k_children=k_children)
-    perm = rng.permutation(len(tr))
-    nc = min(n_ctx, len(tr) // 2)
-    ctx, prb = tr.iloc[perm[:nc]].reset_index(drop=True), tr.iloc[perm[nc:nc + n_train]].reset_index(drop=True)
+    if ctx_split == "time":  # probe-train rows strictly later than every context row, like val/test (see time_split)
+        early, late, split_info = time_split(tr, time_col, n_train)
+        nc = min(n_ctx, len(early))
+        ctx = early.iloc[rng.permutation(len(early))[:nc]].reset_index(drop=True)
+        prb = late.iloc[rng.permutation(len(late))[:n_train]].reset_index(drop=True)
+    else:
+        perm = rng.permutation(len(tr))
+        nc = min(n_ctx, len(tr) // 2)
+        ctx, prb = tr.iloc[perm[:nc]].reset_index(drop=True), tr.iloc[perm[nc:nc + n_train]].reset_index(drop=True)
+        split_info = {"ctx_split": "random"}
     F = {k: row_features(sub, d[ent_col].to_numpy(), d[time_col].to_numpy(), k_children)
          for k, d in (("ctx", ctx), ("prb", prb), ("va", va), ("te", te))}
     geo_idx = np.sort(rng.choice(len(te), min(n_geom, len(te)), replace=False))
     ytr = prb[tgt].to_numpy().astype(int)
     res: dict[str, Any] = {"dataset": dataset, "task": task_name, "n_features": int(F["ctx"].shape[1]), "n_ctx": nc,
-                           "n_probe_train": len(prb), "n_val": len(va), "n_test": len(te), "models": {}}
+                           "n_probe_train": len(prb), "n_val": len(va), "n_test": len(te), **split_info, "models": {}}
     geo_store: dict[tuple[str, str], dict[str, np.ndarray]] = {}
     for mname, spec in specs.items():
         res["models"][mname] = {}
@@ -194,7 +201,7 @@ def run_task(dataset: str, task_name: str, specs: dict[str, str], targets=("rand
             m: dict[str, Any] = {"layers": {}}
             t0 = time.time()
             try:
-                (Etr, Eva, Ete), (_, s_va, s_te), diag = model_layer_embeddings(spec, F["ctx"], y_ctx, [F["prb"], F["va"], F["te"]])
+                (Etr, Eva, Ete), (s_tr, s_va, s_te), diag = model_layer_embeddings(spec, F["ctx"], y_ctx, [F["prb"], F["va"], F["te"]])
             except Exception as e:
                 m["error"] = f"{type(e).__name__}: {str(e)[:400]}"
                 res["models"][mname][target] = m
@@ -205,7 +212,8 @@ def run_task(dataset: str, task_name: str, specs: dict[str, str], targets=("rand
             m["diag"] = diag
             if target == "label" and s_te is not None:
                 m["icl_head"] = {"val_auroc": float(roc_auc_score(va[tgt], s_va)),
-                                 "test": {k: float(v) for k, v in task.evaluate(s_te).items()}}
+                                 "test": {k: float(v) for k, v in task.evaluate(s_te).items()},
+                                 "probe_train_auroc": safe_auc(ytr, s_tr)}
             Etr["raw_features"], Eva["raw_features"], Ete["raw_features"] = F["prb"].to_numpy(), F["va"].to_numpy(), F["te"].to_numpy()
             for L in _order(Etr):
                 pv, pt = probe_scores_multi(Etr[L], ytr, [Eva[L], Ete[L]])

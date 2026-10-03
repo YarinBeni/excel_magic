@@ -45,17 +45,18 @@ GEO_LABEL = {"effective_rank": "effective rank", "intrinsic_dim": "intrinsic dim
 
 
 def _latest(roots, pattern, exclude=("smoke",)):
-    """layers_rows.json of the latest run per run directory name minus its timestamp."""
-    best: dict[str, str] = {}
+    """layers_rows.json of the latest run per (run name minus timestamp, context/probe split protocol)."""
+    best: dict[tuple[str, str], tuple[str, dict]] = {}
     for r in roots:
         for f in glob.glob(os.path.join(r, pattern, "layers_rows.json")):
             run = Path(f).parent.name
             if any(x in run for x in exclude) or not os.path.getsize(f):
                 continue
-            key = run.split("_", 1)[1]
-            if key not in best or Path(best[key]).parent.name < run:
-                best[key] = f
-    return [json.load(open(f)) for _, f in sorted(best.items())]
+            d = json.load(open(f))
+            key = (run.split("_", 1)[1], d.get("ctx_split", "random"))
+            if key not in best or best[key][0] < run:
+                best[key] = (run, d)
+    return [d for _, (_, d) in sorted(best.items())]
 
 
 def _t(d):  # test AUROC in either schema
@@ -66,53 +67,57 @@ def load(roots) -> tuple[pd.DataFrame, pd.DataFrame, list[dict]]:
     """Long table: one row per (study, model, task, target, layer); plus one row per (.., target) of summary values."""
     rows, summ, j21 = [], [], []
 
-    def add(study, model, ds, task, target, block, raw=None):
+    def add(study, model, ds, task, target, block, raw=None, split="random"):
         layers = [L for L in block["layers"] if L != "raw_features"]
         for i, L in enumerate(layers):
             v = block["layers"][L]
-            rows.append({"study": study, "model": model, "task": f"{ds}/{task}", "target": target, "layer": L,
+            rows.append({"split": split, "study": study, "model": model, "task": f"{ds}/{task}", "target": target, "layer": L,
                          "depth": i / max(1, len(layers) - 1), "linear_val": v["linear"]["val_auroc"],
                          "linear_test": _t(v["linear"]), "knn_val": v["knn"]["val_auroc"], "knn_test": _t(v["knn"]),
                          **{g: v.get("geometry", {}).get(g, np.nan) for g in GEO}})
         raw_v = block["layers"].get("raw_features") or raw
         own = block.get("icl_head")
-        summ.append({"study": study, "model": model, "task": f"{ds}/{task}", "target": target,
+        summ.append({"split": split, "study": study, "model": model, "task": f"{ds}/{task}", "target": target,
                      "raw_linear": _t(raw_v["linear"]) if raw_v else np.nan,
                      "raw_knn": _t(raw_v["knn"]) if raw_v else np.nan,
                      "own": _t(own) if own else np.nan, "own_val": own["val_auroc"] if own else np.nan,
+                     "own_probe_train": own.get("probe_train_auroc", np.nan) if own else np.nan,
                      "n_layers": len(layers)})
 
     for r in _latest(roots, "*J18_layers_*"):
         for mode, block in r["modes"].items():
-            add("J18", "kumo-relational", r["dataset"], r["task"], mode, block)
+            add("J18", "kumo-relational", r["dataset"], r["task"], mode, block, split=r.get("ctx_split", "random"))
     for r in _latest(roots, "*J19_tab_layers_*"):
         for target, block in r["targets"].items():
-            add("J19", "tabpfn", r["dataset"], r["task"], target, block)
+            add("J19", "tabpfn", r["dataset"], r["task"], target, block, split=r.get("ctx_split", "random"))
     for r in _latest(roots, "*J21_model_layers_*"):
         j21.append(r)
         for model, per in r["models"].items():
             for target, block in per.items():
                 if "error" not in block:
-                    add("J21", model, r["dataset"], r["task"], target, block)
+                    add("J21", model, r["dataset"], r["task"], target, block, split=r.get("ctx_split", "random"))
     L, S = pd.DataFrame(rows), pd.DataFrame(summ)
     # Kumo Relational (J18) reads the subgraph directly and has no raw-feature probe of its own: borrow the probe on the
     # flattened relational features of the same task (J19/J21 build them from the same subgraph sampler)
     for col in ("raw_linear", "raw_knn"):
-        ref = S[S["study"] != "J18"].groupby("task")[col].mean()
+        ref = S[S["study"] != "J18"].groupby(["split", "task"])[col].mean()
         m = S["study"].eq("J18") & S[col].isna()
-        S.loc[m, col] = S.loc[m, "task"].map(ref)
+        S.loc[m, col] = [ref.get((sp, t), np.nan) for sp, t in zip(S.loc[m, "split"], S.loc[m, "task"])]
     return L, S, j21
 
 
 def per_run(L: pd.DataFrame, S: pd.DataFrame, probe="linear") -> pd.DataFrame:
     """One row per (study, model, task, target): val-picked layer, last layer, oracle, own prediction, raw features."""
     out = []
-    for key, g in L.groupby(["study", "model", "task", "target"], sort=False):
+    K = ["split", "study", "model", "task", "target"]
+    Si = S.set_index(K)
+    for key, g in L.groupby(K, sort=False):
         g = g.reset_index(drop=True)
         vp = g.loc[g[f"{probe}_val"].idxmax()]
         orc = g.loc[g[f"{probe}_test"].idxmax()]
-        s = S.set_index(["study", "model", "task", "target"]).loc[key]
-        out.append({**dict(zip(["study", "model", "task", "target"], key)),
+        s = Si.loc[key]
+        out.append({**dict(zip(K, key)), "own_val": s["own_val"], "own_probe_train": s["own_probe_train"],
+                    "last_knn": g["knn_test"].iloc[-1] if probe == "linear" else np.nan,
                     "raw": s[f"raw_{probe}"], "own": s["own"], "first": g[f"{probe}_test"].iloc[0],
                     "last": g[f"{probe}_test"].iloc[-1], "val_layer": vp["layer"], "val_depth": vp["depth"],
                     "val_pick": vp[f"{probe}_test"], "oracle_layer": orc["layer"], "oracle_depth": orc["depth"],
@@ -162,8 +167,35 @@ def fmt(x, nd=3):
     return "" if x is None or (isinstance(x, float) and not np.isfinite(x)) else f"{x:.{nd}f}"
 
 
-def tables(P: pd.DataFrame, R: pd.DataFrame, j21: list[dict]) -> str:
+def protocol_table(P: pd.DataFrame) -> str:
+    """Same (study, model, task, context) under both context/probe splits: does the random split penalise late layers?"""
+    K = ["study", "model", "task", "target"]
+    a, b = P[P["split"] == "random"].set_index(K), P[P["split"] == "time"].set_index(K)
+    both = a.index.intersection(b.index)
+    if not len(both):
+        return ""
+    md = ["", "## Protocol check: random vs time split of context and probe-train rows", "",
+          "Random split: probe-train rows share time periods (and entities) with the context. Time split: probe-train rows "
+          "are strictly later than every context row, as validation and test rows are. Mean test AUROC over the runs "
+          "present under both protocols.", "",
+          "| context | runs | split | last layer (linear) | last layer (kNN) | val-picked (linear) | own prediction | own prediction on probe-train rows |",
+          "|---|---|---|---|---|---|---|---|"]
+    for tg in ["random", "kmeans", "label", "zeros"]:
+        idx = [i for i in both if i[3] == tg]
+        if not idx:
+            continue
+        for name, X in (("random", a), ("time", b)):
+            x = X.loc[idx]
+            md.append(f"| {TARGET_LABEL.get(tg, tg)} | {len(idx)} | {name} | {fmt(x['last'].mean())} | {fmt(x['last_knn'].mean())} | "
+                      f"{fmt(x['val_pick'].mean())} | {fmt(x['own'].mean())} | {fmt(x['own_probe_train'].mean())} |")
+    return "\n".join(md) + "\n"
+
+
+def tables(P: pd.DataFrame, R: pd.DataFrame, j21: list[dict], split: str = "time") -> str:
     md = ["# Layer study: which layer of a frozen tabular foundation model gives the best entity embedding?", "",
+          f"Protocol: **{split} split** of context and probe-train rows "
+          + ("(probe-train rows strictly later than the context, like validation and test rows)." if split == "time"
+             else "(random; probe-train rows can share periods and entities with the context: see the protocol check)."), "",
           "Generated by `scripts/analyze_layers.py` from the run directories. Test AUROC from RelBench's official "
           "evaluator. Linear probe (logistic regression) on the frozen layer output; the layer is picked on "
           "validation. *Oracle* = best test layer (upper bound only). Kumo Relational reads the subgraph itself; its "
@@ -200,7 +232,7 @@ def tables(P: pd.DataFrame, R: pd.DataFrame, j21: list[dict]) -> str:
                "Direction (pick the max or the min of the statistic) chosen leave-one-task-out.", "",
                "| selector | mean regret | median regret | runs |", "|---|---|---|---|"]
         for s in sel:
-            name = {"last": "last layer", "random layer": "average layer", "val": "validation labels (supervised)"}.get(s, s.replace(":loto", " (label-free)"))
+            name = {"last": "last layer", "random layer": "average layer", "val": "validation labels (supervised)"}.get(s, GEO_LABEL.get(s.split(":")[0], s) + " (label-free)")
             md.append(f"| {name} | {fmt(R[s].mean())} | {fmt(R[s].median())} | {R[s].notna().sum()} |")
         md += ["", "| statistic | mean Spearman with layer test AUROC | share of runs with rho > 0 |", "|---|---|---|"]
         for s in GEO:
@@ -231,7 +263,7 @@ def _header(fig, title, sub):
 
 def fig_depth(L: pd.DataFrame, S: pd.DataFrame, out: Path):
     """Small multiples: one panel per model; x = relative depth, y = test AUROC minus raw features; one line per context."""
-    D = L[L["study"].isin(["J18", "J21"])].merge(S, on=["study", "model", "task", "target"])
+    D = L[L["study"].isin(["J18", "J21"])].merge(S, on=["split", "study", "model", "task", "target"])
     if D.empty:
         return
     D["gain"] = D["linear_test"] - D["raw_linear"]
@@ -366,19 +398,25 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--roots", nargs="+", default=["../excel_magic/reports/runs"])
     ap.add_argument("--out", default="docs/layers")
+    ap.add_argument("--ctx-split", default="time", choices=["time", "random"],
+                    help="protocol for the main tables and figures (falls back to random if no time-split runs exist)")
     a = ap.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
-    L, S, j21 = load(a.roots)
-    if L.empty:
+    L_all, S_all, j21_all = load(a.roots)
+    if L_all.empty:
         raise SystemExit("no layer runs found")
-    P = per_run(L, S)
+    P_all = per_run(L_all, S_all)
+    split = a.ctx_split if L_all["split"].eq(a.ctx_split).any() else "random"
+    L, S = L_all[L_all["split"] == split], S_all[S_all["split"] == split]
+    P = P_all[P_all["split"] == split]
+    j21 = [r for r in j21_all if r.get("ctx_split", "random") == split]
     R = geometry_selectors(L)
-    L.to_csv(out / "layers_long.csv", index=False)
-    P.to_csv(out / "layers_per_run.csv", index=False)
+    L_all.to_csv(out / "layers_long.csv", index=False)
+    P_all.to_csv(out / "layers_per_run.csv", index=False)
     if not R.empty:
         R.to_csv(out / "layers_selectors.csv", index=False)
-    (out / "LAYERS.md").write_text(tables(P, R, j21))
+    (out / "LAYERS.md").write_text(tables(P, R, j21, split) + protocol_table(P_all))
     fig_depth(L, S, out)
     fig_geometry(L, out)
     fig_selectors(R, out)

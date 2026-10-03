@@ -21,7 +21,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
-from fer.relbench_layers import Subgrapher, probe_scores_multi
+from fer.relbench_layers import Subgrapher, probe_scores_multi, safe_auc, time_split
 
 
 def row_features(sub: Subgrapher, entity_ids: np.ndarray, times: np.ndarray, k: int = 50) -> pd.DataFrame:
@@ -118,7 +118,7 @@ def tabpfn_layer_embeddings(X_ctx: pd.DataFrame, y_ctx: np.ndarray, X_sets: list
 
 def run_task(dataset: str, task_name: str, targets=("zeros", "random", "kmeans", "label"), n_ctx: int = 3000,
              n_train: int = 4000, k_children: int = 50, seed: int = 0, device: str = "cuda", log: Any = None,
-             max_eval: int | None = 20000) -> dict[str, Any]:
+             max_eval: int | None = 20000, ctx_split: str = "time") -> dict[str, Any]:
     import relbench
     from sklearn.cluster import KMeans
     from sklearn.metrics import roc_auc_score
@@ -135,15 +135,21 @@ def run_task(dataset: str, task_name: str, targets=("zeros", "random", "kmeans",
     if max_eval and len(va) > max_eval:
         va = va.iloc[np.sort(rng.choice(len(va), max_eval, replace=False))].reset_index(drop=True)
     sub = Subgrapher(db, task.entity_table, k_children=k_children)
-    perm = rng.permutation(len(tr))
-    ctx = tr.iloc[perm[:min(n_ctx, len(tr) // 2)]].reset_index(drop=True)
-    prb = tr.iloc[perm[min(n_ctx, len(tr) // 2):][:n_train]].reset_index(drop=True)
+    if ctx_split == "time":  # probe-train rows strictly later than every context row, like val/test (see time_split)
+        early, late, split_info = time_split(tr, time_col, n_train)
+        ctx = early.iloc[rng.permutation(len(early))[:n_ctx]].reset_index(drop=True)
+        prb = late.iloc[rng.permutation(len(late))[:n_train]].reset_index(drop=True)
+    else:
+        perm = rng.permutation(len(tr))
+        ctx = tr.iloc[perm[:min(n_ctx, len(tr) // 2)]].reset_index(drop=True)
+        prb = tr.iloc[perm[min(n_ctx, len(tr) // 2):][:n_train]].reset_index(drop=True)
+        split_info = {"ctx_split": "random"}
     t0 = time.time()
     F = {name: row_features(sub, d[ent_col].to_numpy(), d[time_col].to_numpy(), k_children)
          for name, d in (("ctx", ctx), ("prb", prb), ("va", va), ("te", te))}
     res: dict[str, Any] = {"dataset": dataset, "task": task_name, "n_features": int(F["ctx"].shape[1]),
                            "feature_seconds": round(time.time() - t0, 1), "n_ctx": len(ctx), "n_probe_train": len(prb),
-                           "n_val": len(va), "n_test": len(te), "targets": {}}
+                           "n_val": len(va), "n_test": len(te), **split_info, "targets": {}}
     for target in targets:
         if target == "zeros":
             y_ctx = np.zeros(len(ctx), int)
@@ -155,13 +161,14 @@ def run_task(dataset: str, task_name: str, targets=("zeros", "random", "kmeans",
             y_ctx = ctx[tgt].to_numpy().astype(int)
         m: dict[str, Any] = {"layers": {}}
         try:
-            (Etr, Eva, Ete), (_, s_va, s_te) = tabpfn_layer_embeddings(F["ctx"], y_ctx, [F["prb"], F["va"], F["te"]], device)
+            (Etr, Eva, Ete), (s_tr, s_va, s_te) = tabpfn_layer_embeddings(F["ctx"], y_ctx, [F["prb"], F["va"], F["te"]], device)
         except Exception as e:  # e.g. a constant target refused by the model
             m["error"] = f"{type(e).__name__}: {str(e)[:300]}"
             res["targets"][target] = m
             continue
         if target == "label" and s_te is not None:
-            m["icl_head"] = {"val_auroc": float(roc_auc_score(va[tgt], s_va)), "test": {k: float(v) for k, v in task.evaluate(s_te).items()}}
+            m["icl_head"] = {"val_auroc": float(roc_auc_score(va[tgt], s_va)), "test": {k: float(v) for k, v in task.evaluate(s_te).items()},
+                             "probe_train_auroc": safe_auc(prb[tgt], s_tr)}
         ytr = prb[tgt].to_numpy().astype(int)
         m["final_api_matches_last_block"] = bool(np.allclose(Ete["final_api"], Ete[max(k for k in Ete if k.startswith("block_"))], atol=1e-3))
         layers = ["raw_features"] + sorted(k for k in Etr if k.startswith("block_"))
