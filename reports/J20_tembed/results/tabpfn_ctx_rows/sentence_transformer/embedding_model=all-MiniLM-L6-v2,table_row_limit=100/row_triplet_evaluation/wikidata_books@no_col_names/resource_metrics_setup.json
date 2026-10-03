@@ -1,0 +1,10 @@
+{
+    "function": "model_setup",
+    "execution_time (s)": 1.0119654955342412,
+    "peak_cpu (%)": 5.8,
+    "average_cpu (%)": 2.9,
+    "peak_memory (MB)": 2012.33984375,
+    "average_memory (MB)": 1985.93359375,
+    "peak_gpu_memory (MB)": 814.0,
+    "average_gpu_memory (MB)": 814.0
+}

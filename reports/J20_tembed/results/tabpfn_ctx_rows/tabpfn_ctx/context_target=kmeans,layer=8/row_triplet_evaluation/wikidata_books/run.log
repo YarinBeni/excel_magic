@@ -1,0 +1,29 @@
+2026-10-03 09:20:48,987 INFO __main__ - ================================================================================
+2026-10-03 09:20:48,987 INFO __main__ - Starting [50/86] | Task: row_triplet_evaluation | Approach: tabpfn_ctx | Env: benchmark_env | Dataset: wikidata_books
+2026-10-03 09:20:48,987 INFO __main__ - ================================================================================
+2026-10-03 09:20:48,987 INFO benchmark_src.run_benchmark - ################################################################################
+2026-10-03 09:20:48,987 INFO benchmark_src.run_benchmark - Task: row_triplet_evaluation  |  Approach: tabpfn_ctx  |  Dataset: wikidata_books
+2026-10-03 09:20:48,988 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Started run_row_triplet_evaluation_benchmark
+2026-10-03 09:20:48,988 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Wikidata books dataset found in cache
+2026-10-03 09:20:49,019 INFO benchmark_src.utils.load_benchmark - Loaded dataset input table with 1203 rows and 281 attributes: Index(['QID', 'label', 'author___P50', 'description___None',
+       'distribution format___P437', 'instance of___P31', 'version___None',
+       'country___P17', 'language of work or name___P407', 'genre___P136',
+       ...
+       'Beirut Arab University's Libraries title ID___P9504',
+       'related image___P6802', 'British Library system number___P5199',
+       'Gran Enciclopèdia Catalana ID (former scheme)___P1296',
+       'Gran Enciclopèdia Catalana ID___P12385', 'De Agostini ID___P6706',
+       'PACTOLS thesaurus ID___P4212', 'replaces___P1365',
+       'author of afterword___P2680', 'author of foreword___P2679'],
+      dtype='object', length=281)
+2026-10-03 09:20:49,021 INFO root - Found 903 testcases in /home/yarin.b/tembed/cache/datasets/more_similar_than/wikidata_books, limit is None
+2026-10-03 09:20:49,022 INFO root - Successfully loaded module 'approach' from '/home/yarin.b/tembed/approaches/benchmark_approaches_src/tabpfn_ctx/approach.py'.
+2026-10-03 09:20:49,023 INFO root - BaseEmbeddingApproach: Loaded component: RowEmbeddingComponent
+2026-10-03 09:20:55,594 INFO approach - tabpfn_ctx target=kmeans layer=8 -> (1203, 192)
+2026-10-03 09:20:55,621 ERROR root -   0%|          | 0/903 [00:00<?, ?it/s]
+2026-10-03 09:20:57,282 ERROR root - 100%|##########| 903/903 [00:01<00:00, 543.66it/s]
+2026-10-03 09:20:57,574 INFO benchmark_src.utils.resource_monitoring - Saved resource metrics: CSV + JSON for setup and task.
+2026-10-03 09:20:57,580 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - {'accuracy': 0.5470653377630121, 'accuracy_easy': 0.5796545105566219, 'accuracy_medium': 0.5026178010471204}
+2026-10-03 09:20:57,580 INFO root - Dataset: wikidata_books
+2026-10-03 09:20:57,584 INFO root - Saved metrics to disk
+2026-10-03 09:20:57,585 INFO __main__ - Finished tabpfn_ctx/row_triplet_evaluation/wikidata_books

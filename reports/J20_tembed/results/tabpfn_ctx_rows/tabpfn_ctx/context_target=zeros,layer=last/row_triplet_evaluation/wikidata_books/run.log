@@ -1,0 +1,47 @@
+2026-10-03 09:19:03,873 INFO __main__ - ================================================================================
+2026-10-03 09:19:03,873 INFO __main__ - Starting [8/86] | Task: row_triplet_evaluation | Approach: tabpfn_ctx | Env: benchmark_env | Dataset: wikidata_books
+2026-10-03 09:19:03,873 INFO __main__ - ================================================================================
+2026-10-03 09:19:03,873 INFO benchmark_src.run_benchmark - ################################################################################
+2026-10-03 09:19:03,873 INFO benchmark_src.run_benchmark - Task: row_triplet_evaluation  |  Approach: tabpfn_ctx  |  Dataset: wikidata_books
+2026-10-03 09:19:03,946 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Started run_row_triplet_evaluation_benchmark
+2026-10-03 09:19:04,001 INFO root - Initial table has 281 columns and 1263 rows
+2026-10-03 09:19:04,002 INFO root - Found 63 fiction genres and 37 nonfiction genres
+2026-10-03 09:19:04,002 INFO root - Have books table with 1263 rows
+2026-10-03 09:19:04,002 INFO root - Using columns: author = 'author___P50', genre = 'genre___P136'
+2026-10-03 09:19:04,002 INFO root - nan not found
+2026-10-03 09:19:06,305 INFO root - Cleaned table now has 1203 rows (from 1263 originally)
+2026-10-03 09:19:06,316 INFO root - #######################################
+2026-10-03 09:19:06,316 INFO root - Creating testcases for book_table 1203 rows
+2026-10-03 09:19:06,316 INFO root - Found 101 genres, 62 fiction, 36 non-fiction
+2026-10-03 09:19:06,356 INFO root - 85 genres
+2026-10-03 09:19:06,357 ERROR root - /home/yarin.b/tembed/benchmark_src/dataset_creation/wikidata_hierarchies/create_testcases_more_similar_than.py:28: FutureWarning: When grouping with a length-1 list-like, you will need to pass a length-1 tuple to get_group in a future version of pandas. Pass `(name,)` instead of `name` to silence this warning.
+  books_in_opposite_genre = list(grouped_books.get_group(selected_qid_opposite_genre)["QID"])
+2026-10-03 09:19:06,361 ERROR root - /home/yarin.b/tembed/benchmark_src/dataset_creation/wikidata_hierarchies/create_testcases_more_similar_than.py:87: FutureWarning: When grouping with a length-1 list-like, you will need to pass a length-1 tuple to get_group in a future version of pandas. Pass `(name,)` instead of `name` to silence this warning.
+  books_from_sibling_genre = list(grouped_books.get_group(selected_sibling_genre)["QID"])
+2026-10-03 09:19:06,472 INFO root - Did not find fiction in fiction or nonfiction
+2026-10-03 09:19:06,656 INFO root - Did not find non-fiction in fiction or nonfiction
+2026-10-03 09:19:06,884 INFO root - 
+Generated 903 test cases.
+2026-10-03 09:19:10,058 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Done creating wikidata books dataset
+2026-10-03 09:19:10,090 INFO benchmark_src.utils.load_benchmark - Loaded dataset input table with 1203 rows and 281 attributes: Index(['QID', 'label', 'author___P50', 'description___None',
+       'distribution format___P437', 'instance of___P31', 'version___None',
+       'country___P17', 'language of work or name___P407', 'genre___P136',
+       ...
+       'Beirut Arab University's Libraries title ID___P9504',
+       'related image___P6802', 'British Library system number___P5199',
+       'Gran Enciclopèdia Catalana ID (former scheme)___P1296',
+       'Gran Enciclopèdia Catalana ID___P12385', 'De Agostini ID___P6706',
+       'PACTOLS thesaurus ID___P4212', 'replaces___P1365',
+       'author of afterword___P2680', 'author of foreword___P2679'],
+      dtype='object', length=281)
+2026-10-03 09:19:10,107 INFO root - Found 903 testcases in /home/yarin.b/tembed/cache/datasets/more_similar_than/wikidata_books, limit is None
+2026-10-03 09:19:10,117 INFO root - Successfully loaded module 'approach' from '/home/yarin.b/tembed/approaches/benchmark_approaches_src/tabpfn_ctx/approach.py'.
+2026-10-03 09:19:10,123 INFO root - BaseEmbeddingApproach: Loaded component: RowEmbeddingComponent
+2026-10-03 09:19:15,817 INFO approach - tabpfn_ctx target=zeros layer=last -> (1203, 192)
+2026-10-03 09:19:15,822 ERROR root -   0%|          | 0/903 [00:00<?, ?it/s]
+2026-10-03 09:19:17,368 ERROR root - 100%|##########| 903/903 [00:01<00:00, 584.09it/s]
+2026-10-03 09:19:17,718 INFO benchmark_src.utils.resource_monitoring - Saved resource metrics: CSV + JSON for setup and task.
+2026-10-03 09:19:17,736 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - {'accuracy': 0.6112956810631229, 'accuracy_easy': 0.6295585412667947, 'accuracy_medium': 0.5863874345549738}
+2026-10-03 09:19:17,736 INFO root - Dataset: wikidata_books
+2026-10-03 09:19:17,739 INFO root - Saved metrics to disk
+2026-10-03 09:19:17,740 INFO __main__ - Finished tabpfn_ctx/row_triplet_evaluation/wikidata_books

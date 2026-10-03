@@ -1,0 +1,32 @@
+| run (approach/params/task/dataset) | metrics |
+|---|---|
+| sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books | accuracy=0.7652, accuracy_easy=0.8273, accuracy_medium=0.6806 |
+| sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.8095, accuracy_easy=0.8618, accuracy_medium=0.7382 |
+| sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.6999, accuracy_easy=0.7390, accuracy_medium=0.6466 |
+| sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.7309, accuracy_easy=0.8042, accuracy_medium=0.6309 |
+| sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.8339, accuracy_easy=0.9290, accuracy_medium=0.7042 |
+| tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books | accuracy=0.5471, accuracy_easy=0.5797, accuracy_medium=0.5026 |
+| tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.5471, accuracy_easy=0.5797, accuracy_medium=0.5026 |
+| tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.5748, accuracy_easy=0.5931, accuracy_medium=0.5497 |
+| tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.5471, accuracy_easy=0.5797, accuracy_medium=0.5026 |
+| tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.5736, accuracy_easy=0.6104, accuracy_medium=0.5236 |
+| tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books | accuracy=0.5338, accuracy_easy=0.5893, accuracy_medium=0.4581 |
+| tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.5338, accuracy_easy=0.5893, accuracy_medium=0.4581 |
+| tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.5925, accuracy_easy=0.6200, accuracy_medium=0.5550 |
+| tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.5338, accuracy_easy=0.5893, accuracy_medium=0.4581 |
+| tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.5648, accuracy_easy=0.6257, accuracy_medium=0.4817 |
+| tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books | accuracy=0.5559, accuracy_easy=0.5720, accuracy_medium=0.5340 |
+| tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.5559, accuracy_easy=0.5720, accuracy_medium=0.5340 |
+| tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.5648, accuracy_easy=0.6142, accuracy_medium=0.4974 |
+| tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.5559, accuracy_easy=0.5720, accuracy_medium=0.5340 |
+| tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.4994, accuracy_easy=0.5374, accuracy_medium=0.4476 |
+| tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books | accuracy=0.5847, accuracy_easy=0.6008, accuracy_medium=0.5628 |
+| tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.5847, accuracy_easy=0.6008, accuracy_medium=0.5628 |
+| tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.5858, accuracy_easy=0.5873, accuracy_medium=0.5838 |
+| tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.5847, accuracy_easy=0.6008, accuracy_medium=0.5628 |
+| tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.5559, accuracy_easy=0.6065, accuracy_medium=0.4869 |
+| tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books | accuracy=0.6113, accuracy_easy=0.6296, accuracy_medium=0.5864 |
+| tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.6113, accuracy_easy=0.6296, accuracy_medium=0.5864 |
+| tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.5980, accuracy_easy=0.6027, accuracy_medium=0.5916 |
+| tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.6113, accuracy_easy=0.6296, accuracy_medium=0.5864 |
+| tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.5072, accuracy_easy=0.5528, accuracy_medium=0.4450 |

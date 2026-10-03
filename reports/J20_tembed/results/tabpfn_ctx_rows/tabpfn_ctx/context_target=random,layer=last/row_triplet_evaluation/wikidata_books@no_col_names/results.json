@@ -1,0 +1,8 @@
+{
+  "task": "row_triplet_evaluation",
+  "dataset": "wikidata_books@no_col_names",
+  "approach": "tabpfn_ctx",
+  "accuracy": 0.5559246954595792,
+  "accuracy_easy": 0.5719769673704415,
+  "accuracy_medium": 0.5340314136125655
+}

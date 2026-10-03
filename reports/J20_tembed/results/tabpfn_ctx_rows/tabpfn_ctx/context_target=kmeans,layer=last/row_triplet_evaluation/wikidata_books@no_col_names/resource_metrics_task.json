@@ -1,0 +1,10 @@
+{
+    "function": "task_inference",
+    "execution_time (s)": 4.782827314920723,
+    "peak_cpu (%)": 1579.5,
+    "average_cpu (%)": 677.2076923076924,
+    "peak_memory (MB)": 1884.9765625,
+    "average_memory (MB)": 1859.5306490384614,
+    "peak_gpu_memory (MB)": 9572.0,
+    "average_gpu_memory (MB)": 5143.923076923077
+}

@@ -1,0 +1,73 @@
+2026-10-03 09:23:17,342 INFO __main__ - ================================================================================
+2026-10-03 09:23:17,343 INFO __main__ - Starting [84/86] | Task: row_triplet_evaluation | Approach: sentence_transformer | Env: benchmark_env | Dataset: wikidata_books@no_pid_in_col_names
+2026-10-03 09:23:17,343 INFO __main__ - ================================================================================
+2026-10-03 09:23:17,343 INFO benchmark_src.run_benchmark - ################################################################################
+2026-10-03 09:23:17,343 INFO benchmark_src.run_benchmark - Task: row_triplet_evaluation  |  Approach: sentence_transformer  |  Dataset: wikidata_books@no_pid_in_col_names
+2026-10-03 09:23:17,344 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Started run_row_triplet_evaluation_benchmark
+2026-10-03 09:23:17,344 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Running with sub-dataset @no_pid_in_col_names of base dataset wikidata_books
+2026-10-03 09:23:17,345 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Wikidata books dataset found in cache
+2026-10-03 09:23:17,380 INFO benchmark_src.utils.load_benchmark - Loaded dataset input table with 1203 rows and 281 attributes: Index(['QID', 'label', 'author', 'description', 'distribution format',
+       'instance of', 'version', 'country', 'language of work or name',
+       'genre',
+       ...
+       'Beirut Arab University's Libraries title ID', 'related image',
+       'British Library system number',
+       'Gran Enciclopèdia Catalana ID (former scheme)',
+       'Gran Enciclopèdia Catalana ID', 'De Agostini ID',
+       'PACTOLS thesaurus ID', 'replaces', 'author of afterword',
+       'author of foreword'],
+      dtype='object', length=281)
+2026-10-03 09:23:17,381 INFO root - Found 903 testcases in /home/yarin.b/tembed/cache/datasets/more_similar_than/wikidata_books, limit is None
+2026-10-03 09:23:17,382 INFO root - Successfully loaded module 'approach' from '/home/yarin.b/tembed/approaches/benchmark_approaches_src/sentence_transformer/approach.py'.
+2026-10-03 09:23:17,382 INFO approach - SentenceTransformerEmbedder: Initialized.
+2026-10-03 09:23:17,383 INFO root - BaseEmbeddingApproach: Loaded component: RowEmbeddingComponent
+2026-10-03 09:23:17,383 INFO sentence_transformers.SentenceTransformer - Use pytorch device_name: cuda
+2026-10-03 09:23:17,383 INFO sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-10-03 09:23:18,391 INFO approach - Loaded model on device: cuda:0
+2026-10-03 09:23:19,459 ERROR root -   0%|          | 0/1203 [00:00<?, ?it/s]
+2026-10-03 09:23:19,923 ERROR root - Batches:   0%|          | 0/38 [00:00<?, ?it/s]
+2026-10-03 09:23:20,054 ERROR root - Batches:   3%|2         | 1/38 [00:00<00:04,  7.69it/s]
+2026-10-03 09:23:20,178 ERROR root - Batches:   5%|5         | 2/38 [00:00<00:04,  7.90it/s]
+2026-10-03 09:23:20,300 ERROR root - Batches:   8%|7         | 3/38 [00:00<00:04,  8.01it/s]
+2026-10-03 09:23:20,423 ERROR root - Batches:  11%|#         | 4/38 [00:00<00:04,  8.08it/s]
+2026-10-03 09:23:20,548 ERROR root - Batches:  13%|#3        | 5/38 [00:00<00:04,  8.05it/s]
+2026-10-03 09:23:20,670 ERROR root - Batches:  16%|#5        | 6/38 [00:00<00:03,  8.09it/s]
+2026-10-03 09:23:20,792 ERROR root - Batches:  18%|#8        | 7/38 [00:00<00:03,  8.13it/s]
+2026-10-03 09:23:20,914 ERROR root - Batches:  21%|##1       | 8/38 [00:00<00:03,  8.15it/s]
+2026-10-03 09:23:21,036 ERROR root - Batches:  24%|##3       | 9/38 [00:01<00:03,  8.16it/s]
+2026-10-03 09:23:21,160 ERROR root - Batches:  26%|##6       | 10/38 [00:01<00:03,  8.13it/s]
+2026-10-03 09:23:21,283 ERROR root - Batches:  29%|##8       | 11/38 [00:01<00:03,  8.14it/s]
+2026-10-03 09:23:21,405 ERROR root - Batches:  32%|###1      | 12/38 [00:01<00:03,  8.16it/s]
+2026-10-03 09:23:21,526 ERROR root - Batches:  34%|###4      | 13/38 [00:01<00:03,  8.18it/s]
+2026-10-03 09:23:21,648 ERROR root - Batches:  37%|###6      | 14/38 [00:01<00:02,  8.19it/s]
+2026-10-03 09:23:21,770 ERROR root - Batches:  39%|###9      | 15/38 [00:01<00:02,  8.19it/s]
+2026-10-03 09:23:21,892 ERROR root - Batches:  42%|####2     | 16/38 [00:01<00:02,  8.21it/s]
+2026-10-03 09:23:22,013 ERROR root - Batches:  45%|####4     | 17/38 [00:02<00:02,  8.21it/s]
+2026-10-03 09:23:22,135 ERROR root - Batches:  47%|####7     | 18/38 [00:02<00:02,  8.22it/s]
+2026-10-03 09:23:22,256 ERROR root - Batches:  50%|#####     | 19/38 [00:02<00:02,  8.22it/s]
+2026-10-03 09:23:22,375 ERROR root - Batches:  53%|#####2    | 20/38 [00:02<00:02,  8.29it/s]
+2026-10-03 09:23:22,493 ERROR root - Batches:  55%|#####5    | 21/38 [00:02<00:02,  8.34it/s]
+2026-10-03 09:23:22,611 ERROR root - Batches:  58%|#####7    | 22/38 [00:02<00:01,  8.38it/s]
+2026-10-03 09:23:22,729 ERROR root - Batches:  61%|######    | 23/38 [00:02<00:01,  8.41it/s]
+2026-10-03 09:23:22,847 ERROR root - Batches:  63%|######3   | 24/38 [00:02<00:01,  8.42it/s]
+2026-10-03 09:23:22,965 ERROR root - Batches:  66%|######5   | 25/38 [00:03<00:01,  8.43it/s]
+2026-10-03 09:23:23,085 ERROR root - Batches:  68%|######8   | 26/38 [00:03<00:01,  8.40it/s]
+2026-10-03 09:23:23,203 ERROR root - Batches:  71%|#######1  | 27/38 [00:03<00:01,  8.42it/s]
+2026-10-03 09:23:23,321 ERROR root - Batches:  74%|#######3  | 28/38 [00:03<00:01,  8.45it/s]
+2026-10-03 09:23:23,439 ERROR root - Batches:  76%|#######6  | 29/38 [00:03<00:01,  8.45it/s]
+2026-10-03 09:23:23,557 ERROR root - Batches:  79%|#######8  | 30/38 [00:03<00:00,  8.47it/s]
+2026-10-03 09:23:23,674 ERROR root - Batches:  82%|########1 | 31/38 [00:03<00:00,  8.49it/s]
+2026-10-03 09:23:23,791 ERROR root - Batches:  84%|########4 | 32/38 [00:03<00:00,  8.49it/s]
+2026-10-03 09:23:23,909 ERROR root - Batches:  87%|########6 | 33/38 [00:03<00:00,  8.49it/s]
+2026-10-03 09:23:24,026 ERROR root - Batches:  89%|########9 | 34/38 [00:04<00:00,  8.51it/s]
+2026-10-03 09:23:24,143 ERROR root - Batches:  92%|#########2| 35/38 [00:04<00:00,  8.53it/s]
+2026-10-03 09:23:24,260 ERROR root - Batches:  95%|#########4| 36/38 [00:04<00:00,  8.54it/s]
+2026-10-03 09:23:24,377 ERROR root - Batches:  97%|#########7| 37/38 [00:04<00:00,  8.54it/s]
+2026-10-03 09:23:24,448 ERROR root - Batches: 100%|##########| 38/38 [00:04<00:00,  8.40it/s]
+2026-10-03 09:23:24,451 ERROR root -   0%|          | 0/903 [00:00<?, ?it/s]
+2026-10-03 09:23:25,764 ERROR root - 100%|##########| 903/903 [00:01<00:00, 687.95it/s]
+2026-10-03 09:23:26,091 INFO benchmark_src.utils.resource_monitoring - Saved resource metrics: CSV + JSON for setup and task.
+2026-10-03 09:23:26,098 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - {'accuracy': 0.7308970099667774, 'accuracy_easy': 0.8042226487523992, 'accuracy_medium': 0.6308900523560209}
+2026-10-03 09:23:26,098 INFO root - Dataset: wikidata_books@no_pid_in_col_names
+2026-10-03 09:23:26,101 INFO root - Saved metrics to disk
+2026-10-03 09:23:26,102 INFO __main__ - Finished sentence_transformer/row_triplet_evaluation/wikidata_books@no_pid_in_col_names

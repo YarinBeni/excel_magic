@@ -1,0 +1,34 @@
+task:
+  task_name: row_triplet_evaluation
+  elo_metric: accuracy
+approach:
+  approach_name: sentence_transformer
+  conda_env: benchmark_env
+  module_path: approaches/benchmark_approaches_src/sentence_transformer
+  class_name: SentenceTransformerEmbedder
+  embedding_model: all-MiniLM-L6-v2
+  table_row_limit: 100
+  table_serialization_format: markdown
+  supported_tasks:
+    row_similarity_search:
+      run_similarity_search_based_on: row_embeddings
+    row_triplet_evaluation: {}
+    column_similarity_search:
+      run_similarity_search_based_on: column_embeddings
+    column_type_annotation: {}
+    cell_similarity_search: {}
+    table_retrieval: {}
+    table_similarity_search: {}
+    predictive_ml:
+      run_task_based_on: row_embeddings
+    clustering: {}
+    table_shuffling: {}
+    table_type_detection: {}
+    schema_linking: {}
+    value_linking: {}
+dataset_name: wikidata_books@only_five_cols
+output_dir: /home/yarin.b/tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@only_five_cols
+cache_dir: /home/yarin.b/tembed/cache
+project_root: /home/yarin.b/tembed
+run_identifier: tabpfn_ctx_rows,sentence_transformer,embedding_model=all-MiniLM-L6-v2,table_row_limit=100,task=row_triplet_evaluation,dataset_name=wikidata_books@only_five_cols
+test_case_limit: null

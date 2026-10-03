@@ -1,0 +1,25 @@
+2026-10-03 09:22:06,546 INFO __main__ - ================================================================================
+2026-10-03 09:22:06,547 INFO __main__ - Starting [67/86] | Task: row_triplet_evaluation | Approach: tabpfn_ctx | Env: benchmark_env | Dataset: wikidata_books@no_col_names
+2026-10-03 09:22:06,547 INFO __main__ - ================================================================================
+2026-10-03 09:22:06,547 INFO benchmark_src.run_benchmark - ################################################################################
+2026-10-03 09:22:06,547 INFO benchmark_src.run_benchmark - Task: row_triplet_evaluation  |  Approach: tabpfn_ctx  |  Dataset: wikidata_books@no_col_names
+2026-10-03 09:22:06,548 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Started run_row_triplet_evaluation_benchmark
+2026-10-03 09:22:06,548 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Running with sub-dataset @no_col_names of base dataset wikidata_books
+2026-10-03 09:22:06,548 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Wikidata books dataset found in cache
+2026-10-03 09:22:06,575 INFO benchmark_src.utils.load_benchmark - Loaded dataset input table with 1203 rows and 281 attributes: Index(['col0', 'col1', 'col2', 'col3', 'col4', 'col5', 'col6', 'col7', 'col8',
+       'col9',
+       ...
+       'col271', 'col272', 'col273', 'col274', 'col275', 'col276', 'col277',
+       'col278', 'col279', 'col280'],
+      dtype='object', length=281)
+2026-10-03 09:22:06,577 INFO root - Found 903 testcases in /home/yarin.b/tembed/cache/datasets/more_similar_than/wikidata_books, limit is None
+2026-10-03 09:22:06,577 INFO root - Successfully loaded module 'approach' from '/home/yarin.b/tembed/approaches/benchmark_approaches_src/tabpfn_ctx/approach.py'.
+2026-10-03 09:22:06,578 INFO root - BaseEmbeddingApproach: Loaded component: RowEmbeddingComponent
+2026-10-03 09:22:17,090 INFO approach - tabpfn_ctx target=zeros layer=8 -> (1203, 192)
+2026-10-03 09:22:17,106 ERROR root -   0%|          | 0/903 [00:00<?, ?it/s]
+2026-10-03 09:22:18,405 ERROR root - 100%|##########| 903/903 [00:01<00:00, 695.67it/s]
+2026-10-03 09:22:18,694 INFO benchmark_src.utils.resource_monitoring - Saved resource metrics: CSV + JSON for setup and task.
+2026-10-03 09:22:18,701 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - {'accuracy': 0.584717607973422, 'accuracy_easy': 0.6007677543186181, 'accuracy_medium': 0.56282722513089}
+2026-10-03 09:22:18,701 INFO root - Dataset: wikidata_books@no_col_names
+2026-10-03 09:22:18,706 INFO root - Saved metrics to disk
+2026-10-03 09:22:18,707 INFO __main__ - Finished tabpfn_ctx/row_triplet_evaluation/wikidata_books@no_col_names

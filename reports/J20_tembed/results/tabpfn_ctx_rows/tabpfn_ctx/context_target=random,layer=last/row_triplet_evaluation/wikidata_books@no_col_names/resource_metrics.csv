@@ -1,0 +1,3 @@
+function,execution_time (s),peak_cpu (%),average_cpu (%),peak_memory (MB),average_memory (MB),peak_gpu_memory (MB),average_gpu_memory (MB),approach
+model_setup,2.991408109664917e-06,0.0,0.0,1846.5,1846.5,710.0,710.0,tabpfn_ctx
+task_inference,3.928980107419193,1599.4,567.7761904761905,1878.16796875,1859.8011532738096,9572.0,6197.333333333333,tabpfn_ctx

@@ -1,0 +1,8 @@
+{
+  "task": "row_triplet_evaluation",
+  "dataset": "wikidata_books",
+  "approach": "sentence_transformer",
+  "accuracy": 0.7652270210409745,
+  "accuracy_easy": 0.8272552783109405,
+  "accuracy_medium": 0.680628272251309
+}

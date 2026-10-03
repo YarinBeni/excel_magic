@@ -1,0 +1,3 @@
+function,execution_time (s),peak_cpu (%),average_cpu (%),peak_memory (MB),average_memory (MB),peak_gpu_memory (MB),average_gpu_memory (MB),approach
+model_setup,6.592112053185701,32.8,13.757142857142856,1932.953125,1881.7667410714287,814.0,724.8571428571429,sentence_transformer
+task_inference,8.450614548288286,134.8,116.79285714285713,1948.1328125,1944.0634765625,1018.0,1010.7142857142857,sentence_transformer

@@ -1,0 +1,34 @@
+2026-10-03 09:19:33,883 INFO __main__ - ================================================================================
+2026-10-03 09:19:33,883 INFO __main__ - Starting [12/86] | Task: row_triplet_evaluation | Approach: tabpfn_ctx | Env: benchmark_env | Dataset: wikidata_books@no_pid_in_col_names
+2026-10-03 09:19:33,883 INFO __main__ - ================================================================================
+2026-10-03 09:19:33,883 INFO benchmark_src.run_benchmark - ################################################################################
+2026-10-03 09:19:33,883 INFO benchmark_src.run_benchmark - Task: row_triplet_evaluation  |  Approach: tabpfn_ctx  |  Dataset: wikidata_books@no_pid_in_col_names
+2026-10-03 09:19:33,884 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Started run_row_triplet_evaluation_benchmark
+2026-10-03 09:19:33,884 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Running with sub-dataset @no_pid_in_col_names of base dataset wikidata_books
+2026-10-03 09:19:33,884 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Wikidata books dataset found in cache
+2026-10-03 09:19:33,885 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Sub-dataset folder /home/yarin.b/tembed/cache/datasets/more_similar_than/wikidata_books/@no_pid_in_col_names does not exist, have to create the variation
+2026-10-03 09:19:33,885 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Creating variation no_pid_in_col_names for dataset wikidata_books by removing pid from column names, base_dataset_folder: /home/yarin.b/tembed/cache/datasets/more_similar_than/wikidata_books
+2026-10-03 09:19:33,970 INFO root - Removed pids from column names of input_table, saved new table to /home/yarin.b/tembed/cache/datasets/more_similar_than/wikidata_books/@no_pid_in_col_names/input_table.csv
+2026-10-03 09:19:33,979 INFO root - Saved variation with removed pids from column names to /home/yarin.b/tembed/cache/datasets/more_similar_than/wikidata_books/@no_pid_in_col_names
+2026-10-03 09:19:34,011 INFO benchmark_src.utils.load_benchmark - Loaded dataset input table with 1203 rows and 281 attributes: Index(['QID', 'label', 'author', 'description', 'distribution format',
+       'instance of', 'version', 'country', 'language of work or name',
+       'genre',
+       ...
+       'Beirut Arab University's Libraries title ID', 'related image',
+       'British Library system number',
+       'Gran Enciclopèdia Catalana ID (former scheme)',
+       'Gran Enciclopèdia Catalana ID', 'De Agostini ID',
+       'PACTOLS thesaurus ID', 'replaces', 'author of afterword',
+       'author of foreword'],
+      dtype='object', length=281)
+2026-10-03 09:19:34,012 INFO root - Found 903 testcases in /home/yarin.b/tembed/cache/datasets/more_similar_than/wikidata_books, limit is None
+2026-10-03 09:19:34,013 INFO root - Successfully loaded module 'approach' from '/home/yarin.b/tembed/approaches/benchmark_approaches_src/tabpfn_ctx/approach.py'.
+2026-10-03 09:19:34,014 INFO root - BaseEmbeddingApproach: Loaded component: RowEmbeddingComponent
+2026-10-03 09:19:37,831 INFO approach - tabpfn_ctx target=zeros layer=last -> (1203, 192)
+2026-10-03 09:19:37,834 ERROR root -   0%|          | 0/903 [00:00<?, ?it/s]
+2026-10-03 09:19:39,166 ERROR root - 100%|##########| 903/903 [00:01<00:00, 677.77it/s]
+2026-10-03 09:19:39,499 INFO benchmark_src.utils.resource_monitoring - Saved resource metrics: CSV + JSON for setup and task.
+2026-10-03 09:19:39,505 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - {'accuracy': 0.6112956810631229, 'accuracy_easy': 0.6295585412667947, 'accuracy_medium': 0.5863874345549738}
+2026-10-03 09:19:39,505 INFO root - Dataset: wikidata_books@no_pid_in_col_names
+2026-10-03 09:19:39,508 INFO root - Saved metrics to disk
+2026-10-03 09:19:39,510 INFO __main__ - Finished tabpfn_ctx/row_triplet_evaluation/wikidata_books@no_pid_in_col_names

@@ -1,0 +1,25 @@
+task:
+  task_name: row_similarity_search
+  top_k: 50
+  elo_metric: MAP
+  run_similarity_search_based_on: row_embeddings
+approach:
+  approach_name: tabpfn_ctx
+  conda_env: benchmark_env
+  module_path: approaches/benchmark_approaches_src/tabpfn_ctx
+  class_name: TabPFNCtxEmbedder
+  context_target: random
+  layer: last
+  supported_tasks:
+    row_similarity_search:
+      run_similarity_search_based_on: row_embeddings
+      exclude_datasets:
+      - DBLP-GoogleScholar
+      - iTunes-Amazon
+    row_triplet_evaluation: {}
+dataset_name: geological-settlements
+output_dir: /home/yarin.b/tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_similarity_search/geological-settlements
+cache_dir: /home/yarin.b/tembed/cache
+project_root: /home/yarin.b/tembed
+run_identifier: tabpfn_ctx_rows,tabpfn_ctx,context_target=random,layer=last,task=row_similarity_search,dataset_name=geological-settlements
+test_case_limit: null
