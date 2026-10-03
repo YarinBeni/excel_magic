@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "Another-Dataset-on-used-Fiat-500",
+      "P*": 703.9924978107679,
+      "P0": 703.9924978107679,
+      "metric": "rmse",
+      "tabfm": 703.27,
+      "tabfm_auto_opus5": 693.49,
+      "tabfm_auto_gemini38flash": 696.52,
+      "our_gain_%": 0.0,
+      "paper_gain_opus5_%": 1.3906465511112336,
+      "ours_vs_paper_tabfm": 1.0010273405815233
+    }
+  ],
+  "elapsed_s": 280.19,
+  "status": "ok"
+}

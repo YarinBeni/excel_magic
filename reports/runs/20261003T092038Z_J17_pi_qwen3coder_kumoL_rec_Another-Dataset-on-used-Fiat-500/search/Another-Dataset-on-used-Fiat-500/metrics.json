@@ -1,0 +1,81 @@
+{
+  "dataset": "Another-Dataset-on-used-Fiat-500",
+  "task_type": "regression",
+  "model": "kumo-tabular-l:n_estimators=8,device=cuda",
+  "metric": "rmse",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 8,
+  "n_evals_ok": 6,
+  "select_rule": "gated1",
+  "p0_cv": 742.4649788119947,
+  "best_cv": 742.4649788119947,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 144.8,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261003T092038Z_J17_pi_qwen3coder_kumoL_rec_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 679.9338336742913,
+  "p0_test_secondary": {
+    "rmse": 679.9338336742913,
+    "mae": 463.8188110113609,
+    "r2": 0.8726016207965284
+  },
+  "best_test": 679.9338336742913,
+  "best_test_secondary": {
+    "rmse": 679.9338336742913,
+    "mae": 463.8188110113609,
+    "r2": 0.8726016207965284
+  },
+  "best_test_info": {
+    "n_features": 7,
+    "t_features": 0.005,
+    "n_views": 1,
+    "view_sizes": [
+      1025
+    ],
+    "t_model": 1.878,
+    "t_total": 1.883,
+    "model_spec": "kumo-tabular-l:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 0.0,
+  "cv_trajectory": [
+    [
+      1,
+      742.4649788119947
+    ],
+    [
+      2,
+      742.4649788119947
+    ],
+    [
+      3,
+      null
+    ],
+    [
+      4,
+      747.8325576343731
+    ],
+    [
+      5,
+      742.431977778051
+    ],
+    [
+      6,
+      null
+    ],
+    [
+      7,
+      749.9030427377735
+    ],
+    [
+      8,
+      742.431977778051
+    ]
+  ],
+  "elapsed_s": 163.53,
+  "status": "ok"
+}
