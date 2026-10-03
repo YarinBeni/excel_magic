@@ -1,0 +1,168 @@
+{
+ "n_questions": 497,
+ "n_candidates": 4473,
+ "candidates_correct_share": 0.6899172814665773,
+ "greedy_accuracy": 0.6921529175050302,
+ "oracle_accuracy": 0.7464788732394366,
+ "signals": {
+  "sig_exec_ok": {
+   "auroc": 0.5555155010814707,
+   "within_question_auroc": 0.6308862433862434,
+   "best_of_n": 0.7062374245472837,
+   "ece_raw": 0.27565392354124746,
+   "ece_isotonic": 0.00013674581145024296
+  },
+  "sig_nonempty": {
+   "auroc": 0.5998558038932948,
+   "within_question_auroc": 0.6568121693121692,
+   "best_of_n": 0.7062374245472837,
+   "ece_raw": 0.24815560026827635,
+   "ece_isotonic": 0.0007529651468370034
+  },
+  "sig_logprob": {
+   "auroc": 0.5792496849506645,
+   "within_question_auroc": 0.5118795666414714,
+   "best_of_n": 0.6921529175050302,
+   "ece_isotonic": 0.005429858701649827
+  },
+  "sig_self_consistency": {
+   "auroc": 0.6509321114823744,
+   "within_question_auroc": 0.7213057445200303,
+   "best_of_n": 0.7062374245472837,
+   "ece_raw": 0.21891844896539733,
+   "ece_isotonic": 0.008587496406021557
+  },
+  "sig_gliclass": {
+   "auroc": 0.6850378082565589,
+   "within_question_auroc": 0.6953955656336609,
+   "best_of_n": 0.7122736418511066,
+   "ece_raw": 0.07322425716482753,
+   "ece_isotonic": 0.018423521623870634
+  },
+  "sig_nli": {
+   "auroc": 0.6555612457310056,
+   "within_question_auroc": 0.7332955404383975,
+   "best_of_n": 0.7203219315895373,
+   "ece_raw": 0.32818164188602733,
+   "ece_isotonic": 0.049945358634890566
+  },
+  "sig_judge": {
+   "auroc": 0.7863530954268901,
+   "within_question_auroc": 0.7484945830183926,
+   "best_of_n": 0.7142857142857143,
+   "ece_raw": 0.19713637194489142,
+   "ece_isotonic": 0.04664779456086902
+  },
+  "stack_cheap": {
+   "auroc": 0.6759033633765252,
+   "within_question_auroc": 0.7254724111866968,
+   "best_of_n": 0.7062374245472837,
+   "ece_raw": 0.025943385442345042,
+   "ece_isotonic": 0.09169054967406788
+  },
+  "stack_cheap_gli": {
+   "auroc": 0.7246277231266539,
+   "within_question_auroc": 0.7655643738977073,
+   "best_of_n": 0.7122736418511066,
+   "ece_raw": 0.03286375620141297,
+   "ece_isotonic": 0.06382367787698115
+  },
+  "stack_cheap_gli_nli": {
+   "auroc": 0.7220337351604404,
+   "within_question_auroc": 0.7646825396825396,
+   "best_of_n": 0.710261569416499,
+   "ece_raw": 0.0356218186647651,
+   "ece_isotonic": 0.07106932704831474
+  },
+  "stack_all": {
+   "auroc": 0.7913899130945111,
+   "within_question_auroc": 0.762257495590829,
+   "best_of_n": 0.7142857142857143,
+   "ece_raw": 0.02348679973385636,
+   "ece_isotonic": 0.05116648098534911
+  }
+ },
+ "cascade": [
+  {
+   "judge_share": 0.0,
+   "auroc": 0.7246277231266539,
+   "best_of_n": 0.7122736418511066
+  },
+  {
+   "judge_share": 0.1,
+   "auroc": 0.7245613723581764,
+   "best_of_n": 0.716297786720322
+  },
+  {
+   "judge_share": 0.2,
+   "auroc": 0.7291711153610907,
+   "best_of_n": 0.7122736418511066
+  },
+  {
+   "judge_share": 0.3,
+   "auroc": 0.7353735104369292,
+   "best_of_n": 0.7082494969818913
+  },
+  {
+   "judge_share": 0.5,
+   "auroc": 0.7472334766727987,
+   "best_of_n": 0.704225352112676
+  },
+  {
+   "judge_share": 1.0,
+   "auroc": 0.7863530954268901,
+   "best_of_n": 0.7142857142857143
+  }
+ ],
+ "latency": {
+  "gliclass_s_per_item": 0.005443357204940549,
+  "gliclass_taxonomy_s_per_item": 0.005906069560648873,
+  "nli_s_per_item": 0.005224749319577845,
+  "judge_s_per_item_wall": 0.005891055041580847,
+  "judge_workers": 48,
+  "judge_fallback_share": 0.0,
+  "judge_s_per_call_sequential": 0.06391232013702393,
+  "lexical": 0.00030207203095217785,
+  "embed_bge_small": 0.015000307416341391,
+  "rerank_bge_m3": 0.10488784408952338,
+  "gliclass_large_v3": 0.04961900347207923,
+  "gliner_bi_base_v2": 0.04851267806976196
+ },
+ "schema_link": {
+  "embed_bge_small": {
+   "recall@5": 0.5027,
+   "recall@10": 0.6449,
+   "recall@20": 0.7738,
+   "all@10": 0.2751,
+   "all@20": 0.4719
+  },
+  "gliclass_large_v3": {
+   "recall@5": 0.6481,
+   "recall@10": 0.7885,
+   "recall@20": 0.8774,
+   "all@10": 0.4237,
+   "all@20": 0.6185
+  },
+  "gliner_bi_base_v2": {
+   "recall@5": 0.2405,
+   "recall@10": 0.35,
+   "recall@20": 0.5305,
+   "all@10": 0.0823,
+   "all@20": 0.2129
+  },
+  "lexical": {
+   "recall@5": 0.5764,
+   "recall@10": 0.7063,
+   "recall@20": 0.8112,
+   "all@10": 0.3173,
+   "all@20": 0.4679
+  },
+  "rerank_bge_m3": {
+   "recall@5": 0.5407,
+   "recall@10": 0.6872,
+   "recall@20": 0.8019,
+   "all@10": 0.3253,
+   "all@20": 0.5201
+  }
+ }
+}
