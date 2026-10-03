@@ -1,0 +1,11 @@
+# 076_v4_rerun_hm  host=g0374  start=Sat Oct  3 23:34:05 UTC 2026  timeout=120s
+# HEAD=b99f196
+# ---------------------------------------------------------
+artifacts/runs/20261003T193118Z_V4_relbench_capability
+64 -> 60
+Submitted batch job 52074
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+       52074      V4_rel_capability  PENDING       0:00 (None)
+       51136           AGENT_runner  RUNNING    8:01:05 g0374
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 23:34:05 UTC 2026
