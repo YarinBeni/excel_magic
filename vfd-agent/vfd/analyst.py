@@ -198,10 +198,20 @@ class Analyst:
         return "ACCEPTED"
 
     def _frame(self, exclude: list[str] | None = None) -> pd.DataFrame:
-        d = self.df.drop(columns=[c for c in (exclude or []) if c in self.df.columns])
-        # drop id-like and long-text columns the tabular model cannot use
-        keep = [c for c in d.columns if not (d[c].dtype == object and d[c].astype(str).str.len().mean() > 60)
-                and not (d[c].nunique() == len(d) and d[c].dtype == object)]
+        """The frame the DEEP tool sees: date strings parsed to datetimes first; then long free text and unique string
+        ids (which a tabular model cannot use) dropped."""
+        d = self.df.drop(columns=[c for c in (exclude or []) if c in self.df.columns]).copy()
+
+        def texty(c):  # object or pandas-3 string dtype
+            return d[c].dtype == object or pd.api.types.is_string_dtype(d[c])
+
+        for c in d.columns:
+            if texty(c):
+                parsed = pd.to_datetime(d[c], errors="coerce", format="mixed")
+                if parsed.notna().mean() > 0.9:
+                    d[c] = parsed
+        keep = [c for c in d.columns if not (texty(c) and d[c].astype(str).str.len().mean() > 60)
+                and not (texty(c) and d[c].nunique() == len(d))]
         return d[keep]
 
     def _deep(self, name: str, a: dict) -> str:

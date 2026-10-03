@@ -178,11 +178,17 @@ class DeepTool:
         est = _registry()(self.model, task)
         est.fit(Xall.iloc[sub], y[sub])
         out = []
+        top_classes = list(np.argsort(-np.bincount(y.astype(int)))[:3]) if task == "multiclass" else []
         for v, Xv in zip(values, Xg):
             p = np.asarray(est.predict(Xv) if task == "regression" else est.predict_proba(Xv), float)
-            s = p if task == "regression" else p[:, 1] if task == "binary" else p.max(1)
-            out.append({"value": v if not hasattr(v, "item") else v.item(), "mean": round(float(s.mean()), 4),
-                        "p10": round(float(np.quantile(s, 0.1)), 4), "p90": round(float(np.quantile(s, 0.9)), 4)})
+            row = {"value": v if not hasattr(v, "item") else v.item()}
+            if task == "multiclass":  # mean probability of the most frequent classes
+                row["mean_prob"] = {str(classes[k]): round(float(p[:, k].mean()), 4) for k in top_classes}
+            else:
+                s = p if task == "regression" else p[:, 1]
+                row.update(mean=round(float(s.mean()), 4), p10=round(float(np.quantile(s, 0.1)), 4),
+                           p90=round(float(np.quantile(s, 0.9)), 4))
+            out.append(row)
         return {"task": task, "column": column, "n_rows": len(rows), "model": self.model.split(":")[0], "curve": out,
                 **({"positive_class": classes[1]} if task == "binary" and classes else {})}
 

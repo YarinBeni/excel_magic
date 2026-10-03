@@ -32,7 +32,7 @@ keep = {"metrics.json", "config.json", "results.md", "results.csv", "best_pipeli
         "comparison_to_paper.md", "comparison_to_paper.csv", "heuristic_trace.json", "rescored.json", "NOTES.md",
         "agent_stream.log", "agent_stream.jsonl", "agent_result.md", "relbench_rows.json", "churn_rows.json",
         "selection_rules.md", "selection_rules.csv", "layers_rows.json",
-        "candidates.jsonl", "signals.csv", "schema_link.csv", "judge.csv", "encoders.csv", "rows.jsonl"}
+        "candidates.jsonl", "signals.csv", "schema_link.csv", "judge.csv", "encoders.csv", "rows.jsonl", "scores.jsonl", "harness_rows.jsonl"}
 n = 0
 for run in sorted(src.glob("*")):
     if not run.is_dir(): continue
@@ -40,7 +40,7 @@ for run in sorted(src.glob("*")):
         if f.name.startswith("agent_stream") and not (f.parents[0] / "metrics.json").exists() \
                 and not (run / "metrics.json").exists():
             continue  # a growing log of a run still in progress: snapshotting it twice makes add/add conflicts
-        if f.is_file() and (f.name in keep or f.name.startswith("labels_")) and f.stat().st_size < 5_000_000:
+        if f.is_file() and (f.name in keep or f.name.startswith(("labels_", "insights_"))) and f.stat().st_size < 5_000_000:
             out = dst / run.name / f.relative_to(run)
             out.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(f, out); n += 1
