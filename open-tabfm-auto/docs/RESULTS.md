@@ -428,3 +428,33 @@ Graph: customers <- transactions -> articles, 365-day window, 2 hops, 64 context
 | PastVisit | 1.904 | 2.199 |
 
 Below the aggregates; the random-target variant is queued (J14b).
+
+## Final-pick selection rules, heuristic searches (cluster job J15, 50827): gain over P0 on all 30 official splits, %
+
+Rules applied to the recorded per-fold CV scores of the J2 searches (Kumo Tabular-S, 24 evals): best = CV-best (paper),
+gatedZ = CV-best among candidates whose paired per-fold improvement over P0 exceeds Z standard errors (else P0),
+ens3 = average of the 3 best-CV candidates' predictions.
+
+| dataset | best | gated1 | gated2 | ens3 |
+|---|---|---|---|---|
+| anneal | +3.7 | +3.7 | -1.4 | **+11.2** |
+| MIC | +10.2 | +10.2 | +10.2 | +11.3 |
+| airfoil_self_noise | +3.5 | +3.5 | +3.5 | +4.1 |
+| website_phishing | +2.2 | +2.2 | +2.2 | +2.2 |
+| Fitness_Club | +0.2 | +0.2 | +0.2 | +0.2 |
+| QSAR_fish_toxicity | +0.1 | +0.1 | +0.1 | +0.1 |
+| Another-Dataset-on-used-Fiat-500 | +0.1 | 0.0 | 0.0 | +0.1 |
+| credit-g | 0.0 | 0.0 | 0.0 | +0.1 |
+| blood-transfusion / hazelnut | 0.0 | 0.0 | 0.0 | 0.0 |
+| healthcare_insurance_expenses | -0.9 | -0.9 | 0.0 | -0.3 |
+| concrete_compressive_strength | -1.0 | -1.0 | 0.0 | -0.2 |
+| maternal_health_risk | -1.6 | +0.5 | +0.5 | -1.7 |
+| Is-this-a-good-customer | -1.7 | -1.7 | 0.0 | -1.7 |
+| Marketing_Campaign | -1.8 | -1.8 | -1.8 | -1.6 |
+| qsar-biodeg | -1.8 | -1.8 | +0.6 | -1.8 |
+| diabetes | -3.1 | -3.1 | -3.1 | -3.1 |
+| **mean** | **+0.5** | **+0.6** | **+0.7** | **+1.1** |
+| datasets losing > 1% | 6 | 5 | 3 | 5 |
+| splits where the pick beats P0 | 41% | 42% | 41% | 46% |
+
+Source: `reports/runs/*J2_heuristic_*/selection_rules.csv`.
