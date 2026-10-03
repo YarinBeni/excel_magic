@@ -1,0 +1,47 @@
+# job 51135 J21_model_layers exit=1 Sat Oct  3 09:15:25 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J21_model_layers_51135.out
+=== J21 model layers === job 51135 Sat Oct  3 09:12:22 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--nvidia--Kumo-Tabular/snapshots/bd7fa122b516c7355583873ffcf38f5e79403ebd/medium/regressor.pt
+kumo-tabular-l:
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--nvidia--Kumo-Tabular/snapshots/bd7fa122b516c7355583873ffcf38f5e79403ebd/large/classifier.pt
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--nvidia--Kumo-Tabular/snapshots/bd7fa122b516c7355583873ffcf38f5e79403ebd/large/regressor.pt
+| tabpfn           | tabular    | ready                    | not in pool; below RealTabPFN-2.5 (1522) | Prior Labs License (Apache-2.0 | yes (<=10k rows) |
+| tabpfn-2.5       | tabular    | ready                    | 1522 (RealTabPFN-2.5)              | TabPFN-2.5 license (non-commer | yes |
+| tabpfn-2.6       | tabular    | needs huggingface.co     | 1605                               | TabPFN-2.6 license (non-commer | yes |
+| tabpfn-3         | tabular    | needs huggingface.co     | 1660                               | non-commercial                 | slow (default limit 5000 rows) |
+| tabpfn-3.5       | tabular    | needs huggingface.co     | ~1855                              | academic + evaluation          | slow |
+| tabpfn-3.5-fast  | tabular    | needs huggingface.co     | ~1770                              | academic + evaluation          | probably |
+| tabicl           | tabular    | ready                    | 1590                               | BSD-3                          | yes (GPU recommended) |
+| tabiclv2-sdm     | tabular    | needs huggingface.co     | 1590                               | BSD-3                          | yes |
+| kumo-tabular-s   | tabular    | ready                    | ~1790                              | OpenMDW-1.1 (commercial OK)    | expected (TabICLv2-size) |
+| kumo-tabular-m   | tabular    | ready                    | ~1910                              | OpenMDW-1.1                    | slow |
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 3831.73it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-10-03 09:14:58,421 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T091235Z_J21_smoke_rel-f1_driver-dnf/metrics.json
+# rel-f1/driver-dnf: every model, every layer (test AUROC, official evaluator)
+
+| model | target | raw features | best layer by val | its test | last layer test | own prediction | geometry best predictor (rho) |
+|---|---|---|---|---|---|---|---|
+| tabpfn | label | 0.8200 | block_11 | 0.5567 | 0.5567 | 0.7913 | anisotropy (-0.51) |
+| kumo-s | label | 0.8200 | row_emb | 0.6834 | 0.6118 | 0.8069 | effective_rank (-0.59) |
+tabpfn label layers 13 degenerate ['raw_features'] best {'layer': 'block_11', 'val_auroc': 0.6899410430839003, 'test_auroc': 0.5566583711511247}
+Traceback (most recent call last):
+  File "<stdin>", line 9, in <module>
+AssertionError: degenerate layers ['raw_features']
+FAILED smoke check
+[collect] copied 2023 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o f88cfe4] J21: smoke check failed (job 51135)
+ 3 files changed, 1131 insertions(+)
+ create mode 100644 reports/runs/20261003T091235Z_J21_smoke_rel-f1_driver-dnf/layers_rows.json
+ create mode 100644 reports/runs/20261003T091235Z_J21_smoke_rel-f1_driver-dnf/metrics.json
+ create mode 100644 reports/runs/20261003T091235Z_J21_smoke_rel-f1_driver-dnf/results.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   96b65a6..f88cfe4  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
