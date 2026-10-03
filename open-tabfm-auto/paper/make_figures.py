@@ -17,10 +17,11 @@ import os
 from pathlib import Path
 
 import matplotlib
+
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
-import numpy as np  # noqa: E402
-import pandas as pd  # noqa: E402
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 
 # reference palette (dataviz skill, light mode); validated: blue/orange/aqua pass all-pairs CVD
 SURFACE, INK, INK2, MUTED, GRID = "#fcfcfb", "#0b0b0b", "#52514e", "#8a8984", "#e6e5e1"
@@ -120,7 +121,7 @@ def fig2(roots, out):
     order = frames["Kumo Tabular-L"].sort_values().index
     fig, ax = plt.subplots(figsize=(8.6, 6.2))
     y = np.arange(len(order))
-    for (pat, name, color, marker), dy in zip(series, (0.22, 0.0, -0.22)):
+    for (_pat, name, color, marker), dy in zip(series, (0.22, 0.0, -0.22)):
         v = frames[name].reindex(order).clip(-60, 60)
         wins = int((frames[name] > 0).sum())
         ax.scatter(v, y + dy, s=42, color=color, marker=marker, edgecolors=SURFACE, linewidths=1.5, zorder=3,
@@ -170,7 +171,7 @@ def fig4(roots, out):
     for pat, name, color, marker in series:
         d = _csvs(roots, pat, "results.csv")
         pts = []
-        for ds, g in d.groupby("dataset"):
+        for _ds, g in d.groupby("dataset"):
             p0 = g[g.pipeline == "P0"].set_index(["repeat", "fold"]).error
             ps = g[g.pipeline == "P*"].set_index(["repeat", "fold"]).error
             rel = (100 * (p0 - ps) / p0).dropna()
@@ -236,7 +237,7 @@ def fig5(roots, out):
     a1.set_xlim(0, max(r[1] for r in item_rows) * 1.25)
     vals = [r[1] - 0.5 for r in churn_rows]
     _hbars(a2, [r[0] for r in churn_rows], vals, [r[2] for r in churn_rows], fmt="")
-    for yi, (lab, v, _) in zip(np.arange(len(churn_rows))[::-1], churn_rows):
+    for yi, (_lab, v, _) in zip(np.arange(len(churn_rows))[::-1], churn_rows):
         a2.text(v - 0.5 + 0.003, yi, f"{v:.3f}", va="center", ha="left", fontsize=9, color=INK)
     a2.set_xlim(0, max(vals) * 1.22)
     ticks = np.arange(0, max(vals) * 1.2, 0.05)
