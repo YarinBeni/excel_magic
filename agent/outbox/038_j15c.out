@@ -1,0 +1,11 @@
+# 038_j15c  host=g0377  start=Sat Oct  3 06:05:38 UTC 2026  timeout=300s
+# HEAD=603a59c
+# ---------------------------------------------------------
+cancelled J15b 51090
+J15c: 51091
+       50192           AGENT_runner  RUNNING   14:33:06 g0377
+       51090     J15b_selection_glm COMPLETI       6:17 g0381
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+ 51091_[0-2]   J15c_selection_rules  PENDING       0:00 (None)
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 06:05:38 UTC 2026
