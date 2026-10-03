@@ -1,0 +1,31 @@
+{
+  "name": "J19_tab_layers_rel-f1_driver-top3",
+  "config": {
+    "tasks": "rel-f1/driver-top3",
+    "targets": "zeros,random,kmeans,label",
+    "n_ctx": 3000,
+    "n_train": 4000,
+    "max_eval": 20000,
+    "device": "cuda",
+    "seed": 0,
+    "name": "J19_tab_layers",
+    "task": "rel-f1/driver-top3"
+  },
+  "env": {
+    "python": "3.11.15",
+    "platform": "Linux-5.15.0-152-generic-x86_64-with-glibc2.35",
+    "cpu_count": 104,
+    "git_sha": "77116fc",
+    "numpy": "2.3.4",
+    "pandas": "2.3.3",
+    "sklearn": null,
+    "torch": "2.9.1+cu128",
+    "tabpfn": "9.1.0",
+    "tabicl": "?",
+    "torch_geometric": "2.8.0.post1",
+    "lightgbm": "4.7.0",
+    "torch_cuda": true,
+    "torch_threads": 16
+  },
+  "started_utc": "2026-10-03T09:18:02.735067+00:00"
+}

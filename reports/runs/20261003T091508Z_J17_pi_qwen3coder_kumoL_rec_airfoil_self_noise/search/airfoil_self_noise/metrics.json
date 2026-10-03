@@ -1,0 +1,92 @@
+{
+  "dataset": "airfoil_self_noise",
+  "task_type": "regression",
+  "model": "kumo-tabular-l:n_estimators=8,device=cuda",
+  "metric": "rmse",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 9,
+  "n_evals_ok": 8,
+  "select_rule": "gated1",
+  "p0_cv": 1.4278187159652376,
+  "best_cv": 1.4088664813243852,
+  "best_candidate": "eval_006.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 168.9,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261003T091508Z_J17_pi_qwen3coder_kumoL_rec_airfoil_self_noise/search/airfoil_self_noise/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "acceptance": {
+    "p0": 1.0591738678523661,
+    "candidate": 1.0336586095307623,
+    "candidate_name": "eval_006.py",
+    "accepted": true,
+    "n_rows": 201
+  },
+  "p0_test": 0.7376569619977948,
+  "p0_test_secondary": {
+    "rmse": 0.7376569619977948,
+    "mae": 0.4929240904177971,
+    "r2": 0.9887224550488722
+  },
+  "best_test": 0.7463136038453798,
+  "best_test_secondary": {
+    "rmse": 0.7463136038453798,
+    "mae": 0.48781223027577664,
+    "r2": 0.9884562106915771
+  },
+  "best_test_info": {
+    "n_features": 8,
+    "t_features": 0.006,
+    "n_views": 1,
+    "view_sizes": [
+      1002
+    ],
+    "t_model": 1.759,
+    "t_total": 1.766,
+    "model_spec": "kumo-tabular-l:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": -1.174,
+  "cv_trajectory": [
+    [
+      1,
+      1.4278187159652376
+    ],
+    [
+      2,
+      1.4278187159652376
+    ],
+    [
+      3,
+      1.4306193768851712
+    ],
+    [
+      4,
+      1.409216550358323
+    ],
+    [
+      5,
+      1.409216550358323
+    ],
+    [
+      6,
+      1.4088664813243852
+    ],
+    [
+      7,
+      null
+    ],
+    [
+      8,
+      1.4088664813243852
+    ],
+    [
+      9,
+      1.4249566587139906
+    ]
+  ],
+  "elapsed_s": 190.7,
+  "status": "ok"
+}
