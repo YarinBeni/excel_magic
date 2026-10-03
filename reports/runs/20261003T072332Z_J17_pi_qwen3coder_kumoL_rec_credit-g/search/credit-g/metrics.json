@@ -1,0 +1,106 @@
+{
+  "dataset": "credit-g",
+  "task_type": "binary",
+  "model": "kumo-tabular-l:n_estimators=8,device=cuda",
+  "metric": "1-auroc",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 12,
+  "n_evals_ok": 11,
+  "select_rule": "gated1",
+  "p0_cv": 0.20455592875623985,
+  "best_cv": 0.20183644793099048,
+  "best_candidate": "eval_011.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 124,
+    "elapsed_s": 3600.3,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261003T072332Z_J17_pi_qwen3coder_kumoL_rec_credit-g/search/credit-g/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "acceptance": {
+    "p0": 0.16914893617021276,
+    "candidate": 0.1728723404255318,
+    "candidate_name": "eval_011.py",
+    "accepted": false,
+    "n_rows": 134
+  },
+  "p0_test": 0.19329059829059825,
+  "p0_test_secondary": {
+    "logloss": 0.4765922157137633,
+    "acc": 0.7754491017964071,
+    "auroc": 0.8067094017094018,
+    "1-auroc": 0.19329059829059825
+  },
+  "best_test": 0.19329059829059825,
+  "best_test_secondary": {
+    "logloss": 0.4765922157137633,
+    "acc": 0.7754491017964071,
+    "auroc": 0.8067094017094018,
+    "1-auroc": 0.19329059829059825
+  },
+  "best_test_info": {
+    "n_features": 20,
+    "t_features": 0.009,
+    "n_views": 1,
+    "view_sizes": [
+      666
+    ],
+    "t_model": 1.858,
+    "t_total": 1.868,
+    "model_spec": "kumo-tabular-l:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 0.0,
+  "cv_trajectory": [
+    [
+      1,
+      0.20455592875623985
+    ],
+    [
+      2,
+      0.20455592875623985
+    ],
+    [
+      3,
+      null
+    ],
+    [
+      4,
+      0.21332176160741795
+    ],
+    [
+      5,
+      0.2038110928267823
+    ],
+    [
+      6,
+      0.20645793727723805
+    ],
+    [
+      7,
+      0.2038110928267823
+    ],
+    [
+      8,
+      0.20672500118973375
+    ],
+    [
+      9,
+      0.20363952070011448
+    ],
+    [
+      10,
+      0.20236368782388936
+    ],
+    [
+      11,
+      0.20183644793099048
+    ],
+    [
+      12,
+      0.20236368782388936
+    ]
+  ],
+  "elapsed_s": 3627.09,
+  "status": "ok"
+}
