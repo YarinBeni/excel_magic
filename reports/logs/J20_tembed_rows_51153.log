@@ -1,0 +1,573 @@
+# job 51153 J20_tembed_rows exit=0 Sat Oct  3 09:23:38 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J20_tembed_rows_51153.out
+=== J20 tembed rows === job 51153 Sat Oct  3 09:15:52 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+ContextAwareJoin
+LICENSE
+README.md
+approaches
+assets
+benchmark_src
+cache
+configs
+prepare_paper_figures
+process_results.py
+pyproject.toml
+reqs_benchmark.txt
+run.sh
+run_experiments.py
+run_paper_experiments.sh
+run_test_before_commit.sh
+setup_benchmark.sh.template
+standalone_comparisons
+2 channel Terms of Service accepted
+Channels:
+ - conda-forge
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/yarin.b/miniconda3/envs/benchmark_env
+
+  added / updated specs:
+    - pip
+    - python=3.12
+
+
+The following NEW packages will be INSTALLED:
+
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-20_gnu 
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-hda65f42_10 
+  ca-certificates    conda-forge/noarch::ca-certificates-2026.7.22-hbd8a1cb_0 
+  icu                conda-forge/linux-64::icu-78.3-py310h44b86e0_2 
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.46.1-default_hbd61a6d_102 
+  libexpat           conda-forge/linux-64::libexpat-2.8.5-hd2095e1_0 
+  libffi             conda-forge/linux-64::libffi-3.7.0-h81df57d_1 
+  libgcc             conda-forge/linux-64::libgcc-16.2.0-ha9f2e26_7 
+  libgomp            conda-forge/linux-64::libgomp-16.2.0-he0feb66_7 
+  liblzma            conda-forge/linux-64::liblzma-5.8.3-hb03c661_1 
+  libnsl             conda-forge/linux-64::libnsl-2.0.1-hb9d3cd8_1 
+  libpython          conda-forge/linux-64::libpython-3.12.14-h0c77377_3_cpython 
+  libsqlite          conda-forge/linux-64::libsqlite-3.53.4-h13e7031_1 
+  libstdcxx          conda-forge/linux-64::libstdcxx-16.2.0-h934c35e_7 
+  libuuid            conda-forge/linux-64::libuuid-2.42.4-hcfc3c73_0 
+  libxcrypt          conda-forge/linux-64::libxcrypt-4.4.38-h280c20c_0 
+  libzlib            conda-forge/linux-64::libzlib-1.3.2-h25fd6f3_3 
+  ncurses            conda-forge/linux-64::ncurses-6.6-hdb14827_1 
+  openssl            conda-forge/linux-64::openssl-3.6.4-h781a0a9_0 
+  packaging          conda-forge/noarch::packaging-26.3-pyhc364b38_0 
+  pip                conda-forge/noarch::pip-26.2.1-pyh8b19718_0 
+  python             conda-forge/linux-64::python-3.12.14-h5f976f7_3_cpython 
+  readline           conda-forge/linux-64::readline-8.3-hd6e31c0_1 
+  setuptools         conda-forge/noarch::setuptools-84.0.0-pyh332efcf_0 
+  tk                 conda-forge/linux-64::tk-8.6.13-noxft_h1df4ec4_4 
+  tzdata             conda-forge/noarch::tzdata-2026c-h151e31d_0 
+  wheel              conda-forge/noarch::wheel-0.48.0-pyhd8ed1ab_0 
+  zstd               conda-forge/linux-64::zstd-1.5.7-hb78ec9c_7 
+
+
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+aider-chat 0.86.2 requires click==8.3.1, but you have click 8.1.8 which is incompatible.
+aider-chat 0.86.2 requires fsspec==2026.2.0, but you have fsspec 2025.10.0 which is incompatible.
+aider-chat 0.86.2 requires huggingface-hub==1.4.1, but you have huggingface-hub 0.36.2 which is incompatible.
+aider-chat 0.86.2 requires numpy==1.26.4, but you have numpy 2.3.4 which is incompatible.
+aider-chat 0.86.2 requires psutil==7.2.2, but you have psutil 7.0.0 which is incompatible.
+aider-chat 0.86.2 requires tqdm==4.67.3, but you have tqdm 4.67.1 which is incompatible.
+aider-chat 0.86.2 requires typer==0.23.0, but you have typer 0.15.4 which is incompatible.
+exaonetabular 1.0.0 requires numpy<3,>=2.3.5, but you have numpy 2.3.4 which is incompatible.
+typer-slim 0.23.0 requires typer>=0.23.0, but you have typer 0.15.4 which is incompatible.
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+  WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+  WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+│ /home/yarin.b/tembed/./benchmark_src/dataset_creation/em_datasets/dataset_cr │
+│ eation_src/prepare_em_datasets.py:25 in main                                 │
+│                                                                              │
+│   22 │   utils.logger_init()                                                 │
+│   23 │                                                                       │
+│   24 │   raw_datasets_dir = Path(raw_datasets_dir)                           │
+│ ❱ 25 │   assert raw_datasets_dir.exists(), f"Couldn't find raw_datasets_dir  │
+│   26 │                                                                       │
+│   27 │   output_path = Path(output_dir)                                      │
+│   28 │   output_path.mkdir(exist_ok=True)                                    │
+│                                                                              │
+│ ╭─────────────────────── locals ────────────────────────╮                    │
+│ │          dataset = 'geological-settlements'           │                    │
+│ │       output_dir = './cache/row_similarity_data_full' │                    │
+│ │ raw_datasets_dir = PosixPath('cache/raw_datasets')    │                    │
+│ │  table_row_limit = None                               │                    │
+│ ╰───────────────────────────────────────────────────────╯                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+AssertionError: Couldn't find raw_datasets_dir cache/raw_datasets, please make 
+sure that the folder exists
+[J20] em dataset creation reported errors
+2026-10-03 09:23:26,423 ERROR root -   File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_triplet_evaluation_benchmark.py", line 129, in main
+    input_table, testcase_paths, dataset_information = load_benchmark_data(cfg)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-03 09:23:26,423 ERROR root -   File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_triplet_evaluation_benchmark.py", line 64, in load_benchmark_data
+    if sub_dataset_name == "only-text":
+       ^^^^^^^^^^^^^^^^
+2026-10-03 09:23:26,423 ERROR root - UnboundLocalError: cannot access local variable 'sub_dataset_name' where it is not associated with a value
+2026-10-03 09:23:26,423 ERROR benchmark_src.run_benchmark - Error during benchmark run, please check traceback above.
+2026-10-03 09:23:26,423 ERROR __main__ - Failed sentence_transformer/row_triplet_evaluation/astronomical_objects
+Traceback (most recent call last):
+  File "/home/yarin.b/tembed/run_experiments.py", line 274, in _run_job
+    run_single(cfg)
+  File "/home/yarin.b/tembed/benchmark_src/run_benchmark.py", line 49, in run_single
+    run_row_triplet_evaluation_benchmark.main(cfg)
+  File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_triplet_evaluation_benchmark.py", line 129, in main
+    input_table, testcase_paths, dataset_information = load_benchmark_data(cfg)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_triplet_evaluation_benchmark.py", line 64, in load_benchmark_data
+    if sub_dataset_name == "only-text":
+       ^^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'sub_dataset_name' where it is not associated with a value
+2026-10-03 09:23:26,605 INFO __main__ - ================================================================================
+2026-10-03 09:23:26,605 INFO __main__ - Starting [86/86] | Task: row_triplet_evaluation | Approach: sentence_transformer | Env: benchmark_env | Dataset: astronomical_objects@only-text
+2026-10-03 09:23:26,605 INFO __main__ - ================================================================================
+2026-10-03 09:23:26,605 INFO benchmark_src.run_benchmark - ################################################################################
+2026-10-03 09:23:26,605 INFO benchmark_src.run_benchmark - Task: row_triplet_evaluation  |  Approach: sentence_transformer  |  Dataset: astronomical_objects@only-text
+2026-10-03 09:23:26,606 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Started run_row_triplet_evaluation_benchmark
+2026-10-03 09:23:26,606 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Running with sub-dataset @only-text of base dataset astronomical_objects
+2026-10-03 09:23:26,606 INFO benchmark_src.tasks.run_row_triplet_evaluation_benchmark - Sub-dataset folder /home/yarin.b/tembed/cache/datasets/more_similar_than/astronomical_objects/@only-text does not exist, have to create the variation
+2026-10-03 09:23:26,607 ERROR root - Traceback (most recent call last):
+2026-10-03 09:23:26,607 ERROR root -   File "/home/yarin.b/tembed/benchmark_src/run_benchmark.py", line 49, in run_single
+    run_row_triplet_evaluation_benchmark.main(cfg)
+2026-10-03 09:23:26,607 ERROR root -   File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_triplet_evaluation_benchmark.py", line 129, in main
+    input_table, testcase_paths, dataset_information = load_benchmark_data(cfg)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-03 09:23:26,607 ERROR root -   File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_triplet_evaluation_benchmark.py", line 65, in load_benchmark_data
+    create_astronomical_dataset.remove_numerical_cols(cache_dir=base_dataset_folder)
+2026-10-03 09:23:26,607 ERROR root -   File "/home/yarin.b/tembed/benchmark_src/dataset_creation/wikidata_hierarchies/create_astronomical_dataset.py", line 161, in remove_numerical_cols
+    save_folder.mkdir(exist_ok=True)
+2026-10-03 09:23:26,607 ERROR root -   File "/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/pathlib.py", line 1116, in mkdir
+    os.mkdir(self, mode)
+2026-10-03 09:23:26,607 ERROR root - FileNotFoundError: [Errno 2] No such file or directory: '/home/yarin.b/tembed/cache/datasets/more_similar_than/astronomical_objects/@only-text'
+2026-10-03 09:23:26,607 ERROR benchmark_src.run_benchmark - Error during benchmark run, please check traceback above.
+2026-10-03 09:23:26,608 ERROR __main__ - Failed sentence_transformer/row_triplet_evaluation/astronomical_objects@only-text
+Traceback (most recent call last):
+  File "/home/yarin.b/tembed/run_experiments.py", line 274, in _run_job
+    run_single(cfg)
+  File "/home/yarin.b/tembed/benchmark_src/run_benchmark.py", line 49, in run_single
+    run_row_triplet_evaluation_benchmark.main(cfg)
+  File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_triplet_evaluation_benchmark.py", line 129, in main
+    input_table, testcase_paths, dataset_information = load_benchmark_data(cfg)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/tembed/benchmark_src/tasks/run_row_triplet_evaluation_benchmark.py", line 65, in load_benchmark_data
+    create_astronomical_dataset.remove_numerical_cols(cache_dir=base_dataset_folder)
+  File "/home/yarin.b/tembed/benchmark_src/dataset_creation/wikidata_hierarchies/create_astronomical_dataset.py", line 161, in remove_numerical_cols
+    save_folder.mkdir(exist_ok=True)
+  File "/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/pathlib.py", line 1116, in mkdir
+    os.mkdir(self, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/yarin.b/tembed/cache/datasets/more_similar_than/astronomical_objects/@only-text'
+2026-10-03 09:23:26,770 ERROR __main__ - 56/86 jobs failed
+| run (approach/params/task/dataset) | metrics |
+|---|---|
+| sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books | accuracy=0.7652, accuracy_easy=0.8273, accuracy_medium=0.6806 |
+| sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.8095, accuracy_easy=0.8618, accuracy_medium=0.7382 |
+| sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.6999, accuracy_easy=0.7390, accuracy_medium=0.6466 |
+| sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.7309, accuracy_easy=0.8042, accuracy_medium=0.6309 |
+| sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.8339, accuracy_easy=0.9290, accuracy_medium=0.7042 |
+| tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books | accuracy=0.5471, accuracy_easy=0.5797, accuracy_medium=0.5026 |
+| tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.5471, accuracy_easy=0.5797, accuracy_medium=0.5026 |
+| tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.5748, accuracy_easy=0.5931, accuracy_medium=0.5497 |
+| tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.5471, accuracy_easy=0.5797, accuracy_medium=0.5026 |
+| tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.5736, accuracy_easy=0.6104, accuracy_medium=0.5236 |
+| tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books | accuracy=0.5338, accuracy_easy=0.5893, accuracy_medium=0.4581 |
+| tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.5338, accuracy_easy=0.5893, accuracy_medium=0.4581 |
+| tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.5925, accuracy_easy=0.6200, accuracy_medium=0.5550 |
+| tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.5338, accuracy_easy=0.5893, accuracy_medium=0.4581 |
+| tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.5648, accuracy_easy=0.6257, accuracy_medium=0.4817 |
+| tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books | accuracy=0.5559, accuracy_easy=0.5720, accuracy_medium=0.5340 |
+| tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.5559, accuracy_easy=0.5720, accuracy_medium=0.5340 |
+| tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.5648, accuracy_easy=0.6142, accuracy_medium=0.4974 |
+| tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.5559, accuracy_easy=0.5720, accuracy_medium=0.5340 |
+| tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.4994, accuracy_easy=0.5374, accuracy_medium=0.4476 |
+| tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books | accuracy=0.5847, accuracy_easy=0.6008, accuracy_medium=0.5628 |
+| tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.5847, accuracy_easy=0.6008, accuracy_medium=0.5628 |
+| tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.5858, accuracy_easy=0.5873, accuracy_medium=0.5838 |
+| tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.5847, accuracy_easy=0.6008, accuracy_medium=0.5628 |
+| tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.5559, accuracy_easy=0.6065, accuracy_medium=0.4869 |
+| tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books | accuracy=0.6113, accuracy_easy=0.6296, accuracy_medium=0.5864 |
+| tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_col_names | accuracy=0.6113, accuracy_easy=0.6296, accuracy_medium=0.5864 |
+| tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_genre | accuracy=0.5980, accuracy_easy=0.6027, accuracy_medium=0.5916 |
+| tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names | accuracy=0.6113, accuracy_easy=0.6296, accuracy_medium=0.5864 |
+| tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols | accuracy=0.5072, accuracy_easy=0.5528, accuracy_medium=0.4450 |
+[claude/tabular-model-agent-exp-wvni5o e978d42] J20: TEmBed row tasks, TabPFN context target / layer (job 51153)
+ 355 files changed, 36059 insertions(+)
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/logs/20261003-091854_top.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/Amazon-Google/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/Amazon-Google/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/Beer/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/Beer/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/DBLP-ACM/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/DBLP-ACM/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/DBLP-GoogleScholar/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/DBLP-GoogleScholar/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/Fodors-Zagats/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/Fodors-Zagats/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/MusicBrainz/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/MusicBrainz/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/Walmart-Amazon/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/Walmart-Amazon/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/geological-settlements/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/geological-settlements/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/iTunes-Amazon/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_similarity_search/iTunes-Amazon/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/astronomical_objects/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/astronomical_objects/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/astronomical_objects@only-text/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/astronomical_objects@only-text/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_col_names/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_col_names/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_col_names/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_col_names/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_genre/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_genre/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_genre/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_genre/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@only_five_cols/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@only_five_cols/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@only_five_cols/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/sentence_transformer/embedding_model=all-MiniLM-L6-v2,table_row_limit=100/row_triplet_evaluation/wikidata_books@only_five_cols/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_similarity_search/Amazon-Google/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_similarity_search/Amazon-Google/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_similarity_search/Beer/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_similarity_search/Beer/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_similarity_search/DBLP-ACM/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_similarity_search/DBLP-ACM/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_similarity_search/Fodors-Zagats/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_similarity_search/Fodors-Zagats/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_similarity_search/MusicBrainz/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_similarity_search/MusicBrainz/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_similarity_search/Walmart-Amazon/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_similarity_search/Walmart-Amazon/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_similarity_search/geological-settlements/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_similarity_search/geological-settlements/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/astronomical_objects/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/astronomical_objects/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/astronomical_objects@only-text/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/astronomical_objects@only-text/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_col_names/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_col_names/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_col_names/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_col_names/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_genre/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_genre/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_genre/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_genre/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_similarity_search/Amazon-Google/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_similarity_search/Amazon-Google/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_similarity_search/Beer/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_similarity_search/Beer/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_similarity_search/DBLP-ACM/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_similarity_search/DBLP-ACM/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_similarity_search/Fodors-Zagats/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_similarity_search/Fodors-Zagats/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_similarity_search/MusicBrainz/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_similarity_search/MusicBrainz/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_similarity_search/Walmart-Amazon/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_similarity_search/Walmart-Amazon/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_similarity_search/geological-settlements/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_similarity_search/geological-settlements/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/astronomical_objects/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/astronomical_objects/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/astronomical_objects@only-text/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/astronomical_objects@only-text/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_genre/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_genre/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_genre/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_genre/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=kmeans,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_similarity_search/Amazon-Google/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_similarity_search/Amazon-Google/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_similarity_search/Beer/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_similarity_search/Beer/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_similarity_search/DBLP-ACM/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_similarity_search/DBLP-ACM/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_similarity_search/Fodors-Zagats/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_similarity_search/Fodors-Zagats/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_similarity_search/MusicBrainz/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_similarity_search/MusicBrainz/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_similarity_search/Walmart-Amazon/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_similarity_search/Walmart-Amazon/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_similarity_search/geological-settlements/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_similarity_search/geological-settlements/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/astronomical_objects/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/astronomical_objects/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/astronomical_objects@only-text/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/astronomical_objects@only-text/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_genre/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_genre/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_genre/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_genre/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=random,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_similarity_search/Amazon-Google/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_similarity_search/Amazon-Google/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_similarity_search/Beer/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_similarity_search/Beer/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_similarity_search/DBLP-ACM/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_similarity_search/DBLP-ACM/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_similarity_search/Fodors-Zagats/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_similarity_search/Fodors-Zagats/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_similarity_search/MusicBrainz/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_similarity_search/MusicBrainz/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_similarity_search/Walmart-Amazon/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_similarity_search/Walmart-Amazon/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_similarity_search/geological-settlements/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_similarity_search/geological-settlements/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/astronomical_objects/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/astronomical_objects/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/astronomical_objects@only-text/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/astronomical_objects@only-text/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_col_names/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_col_names/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_col_names/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_col_names/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_genre/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_genre/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_genre/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_genre/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=8/row_triplet_evaluation/wikidata_books@only_five_cols/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_similarity_search/Amazon-Google/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_similarity_search/Amazon-Google/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_similarity_search/Beer/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_similarity_search/Beer/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_similarity_search/DBLP-ACM/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_similarity_search/DBLP-ACM/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_similarity_search/Fodors-Zagats/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_similarity_search/Fodors-Zagats/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_similarity_search/MusicBrainz/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_similarity_search/MusicBrainz/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_similarity_search/Walmart-Amazon/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_similarity_search/Walmart-Amazon/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_similarity_search/geological-settlements/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_similarity_search/geological-settlements/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/astronomical_objects/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/astronomical_objects/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/astronomical_objects@only-text/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/astronomical_objects@only-text/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_col_names/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_genre/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_genre/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_genre/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_genre/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_genre/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@no_pid_in_col_names/run.log
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/config.yaml
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_formatted.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_setup.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/resource_metrics_task.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/results.json
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/results_per_datapoint.csv
+ create mode 100644 reports/J20_tembed/results/tabpfn_ctx_rows/tabpfn_ctx/context_target=zeros,layer=last/row_triplet_evaluation/wikidata_books@only_five_cols/run.log
+ create mode 100644 reports/J20_tembed/summary.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   7917ecc..e978d42  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J20 done Sat Oct  3 09:23:38 UTC 2026 ===
