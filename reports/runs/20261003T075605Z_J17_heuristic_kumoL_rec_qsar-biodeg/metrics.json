@@ -1,0 +1,20 @@
+{
+  "n_datasets": 1,
+  "n_rows": 60,
+  "comparison": [
+    {
+      "dataset": "qsar-biodeg",
+      "P*": 0.06083193297687155,
+      "P0": 0.05881968849225874,
+      "metric": "1-auroc",
+      "tabfm": 0.058,
+      "tabfm_auto_opus5": 0.0582,
+      "tabfm_auto_gemini38flash": 0.0413,
+      "our_gain_%": -3.421039002744185,
+      "paper_gain_opus5_%": -0.34482758620689447,
+      "ours_vs_paper_tabfm": 1.0488264306357162
+    }
+  ],
+  "elapsed_s": 614.69,
+  "status": "ok"
+}
