@@ -84,7 +84,7 @@ Same model (Qwen3-Coder-30B) and judge (GLM-4.5-Air); pi coding agent calls the 
 |---|---|---|---|---|---|---|
 | pi D: SQL | 0.273 | 0.194 | 6.8 | 0 | 15 | |
 | pi E: + DEEP tools | 0.269 | 0.191 | 6.7 | 0 | 17 | -0.004 (0.026) |
-| pi F: + labels + verified ledger | 0.210 | 0.161 | 5.2 | 5.8 | see paper | -0.063 (0.030) |
+| pi F: + labels + verified ledger | 0.210 | 0.161 | 5.2 | 5.8 | 33 | -0.063 (0.030) |
 
 pi D vs our loop D: -0.032 (0.025). Reading: the tool server works unchanged under a second harness; the result
 pattern is the same as in our loop (DEEP tools neutral to negative, the verified ledger costs recall). pi's tool calls
