@@ -1,0 +1,21 @@
+# 056_vfd_models_smoke  host=g0374  start=Sat Oct  3 19:10:06 UTC 2026  timeout=2400s
+# HEAD=1f2c797
+# ---------------------------------------------------------
+Fetching 0 files: 0it [00:00, ?it/s]Fetching 0 files: 0it [00:00, ?it/s]
+copied 0 description csvs; {'california_schools': 0, 'card_games': 0, 'codebase_community': 0, 'debit_card_specializing': 0, 'european_football_2': 0, 'financial': 0, 'formula_1': 0, 'student_club': 0, 'superhero': 0, 'thrombosis_prediction': 0, 'toxicology': 0}
+== smoke
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:01<00:00,  1.26s/it]100%|██████████| 1/1 [00:01<00:00,  1.26s/it]
+OK gliclass ('list', 2, [{'label': 'The SQL query correctly answers the question.', 'score': 0.8615943789482117}, {'label': 'wrong aggregation', 'score': 0.6854214668273926}]) 18.6s
+Fetching 7 files:  14%|█▍        | 1/7 [00:00<00:01,  3.12it/s]Fetching 7 files: 100%|██████████| 7/7 [00:04<00:00,  1.63it/s]Fetching 7 files: 100%|██████████| 7/7 [00:04<00:00,  1.63it/s]
+  instance.resize_embeddings()
+OK gliner [{'start': 0, 'end': 9, 'text': 'customers', 'label': 'customers currency', 'score': 0.05473601445555687}, {'start': 21, 'end': 24, 'text': 'EUR', 'label': 'customers currency', 'score': 0.8339906930923462}, {'start': 28, 'end': 32, 'text': '2012', 'label': 'transaction date', 'score': 0.1325644701719284}] 11.4s
+Device set to use cpu
+OK nli [{'sequence': "Question: How many customers pay in EUR?\nSQL: SELECT count(*) FROM customers WHERE Currency = 'EUR'\nResult: 1 rows: 23", 'labels': ['The SQL query correctly answers the question.'], 'scores': [0.23005373775959015]}] 7.8s
+OK rerank+embed ([0.31881260871887207, 0.0012427233159542084], (1, 384)) 19.4s
+gliclass                 0.1.17
+gliner                   0.2.29
+sentence-transformers    4.1.0
+torch                    2.9.1+cu128
+transformers             4.57.6
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 19:11:08 UTC 2026
