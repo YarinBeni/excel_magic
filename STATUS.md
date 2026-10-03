@@ -100,3 +100,5 @@
   does not reach item level. inbox 032 / J14b: random-target variant at item level. J15 still running.
 - J15 group 1 (heuristic, 17 ds): mean gain over P0 best +0.5%, gated1 +0.6%, gated2 +0.7%, ens3 +1.1%; gate limits losses
   (>1% losses 6 -> 3), ensemble keeps gains. pi / GLM / budget-64 groups still re-scoring.
+- J14b: Kumo Relational random target at item level 0.24 (k-means 0.18, aggregates 0.26, purchase matrix 1.20). Retrieval
+  study complete. Waiting on J15 groups 2-6 for the final recommendation.

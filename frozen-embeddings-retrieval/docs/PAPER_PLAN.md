@@ -87,3 +87,7 @@ the aggregates (0.26) and the purchase-matrix cosine (1.20). The relational FM's
 item level. Final framing for the paper: frozen FM hidden states (tabular or relational) are entity-level summaries;
 the relational model adds a little graph signal at entity level (0.660 vs 0.653) and nothing at item level; neither is
 a retrieval embedding for recommendation, where the interaction matrix itself is the right representation.
+
+**2026-10-03 J14b, final.** Random-target Kumo Relational at item level: 0.24 (k-means 0.18, aggregates 0.26, purchase
+matrix 1.20). The retrieval study is complete; the item-level claim is closed for both model families, the entity-level
+gain of the relational model (0.660 vs 0.653) stands as the single small positive.

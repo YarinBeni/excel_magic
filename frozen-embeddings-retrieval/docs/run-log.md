@@ -146,3 +146,8 @@ item-level neighbourhoods; what the graph embedding carries is a customer-level 
 random-target variant at item level is queued (J14b) for completeness; the churn ordering (random > k-means) suggests it
 will be higher than 0.18 but the gap to 1.20 is two orders of magnitude.
 Run: reports/runs/*J14_kumo_hm_full (cluster branch).
+
+## 2026-10-03 J14b (job 50921): Kumo Relational, random target, item level — 0.25 / 0.24 (val / test MAP@12 x100)
+Random target 0.24 vs k-means 0.18 (same ordering as the churn probe), level with the aggregates (0.26), 5x below sparse
+cosine on the purchase matrix (1.20); Past+kNN-CF 2.18 < PastVisit 2.20. Retrieval study complete: no frozen embedding,
+tabular or relational, with any in-context target, is an item-level retrieval representation on rel-hm.

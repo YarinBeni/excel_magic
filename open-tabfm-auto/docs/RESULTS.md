@@ -427,7 +427,7 @@ Graph: customers <- transactions -> articles, 365-day window, 2 hops, 64 context
 | kNN-CF[purchase_matrix] | 1.164 | 1.203 |
 | PastVisit | 1.904 | 2.199 |
 
-Below the aggregates; the random-target variant is queued (J14b).
+Random-target variant (J14b, 50921): kNN-CF[kumo_relational_random] 0.253 / 0.244 (val / test), level with the aggregates; Past+ hybrid 2.182. Retrieval study complete.
 
 ## Final-pick selection rules, heuristic searches (cluster job J15, 50827): gain over P0 on all 30 official splits, %
 

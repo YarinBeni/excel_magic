@@ -1,5 +1,5 @@
 # Auto-generated results tables
-_from 202 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
+_from 203 runs under runs, /home/user/excel_magic/reports/runs, /home/user/frozen-embeddings-retrieval/runs_
 
 ## T1. Frozen backbones with the identity pipeline (3-fold CV, lower is better)
 |                               |     hgb |   kumo-tabular-l |   kumo-tabular-m |   kumo-tabular-s |   tabicl |   tabpfn |   tabpfn-2.5 |
@@ -238,6 +238,7 @@ _from 202 runs under runs, /home/user/excel_magic/reports/runs, /home/user/froze
 | Past+ItemKNN                        |  2.197 | 1.901 |
 | Past+kNN-CF[agg]                    |  2.184 | 1.889 |
 | Past+kNN-CF[kumo_relational_kmeans] |  2.181 | 1.881 |
+| Past+kNN-CF[kumo_relational_random] |  2.182 | 1.886 |
 | Past+kNN-CF[purchase_matrix]        |  2.216 | 1.919 |
 | Past+kNN-CF[row]                    |  2.160 | 1.857 |
 | Past+kNN-CF[svd]                    |  2.195 | 1.894 |
@@ -255,6 +256,7 @@ _from 202 runs under runs, /home/user/excel_magic/reports/runs, /home/user/froze
 | PastVisit+kNN-CF[tabpfn_row_kmeans] |  2.191 | 1.897 |
 | kNN-CF[agg]                         |  0.259 | 0.258 |
 | kNN-CF[kumo_relational_kmeans]      |  0.184 | 0.201 |
+| kNN-CF[kumo_relational_random]      |  0.244 | 0.253 |
 | kNN-CF[purchase_matrix]             |  1.200 | 1.162 |
 | kNN-CF[row]                         |  0.144 | 0.136 |
 | kNN-CF[svd]                         |  0.833 | 0.822 |

@@ -305,7 +305,7 @@ over them and 0.672 supervised. It is the only training-free row above its tabul
 but real graph signal. The k-means target, which helped every tabular embedding, removes it here.
 At item level (user-item-purchase, official evaluator) the relational embedding scores 0.18 test MAP@12×100 with the
 k-means target, below the aggregates (0.26) and two orders of magnitude below sparse cosine on the purchase matrix
-(1.20); its PastVisit hybrid (2.18) does not beat PastVisit (2.20). The entity-level gain does not reach item level.
+(1.20); its PastVisit hybrid (2.18) does not beat PastVisit (2.20). The entity-level gain does not reach item level. With the random target (J14b) it reaches 0.24, level with the aggregates (0.26) and still 5× below the purchase matrix; the retrieval study is complete.
 
 ## 6. Ablations and analysis
 - **Harness at fixed LLM** (§5.2): pi +50% > aider +42% > Qwen Code +26% > tool loop ~0% on synth_entities with
