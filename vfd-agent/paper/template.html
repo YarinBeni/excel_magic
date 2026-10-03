@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Verified, Fast, Deep?</title>
+<style>
+@page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+html { font-family: "DejaVu Serif", Georgia, serif; font-size: 9.6pt; line-height: 1.32; color: #111; }
+body { margin: 0; }
+h1 { font-size: 17pt; margin: 0 0 4pt; line-height: 1.2; text-align: center; }
+.authors { text-align: center; font-size: 10pt; margin-bottom: 2pt; }
+.affil { text-align: center; font-size: 8.6pt; color: #444; margin-bottom: 10pt; }
+.abstract { margin: 0 auto 10pt; width: 86%; font-size: 9.2pt; }
+.abstract b { font-variant: small-caps; }
+.cols { column-count: 2; column-gap: 7mm; }
+h2 { font-size: 11pt; margin: 9pt 0 3pt; break-after: avoid; }
+h3 { font-size: 9.8pt; margin: 7pt 0 2pt; font-style: italic; font-weight: normal; break-after: avoid; }
+p { margin: 0 0 5pt; text-align: justify; hyphens: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 8.2pt; margin: 3pt 0 7pt; break-inside: avoid; }
+table.wide { column-span: all; margin: 6pt 0 9pt; }
+th, td { padding: 2pt 3pt; border-bottom: 0.5pt solid #bbb; text-align: left; vertical-align: top; }
+th { border-bottom: 1pt solid #333; font-weight: bold; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+caption { caption-side: top; font-size: 8.3pt; text-align: left; padding: 0 0 3pt; color: #333; }
+.ref { font-size: 8.3pt; padding-left: 1.6em; text-indent: -1.6em; margin-bottom: 2.5pt; text-align: left; }
+ul { margin: 0 0 5pt 1.1em; padding: 0; } li { margin-bottom: 2pt; }
+code { font-family: "DejaVu Sans Mono", monospace; font-size: 8.0pt; }
+</style></head><body>
+<h1>Verified, Fast, Deep? A Reasoning LLM, a Zero-Shot Classifier and Tabular Foundation Models in One Data-Analyst Agent</h1>
+<div class="authors">Yarin Benizri</div>
+<div class="affil">Hebrew University of Jerusalem &middot; open models only, on a Slurm cluster with H200 GPUs &middot; code: <code>excel_magic/vfd-agent</code> &middot; draft, 3 October 2026 &middot; companion papers: <i>Open TabFM-Auto</i>, <i>Which Layer Is the Embedding?</i></div>
+
+<div class="abstract"><b>Abstract.</b> Company data-analyst agents are usually one reasoning LLM with SQL tools. We ask whether two other kinds of open model can make such an agent better: a small zero-shot classifier (GLiClass) that checks the agent's steps quickly, and frozen tabular and relational foundation models (Kumo Tabular, Kumo Relational, TabPFN) that read all the rows, not only the rows that fit in the prompt. We give each model one job: the LLM plans and writes SQL, the classifier verifies (&ldquo;verified, fast&rdquo;), and the tabular models predict and explain (&ldquo;deep&rdquo;). We test this on five benchmarks with open models only. (1) As a verifier of SQL candidates on BIRD, zero-shot GLiClass reaches AUROC {{P0_GLI}} at {{P0_GLI_MS}} ms per candidate, better than the generator's own signals and self-consistency ({{P0_SC}}) but below an LLM judge ({{P0_JUDGE}}, {{P0_SPEED}}&times; slower); added to the free signals it lifts a stacked verifier from {{P0_STACK}} to {{P0_STACKGLI}}. It is also the best of five schema linkers. (2) End to end, these gains do not turn into accuracy: no small-model configuration beats plain self-consistency ({{P2_SC}} vs {{P2_A}} greedy), and schema linking costs {{P2_B_D}}. (3) A guarded auto-research loop rejected {{P4_REJ}} of {{P4_ATT}} proposed changes; the one it kept raised held-out accuracy from {{P4_H0}} to {{P4_H1}} (se {{P4_HSE}}). (4) The tabular models add a capability the LLM does not have: on {{P5_T}} RelBench prediction questions, giving the agent Kumo Relational and Kumo Tabular as tools raises mean AUROC from {{P5_D}} (SQL only) to {{P5_ER}}. (5) On InsightBench, which scores descriptive insights by recall, the extra tools and the verified insight ledger lower the score ({{P3_D}} &rarr; {{P3_F}}). The models help where their job is the bottleneck, and cost steps where it is not.</div>
+
+<div class="cols">
+<h2>1. Introduction</h2>
+<p>A &ldquo;BI analyst&rdquo; agent answers business questions over company databases. The usual design is one large reasoning LLM that reads the schema, writes SQL, reads the result and writes an answer. This design has three known limits. It is hard to know when an answer is wrong. Checking with a second LLM is slow and costly. And the LLM sees only what fits in its prompt: it can count and average, but it cannot fit a model on a million rows to say what drives an outcome or who will churn.</p>
+<p>Two kinds of small, open models address these limits on paper. Zero-shot classifiers such as GLiNER and GLiClass score any text against any label in a few milliseconds; they could check each step of the agent. Tabular foundation models (TabPFN, Kumo Tabular) and relational ones (Kumo Relational) predict on new tables with no training; they could give the agent a view of all the data. We ask whether this works in practice, and where.</p>
+<p><b>Contributions.</b> (i) An open system that gives each model one job (Section 3), as a pipeline harness for SQL, as an analyst tool loop, and as a tool server that any coding agent (here pi) can call. (ii) A verifier study: how well a zero-shot classifier tells correct SQL from wrong SQL, against free signals, an NLI model and an LLM judge, and how well it links questions to columns. (iii) End-to-end ablations on BIRD, InsightBench and RelBench, and a text-feature study on 18 tables with text. (iv) A guarded auto-research loop that tunes the harness without overfitting. (v) Negative results, reported as such.</p>
+
+<h2>2. Related work</h2>
+<p><b>Text-to-SQL.</b> BIRD (Li et al., 2023) is the standard benchmark; many of its gold queries are wrong, and we use the 498-question mini-dev set with the Arcwise-Plat corrections. Strong systems sample many candidates and pick one, by self-consistency (Wang et al., 2023) or by a trained or LLM selector; schema linking (e.g. CHESS, Talaei et al., 2024) shortens the prompt.</p>
+<p><b>Small zero-shot models.</b> GLiNER (Zaratiana et al., 2024) extracts entities of any type with a small bidirectional encoder; GLiClass applies the same idea to classification. NLI cross-encoders are an older zero-shot classifier. LLM-as-judge (Zheng et al., 2023) is the strong but slow verifier.</p>
+<p><b>Tabular and relational foundation models.</b> TabPFN (Hollmann et al., 2025) predicts in context on small tables; Kumo Tabular S/L read larger contexts; relational models such as KumoRFM (Fey et al., 2025) and Kumo Relational predict over a database graph. RelBench (Robinson et al., 2024) gives prediction tasks over real databases with official splits.</p>
+<p><b>Analyst agents and auto-research.</b> InsightBench (Sahu et al., 2025) scores the insights an agent finds in a table against planted ones. Auto-research loops (Karpathy, 2026) let an LLM propose and test changes to a system; our loop adds the overfitting guards of our companion paper <i>Open TabFM-Auto</i>.</p>
+
+<h2>3. System</h2>
+<p><b>Roles.</b> The <i>reasoning LLM</i> plans, writes SQL and writes the answer. The <i>zero-shot classifier</i> (GLiClass large v3, zero-shot, no fine-tuning) does three cheap jobs: it links a question to schema columns, it scores a (question, SQL, result) triple against hypotheses such as &ldquo;the query answers the question&rdquo; and an error taxonomy, and it labels free-text columns. The <i>tabular and relational models</i> run behind a DEEP tool with seven operations: predict, drivers (permutation importance), what-if (partial dependence), anomalies (out-of-fold surprise), drift (two-sample classifier), similar entities and a hypothesis test (paired repeated splits). Each DEEP answer is checked against a gradient-boosting model when the data are large or temporal.</p>
+<p><b>SQL harness.</b> A fixed pipeline: link (top-k columns plus keys) &rarr; write &rarr; triage (if the classifier's score is below a threshold, one revision with the predicted error labels) &rarr; execute &rarr; verify (greedy, self-consistency, a stacked logistic regression of cheap signals, or a cascade that sends the uncertain band to an LLM judge). Configurations A&ndash;F add one stage at a time (Table 1).</p>
+<p><b>Analyst loop.</b> An OpenAI-style tool loop over DuckDB. D has <code>sql</code> and <code>record_insight</code>; E adds the DEEP tools; F adds <code>text_labels</code> and a <i>verified ledger</i>: an insight is accepted only if its evidence SQL runs again, every number in the sentence appears in that result (with rounding and ratio rules), and GLiClass finds the sentence entailed by the result.</p>
+<p><b>Prediction questions.</b> For RelBench, the agent gets the database cut at the test time, a <code>train_labels</code> and a <code>test_rows</code> table, and must submit a score per test row. D has SQL only; E adds <code>deep_fit_predict</code> (Kumo Tabular-L on features the agent writes in SQL); R adds <code>relational_predict</code> (Kumo Relational's graph layer with a linear probe, the best layer found in our companion paper); ER has both.</p>
+<p><b>Other harnesses.</b> The same tools run as a local HTTP service with a <code>vfd &lt;tool&gt;</code> shell command, so the pi coding agent (used with GLM at the author's company) can call them unchanged.</p>
+
+<table><caption>Table 1. Configurations. Each adds one thing to the one above it.</caption>
+<tr><th>id</th><th>benchmark</th><th>what is added</th></tr>
+<tr><td>A</td><td>BIRD</td><td>LLM alone, greedy, full schema</td></tr>
+<tr><td>B</td><td>BIRD</td><td>GLiClass schema linking</td></tr>
+<tr><td>C</td><td>BIRD</td><td>GLiClass triage + one revision</td></tr>
+<tr><td>D</td><td>BIRD</td><td>8 candidates + cheap verifier stack</td></tr>
+<tr><td>F</td><td>BIRD</td><td>LLM judge on the uncertain band</td></tr>
+<tr><td>SC</td><td>BIRD</td><td>baseline: 8 candidates, majority vote</td></tr>
+<tr><td>D/E/F</td><td>InsightBench</td><td>SQL / + DEEP / + labels + verified ledger</td></tr>
+<tr><td>D/E/R/ER</td><td>RelBench</td><td>SQL / + Kumo Tabular / + Kumo Relational / both</td></tr>
+</table>
+
+<h2>4. Setup</h2>
+<p><b>Models.</b> All open. Generator and analyst: Qwen3-Coder-30B-A3B-Instruct (vLLM). Judge and auto-research researcher: GLM-4.5-Air-FP8, a different model family, thinking off. GLiClass large v3.0; NLI: DeBERTa-v3-large zero-shot v2.0; linkers: bge-small, bge-reranker-v2-m3, GLiNER bi-base v2.0, lexical overlap. Tabular: Kumo Tabular-L and S, TabPFN-2.5, LightGBM; relational: Kumo Relational. One H200 per job.</p>
+<p><b>Benchmarks.</b> BIRD mini-dev with the Arcwise-Plat corrections (498 questions; BIRD set-equality of results). AutoGluon multimodal text+tabular benchmark (Shi et al., 2021), {{P1_N}} datasets, official splits (train &le; 3,000, test &le; 2,000 rows). InsightBench, 100 tables, scored by an open judge (GLM-4.5-Air, G-Eval-style best match per planted insight) and ROUGE-1. RelBench, 8 entity classification tasks, official evaluator. Every comparison is paired over the same questions, tables or tasks; we report the standard error of the paired difference.</p>
+
+<h2>5. Results</h2>
+<h3>5.1 Verified and fast: the classifier as a verifier</h3>
+{{T_P0}}
+<p>Table 2 asks one question per signal: does a higher score mean a correct candidate? Signals that come for free are weak: whether the query runs ({{P0_EXEC}}) and the generator's log-probability ({{P0_LP}}); self-consistency is better ({{P0_SC}}). Zero-shot GLiClass, with no training on SQL, reaches {{P0_GLI}} at {{P0_GLI_MS}} ms per candidate, above the NLI cross-encoder ({{P0_NLI}}). The LLM judge is best ({{P0_JUDGE}}) but {{P0_SPEED}}&times; slower per call. The signals are complementary: GLiClass lifts the stack of free signals from {{P0_STACK}} to {{P0_STACKGLI}}; adding the judge gives {{P0_STACKALL}}.</p>
+<p>The catch is in the last column. Picking the best of 9 candidates moves accuracy only from {{P0_GREEDY}} to at most {{P0_ORACLE}} (the oracle), and no verifier gets close to the oracle: on a corrected benchmark with a strong generator, most questions are either always right or always wrong.</p>
+{{T_LINK}}
+<p>For schema linking (Table 3), GLiClass ranks the needed columns best: {{L_GLI10}} of them are in its top 10, against {{L_LEX10}} for lexical overlap; the GLiNER bi-encoder, built for spans and not for column names, is weak ({{L_GLINER10}}).</p>
+
+<h3>5.2 End to end on BIRD</h3>
+{{T_P2}}
+<p>Table 4 puts the stages together. Linking halves the prompt ({{P2_CH_A}} &rarr; {{P2_CH_B}} characters) but loses accuracy ({{P2_B_D}}, se {{P2_B_SE}}): even the best linker leaves out at least one needed column in {{L_MISS20}}% of questions, and one missing column breaks the query. Triage wins back one point. With 8 candidates, the stacked verifier (D, {{P2_D}}) and the judge cascade (F, {{P2_F}}) only match plain self-consistency (SC, {{P2_SC}}), which needs no extra model. The verifier ranks well (Section 5.1), but here there is little to rank.</p>
+
+<h3>5.3 Guarded auto-research</h3>
+{{T_P4}}
+<p>The researcher LLM proposed one change at a time from a fixed space (linker, top k, triage and its threshold, number of candidates, verifier). Of {{P4_ATT}} changes, it kept {{P4_KEPT}}: {{P4_KEPT_WHAT}}. On the held-out questions, scored once at the end, accuracy went from {{P4_H0}} to {{P4_H1}} (paired {{P4_HD}}, se {{P4_HSE}}). The guards did their job: three rejected changes had an accept-slice gain of +0.027 and would have been kept by a loop that looked only at one split. Two changes that do nothing (top k with linking off) still moved the search score by up to {{P4_NOISE}}, because vLLM greedy decoding is not bit-exact under batching; this is the noise floor any such loop must beat. The kept change is small and depends on the rest of the configuration: in Table 4, triage with linking on was below A.</p>
+
+<h3>5.4 The classifier as a featurizer</h3>
+{{T_P1}}
+<p>When a table has text columns, the LLM can propose label sets and GLiClass can turn each text into label scores, which a tabular model reads as features. Table 6 shows that labels help every model on most datasets, but less than a dense sentence embedding. They are complementary: labels plus embedding beat the embedding alone on {{P1_KUMO_BEAT}} datasets for Kumo Tabular-L and {{P1_LIGHTGBM_BEAT}} for LightGBM. Labels have one extra value the table does not show: they are readable (&ldquo;mentions a refund&rdquo;), so the agent can talk about them.</p>
+
+<h3>5.5 Deep: prediction questions over databases</h3>
+{{T_P5}}
+<p>Table 8 is where the tabular models add what the LLM cannot do alone. With SQL only (D), the agent writes a scoring rule by hand, and its mean AUROC is {{P5_D}}, near chance on several tasks. With Kumo Tabular-L fitted on its own SQL features (E) it reaches {{P5_E}} (better than D on {{P5_E_WIN}} tasks). With Kumo Relational, which reads the database graph and needs no feature SQL (R), it reaches {{P5_R}} (better on {{P5_R_WIN}}); with both, {{P5_ER}} (better on {{P5_ER_WIN}}). The agent submitted an answer in {{P5_SUB}}% of episodes.</p>
+
+<h3>5.6 Descriptive insights (InsightBench) and the pi harness</h3>
+{{T_P3}}
+<p>InsightBench is a negative result for our design. Its planted insights are descriptive (counts, shares and trends on tables of about 500 rows) and its score rewards recall. The DEEP tools (E, {{P3_E}}) cost steps without adding descriptive insights, and the verified ledger (F, {{P3_F}}) rejects about {{P3_F_REJ}} insights per table that the agent does not replace. Verification trades recall for precision, and this benchmark measures only recall.</p>
+<p>{{PI_PROSE}}</p>
+
+<h2>6. Discussion: where each model helps</h2>
+<ul>
+<li><b>The zero-shot classifier</b> is a good, fast <i>signal</i>: the best cheap verifier and the best schema linker we tested, at milliseconds per call. A good signal is not the same as a better answer: on BIRD the headroom for selection is small, and linking that drops one column breaks the query. It pays where checking is the bottleneck, for example to flag answers for a human, or with a weaker generator.</li>
+<li><b>The tabular and relational models</b> give the agent a new capability, not a small gain: predictions over all rows of a database, from {{P5_D}} to {{P5_ER}} AUROC. This is the clearest win in this paper, and the one an LLM-only agent cannot reach by writing better SQL.</li>
+<li><b>Verification costs recall.</b> The verified ledger rejects unsupported numbers, which a company report needs, but a benchmark that only counts recall punishes it.</li>
+<li><b>Tune with guards.</b> An auto-research loop finds small, real gains only if it is held to a fixed held-out set and a noise floor.</li>
+</ul>
+
+<h2>7. Limitations</h2>
+<p>One generator (Qwen3-Coder-30B) and one judge model; a weaker generator, or the much larger GLM model used in production, may change the verifier results. The BIRD mirrors have no column descriptions. InsightBench is scored by an open judge, not the GPT-4o judge of its paper, so our absolute scores are not comparable to published ones; the paired differences are. RelBench results are {{P5_REP}} episodes per cell; vLLM decoding is not bit-exact, so single runs move by about one point. The pi harness was run once.</p>
+
+<h2>8. Conclusion</h2>
+<p>A reasoning LLM, a zero-shot classifier and tabular foundation models can work as one analyst agent, each with one job. The classifier is a fast and useful verifier signal, but on a strong text-to-SQL setup it does not beat self-consistency. The tabular and relational models are the real extension: they let the agent answer prediction questions over whole databases that SQL alone answers near chance. Code, run logs and every number in this paper are produced by the scripts in <code>vfd-agent</code>.</p>
+
+<h2>References</h2>
+<div class="ref">Fey, M. et al. (2025). KumoRFM: a foundation model for in-context learning on relational data. Technical report.</div>
+<div class="ref">Hollmann, N. et al. (2025). Accurate predictions on small data with a tabular foundation model. <i>Nature</i>.</div>
+<div class="ref">Karpathy, A. (2026). autoresearch. GitHub repository.</div>
+<div class="ref">Li, J. et al. (2023). Can LLM already serve as a database interface? A big bench for large-scale database grounded text-to-SQLs (BIRD). <i>NeurIPS</i>.</div>
+<div class="ref">Robinson, J. et al. (2024). RelBench: a benchmark for deep learning on relational databases. <i>NeurIPS</i>.</div>
+<div class="ref">Sahu, G. et al. (2025). InsightBench: evaluating business analytics agents through multi-step insight generation. <i>ICLR</i>.</div>
+<div class="ref">Shi, X. et al. (2021). Benchmarking multimodal AutoML for tabular data with text fields. <i>NeurIPS Datasets and Benchmarks</i>.</div>
+<div class="ref">Talaei, S. et al. (2024). CHESS: contextual harnessing for efficient SQL synthesis. arXiv.</div>
+<div class="ref">Wang, X. et al. (2023). Self-consistency improves chain of thought reasoning in language models. <i>ICLR</i>.</div>
+<div class="ref">Zaratiana, U. et al. (2024). GLiNER: generalist model for named entity recognition using bidirectional transformer. <i>NAACL</i>.</div>
+<div class="ref">Zheng, L. et al. (2023). Judging LLM-as-a-judge with MT-Bench and Chatbot Arena. <i>NeurIPS</i>.</div>
+</div>
+</body></html>
