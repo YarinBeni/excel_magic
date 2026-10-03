@@ -1,0 +1,14 @@
+# 041_j19_j20  host=g0377  start=Sat Oct  3 08:13:31 UTC 2026  timeout=300s
+# HEAD=be5dbc3
+# ---------------------------------------------------------
+J19_relbench_tab_layers: 51133
+J20_tembed_rows: 51134
+       50192           AGENT_runner  RUNNING   16:41:00 g0377
+       51131    J18_relbench_layers  PENDING       0:00 (Priority)
+       51133 J19_relbench_tab_layer  PENDING       0:00 (Priority)
+       51134        J20_tembed_rows  PENDING       0:00 (Priority)
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+     51110_0        J17_recommended  RUNNING    1:21:50 g0381
+     51110_1        J17_recommended  RUNNING    1:16:14 g0377
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 08:13:32 UTC 2026
