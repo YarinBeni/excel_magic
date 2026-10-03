@@ -1,0 +1,22 @@
+{
+ "mean_auroc": {
+  "D": 0.41866,
+  "E": 0.7109,
+  "ER": 0.74816,
+  "R": 0.74816
+ },
+ "per_task": {
+  "D": {
+   "rel-f1/driver-dnf": 0.41866
+  },
+  "E": {
+   "rel-f1/driver-dnf": 0.7109
+  },
+  "ER": {
+   "rel-f1/driver-dnf": 0.74816
+  },
+  "R": {
+   "rel-f1/driver-dnf": 0.74816
+  }
+ }
+}

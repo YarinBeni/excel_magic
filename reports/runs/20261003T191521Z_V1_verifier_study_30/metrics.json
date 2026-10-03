@@ -1,0 +1,168 @@
+{
+ "n_questions": 30,
+ "n_candidates": 270,
+ "candidates_correct_share": 0.6666666666666666,
+ "greedy_accuracy": 0.6666666666666666,
+ "oracle_accuracy": 0.7666666666666667,
+ "signals": {
+  "sig_exec_ok": {
+   "auroc": 0.5,
+   "within_question_auroc": 0.5,
+   "best_of_n": 0.7,
+   "ece_raw": 0.33333333333333337,
+   "ece_isotonic": 0.07407407407407418
+  },
+  "sig_nonempty": {
+   "auroc": 0.5055555555555555,
+   "within_question_auroc": 0.5208333333333333,
+   "best_of_n": 0.7,
+   "ece_raw": 0.3296296296296296,
+   "ece_isotonic": 0.07172470978441126
+  },
+  "sig_logprob": {
+   "auroc": 0.5641975308641975,
+   "within_question_auroc": 0.6791666666666666,
+   "best_of_n": 0.7,
+   "ece_isotonic": 0.1426261267297435
+  },
+  "sig_self_consistency": {
+   "auroc": 0.7225308641975309,
+   "within_question_auroc": 0.515625,
+   "best_of_n": 0.7,
+   "ece_raw": 0.26090534979423874,
+   "ece_isotonic": 0.2095223369681572
+  },
+  "sig_gliclass": {
+   "auroc": 0.5688888888888889,
+   "within_question_auroc": 0.27083333333333337,
+   "best_of_n": 0.6333333333333333,
+   "ece_raw": 0.15476909714814815,
+   "ece_isotonic": 0.08802258021782187
+  },
+  "sig_nli": {
+   "auroc": 0.35611111111111116,
+   "within_question_auroc": 0.45,
+   "best_of_n": 0.7,
+   "ece_raw": 0.3792552472222222,
+   "ece_isotonic": 0.09871736295894017
+  },
+  "sig_judge": {
+   "auroc": 0.6451851851851852,
+   "within_question_auroc": 0.5444444444444444,
+   "best_of_n": 0.7,
+   "ece_raw": 0.24884241050967248,
+   "ece_isotonic": 0.1252405213963989
+  },
+  "stack_cheap": {
+   "auroc": 0.582037037037037,
+   "within_question_auroc": 0.51875,
+   "best_of_n": 0.7,
+   "ece_raw": 0.17938135431573737,
+   "ece_isotonic": 0.23820573105636017
+  },
+  "stack_cheap_gli": {
+   "auroc": 0.5543209876543209,
+   "within_question_auroc": 0.12291666666666666,
+   "best_of_n": 0.6333333333333333,
+   "ece_raw": 0.26946016637679304,
+   "ece_isotonic": 0.25497025185273986
+  },
+  "stack_cheap_gli_nli": {
+   "auroc": 0.5629012345679012,
+   "within_question_auroc": 0.09513888888888888,
+   "best_of_n": 0.6333333333333333,
+   "ece_raw": 0.24799779495687352,
+   "ece_isotonic": 0.25486030300920903
+  },
+  "stack_all": {
+   "auroc": 0.5273456790123456,
+   "within_question_auroc": 0.07013888888888889,
+   "best_of_n": 0.6333333333333333,
+   "ece_raw": 0.2880338854446508,
+   "ece_isotonic": 0.26295457550216444
+  }
+ },
+ "cascade": [
+  {
+   "judge_share": 0.0,
+   "auroc": 0.5543209876543209,
+   "best_of_n": 0.6333333333333333
+  },
+  {
+   "judge_share": 0.1,
+   "auroc": 0.5385185185185185,
+   "best_of_n": 0.6333333333333333
+  },
+  {
+   "judge_share": 0.2,
+   "auroc": 0.5365432098765432,
+   "best_of_n": 0.6333333333333333
+  },
+  {
+   "judge_share": 0.3,
+   "auroc": 0.5291975308641975,
+   "best_of_n": 0.6333333333333333
+  },
+  {
+   "judge_share": 0.5,
+   "auroc": 0.5511111111111111,
+   "best_of_n": 0.6333333333333333
+  },
+  {
+   "judge_share": 1.0,
+   "auroc": 0.6451851851851852,
+   "best_of_n": 0.7
+  }
+ ],
+ "latency": {
+  "gliclass_s_per_item": 0.008821826216615277,
+  "gliclass_taxonomy_s_per_item": 0.006598742802937826,
+  "nli_s_per_item": 0.00795814902694137,
+  "judge_s_per_item_wall": 0.006352185319971155,
+  "judge_workers": 48,
+  "judge_fallback_share": 0.0,
+  "judge_s_per_call_sequential": 0.054746031761169434,
+  "lexical": 0.00013393561045328776,
+  "embed_bge_small": 0.019168718655904134,
+  "rerank_bge_m3": 0.03254985014597575,
+  "gliclass_large_v3": 0.03789566357930501,
+  "gliner_bi_base_v2": 0.29825255076090496
+ },
+ "schema_link": {
+  "embed_bge_small": {
+   "recall@5": 0.6969,
+   "recall@10": 0.874,
+   "recall@20": 1.0,
+   "all@10": 0.5333,
+   "all@20": 1.0
+  },
+  "gliclass_large_v3": {
+   "recall@5": 0.705,
+   "recall@10": 0.8591,
+   "recall@20": 0.9889,
+   "all@10": 0.5333,
+   "all@20": 0.9667
+  },
+  "gliner_bi_base_v2": {
+   "recall@5": 0.4162,
+   "recall@10": 0.6091,
+   "recall@20": 0.9244,
+   "all@10": 0.1667,
+   "all@20": 0.6667
+  },
+  "lexical": {
+   "recall@5": 0.68,
+   "recall@10": 0.7867,
+   "recall@20": 0.9827,
+   "all@10": 0.5333,
+   "all@20": 0.9
+  },
+  "rerank_bge_m3": {
+   "recall@5": 0.6474,
+   "recall@10": 0.8635,
+   "recall@20": 1.0,
+   "all@10": 0.5333,
+   "all@20": 1.0
+  }
+ }
+}
