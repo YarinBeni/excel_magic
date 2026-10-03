@@ -93,6 +93,8 @@ class DeepTool:
         drop = [c for c in (time_col, id_col) if c]
         X, y, task, classes = self._prep(df, target, drop)
         tr, te = self._split(df, time_col, rng)
+        if len(te) > self.max_context:   # the held-out score is an estimate; a huge hold-out does not fit in GPU memory
+            te = np.sort(rng.choice(te, self.max_context, replace=False))
         Xtr, Xte = encode_frames(X.iloc[tr], X.iloc[te])
         t0 = time.time()
         p = self._fit_predict(self.model, task, Xtr, y[tr], Xte, rng)
