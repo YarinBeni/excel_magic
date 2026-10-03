@@ -1,0 +1,16 @@
+# 057_v1_smoke_and_desc  host=g0374  start=Sat Oct  3 19:13:14 UTC 2026  timeout=900s
+# HEAD=b6df858
+# ---------------------------------------------------------
+V1 smoke: 51816
+Open-Dataflow/dataflow-Text2SQL-database-example 3 files; 0 description paths; [] | sample: ['.gitattributes', 'README.md', 'databases.zip']
+xu3kev/BIRD-SQL-data 3 files; 0 description paths; [] | sample: ['.gitattributes', 'README.md', 'data/train-00000-of-00001-4b532b7deeb3f011.parquet']
+premai-io/birdbench 167 files; 0 description paths; [] | sample: ['.gitattributes', 'README.md', 'train/train.json', 'train/train_databases/.DS_Store', 'train/train_databases/address/.DS_Store']
+birdsql/bird_sql_dev_20251106 3 files; 0 description paths; [] | sample: ['.gitattributes', 'README.md', 'data/dev_20251106-00000-of-00001.json']
+Sudnya/bird-sql 6 files; 0 description paths; [] | sample: ['.gitattributes', 'README.md', 'data/train-00000-of-00001.parquet', 'data/validation-00000-of-00001.parquet', 'databases/dev_databases.zip']
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+tabfm venv: gliclass 0.1.17 transformers 4.57.6
+       51136           AGENT_runner  RUNNING    3:40:38 g0374
+       51816      V1_verifier_study  PENDING       0:00 (Priority)
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 19:13:38 UTC 2026
