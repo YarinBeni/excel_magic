@@ -1,0 +1,122 @@
+{
+  "dataset": "MIC",
+  "task_type": "multiclass",
+  "model": "kumo-tabular-l:n_estimators=8,device=cuda",
+  "metric": "logloss",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 17,
+  "n_evals_ok": 10,
+  "select_rule": "gated1",
+  "p0_cv": 0.42375137511784833,
+  "best_cv": 0.42269070026879246,
+  "best_candidate": "eval_013.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 333.6,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261003T092552Z_J17_pi_qwen3coder_kumoL_rec_MIC/search/MIC/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "acceptance": {
+    "p0": 0.4298579750484518,
+    "candidate": 0.4259842821489682,
+    "candidate_name": "eval_013.py",
+    "accepted": true,
+    "n_rows": 227
+  },
+  "p0_test": 0.44405055270052524,
+  "p0_test_secondary": {
+    "logloss": 0.44405055270052524,
+    "acc": 0.892416225749559
+  },
+  "best_test": 0.4428726248165049,
+  "best_test_secondary": {
+    "logloss": 0.4428726248165049,
+    "acc": 0.890652557319224
+  },
+  "best_test_info": {
+    "n_features": 113,
+    "t_features": 0.046,
+    "n_views": 1,
+    "view_sizes": [
+      1132
+    ],
+    "t_model": 3.673,
+    "t_total": 3.723,
+    "model_spec": "kumo-tabular-l:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 0.265,
+  "cv_trajectory": [
+    [
+      1,
+      0.42375137511784833
+    ],
+    [
+      2,
+      0.42375137511784833
+    ],
+    [
+      3,
+      null
+    ],
+    [
+      4,
+      null
+    ],
+    [
+      5,
+      null
+    ],
+    [
+      6,
+      null
+    ],
+    [
+      7,
+      null
+    ],
+    [
+      8,
+      null
+    ],
+    [
+      9,
+      0.42375137511784833
+    ],
+    [
+      10,
+      0.42319722727008346
+    ],
+    [
+      11,
+      null
+    ],
+    [
+      12,
+      0.42319722727008346
+    ],
+    [
+      13,
+      0.42269070026879246
+    ],
+    [
+      14,
+      0.423032997980017
+    ],
+    [
+      15,
+      0.4233106290755188
+    ],
+    [
+      16,
+      0.4233106290755188
+    ],
+    [
+      17,
+      0.4233106290755188
+    ]
+  ],
+  "elapsed_s": 370.92,
+  "status": "ok"
+}
