@@ -1,0 +1,237 @@
+[
+  {
+    "config": {
+      "regression": true
+    },
+    "score": 4.40358138538811
+  },
+  {
+    "config": {
+      "regression": true,
+      "sentinel_to_nan": true
+    },
+    "score": 4.422572244093935,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "winsorize": true
+    },
+    "score": 4.419827281150241,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "drop_constant": true
+    },
+    "score": 4.40358138538811,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "count_encode": true
+    },
+    "score": 4.40358138538811,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true
+    },
+    "score": 4.397097879731872,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "crosses_top_k": 3
+    },
+    "score": 4.44542148354816,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "crosses_top_k": 5
+    },
+    "score": 4.410064697841257,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "svd_components": 8
+    },
+    "score": 4.397097879731872,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "svd_components": 16
+    },
+    "score": 4.397097879731872,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "prune_to": 64
+    },
+    "score": 4.397097879731872,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "random_views": 3
+    },
+    "score": 4.383957091029734,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "random_views": 3,
+      "target_transform": "log1p"
+    },
+    "score": 4.380007894732057,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "random_views": 3,
+      "target_transform": "log1p",
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 4.380007894732057,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "random_views": 3,
+      "target_transform": "log1p",
+      "sentinel_to_nan": true
+    },
+    "score": 4.472234697013889,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "random_views": 3,
+      "target_transform": "log1p",
+      "winsorize": true
+    },
+    "score": 4.397652082963499,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "random_views": 3,
+      "target_transform": "log1p",
+      "drop_constant": true
+    },
+    "score": 4.380007894732057,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "random_views": 3,
+      "target_transform": "log1p",
+      "count_encode": true
+    },
+    "score": 4.380007894732057,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "random_views": 3,
+      "target_transform": "log1p",
+      "crosses_top_k": 3
+    },
+    "score": 4.425314292513182,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "random_views": 3,
+      "target_transform": "log1p",
+      "crosses_top_k": 5
+    },
+    "score": 4.3861624540738715,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "random_views": 3,
+      "target_transform": "log1p",
+      "svd_components": 8
+    },
+    "score": 4.380007894732057,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "random_views": 3,
+      "target_transform": "log1p",
+      "svd_components": 16
+    },
+    "score": 4.380007894732057,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "random_views": 3,
+      "target_transform": "log1p",
+      "prune_to": 64
+    },
+    "score": 4.380007894732057,
+    "error": null
+  },
+  {
+    "config": {
+      "regression": true,
+      "log_skewed": true,
+      "random_views": 3,
+      "target_transform": "log1p",
+      "model_kwargs": {
+        "n_estimators": 8
+      }
+    },
+    "score": 4.380007894732057,
+    "error": null
+  }
+]
