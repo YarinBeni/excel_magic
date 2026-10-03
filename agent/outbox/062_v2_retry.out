@@ -1,0 +1,12 @@
+# 062_v2_retry  host=g0374  start=Sat Oct  3 19:21:21 UTC 2026  timeout=120s
+# HEAD=d3d0b79
+# ---------------------------------------------------------
+V2: 51825
+       51136           AGENT_runner  RUNNING    3:48:21 g0374
+       51816      V1_verifier_study  RUNNING       6:06 g0378
+       51820        V3_insightbench  RUNNING       1:36 g0381
+       51823      V4_rel_capability  RUNNING       1:36 g0381
+       51825     V2_text_featurizer  PENDING       0:00 (Priority)
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 19:21:21 UTC 2026
