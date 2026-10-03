@@ -76,3 +76,16 @@ accuracy by -0.007 (vLLM greedy decoding is not bit-reproducible under batching)
 Reading: the guards worked as designed: 12 of 13 proposals were rejected, including three whose accept gain was
 +0.027. The one kept change also helped on held-out. Caution: in P2 (all 498 questions, with linking) triage was
 -0.016 vs A, so the triage gain depends on the configuration and is at most a few points.
+
+## P3 InsightBench through the pi harness (V6, job 51914): same 100 tables, tools via `vfd` tool server
+Same model (Qwen3-Coder-30B) and judge (GLM-4.5-Air); pi coding agent calls the tools as shell commands.
+
+| config | g_eval | rouge1 | insights | rejected | tables with no insight | vs pi D (se) |
+|---|---|---|---|---|---|---|
+| pi D: SQL | 0.273 | 0.194 | 6.8 | 0 | 15 | |
+| pi E: + DEEP tools | 0.269 | 0.191 | 6.7 | 0 | 17 | -0.004 (0.026) |
+| pi F: + labels + verified ledger | 0.210 | 0.161 | 5.2 | 5.8 | see paper | -0.063 (0.030) |
+
+pi D vs our loop D: -0.032 (0.025). Reading: the tool server works unchanged under a second harness; the result
+pattern is the same as in our loop (DEEP tools neutral to negative, the verified ledger costs recall). pi's tool calls
+were not logged.

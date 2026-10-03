@@ -180,6 +180,7 @@ def p3(runs: Path, V: dict) -> dict:
         V[f"P3_{c}"] = f3(g.g_eval.mean())
         V[f"P3_{c}_D"], V[f"P3_{c}_SE"] = sg(dd), f3(se)
         V[f"P3_{c}_REJ"] = f"{g.n_rejected.mean():.1f}"
+        V[f"P3_{c}_ZERO"] = int((g.n_pred == 0).sum())
     if "piD" in piv:
         dd, se = paired(piv["piD"], piv["D"])
         V["P3_PID_VS_D"], V["P3_PID_VS_D_SE"] = sg(dd), f3(se)
