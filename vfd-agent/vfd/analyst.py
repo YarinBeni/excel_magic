@@ -28,7 +28,7 @@ Role: {role}. Dataset: {desc}
 The data is in a DuckDB table named `data` with columns: {columns}.
 Work step by step with the tools. Each time you find a concrete, data-backed insight, call record_insight with one
 sentence and the SQL that shows it. Look for distributions, differences between groups, trends over time, outliers,
-and what drives an outcome. Stop with finish(summary) after at most {max_insights} insights or when done.
+and what drives an outcome. Record 5 to {max_insights} insights, then call finish(summary).
 {extra}"""
 
 EXTRA_DEEP = ("You also have deep_* tools: frozen tabular foundation models that read ALL rows and return drivers "
