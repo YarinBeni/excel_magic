@@ -1,0 +1,15 @@
+{"flag": "flag-1", "config": "D", "g_eval": 0.5185185185185185, "rouge1": 0.24953188148506797, "n_pred": 7, "n_gold": 6, "n_rejected": 0, "llm_calls": 15, "seconds": 10.3, "error": ""}
+{"flag": "flag-2", "config": "D", "g_eval": 0.1111111111111111, "rouge1": 0.20299019607843138, "n_pred": 7, "n_gold": 4, "n_rejected": 0, "llm_calls": 18, "seconds": 12.8, "error": ""}
+{"flag": "flag-3", "config": "D", "g_eval": 0.9259259259259259, "rouge1": 0.3831192611680417, "n_pred": 7, "n_gold": 3, "n_rejected": 0, "llm_calls": 16, "seconds": 10.7, "error": ""}
+{"flag": "flag-4", "config": "D", "g_eval": 0.16666666666666666, "rouge1": 0.19531145356302773, "n_pred": 7, "n_gold": 8, "n_rejected": 0, "llm_calls": 20, "seconds": 13.2, "error": ""}
+{"flag": "flag-5", "config": "D", "g_eval": 0.4444444444444444, "rouge1": 0.25361674779456056, "n_pred": 4, "n_gold": 4, "n_rejected": 0, "llm_calls": 13, "seconds": 10.0, "error": ""}
+{"flag": "flag-1", "config": "E", "g_eval": 0.3148148148148148, "rouge1": 0.258424220052127, "n_pred": 6, "n_gold": 6, "n_rejected": 0, "llm_calls": 15, "seconds": 14.4, "error": ""}
+{"flag": "flag-2", "config": "E", "g_eval": 0.1111111111111111, "rouge1": 0.20093167701863351, "n_pred": 8, "n_gold": 4, "n_rejected": 0, "llm_calls": 30, "seconds": 25.9, "error": ""}
+{"flag": "flag-3", "config": "E", "g_eval": 0.9259259259259259, "rouge1": 0.3761867296092316, "n_pred": 6, "n_gold": 3, "n_rejected": 0, "llm_calls": 15, "seconds": 18.8, "error": ""}
+{"flag": "flag-4", "config": "E", "g_eval": 0.09722222222222222, "rouge1": 0.25408443744406883, "n_pred": 4, "n_gold": 8, "n_rejected": 0, "llm_calls": 14, "seconds": 17.0, "error": ""}
+{"flag": "flag-5", "config": "E", "g_eval": 0.5833333333333334, "rouge1": 0.18898136177547945, "n_pred": 5, "n_gold": 4, "n_rejected": 0, "llm_calls": 20, "seconds": 20.7, "error": ""}
+{"flag": "flag-1", "config": "F", "g_eval": 0.3148148148148149, "rouge1": 0.1809465394007118, "n_pred": 3, "n_gold": 6, "n_rejected": 0, "llm_calls": 13, "seconds": 18.1, "error": ""}
+{"flag": "flag-2", "config": "F", "g_eval": 0.1388888888888889, "rouge1": 0.24610983981693366, "n_pred": 3, "n_gold": 4, "n_rejected": 0, "llm_calls": 21, "seconds": 25.4, "error": ""}
+{"flag": "flag-3", "config": "F", "g_eval": 0.9259259259259259, "rouge1": 0.3761867296092316, "n_pred": 2, "n_gold": 3, "n_rejected": 0, "llm_calls": 10, "seconds": 14.5, "error": ""}
+{"flag": "flag-4", "config": "F", "g_eval": 0.08333333333333333, "rouge1": 0.19671501322141755, "n_pred": 1, "n_gold": 8, "n_rejected": 0, "llm_calls": 16, "seconds": 19.9, "error": ""}
+{"flag": "flag-5", "config": "F", "g_eval": 0.36111111111111105, "rouge1": 0.2314445607128534, "n_pred": 3, "n_gold": 4, "n_rejected": 0, "llm_calls": 19, "seconds": 24.6, "error": ""}
