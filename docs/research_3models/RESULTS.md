@@ -46,3 +46,18 @@ Reading: negative. InsightBench's planted insights are descriptive (counts, shar
 score rewards recall; the DEEP tools cost steps without adding descriptive insights, and the verified ledger rejects
 ~2.5 insights per table that the agent does not replace. Verification trades recall for precision; this benchmark only
 measures recall.
+
+## P2 SQL harness ablation (V5, job 51863): BIRD Arcwise-Plat, 498 questions, Qwen3-Coder-30B
+
+| config | accuracy | vs A (se) | schema chars | LLM calls |
+|---|---|---|---|---|
+| A: LLM alone, greedy, full schema | 0.693 | | 4,994 | 1 |
+| B: + GLiClass schema linking (top 20 columns + keys) | 0.667 | -0.026 (0.016) | 2,254 | 1 |
+| C: + GLiClass triage and one revision | 0.677 | -0.016 (0.016) | 2,254 | 1.03 |
+| D: + 8 candidates, cheap verifier stack (2-fold) | 0.705 | +0.012 (0.016) | 2,254 | 2.3 |
+| F: D + LLM judge on the uncertain band | 0.703 | +0.010 (0.015) | 2,254 | 2.3 (+1.5 judge) |
+| SC: 8 candidates, majority result, no small models | 0.705 | +0.012 (0.009) | 4,994 | 2 |
+
+Reading: with a strong generator on a corrected benchmark, the small models do not beat plain self-consistency.
+Schema linking halves the prompt but loses 2.6 points (top-20 linking misses a needed column in 38% of questions);
+triage recovers one point. All differences vs A are within about one standard error except B.
