@@ -146,6 +146,8 @@ def cmd_evaluate(a):
     sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "open-tabfm-auto"))
     from tabfm_auto.models.registry import get_model
 
+    from vfd.tabular import encode_frames, encode_target
+
     rows = []
     out = Path(a.run) / "rows.jsonl"
     done = set()
@@ -154,12 +156,16 @@ def cmd_evaluate(a):
     for d, m in datasets(a):
         tr, te = pd.read_parquet(d / "train.parquet"), pd.read_parquet(d / "test.parquet")
         ftr, fte = pd.read_parquet(d / "features_train.parquet"), pd.read_parquet(d / "features_test.parquet")
-        y_tr, y_te = tr[m["label"]], te[m["label"]]
         task = {"binary": "binary", "multiclass": "multiclass", "regression": "regression"}[m["problem_type"]]
+        if task == "regression":
+            y_tr, y_te, classes = tr[m["label"]].astype(float).to_numpy(), te[m["label"]].astype(float).to_numpy(), None
+        else:
+            (y_tr, y_te), classes = encode_target(tr[m["label"]], te[m["label"]])
         for variant in VARIANTS:
             Xtr, Xte = variant_frame(tr, ftr, m, variant), variant_frame(te, fte, m, variant)
             if Xtr.shape[1] == 0:
                 continue
+            Xtr, Xte = encode_frames(Xtr, Xte)
             for spec in a.models.split(";"):
                 key = (m["alias"], variant, spec)
                 if key in done:
@@ -170,7 +176,7 @@ def cmd_evaluate(a):
                     est.fit(Xtr, y_tr)
                     pred = est.predict(Xte)
                     proba = est.predict_proba(Xte) if task != "regression" else None
-                    val = score(m["metric"], y_te, pred, proba, getattr(est, "classes_", np.unique(y_tr)))
+                    val = score(m["metric"], y_te, pred, proba, list(getattr(est, "classes_", np.unique(y_tr))))
                     err = ""
                 except Exception as e:  # report and continue: one bad (dataset, model) must not stop the sweep
                     val, err = float("nan"), f"{type(e).__name__}: {str(e)[:200]}"
