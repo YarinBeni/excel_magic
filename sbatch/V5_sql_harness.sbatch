@@ -23,10 +23,12 @@ JUDGE_PID=$VLLM_PID
 trap 'kill $GEN_PID $JUDGE_PID 2>/dev/null || true' EXIT
 export OPENAI_BASE_URL=http://localhost:8240/v1 OPENAI_API_KEY=EMPTY JUDGE_BASE_URL=http://localhost:8241/v1
 RUN="$TABFM_RUNS_ROOT/$(date -u +%Y%m%dT%H%M%SZ)_V5_sql_harness"; mkdir -p "$RUN"
-echo "--- P2 ablation $(date)"
-CUDA_VISIBLE_DEVICES=0 python vfd-agent/experiments/p2_sql_harness.py --run "$RUN" --signals "$SIG" --cache artifacts/vfd_data \
-    --configs ${CONFIGS:-A,B,C,D,F,SC} ${LIMIT:+--limit $LIMIT} || echo "FAILED p2"
-( cd "$REPO" && collect_and_push "V5: SQL harness ablation (job ${SLURM_JOB_ID})" )
+if [ -z "${SKIP_P2:-}" ]; then
+  echo "--- P2 ablation $(date)"
+  CUDA_VISIBLE_DEVICES=0 python vfd-agent/experiments/p2_sql_harness.py --run "$RUN" --signals "$SIG" --cache artifacts/vfd_data \
+      --configs ${CONFIGS:-A,B,C,D,F,SC} ${LIMIT:+--limit $LIMIT} || echo "FAILED p2"
+  ( cd "$REPO" && collect_and_push "V5: SQL harness ablation (job ${SLURM_JOB_ID})" )
+fi
 if [ -z "${SKIP_P4:-}" ]; then
   echo "--- P4 auto-research $(date)"
   RUN4="$TABFM_RUNS_ROOT/$(date -u +%Y%m%dT%H%M%SZ)_V5_autoresearch_sql"; mkdir -p "$RUN4"

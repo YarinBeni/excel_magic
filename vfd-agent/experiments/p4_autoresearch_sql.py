@@ -46,6 +46,7 @@ def main():
     ap.add_argument("--cache", default="data")
     ap.add_argument("--signals", required=True)
     ap.add_argument("--model", default="Qwen/Qwen3-Coder-30B-A3B-Instruct")
+    ap.add_argument("--researcher-model", default=os.environ.get("RESEARCHER_MODEL", "zai-org/GLM-4.5-Air-FP8"))
     ap.add_argument("--budget", type=int, default=20)
     ap.add_argument("--workers", type=int, default=16)
     a = ap.parse_args()
@@ -75,7 +76,8 @@ def main():
                 return self.inner.scores(*x)
 
     linkers = {"gliclass": Locked(GLiClassLinker(gli)), "rerank": Locked(rerank)}
-    researcher = Chat(a.model, base_url=os.environ.get("RESEARCHER_BASE_URL"))
+    rurl = os.environ.get("RESEARCHER_BASE_URL")
+    researcher = Chat(a.researcher_model, base_url=rurl, no_think=True) if rurl else Chat(a.model)
     ar = AutoResearch(lambda c, q: {}, SPACE, researcher, budget=a.budget, z=1.0, seed=0)
     S, A, H = ar.split(sorted(qs))
     stack = fit_stack(a.signals, S + A)
