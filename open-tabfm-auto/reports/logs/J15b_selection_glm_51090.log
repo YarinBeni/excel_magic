@@ -1,0 +1,9 @@
+# job 51090 J15b_selection_glm exit=0 Sat Oct  3 06:05:38 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J15b_selection_glm_51090.out
+=== J15b selection rules === job 51090 Sat Oct  3 05:59:22 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+[rescore] 20261002T194110Z_J8_openai_glm45air_blood-transfusion-service-center blood-transfusion-service-center: picks={'p0': 'eval_001.py', 'best': 'eval_012.py', 'gated1': 'eval_012.py', 'gated2': 'eval_012.py', 'ens3': 'eval_012.py+eval_015.py+eval_009.py'} 73s
+[2026-10-03T06:05:38.571] error: *** JOB 51090 ON g0381 CANCELLED AT 2026-10-03T06:05:38 DUE to SIGNAL Terminated ***
