@@ -89,3 +89,25 @@ Same model (Qwen3-Coder-30B) and judge (GLM-4.5-Air); pi coding agent calls the 
 pi D vs our loop D: -0.032 (0.025). Reading: the tool server works unchanged under a second harness; the result
 pattern is the same as in our loop (DEEP tools neutral to negative, the verified ledger costs recall). pi's tool calls
 were not logged.
+
+## P3 RelBench prediction questions (V4, jobs 51838, 52039, 52052, 52074): 8 tasks x 4 configs x 2 episodes
+Agent Qwen3-Coder-30B over DuckDB (database cut at the test time + train_labels + test_rows); official test AUROC.
+
+| task | D: SQL | E: + Kumo Tabular-L | R: + Kumo Relational | ER: both |
+|---|---|---|---|---|
+| avito clicks | 0.584 | 0.661 | 0.624 | 0.627 |
+| avito visits | 0.634 | 0.641 | 0.653 | 0.662 |
+| event ignore | 0.500 | 0.568 | 0.877 | 0.840 |
+| event repeat | 0.556 | 0.711 | 0.794 | 0.754 |
+| f1 dnf | 0.506 | 0.792 | 0.713 | 0.744 |
+| f1 top3 | 0.749 | 0.784 | 0.863 | 0.863 |
+| hm churn | 0.595 | 0.681 | 0.674 | 0.674 |
+| trial outcome | 0.491 | 0.591 | 0.690 | 0.690 |
+| **mean** | **0.577** | **0.679** | **0.736** | **0.732** |
+
+Fixes during the run (rows of the affected cells were removed and rerun): agent SQL is interrupted after 120 s (one
+runaway join stalled the job); deep_fit_predict predicts test rows in chunks; DEEP predict caps its time hold-out at
+max_context rows (rel-hm and avito ran out of GPU memory and the agent fell back to SQL).
+Reading: the clearest win of the project. With SQL only, the agent is near chance on 4 of 8 tasks; the tabular model on
+the agent's own features beats SQL on 8 of 8 tasks, and the relational model, which needs no feature SQL, is best on
+average. ER does not beat R: the agent mostly submits the relational scores as they are.
