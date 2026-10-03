@@ -1,0 +1,14 @@
+{
+ "F": {
+  "g_eval": 0.23009,
+  "rouge1": 0.20093,
+  "tables": 100,
+  "insights": 3.16,
+  "rejected": 2.53,
+  "llm_calls": 20.27,
+  "seconds": 106.574,
+  "errors": 0,
+  "vs_D": NaN,
+  "vs_D_se": NaN
+ }
+}
