@@ -1,0 +1,12 @@
+# 064_v3_full  host=g0374  start=Sat Oct  3 19:32:42 UTC 2026  timeout=120s
+# HEAD=06a0bb7
+# ---------------------------------------------------------
+V3 full: 51847
+       51136           AGENT_runner  RUNNING    3:59:42 g0374
+       51825     V2_text_featurizer  RUNNING       9:57 g0378
+       51837      V1_verifier_study  RUNNING       3:56 g0376
+       51838      V4_rel_capability  RUNNING       1:26 g0381
+       51847        V3_insightbench  PENDING       0:00 (Priority)
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 19:32:42 UTC 2026
