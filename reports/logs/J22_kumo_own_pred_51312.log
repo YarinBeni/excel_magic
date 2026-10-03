@@ -1,0 +1,34 @@
+# job 51312 J22_kumo_own_pred exit=0 Sat Oct  3 12:08:45 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J22_kumo_own_pred_51312.out
+=== J22 kumo own-prediction check === job 51312 Sat Oct  3 12:07:43 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+== rel-f1/driver-dnf  target values {1: np.int64(10046), 0: np.int64(1365)}  ctx=512 ctx_pos=475  rows=512 rows_pos=357  {'ctx_split': 'time', 'cut_time': '1987-08-04 00:00:00', 'n_ctx_pool': 7401, 'n_probe_pool': 4010}
+   output columns ['0', '1']  raw (512, 2)
+   col '0': min 0.0101 max 0.1400 std 0.02488 distinct 496 auroc 0.247
+   col '1': min 0.8600 max 0.9899 std 0.02488 distinct 497 auroc 0.753
+   extracted score: auroc 0.753  std 0.02488
+== rel-event/user-repeat  target values {1: np.int64(1475), 0: np.int64(1452)}  ctx=452 ctx_pos=169  rows=246 rows_pos=110  {'ctx_split': 'time', 'cut_time': '2012-10-10 00:00:00', 'n_ctx_pool': 1234, 'n_probe_pool': 1693}
+   output columns ['0', '1']  raw (246, 2)
+   col '0': min 0.3341 max 0.6453 std 0.06107 distinct 245 auroc 0.521
+   col '1': min 0.3547 max 0.6659 std 0.06107 distinct 245 auroc 0.479
+   extracted score: auroc 0.479  std 0.06107
+== rel-event/user-ignore  target values {0: np.int64(15992), 1: np.int64(3247)}  ctx=512 ctx_pos=256  rows=512 rows_pos=57  {'ctx_split': 'time', 'cut_time': '2012-11-07 00:00:00', 'n_ctx_pool': 14630, 'n_probe_pool': 4609}
+   output columns ['0', '1']  raw (512, 2)
+   col '0': min 0.1904 max 0.9211 std 0.17376 distinct 512 auroc 0.168
+   col '1': min 0.0789 max 0.8096 std 0.17376 distinct 512 auroc 0.832
+   extracted score: auroc 0.832  std 0.17376
+[collect] copied 2155 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o b7cdfdc] J22: Kumo Relational own-prediction check (job 51312)
+ 2 files changed, 48 insertions(+)
+ create mode 100644 reports/checks/kumo_own_pred_51312.txt
+ create mode 100644 reports/runs/20261003T120737Z_J18_layers_rel-avito_user-visits/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   805b8e9..b7cdfdc  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J22 done Sat Oct  3 12:08:45 UTC 2026 ===
