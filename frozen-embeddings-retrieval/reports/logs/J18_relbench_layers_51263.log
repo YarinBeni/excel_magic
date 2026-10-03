@@ -1,0 +1,570 @@
+# job 51263 J18_relbench_layers exit=0 Sat Oct  3 12:45:46 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J18_relbench_layers_51263.out
+=== J18 relbench layers === job 51263 Sat Oct  3 11:39:10 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 6165.83it/s]
+entity drivers driverId time date target did_not_finish train rows 11411
+children ['qualifying', 'standings', 'results']
+pre_gnn  dim 512 row-std 0.5122 unique 144
+gnn      dim 512 row-std 0.3322 unique 200
+icl_00   dim 512 row-std 0.3792 unique 200
+icl_01   dim 512 row-std 0.3436 unique 200
+icl_02   dim 512 row-std 0.4235 unique 200
+icl_03   dim 512 row-std 0.5092 unique 200
+icl_04   dim 512 row-std 0.6975 unique 200
+icl_05   dim 512 row-std 0.7644 unique 200
+icl_06   dim 512 row-std 0.7752 unique 200
+icl_07   dim 512 row-std 0.7271 unique 200
+icl_08   dim 512 row-std 0.8695 unique 200
+icl_09   dim 512 row-std 1.0023 unique 200
+icl_10   dim 512 row-std 1.2190 unique 200
+icl_11   dim 512 row-std 1.2243 unique 200
+final    dim 512 row-std 0.0304 unique 200
+icl scores range 0.005703786853700876 0.9992207288742065
+--- rel-f1/driver-dnf Sat Oct  3 11:39:24 UTC 2026
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 12173.58it/s]
+2026-10-03 11:44:10,153 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T113924Z_J18_layers_rel-f1_driver-dnf/metrics.json
+# rel-f1/driver-dnf: layer-wise probes of frozen Kumo Relational (val AUROC / official test metric)
+
+## context = random
+
+| layer | linear val | linear test | kNN val | kNN test |
+|---|---|---|---|---|
+| pre_gnn | 0.5008 | 0.6206 | 0.5501 | 0.5478 |
+| gnn | 0.7412 | 0.7730 | 0.6294 | 0.7478 |
+| icl_00 | 0.7276 | 0.7695 | 0.6476 | 0.7520 |
+| icl_01 | 0.7244 | 0.7766 | 0.6375 | 0.7494 |
+| icl_02 | 0.7138 | 0.7814 | 0.6465 | 0.7350 |
+| icl_03 | 0.7153 | 0.7903 | 0.6539 | 0.7305 |
+| icl_04 | 0.7098 | 0.7876 | 0.6510 | 0.7206 |
+| icl_05 | 0.7102 | 0.7903 | 0.6479 | 0.7339 |
+| icl_06 | 0.7091 | 0.7933 | 0.6535 | 0.7290 |
+| icl_07 | 0.7057 | 0.7913 | 0.6485 | 0.7273 |
+| icl_08 | 0.6993 | 0.7946 | 0.6570 | 0.7193 |
+| icl_09 | 0.6914 | 0.7902 | 0.6559 | 0.7219 |
+| icl_10 | 0.6993 | 0.7839 | 0.6459 | 0.7230 |
+| icl_11 | 0.6927 | 0.7842 | 0.6577 | 0.7112 |
+| final | 0.6938 | 0.7837 | 0.6576 | 0.7124 |
+
+best layer by val (linear): **gnn** -> test 0.7730
+
+best layer by val (knn): **icl_11** -> test 0.7112
+
+## context = label
+
+| layer | linear val | linear test | kNN val | kNN test |
+|---|---|---|---|---|
+| pre_gnn | 0.5377 | 0.6413 | 0.4835 | 0.5414 |
+| gnn | 0.7440 | 0.7507 | 0.6685 | 0.7551 |
+| icl_00 | 0.7449 | 0.7777 | 0.6667 | 0.7490 |
+| icl_01 | 0.7411 | 0.7777 | 0.6664 | 0.7344 |
+| icl_02 | 0.7355 | 0.6724 | 0.6811 | 0.7222 |
+| icl_03 | 0.7174 | 0.6807 | 0.6839 | 0.7258 |
+| icl_04 | 0.7078 | 0.6917 | 0.6893 | 0.7272 |
+| icl_05 | 0.7069 | 0.7279 | 0.6885 | 0.7476 |
+| icl_06 | 0.7078 | 0.7281 | 0.6820 | 0.7500 |
+| icl_07 | 0.6812 | 0.7173 | 0.6795 | 0.7486 |
+| icl_08 | 0.6992 | 0.7520 | 0.6863 | 0.7562 |
+| icl_09 | 0.6804 | 0.7597 | 0.6873 | 0.7655 |
+| icl_10 | 0.6783 | 0.7801 | 0.6883 | 0.7755 |
+| icl_11 | 0.6617 | 0.7788 | 0.6883 | 0.7677 |
+| final | 0.6659 | 0.7811 | 0.6868 | 0.7701 |
+
+best layer by val (linear): **icl_00** -> test 0.7777
+
+best layer by val (knn): **icl_04** -> test 0.7272
+model's own in-context prediction: val 0.6887, test 0.7688
+
+[collect] copied 2122 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 5030ab4] J18: layer sweep rel-f1/driver-dnf (job 51263)
+ 11 files changed, 2347 insertions(+)
+ create mode 100644 reports/runs/20261003T113238Z_J21_model_layers_rel-trial_study-outcome/config.json
+ create mode 100644 reports/runs/20261003T113915Z_J19_tab_layers_rel-f1_driver-dnf/config.json
+ create mode 100644 reports/runs/20261003T113915Z_J21_smoke_rel-f1_driver-dnf/config.json
+ create mode 100644 reports/runs/20261003T113915Z_J21_smoke_rel-f1_driver-dnf/layers_rows.json
+ create mode 100644 reports/runs/20261003T113915Z_J21_smoke_rel-f1_driver-dnf/metrics.json
+ create mode 100644 reports/runs/20261003T113915Z_J21_smoke_rel-f1_driver-dnf/results.md
+ create mode 100644 reports/runs/20261003T113924Z_J18_layers_rel-f1_driver-dnf/config.json
+ create mode 100644 reports/runs/20261003T113924Z_J18_layers_rel-f1_driver-dnf/layers_rows.json
+ create mode 100644 reports/runs/20261003T113924Z_J18_layers_rel-f1_driver-dnf/metrics.json
+ create mode 100644 reports/runs/20261003T113924Z_J18_layers_rel-f1_driver-dnf/results.md
+ create mode 100644 reports/runs/20261003T113958Z_J21_model_layers_rel-f1_driver-dnf/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   727bae1..5030ab4  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- rel-f1/driver-top3 Sat Oct  3 11:44:43 UTC 2026
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 5233.34it/s]
+2026-10-03 11:45:13,198 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T114444Z_J18_layers_rel-f1_driver-top3/metrics.json
+# rel-f1/driver-top3: layer-wise probes of frozen Kumo Relational (val AUROC / official test metric)
+
+## context = random
+
+| layer | linear val | linear test | kNN val | kNN test |
+|---|---|---|---|---|
+| pre_gnn | 0.5651 | 0.6058 | 0.4127 | 0.6096 |
+| gnn | 0.7028 | 0.8493 | 0.6271 | 0.7998 |
+| icl_00 | 0.6772 | 0.8551 | 0.6826 | 0.8305 |
+| icl_01 | 0.6427 | 0.8508 | 0.6751 | 0.8387 |
+| icl_02 | 0.5323 | 0.7896 | 0.6634 | 0.8260 |
+| icl_03 | 0.5084 | 0.7689 | 0.6665 | 0.8352 |
+| icl_04 | 0.5039 | 0.7405 | 0.6278 | 0.8218 |
+| icl_05 | 0.5352 | 0.6930 | 0.6370 | 0.8236 |
+| icl_06 | 0.5423 | 0.7260 | 0.6256 | 0.8182 |
+| icl_07 | 0.5368 | 0.7889 | 0.6135 | 0.8051 |
+| icl_08 | 0.5295 | 0.7354 | 0.6233 | 0.7994 |
+| icl_09 | 0.5673 | 0.7539 | 0.6365 | 0.8247 |
+| icl_10 | 0.5888 | 0.7714 | 0.6343 | 0.7935 |
+| icl_11 | 0.5958 | 0.7911 | 0.6302 | 0.7832 |
+| final | 0.5951 | 0.7907 | 0.6334 | 0.7902 |
+
+best layer by val (linear): **gnn** -> test 0.8493
+
+best layer by val (knn): **icl_00** -> test 0.8305
+
+## context = label
+
+| layer | linear val | linear test | kNN val | kNN test |
+|---|---|---|---|---|
+| pre_gnn | 0.5391 | 0.6509 | 0.3348 | 0.3824 |
+| gnn | 0.8156 | 0.8748 | 0.6678 | 0.8530 |
+| icl_00 | 0.8057 | 0.8639 | 0.6812 | 0.8478 |
+| icl_01 | 0.7943 | 0.8595 | 0.6903 | 0.8471 |
+| icl_02 | 0.7560 | 0.8375 | 0.7189 | 0.8560 |
+| icl_03 | 0.7340 | 0.8022 | 0.7330 | 0.8669 |
+| icl_04 | 0.7193 | 0.7814 | 0.7552 | 0.8783 |
+| icl_05 | 0.7045 | 0.7648 | 0.7520 | 0.8634 |
+| icl_06 | 0.7115 | 0.7690 | 0.7570 | 0.8617 |
+| icl_07 | 0.7054 | 0.7776 | 0.7572 | 0.8644 |
+| icl_08 | 0.7232 | 0.7806 | 0.7836 | 0.8794 |
+| icl_09 | 0.7204 | 0.7935 | 0.7891 | 0.8772 |
+| icl_10 | 0.6996 | 0.8040 | 0.7989 | 0.8800 |
+| icl_11 | 0.6812 | 0.7854 | 0.7947 | 0.8732 |
+| final | 0.6825 | 0.7848 | 0.7907 | 0.8741 |
+
+best layer by val (linear): **gnn** -> test 0.8748
+
+best layer by val (knn): **icl_10** -> test 0.8800
+model's own in-context prediction: val 0.8052, test 0.8594
+
+[collect] copied 2126 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 6ddb0e7] J18: layer sweep rel-f1/driver-top3 (job 51263)
+ 4 files changed, 1079 insertions(+)
+ create mode 100644 reports/runs/20261003T114444Z_J18_layers_rel-f1_driver-top3/config.json
+ create mode 100644 reports/runs/20261003T114444Z_J18_layers_rel-f1_driver-top3/layers_rows.json
+ create mode 100644 reports/runs/20261003T114444Z_J18_layers_rel-f1_driver-top3/metrics.json
+ create mode 100644 reports/runs/20261003T114444Z_J18_layers_rel-f1_driver-top3/results.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   5030ab4..6ddb0e7  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- rel-trial/study-outcome Sat Oct  3 11:45:40 UTC 2026
+Fetching 38 files:   0%|          | 0/38 [00:00<?, ?it/s]Fetching 38 files: 100%|██████████| 38/38 [00:00<00:00, 7215.84it/s]
+2026-10-03 11:53:42,124 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T114541Z_J18_layers_rel-trial_study-outcome/metrics.json
+# rel-trial/study-outcome: layer-wise probes of frozen Kumo Relational (val AUROC / official test metric)
+
+## context = random
+
+| layer | linear val | linear test | kNN val | kNN test |
+|---|---|---|---|---|
+| pre_gnn | 0.6351 | 0.7080 | 0.5814 | 0.6355 |
+| gnn | 0.6084 | 0.6400 | 0.5528 | 0.5630 |
+| icl_00 | 0.6163 | 0.6390 | 0.5564 | 0.5667 |
+| icl_01 | 0.6149 | 0.6443 | 0.5440 | 0.5639 |
+| icl_02 | 0.6148 | 0.6401 | 0.5370 | 0.5745 |
+| icl_03 | 0.6077 | 0.6472 | 0.5513 | 0.5896 |
+| icl_04 | 0.6067 | 0.6510 | 0.5628 | 0.5750 |
+| icl_05 | 0.5997 | 0.6379 | 0.5721 | 0.5889 |
+| icl_06 | 0.6036 | 0.6399 | 0.5751 | 0.5920 |
+| icl_07 | 0.5926 | 0.6389 | 0.5856 | 0.5832 |
+| icl_08 | 0.5954 | 0.6336 | 0.5876 | 0.5893 |
+| icl_09 | 0.5915 | 0.6264 | 0.5824 | 0.5861 |
+| icl_10 | 0.5939 | 0.6291 | 0.5717 | 0.5858 |
+| icl_11 | 0.5894 | 0.6267 | 0.5780 | 0.5822 |
+| final | 0.5898 | 0.6277 | 0.5790 | 0.5823 |
+
+best layer by val (linear): **pre_gnn** -> test 0.7080
+
+best layer by val (knn): **icl_08** -> test 0.5893
+
+## context = label
+
+| layer | linear val | linear test | kNN val | kNN test |
+|---|---|---|---|---|
+| pre_gnn | 0.6364 | 0.7087 | 0.6059 | 0.6750 |
+| gnn | 0.6318 | 0.6899 | 0.6062 | 0.6578 |
+| icl_00 | 0.6313 | 0.6877 | 0.6024 | 0.6626 |
+| icl_01 | 0.6279 | 0.6883 | 0.6004 | 0.6575 |
+| icl_02 | 0.6328 | 0.6914 | 0.5906 | 0.6492 |
+| icl_03 | 0.6281 | 0.6971 | 0.6081 | 0.6510 |
+| icl_04 | 0.6267 | 0.6877 | 0.6134 | 0.6614 |
+| icl_05 | 0.6262 | 0.6851 | 0.6035 | 0.6564 |
+| icl_06 | 0.6152 | 0.6778 | 0.5992 | 0.6570 |
+| icl_07 | 0.6129 | 0.6694 | 0.6125 | 0.6664 |
+| icl_08 | 0.6231 | 0.6679 | 0.6122 | 0.6514 |
+| icl_09 | 0.6302 | 0.6693 | 0.6210 | 0.6598 |
+| icl_10 | 0.6224 | 0.6712 | 0.6145 | 0.6505 |
+| icl_11 | 0.6216 | 0.6667 | 0.6183 | 0.6516 |
+| final | 0.6211 | 0.6666 | 0.6178 | 0.6557 |
+
+best layer by val (linear): **pre_gnn** -> test 0.7087
+
+best layer by val (knn): **icl_09** -> test 0.6598
+model's own in-context prediction: val 0.5886, test 0.6246
+
+[collect] copied 2138 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 897a067] J18: layer sweep rel-trial/study-outcome (job 51263)
+ 4 files changed, 1104 insertions(+)
+ create mode 100644 reports/runs/20261003T114541Z_J18_layers_rel-trial_study-outcome/layers_rows.json
+ create mode 100644 reports/runs/20261003T114541Z_J18_layers_rel-trial_study-outcome/metrics.json
+ create mode 100644 reports/runs/20261003T114541Z_J18_layers_rel-trial_study-outcome/results.md
+ create mode 100644 reports/runs/20261003T114701Z_J19_tab_layers_rel-trial_study-outcome/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   4866494..897a067  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- rel-event/user-repeat Sat Oct  3 11:54:06 UTC 2026
+Fetching 20 files:   0%|          | 0/20 [00:00<?, ?it/s]Fetching 20 files:   5%|▌         | 1/20 [00:00<00:06,  2.98it/s]Fetching 20 files:  10%|█         | 2/20 [00:01<00:13,  1.32it/s]Fetching 20 files:  20%|██        | 4/20 [00:03<00:14,  1.12it/s]Fetching 20 files: 100%|██████████| 20/20 [00:03<00:00,  6.01it/s]
+2026-10-03 12:00:41,284 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T115406Z_J18_layers_rel-event_user-repeat/metrics.json
+# rel-event/user-repeat: layer-wise probes of frozen Kumo Relational (val AUROC / official test metric)
+
+## context = random
+
+| layer | linear val | linear test | kNN val | kNN test |
+|---|---|---|---|---|
+| pre_gnn | 0.7021 | 0.6730 | 0.5983 | 0.6211 |
+| gnn | 0.6645 | 0.7153 | 0.6398 | 0.6639 |
+| icl_00 | 0.6702 | 0.7150 | 0.6236 | 0.6319 |
+| icl_01 | 0.6665 | 0.7099 | 0.6291 | 0.6355 |
+| icl_02 | 0.6661 | 0.7186 | 0.6248 | 0.6288 |
+| icl_03 | 0.6685 | 0.7306 | 0.6208 | 0.6463 |
+| icl_04 | 0.6820 | 0.7322 | 0.6235 | 0.6591 |
+| icl_05 | 0.6820 | 0.7320 | 0.6176 | 0.6542 |
+| icl_06 | 0.6773 | 0.7330 | 0.6300 | 0.6574 |
+| icl_07 | 0.6719 | 0.7358 | 0.6452 | 0.6561 |
+| icl_08 | 0.6746 | 0.7221 | 0.6429 | 0.6637 |
+| icl_09 | 0.6867 | 0.7219 | 0.6501 | 0.6668 |
+| icl_10 | 0.6810 | 0.7176 | 0.6487 | 0.6559 |
+| icl_11 | 0.6822 | 0.7165 | 0.6554 | 0.6499 |
+| final | 0.6825 | 0.7172 | 0.6493 | 0.6554 |
+
+best layer by val (linear): **pre_gnn** -> test 0.6730
+
+best layer by val (knn): **icl_11** -> test 0.6499
+
+## context = label
+
+| layer | linear val | linear test | kNN val | kNN test |
+|---|---|---|---|---|
+| pre_gnn | 0.6964 | 0.6711 | 0.6030 | 0.6909 |
+| gnn | 0.7046 | 0.7901 | 0.6663 | 0.6854 |
+| icl_00 | 0.7063 | 0.7912 | 0.6644 | 0.6559 |
+| icl_01 | 0.7064 | 0.7879 | 0.6639 | 0.6648 |
+| icl_02 | 0.7110 | 0.7862 | 0.6698 | 0.6752 |
+| icl_03 | 0.7091 | 0.7860 | 0.6683 | 0.6856 |
+| icl_04 | 0.7045 | 0.7872 | 0.6852 | 0.6968 |
+| icl_05 | 0.7006 | 0.7910 | 0.6731 | 0.7020 |
+| icl_06 | 0.6900 | 0.7846 | 0.6819 | 0.7136 |
+| icl_07 | 0.6864 | 0.7808 | 0.6815 | 0.7007 |
+| icl_08 | 0.6847 | 0.7765 | 0.6759 | 0.7151 |
+| icl_09 | 0.6801 | 0.7664 | 0.6705 | 0.6991 |
+| icl_10 | 0.6812 | 0.7693 | 0.6747 | 0.6830 |
+| icl_11 | 0.6855 | 0.7676 | 0.6804 | 0.6858 |
+| final | 0.6851 | 0.7661 | 0.6827 | 0.6894 |
+
+best layer by val (linear): **icl_02** -> test 0.7862
+
+best layer by val (knn): **icl_04** -> test 0.6968
+model's own in-context prediction: val 0.4977, test 0.4928
+
+[collect] copied 2150 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o f43b6dc] J18: layer sweep rel-event/user-repeat (job 51263)
+ 4 files changed, 1072 insertions(+)
+ create mode 100644 reports/runs/20261003T115406Z_J18_layers_rel-event_user-repeat/layers_rows.json
+ create mode 100644 reports/runs/20261003T115406Z_J18_layers_rel-event_user-repeat/metrics.json
+ create mode 100644 reports/runs/20261003T115406Z_J18_layers_rel-event_user-repeat/results.md
+ create mode 100644 reports/runs/20261003T115845Z_J19_tab_layers_rel-event_user-ignore/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   c6927a9..f43b6dc  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- rel-event/user-ignore Sat Oct  3 12:01:06 UTC 2026
+Fetching 20 files:   0%|          | 0/20 [00:00<?, ?it/s]Fetching 20 files: 100%|██████████| 20/20 [00:00<00:00, 11244.78it/s]
+2026-10-03 12:07:08,766 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T120107Z_J18_layers_rel-event_user-ignore/metrics.json
+# rel-event/user-ignore: layer-wise probes of frozen Kumo Relational (val AUROC / official test metric)
+
+## context = random
+
+| layer | linear val | linear test | kNN val | kNN test |
+|---|---|---|---|---|
+| pre_gnn | 0.7646 | 0.6330 | 0.7301 | 0.6227 |
+| gnn | 0.8256 | 0.8583 | 0.8156 | 0.8393 |
+| icl_00 | 0.8256 | 0.8574 | 0.8192 | 0.8361 |
+| icl_01 | 0.8253 | 0.8582 | 0.8169 | 0.8408 |
+| icl_02 | 0.8275 | 0.8498 | 0.8204 | 0.8328 |
+| icl_03 | 0.8256 | 0.8506 | 0.8176 | 0.8232 |
+| icl_04 | 0.8232 | 0.8458 | 0.8126 | 0.8269 |
+| icl_05 | 0.8223 | 0.8394 | 0.8136 | 0.8247 |
+| icl_06 | 0.8229 | 0.8347 | 0.8091 | 0.8277 |
+| icl_07 | 0.8219 | 0.8312 | 0.8089 | 0.8336 |
+| icl_08 | 0.8219 | 0.8319 | 0.8086 | 0.8373 |
+| icl_09 | 0.8221 | 0.8366 | 0.8071 | 0.8361 |
+| icl_10 | 0.8219 | 0.8387 | 0.8048 | 0.8322 |
+| icl_11 | 0.8202 | 0.8390 | 0.8023 | 0.8315 |
+| final | 0.8206 | 0.8390 | 0.8022 | 0.8323 |
+
+best layer by val (linear): **icl_02** -> test 0.8498
+
+best layer by val (knn): **icl_02** -> test 0.8328
+
+## context = label
+
+| layer | linear val | linear test | kNN val | kNN test |
+|---|---|---|---|---|
+| pre_gnn | 0.7623 | 0.6278 | 0.7454 | 0.6003 |
+| gnn | 0.8348 | 0.8767 | 0.7965 | 0.7764 |
+| icl_00 | 0.8344 | 0.8752 | 0.7940 | 0.7765 |
+| icl_01 | 0.8342 | 0.8762 | 0.7972 | 0.7749 |
+| icl_02 | 0.8317 | 0.8763 | 0.7953 | 0.7868 |
+| icl_03 | 0.8216 | 0.8750 | 0.7952 | 0.7828 |
+| icl_04 | 0.8167 | 0.8733 | 0.8008 | 0.7914 |
+| icl_05 | 0.8099 | 0.8715 | 0.8056 | 0.7928 |
+| icl_06 | 0.8104 | 0.8673 | 0.8090 | 0.7931 |
+| icl_07 | 0.8073 | 0.8564 | 0.8139 | 0.7996 |
+| icl_08 | 0.8150 | 0.8627 | 0.8172 | 0.7989 |
+| icl_09 | 0.8101 | 0.8649 | 0.8049 | 0.8008 |
+| icl_10 | 0.8109 | 0.8643 | 0.8074 | 0.8038 |
+| icl_11 | 0.8132 | 0.8629 | 0.8050 | 0.8099 |
+| final | 0.8124 | 0.8610 | 0.8079 | 0.8081 |
+
+best layer by val (linear): **gnn** -> test 0.8767
+
+best layer by val (knn): **icl_08** -> test 0.7989
+model's own in-context prediction: val 0.7937, test 0.8384
+
+[collect] copied 2154 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 0296387] J18: layer sweep rel-event/user-ignore (job 51263)
+ 4 files changed, 1073 insertions(+)
+ create mode 100644 reports/runs/20261003T120107Z_J18_layers_rel-event_user-ignore/config.json
+ create mode 100644 reports/runs/20261003T120107Z_J18_layers_rel-event_user-ignore/layers_rows.json
+ create mode 100644 reports/runs/20261003T120107Z_J18_layers_rel-event_user-ignore/metrics.json
+ create mode 100644 reports/runs/20261003T120107Z_J18_layers_rel-event_user-ignore/results.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+   c7c3210..0ac4e0e  claude/tabular-model-agent-exp-wvni5o -> origin/claude/tabular-model-agent-exp-wvni5o
+Rebasing (1/1)[KSuccessfully rebased and updated refs/heads/claude/tabular-model-agent-exp-wvni5o.
+To https://github.com/YarinBeni/excel_magic
+   0ac4e0e..72392aa  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- rel-avito/user-visits Sat Oct  3 12:07:36 UTC 2026
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files:   4%|▎         | 1/27 [00:00<00:09,  2.79it/s]Fetching 27 files:   7%|▋         | 2/27 [00:03<00:48,  1.93s/it]Fetching 27 files: 100%|██████████| 27/27 [00:03<00:00,  7.88it/s]
+2026-10-03 12:21:24,333 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T120737Z_J18_layers_rel-avito_user-visits/metrics.json
+# rel-avito/user-visits: layer-wise probes of frozen Kumo Relational (val AUROC / official test metric)
+
+## context = random
+
+| layer | linear val | linear test | kNN val | kNN test |
+|---|---|---|---|---|
+| pre_gnn | 0.5156 | 0.5110 | 0.5092 | 0.5148 |
+| gnn | 0.6854 | 0.6552 | 0.6721 | 0.6490 |
+| icl_00 | 0.6837 | 0.6535 | 0.6732 | 0.6480 |
+| icl_01 | 0.6821 | 0.6525 | 0.6724 | 0.6468 |
+| icl_02 | 0.6798 | 0.6496 | 0.6695 | 0.6430 |
+| icl_03 | 0.6781 | 0.6483 | 0.6691 | 0.6447 |
+| icl_04 | 0.6767 | 0.6478 | 0.6685 | 0.6444 |
+| icl_05 | 0.6728 | 0.6457 | 0.6652 | 0.6443 |
+| icl_06 | 0.6729 | 0.6451 | 0.6666 | 0.6437 |
+| icl_07 | 0.6704 | 0.6456 | 0.6654 | 0.6420 |
+| icl_08 | 0.6720 | 0.6472 | 0.6674 | 0.6427 |
+| icl_09 | 0.6707 | 0.6455 | 0.6643 | 0.6416 |
+| icl_10 | 0.6713 | 0.6454 | 0.6630 | 0.6431 |
+| icl_11 | 0.6681 | 0.6435 | 0.6637 | 0.6402 |
+| final | 0.6682 | 0.6434 | 0.6639 | 0.6404 |
+
+best layer by val (linear): **gnn** -> test 0.6552
+
+best layer by val (knn): **icl_00** -> test 0.6480
+
+## context = label
+
+| layer | linear val | linear test | kNN val | kNN test |
+|---|---|---|---|---|
+| pre_gnn | 0.5183 | 0.5136 | 0.5069 | 0.5057 |
+| gnn | 0.6819 | 0.6503 | 0.6691 | 0.6474 |
+| icl_00 | 0.6831 | 0.6483 | 0.6697 | 0.6456 |
+| icl_01 | 0.6824 | 0.6474 | 0.6672 | 0.6453 |
+| icl_02 | 0.6788 | 0.6460 | 0.6645 | 0.6436 |
+| icl_03 | 0.6724 | 0.6417 | 0.6652 | 0.6437 |
+| icl_04 | 0.6723 | 0.6434 | 0.6643 | 0.6442 |
+| icl_05 | 0.6663 | 0.6396 | 0.6662 | 0.6465 |
+| icl_06 | 0.6660 | 0.6395 | 0.6641 | 0.6461 |
+| icl_07 | 0.6641 | 0.6390 | 0.6671 | 0.6449 |
+| icl_08 | 0.6668 | 0.6412 | 0.6658 | 0.6441 |
+| icl_09 | 0.6673 | 0.6402 | 0.6685 | 0.6448 |
+| icl_10 | 0.6662 | 0.6393 | 0.6644 | 0.6452 |
+| icl_11 | 0.6649 | 0.6395 | 0.6659 | 0.6457 |
+| final | 0.6651 | 0.6396 | 0.6653 | 0.6460 |
+
+best layer by val (linear): **icl_00** -> test 0.6483
+
+best layer by val (knn): **icl_00** -> test 0.6456
+model's own in-context prediction: val 0.6332, test 0.6110
+
+[collect] copied 2166 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 3170d40] J18: layer sweep rel-avito/user-visits (job 51263)
+ 4 files changed, 1076 insertions(+)
+ create mode 100644 reports/runs/20261003T120737Z_J18_layers_rel-avito_user-visits/layers_rows.json
+ create mode 100644 reports/runs/20261003T120737Z_J18_layers_rel-avito_user-visits/metrics.json
+ create mode 100644 reports/runs/20261003T120737Z_J18_layers_rel-avito_user-visits/results.md
+ create mode 100644 reports/runs/20261003T121906Z_J19_tab_layers_rel-avito_user-clicks/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   16528a8..3170d40  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- rel-avito/user-clicks Sat Oct  3 12:21:48 UTC 2026
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 8943.08it/s]
+2026-10-03 12:34:06,698 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T122149Z_J18_layers_rel-avito_user-clicks/metrics.json
+# rel-avito/user-clicks: layer-wise probes of frozen Kumo Relational (val AUROC / official test metric)
+
+## context = random
+
+| layer | linear val | linear test | kNN val | kNN test |
+|---|---|---|---|---|
+| pre_gnn | 0.4998 | 0.4750 | 0.5063 | 0.4829 |
+| gnn | 0.5821 | 0.6320 | 0.5523 | 0.5706 |
+| icl_00 | 0.5763 | 0.6276 | 0.5653 | 0.5885 |
+| icl_01 | 0.5722 | 0.6227 | 0.5658 | 0.5904 |
+| icl_02 | 0.5772 | 0.6218 | 0.5686 | 0.6009 |
+| icl_03 | 0.5770 | 0.6143 | 0.5702 | 0.5997 |
+| icl_04 | 0.5720 | 0.6088 | 0.5717 | 0.6108 |
+| icl_05 | 0.5721 | 0.6035 | 0.5734 | 0.6163 |
+| icl_06 | 0.5705 | 0.5979 | 0.5744 | 0.6165 |
+| icl_07 | 0.5561 | 0.5883 | 0.5765 | 0.6082 |
+| icl_08 | 0.5604 | 0.5891 | 0.5699 | 0.6156 |
+| icl_09 | 0.5571 | 0.5889 | 0.5809 | 0.6135 |
+| icl_10 | 0.5559 | 0.5878 | 0.5755 | 0.6109 |
+| icl_11 | 0.5495 | 0.5823 | 0.5732 | 0.6107 |
+| final | 0.5486 | 0.5810 | 0.5713 | 0.6082 |
+
+best layer by val (linear): **gnn** -> test 0.6320
+
+best layer by val (knn): **icl_09** -> test 0.6135
+
+## context = label
+
+| layer | linear val | linear test | kNN val | kNN test |
+|---|---|---|---|---|
+| pre_gnn | 0.5051 | 0.4811 | 0.5010 | 0.4809 |
+| gnn | 0.5854 | 0.6351 | 0.5630 | 0.6033 |
+| icl_00 | 0.5810 | 0.6332 | 0.5629 | 0.6116 |
+| icl_01 | 0.5802 | 0.6315 | 0.5688 | 0.6109 |
+| icl_02 | 0.5784 | 0.6292 | 0.5659 | 0.6167 |
+| icl_03 | 0.5812 | 0.6301 | 0.5599 | 0.6102 |
+| icl_04 | 0.5813 | 0.6302 | 0.5547 | 0.6025 |
+| icl_05 | 0.5788 | 0.6245 | 0.5520 | 0.6052 |
+| icl_06 | 0.5749 | 0.6205 | 0.5483 | 0.6090 |
+| icl_07 | 0.5638 | 0.6066 | 0.5546 | 0.6093 |
+| icl_08 | 0.5661 | 0.6084 | 0.5608 | 0.6115 |
+| icl_09 | 0.5603 | 0.6131 | 0.5699 | 0.6062 |
+| icl_10 | 0.5576 | 0.6114 | 0.5757 | 0.6096 |
+| icl_11 | 0.5554 | 0.6084 | 0.5757 | 0.6083 |
+| final | 0.5544 | 0.6072 | 0.5755 | 0.6082 |
+
+best layer by val (linear): **gnn** -> test 0.6351
+
+best layer by val (knn): **icl_11** -> test 0.6083
+model's own in-context prediction: val 0.5944, test 0.6386
+
+[collect] copied 2174 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o b7d4e13] J18: layer sweep rel-avito/user-clicks (job 51263)
+ 4 files changed, 1076 insertions(+)
+ create mode 100644 reports/runs/20261003T122149Z_J18_layers_rel-avito_user-clicks/layers_rows.json
+ create mode 100644 reports/runs/20261003T122149Z_J18_layers_rel-avito_user-clicks/metrics.json
+ create mode 100644 reports/runs/20261003T122149Z_J18_layers_rel-avito_user-clicks/results.md
+ create mode 100644 reports/runs/20261003T122825Z_J19_tab_layers_rel-hm_user-churn/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   218b2a9..b7d4e13  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- rel-hm/user-churn Sat Oct  3 12:34:33 UTC 2026
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 8643.10it/s]
+2026-10-03 12:45:20,999 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T123434Z_J18_layers_rel-hm_user-churn/metrics.json
+# rel-hm/user-churn: layer-wise probes of frozen Kumo Relational (val AUROC / official test metric)
+
+## context = random
+
+| layer | linear val | linear test | kNN val | kNN test |
+|---|---|---|---|---|
+| pre_gnn | 0.5528 | 0.5497 | 0.5364 | 0.5331 |
+| gnn | 0.6921 | 0.6821 | 0.6807 | 0.6643 |
+| icl_00 | 0.6888 | 0.6808 | 0.6798 | 0.6640 |
+| icl_01 | 0.6899 | 0.6798 | 0.6783 | 0.6646 |
+| icl_02 | 0.6870 | 0.6780 | 0.6789 | 0.6646 |
+| icl_03 | 0.6870 | 0.6768 | 0.6764 | 0.6641 |
+| icl_04 | 0.6864 | 0.6769 | 0.6778 | 0.6636 |
+| icl_05 | 0.6847 | 0.6711 | 0.6788 | 0.6637 |
+| icl_06 | 0.6810 | 0.6674 | 0.6791 | 0.6643 |
+| icl_07 | 0.6775 | 0.6615 | 0.6805 | 0.6640 |
+| icl_08 | 0.6746 | 0.6655 | 0.6816 | 0.6630 |
+| icl_09 | 0.6723 | 0.6617 | 0.6845 | 0.6632 |
+| icl_10 | 0.6770 | 0.6634 | 0.6828 | 0.6635 |
+| icl_11 | 0.6709 | 0.6553 | 0.6838 | 0.6637 |
+| final | 0.6700 | 0.6546 | 0.6846 | 0.6637 |
+
+best layer by val (linear): **gnn** -> test 0.6821
+
+best layer by val (knn): **final** -> test 0.6637
+
+## context = label
+
+| layer | linear val | linear test | kNN val | kNN test |
+|---|---|---|---|---|
+| pre_gnn | 0.5540 | 0.5502 | 0.5340 | 0.5370 |
+| gnn | 0.6874 | 0.6791 | 0.6766 | 0.6646 |
+| icl_00 | 0.6887 | 0.6799 | 0.6761 | 0.6646 |
+| icl_01 | 0.6890 | 0.6801 | 0.6762 | 0.6645 |
+| icl_02 | 0.6867 | 0.6769 | 0.6788 | 0.6660 |
+| icl_03 | 0.6876 | 0.6766 | 0.6798 | 0.6683 |
+| icl_04 | 0.6871 | 0.6758 | 0.6802 | 0.6673 |
+| icl_05 | 0.6842 | 0.6722 | 0.6808 | 0.6676 |
+| icl_06 | 0.6844 | 0.6723 | 0.6816 | 0.6683 |
+| icl_07 | 0.6828 | 0.6689 | 0.6813 | 0.6686 |
+| icl_08 | 0.6834 | 0.6685 | 0.6793 | 0.6691 |
+| icl_09 | 0.6812 | 0.6674 | 0.6787 | 0.6681 |
+| icl_10 | 0.6819 | 0.6680 | 0.6799 | 0.6667 |
+| icl_11 | 0.6812 | 0.6673 | 0.6787 | 0.6661 |
+| final | 0.6810 | 0.6671 | 0.6788 | 0.6660 |
+
+best layer by val (linear): **icl_01** -> test 0.6801
+
+best layer by val (knn): **icl_06** -> test 0.6683
+model's own in-context prediction: val 0.6111, test 0.6079
+
+[collect] copied 2181 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 9a56ac2] J18: layer sweep rel-hm/user-churn (job 51263)
+ 3 files changed, 1030 insertions(+)
+ create mode 100644 reports/runs/20261003T123434Z_J18_layers_rel-hm_user-churn/layers_rows.json
+ create mode 100644 reports/runs/20261003T123434Z_J18_layers_rel-hm_user-churn/metrics.json
+ create mode 100644 reports/runs/20261003T123434Z_J18_layers_rel-hm_user-churn/results.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   d573809..9a56ac2  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J18 done Sat Oct  3 12:45:46 UTC 2026 ===
