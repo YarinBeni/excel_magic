@@ -115,3 +115,5 @@
 - J15c group 2 (pi): best -0.95% (= J8), gated1 -0.68%, gated2 -0.63%, ens3 -0.80%; Marketing -14.6% passes the 2-s.e. gate
   (CV-confident, wrong on fresh rows). Added --accept-holdout (20% acceptance slice of the train split, candidate must beat
   P0 there). inbox 039 / J17: recommended config end to end on Kumo-L (heuristic, pi), cv-repeats auto, gated1, accept 0.2.
+- J15c group 3 (GLM): best -1.41% (= J8), gated1 -1.35%, gated2 -0.47%, ens3 -1.13%; Marketing -10.3% CV-confident under every
+  rule. Selection-rule study complete; J17 (acceptance slice, Kumo-L) pending.

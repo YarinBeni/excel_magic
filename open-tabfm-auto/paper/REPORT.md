@@ -342,6 +342,10 @@ k-means target, below the aggregates (0.26) and two orders of magnitude below sp
   Marketing_Campaign passes even the 2-s.e. gate, i.e. it is CV-confident and wrong on fresh rows, which no CV-based rule
   can catch. The remedy is an *acceptance slice*: 20% of the training split kept out of the search, on which the
   candidate must beat P0 (`--accept-holdout 0.2`); J17 runs the recommended configuration end to end with it.
+  On the 17 GLM-4.5-Air searches: best −1.41% (= J8), gated1 −1.35%, gated2 −0.47%, ens3 −1.13%; the 2-s.e. gate
+  removes maternal_health_risk (−13.9% → 0) but not Marketing_Campaign (−10.3%), again CV-confident. Across all three
+  families the pattern is identical: CV-based final picks cannot separate real gains from CV-confident failures, so the
+  acceptance slice is the mechanism to test.
 - **Backbone nondeterminism (J16)**: the frozen Kumo Tabular-S gives different predictions on repeated calls with the
   same data (anneal r0f2 logloss 0.0035 / 0.0047 / 0.0045 in one process, 0.0031 / 0.0051 / 0.0073 in another; airfoil
   RMSE ±1%), independent of library version. Every P0-vs-P* comparison so far therefore carries this extra noise, which

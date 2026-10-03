@@ -500,3 +500,14 @@ is +0.25% here for the same reason.
 
 Marketing_Campaign -14.6% under every rule (the candidate is significantly better in CV and worse on all other splits);
 airfoil +3.8%, anneal -4.8% (gated: 0), credit-g -2.2%. Re-scored P0 within 3.7% of J8's.
+
+## Final-pick selection rules, corrected (J15c, 51091): GLM-4.5-Air tool-loop searches re-scored with Kumo Tabular-S
+
+| rule | mean gain % | wins | losses > 1% | splits where the pick beats P0 |
+|---|---|---|---|---|
+| best | -1.41 | 6/17 | 4 | 48% |
+| gated 1 s.e. | -1.35 | 5/17 | 3 | 41% |
+| gated 2 s.e. | -0.47 | 4/17 | 1 | 32% |
+| top-3 ensemble | -1.13 | 9/17 | 3 | 51% |
+
+maternal_health_risk -13.9% (gated2: 0), Marketing_Campaign -10.3% under every rule, MIC +1.7%, airfoil +1.5%, diabetes +1.3%.
