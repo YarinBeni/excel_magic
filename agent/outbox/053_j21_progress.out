@@ -1,0 +1,14 @@
+# 053_j21_progress  host=g0377  start=Sat Oct  3 14:25:00 UTC 2026  timeout=120s
+# HEAD=fb6835e
+# ---------------------------------------------------------
+       JOBID                   NAME    STATE       TIME TIME_LIMIT NODELIST(REASON)
+       51265       J21_model_layers  RUNNING    2:45:51   14:00:00 g0381
+== artifacts/runs/20261003T125316Z_J21_model_layers_rel-trial_study-outcome
+368
+{"t": 5470.193, "utc": "2026-10-03T14:24:26.369949+00:00", "kind": "layer", "model": "kumo-l", "target": "label", "layer": "final", "linear_test": 0.6703655273449325, "knn_test": 0.7123454772196192, "effective_rank": 225.11538361508033, "intrinsic_dim": 7.6611
+{"t": 5480.281, "utc": "2026-10-03T14:24:36.457702+00:00", "kind": "run_end", "status": "ok", "elapsed_s": 5480.28}
+last event 24s ago
+--- rel-f1/driver-dnf Sat Oct  3 11:39:57 UTC 2026
+--- rel-trial/study-outcome Sat Oct  3 12:53:15 UTC 2026
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 14:25:00 UTC 2026
