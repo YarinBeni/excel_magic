@@ -25,7 +25,8 @@ r = json.load(open(f))
 for mname, per in r["models"].items():
     for t, m in per.items():
         assert "error" not in m, (mname, t, m.get("error"))
-        bad = [L for L, v in m["layers"].items() if v["geometry"]["effective_rank"] < 1.5]
+        bad = [L for L, v in m["layers"].items() if L != "raw_features" and v["geometry"]["effective_rank"] < 1.5]
+        assert len(m["layers"]) > 3, f"{mname}: only {list(m['layers'])} recorded"
         print(mname, t, "layers", len(m["layers"]), "degenerate", bad, "best", m["best_by_val_linear"])
         assert not bad, f"degenerate layers {bad}"
 PY

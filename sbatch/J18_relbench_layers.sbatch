@@ -31,6 +31,7 @@ E, sc = embed_rows(m, sub, ctx, ctx[task.target_col].to_numpy(), rows, task.enti
 for k, v in E.items():
     print(f"{k:8s} dim {v.shape[1]} row-std {float(v.std(0).mean()):.4f} unique {len(np.unique(v.round(4), axis=0))}")
 print("icl scores range", float(sc.min()), float(sc.max()))
+assert len(E) >= 14, f"only {list(E)} recorded"
 assert all(len(np.unique(v.round(4), axis=0)) > 10 for v in E.values()), "a tapped layer is constant across rows"
 PY
 TASKS="${TASKS:-rel-f1/driver-dnf,rel-f1/driver-top3,rel-trial/study-outcome,rel-event/user-repeat,rel-event/user-ignore,rel-avito/user-visits,rel-avito/user-clicks,rel-hm/user-churn}"

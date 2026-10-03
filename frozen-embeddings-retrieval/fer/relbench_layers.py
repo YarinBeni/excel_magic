@@ -201,6 +201,15 @@ class LayerTap:
 
 
 # ----------------------------------------------------------------------------------------------- embedding
+def classification_module(model):
+    """The classification network inside an sdm model. ``model.models`` holds one network per task and its iteration
+    order follows a set of task enums, which changes between processes: never take the first one."""
+    for key, mod in model.models.items():
+        if "classif" in str(key).lower():
+            return mod
+    raise KeyError(f"no classification network in {list(model.models.keys())}")
+
+
 def _positive_scores(out, n: int) -> np.ndarray:
     """The model returns a TableTensor with one numerical column per class label (e.g. ('1', '0'))."""
     import torch
@@ -218,7 +227,7 @@ def embed_rows(model, sub: Subgrapher, ctx: pd.DataFrame, ctx_y: np.ndarray, row
     import torch
     from sdm import TableTensor
 
-    inner = next(iter(model.models.values()))
+    inner = classification_module(model)
     tap = LayerTap(inner)
     cx, crel = sub.build(ctx[ent_col].to_numpy(), ctx[time_col].to_numpy(), device)
     cy = TableTensor.from_pandas(df=pd.DataFrame({"y": ctx_y.astype(int).astype(str)}), stypes={"y": "categorical"},
@@ -245,6 +254,8 @@ def embed_rows(model, sub: Subgrapher, ctx: pd.DataFrame, ctx_y: np.ndarray, row
                               seconds=round(time.time() - t0, 1))
     finally:
         tap.remove()
+    if not states:
+        raise RuntimeError("no layer was recorded: the hooks are not on the network that ran")
     full = {}
     for k, parts in states.items():
         a = np.zeros((len(rows), parts[0][1].shape[1]), np.float32)

@@ -129,3 +129,7 @@
 - 2026-10-03: runner extended 2 days at Yarin's request (inbox 043: raise the limit in place if allowed, else a 2-day
   successor queued afterany the current runner). Stop everything with `scancel -n AGENT_runner`.
 - J20 (51134) failed at checkout: TEmBed has a folder named '<approach_name>' the cluster FS rejects -> sparse checkout; inbox 044 resubmits.
+- J18 (51131) recorded no layers on rel-f1/driver-dnf: the tap picked the regression network (task-dict order varies per
+  process). Fixed (classification network explicitly; smoke asserts >= 14 layers). J21 smoke worked (TabPFN best layer
+  0.56 vs own prediction 0.79 on driver-dnf; Kumo-S best = row encoder 0.68) but flagged the unscaled raw features; fixed.
+  inbox 045 restarts J18 and resubmits J21.

@@ -17,7 +17,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
-from fer.relbench_layers import Subgrapher, probe_scores
+from fer.relbench_layers import Subgrapher, classification_module, probe_scores
 from fer.relbench_tabular_layers import BlockTap, row_features
 
 
@@ -104,12 +104,22 @@ def model_layer_embeddings(spec: str, X_ctx: pd.DataFrame, y_ctx: np.ndarray, X_
                            chunk: int = 1000) -> tuple[list[dict[str, np.ndarray]], list[np.ndarray | None], dict]:
     """Per-layer embeddings of every row of each frame in ``X_sets`` and, for a binary 0/1 context, P(y=1)."""
     from tabfm_auto.models import get_model
+    from tabfm_auto.models.sdm_wrapper import SdmEstimator
 
     n_cls = len(np.unique(y_ctx))
-    est = get_model(spec, "binary" if n_cls <= 2 else "multiclass")
+    task_type = "binary" if n_cls <= 2 else "multiclass"
+    name, _, opts = spec.partition(":")
+    kw = dict(o.split("=", 1) for o in opts.split(",") if "=" in o)
+    if name.startswith("kumo-tabular") or name.startswith("tabiclv2"):
+        # built directly: sdm downloads its own checkpoint; the registry's status check does not know about it
+        fam = "kumo-tabular" if name.startswith("kumo-tabular") else "tabiclv2"
+        size = {"s": "small", "m": "medium", "l": "large"}.get(name.rsplit("-", 1)[-1]) if fam == "kumo-tabular" else None
+        est = SdmEstimator(fam, task_type, size=size, n_estimators=int(kw.get("n_estimators", 1)), device=kw.get("device", "cuda"))
+    else:
+        est = get_model(spec, task_type)
     est.fit(X_ctx, pd.Series(y_ctx) if not spec.startswith("tabpfn") else y_ctx)
     is_tabpfn = spec.startswith("tabpfn")
-    tap = BlockTap(est.models_[0]) if is_tabpfn else SdmTap(next(iter(est.model.models.values())))
+    tap = BlockTap(est.models_[0]) if is_tabpfn else SdmTap(classification_module(est.model))
     binary = n_cls == 2 and set(np.unique(y_ctx)) <= {0, 1}
     outs, scores, diag = [], [], {"calls_per_chunk": {}}
     try:
@@ -128,6 +138,8 @@ def model_layer_embeddings(spec: str, X_ctx: pd.DataFrame, y_ctx: np.ndarray, X_
                     parts.setdefault(k, []).append(v)
                 if binary:
                     sc.append(np.asarray(proba)[:, list(getattr(est, "classes_", [0, 1])).index(1)])
+            if not parts:
+                raise RuntimeError(f"{spec}: no layer was recorded")
             outs.append({k: np.concatenate(v, 0) for k, v in parts.items()})
             scores.append(np.concatenate(sc) if sc else None)
     finally:
@@ -197,7 +209,10 @@ def run_task(dataset: str, task_name: str, specs: dict[str, str], targets=("rand
             Etr["raw_features"], Eva["raw_features"], Ete["raw_features"] = F["prb"].to_numpy(), F["va"].to_numpy(), F["te"].to_numpy()
             for L in _order(Etr):
                 pv, pt = probe_scores(Etr[L], ytr, Eva[L]), probe_scores(Etr[L], ytr, Ete[L])
-                g = geometry(Ete[L][geo_idx])
+                G = Ete[L][geo_idx]
+                if L == "raw_features":  # mixed units (counts, days, means): compare shapes, not scales
+                    G = (G - G.mean(0)) / (G.std(0) + 1e-9)
+                g = geometry(G)
                 m["layers"][L] = {"geometry": g, **{p: {"val_auroc": float(roc_auc_score(va[tgt], pv[p])),
                                                         "test_auroc": float(task.evaluate(pt[p]).get("roc_auc", np.nan))} for p in pv}}
                 geo_store.setdefault((mname, target), {})[L] = Ete[L][geo_idx].astype(np.float32)
