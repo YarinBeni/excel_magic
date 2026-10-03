@@ -1,0 +1,15 @@
+# 074_progress  host=g0374  start=Sat Oct  3 22:34:29 UTC 2026  timeout=120s
+# HEAD=0f1292a
+# ---------------------------------------------------------
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+       51914          V6_insight_pi  RUNNING    2:01:39 g0378
+       52039      V4_rel_capability  RUNNING       5:07 g0381
+       51136           AGENT_runner  RUNNING    7:01:29 g0374
+== sbatch/logs/V4_rel_capability_52039.out
+[cap] rel-avito/user-clicks D rep1: auroc 0.6255724998741758 submitted True tools {'sql': np.int64(17), 'submit': np.int64(1)}
+[cap] rel-avito/user-clicks E rep0: auroc 0.5 submitted True tools {'sql': np.int64(7), 'deep_fit_predict': np.int64(3), 'submit': np.int64(1)}
+D 100
+E 100
+F 45
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 22:34:29 UTC 2026
