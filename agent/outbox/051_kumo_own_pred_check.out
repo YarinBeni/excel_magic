@@ -1,0 +1,56 @@
+# 051_kumo_own_pred_check  host=g0377  start=Sat Oct  3 12:04:50 UTC 2026  timeout=1800s
+# HEAD=6c4136e
+# ---------------------------------------------------------
+env ok
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 440.70it/s]
+== rel-f1/driver-dnf ctx=512 ctx_pos=475 rows=256 rows_pos=180
+   columns: [Stype.numerical, Stype.categorical, Stype.datetime, Stype.text, Stype.id] numerical names: ['0', '1'] raw shape: (256, 2)
+   col '0': min 0.0341 max 0.1484 std 0.0243 uniq 250 auroc 0.530
+   col '1': min 0.8516 max 0.9659 std 0.0243 uniq 250 auroc 0.470
+   extracted score auroc 0.745
+Fetching 20 files:   0%|          | 0/20 [00:00<?, ?it/s]Fetching 20 files: 100%|██████████| 20/20 [00:00<00:00, 2333.47it/s]
+agent/inbox/051_kumo_own_pred_check.sh: line 49: 147449 Killed                  python - <<'PY'
+import numpy as np, pandas as pd, torch, relbench, warnings
+warnings.filterwarnings("ignore")
+from sklearn.metrics import roc_auc_score
+import fer.relbench_layers as RL
+from sdm.models import KumoRelational
+seen = {}
+orig = RL._positive_scores
+def spy(out, n):
+    key = next(k for k in out.columns if str(k).endswith("numerical"))
+    names = [str(c) for c in out.columns[key]]
+    raw = torch.as_tensor(out.numerical).float().cpu().numpy()
+    seen.setdefault("cols", (list(out.columns), names, raw.shape))
+    seen.setdefault("raw", []).append(raw.reshape(-1, len(names))[-n:])
+    return orig(out, n)
+RL._positive_scores = spy
+for ds, tn in [("rel-f1", "driver-dnf"), ("rel-event", "user-repeat")]:
+    seen.clear()
+    task = relbench.load_dataset(ds).load_task(tn)
+    db = task.get_db(upto_test_timestamp=False)
+    ent, tcol, tgt = task.entity_col, task.time_col, task.target_col
+    tr = task.get_table("train", mask_input_cols=False).df.reset_index(drop=True)
+    te = task.get_table("test", mask_input_cols=False).df.reset_index(drop=True)
+    sub = RL.Subgrapher(db, task.entity_table, k_children=50)
+    early, late, info = RL.time_split(tr, tcol, 4000)
+    trs = early.sample(frac=1.0, random_state=0).drop_duplicates(ent)
+    pos, neg = trs[trs[tgt] == 1], trs[trs[tgt] != 1]
+    nc_pos = min(len(pos), max(256, int(512 * len(pos) / max(len(trs), 1))))
+    ctx = pd.concat([pos.head(nc_pos), neg.head(512 - nc_pos)]).reset_index(drop=True)
+    torch.manual_seed(0)
+    model = KumoRelational(device="cpu"); model.eval()
+    rows = te.iloc[np.random.default_rng(0).choice(len(te), min(256, len(te)), replace=False)].reset_index(drop=True)
+    _, sc = RL.embed_rows(model, sub, ctx, ctx[tgt].to_numpy().astype(int), rows, ent, tcol, "cpu", batch=256)
+    y = rows[tgt].astype(int).to_numpy()
+    print(f"== {ds}/{tn} ctx={len(ctx)} ctx_pos={int(ctx[tgt].sum())} rows={len(rows)} rows_pos={int(y.sum())}")
+    print("   columns:", seen["cols"][0], "numerical names:", seen["cols"][1], "raw shape:", seen["cols"][2])
+    R = np.concatenate(seen["raw"])
+    for j, nm in enumerate(seen["cols"][1]):
+        c = R[:, j]
+        print(f"   col {nm!r}: min {c.min():.4f} max {c.max():.4f} std {c.std():.4f} uniq {len(np.unique(c.round(5)))} auroc {roc_auc_score(y, c):.3f}")
+    print(f"   extracted score auroc {roc_auc_score(y, sc):.3f}")
+PY
+
+# ---------------------------------------------------------
+# exit=137  end=Sat Oct  3 12:05:23 UTC 2026
