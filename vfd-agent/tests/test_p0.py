@@ -102,3 +102,24 @@ def test_ece_perfect():
     df = pd.DataFrame({"qid": [0, 0, 1, 1], "greedy": [True, False, True, False], "correct": [False, True, True, False],
                        "s": [0.1, 0.9, 0.8, 0.2]})
     assert best_of_n(df, "s") == 1.0
+
+
+def test_p1_score_and_variants():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("p1", Path(__file__).resolve().parents[1] / "experiments" / "p1_text_featurizer.py")
+    p1 = importlib.util.module_from_spec(spec); spec.loader.exec_module(p1)  # noqa: E702
+    proba = np.array([[0.9, 0.1], [0.2, 0.8], [0.3, 0.7]])
+    assert p1.score("roc_auc", ["no", "yes", "yes"], None, proba, ["no", "yes"]) == 1.0
+    assert p1.score("acc", [1, 0], np.array([1, 1]), None, [0, 1]) == 0.5
+    df = pd.DataFrame({"t": ["a", "b"], "c": ["x", "y"], "n": [1.0, 2.0]})
+    feats = pd.DataFrame({"gli_task__t__0": [0.1, 0.9], "embed__t__0": [1.0, 2.0], "tfidf__t__0": [0, 1]})
+    m = {"categorical": ["c"], "numerical": ["n"]}
+    assert list(p1.variant_frame(df, feats, m, "gli_task_embed").columns) == ["c", "n", "gli_task__t__0", "embed__t__0"]
+    assert list(p1.variant_frame(df, feats, m, "base").columns) == ["c", "n"]
+
+
+def test_featurize_tfidf():
+    from vfd.featurize import tfidf_svd
+    tr = ["red apple pie", "green apple tart", "blue car fast", "red car slow"] * 5
+    a, b = tfidf_svd(tr, ["apple pie", "fast car"], dim=3)
+    assert a.shape == (20, 3) and b.shape == (2, 3)
