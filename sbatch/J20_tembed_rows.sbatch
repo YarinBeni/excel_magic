@@ -25,7 +25,7 @@ fi
 ls $R | head -20
 cp -r tembed_patch/approaches/benchmark_approaches_src/tabpfn_ctx $R/approaches/benchmark_approaches_src/
 cp tembed_patch/configs/approaches/tabpfn_ctx.yaml $R/configs/approaches/
-cp tembed_patch/configs/runs/tabpfn_ctx_rows.yaml $R/configs/runs/
+cp tembed_patch/configs/runs/tabpfn_ctx_rows.yaml tembed_patch/configs/runs/tabpfn_ctx_rowsim.yaml $R/configs/runs/
 TABPFN_VER=$(python -c "import importlib.metadata as m; print(m.version('tabpfn'))")
 source ~/miniconda3/etc/profile.d/conda.sh
 ( flock -w 3600 8 || exit 1
@@ -39,11 +39,12 @@ source ~/miniconda3/etc/profile.d/conda.sh
 conda activate benchmark_env
 cd $R
 if [ ! -d cache/row_similarity_data_full ] || [ -z "$(ls -A cache/row_similarity_data_full 2>/dev/null)" ]; then
+    mkdir -p cache/raw_datasets   # the creation script downloads into it but asserts it exists first
     bash ./benchmark_src/dataset_creation/em_datasets/create_benchmark.sh 2>&1 | tail -20 || echo "[J20] em dataset creation reported errors"
 fi
 ls cache/row_similarity_data_full 2>/dev/null | head -20 | tee ~/projects/excel_magic/$OUT/datasets.txt
 export TABPFN_CKPT="$TABFM_WEIGHTS_DIR/tabpfn/tabpfn-v2-classifier.ckpt" PYTHONPATH="$R:${PYTHONPATH:-}"
-python run_experiments.py tabpfn_ctx_rows 2>&1 | tail -60 | tee ~/projects/excel_magic/$OUT/run_tail.txt
+python run_experiments.py "${RUN_CONFIG:-tabpfn_ctx_rows}" 2>&1 | tail -60 | tee ~/projects/excel_magic/$OUT/run_tail.txt
 # collect every results.json into one table
 python - <<'PY' | tee ~/projects/excel_magic/$OUT/summary.md
 import json, glob, os

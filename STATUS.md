@@ -133,3 +133,6 @@
   process). Fixed (classification network explicitly; smoke asserts >= 14 layers). J21 smoke worked (TabPFN best layer
   0.56 vs own prediction 0.79 on driver-dnf; Kumo-S best = row encoder 0.68) but flagged the unscaled raw features; fixed.
   inbox 045 restarts J18 and resubmits J21.
+- J20 (51153): TEmBed Wikidata-books row triplets done (chance 0.5): MiniLM text 0.70-0.83; TabPFN zeros/last 0.61 (best TabPFN),
+  zeros/8 0.58, random 0.56, k-means 0.53-0.55 -> the k-means target does NOT help on this text-heavy task. Row similarity
+  datasets not built (raw-data folder missing) -> inbox 046 reruns row similarity only (J20b). Astronomy triplets skipped.
