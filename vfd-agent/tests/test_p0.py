@@ -123,3 +123,12 @@ def test_featurize_tfidf():
     tr = ["red apple pie", "green apple tart", "blue car fast", "red car slow"] * 5
     a, b = tfidf_svd(tr, ["apple pie", "fast car"], dim=3)
     assert a.shape == (20, 3) and b.shape == (2, 3)
+
+
+def test_p1_infer_type():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("p1b", Path(__file__).resolve().parents[1] / "experiments" / "p1_text_featurizer.py")
+    p1 = importlib.util.module_from_spec(spec); spec.loader.exec_module(p1)  # noqa: E702
+    assert p1.infer_type(pd.Series([1.0, 2.0])) == "numerical"
+    assert p1.infer_type(pd.Series(["a", "b", "a", "b"])) == "categorical"
+    assert p1.infer_type(pd.Series(["a long description of a nice flat near the beach in town"] * 3)) == "text"

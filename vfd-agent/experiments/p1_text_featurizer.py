@@ -38,7 +38,10 @@ def cmd_prepare(a):
         if (out / name / "meta.json").exists():
             continue
         tr, te = create_dataset(name, "train"), create_dataset(name, "test")
-        types = dict(zip(tr.feature_columns, tr.feature_types))
+        try:
+            types = dict(zip(tr.feature_columns, tr.feature_types))
+        except (AttributeError, NotImplementedError):  # some dataset classes do not declare types: infer them
+            types = {c: infer_type(tr.data[c]) for c in tr.feature_columns}
         meta = {"alias": al, "name": name, "label": tr.label_columns[0], "problem_type": tr.problem_type,
                 "metric": tr.metric, "text": [c for c, t in types.items() if t == "text"],
                 "categorical": [c for c, t in types.items() if t == "categorical"],
@@ -56,6 +59,13 @@ def cmd_prepare(a):
         meta.update(n_train=len(dtr), n_test=len(dte))
         json.dump(meta, open(out / name / "meta.json", "w"), indent=1)
         print("[prepare]", al, name, meta["problem_type"], meta["metric"], "text", meta["text"], len(dtr), len(dte))
+
+
+def infer_type(s: pd.Series) -> str:
+    if pd.api.types.is_numeric_dtype(s) and not pd.api.types.is_bool_dtype(s):
+        return "numerical"
+    v = s.dropna().astype(str)
+    return "text" if len(v) and (v.str.len().mean() > 30 or v.nunique() > 0.5 * len(v)) else "categorical"
 
 
 def datasets(a):
