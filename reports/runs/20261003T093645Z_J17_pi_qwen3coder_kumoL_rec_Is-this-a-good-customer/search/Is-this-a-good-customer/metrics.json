@@ -1,0 +1,95 @@
+{
+  "dataset": "Is-this-a-good-customer",
+  "task_type": "binary",
+  "model": "kumo-tabular-l:n_estimators=8,device=cuda",
+  "metric": "1-auroc",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 11,
+  "n_evals_ok": 10,
+  "select_rule": "gated1",
+  "p0_cv": 0.28077751992917854,
+  "best_cv": 0.28077751992917854,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 377.7,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261003T093645Z_J17_pi_qwen3coder_kumoL_rec_Is-this-a-good-customer/search/Is-this-a-good-customer/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.2561766982199203,
+  "p0_test_secondary": {
+    "logloss": 0.3181508014144506,
+    "acc": 0.8817391304347826,
+    "auroc": 0.7438233017800797,
+    "1-auroc": 0.2561766982199203
+  },
+  "best_test": 0.2561766982199203,
+  "best_test_secondary": {
+    "logloss": 0.3181508014144506,
+    "acc": 0.8817391304347826,
+    "auroc": 0.7438233017800797,
+    "1-auroc": 0.2561766982199203
+  },
+  "best_test_info": {
+    "n_features": 13,
+    "t_features": 0.007,
+    "n_views": 1,
+    "view_sizes": [
+      1148
+    ],
+    "t_model": 2.259,
+    "t_total": 2.267,
+    "model_spec": "kumo-tabular-l:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 0.0,
+  "cv_trajectory": [
+    [
+      1,
+      0.28077751992917854
+    ],
+    [
+      2,
+      0.28077751992917854
+    ],
+    [
+      3,
+      null
+    ],
+    [
+      4,
+      0.30623279700419354
+    ],
+    [
+      5,
+      0.2903202424881392
+    ],
+    [
+      6,
+      0.2967793308988454
+    ],
+    [
+      7,
+      0.2903202424881392
+    ],
+    [
+      8,
+      0.2953231487950075
+    ],
+    [
+      9,
+      0.285004611786108
+    ],
+    [
+      10,
+      0.29321461328182236
+    ],
+    [
+      11,
+      0.2996538690362188
+    ]
+  ],
+  "elapsed_s": 399.5,
+  "status": "ok"
+}
