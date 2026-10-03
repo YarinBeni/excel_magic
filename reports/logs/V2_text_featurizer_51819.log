@@ -1,0 +1,38 @@
+# job 51819 V2_text_featurizer exit=1 Sat Oct  3 19:19:12 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/V2_text_featurizer_51819.out
+=== V2 text featurizer === job 51819 Sat Oct  3 19:18:15 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+--- prepare Sat Oct  3 19:18:39 UTC 2026
+Downloading /home/yarin.b/projects/excel_magic/artifacts/mmbench_raw/datasets/machine_hack_sentiment_analysis/train.csv from https://automl-mm-bench.s3.amazonaws.com/machine_hack_product_sentiment/train.csv...
+  0%|          | 0.00/611k [00:00<?, ?iB/s] 11%|█         | 67.6k/611k [00:00<00:01, 538kiB/s] 28%|██▊       | 172k/611k [00:00<00:00, 721kiB/s]  94%|█████████▎| 572k/611k [00:00<00:00, 1.88MiB/s]100%|██████████| 611k/611k [00:00<00:00, 1.63MiB/s]
+Downloading /home/yarin.b/projects/excel_magic/artifacts/mmbench_raw/datasets/machine_hack_sentiment_analysis/test.csv from https://automl-mm-bench.s3.amazonaws.com/machine_hack_product_sentiment/dev.csv...
+  0%|          | 0.00/154k [00:00<?, ?iB/s] 34%|███▍      | 52.2k/154k [00:00<00:00, 450kiB/s]100%|██████████| 154k/154k [00:00<00:00, 873kiB/s] 
+[prepare] prod product_sentiment_machine_hack multiclass acc text ['Product_Description'] 3000 1273
+Downloading /home/yarin.b/projects/excel_magic/artifacts/mmbench_raw/datasets/airbnb_melbourne/train.pq from https://automl-mm-bench.s3.amazonaws.com/airbnb_melbourne/train.pq...
+  0%|          | 0.00/34.5M [00:00<?, ?iB/s]  0%|          | 63.5k/34.5M [00:00<01:05, 526kiB/s]  0%|          | 168k/34.5M [00:00<00:46, 736kiB/s]   1%|          | 394k/34.5M [00:00<00:26, 1.27MiB/s]  4%|▎         | 1.23M/34.5M [00:00<00:09, 3.56MiB/s] 14%|█▎        | 4.73M/34.5M [00:00<00:02, 12.9MiB/s] 24%|██▍       | 8.43M/34.5M [00:00<00:01, 20.2MiB/s] 36%|███▌      | 12.4M/34.5M [00:00<00:00, 24.7MiB/s] 49%|████▊     | 16.8M/34.5M [00:00<00:00, 27.1MiB/s] 62%|██████▏   | 21.4M/34.5M [00:01<00:00, 30.7MiB/s] 73%|███████▎  | 25.2M/34.5M [00:01<00:00, 31.6MiB/s] 89%|████████▉ | 30.8M/34.5M [00:01<00:00, 36.4MiB/s]100%|█████████▉| 34.4M/34.5M [00:01<00:00, 34.2MiB/s]100%|██████████| 34.5M/34.5M [00:01<00:00, 23.6MiB/s]
+Downloading /home/yarin.b/projects/excel_magic/artifacts/mmbench_raw/datasets/airbnb_melbourne/test.pq from https://automl-mm-bench.s3.amazonaws.com/airbnb_melbourne/test.pq...
+  0%|          | 0.00/8.48M [00:00<?, ?iB/s]  1%|          | 52.2k/8.48M [00:00<00:20, 412kiB/s]  3%|▎         | 226k/8.48M [00:00<00:08, 988kiB/s]  11%|█         | 905k/8.48M [00:00<00:02, 3.02MiB/s] 42%|████▏     | 3.56M/8.48M [00:00<00:00, 10.2MiB/s] 88%|████████▊ | 7.44M/8.48M [00:00<00:00, 17.8MiB/s]100%|██████████| 8.48M/8.48M [00:00<00:00, 13.2MiB/s]
+Traceback (most recent call last):
+  File "/home/yarin.b/projects/excel_magic/vfd-agent/experiments/p1_text_featurizer.py", line 234, in <module>
+    main()
+  File "/home/yarin.b/projects/excel_magic/vfd-agent/experiments/p1_text_featurizer.py", line 229, in main
+    {"prepare": cmd_prepare, "labels": cmd_labels, "features": cmd_features, "evaluate": cmd_evaluate,
+  File "/home/yarin.b/projects/excel_magic/vfd-agent/experiments/p1_text_featurizer.py", line 41, in cmd_prepare
+    types = dict(zip(tr.feature_columns, tr.feature_types))
+                                         ^^^^^^^^^^^^^^^^
+AttributeError: 'MelBourneAirBnb' object has no attribute 'feature_types'
+FAILED prepare
+[collect] copied 2201 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 88a0154] V2: prepare failed (job 51819)
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 reports/runs/20261003T191521Z_V1_verifier_study_30/candidates.jsonl
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+   8e8c823..4e7d27f  claude/tabular-model-agent-exp-wvni5o -> origin/claude/tabular-model-agent-exp-wvni5o
+Rebasing (1/1)[KSuccessfully rebased and updated refs/heads/claude/tabular-model-agent-exp-wvni5o.
+To https://github.com/YarinBeni/excel_magic
+   4e7d27f..f885a86  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
