@@ -1,0 +1,392 @@
+{
+ "access": {
+  "agnostic": [
+   "Access to property",
+   "Amenities provided",
+   "Internet access",
+   "Parking information",
+   "Check-in instructions",
+   "House rules",
+   "Facilities available",
+   "Guest guidelines",
+   "Location details",
+   "Key collection",
+   "Shared spaces",
+   "Private areas"
+  ],
+  "task": [
+   "Full Property Access",
+   "Shared Facilities",
+   "Internet Access",
+   "Parking Information",
+   "Check-In Process",
+   "House Rules",
+   "Amenities List",
+   "Guest Instructions",
+   "Location Details",
+   "Key Collection",
+   "Outdoor Space",
+   "Pet Policy"
+  ]
+ },
+ "amenities": {
+  "agnostic": [
+   "Living Accommodation",
+   "Home Amenities",
+   "Travel Housing",
+   "Property Features",
+   "Accommodation Details",
+   "Facility List",
+   "Room Essentials",
+   "Hostel Features",
+   "Apartment Amenities",
+   "Guest Room Items",
+   "House Facilities",
+   "lodging comforts"
+  ],
+  "task": [
+   "Entertainment",
+   "Kitchen Facilities",
+   "Parking Options",
+   "Safety Features",
+   "Comfort Amenities",
+   "Family Friendly",
+   "Workspace Setup",
+   "Outdoor Access",
+   "Cleaning Supplies",
+   "Check-in Process",
+   "Pet Friendly",
+   "Seasonal Features"
+  ]
+ },
+ "description": {
+  "agnostic": [
+   "Cozy Cottage Getaway",
+   "Modern Apartment Living",
+   "Beachfront Property",
+   "City Center Convenience",
+   "Rural Retreat",
+   "Historic Victorian Home",
+   "Luxury Rooftop Space",
+   "Family-Friendly Accommodation",
+   "Pet-Friendly Housing",
+   "Well-Connected Location",
+   "Recently Renovated",
+   "Scenic Waterfront View"
+  ],
+  "task": [
+   "Tudor Style Cottage",
+   "Bushland Retreat",
+   "CBD Apartment",
+   "Newly Decorated Unit",
+   "Beachfront Property",
+   "Victorian Home",
+   "City Apartment",
+   "Townhouse with Views",
+   "Family Accommodation",
+   "Modern Apartment",
+   "Great Location",
+   "Luxury Rooftop"
+  ]
+ },
+ "host_about": {
+  "agnostic": [
+   "Host personal interests",
+   "Travel enthusiast",
+   "Local lifestyle",
+   "Cultural background",
+   "Professional background",
+   "Family oriented",
+   "Outdoor activities",
+   "Language skills",
+   "Artistic expression",
+   "Food and fitness",
+   "Friendly personality",
+   "International experience"
+  ],
+  "task": [
+   "Host Personal Interests",
+   "Travel Enthusiast",
+   "Local Knowledge",
+   "Cultural Exchange",
+   "Family-Oriented",
+   "Outdoor Lifestyle",
+   "Artistic & Creative",
+   "Language & Heritage",
+   "Professional Background",
+   "Pet Friendly",
+   "Community Connection",
+   "Adventurous Spirit"
+  ]
+ },
+ "host_verifications": {
+  "agnostic": [
+   "Identity verification methods",
+   "User authentication options",
+   "Verification document types",
+   "Contact validation steps",
+   "Profile confirmation tools",
+   "Identity confirmation processes",
+   "Account security measures",
+   "Verification platform types",
+   "Identity validation techniques",
+   "User identity checks",
+   "Verification service providers",
+   "Authentication protocols"
+  ],
+  "task": [
+   "Identity Verification",
+   "Contact Validation",
+   "Social Proof",
+   "Document Authentication",
+   "Multi-Factor Auth",
+   "Online Identity",
+   "Review Validation",
+   "Government ID Check",
+   "Phone Verification",
+   "Email Confirmation",
+   "Manual Review",
+   "Digital Identity"
+  ]
+ },
+ "house_rules": {
+  "agnostic": [
+   "Smoking Policy",
+   "Noise Restrictions",
+   "Cleanliness Expectations",
+   "Check-out Requirements",
+   "Guest Behavior",
+   "Party Rules",
+   "Neighborhood Respect",
+   "Apartment Condition",
+   "Key Replacement",
+   "Parking Information",
+   "Personal Belongings",
+   "Housekeeping Duties"
+  ],
+  "task": [
+   "Smoking Policy",
+   "Noise Restrictions",
+   "Check-out Time",
+   "Guest Behavior",
+   "Housekeeping Rules",
+   "Party Policy",
+   "Key Replacement",
+   "Parking Permit",
+   "Cleanliness Standards",
+   "Neighborhood Respect",
+   "Security Deposit",
+   "Apartment Condition"
+  ]
+ },
+ "interaction": {
+  "agnostic": [
+   "Welcome & Greeting",
+   "Space & Privacy",
+   "Help & Assistance",
+   "Arrival Details",
+   "House Rules",
+   "Interaction Style",
+   "Local Information",
+   "Communication Methods",
+   "Shared Spaces",
+   "Availability",
+   "Safety & Security",
+   "Booking Process"
+  ],
+  "task": [
+   "Welcome & Greeting",
+   "Space & Privacy",
+   "Help & Assistance",
+   "Arrival Details",
+   "House Rules",
+   "Interaction Style",
+   "Local Information",
+   "Communication",
+   "Self-Service",
+   "Availability",
+   "Shared Spaces",
+   "Emergency Contact"
+  ]
+ },
+ "name": {
+  "agnostic": [
+   "Apartment",
+   "House",
+   "Room",
+   "Beachfront",
+   "City Center",
+   "Modern",
+   "Luxury",
+   "Family",
+   "Renovated",
+   "Suburban",
+   "Comfortable",
+   "Unique"
+  ],
+  "task": [
+   "Apartment",
+   "House",
+   "Unit",
+   "Beachfront",
+   "City Center",
+   "Modern",
+   "Luxury",
+   "Family Home",
+   "Shared Room",
+   "Suburban",
+   "Renovated",
+   "Stylish"
+  ]
+ },
+ "neighborhood_overview": {
+  "agnostic": [
+   "Melbourne suburb highlights",
+   "Neighborhood amenities",
+   "Transport and connectivity",
+   "Local attractions and activities",
+   "Dining and caf\u00e9 culture",
+   "Shopping and retail",
+   "Public transport access",
+   "Family-friendly environment",
+   "City center proximity",
+   "Natural surroundings",
+   "Nightlife and entertainment",
+   "Walking distance to landmarks"
+  ],
+  "task": [
+   "Melbourne suburbs",
+   "Neighborhood amenities",
+   "Transport access",
+   "Dining and cafes",
+   "City center proximity",
+   "Outdoor activities",
+   "Shopping districts",
+   "Public transport",
+   "Local attractions",
+   "Residential location",
+   "Urban lifestyle",
+   "Tourist hotspots"
+  ]
+ },
+ "notes": {
+  "agnostic": [
+   "House rules and policies",
+   "Amenities and facilities",
+   "Check-in and check-out details",
+   "Guest expectations and behavior",
+   "Property description and layout",
+   "Location and transportation",
+   "Host information and availability",
+   "Privacy and personal space",
+   "Kitchen and dining arrangements",
+   "Noise and sleep considerations",
+   "Booking and payment terms",
+   "Safety and security measures"
+  ],
+  "task": [
+   "House rules and policies",
+   "Property amenities and features",
+   "Check-in and check-out details",
+   "Guest expectations and behavior",
+   "Location and transportation info",
+   "Hosting couple and family life",
+   "Privacy and space usage",
+   "Kitchen and dining arrangements",
+   "Noise and quiet hours",
+   "Booking and payment terms",
+   "Safety and security concerns",
+   "Additional services and extras"
+  ]
+ },
+ "space": {
+  "agnostic": [
+   "Apartment rental",
+   "House rental",
+   "Studio apartment",
+   "City views",
+   "Furnished accommodation",
+   "Melbourne location",
+   "Private room",
+   "Self-contained unit",
+   "Luxury amenities",
+   "Quiet neighborhood",
+   "Close to CBD",
+   "Family friendly"
+  ],
+  "task": [
+   "Apartment with city views",
+   "Furnished rental space",
+   "Melbourne property listing",
+   "Private room accommodation",
+   "Studio apartment rental",
+   "Family-friendly housing",
+   "Luxury residential space",
+   "Self-contained unit",
+   "Petite living space",
+   "Modern urban dwelling",
+   "Cozy suburban home",
+   "Short-term rental offer"
+  ]
+ },
+ "summary": {
+  "agnostic": [
+   "Apartment for Rent",
+   "Room for Rent",
+   "Shared Accommodation",
+   "Private Room",
+   "Short Term Stay",
+   "Long Term Lease",
+   "Modern Living",
+   "Urban Lifestyle",
+   "Pet Friendly",
+   "Near Transport",
+   "Fully Furnished",
+   "Cozy Retreat"
+  ],
+  "task": [
+   "Apartment for Rent",
+   "Private Room Available",
+   "Shared Living Space",
+   "Modern Furnished Unit",
+   "Beachfront Property",
+   "City Center Location",
+   "Student Accommodation",
+   "Long Term Lease",
+   "Short Term Stay",
+   "Pet Friendly",
+   "Well Equipped",
+   "Quiet Neighborhood"
+  ]
+ },
+ "transit": {
+  "agnostic": [
+   "Public Transport Access",
+   "Walking Distance Amenities",
+   "Parking Availability",
+   "Melbourne CBD Location",
+   "Tram Network Coverage",
+   "Train Station Proximity",
+   "Shopping Centers Nearby",
+   "University Proximity",
+   "Free Transport Zone",
+   "Transportation Options",
+   "Local Attractions",
+   "Apartment Features"
+  ],
+  "task": [
+   "Public Transport Access",
+   "Walking Distance Amenities",
+   "Parking Availability",
+   "Nearby Landmarks",
+   "Transport Zones",
+   "Shopping Nearby",
+   "Tram Connectivity",
+   "Train Station Proximity",
+   "Free Transport Offers",
+   "City Center Location",
+   "Local Attractions",
+   "Travel Convenience"
+  ]
+ }
+}

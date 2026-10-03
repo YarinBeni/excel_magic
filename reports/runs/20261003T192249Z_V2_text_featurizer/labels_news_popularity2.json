@@ -1,0 +1,32 @@
+{
+ "article_title": {
+  "agnostic": [
+   "Technology News",
+   "Entertainment Updates",
+   "Business Deals",
+   "Science & Discovery",
+   "Sports Highlights",
+   "Marketing Trends",
+   "Celebrity News",
+   "Product Launches",
+   "Social Media",
+   "Travel & Geography",
+   "Career & Jobs",
+   "Health & Lifestyle"
+  ],
+  "task": [
+   "Technology News",
+   "Entertainment Updates",
+   "Business Deals",
+   "Science & Discovery",
+   "Sports Highlights",
+   "Marketing Trends",
+   "Celebrity News",
+   "Tech Reviews",
+   "Digital Media",
+   "Career Opportunities",
+   "Historical Events",
+   "Social Media"
+  ]
+ }
+}

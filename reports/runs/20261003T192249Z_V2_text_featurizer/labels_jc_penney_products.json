@@ -1,0 +1,62 @@
+{
+ "name_title": {
+  "agnostic": [
+   "Apparel",
+   "Footwear",
+   "Accessories",
+   "Beauty Products",
+   "Home Goods",
+   "Swimwear",
+   "Outerwear",
+   "Jewelry",
+   "Electronics",
+   "Baby Kids",
+   "Sports Gear",
+   "Gift Sets"
+  ],
+  "task": [
+   "Apparel",
+   "Footwear",
+   "Beauty Products",
+   "Home Goods",
+   "Jewelry",
+   "Swimwear",
+   "Accessories",
+   "Electronics",
+   "Baby Clothing",
+   "Sports Gear",
+   "Cosmetics",
+   "Household Items"
+  ]
+ },
+ "description": {
+  "agnostic": [
+   "Clothing",
+   "Footwear",
+   "Accessories",
+   "Home Decor",
+   "Beauty",
+   "Toys",
+   "Electronics",
+   "Sports Equipment",
+   "Jewelry",
+   "Kitchen",
+   "Books",
+   "Gifts"
+  ],
+  "task": [
+   "Clothing Apparel",
+   "Footwear Accessories",
+   "Home Decor Items",
+   "Jewelry Accessories",
+   "Outdoor Gear",
+   "Beauty Personal Care",
+   "Kitchen Gadgets",
+   "Sports Equipment",
+   "Baby Kids Wear",
+   "Pet Supplies",
+   "Office Supplies",
+   "Automotive Parts"
+  ]
+ }
+}

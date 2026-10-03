@@ -1,0 +1,32 @@
+{
+ "comment_text": {
+  "agnostic": [
+   "Political Commentary",
+   "Social Issues",
+   "Personal Opinions",
+   "Policy Discussion",
+   "Cultural Critique",
+   "Confirmation Bias",
+   "Economic Policy",
+   "Historical Context",
+   "Ethical Debate",
+   "Public Opinion",
+   "Media Criticism",
+   "Philosophical Reflection"
+  ],
+  "task": [
+   "Political Commentary",
+   "Social Issues",
+   "Personal Opinions",
+   "Policy Discussion",
+   "Cultural Critique",
+   "Confirmation Bias",
+   "Economic Policy",
+   "Healthcare Debate",
+   "Historical Context",
+   "Ethical Dilemmas",
+   "Public Opinion",
+   "Religious Views"
+  ]
+ }
+}

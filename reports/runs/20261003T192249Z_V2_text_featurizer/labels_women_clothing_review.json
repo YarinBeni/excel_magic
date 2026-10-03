@@ -1,0 +1,62 @@
+{
+ "Title": {
+  "agnostic": [
+   "Product review",
+   "Fashion description",
+   "Fit assessment",
+   "Quality evaluation",
+   "Style opinion",
+   "Comfort rating",
+   "Size concern",
+   "Color variation",
+   "Material feedback",
+   "Design praise",
+   "Performance comment",
+   "Overall impression"
+  ],
+  "task": [
+   "Product quality",
+   "Fit and sizing",
+   "Comfort level",
+   "Appearance appeal",
+   "Material issues",
+   "Style description",
+   "Size concerns",
+   "Overall impression",
+   "Color variations",
+   "Seasonal suitability",
+   "Design elements",
+   "Purchase hesitation"
+  ]
+ },
+ "Review Text": {
+  "agnostic": [
+   "Dress fit issues",
+   "Fabric quality praise",
+   "Color satisfaction",
+   "Return reasons",
+   "Size accuracy",
+   "Comfort level",
+   "Style appreciation",
+   "Material feedback",
+   "Product comparison",
+   "Overall satisfaction",
+   "Fit and sizing concerns",
+   "Design aesthetics"
+  ],
+  "task": [
+   "Fit and sizing issues",
+   "Material and fabric quality",
+   "Style and design appreciation",
+   "Comfort and wearability",
+   "Color and visual appeal",
+   "Return and disappointment",
+   "Product comparison",
+   "Overall satisfaction",
+   "Purchase decision",
+   "Size accuracy",
+   "Quality vs price",
+   "Recommendation"
+  ]
+ }
+}

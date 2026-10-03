@@ -1,0 +1,122 @@
+{
+ "Title": {
+  "agnostic": [
+   "Self Help",
+   "Cooking",
+   "Fiction",
+   "Science",
+   "History",
+   "Education",
+   "Health",
+   "Travel",
+   "Business",
+   "Language Learning",
+   "Biography",
+   "Comics"
+  ],
+  "task": [
+   "Self Help",
+   "Fiction",
+   "Cooking",
+   "Education",
+   "History",
+   "Science",
+   "Biography",
+   "Travel",
+   "Business",
+   "Language",
+   "Health",
+   "Comics"
+  ]
+ },
+ "Author": {
+  "agnostic": [
+   "Authors",
+   "Writers",
+   "Novelists",
+   "Poets",
+   "Book Authors",
+   "Literary Figures",
+   "Publishers",
+   "Creative Writers",
+   "Story Tellers",
+   "National Authors",
+   "Contemporary Authors",
+   "Classic Authors"
+  ],
+  "task": [
+   "Author Name",
+   "Book Writer",
+   "Novelist",
+   "Publisher",
+   "Literary Figure",
+   "Author Profile",
+   "Writing Professional",
+   "Creative Writer",
+   "Published Author",
+   "Book Contributor",
+   "Literary Creator",
+   "Writing Talent"
+  ]
+ },
+ "Edition": {
+  "agnostic": [
+   "Paperback Edition",
+   "Hardcover Edition",
+   "Publication Date",
+   "Book Format",
+   "Trade Paperback",
+   "Import Edition",
+   "Monthly Release",
+   "Year Only",
+   "Seasonal Release",
+   "Book Type",
+   "Release Date",
+   "Edition Type"
+  ],
+  "task": [
+   "Paperback Edition",
+   "Hardcover Edition",
+   "Mass Market Paperback",
+   "Import Edition",
+   "Publication Date",
+   "Book Format",
+   "Release Date",
+   "Print Edition",
+   "Binding Type",
+   "Edition Type",
+   "Date Published",
+   "Book Version"
+  ]
+ },
+ "Synopsis": {
+  "agnostic": [
+   "Photography Guide",
+   "Language Learning",
+   "Health & Wellness",
+   "Historical Romance",
+   "Thriller Novel",
+   "Self-Help",
+   "Computer Coding",
+   "Running & Fitness",
+   "Medical Diagnosis",
+   "French Grammar",
+   "Crime Fiction",
+   "Feminism"
+  ],
+  "task": [
+   "Photography Guide",
+   "Korean Language",
+   "Health & Wellness",
+   "Historical Romance",
+   "Thriller Novel",
+   "Philosophy",
+   "Computer Coding",
+   "Running & Fitness",
+   "Medical Diagnosis",
+   "French Grammar",
+   "Crime Fiction",
+   "Feminism"
+  ]
+ }
+}

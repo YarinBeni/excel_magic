@@ -1,0 +1,92 @@
+{
+ "category_name": {
+  "agnostic": [
+   "Beauty & Skincare",
+   "Women's Apparel",
+   "Kids & Toys",
+   "Home & Kitchen",
+   "Handmade Goods",
+   "Vintage & Collectibles",
+   "Women's Footwear",
+   "Athletic Wear",
+   "Jewelry",
+   "Office Supplies",
+   "Bags & Purses",
+   "Sports Equipment"
+  ],
+  "task": [
+   "Beauty & Skincare",
+   "Women's Apparel",
+   "Kids & Toys",
+   "Home & Kitchen",
+   "Handmade Items",
+   "Vintage & Jewelry",
+   "Women's Shoes",
+   "Athletic Wear",
+   "Women's Accessories",
+   "Office Supplies",
+   "Beauty Makeup",
+   "Women's Bottoms"
+  ]
+ },
+ "item_description": {
+  "agnostic": [
+   "Clothing",
+   "Electronics",
+   "Beauty Products",
+   "Toys & Games",
+   "Home Decor",
+   "Sports Equipment",
+   "Books & Media",
+   "Automotive Parts",
+   "Collectibles",
+   "Jewelry",
+   "Health & Wellness",
+   "Other"
+  ],
+  "task": [
+   "Clothing",
+   "Electronics",
+   "Beauty Products",
+   "Toys & Games",
+   "Home Decor",
+   "Books & Media",
+   "Sports Equipment",
+   "Jewelry",
+   "Shoes",
+   "Accessories",
+   "Collectibles",
+   "Other"
+  ]
+ },
+ "name": {
+  "agnostic": [
+   "Clothing Apparel",
+   "Beauty Cosmetics",
+   "Accessories Jewelry",
+   "Home Goods",
+   "Toys Games",
+   "Electronics",
+   "Footwear",
+   "Lingerie Swimwear",
+   "Books Media",
+   "Sports Fitness",
+   "Baby Kids",
+   "Miscellaneous"
+  ],
+  "task": [
+   "Clothing Apparel",
+   "Beauty Cosmetics",
+   "Accessories Jewelry",
+   "Home Goods",
+   "Toys Games",
+   "Electronics",
+   "Footwear",
+   "Lingerie Swimwear",
+   "Books Movies Music",
+   "Health Wellness",
+   "Sports Fitness",
+   "Custom Made"
+  ]
+ }
+}

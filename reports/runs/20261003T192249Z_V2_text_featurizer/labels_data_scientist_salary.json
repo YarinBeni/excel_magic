@@ -1,0 +1,92 @@
+{
+ "job_description": {
+  "agnostic": [
+   "Technical Skills",
+   "Leadership Experience",
+   "Product Development",
+   "Customer Experience",
+   "Engineering Background",
+   "Project Management",
+   "Communication Skills",
+   "Analytics Expertise",
+   "Team Management",
+   "Business Requirements",
+   "Software Development",
+   "Educational Qualifications"
+  ],
+  "task": [
+   "Technical Skills",
+   "Leadership Experience",
+   "Product Development",
+   "Customer Experience",
+   "Data Analysis",
+   "Team Management",
+   "Software Engineering",
+   "Marketing Skills",
+   "Research & Development",
+   "Communication Abilities",
+   "Project Management",
+   "Education Requirements"
+  ]
+ },
+ "job_desig": {
+  "agnostic": [
+   "Job Opening",
+   "Technical Role",
+   "Management Position",
+   "Marketing Role",
+   "Data Analytics",
+   "Software Development",
+   "Finance Role",
+   "Sales Position",
+   "Operations Role",
+   "Consulting Role",
+   "Remote Work",
+   "Entry Level"
+  ],
+  "task": [
+   "Software Development",
+   "Data Science Analytics",
+   "Marketing Digital",
+   "Finance Banking",
+   "Engineering Technical",
+   "Management Leadership",
+   "Sales Recruitment",
+   "Operations Management",
+   "Product Strategy",
+   "Consulting Services",
+   "IT Infrastructure",
+   "Human Resources"
+  ]
+ },
+ "key_skills": {
+  "agnostic": [
+   "Technical Skills",
+   "Marketing Digital",
+   "Data Analytics",
+   "Leadership Management",
+   "Software Development",
+   "Customer Service",
+   "SEO Marketing",
+   "Business Strategy",
+   "Financial Analysis",
+   "Product Management",
+   "Research Analysis",
+   "Sales Operations"
+  ],
+  "task": [
+   "Technical Development",
+   "Marketing Digital",
+   "Data Analytics",
+   "Customer Service",
+   "Product Management",
+   "Software Engineering",
+   "Sales Strategy",
+   "Financial Analysis",
+   "Business Operations",
+   "Healthcare",
+   "Project Management",
+   "Research Analysis"
+  ]
+ }
+}

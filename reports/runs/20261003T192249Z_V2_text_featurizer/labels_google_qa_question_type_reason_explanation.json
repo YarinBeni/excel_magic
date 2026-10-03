@@ -1,0 +1,92 @@
+{
+ "question_title": {
+  "agnostic": [
+   "Technical Troubleshooting",
+   "Programming Development",
+   "Gaming Technology",
+   "Server Management",
+   "Web Development",
+   "Ethics Philosophy",
+   "Photography Tips",
+   "Chemistry Questions",
+   "Security Concerns",
+   "Mobile Devices",
+   "Education Policy",
+   "Software Testing"
+  ],
+  "task": [
+   "Technical Troubleshooting",
+   "Programming Development",
+   "Hardware Compatibility",
+   "Security Concerns",
+   "Ethical Questions",
+   "Software Usage",
+   "Educational Topics",
+   "Gaming Systems",
+   "Web Development",
+   "Scientific Concepts",
+   "Mobile Devices",
+   "General Advice"
+  ]
+ },
+ "question_body": {
+  "agnostic": [
+   "Technical Support",
+   "Software Development",
+   "System Administration",
+   "Hardware Issues",
+   "Network Troubleshooting",
+   "Security Concerns",
+   "Web Development",
+   "Mobile Devices",
+   "Educational Content",
+   "Programming Questions",
+   "Hardware Tuning",
+   "Ethical Dilemmas"
+  ],
+  "task": [
+   "Technical troubleshooting",
+   "Software development",
+   "Hardware compatibility",
+   "System administration",
+   "Network connectivity",
+   "Security concerns",
+   "Device maintenance",
+   "Performance optimization",
+   "Configuration issues",
+   "Error diagnosis",
+   "Best practices",
+   "User experience"
+  ]
+ },
+ "answer": {
+  "agnostic": [
+   "Technical Troubleshooting",
+   "Software Development",
+   "System Administration",
+   "HTML Web Standards",
+   "Product Reviews",
+   "Database Programming",
+   "Mobile Gaming",
+   "Educational Content",
+   "Photography Techniques",
+   "Scientific Explanations",
+   "Security Protocols",
+   "Personal Opinions"
+  ],
+  "task": [
+   "Technical Troubleshooting",
+   "File Transfer Methods",
+   "Software Development",
+   "System Administration",
+   "HTML Web Standards",
+   "Product Reviews",
+   "Database Queries",
+   "Power Management",
+   "Academic Publishing",
+   "Photography Techniques",
+   "Game Development",
+   "Chemical Compounds"
+  ]
+ }
+}

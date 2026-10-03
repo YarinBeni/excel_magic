@@ -1,0 +1,62 @@
+{
+ "title": {
+  "agnostic": [
+   "Software Development",
+   "Customer Service",
+   "Technical Support",
+   "Management",
+   "Design",
+   "Sales",
+   "Education",
+   "Healthcare",
+   "Marketing",
+   "Operations",
+   "Engineering",
+   "Administration"
+  ],
+  "task": [
+   "Customer Service",
+   "Technical Development",
+   "Sales Positions",
+   "Management Roles",
+   "Web Development",
+   "Engineering Jobs",
+   "Marketing Research",
+   "Administrative Tasks",
+   "IT Support",
+   "Education Positions",
+   "Healthcare Roles",
+   "General Employment"
+  ]
+ },
+ "description": {
+  "agnostic": [
+   "Job Posting",
+   "Company Overview",
+   "Customer Support",
+   "Technical Role",
+   "Sales Position",
+   "Career Development",
+   "Startup Opportunity",
+   "Remote Work",
+   "Travel Requirements",
+   "Software Development",
+   "Retail Sales",
+   "Marketing Insights"
+  ],
+  "task": [
+   "Job Posting",
+   "Company Overview",
+   "Customer Support",
+   "Technical Role",
+   "Sales Position",
+   "Marketing Role",
+   "Software Development",
+   "Career Growth",
+   "Remote Work",
+   "Travel Opportunities",
+   "Retail Sales",
+   "Education"
+  ]
+ }
+}

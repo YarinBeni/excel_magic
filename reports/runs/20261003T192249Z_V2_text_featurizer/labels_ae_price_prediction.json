@@ -1,0 +1,122 @@
+{
+ "description": {
+  "agnostic": [
+   "Comfortable Everyday Underwear",
+   "Lace and Feminine Designs",
+   "Supportive Bras and Bralettes",
+   "Soft and Stretchy Fabrics",
+   "Classic Boybrief Silhouette",
+   "Feminine Plunge and V-Neck",
+   "Longline and Layering Styles",
+   "Real Soft\u00ae Fabric Collection",
+   "Adjustable and Secure Fit",
+   "Lightly Padded and Full Coverage",
+   "Halter and Cross-Back Straps",
+   "Machine Washable Basics"
+  ],
+  "task": [
+   "Comfortable Bras",
+   "Lace Bras",
+   "Everyday Underwear",
+   "Pushup Bras",
+   "Bralettes",
+   "Panties",
+   "Supportive Bras",
+   "Feminine Designs",
+   "Soft Fabrics",
+   "Adjustable Straps",
+   "Low Rise Styles",
+   "Plunge Silhouette"
+  ]
+ },
+ "style_attributes": {
+  "agnostic": [
+   "Comfortable Fit",
+   "Lace Details",
+   "Supportive Design",
+   "Stretch Fabric",
+   "Wash Instructions",
+   "Brand Mention",
+   "Rise Style",
+   "Closure Type",
+   "Material Composition",
+   "Style Feature",
+   "Occasion Wear",
+   "Fit Type"
+  ],
+  "task": [
+   "Comfortable Fit",
+   "Lace Details",
+   "Supportive Bra",
+   "Stretch Fabric",
+   "Panty Features",
+   "Wash Instructions",
+   "Material Composition",
+   "Style Highlights",
+   "Brand Promotion",
+   "Rise Level",
+   "Closure Type",
+   "Design Elements"
+  ]
+ },
+ "total_sizes": {
+  "agnostic": [
+   "Clothing sizes",
+   "Shoe sizes",
+   "Ring sizes",
+   "Dress sizes",
+   "Pant sizes",
+   "Hat sizes",
+   "Boot sizes",
+   "Jacket sizes",
+   "Sweater sizes",
+   "Accessories sizes",
+   "Footwear sizes",
+   "Apparel sizes"
+  ],
+  "task": [
+   "Clothing Sizes",
+   "Shoe Sizes",
+   "Ring Sizes",
+   "Dress Sizes",
+   "Pant Sizes",
+   "Hat Sizes",
+   "Jacket Sizes",
+   "Boot Sizes",
+   "Bra Sizes",
+   "Glove Sizes",
+   "Sleeve Sizes",
+   "Waist Sizes"
+  ]
+ },
+ "available_size": {
+  "agnostic": [
+   "Clothing sizes",
+   "Shirt sizes",
+   "T-shirt sizes",
+   "Dress sizes",
+   "Pant sizes",
+   "Women's sizes",
+   "Men's sizes",
+   "Size ranges",
+   "Apparel sizes",
+   "Fashion sizes",
+   "Clothing inventory",
+   "Product variations"
+  ],
+  "task": [
+   "Clothing sizes",
+   "Shirt sizes",
+   "Dress sizes",
+   "Pants sizes",
+   "T-shirt sizes",
+   "Women's sizes",
+   "Men's sizes",
+   "Size ranges",
+   "Apparel sizes",
+   "Fashion sizes",
+   "Uniform sizes",
+   "Body sizes"
+  ]
+ }
+}

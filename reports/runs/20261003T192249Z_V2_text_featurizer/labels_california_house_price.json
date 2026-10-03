@@ -1,0 +1,152 @@
+{
+ "Address": {
+  "agnostic": [
+   "Residential Street Address",
+   "Apartment Unit Address",
+   "Road Address",
+   "Street Address",
+   "Avenue Address",
+   "Lane Address",
+   "Court Address",
+   "Drive Address",
+   "Terrace Address",
+   "Circle Address",
+   "Boulevard Address",
+   "Place Address"
+  ],
+  "task": [
+   "Residential Street Address",
+   "Apartment Unit Location",
+   "Road Address",
+   "Street Name and Number",
+   "Residential Property",
+   "House Address",
+   "Avenue Address",
+   "Drive Address",
+   "Court Address",
+   "Lane Address",
+   "Terminator Address",
+   "Property Location"
+  ]
+ },
+ "Summary": {
+  "agnostic": [
+   "Real Estate Listing",
+   "Home Features & Amenities",
+   "Property Description",
+   "Location & Neighborhood",
+   "Price & Zestimate Info",
+   "Bedroom & Bathroom Count",
+   "Square Footage Details",
+   "Remodeling & Updates",
+   "Community & Building Info",
+   "Private & Exclusive Listings",
+   "Family Home & Living Space",
+   "Market Information"
+  ],
+  "task": [
+   "Real Estate Listing",
+   "Home Features & Amenities",
+   "Property Details",
+   "Location & Neighborhood",
+   "Price & Zestimate",
+   "Remodeling & Updates",
+   "Family Home",
+   "Condo / Townhome",
+   "Luxury & High-End",
+   "Community & Lifestyle",
+   "Available Soon",
+   "Specialty Properties"
+  ]
+ },
+ "Parking": {
+  "agnostic": [
+   "Garage Parking",
+   "Carport Parking",
+   "Covered Parking",
+   "Attached Garage",
+   "Multiple Spaces",
+   "No Parking",
+   "Driveway Access",
+   "Shared Parking",
+   "RV Parking",
+   "Interior Access",
+   "Gated Parking",
+   "Side by Side"
+  ],
+  "task": [
+   "Garage Attached",
+   "Garage Detached",
+   "Carport Covered",
+   "No Parking",
+   "Multiple Spaces",
+   "Covered Parking",
+   "Driveway Access",
+   "Assigned Parking",
+   "Shared Parking",
+   "Interior Access",
+   "RV Parking",
+   "Guest Parking"
+  ]
+ },
+ "Appliances included": {
+  "agnostic": [
+   "Kitchen Appliances",
+   "Laundry Equipment",
+   "Refrigeration",
+   "Cooking Appliances",
+   "Water Heating",
+   "Dishwashing",
+   "Garbage Disposal",
+   "Ventilation",
+   "Outdoor Cooking",
+   "Storage Units",
+   "Waste Management",
+   "Basic Amenities"
+  ],
+  "task": [
+   "Kitchen Appliances",
+   "Laundry Equipment",
+   "Refrigeration",
+   "Cooking Appliances",
+   "Water Heating",
+   "Cleaning Appliances",
+   "Garbage Disposal",
+   "Dishwasher Included",
+   "Range/Oven Type",
+   "Appliance Bundle",
+   "Basic Essentials",
+   "Outdoor Cooking"
+  ]
+ },
+ "Parking features": {
+  "agnostic": [
+   "Garage Parking",
+   "Driveway Access",
+   "Underground Parking",
+   "Assigned Parking",
+   "Covered Parking",
+   "Multi-Level Parking",
+   "Valet Service",
+   "Community Structure",
+   "Controlled Entrance",
+   "Side By Side Spots",
+   "Garage Features",
+   "Parking Type"
+  ],
+  "task": [
+   "Garage Parking",
+   "Driveway Access",
+   "Assigned Parking",
+   "Covered Parking",
+   "Underground Parking",
+   "Valet Service",
+   "Side By Side",
+   "Community Structure",
+   "Controlled Entrance",
+   "Garage Door Opener",
+   "Interior Access",
+   "On Site Mapped"
+  ]
+ }
+}

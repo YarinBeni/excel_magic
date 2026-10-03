@@ -1,0 +1,32 @@
+{
+ "description": {
+  "agnostic": [
+   "Fruity wine description",
+   "Acidic wine profile",
+   "Herbaceous wine notes",
+   "Oak-aged wine characteristics",
+   "Tannin-rich red wine",
+   "Light and crisp wine",
+   "Full-bodied wine style",
+   "Mineral-driven wine",
+   "Young and vibrant wine",
+   "\u6210\u719f\u4e0e\u9648\u5e74\u6f5c\u529b",
+   "Wine tasting notes",
+   "Floral and spicy wine"
+  ],
+  "task": [
+   "Fruity Wine Description",
+   "Acidic Profile",
+   "Tannin Structure",
+   "Herbaceous Notes",
+   "Oak Influence",
+   "Color & Texture",
+   "Flavor Intensity",
+   "Ageability",
+   "Bitterness",
+   "Minerality",
+   "Sweetness Level",
+   "Body Type"
+  ]
+ }
+}

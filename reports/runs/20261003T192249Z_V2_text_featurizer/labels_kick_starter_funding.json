@@ -1,0 +1,92 @@
+{
+ "name": {
+  "agnostic": [
+   "Books & Anthologies",
+   "Playing Cards",
+   "Children's Items",
+   "Music & Videos",
+   "Fitness & Health",
+   "Film & Media",
+   "Religious & Spiritual",
+   "Education & Learning",
+   "Crafts & DIY",
+   "Social Networks",
+   "Professional Services",
+   "Miscellaneous"
+  ],
+  "task": [
+   "Books & Literature",
+   "Music & Entertainment",
+   "Health & Fitness",
+   "Games & Toys",
+   "Film & Video",
+   "Religion & Spirituality",
+   "Education & Learning",
+   "Business & Marketing",
+   "Art & Creativity",
+   "Science Fiction",
+   "Personal Development",
+   "Social Causes"
+  ]
+ },
+ "desc": {
+  "agnostic": [
+   "Book Anthology",
+   "Playing Cards Set",
+   "Biography",
+   "Music Release",
+   "Dietary Restrictions",
+   "Artistic Project",
+   "Mythological Fiction",
+   "Kids Toys",
+   "Music Video",
+   "Social Network",
+   "Urban Fiction",
+   "Resume Optimization"
+  ],
+  "task": [
+   "Creative Writing Project",
+   "Artistic Collaboration",
+   "Music Release",
+   "Health & Wellness",
+   "Book Publishing",
+   "Film & Media Production",
+   "Technology Innovation",
+   "Social Network",
+   "Educational Resource",
+   "Community Initiative",
+   "Personal Development",
+   "Product Development"
+  ]
+ },
+ "keywords": {
+  "agnostic": [
+   "books and publications",
+   "horror and thriller",
+   "games and puzzles",
+   "diet and nutrition",
+   "music and entertainment",
+   "fiction and novels",
+   "educational materials",
+   "technology products",
+   "social networks",
+   "art and culture",
+   "craft and DIY",
+   "film and media"
+  ],
+  "task": [
+   "books and publications",
+   "music and albums",
+   "games and toys",
+   "health and wellness",
+   "technology products",
+   "films and movies",
+   "art and literature",
+   "education and learning",
+   "social networks",
+   "food and recipes",
+   "sports and recreation",
+   "general interests"
+  ]
+ }
+}

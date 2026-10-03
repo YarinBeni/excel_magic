@@ -1,0 +1,92 @@
+{
+ "question_title": {
+  "agnostic": [
+   "Technology & IT",
+   "Science & Physics",
+   "Software Development",
+   "Home & Garden",
+   "Education & Learning",
+   "Gaming & Entertainment",
+   "Business & Finance",
+   "Travel & Geography",
+   "Health & Medicine",
+   "Language & Communication",
+   "Career & Work",
+   "General Knowledge"
+  ],
+  "task": [
+   "Technology",
+   "Science",
+   "Computing",
+   "Architecture",
+   "Gaming",
+   "Education",
+   "Travel",
+   "Health",
+   "Business",
+   "Lifestyle",
+   "Question",
+   "Tutorial"
+  ]
+ },
+ "question_body": {
+  "agnostic": [
+   "Technical IT Support",
+   "Personal Life Advice",
+   "Video Game Questions",
+   "Programming Help",
+   "Physics Mathematics",
+   "Science Questions",
+   "Software Development",
+   "Home Improvement",
+   "Movie Technology",
+   "Language Translation",
+   "Geospatial Learning",
+   "System Administration"
+  ],
+  "task": [
+   "Server migration",
+   "Construction building",
+   "Video games",
+   "Programming",
+   "Physics",
+   "Astrophysics",
+   "SharePoint",
+   "Home improvement",
+   "Film technology",
+   "Language translation",
+   "Mathematics",
+   "Geography"
+  ]
+ },
+ "answer": {
+  "agnostic": [
+   "Server Management",
+   "Construction Tips",
+   "Gold Trading",
+   "Smile Expressions",
+   "Perl Programming",
+   "Physics Equations",
+   "VMware Snapshots",
+   "House Insulation",
+   "Film Quality",
+   "Localization",
+   "Mathematics",
+   "Solar System"
+  ],
+  "task": [
+   "Server Management",
+   "Construction Advice",
+   "Gold Trading",
+   "Smile Description",
+   "Perl Programming",
+   "Quantum Physics",
+   "Solar System",
+   "VMware Usage",
+   "House Insulation",
+   "Film Quality",
+   "Localization",
+   "Database Operations"
+  ]
+ }
+}

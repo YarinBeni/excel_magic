@@ -1,0 +1,122 @@
+{
+ "Title": {
+  "agnostic": [
+   "Movie Title",
+   "Film",
+   "Cinema",
+   "Motion Picture",
+   "Movie Name",
+   "Film Title",
+   "Movie Genre",
+   "Entertainment",
+   "Cultural Work",
+   "Artistic Title",
+   "Media Production",
+   "Creative Work"
+  ],
+  "task": [
+   "Thriller",
+   "Comedy",
+   "Romance",
+   "Animated",
+   "Horror",
+   "Drama",
+   "Action",
+   "Foreign",
+   "Adventure",
+   "Mystery",
+   "Biography",
+   "Fantasy"
+  ]
+ },
+ "Description": {
+  "agnostic": [
+   "Epidemic Crisis",
+   "Family Drama",
+   "Espionage Thriller",
+   "Romantic Comedy",
+   "Dystopian Society",
+   "Friendship Bond",
+   "Airline Disaster",
+   "Monster Universe",
+   "Historical Biography",
+   "High School Life",
+   "Supernatural Horror",
+   "Labor Movement"
+  ],
+  "task": [
+   "Epidemic Outbreak",
+   "Family Drama",
+   "Espionage Thriller",
+   "Romantic Complications",
+   "Dystopian Society",
+   "Secret Unveiling",
+   "Airline Accident",
+   "Monster University",
+   "Japanese Heiress Plot",
+   "Marital Secrets",
+   "Historical Queen",
+   "High School Party"
+  ]
+ },
+ "Director": {
+  "agnostic": [
+   "Film Directors",
+   "Movie Makers",
+   "Cinematic Artists",
+   "Creative Filmmakers",
+   "Motion Picture Directors",
+   "Visual Storytellers",
+   "Screenwriters",
+   "Film Producers",
+   "Cultural Figures",
+   "Entertainment Industry",
+   "Artistic Directors",
+   "Media Professionals"
+  ],
+  "task": [
+   "Film Director",
+   "Movie Maker",
+   "Cinema Creator",
+   "Visual Storyteller",
+   "Narrative Artist",
+   "Screenwriter",
+   "Movie Producer",
+   "Cinematic Visionary",
+   "Drama Filmmaker",
+   "Independent Director",
+   "Award Winning Director",
+   "Feature Film Creator"
+  ]
+ },
+ "Actors": {
+  "agnostic": [
+   "Movie Cast",
+   "Actor Lineup",
+   "Film Characters",
+   "Cinematic Talent",
+   "Movie Stars",
+   "Acting Ensemble",
+   "Film Crew",
+   "Celebrity Group",
+   "Movie Roles",
+   "Actor Collective",
+   "Cinema Cast",
+   "Performance Team"
+  ],
+  "task": [
+   "Movie Cast",
+   "Actor Names",
+   "Film Stars",
+   "Cinematic Talent",
+   "Movie Actors",
+   "Entertainment Industry",
+   "Celebrity Ensemble",
+   "Motion Picture Cast",
+   "Hollywood Stars",
+   "Acting Talent",
+   "Film Industry",
+   "Movie Personnel"
+  ]
+ }
+}

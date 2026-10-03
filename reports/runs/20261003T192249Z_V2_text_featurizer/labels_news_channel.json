@@ -1,0 +1,32 @@
+{
+ "article_title": {
+  "agnostic": [
+   "Technology News",
+   "Entertainment Updates",
+   "Business Travel",
+   "Social Media Trends",
+   "Web Development",
+   "Mobile Devices",
+   "Video Content",
+   "Celebrity News",
+   "Marketing Campaigns",
+   "Security Issues",
+   "Sports Coverage",
+   "Creative Arts"
+  ],
+  "task": [
+   "Technology",
+   "Entertainment",
+   "Business",
+   "Health",
+   "Sports",
+   "Media",
+   "Marketing",
+   "Gadgets",
+   "Music",
+   "News",
+   "Social Media",
+   "Lifestyle"
+  ]
+ }
+}
