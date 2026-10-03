@@ -271,6 +271,17 @@ average (−1.1%, 8/17 wins; anneal −8.8%) and TabICLv2 (−2.9%; anneal −52
 stronger the backbone, the less there is for a generic feature search to add and the more a noisy judge costs: the
 best free pipeline on this benchmark is the strongest open backbone with no search at all. (Judge-noise fixes: §6.)
 
+
+**The recommended free configuration, end to end (J17).** Kumo Tabular-L as the frozen backbone, the no-LLM greedy
+search, a repeated 3×3-fold judge on tables under 1,000 rows, a 1-s.e. gated final pick, and a 20% acceptance slice of
+the training split the pick must also beat P0 on. On the 17 TabArena datasets (all 30 splits) this turns the plain search
+on the same backbone from −1.07% (6 datasets losing more than 1%) into **+0.56%** (1 dataset losing more than 1%), and its
+P* beats the paper's searched TabFM-Auto on 5 of 17. The guards work mostly by refusing changes (median gain 0.0%; of 17
+searches, 8 candidates were accepted, 4 rejected by the acceptance slice, 5 never beat P0 in CV); anneal goes from −8.8% to
++5.4%. The same guards around pi + Qwen3-Coder give −0.79% with one failure that passes every check (Marketing_Campaign
+−14.7%). Recommendation: Kumo Tabular-L with the identity pipeline, plus the guarded no-LLM search when a small,
+reliable gain is worth an hour of GPU; an LLM agent only when the task text names entity structure.
+
 ### 5.5 SQL mode
 On a synthetic shop database (customers / products / orders / order items / tickets; churn in the 90 days after a
 cutoff), the agent's SQL-built table (38 features) reached held-out 1−AUROC 0.293 with P0 and 0.275 after search,

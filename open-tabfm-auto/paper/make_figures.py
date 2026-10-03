@@ -91,7 +91,9 @@ def fig1(roots, out):
                        ("*J8_pi_qwen3coder_*", "pi + Qwen3-Coder-30B · Kumo-S"),
                        ("*J8_openai_glm45air_*", "GLM-4.5-Air tool loop · Kumo-S"),
                        ("*J9_heuristic_kumoL_*", "No LLM, greedy search · Kumo-L"),
-                       ("*J9_heuristic_tabiclv2_*", "No LLM, greedy search · TabICLv2")]:
+                       ("*J9_heuristic_tabiclv2_*", "No LLM, greedy search · TabICLv2"),
+                       ("*J17_pi_qwen3coder_kumoL_rec_*", "pi + Qwen3-Coder · Kumo-L + guards"),
+                       ("*J17_heuristic_kumoL_rec_*", "No LLM, greedy search · Kumo-L + guards")]:
         d = _csvs(roots, pat, "comparison_to_paper.csv")
         if len(d):
             rows.append((label, d["our_gain_%"].mean(), d.dataset.nunique()))
@@ -99,10 +101,10 @@ def fig1(roots, out):
     paper = ref["paper_gain_opus5_%"].mean()
     labels = ["Paper: TabFM-Auto, Claude Opus 5"] + [r[0] for r in rows]
     values = [paper] + [r[1] for r in rows]
-    fig, ax = plt.subplots(figsize=(8.6, 3.9))
-    _hbars(ax, labels, values, [NEUTRAL] + [BLUE] * len(rows))
+    fig, ax = plt.subplots(figsize=(8.6, 4.6))
+    _hbars(ax, labels, values, [NEUTRAL] + [ORANGE if "guards" in r[0] else BLUE for r in rows])
     top = _header(fig, "Free, open setups do not reproduce the paper's gain on TabArena",
-                  f"Mean error reduction of the searched pipeline over the frozen model alone · {len(ref)} datasets · all 30 official splits")
+                  f"Mean error reduction over the frozen model alone · {len(ref)} datasets · 30 splits · orange = with guards (repeated judge, gated pick, acceptance slice)")
     ax.set_xlabel("Mean gain over the frozen model (%)")
     fig.tight_layout(rect=(0, 0, 1, top))
     fig.savefig(out / "fig1_tabarena_overview.png", dpi=180)

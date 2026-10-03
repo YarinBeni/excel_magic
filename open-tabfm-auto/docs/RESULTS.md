@@ -511,3 +511,19 @@ airfoil +3.8%, anneal -4.8% (gated: 0), credit-g -2.2%. Re-scored P0 within 3.7%
 | top-3 ensemble | -1.13 | 9/17 | 3 | 51% |
 
 maternal_health_risk -13.9% (gated2: 0), Marketing_Campaign -10.3% under every rule, MIC +1.7%, airfoil +1.5%, diabetes +1.3%.
+
+## Recommended configuration end to end (cluster job J17, 51110 / 51111, 2026-10-03)
+
+Kumo Tabular-L (n_estimators=8), `--cv-repeats auto --select gated1 --accept-holdout 0.2`, 24 evals / 60 min, TabArena wave 1,
+all 30 official splits.
+
+| setup | mean gain | median | wins | datasets losing > 1% | P* beats paper TabFM-Auto |
+|---|---|---|---|---|---|
+| J9 heuristic, Kumo-L, plain | -1.07% | -0.16% | 8/17 | 6 | 4/17 |
+| J17 heuristic, Kumo-L, guards | +0.56% | 0.00% | 7/17 | 1 | 5/17 |
+| J17 pi + Qwen3-Coder, Kumo-L, guards | -0.79% | 0.00% | 2/17 | 1 | 5/17 |
+
+Per dataset (J17 heuristic / J17 pi / J9 plain / paper): anneal +5.4 / 0.0 / -8.8 / +17.6; Marketing_Campaign 0.0 / -14.7 /
++0.7 / +15.8; airfoil +3.8 / +1.0 / +3.6 / +14.6; hazelnut 0.0 / 0.0 / -5.2 / +8.7; diabetes +1.4 / 0.0 / -1.8 / +6.9;
+qsar-biodeg -3.4 / 0.0 / -0.6 / -0.3; the rest within +-1.1. Acceptance slice: heuristic 8 accepted / 4 rejected / 5 no
+candidate; pi 4 / 4 / 9.
