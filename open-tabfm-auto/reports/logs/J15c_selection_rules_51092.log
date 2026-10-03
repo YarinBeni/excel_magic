@@ -1,0 +1,90 @@
+# job 51092 J15c_selection_rules exit=0 Sat Oct  3 06:28:09 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J15c_selection_rules_51091_0.out
+=== J15c selection rules === job 51092 Sat Oct  3 06:05:46 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+[rescore] 20261002T154910Z_J2_heuristic_hazelnut-spread-contaminant-detection: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155211Z_J2_heuristic_anneal: backbone kumo-tabular-s:n_estimators=8,device=cuda
+/home/yarin.b/venvs/tabfm/lib/python3.11/site-packages/sdm/tensor/string.py:502: RuntimeWarning: Falling back to a CPU-based string sort because cuDF is not installed. Install cuDF to enable faster CUDA-based string sorting without device synchronization. This warning will be suppressed for the remainder of this process.
+  warn_once(
+[rescore] 20261002T155211Z_J2_heuristic_anneal anneal: picks={'p0': 'eval_001.py', 'best': 'eval_022.py', 'gated1': 'eval_022.py', 'gated2': 'eval_006.py', 'ens3': 'eval_022.py+eval_014.py+eval_017.py'} 82s
+[rescore] 20261002T155211Z_J2_heuristic_blood-transfusion-service-center: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155211Z_J2_heuristic_blood-transfusion-service-center blood-transfusion-service-center: picks={'p0': 'eval_001.py', 'best': 'eval_013.py', 'gated1': 'eval_013.py', 'gated2': 'eval_013.py', 'ens3': 'eval_013.py+eval_002.py+eval_019.py'} 119s
+[rescore] 20261002T155211Z_J2_heuristic_diabetes: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155211Z_J2_heuristic_diabetes diabetes: picks={'p0': 'eval_001.py', 'best': 'eval_024.py', 'gated1': 'eval_024.py', 'gated2': 'eval_024.py', 'ens3': 'eval_024.py+eval_022.py+eval_018.py'} 63s
+[rescore] 20261002T155220Z_J2_heuristic_QSAR_fish_toxicity: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155220Z_J2_heuristic_QSAR_fish_toxicity QSAR_fish_toxicity: picks={'p0': 'eval_001.py', 'best': 'eval_009.py', 'gated1': 'eval_009.py', 'gated2': 'eval_021.py', 'ens3': 'eval_009.py+eval_003.py+eval_021.py'} 72s
+[rescore] 20261002T155220Z_J2_heuristic_credit-g: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155220Z_J2_heuristic_credit-g credit-g: picks={'p0': 'eval_001.py', 'best': 'eval_001.py', 'gated1': 'eval_001.py', 'gated2': 'eval_001.py', 'ens3': 'eval_001.py+eval_006.py+eval_002.py'} 45s
+[rescore] 20261002T155220Z_J2_heuristic_maternal_health_risk: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155220Z_J2_heuristic_maternal_health_risk maternal_health_risk: picks={'p0': 'eval_001.py', 'best': 'eval_017.py', 'gated1': 'eval_014.py', 'gated2': 'eval_014.py', 'ens3': 'eval_017.py+eval_018.py+eval_024.py'} 66s
+[rescore] 20261002T155239Z_J2_heuristic_concrete_compressive_strength: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155239Z_J2_heuristic_concrete_compressive_strength concrete_compressive_strength: picks={'p0': 'eval_001.py', 'best': 'eval_024.py', 'gated1': 'eval_024.py', 'gated2': 'eval_017.py', 'ens3': 'eval_024.py+eval_017.py+eval_006.py'} 73s
+[rescore] 20261002T155339Z_J2_heuristic_qsar-biodeg: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155339Z_J2_heuristic_qsar-biodeg qsar-biodeg: picks={'p0': 'eval_001.py', 'best': 'eval_010.py', 'gated1': 'eval_010.py', 'gated2': 'eval_023.py', 'ens3': 'eval_010.py+eval_013.py+eval_015.py'} 118s
+[rescore] 20261002T155549Z_J2_heuristic_healthcare_insurance_expenses: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155549Z_J2_heuristic_healthcare_insurance_expenses healthcare_insurance_expenses: picks={'p0': 'eval_001.py', 'best': 'eval_024.py', 'gated1': 'eval_024.py', 'gated2': 'eval_001.py', 'ens3': 'eval_024.py+eval_007.py+eval_021.py'} 63s
+[rescore] 20261002T155610Z_J2_heuristic_website_phishing: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155610Z_J2_heuristic_website_phishing website_phishing: picks={'p0': 'eval_001.py', 'best': 'eval_020.py', 'gated1': 'eval_020.py', 'gated2': 'eval_020.py', 'ens3': 'eval_020.py+eval_017.py+eval_019.py'} 56s
+[rescore] 20261002T155640Z_J2_heuristic_airfoil_self_noise: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155640Z_J2_heuristic_airfoil_self_noise airfoil_self_noise: picks={'p0': 'eval_001.py', 'best': 'eval_018.py', 'gated1': 'eval_018.py', 'gated2': 'eval_018.py', 'ens3': 'eval_018.py+eval_023.py+eval_011.py'} 64s
+[rescore] 20261002T155643Z_J2_heuristic_Fitness_Club: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155643Z_J2_heuristic_Fitness_Club Fitness_Club: picks={'p0': 'eval_001.py', 'best': 'eval_014.py', 'gated1': 'eval_014.py', 'gated2': 'eval_014.py', 'ens3': 'eval_014.py+eval_018.py+eval_023.py'} 56s
+[rescore] 20261002T155709Z_J2_heuristic_Is-this-a-good-customer: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155709Z_J2_heuristic_Is-this-a-good-customer Is-this-a-good-customer: picks={'p0': 'eval_001.py', 'best': 'eval_013.py', 'gated1': 'eval_013.py', 'gated2': 'eval_001.py', 'ens3': 'eval_013.py+eval_024.py+eval_015.py'} 104s
+[rescore] 20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500 Another-Dataset-on-used-Fiat-500: picks={'p0': 'eval_001.py', 'best': 'eval_023.py', 'gated1': 'eval_001.py', 'gated2': 'eval_001.py', 'ens3': 'eval_023.py+eval_024.py+eval_007.py'} 87s
+[rescore] 20261002T155711Z_J2_heuristic_MIC: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155711Z_J2_heuristic_MIC MIC: picks={'p0': 'eval_001.py', 'best': 'eval_014.py', 'gated1': 'eval_014.py', 'gated2': 'eval_014.py', 'ens3': 'eval_014.py+eval_017.py+eval_023.py'} 125s
+[rescore] 20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection hazelnut-spread-contaminant-detection: picks={'p0': 'eval_001.py', 'best': 'eval_001.py', 'gated1': 'eval_001.py', 'gated2': 'eval_001.py', 'ens3': 'eval_001.py+eval_004.py+eval_015.py'} 57s
+[rescore] 20261002T155712Z_J2_heuristic_Marketing_Campaign: backbone kumo-tabular-s:n_estimators=8,device=cuda
+[rescore] 20261002T155712Z_J2_heuristic_Marketing_Campaign Marketing_Campaign: picks={'p0': 'eval_001.py', 'best': 'eval_002.py', 'gated1': 'eval_002.py', 'gated2': 'eval_002.py', 'ens3': 'eval_002.py+eval_018.py+eval_010.py'} 68s
+[collect] copied 1687 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o dc3c22d] J15c: selection rules J2_heuristic (job 51092)
+ 54 files changed, 2755 insertions(+), 2600 deletions(-)
+ rewrite reports/runs/20261002T155211Z_J2_heuristic_anneal/rescored.json (97%)
+ rewrite reports/runs/20261002T155211Z_J2_heuristic_anneal/selection_rules.csv (99%)
+ rewrite reports/runs/20261002T155211Z_J2_heuristic_blood-transfusion-service-center/rescored.json (95%)
+ rewrite reports/runs/20261002T155211Z_J2_heuristic_blood-transfusion-service-center/selection_rules.csv (82%)
+ rewrite reports/runs/20261002T155211Z_J2_heuristic_diabetes/rescored.json (97%)
+ rewrite reports/runs/20261002T155211Z_J2_heuristic_diabetes/selection_rules.csv (99%)
+ rewrite reports/runs/20261002T155220Z_J2_heuristic_QSAR_fish_toxicity/rescored.json (93%)
+ rewrite reports/runs/20261002T155220Z_J2_heuristic_QSAR_fish_toxicity/selection_rules.csv (79%)
+ rewrite reports/runs/20261002T155220Z_J2_heuristic_credit-g/rescored.json (89%)
+ rewrite reports/runs/20261002T155220Z_J2_heuristic_credit-g/selection_rules.csv (99%)
+ rewrite reports/runs/20261002T155220Z_J2_heuristic_maternal_health_risk/rescored.json (97%)
+ rewrite reports/runs/20261002T155220Z_J2_heuristic_maternal_health_risk/selection_rules.csv (80%)
+ rewrite reports/runs/20261002T155239Z_J2_heuristic_concrete_compressive_strength/rescored.json (94%)
+ rewrite reports/runs/20261002T155239Z_J2_heuristic_concrete_compressive_strength/selection_rules.csv (82%)
+ rewrite reports/runs/20261002T155339Z_J2_heuristic_qsar-biodeg/rescored.json (94%)
+ rewrite reports/runs/20261002T155339Z_J2_heuristic_qsar-biodeg/selection_rules.csv (99%)
+ rewrite reports/runs/20261002T155549Z_J2_heuristic_healthcare_insurance_expenses/rescored.json (93%)
+ rewrite reports/runs/20261002T155549Z_J2_heuristic_healthcare_insurance_expenses/selection_rules.csv (82%)
+ rewrite reports/runs/20261002T155610Z_J2_heuristic_website_phishing/rescored.json (91%)
+ rewrite reports/runs/20261002T155610Z_J2_heuristic_website_phishing/selection_rules.csv (78%)
+ rewrite reports/runs/20261002T155640Z_J2_heuristic_airfoil_self_noise/rescored.json (94%)
+ rewrite reports/runs/20261002T155640Z_J2_heuristic_airfoil_self_noise/selection_rules.csv (79%)
+ rewrite reports/runs/20261002T155643Z_J2_heuristic_Fitness_Club/rescored.json (93%)
+ rewrite reports/runs/20261002T155643Z_J2_heuristic_Fitness_Club/selection_rules.csv (97%)
+ rewrite reports/runs/20261002T155709Z_J2_heuristic_Is-this-a-good-customer/rescored.json (96%)
+ rewrite reports/runs/20261002T155709Z_J2_heuristic_Is-this-a-good-customer/selection_rules.csv (80%)
+ rewrite reports/runs/20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500/rescored.json (90%)
+ rewrite reports/runs/20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500/selection_rules.csv (83%)
+ rewrite reports/runs/20261002T155711Z_J2_heuristic_MIC/rescored.json (94%)
+ rewrite reports/runs/20261002T155711Z_J2_heuristic_MIC/selection_rules.csv (99%)
+ rewrite reports/runs/20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection/rescored.json (96%)
+ rewrite reports/runs/20261002T155712Z_J2_heuristic_Marketing_Campaign/rescored.json (95%)
+ rewrite reports/runs/20261002T155712Z_J2_heuristic_Marketing_Campaign/selection_rules.csv (80%)
+ create mode 100644 reports/runs/20261002T194110Z_J8_openai_glm45air_blood-transfusion-service-center/rescored.json
+ create mode 100644 reports/runs/20261002T194110Z_J8_openai_glm45air_blood-transfusion-service-center/selection_rules.csv
+ create mode 100644 reports/runs/20261002T194110Z_J8_openai_glm45air_blood-transfusion-service-center/selection_rules.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   8d3021b..dc3c22d  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J15c done Sat Oct  3 06:28:09 UTC 2026 ===
