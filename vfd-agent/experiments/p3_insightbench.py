@@ -137,8 +137,8 @@ def cmd_report(a):
                                    insights=("n_pred", "mean"), rejected=("n_rejected", "mean"),
                                    llm_calls=("llm_calls", "mean"), seconds=("seconds", "mean"),
                                    errors=("error", lambda s: int((s != "").sum())))
-    base = df[df.config == "D"].set_index("flag")["g_eval"]
     for c in agg.index:
+        base = df[df.config == ("piD" if c.startswith("pi") else "D")].set_index("flag")["g_eval"]  # same harness
         d = (df[df.config == c].set_index("flag")["g_eval"] - base).dropna()
         agg.loc[c, "vs_D"] = d.mean()
         agg.loc[c, "vs_D_se"] = d.std(ddof=1) / np.sqrt(len(d)) if len(d) > 1 else np.nan
