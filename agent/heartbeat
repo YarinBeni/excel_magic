@@ -1,8 +1,8 @@
-alive Sat Oct  3 19:34:47 UTC 2026
+alive Sat Oct  3 20:35:01 UTC 2026
 host g0374
 job 51136
-             51838 voltagepa V4_rel_c  yarin.b  R       3:31      1 g0381
-             51847 voltagepa V3_insig  yarin.b  R       1:31      1 g0381
-             51837 voltagepa V1_verif  yarin.b  R       6:01      1 g0376
-             51825 voltagepa V2_text_  yarin.b  R      12:02      1 g0378
-             51136 voltagepa AGENT_ru  yarin.b  R    4:01:47      1 g0374
+             51863 voltagepa V5_sql_h  yarin.b  R      15:12      1 g0381
+             51914 voltagepa V6_insig  yarin.b  R       2:11      1 g0378
+             51838 voltagepa V4_rel_c  yarin.b  R    1:03:45      1 g0381
+             51908 voltagepa V3_insig  yarin.b  R      11:12      1 g0381
+             51136 voltagepa AGENT_ru  yarin.b  R    5:02:01      1 g0374
