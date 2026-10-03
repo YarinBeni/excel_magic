@@ -181,3 +181,12 @@ transfer. The same split was used in J18 and J19, so their real-label results (g
 bias. Fix: time split (probe-train rows strictly later than every context row). Inbox 049 reruns J18/J19/J21 on all
 tasks under it; the first-pass rel-f1 runs stay as the random-split comparison (aggregator "protocol check" table).
 Run: reports/runs/20261003T092340Z_J21_model_layers_rel-f1_driver-dnf (cluster branch).
+
+## 2026-10-03 J22 (job 51312): Kumo Relational's own prediction on rel-event/user-repeat is genuinely at chance
+Raw per-class output columns vs the score `embed_rows` extracts (time-split context, real labels), test AUROC:
+rel-f1/driver-dnf 0.753 (control), rel-event/user-repeat **0.479**, rel-event/user-ignore 0.832. The extracted score is
+the '1' column in every case, and on user-repeat the output varies (std 0.061 over 246 rows) but carries no signal.
+Meanwhile a linear probe on the same model's graph layer reaches 0.790 on user-repeat (J18). The label signal reaches the
+model's hidden states and is lost by its in-context head on this task: the clearest case so far for reading the
+embedding from inside the model rather than using its prediction.
+Output: reports/checks/kumo_own_pred_51312.txt (cluster branch).
