@@ -140,3 +140,6 @@
   similarity not run. Stopped here: the Wikidata triplet result (TabPFN 0.55-0.61 vs MiniLM 0.77) already shows text-heavy
   rows are out of scope for the context-target effect, which is about numeric structure. Focus: RelBench J18/J19/J21.
 - J17 done: Kumo-L + guards heuristic +0.56% (1 loss >1%) vs plain -1.07% (6); pi + guards -0.79%. Final recommendation written into REPORT/RESULTS/PDF.
+- J18/J19 stalled ~2 h on rel-trial: Subgrapher re-sorted each child table per entity (quadratic). Fixed (sort once;
+  1M-row child table now 0.9 s). Inbox 048 restarts J18/J19 on the 6 remaining tasks (the two rel-f1 tasks are done);
+  J21 continues (its next task loads the fix) unless it has had no event for 40 min.

@@ -79,9 +79,10 @@ class Subgrapher:
         for n in self.children:
             df = self.s[n]["df"]
             tcol = self.s[n]["time"]
-            order = df.sort_values(tcol).index if tcol else df.index
-            self.child_groups[n] = df.loc[order].groupby(self.child_fk[n], sort=False).indices
-            self.child_groups[n] = {k: df.loc[order].index.to_numpy()[v] for k, v in self.child_groups[n].items()}
+            od = df.sort_values(tcol, kind="stable") if tcol else df
+            labels = od.index.to_numpy()  # sort once; the old version re-sorted the table once per entity (hours on rel-trial)
+            groups = od.groupby(self.child_fk[n], sort=False).indices
+            self.child_groups[n] = {k: labels[v] for k, v in groups.items()}
 
     def build(self, entity_ids: np.ndarray, times: np.ndarray, device):
         from sdm import RelatedTables, TableTensor
