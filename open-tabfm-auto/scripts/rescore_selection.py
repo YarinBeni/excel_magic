@@ -22,7 +22,11 @@ from tabfm_auto.harness.selection import evaluate_holdout_ensemble, select
 
 def rescore_run(run_dir: Path, rules: list[str], lite: bool = False) -> pd.DataFrame | None:
     cfg = json.loads((run_dir / "config.json").read_text())
-    model_spec = cfg.get("model", "tabpfn"); max_rows = cfg.get("max_rows", 10000)
+    cfg = cfg.get("config", cfg)  # RunLogger nests the run config under "config" (J15 scored with the default backbone by mistake)
+    if "model" not in cfg:
+        raise KeyError(f"{run_dir}: no model spec in config.json")
+    model_spec = cfg["model"]; max_rows = cfg.get("max_rows", 10000)
+    print(f"[rescore] {run_dir.name}: backbone {model_spec}", flush=True)
     ds_by_name = {d.name: d for d in list_datasets()}
     rows = []
     for sdir in sorted((run_dir / "search").glob("*")):

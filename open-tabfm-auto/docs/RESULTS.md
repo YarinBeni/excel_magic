@@ -429,7 +429,7 @@ Graph: customers <- transactions -> articles, 365-day window, 2 hops, 64 context
 
 Random-target variant (J14b, 50921): kNN-CF[kumo_relational_random] 0.253 / 0.244 (val / test), level with the aggregates; Past+ hybrid 2.182. Retrieval study complete.
 
-## Final-pick selection rules, heuristic searches (cluster job J15, 50827): gain over P0 on all 30 official splits, %
+## [WITHDRAWN] Final-pick selection rules, heuristic searches (J15, 50827): scored with TabPFN v2 by mistake (nested-config bug); redone as J15c
 
 Rules applied to the recorded per-fold CV scores of the J2 searches (Kumo Tabular-S, 24 evals): best = CV-best (paper),
 gatedZ = CV-best among candidates whose paired per-fold improvement over P0 exceeds Z standard errors (else P0),
@@ -458,3 +458,18 @@ ens3 = average of the 3 best-CV candidates' predictions.
 | splits where the pick beats P0 | 41% | 42% | 41% | 46% |
 
 Source: `reports/runs/*J2_heuristic_*/selection_rules.csv`.
+
+## Backbone determinism (cluster job J16, 51089)
+
+Identity pipeline, Kumo Tabular-S (n_estimators=8, cuda), three calls per split in one process, then a second process,
+then the J8-era library:
+
+| split | process 1 | process 2 | J8-era library | J2 run | J8 run |
+|---|---|---|---|---|---|
+| anneal r0f0 (logloss) | 0.0176 0.0177 0.0195 | 0.0192 0.0174 0.0174 | 0.0172 0.0178 0.0177 | 0.0184 | 0.0181 |
+| anneal r0f2 | 0.0035 0.0047 0.0045 | 0.0031 0.0051 0.0073 | 0.0055 0.0036 0.0045 | 0.0044 | 0.0041 |
+| airfoil r0f0 (rmse) | 0.822 0.822 0.833 | 0.825 0.817 0.816 | 0.834 0.828 0.826 | 0.830 | 0.822 |
+| airfoil r0f1 | 1.015 1.018 1.027 | 1.007 1.012 1.014 | 1.014 1.004 1.031 | 1.018 | 1.026 |
+
+The backbone is nondeterministic at the +-1% (RMSE) to +-30% (small-fold logloss) level; the runner now seeds torch
+per evaluation. J15's P0 (anneal 0.023 / 0.0054 / 0.0031, airfoil 0.975 / 1.156 / 1.046) was TabPFN v2, not Kumo-S.

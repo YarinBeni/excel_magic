@@ -43,6 +43,21 @@ def _sanitize(X: pd.DataFrame) -> pd.DataFrame:
     return X
 
 
+def _seed_everything(seed: int) -> None:
+    import random
+
+    random.seed(seed)
+    np.random.seed(seed)
+    try:
+        import torch
+
+        torch.manual_seed(seed)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed_all(seed)
+    except Exception:  # torch absent (classical backbones only)
+        pass
+
+
 def run_pipeline(mod: types.ModuleType, X_train: pd.DataFrame, y_train: pd.Series, X_test: pd.DataFrame,
                  task_type: str, model_spec: str = "tabpfn", max_rows: int = 10000, seed: int = 0,
                  log: Any = None) -> tuple[np.ndarray, dict[str, Any]]:
@@ -53,6 +68,7 @@ def run_pipeline(mod: types.ModuleType, X_train: pd.DataFrame, y_train: pd.Serie
     y_train = pd.Series(np.asarray(y_train), name=y_train.name or "target")
     y_orig = y_train.copy()
     classes = np.unique(y_orig) if task_type != "regression" else None
+    _seed_everything(seed)  # pipelines and backbones (Kumo-S varies +-30% per split unseeded, J16) are reproducible per seed
 
     # 1. preprocess
     out = mod.preprocess(X_train.copy(), y_train.copy(), X_test.copy())

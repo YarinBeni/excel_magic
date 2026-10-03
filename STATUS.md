@@ -107,3 +107,6 @@
   The Kumo-S wrapper never seeds torch. inbox 035 / J16: score P0 repeatedly with the current and the J8-era library.
 - J15 is ~3 h per group (5 rules x 30 splits, ens3 = 3 fits/split) and cannot finish the GLM group inside 8 h -> inbox 036
   cancels it after the pi group and runs the GLM group alone (J15b); budget-64 groups skipped.
+- J16: Kumo-S is nondeterministic (+-1% rmse, +-30% small-fold logloss), library version irrelevant. ROOT CAUSE of the J15 gap:
+  rescore read config.json top level (nested under "config") and fell back to TabPFN v2 -> J15/J15b numbers withdrawn.
+  Fixed; runner seeds numpy/torch per evaluation; inbox 038 cancels J15b and runs J15c (3 groups in parallel, Kumo-S).

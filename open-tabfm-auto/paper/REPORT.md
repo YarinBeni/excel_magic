@@ -332,13 +332,14 @@ k-means target, below the aggregates (0.26) and two orders of magnitude below sp
   +4.3% / −24.8%. The fraction of splits a candidate improves is 0.39–0.57, i.e. a coin flip. With 500–2500-row tables a
   3-fold CV difference of ±1–2% is inside the noise, so the search mostly selects noise, and a bigger budget selects more
   of it. Repeated CV (J11) is the only lever we found that moves this, and only partly.
-- **Final-pick rules (J15, heuristic searches re-scored on all 30 splits, no new agent runs)**: mean gain over P0
-  across the 17 datasets: best-CV +0.5% (the paper's rule), gated at 1 s.e. +0.6%, gated at 2 s.e. +0.7%, **top-3
-  ensemble +1.1%**. The gate works as a loss limiter (datasets losing > 1%: 6 → 3 at 2 s.e.; Is-this-a-good-customer
-  −1.7% → 0, qsar-biodeg −1.8% → +0.6%) but gives up gains on anneal (+3.7% → −1.4%); the ensemble keeps the gains and
-  halves the losses (anneal +11.2%, airfoil +4.1%, MIC +11.3%). Even so, every rule's pick is better than P0 on only
-  41–46% of the individual splits where it differs: the positive means come from a few datasets with large, real
-  improvements, not from a broad effect. The LLM-agent and budget-64 searches are being re-scored under the same rules.
+- **Final-pick rules (J15, withdrawn → J15c)**: the first re-scoring pass scored every rule with the default backbone
+  (TabPFN v2) instead of the searched one (a nested-config bug), so its numbers are not comparable and are withdrawn; the
+  three groups (heuristic, pi, GLM searches) are being re-scored with Kumo-S as J15c.
+- **Backbone nondeterminism (J16)**: the frozen Kumo Tabular-S gives different predictions on repeated calls with the
+  same data (anneal r0f2 logloss 0.0035 / 0.0047 / 0.0045 in one process, 0.0031 / 0.0051 / 0.0073 in another; airfoil
+  RMSE ±1%), independent of library version. Every P0-vs-P* comparison so far therefore carries this extra noise, which
+  is of the same order as the gains on the small tables. The runner now seeds numpy and torch per evaluation, so later
+  runs are reproducible per seed.
 - **LLM at fixed harness** (§5.2): GLM-4.5-Air (106B-A12B) > gpt-oss-20b > Qwen3-Coder-30B-A3B > Qwen3-32B in the
   tool loop; the reasoning model spends its budget on rewrites (37 writes / 16 evals) and finds nothing.
 - **LLM vs no LLM**: the greedy heuristic matches the mid-tier CLI agents on the entity task (+25–29%) because
