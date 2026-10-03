@@ -1,0 +1,19 @@
+[project]
+name = "vfd-agent"
+version = "0.1.0"
+description = "Verified, Fast, Deep: a three-model harness (reasoning LLM + GLiNER/GLiClass + tabular/relational FMs) for data-analysis agents"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pandas", "scikit-learn", "sqlglot", "requests"]
+
+[project.optional-dependencies]
+models = ["gliclass", "gliner", "sentence-transformers", "transformers", "torch", "openai"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["vfd*"]
+
+[tool.ruff]
+line-length = 120
