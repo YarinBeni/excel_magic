@@ -1,0 +1,12 @@
+# 037_j15_p0_diff  host=g0377  start=Sat Oct  3 06:01:28 UTC 2026  timeout=600s
+# HEAD=cde6bc7
+# ---------------------------------------------------------
+eval_001 == IDENTITY: True daac0c51 daac0c51
+cfg model: None max_rows: None
+Traceback (most recent call last):
+  File "<stdin>", line 13, in <module>
+  File "/home/yarin.b/projects/excel_magic/open-tabfm-auto/tabfm_auto/benchmarks/tabarena.py", line 78, in load_openml_task
+    import openml
+ModuleNotFoundError: No module named 'openml'
+# ---------------------------------------------------------
+# exit=1  end=Sat Oct  3 06:01:31 UTC 2026
