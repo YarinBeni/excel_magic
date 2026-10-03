@@ -416,3 +416,15 @@ Runs: `reports/runs/*J9_heuristic_kumoL_*`, `*J9_heuristic_tabiclv2_*`.
 | kNN[kumo_relational_kmeans] | 0.644 |
 
 Graph: customers <- transactions -> articles, 365-day window, 2 hops, 64 context rows; 172 s for 20k customers on one H200.
+
+## Kumo Relational on rel-hm user-item-purchase (J14, 50826, official evaluator, MAP@12 x100)
+
+| method | val | test |
+|---|---|---|
+| kNN-CF[kumo_relational_kmeans] | 0.201 | 0.184 |
+| Past+kNN-CF[kumo_relational_kmeans] | 1.881 | 2.181 |
+| kNN-CF[agg] | 0.258 | 0.259 |
+| kNN-CF[purchase_matrix] | 1.164 | 1.203 |
+| PastVisit | 1.904 | 2.199 |
+
+Below the aggregates; the random-target variant is queued (J14b).

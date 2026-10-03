@@ -136,3 +136,13 @@ hurts: it pulls the embedding toward the aggregate clusters and discards the gra
 result (0.33 random -> 0.62 k-means), where the planted segments *were* the aggregate clusters. Item-level rows (user-item
 -purchase, official evaluator) follow in the same job.
 Run: reports/runs/20261002T231936Z_J14_kumo_churn (cluster branch).
+
+## 2026-10-03 J14 item level (job 50826): Kumo Relational on rel-hm user-item-purchase, official evaluator, MAP@12 x100
+- kNN-CF[kumo_relational_kmeans] 0.20 / **0.18** (val / test); hand aggregates 0.26; sparse cosine on the purchase matrix
+  1.20; PastVisit 2.20; Past+kNN-CF[kumo] 2.18 (no gain over PastVisit alone).
+Reading: at item level the relational hidden state is no better than the tabular one: like every embedding row, it is
+below the popularity prior. The small entity-level gain (churn 0.660 with a random target) does not translate into
+item-level neighbourhoods; what the graph embedding carries is a customer-level summary, not co-purchase structure. The
+random-target variant at item level is queued (J14b) for completeness; the churn ordering (random > k-means) suggests it
+will be higher than 0.18 but the gap to 1.20 is two orders of magnitude.
+Run: reports/runs/*J14_kumo_hm_full (cluster branch).

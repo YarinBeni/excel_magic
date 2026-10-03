@@ -302,7 +302,10 @@ representation than those features, and it is not an item-level retrieval embedd
 **Relational FM on real data (J14, same churn probe):** frozen Kumo Relational over the rel-hm graph scores **0.660** with
 a random in-context target and 0.644 with the k-means target, against 0.653 for the hand aggregates, 0.648 for TabPFN
 over them and 0.672 supervised. It is the only training-free row above its tabular input, by 0.7 AUROC points: a small
-but real graph signal. The k-means target, which helped every tabular embedding, removes it here. Item-level rows pending.
+but real graph signal. The k-means target, which helped every tabular embedding, removes it here.
+At item level (user-item-purchase, official evaluator) the relational embedding scores 0.18 test MAP@12×100 with the
+k-means target, below the aggregates (0.26) and two orders of magnitude below sparse cosine on the purchase matrix
+(1.20); its PastVisit hybrid (2.18) does not beat PastVisit (2.20). The entity-level gain does not reach item level.
 
 ## 6. Ablations and analysis
 - **Harness at fixed LLM** (§5.2): pi +50% > aider +42% > Qwen Code +26% > tool loop ~0% on synth_entities with

@@ -81,3 +81,9 @@ a *relational* frozen hidden state carries graph signal the hand features lack, 
 (0.644) removes it. If the item-level rows (pending) show the same ordering, the paper's positive claim becomes: frozen
 relational-FM hidden states are weak but real graph-aware entity embeddings, and the in-context target must be
 uninformative (random) to keep that signal.
+
+**2026-10-03 J14 item-level note.** Kumo Relational (k-means target) 0.18 test MAP@12 x100 on user-item-purchase, below
+the aggregates (0.26) and the purchase-matrix cosine (1.20). The relational FM's small entity-level gain does not reach
+item level. Final framing for the paper: frozen FM hidden states (tabular or relational) are entity-level summaries;
+the relational model adds a little graph signal at entity level (0.660 vs 0.653) and nothing at item level; neither is
+a retrieval embedding for recommendation, where the interaction matrix itself is the right representation.
