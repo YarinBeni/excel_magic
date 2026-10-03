@@ -1,0 +1,13 @@
+# 065_v5  host=g0374  start=Sat Oct  3 19:51:07 UTC 2026  timeout=120s
+# HEAD=566508c
+# ---------------------------------------------------------
+-rw------- 1 yarin.b pwuser 1644720 Oct  3 19:48 /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T192850Z_V1_verifier_study_all/signals.csv
+V5: 51863
+       51136           AGENT_runner  RUNNING    4:18:08 g0374
+       51825     V2_text_featurizer  RUNNING      28:23 g0378
+       51838      V4_rel_capability  RUNNING      19:52 g0381
+       51847        V3_insightbench  RUNNING      17:52 g0381
+       51863         V5_sql_harness  PENDING       0:00 (Priority)
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 19:51:08 UTC 2026
