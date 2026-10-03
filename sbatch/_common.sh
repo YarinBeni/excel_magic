@@ -31,7 +31,7 @@ src = pathlib.Path("artifacts/runs"); dst = pathlib.Path("reports/runs"); dst.mk
 keep = {"metrics.json", "config.json", "results.md", "results.csv", "best_pipeline.py", "build_table.sql", "agent_result.md",
         "comparison_to_paper.md", "comparison_to_paper.csv", "heuristic_trace.json", "rescored.json", "NOTES.md",
         "agent_stream.log", "agent_stream.jsonl", "agent_result.md", "relbench_rows.json", "churn_rows.json",
-        "selection_rules.md", "selection_rules.csv"}
+        "selection_rules.md", "selection_rules.csv", "layers_rows.json"}
 n = 0
 for run in sorted(src.glob("*")):
     if not run.is_dir(): continue

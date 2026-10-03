@@ -117,3 +117,6 @@
   P0 there). inbox 039 / J17: recommended config end to end on Kumo-L (heuristic, pi), cv-repeats auto, gated1, accept 0.2.
 - J15c group 3 (GLM): best -1.41% (= J8), gated1 -1.35%, gated2 -0.47%, ens3 -1.13%; Marketing -10.3% CV-confident under every
   rule. Selection-rule study complete; J17 (acceptance slice, Kumo-L) pending.
+- inbox 040 / J18: layer-wise embeddings of frozen Kumo Relational (pre-GNN, GNN, 12 ICL layers, final) on 8 real RelBench
+  entity tasks (f1 x2, trial, event x2, avito x2, hm churn), random-target and true-label context, linear + kNN probes,
+  layer chosen on val, official test evaluator. Smoke step asserts every tapped layer varies across rows.
