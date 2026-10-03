@@ -1,0 +1,26 @@
+# 054_vfd_probe  host=g0374  start=Sat Oct  3 18:56:14 UTC 2026  timeout=1500s
+# HEAD=52c22d0
+# ---------------------------------------------------------
+transformers 4.57.6 torch 2.9.1+cu128
+aider-chat 0.86.2 requires typer==0.23.0, but you have typer 0.27.2 which is incompatible.
+exaonetabular 1.0.0 requires numpy<3,>=2.3.5, but you have numpy 2.3.4 which is incompatible.
+sentence-transformers 3.0.1 requires transformers<5.0.0,>=4.34.0, but you have transformers 5.16.1 which is incompatible.
+gliclass ok gliner 0.2.29 sqlglot 30.21.0
+== https://bird-bench.oss-cn-beijing.aliyuncs.com/minidev.zip
+== https://bird-bench.oss-cn-beijing.aliyuncs.com/dev.zip
+DATASET birdsql/bird_mini_dev 5 files; db-like: []
+DATASET heegyu/bird-sql-mini-dev 2 files; db-like: []
+DATASET 567-labs/bird-dev-tables 20 files; db-like: []
+DATASET epiphanian/bird_mini_dev 5 files; db-like: []
+MODEL knowledgator/gliclass-large-v3.0 ok  e065d184
+MODEL knowledgator/gliclass-base-v3.0 ok  77a70e6c
+MODEL knowledgator/gliner-bi-base-v2.0 ok gliner 3fdae58d
+MODEL urchade/gliner_large-v2.1 ok gliner abd49a1f
+MODEL MoritzLaurer/deberta-v3-large-zeroshot-v2.0 ok transformers cf44676c
+MODEL BAAI/bge-reranker-v2-m3 ok sentence-transformers 953dc6f6
+MODEL lytang/MiniCheck-Flan-T5-Large ok transformers 96eafd01
+MODEL BAAI/bge-small-en-v1.5 ok sentence-transformers 5c38ec7c
+/home/yarin.b/miniconda3/envs/vllm/.ok
+vllm env ok
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 18:58:49 UTC 2026
