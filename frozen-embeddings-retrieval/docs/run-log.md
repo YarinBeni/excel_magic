@@ -190,3 +190,37 @@ Meanwhile a linear probe on the same model's graph layer reaches 0.790 on user-r
 model's hidden states and is lost by its in-context head on this task: the clearest case so far for reading the
 embedding from inside the model rather than using its prediction.
 Output: reports/checks/kumo_own_pred_51312.txt (cluster branch).
+
+## 2026-10-03 J18 (51263) + J19 (51264), time split, 8 RelBench tasks: which layer of Kumo Relational / TabPFN v2?
+Linear probe on each frozen layer, layer picked on validation, test AUROC (official evaluator). Raw = probe on the
+flattened relational features (J19's; Kumo Relational reads the subgraph itself).
+
+Real-label context:
+
+| task | raw | Kumo Rel. own | Kumo Rel. last | Kumo Rel. val-picked | TabPFN own | TabPFN last | TabPFN val-picked |
+|---|---|---|---|---|---|---|---|
+| rel-avito/user-clicks | 0.623 | 0.639 | 0.607 | 0.635 (graph) | 0.629 | 0.627 | 0.634 (block 8) |
+| rel-avito/user-visits | 0.649 | 0.611 | 0.640 | 0.648 (ICL 0) | 0.648 | 0.656 | 0.656 (block 8) |
+| rel-event/user-ignore | 0.883 | 0.838 | 0.861 | 0.877 (graph) | 0.892 | 0.901 | 0.893 (block 9) |
+| rel-event/user-repeat | 0.674 | 0.493 | 0.766 | 0.786 (ICL 2) | 0.708 | 0.720 | 0.733 (block 8) |
+| rel-f1/driver-dnf | 0.790 | 0.769 | 0.781 | 0.778 (ICL 0) | 0.796 | 0.775 | 0.824 (block 8) |
+| rel-f1/driver-top3 | 0.891 | 0.859 | 0.785 | 0.875 (graph) | 0.885 | 0.904 | 0.899 (block 0) |
+| rel-hm/user-churn | 0.678 | 0.608 | 0.667 | 0.680 (ICL 1) | 0.681 | 0.678 | 0.679 (block 0) |
+| rel-trial/study-outcome | 0.630 | 0.625 | 0.667 | 0.709 (row enc.) | 0.689 | 0.702 | 0.667 (block 5) |
+| **mean** | 0.727 | 0.680 | 0.722 | **0.749** | 0.741 | 0.745 | **0.748** |
+
+Label-free (random-label context), mean over the 8 tasks: Kumo Relational val-picked 0.734 (graph layer on 5/8 tasks),
+last layer 0.712; TabPFN random 0.717, all-zeros 0.704, k-means 0.701; raw 0.727.
+
+Reading:
+- **Kumo Relational: read the graph layer, not the head.** The val-picked layer (graph layer or the first ICL layers on
+  7/8 tasks) beats the model's own prediction on 7/8 tasks (mean 0.749 vs 0.680; user-repeat 0.786 vs 0.493, where the
+  head is at chance, J22) and the last layer on 7/8. Later ICL layers lose linear signal steadily.
+- **TabPFN: block 8-9 with real labels**, picked on 5/8 tasks, matching the mechanistic finding that its target
+  information appears between layers 8 and 9. Val-picked beats its own prediction on 6/8 tasks by a small margin
+  (0.748 vs 0.741); against the last layer it is a tie (0.748 vs 0.745).
+- **Label-free embeddings are worth their input, not more.** Kumo Relational with random labels matches the hand-built
+  relational features on average (0.734 vs 0.727, 4/8 tasks above) while reading the database directly: no feature
+  engineering. TabPFN over those features loses to them with every label-free context (0.70-0.72 vs 0.727); the k-means
+  context, which helped on synthetic segments, does not help on real tasks.
+Runs: reports/runs/*J18_layers_* and *J19_tab_layers_* with ctx_split=time (cluster branch). Tables: docs/layers/.
