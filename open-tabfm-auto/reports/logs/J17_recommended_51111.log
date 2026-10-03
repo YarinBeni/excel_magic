@@ -1,0 +1,484 @@
+# job 51111 J17_recommended exit=0 Sat Oct  3 09:12:53 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J17_recommended_51110_0.out
+=== J17 recommended task 0 === job 51111 Sat Oct  3 06:51:42 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+--- blood-transfusion-service-center Sat Oct  3 06:51:46 UTC 2026
+2026-10-03 06:52:10,937 INFO P0 cv 1-auroc = 0.26430866026988536
+2026-10-03 06:58:11,815 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T065147Z_J17_heuristic_kumoL_rec_blood-transfusion-service-center/search/blood-transfusion-service-center/metrics.json
+2026-10-03 06:59:09,013 INFO blood-transfusion-service-center         P0=0.24740 P*=0.24740 | paper TabFM=0.2441 TabFM-Auto(Opus5)=0.2431 | 433s
+2026-10-03 06:59:09,082 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T065147Z_J17_heuristic_kumoL_rec_blood-transfusion-service-center/metrics.json
+1 datasets: ['blood-transfusion-service-center']
+pipeline                                P*        P0
+dataset                                             
+blood-transfusion-service-center  0.247395  0.247395
+[collect] copied 1745 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 4f54fa9] J17: recommended config heuristic blood-transfusion-service-center (job 51111)
+ 8 files changed, 507 insertions(+)
+ create mode 100644 reports/runs/20261003T065147Z_J17_heuristic_kumoL_rec_blood-transfusion-service-center/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T065147Z_J17_heuristic_kumoL_rec_blood-transfusion-service-center/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T065147Z_J17_heuristic_kumoL_rec_blood-transfusion-service-center/metrics.json
+ create mode 100644 reports/runs/20261003T065147Z_J17_heuristic_kumoL_rec_blood-transfusion-service-center/results.csv
+ create mode 100644 reports/runs/20261003T065147Z_J17_heuristic_kumoL_rec_blood-transfusion-service-center/search/blood-transfusion-service-center/best_pipeline.py
+ create mode 100644 reports/runs/20261003T065147Z_J17_heuristic_kumoL_rec_blood-transfusion-service-center/search/blood-transfusion-service-center/heuristic_trace.json
+ create mode 100644 reports/runs/20261003T065147Z_J17_heuristic_kumoL_rec_blood-transfusion-service-center/search/blood-transfusion-service-center/metrics.json
+ create mode 100644 reports/runs/20261003T065147Z_J17_heuristic_kumoL_rec_blood-transfusion-service-center/search/blood-transfusion-service-center/workspace/NOTES.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   d4352a8..4f54fa9  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- diabetes Sat Oct  3 06:59:31 UTC 2026
+2026-10-03 06:59:54,154 INFO P0 cv 1-auroc = 0.16621953055134978
+2026-10-03 07:06:07,282 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T065932Z_J17_heuristic_kumoL_rec_diabetes/search/diabetes/metrics.json
+2026-10-03 07:06:50,295 INFO diabetes                                 P0=0.15647 P*=0.15427 | paper TabFM=0.158 TabFM-Auto(Opus5)=0.1471 | 430s
+2026-10-03 07:06:50,348 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T065932Z_J17_heuristic_kumoL_rec_diabetes/metrics.json
+1 datasets: ['diabetes']
+pipeline        P*        P0
+dataset                     
+diabetes  0.154269  0.156472
+[collect] copied 1767 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 89124e5] J17: recommended config heuristic diabetes (job 51111)
+ 6 files changed, 169 insertions(+)
+ create mode 100644 reports/runs/20261003T065932Z_J17_heuristic_kumoL_rec_diabetes/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T065932Z_J17_heuristic_kumoL_rec_diabetes/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T065932Z_J17_heuristic_kumoL_rec_diabetes/metrics.json
+ create mode 100644 reports/runs/20261003T065932Z_J17_heuristic_kumoL_rec_diabetes/results.csv
+ create mode 100644 reports/runs/20261003T070649Z_J17_pi_qwen3coder_kumoL_rec_diabetes/config.json
+ create mode 100644 reports/runs/20261003T070649Z_J17_pi_qwen3coder_kumoL_rec_diabetes/search/diabetes/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   4a42a95..89124e5  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- anneal Sat Oct  3 07:07:12 UTC 2026
+2026-10-03 07:07:37,580 INFO P0 cv logloss = 0.03450947190215197
+2026-10-03 07:16:25,043 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T070713Z_J17_heuristic_kumoL_rec_anneal/search/anneal/metrics.json
+2026-10-03 07:18:13,341 INFO anneal                                   P0=0.01078 P*=0.01020 | paper TabFM=0.0125 TabFM-Auto(Opus5)=0.0103 | 652s
+2026-10-03 07:18:13,398 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T070713Z_J17_heuristic_kumoL_rec_anneal/metrics.json
+1 datasets: ['anneal']
+pipeline      P*        P0
+dataset                   
+anneal    0.0102  0.010784
+[collect] copied 1795 files into reports/runs
+[commit_push_sandbox] nothing to commit
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+Everything up-to-date
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- QSAR_fish_toxicity Sat Oct  3 07:18:34 UTC 2026
+2026-10-03 07:18:57,475 INFO P0 cv rmse = 0.8408955091141638
+2026-10-03 07:27:51,599 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T071836Z_J17_heuristic_kumoL_rec_QSAR_fish_toxicity/search/QSAR_fish_toxicity/metrics.json
+2026-10-03 07:29:23,701 INFO QSAR_fish_toxicity                       P0=0.85755 P*=0.85369 | paper TabFM=0.85345 TabFM-Auto(Opus5)=0.84829 | 640s
+2026-10-03 07:29:23,756 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T071836Z_J17_heuristic_kumoL_rec_QSAR_fish_toxicity/metrics.json
+1 datasets: ['QSAR_fish_toxicity']
+pipeline                  P*        P0
+dataset                               
+QSAR_fish_toxicity  0.853687  0.857553
+[collect] copied 1818 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 1b79231] J17: recommended config heuristic QSAR_fish_toxicity (job 51111)
+ 11 files changed, 711 insertions(+)
+ create mode 100644 reports/runs/20261003T071836Z_J17_heuristic_kumoL_rec_QSAR_fish_toxicity/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T071836Z_J17_heuristic_kumoL_rec_QSAR_fish_toxicity/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T071836Z_J17_heuristic_kumoL_rec_QSAR_fish_toxicity/metrics.json
+ create mode 100644 reports/runs/20261003T071836Z_J17_heuristic_kumoL_rec_QSAR_fish_toxicity/results.csv
+ create mode 100644 reports/runs/20261003T071836Z_J17_heuristic_kumoL_rec_QSAR_fish_toxicity/search/QSAR_fish_toxicity/best_pipeline.py
+ create mode 100644 reports/runs/20261003T071836Z_J17_heuristic_kumoL_rec_QSAR_fish_toxicity/search/QSAR_fish_toxicity/heuristic_trace.json
+ create mode 100644 reports/runs/20261003T071836Z_J17_heuristic_kumoL_rec_QSAR_fish_toxicity/search/QSAR_fish_toxicity/metrics.json
+ create mode 100644 reports/runs/20261003T071836Z_J17_heuristic_kumoL_rec_QSAR_fish_toxicity/search/QSAR_fish_toxicity/workspace/NOTES.md
+ create mode 100644 reports/runs/20261003T072332Z_J17_pi_qwen3coder_kumoL_rec_credit-g/config.json
+ create mode 100644 reports/runs/20261003T072332Z_J17_pi_qwen3coder_kumoL_rec_credit-g/search/credit-g/config.json
+ create mode 100644 reports/runs/20261003T072332Z_J17_pi_qwen3coder_kumoL_rec_credit-g/search/credit-g/workspace/NOTES.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   38d55bf..1b79231  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- credit-g Sat Oct  3 07:29:44 UTC 2026
+2026-10-03 07:30:09,155 INFO P0 cv 1-auroc = 0.20455592875623985
+2026-10-03 07:36:13,710 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T072945Z_J17_heuristic_kumoL_rec_credit-g/search/credit-g/metrics.json
+2026-10-03 07:37:01,623 INFO credit-g                                 P0=0.19292 P*=0.19292 | paper TabFM=0.1944 TabFM-Auto(Opus5)=0.194 | 428s
+2026-10-03 07:37:01,671 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T072945Z_J17_heuristic_kumoL_rec_credit-g/metrics.json
+1 datasets: ['credit-g']
+pipeline        P*        P0
+dataset                     
+credit-g  0.192917  0.192917
+[collect] copied 1828 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o c0c76ce] J17: recommended config heuristic credit-g (job 51111)
+ 10 files changed, 573 insertions(+)
+ create mode 100644 reports/runs/20261003T072945Z_J17_heuristic_kumoL_rec_credit-g/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T072945Z_J17_heuristic_kumoL_rec_credit-g/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T072945Z_J17_heuristic_kumoL_rec_credit-g/config.json
+ create mode 100644 reports/runs/20261003T072945Z_J17_heuristic_kumoL_rec_credit-g/metrics.json
+ create mode 100644 reports/runs/20261003T072945Z_J17_heuristic_kumoL_rec_credit-g/results.csv
+ create mode 100644 reports/runs/20261003T072945Z_J17_heuristic_kumoL_rec_credit-g/search/credit-g/best_pipeline.py
+ create mode 100644 reports/runs/20261003T072945Z_J17_heuristic_kumoL_rec_credit-g/search/credit-g/config.json
+ create mode 100644 reports/runs/20261003T072945Z_J17_heuristic_kumoL_rec_credit-g/search/credit-g/heuristic_trace.json
+ create mode 100644 reports/runs/20261003T072945Z_J17_heuristic_kumoL_rec_credit-g/search/credit-g/metrics.json
+ create mode 100644 reports/runs/20261003T072945Z_J17_heuristic_kumoL_rec_credit-g/search/credit-g/workspace/NOTES.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   1b79231..c0c76ce  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- maternal_health_risk Sat Oct  3 07:37:23 UTC 2026
+2026-10-03 07:37:47,236 INFO P0 cv logloss = 0.5509684072663608
+2026-10-03 07:43:40,488 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T073724Z_J17_heuristic_kumoL_rec_maternal_health_risk/search/maternal_health_risk/metrics.json
+2026-10-03 07:44:40,605 INFO maternal_health_risk                     P0=0.37662 P*=0.37662 | paper TabFM=0.3706 TabFM-Auto(Opus5)=0.3648 | 429s
+2026-10-03 07:44:40,683 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T073724Z_J17_heuristic_kumoL_rec_maternal_health_risk/metrics.json
+1 datasets: ['maternal_health_risk']
+pipeline                    P*        P0
+dataset                                 
+maternal_health_risk  0.376624  0.376624
+[collect] copied 1838 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 08cc2b2] J17: recommended config heuristic maternal_health_risk (job 51111)
+ 10 files changed, 609 insertions(+)
+ create mode 100644 reports/runs/20261003T073724Z_J17_heuristic_kumoL_rec_maternal_health_risk/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T073724Z_J17_heuristic_kumoL_rec_maternal_health_risk/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T073724Z_J17_heuristic_kumoL_rec_maternal_health_risk/config.json
+ create mode 100644 reports/runs/20261003T073724Z_J17_heuristic_kumoL_rec_maternal_health_risk/metrics.json
+ create mode 100644 reports/runs/20261003T073724Z_J17_heuristic_kumoL_rec_maternal_health_risk/results.csv
+ create mode 100644 reports/runs/20261003T073724Z_J17_heuristic_kumoL_rec_maternal_health_risk/search/maternal_health_risk/best_pipeline.py
+ create mode 100644 reports/runs/20261003T073724Z_J17_heuristic_kumoL_rec_maternal_health_risk/search/maternal_health_risk/config.json
+ create mode 100644 reports/runs/20261003T073724Z_J17_heuristic_kumoL_rec_maternal_health_risk/search/maternal_health_risk/heuristic_trace.json
+ create mode 100644 reports/runs/20261003T073724Z_J17_heuristic_kumoL_rec_maternal_health_risk/search/maternal_health_risk/metrics.json
+ create mode 100644 reports/runs/20261003T073724Z_J17_heuristic_kumoL_rec_maternal_health_risk/search/maternal_health_risk/workspace/NOTES.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   c0c76ce..08cc2b2  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- concrete_compressive_strength Sat Oct  3 07:45:00 UTC 2026
+2026-10-03 07:45:24,986 INFO P0 cv rmse = 4.40358138538811
+2026-10-03 07:54:21,511 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T074501Z_J17_heuristic_kumoL_rec_concrete_compressive_strength/search/concrete_compressive_strength/metrics.json
+2026-10-03 07:55:12,477 INFO concrete_compressive_strength            P0=3.78686 P*=3.78686 | paper TabFM=3.9666 TabFM-Auto(Opus5)=3.8169 | 603s
+2026-10-03 07:55:12,529 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T074501Z_J17_heuristic_kumoL_rec_concrete_compressive_strength/metrics.json
+1 datasets: ['concrete_compressive_strength']
+pipeline                            P*       P0
+dataset                                        
+concrete_compressive_strength  3.78686  3.78686
+[collect] copied 1848 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 0ddcc68] J17: recommended config heuristic concrete_compressive_strength (job 51111)
+ 10 files changed, 604 insertions(+)
+ create mode 100644 reports/runs/20261003T074501Z_J17_heuristic_kumoL_rec_concrete_compressive_strength/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T074501Z_J17_heuristic_kumoL_rec_concrete_compressive_strength/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T074501Z_J17_heuristic_kumoL_rec_concrete_compressive_strength/config.json
+ create mode 100644 reports/runs/20261003T074501Z_J17_heuristic_kumoL_rec_concrete_compressive_strength/metrics.json
+ create mode 100644 reports/runs/20261003T074501Z_J17_heuristic_kumoL_rec_concrete_compressive_strength/results.csv
+ create mode 100644 reports/runs/20261003T074501Z_J17_heuristic_kumoL_rec_concrete_compressive_strength/search/concrete_compressive_strength/best_pipeline.py
+ create mode 100644 reports/runs/20261003T074501Z_J17_heuristic_kumoL_rec_concrete_compressive_strength/search/concrete_compressive_strength/config.json
+ create mode 100644 reports/runs/20261003T074501Z_J17_heuristic_kumoL_rec_concrete_compressive_strength/search/concrete_compressive_strength/heuristic_trace.json
+ create mode 100644 reports/runs/20261003T074501Z_J17_heuristic_kumoL_rec_concrete_compressive_strength/search/concrete_compressive_strength/metrics.json
+ create mode 100644 reports/runs/20261003T074501Z_J17_heuristic_kumoL_rec_concrete_compressive_strength/search/concrete_compressive_strength/workspace/NOTES.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   08cc2b2..0ddcc68  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- qsar-biodeg Sat Oct  3 07:55:59 UTC 2026
+2026-10-03 07:56:42,576 INFO P0 cv 1-auroc = 0.06445923650224723
+2026-10-03 08:04:52,153 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T075605Z_J17_heuristic_kumoL_rec_qsar-biodeg/search/qsar-biodeg/metrics.json
+2026-10-03 08:06:20,462 INFO qsar-biodeg                              P0=0.05882 P*=0.06083 | paper TabFM=0.058 TabFM-Auto(Opus5)=0.0582 | 595s
+2026-10-03 08:06:20,568 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T075605Z_J17_heuristic_kumoL_rec_qsar-biodeg/metrics.json
+1 datasets: ['qsar-biodeg']
+pipeline           P*       P0
+dataset                       
+qsar-biodeg  0.060832  0.05882
+[collect] copied 1858 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 0aabb75] J17: recommended config heuristic qsar-biodeg (job 51111)
+ 10 files changed, 749 insertions(+)
+ create mode 100644 reports/runs/20261003T075605Z_J17_heuristic_kumoL_rec_qsar-biodeg/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T075605Z_J17_heuristic_kumoL_rec_qsar-biodeg/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T075605Z_J17_heuristic_kumoL_rec_qsar-biodeg/config.json
+ create mode 100644 reports/runs/20261003T075605Z_J17_heuristic_kumoL_rec_qsar-biodeg/metrics.json
+ create mode 100644 reports/runs/20261003T075605Z_J17_heuristic_kumoL_rec_qsar-biodeg/results.csv
+ create mode 100644 reports/runs/20261003T075605Z_J17_heuristic_kumoL_rec_qsar-biodeg/search/qsar-biodeg/best_pipeline.py
+ create mode 100644 reports/runs/20261003T075605Z_J17_heuristic_kumoL_rec_qsar-biodeg/search/qsar-biodeg/config.json
+ create mode 100644 reports/runs/20261003T075605Z_J17_heuristic_kumoL_rec_qsar-biodeg/search/qsar-biodeg/heuristic_trace.json
+ create mode 100644 reports/runs/20261003T075605Z_J17_heuristic_kumoL_rec_qsar-biodeg/search/qsar-biodeg/metrics.json
+ create mode 100644 reports/runs/20261003T075605Z_J17_heuristic_kumoL_rec_qsar-biodeg/search/qsar-biodeg/workspace/NOTES.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   38729a8..0aabb75  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- healthcare_insurance_expenses Sat Oct  3 08:06:45 UTC 2026
+2026-10-03 08:07:08,421 INFO P0 cv rmse = 4728.9848045745
+2026-10-03 08:10:49,138 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T080647Z_J17_heuristic_kumoL_rec_healthcare_insurance_expenses/search/healthcare_insurance_expenses/metrics.json
+2026-10-03 08:11:38,219 INFO healthcare_insurance_expenses            P0=4546.05128 P*=4546.05128 | paper TabFM=4417.6 TabFM-Auto(Opus5)=4344.1 | 283s
+2026-10-03 08:11:38,276 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T080647Z_J17_heuristic_kumoL_rec_healthcare_insurance_expenses/metrics.json
+1 datasets: ['healthcare_insurance_expenses']
+pipeline                                P*           P0
+dataset                                                
+healthcare_insurance_expenses  4546.051283  4546.051283
+[collect] copied 1868 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o f60f3ae] J17: recommended config heuristic healthcare_insurance_expenses (job 51111)
+ 10 files changed, 428 insertions(+)
+ create mode 100644 reports/runs/20261003T080647Z_J17_heuristic_kumoL_rec_healthcare_insurance_expenses/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T080647Z_J17_heuristic_kumoL_rec_healthcare_insurance_expenses/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T080647Z_J17_heuristic_kumoL_rec_healthcare_insurance_expenses/config.json
+ create mode 100644 reports/runs/20261003T080647Z_J17_heuristic_kumoL_rec_healthcare_insurance_expenses/metrics.json
+ create mode 100644 reports/runs/20261003T080647Z_J17_heuristic_kumoL_rec_healthcare_insurance_expenses/results.csv
+ create mode 100644 reports/runs/20261003T080647Z_J17_heuristic_kumoL_rec_healthcare_insurance_expenses/search/healthcare_insurance_expenses/best_pipeline.py
+ create mode 100644 reports/runs/20261003T080647Z_J17_heuristic_kumoL_rec_healthcare_insurance_expenses/search/healthcare_insurance_expenses/config.json
+ create mode 100644 reports/runs/20261003T080647Z_J17_heuristic_kumoL_rec_healthcare_insurance_expenses/search/healthcare_insurance_expenses/heuristic_trace.json
+ create mode 100644 reports/runs/20261003T080647Z_J17_heuristic_kumoL_rec_healthcare_insurance_expenses/search/healthcare_insurance_expenses/metrics.json
+ create mode 100644 reports/runs/20261003T080647Z_J17_heuristic_kumoL_rec_healthcare_insurance_expenses/search/healthcare_insurance_expenses/workspace/NOTES.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+   0aabb75..39ee64f  claude/tabular-model-agent-exp-wvni5o -> origin/claude/tabular-model-agent-exp-wvni5o
+Rebasing (1/1)[KSuccessfully rebased and updated refs/heads/claude/tabular-model-agent-exp-wvni5o.
+To https://github.com/YarinBeni/excel_magic
+   39ee64f..be5dbc3  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- website_phishing Sat Oct  3 08:12:27 UTC 2026
+2026-10-03 08:12:57,879 INFO P0 cv logloss = 0.2728239605734227
+2026-10-03 08:20:57,500 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T081230Z_J17_heuristic_kumoL_rec_website_phishing/search/website_phishing/metrics.json
+2026-10-03 08:22:09,081 INFO website_phishing                         P0=0.20948 P*=0.20847 | paper TabFM=0.2104 TabFM-Auto(Opus5)=0.2067 | 568s
+2026-10-03 08:22:09,260 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T081230Z_J17_heuristic_kumoL_rec_website_phishing/metrics.json
+1 datasets: ['website_phishing']
+pipeline                P*        P0
+dataset                             
+website_phishing  0.208471  0.209477
+[collect] copied 1878 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 908fb33] J17: recommended config heuristic website_phishing (job 51111)
+ 10 files changed, 679 insertions(+)
+ create mode 100644 reports/runs/20261003T081230Z_J17_heuristic_kumoL_rec_website_phishing/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T081230Z_J17_heuristic_kumoL_rec_website_phishing/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T081230Z_J17_heuristic_kumoL_rec_website_phishing/config.json
+ create mode 100644 reports/runs/20261003T081230Z_J17_heuristic_kumoL_rec_website_phishing/metrics.json
+ create mode 100644 reports/runs/20261003T081230Z_J17_heuristic_kumoL_rec_website_phishing/results.csv
+ create mode 100644 reports/runs/20261003T081230Z_J17_heuristic_kumoL_rec_website_phishing/search/website_phishing/best_pipeline.py
+ create mode 100644 reports/runs/20261003T081230Z_J17_heuristic_kumoL_rec_website_phishing/search/website_phishing/config.json
+ create mode 100644 reports/runs/20261003T081230Z_J17_heuristic_kumoL_rec_website_phishing/search/website_phishing/heuristic_trace.json
+ create mode 100644 reports/runs/20261003T081230Z_J17_heuristic_kumoL_rec_website_phishing/search/website_phishing/metrics.json
+ create mode 100644 reports/runs/20261003T081230Z_J17_heuristic_kumoL_rec_website_phishing/search/website_phishing/workspace/NOTES.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   5f3ebff..908fb33  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- Fitness_Club Sat Oct  3 08:22:47 UTC 2026
+2026-10-03 08:23:06,491 INFO P0 cv 1-auroc = 0.1830847050754458
+2026-10-03 08:28:40,128 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T082248Z_J17_heuristic_kumoL_rec_Fitness_Club/search/Fitness_Club/metrics.json
+2026-10-03 08:29:27,962 INFO Fitness_Club                             P0=0.17850 P*=0.17850 | paper TabFM=0.1789 TabFM-Auto(Opus5)=0.1787 | 391s
+2026-10-03 08:29:28,012 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T082248Z_J17_heuristic_kumoL_rec_Fitness_Club/metrics.json
+1 datasets: ['Fitness_Club']
+pipeline            P*        P0
+dataset                         
+Fitness_Club  0.178497  0.178497
+[collect] copied 1896 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o f56517d] J17: recommended config heuristic Fitness_Club (job 51111)
+ 10 files changed, 611 insertions(+)
+ create mode 100644 reports/runs/20261003T082248Z_J17_heuristic_kumoL_rec_Fitness_Club/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T082248Z_J17_heuristic_kumoL_rec_Fitness_Club/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T082248Z_J17_heuristic_kumoL_rec_Fitness_Club/metrics.json
+ create mode 100644 reports/runs/20261003T082248Z_J17_heuristic_kumoL_rec_Fitness_Club/results.csv
+ create mode 100644 reports/runs/20261003T082248Z_J17_heuristic_kumoL_rec_Fitness_Club/search/Fitness_Club/best_pipeline.py
+ create mode 100644 reports/runs/20261003T082248Z_J17_heuristic_kumoL_rec_Fitness_Club/search/Fitness_Club/heuristic_trace.json
+ create mode 100644 reports/runs/20261003T082248Z_J17_heuristic_kumoL_rec_Fitness_Club/search/Fitness_Club/metrics.json
+ create mode 100644 reports/runs/20261003T082248Z_J17_heuristic_kumoL_rec_Fitness_Club/search/Fitness_Club/workspace/NOTES.md
+ create mode 100644 reports/runs/20261003T082734Z_J17_pi_qwen3coder_kumoL_rec_maternal_health_risk/config.json
+ create mode 100644 reports/runs/20261003T082734Z_J17_pi_qwen3coder_kumoL_rec_maternal_health_risk/search/maternal_health_risk/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   d1f7e5d..f56517d  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- airfoil_self_noise Sat Oct  3 08:29:49 UTC 2026
+2026-10-03 08:30:08,251 INFO P0 cv rmse = 1.4278187159652376
+2026-10-03 08:34:58,392 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T082951Z_J17_heuristic_kumoL_rec_airfoil_self_noise/search/airfoil_self_noise/metrics.json
+2026-10-03 08:36:36,749 INFO airfoil_self_noise                       P0=0.88914 P*=0.85549 | paper TabFM=1.0734 TabFM-Auto(Opus5)=0.9165 | 398s
+2026-10-03 08:36:36,824 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T082951Z_J17_heuristic_kumoL_rec_airfoil_self_noise/metrics.json
+1 datasets: ['airfoil_self_noise']
+pipeline                  P*        P0
+dataset                               
+airfoil_self_noise  0.855488  0.889137
+[collect] copied 1916 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 44c4b95] J17: recommended config heuristic airfoil_self_noise (job 51111)
+ 7 files changed, 169 insertions(+), 1 deletion(-)
+ rewrite reports/runs/20261002T193646Z_J8_pi_qwen3coder_concrete_compressive_strength/rescored.json (100%)
+ create mode 100644 reports/runs/20261003T082951Z_J17_heuristic_kumoL_rec_airfoil_self_noise/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T082951Z_J17_heuristic_kumoL_rec_airfoil_self_noise/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T082951Z_J17_heuristic_kumoL_rec_airfoil_self_noise/metrics.json
+ create mode 100644 reports/runs/20261003T082951Z_J17_heuristic_kumoL_rec_airfoil_self_noise/results.csv
+ create mode 100644 reports/runs/20261003T083633Z_J17_pi_qwen3coder_kumoL_rec_concrete_compressive_strength/config.json
+ create mode 100644 reports/runs/20261003T083633Z_J17_pi_qwen3coder_kumoL_rec_concrete_compressive_strength/search/concrete_compressive_strength/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   a1933a7..44c4b95  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- Another-Dataset-on-used-Fiat-500 Sat Oct  3 08:37:02 UTC 2026
+2026-10-03 08:37:23,864 INFO P0 cv rmse = 742.4649788119947
+2026-10-03 08:42:42,272 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T083704Z_J17_heuristic_kumoL_rec_Another-Dataset-on-used-Fiat-500/search/Another-Dataset-on-used-Fiat-500/metrics.json
+2026-10-03 08:44:25,928 INFO Another-Dataset-on-used-Fiat-500         P0=703.99250 P*=695.96955 | paper TabFM=703.27 TabFM-Auto(Opus5)=693.49 | 433s
+2026-10-03 08:44:25,992 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T083704Z_J17_heuristic_kumoL_rec_Another-Dataset-on-used-Fiat-500/metrics.json
+1 datasets: ['Another-Dataset-on-used-Fiat-500']
+pipeline                                  P*          P0
+dataset                                                 
+Another-Dataset-on-used-Fiat-500  695.969552  703.992498
+[collect] copied 1936 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o d9b51b6] J17: recommended config heuristic Another-Dataset-on-used-Fiat-500 (job 51111)
+ 6 files changed, 169 insertions(+)
+ create mode 100644 reports/runs/20261003T083704Z_J17_heuristic_kumoL_rec_Another-Dataset-on-used-Fiat-500/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T083704Z_J17_heuristic_kumoL_rec_Another-Dataset-on-used-Fiat-500/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T083704Z_J17_heuristic_kumoL_rec_Another-Dataset-on-used-Fiat-500/metrics.json
+ create mode 100644 reports/runs/20261003T083704Z_J17_heuristic_kumoL_rec_Another-Dataset-on-used-Fiat-500/results.csv
+ create mode 100644 reports/runs/20261003T084414Z_J17_pi_qwen3coder_kumoL_rec_qsar-biodeg/config.json
+ create mode 100644 reports/runs/20261003T084414Z_J17_pi_qwen3coder_kumoL_rec_qsar-biodeg/search/qsar-biodeg/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   dbeb675..d9b51b6  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- MIC Sat Oct  3 08:44:52 UTC 2026
+2026-10-03 08:45:15,180 INFO P0 cv logloss = 0.42375137511784833
+2026-10-03 08:51:19,252 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T084454Z_J17_heuristic_kumoL_rec_MIC/search/MIC/metrics.json
+2026-10-03 08:53:39,941 INFO MIC                                      P0=0.41877 P*=0.41789 | paper TabFM=0.4282 TabFM-Auto(Opus5)=0.4178 | 518s
+2026-10-03 08:53:40,008 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T084454Z_J17_heuristic_kumoL_rec_MIC/metrics.json
+1 datasets: ['MIC']
+pipeline        P*        P0
+dataset                     
+MIC       0.417889  0.418766
+[collect] copied 1954 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o ad26eeb] J17: recommended config heuristic MIC (job 51111)
+ 18 files changed, 2170 insertions(+)
+ create mode 100644 reports/runs/20261003T084414Z_J17_pi_qwen3coder_kumoL_rec_qsar-biodeg/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T084414Z_J17_pi_qwen3coder_kumoL_rec_qsar-biodeg/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T084414Z_J17_pi_qwen3coder_kumoL_rec_qsar-biodeg/metrics.json
+ create mode 100644 reports/runs/20261003T084414Z_J17_pi_qwen3coder_kumoL_rec_qsar-biodeg/results.csv
+ create mode 100644 reports/runs/20261003T084414Z_J17_pi_qwen3coder_kumoL_rec_qsar-biodeg/search/qsar-biodeg/agent_stream.log
+ create mode 100644 reports/runs/20261003T084414Z_J17_pi_qwen3coder_kumoL_rec_qsar-biodeg/search/qsar-biodeg/best_pipeline.py
+ create mode 100644 reports/runs/20261003T084414Z_J17_pi_qwen3coder_kumoL_rec_qsar-biodeg/search/qsar-biodeg/metrics.json
+ create mode 100644 reports/runs/20261003T084414Z_J17_pi_qwen3coder_kumoL_rec_qsar-biodeg/search/qsar-biodeg/workspace/NOTES.md
+ create mode 100644 reports/runs/20261003T084454Z_J17_heuristic_kumoL_rec_MIC/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T084454Z_J17_heuristic_kumoL_rec_MIC/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T084454Z_J17_heuristic_kumoL_rec_MIC/config.json
+ create mode 100644 reports/runs/20261003T084454Z_J17_heuristic_kumoL_rec_MIC/metrics.json
+ create mode 100644 reports/runs/20261003T084454Z_J17_heuristic_kumoL_rec_MIC/results.csv
+ create mode 100644 reports/runs/20261003T084454Z_J17_heuristic_kumoL_rec_MIC/search/MIC/best_pipeline.py
+ create mode 100644 reports/runs/20261003T084454Z_J17_heuristic_kumoL_rec_MIC/search/MIC/config.json
+ create mode 100644 reports/runs/20261003T084454Z_J17_heuristic_kumoL_rec_MIC/search/MIC/heuristic_trace.json
+ create mode 100644 reports/runs/20261003T084454Z_J17_heuristic_kumoL_rec_MIC/search/MIC/metrics.json
+ create mode 100644 reports/runs/20261003T084454Z_J17_heuristic_kumoL_rec_MIC/search/MIC/workspace/NOTES.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   d9b51b6..ad26eeb  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- Is-this-a-good-customer Sat Oct  3 08:54:12 UTC 2026
+2026-10-03 08:54:38,325 INFO P0 cv 1-auroc = 0.28077751992917854
+2026-10-03 08:59:50,954 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T085414Z_J17_heuristic_kumoL_rec_Is-this-a-good-customer/search/Is-this-a-good-customer/metrics.json
+2026-10-03 09:00:51,124 INFO Is-this-a-good-customer                  P0=0.24471 P*=0.24471 | paper TabFM=0.2466 TabFM-Auto(Opus5)=0.2432 | 384s
+2026-10-03 09:00:51,180 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T085414Z_J17_heuristic_kumoL_rec_Is-this-a-good-customer/metrics.json
+1 datasets: ['Is-this-a-good-customer']
+pipeline                       P*        P0
+dataset                                    
+Is-this-a-good-customer  0.244706  0.244706
+[collect] copied 1970 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o c392781] J17: recommended config heuristic Is-this-a-good-customer (job 51111)
+ 16 files changed, 1874 insertions(+)
+ create mode 100644 reports/runs/20261003T085414Z_J17_heuristic_kumoL_rec_Is-this-a-good-customer/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T085414Z_J17_heuristic_kumoL_rec_Is-this-a-good-customer/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T085414Z_J17_heuristic_kumoL_rec_Is-this-a-good-customer/config.json
+ create mode 100644 reports/runs/20261003T085414Z_J17_heuristic_kumoL_rec_Is-this-a-good-customer/metrics.json
+ create mode 100644 reports/runs/20261003T085414Z_J17_heuristic_kumoL_rec_Is-this-a-good-customer/results.csv
+ create mode 100644 reports/runs/20261003T085414Z_J17_heuristic_kumoL_rec_Is-this-a-good-customer/search/Is-this-a-good-customer/best_pipeline.py
+ create mode 100644 reports/runs/20261003T085414Z_J17_heuristic_kumoL_rec_Is-this-a-good-customer/search/Is-this-a-good-customer/config.json
+ create mode 100644 reports/runs/20261003T085414Z_J17_heuristic_kumoL_rec_Is-this-a-good-customer/search/Is-this-a-good-customer/heuristic_trace.json
+ create mode 100644 reports/runs/20261003T085414Z_J17_heuristic_kumoL_rec_Is-this-a-good-customer/search/Is-this-a-good-customer/metrics.json
+ create mode 100644 reports/runs/20261003T085414Z_J17_heuristic_kumoL_rec_Is-this-a-good-customer/search/Is-this-a-good-customer/workspace/NOTES.md
+ create mode 100644 reports/runs/20261003T085429Z_J17_pi_qwen3coder_kumoL_rec_healthcare_insurance_expenses/config.json
+ create mode 100644 reports/runs/20261003T085429Z_J17_pi_qwen3coder_kumoL_rec_healthcare_insurance_expenses/search/healthcare_insurance_expenses/agent_stream.log
+ create mode 100644 reports/runs/20261003T085429Z_J17_pi_qwen3coder_kumoL_rec_healthcare_insurance_expenses/search/healthcare_insurance_expenses/best_pipeline.py
+ create mode 100644 reports/runs/20261003T085429Z_J17_pi_qwen3coder_kumoL_rec_healthcare_insurance_expenses/search/healthcare_insurance_expenses/config.json
+ create mode 100644 reports/runs/20261003T085429Z_J17_pi_qwen3coder_kumoL_rec_healthcare_insurance_expenses/search/healthcare_insurance_expenses/metrics.json
+ create mode 100644 reports/runs/20261003T085429Z_J17_pi_qwen3coder_kumoL_rec_healthcare_insurance_expenses/search/healthcare_insurance_expenses/workspace/NOTES.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   ad26eeb..c392781  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- Marketing_Campaign Sat Oct  3 09:01:18 UTC 2026
+2026-10-03 09:01:38,286 INFO P0 cv 1-auroc = 0.12469728091504695
+2026-10-03 09:05:50,695 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T090120Z_J17_heuristic_kumoL_rec_Marketing_Campaign/search/Marketing_Campaign/metrics.json
+2026-10-03 09:07:04,163 INFO Marketing_Campaign                       P0=0.06407 P*=0.06407 | paper TabFM=0.0732 TabFM-Auto(Opus5)=0.0616 | 336s
+2026-10-03 09:07:04,219 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T090120Z_J17_heuristic_kumoL_rec_Marketing_Campaign/metrics.json
+1 datasets: ['Marketing_Campaign']
+pipeline                  P*        P0
+dataset                               
+Marketing_Campaign  0.064073  0.064073
+[collect] copied 1990 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 7aebb37] J17: recommended config heuristic Marketing_Campaign (job 51111)
+ 14 files changed, 1991 insertions(+)
+ create mode 100644 reports/runs/20261003T090120Z_J17_heuristic_kumoL_rec_Marketing_Campaign/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T090120Z_J17_heuristic_kumoL_rec_Marketing_Campaign/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T090120Z_J17_heuristic_kumoL_rec_Marketing_Campaign/metrics.json
+ create mode 100644 reports/runs/20261003T090120Z_J17_heuristic_kumoL_rec_Marketing_Campaign/results.csv
+ create mode 100644 reports/runs/20261003T090120Z_J17_heuristic_kumoL_rec_Marketing_Campaign/search/Marketing_Campaign/best_pipeline.py
+ create mode 100644 reports/runs/20261003T090120Z_J17_heuristic_kumoL_rec_Marketing_Campaign/search/Marketing_Campaign/heuristic_trace.json
+ create mode 100644 reports/runs/20261003T090120Z_J17_heuristic_kumoL_rec_Marketing_Campaign/search/Marketing_Campaign/metrics.json
+ create mode 100644 reports/runs/20261003T090120Z_J17_heuristic_kumoL_rec_Marketing_Campaign/search/Marketing_Campaign/workspace/NOTES.md
+ create mode 100644 reports/runs/20261003T090224Z_J17_pi_qwen3coder_kumoL_rec_website_phishing/config.json
+ create mode 100644 reports/runs/20261003T090224Z_J17_pi_qwen3coder_kumoL_rec_website_phishing/search/website_phishing/agent_stream.log
+ create mode 100644 reports/runs/20261003T090224Z_J17_pi_qwen3coder_kumoL_rec_website_phishing/search/website_phishing/best_pipeline.py
+ create mode 100644 reports/runs/20261003T090224Z_J17_pi_qwen3coder_kumoL_rec_website_phishing/search/website_phishing/config.json
+ create mode 100644 reports/runs/20261003T090224Z_J17_pi_qwen3coder_kumoL_rec_website_phishing/search/website_phishing/metrics.json
+ create mode 100644 reports/runs/20261003T090224Z_J17_pi_qwen3coder_kumoL_rec_website_phishing/search/website_phishing/workspace/NOTES.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   543c2ef..7aebb37  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- hazelnut-spread-contaminant-detection Sat Oct  3 09:07:34 UTC 2026
+2026-10-03 09:07:56,503 INFO P0 cv 1-auroc = 0.005372971745909931
+2026-10-03 09:10:56,119 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T090737Z_J17_heuristic_kumoL_rec_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/metrics.json
+2026-10-03 09:12:27,809 INFO hazelnut-spread-contaminant-detection    P0=0.00267 P*=0.00267 | paper TabFM=0.0023 TabFM-Auto(Opus5)=0.0021 | 282s
+2026-10-03 09:12:27,861 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T090737Z_J17_heuristic_kumoL_rec_hazelnut-spread-contaminant-detection/metrics.json
+1 datasets: ['hazelnut-spread-contaminant-detection']
+pipeline                                     P*        P0
+dataset                                                  
+hazelnut-spread-contaminant-detection  0.002669  0.002669
+[collect] copied 2010 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 1891099] J17: recommended config heuristic hazelnut-spread-contaminant-detection (job 51111)
+ 15 files changed, 2100 insertions(+), 6 deletions(-)
+ rewrite reports/runs/20261002T173553Z_J3_tabarena_openai/search/blood-transfusion-service-center/agent_result.md (100%)
+ create mode 100644 reports/runs/20261003T090737Z_J17_heuristic_kumoL_rec_hazelnut-spread-contaminant-detection/comparison_to_paper.csv
+ create mode 100644 reports/runs/20261003T090737Z_J17_heuristic_kumoL_rec_hazelnut-spread-contaminant-detection/comparison_to_paper.md
+ create mode 100644 reports/runs/20261003T090737Z_J17_heuristic_kumoL_rec_hazelnut-spread-contaminant-detection/metrics.json
+ create mode 100644 reports/runs/20261003T090737Z_J17_heuristic_kumoL_rec_hazelnut-spread-contaminant-detection/results.csv
+ create mode 100644 reports/runs/20261003T090737Z_J17_heuristic_kumoL_rec_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/best_pipeline.py
+ create mode 100644 reports/runs/20261003T090737Z_J17_heuristic_kumoL_rec_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/heuristic_trace.json
+ create mode 100644 reports/runs/20261003T090737Z_J17_heuristic_kumoL_rec_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/metrics.json
+ create mode 100644 reports/runs/20261003T090737Z_J17_heuristic_kumoL_rec_hazelnut-spread-contaminant-detection/search/hazelnut-spread-contaminant-detection/workspace/NOTES.md
+ create mode 100644 reports/runs/20261003T090851Z_J17_pi_qwen3coder_kumoL_rec_Fitness_Club/config.json
+ create mode 100644 reports/runs/20261003T090851Z_J17_pi_qwen3coder_kumoL_rec_Fitness_Club/search/Fitness_Club/agent_stream.log
+ create mode 100644 reports/runs/20261003T090851Z_J17_pi_qwen3coder_kumoL_rec_Fitness_Club/search/Fitness_Club/best_pipeline.py
+ create mode 100644 reports/runs/20261003T090851Z_J17_pi_qwen3coder_kumoL_rec_Fitness_Club/search/Fitness_Club/config.json
+ create mode 100644 reports/runs/20261003T090851Z_J17_pi_qwen3coder_kumoL_rec_Fitness_Club/search/Fitness_Club/metrics.json
+ create mode 100644 reports/runs/20261003T090851Z_J17_pi_qwen3coder_kumoL_rec_Fitness_Club/search/Fitness_Club/workspace/NOTES.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   a0616fc..1891099  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J17 heuristic done Sat Oct  3 09:12:53 UTC 2026 ===
