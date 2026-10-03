@@ -1,0 +1,6 @@
+{
+  "error": "ValueError('max() arg is an empty sequence')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/experiments/exp04_relbench_layers.py\", line 36, in main\n    res = run_task(dataset, task_name, modes=tuple(a.modes.split(\",\")), n_ctx=a.n_ctx, n_train=a.n_train,\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/relbench_layers.py\", line 330, in run_task\n    best = max(m[\"layers\"], key=lambda L: m[\"layers\"][L][p][\"val_auroc\"])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: max() arg is an empty sequence\n",
+  "elapsed_s": 21.44,
+  "status": "error"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "J18_layers_rel-f1_driver-dnf",
+  "config": {
+    "tasks": "rel-f1/driver-dnf",
+    "modes": "random,label",
+    "n_ctx": 512,
+    "n_train": 4000,
+    "k_children": 50,
+    "max_eval": 20000,
+    "device": "cuda",
+    "seed": 0,
+    "name": "J18_layers",
+    "task": "rel-f1/driver-dnf"
+  },
+  "env": {
+    "python": "3.11.15",
+    "platform": "Linux-5.15.0-152-generic-x86_64-with-glibc2.35",
+    "cpu_count": 104,
+    "git_sha": "fd2edc6",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "sklearn": "1.8.0",
+    "torch": "2.9.1+cu128",
+    "tabpfn": "9.1.0",
+    "tabicl": "?",
+    "torch_geometric": "2.8.0.post1",
+    "lightgbm": "4.7.0",
+    "torch_cuda": true,
+    "torch_threads": 16
+  },
+  "started_utc": "2026-10-03T09:13:25.384334+00:00"
+}
