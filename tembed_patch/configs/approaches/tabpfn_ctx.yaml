@@ -1,0 +1,14 @@
+approach_name: tabpfn_ctx
+conda_env: benchmark_env
+module_path: approaches/benchmark_approaches_src/tabpfn_ctx
+class_name: TabPFNCtxEmbedder
+context_target: zeros
+layer: last
+
+supported_tasks:
+  row_similarity_search:
+    run_similarity_search_based_on: row_embeddings
+    exclude_datasets:  # too large for TabPFN (same exclusions as TEmBed's tabpfn approach)
+      - DBLP-GoogleScholar
+      - iTunes-Amazon
+  row_triplet_evaluation: {}

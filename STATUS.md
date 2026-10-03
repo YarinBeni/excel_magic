@@ -120,3 +120,6 @@
 - inbox 040 / J18: layer-wise embeddings of frozen Kumo Relational (pre-GNN, GNN, 12 ICL layers, final) on 8 real RelBench
   entity tasks (f1 x2, trial, event x2, avito x2, hm churn), random-target and true-label context, linear + kNN probes,
   layer chosen on val, official test evaluator. Smoke step asserts every tapped layer varies across rows.
+- inbox 041: J19 (TabPFN v2 per-block row embeddings on the same 8 RelBench tasks, targets zeros/random/k-means/label) and
+  J20 (TEmBed row similarity search + row triplets: TabPFN with context target zeros [= TEmBed default] / random / k-means,
+  last vs block 8, plus MiniLM reference). TEmBed add-on lives in tembed_patch/.

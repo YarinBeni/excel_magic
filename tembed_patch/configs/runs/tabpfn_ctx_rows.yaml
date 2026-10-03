@@ -1,0 +1,17 @@
+benchmark_output_dir: tabpfn_ctx_rows
+tasks:
+  - row_similarity_search
+  - row_triplet_evaluation
+approaches:
+  - name: tabpfn_ctx
+    params: {context_target: zeros, layer: last}      # replicates TEmBed's tabpfn approach
+  - name: tabpfn_ctx
+    params: {context_target: random, layer: last}
+  - name: tabpfn_ctx
+    params: {context_target: kmeans, layer: last}
+  - name: tabpfn_ctx
+    params: {context_target: kmeans, layer: "8"}
+  - name: tabpfn_ctx
+    params: {context_target: zeros, layer: "8"}
+  - name: sentence_transformer
+    params: {embedding_model: all-MiniLM-L6-v2, table_row_limit: 100}   # text-embedding reference from the TEmBed paper
