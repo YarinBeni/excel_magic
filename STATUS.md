@@ -136,3 +136,6 @@
 - J20 (51153): TEmBed Wikidata-books row triplets done (chance 0.5): MiniLM text 0.70-0.83; TabPFN zeros/last 0.61 (best TabPFN),
   zeros/8 0.58, random 0.56, k-means 0.53-0.55 -> the k-means target does NOT help on this text-heavy task. Row similarity
   datasets not built (raw-data folder missing) -> inbox 046 reruns row similarity only (J20b). Astronomy triplets skipped.
+- J20b (51159): TEmBed's own entity-matching preparation script fails (ConfigAttributeError: Missing key dataset) -> row
+  similarity not run. Stopped here: the Wikidata triplet result (TabPFN 0.55-0.61 vs MiniLM 0.77) already shows text-heavy
+  rows are out of scope for the context-target effect, which is about numeric structure. Focus: RelBench J18/J19/J21.

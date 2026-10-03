@@ -151,3 +151,11 @@ Run: reports/runs/*J14_kumo_hm_full (cluster branch).
 Random target 0.24 vs k-means 0.18 (same ordering as the churn probe), level with the aggregates (0.26), 5x below sparse
 cosine on the purchase matrix (1.20); Past+kNN-CF 2.18 < PastVisit 2.20. Retrieval study complete: no frozen embedding,
 tabular or relational, with any in-context target, is an item-level retrieval representation on rel-hm.
+
+## 2026-10-03 J20 (TEmBed, IBM 2026): TabPFN context target on a public row-embedding benchmark — no effect on text-heavy rows
+Wikidata-books row triplets (anchor closer to positive than negative; chance 0.50), 5 variants, mean accuracy:
+MiniLM text embeddings 0.77; TabPFN all-zeros target (TEmBed's default) last layer 0.58, layer 8 0.58; random 0.55;
+k-means last 0.55, layer 8 0.56. The k-means target does not help here: the rows are titles / authors / genres, which
+TabPFN sees as arbitrary category codes. Entity-matching row similarity could not be run (TEmBed's preparation script
+fails with a missing-config error). Conclusion: the context-target effect, if real, is about numeric structure; text
+tables need a text encoder.
