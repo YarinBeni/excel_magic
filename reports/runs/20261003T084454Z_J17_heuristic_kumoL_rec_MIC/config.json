@@ -1,0 +1,35 @@
+{
+  "name": "J17_heuristic_kumoL_rec_MIC",
+  "config": {
+    "datasets": [
+      "MIC"
+    ],
+    "model": "kumo-tabular-l:n_estimators=8,device=cuda",
+    "lite": false,
+    "harness": "heuristic",
+    "llm_model": "sonnet",
+    "budget_evals": 24,
+    "budget_minutes": 60,
+    "max_rows": 10000,
+    "cv_repeats": "auto",
+    "select_rule": "gated1",
+    "accept_holdout": 0.2
+  },
+  "env": {
+    "python": "3.11.15",
+    "platform": "Linux-5.15.0-152-generic-x86_64-with-glibc2.35",
+    "cpu_count": 104,
+    "git_sha": "d9b51b6",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "sklearn": "1.8.0",
+    "torch": "2.9.1+cu128",
+    "tabpfn": "9.1.0",
+    "tabicl": "?",
+    "torch_geometric": "2.8.0.post1",
+    "lightgbm": "4.7.0",
+    "torch_cuda": true,
+    "torch_threads": 8
+  },
+  "started_utc": "2026-10-03T08:45:02.342186+00:00"
+}

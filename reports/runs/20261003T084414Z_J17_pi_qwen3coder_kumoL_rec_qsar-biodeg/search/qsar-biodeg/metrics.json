@@ -1,0 +1,90 @@
+{
+  "dataset": "qsar-biodeg",
+  "task_type": "binary",
+  "model": "kumo-tabular-l:n_estimators=8,device=cuda",
+  "metric": "1-auroc",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 8,
+  "n_evals_ok": 8,
+  "select_rule": "gated1",
+  "p0_cv": 0.06445923650224723,
+  "best_cv": 0.06390453433464184,
+  "best_candidate": "eval_003.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 339.0,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261003T084414Z_J17_pi_qwen3coder_kumoL_rec_qsar-biodeg/search/qsar-biodeg/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "acceptance": {
+    "p0": 0.09302851969216841,
+    "candidate": 0.09642372114078768,
+    "candidate_name": "eval_003.py",
+    "accepted": false,
+    "n_rows": 141
+  },
+  "p0_test": 0.060987485122804386,
+  "p0_test_secondary": {
+    "logloss": 0.2955461996729403,
+    "acc": 0.8892045454545454,
+    "auroc": 0.9390125148771956,
+    "1-auroc": 0.060987485122804386
+  },
+  "best_test": 0.060987485122804386,
+  "best_test_secondary": {
+    "logloss": 0.2955461996729403,
+    "acc": 0.8892045454545454,
+    "auroc": 0.9390125148771956,
+    "1-auroc": 0.060987485122804386
+  },
+  "best_test_info": {
+    "n_features": 41,
+    "t_features": 0.05,
+    "n_views": 1,
+    "view_sizes": [
+      702
+    ],
+    "t_model": 2.603,
+    "t_total": 2.657,
+    "model_spec": "kumo-tabular-l:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 0.0,
+  "cv_trajectory": [
+    [
+      1,
+      0.06445923650224723
+    ],
+    [
+      2,
+      0.06445923650224723
+    ],
+    [
+      3,
+      0.06390453433464184
+    ],
+    [
+      4,
+      0.06424588951470672
+    ],
+    [
+      5,
+      0.06424588951470672
+    ],
+    [
+      6,
+      0.06448768276725264
+    ],
+    [
+      7,
+      0.06424588951470672
+    ],
+    [
+      8,
+      0.06390453433464184
+    ]
+  ],
+  "elapsed_s": 377.3,
+  "status": "ok"
+}
