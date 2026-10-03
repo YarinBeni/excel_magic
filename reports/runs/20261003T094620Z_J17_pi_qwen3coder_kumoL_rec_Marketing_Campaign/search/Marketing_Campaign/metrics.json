@@ -1,0 +1,78 @@
+{
+  "dataset": "Marketing_Campaign",
+  "task_type": "binary",
+  "model": "kumo-tabular-l:n_estimators=8,device=cuda",
+  "metric": "1-auroc",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 5,
+  "n_evals_ok": 5,
+  "select_rule": "gated1",
+  "p0_cv": 0.12469728091504695,
+  "best_cv": 0.11053337126043106,
+  "best_candidate": "eval_003.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 166.6,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261003T094620Z_J17_pi_qwen3coder_kumoL_rec_Marketing_Campaign/search/Marketing_Campaign/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "acceptance": {
+    "p0": 0.09816272965879258,
+    "candidate": 0.07270341207349074,
+    "candidate_name": "eval_003.py",
+    "accepted": true,
+    "n_rows": 299
+  },
+  "p0_test": 0.053267890532041395,
+  "p0_test_secondary": {
+    "logloss": 0.2028131780021037,
+    "acc": 0.9156626506024096,
+    "auroc": 0.9467321094679586,
+    "1-auroc": 0.053267890532041395
+  },
+  "best_test": 0.052163012068672465,
+  "best_test_secondary": {
+    "logloss": 0.20514983249543003,
+    "acc": 0.9062918340026773,
+    "auroc": 0.9478369879313275,
+    "1-auroc": 0.052163012068672465
+  },
+  "best_test_info": {
+    "n_features": 46,
+    "t_features": 0.033,
+    "n_views": 1,
+    "view_sizes": [
+      1493
+    ],
+    "t_model": 3.08,
+    "t_total": 3.115,
+    "model_spec": "kumo-tabular-l:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 2.074,
+  "cv_trajectory": [
+    [
+      1,
+      0.12469728091504695
+    ],
+    [
+      2,
+      0.12469728091504695
+    ],
+    [
+      3,
+      0.11053337126043106
+    ],
+    [
+      4,
+      0.11197871319451784
+    ],
+    [
+      5,
+      0.11247112200602982
+    ]
+  ],
+  "elapsed_s": 194.38,
+  "status": "ok"
+}
