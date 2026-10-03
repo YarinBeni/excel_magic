@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Which Layer Is the Embedding?</title>
+<style>
+@page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+html { font-family: "DejaVu Serif", Georgia, serif; font-size: 9.6pt; line-height: 1.32; color: #111; }
+body { margin: 0; }
+h1 { font-size: 17pt; margin: 0 0 4pt; line-height: 1.2; text-align: center; }
+.authors { text-align: center; font-size: 10pt; margin-bottom: 2pt; }
+.affil { text-align: center; font-size: 8.6pt; color: #444; margin-bottom: 10pt; }
+.abstract { margin: 0 auto 10pt; width: 86%; font-size: 9.2pt; }
+.abstract b { font-variant: small-caps; }
+.cols { column-count: 2; column-gap: 7mm; }
+h2 { font-size: 11pt; margin: 9pt 0 3pt; break-after: avoid; }
+h3 { font-size: 9.8pt; margin: 7pt 0 2pt; font-style: italic; font-weight: normal; break-after: avoid; }
+p { margin: 0 0 5pt; text-align: justify; hyphens: auto; }
+figure { break-inside: avoid; margin: 4pt 0 8pt; }
+figure img { width: 100%; display: block; }
+figure.wide { column-span: all; width: 100%; margin: 6pt 0 10pt; }
+figure.wide img { width: 100%; }
+figcaption { font-size: 8.3pt; color: #333; margin-top: 3pt; text-align: justify; }
+table { border-collapse: collapse; width: 100%; font-size: 8.2pt; margin: 3pt 0 7pt; break-inside: avoid; }
+table.wide { column-span: all; margin: 6pt 0 9pt; }
+th, td { padding: 2pt 3pt; border-bottom: 0.5pt solid #bbb; text-align: left; }
+th { border-bottom: 1pt solid #333; font-weight: bold; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+caption { caption-side: top; font-size: 8.3pt; text-align: left; padding: 0 0 3pt; color: #333; }
+.ref { font-size: 8.3pt; padding-left: 1.6em; text-indent: -1.6em; margin-bottom: 2.5pt; text-align: left; }
+.small { font-size: 8.3pt; color: #444; }
+ul { margin: 0 0 5pt 1.1em; padding: 0; } li { margin-bottom: 2pt; }
+code { font-family: "DejaVu Sans Mono", monospace; font-size: 8.2pt; }
+
+.l { font-size: 7pt; color: #666; }
+th.c { text-align: center; border-bottom: 0.5pt solid #888; }
+tr.mean td { border-top: 1pt solid #333; font-weight: bold; }
+</style></head><body>
+<h1>Which Layer Is the Embedding? Frozen Tabular and Relational Foundation Models as Entity Encoders on Real Relational Data</h1>
+<div class="authors">Yarin Benizri</div>
+<div class="affil">Hebrew University of Jerusalem &middot; experiments on a Slurm cluster with H200 GPUs &middot; code: <code>frozen-embeddings-retrieval</code> &middot; draft, 3 October 2026 &middot; companion paper: <i>Open TabFM-Auto</i></div>
+
+<div class="abstract"><b>Abstract.</b> Tabular foundation models predict in context, and their hidden states are now used as row and entity embeddings, nearly always taken from the last layer. We ask which layer is the embedding. On 8 entity-classification tasks from RelBench, with official splits and evaluator, we probe every layer of seven frozen models: TabPFN v2, TabPFN-2.5, TabICLv2, Kumo Tabular S/M/L, and the graph-based Kumo Relational, which reads the database itself. Each model is given four kinds of in-context labels: the real labels, random labels, k-means clusters, or zeros. (1) The last layer is rarely the best one. For Kumo Relational a linear probe on its early graph layer beats the model's own prediction on {{K_WIN_OWN}} of {{K_N}} tasks (mean AUROC {{K_VAL}} vs {{K_OWN}}); on one task the head is at chance (0.49) while that layer reaches 0.79. For TabPFN with real labels, blocks 8&ndash;9 are picked on {{T_B89}} of 8 tasks, in line with mechanistic work. (2) Without real labels, frozen embeddings are worth their input, not more: Kumo Relational with random labels matches hand-built relational features ({{K_RAND}} vs {{RAW}}) with no feature engineering, while TabPFN over those features falls below them. (3) A label-free statistic, the intrinsic dimension of a layer's output, picks a layer nearly as well as validation labels (mean regret {{REG_ID}} vs {{REG_VAL}}; last layer {{REG_LAST}}). (4) Models agree at their last layers (cross-model CKA {{CKA_LAST}}) far more than at their best layers ({{CKA_BEST}}): the last layers converge on the label, the useful layers do not. (5) A protocol trap: if probe-training rows share time periods with the context rows, real-label late layers look useless (last layer {{P_LAST_RAND}} vs {{P_LAST_TIME}} with a time split). As a retrieval test, no frozen embedding is a recommendation embedding on rel-hm.</div>
+
+<div class="cols">
+<h2>1. Introduction</h2>
+<p>A tabular foundation model (TFM) reads labelled rows as a prompt and predicts new rows in one forward pass. Because nothing is fitted, its hidden states are attractive as embeddings: one frozen model, any table, no training. Benchmarks of tabular embeddings (TEmBed, 2026) and practitioners take the last layer, usually via <code>get_embeddings()</code>. But the last layer of an in-context model is shaped by the in-context labels, and mechanistic studies find that the label is read out at a particular depth. The question of which layer gives the best entity embedding, on real relational data, has not been asked.</p>
+<p><b>Contributions.</b> (i) A layer-by-layer probe of seven open TFMs, including a relational one, on 8 RelBench tasks with official evaluation. (ii) The effect of the in-context labels (real, random, k-means, zeros) on what each layer keeps. (iii) A test of whether label-free geometry (effective rank, TwoNN intrinsic dimension, anisotropy, k-means silhouette) can pick the layer. (iv) Layer similarity within and across models by linear CKA. (v) A protocol finding for layer probes of in-context models. (vi) A retrieval test of frozen embeddings on rel-hm recommendation.</p>
+
+<h2>2. Related work</h2>
+<p><b>Layers of tabular foundation models.</b> &ldquo;Is One Layer Enough?&rdquo; (ICML 2026) compares layers of six TFMs by CKA and cosine similarity and finds strong depth redundancy. &ldquo;A Mechanistic Study of Tabular Foundation Models&rdquo; (2026) finds that a probe for the target in TabPFN v2 jumps between layers 8 and 9, while TabICLv2 is readable early. Both study prediction on single tables; we study embeddings for entities in relational databases.</p>
+<p><b>Tabular embeddings.</b> TEmBed (IBM, 2026) benchmarks row, column and table embeddings; TFM rows enter as last-layer <code>get_embeddings()</code> and are weak on text-heavy tables. Relational foundation models (KumoRFM, OpenRFM) predict over database subgraphs; Kumo Relational (NVIDIA, 2026) is an open one.</p>
+<p><b>Probing and geometry.</b> Linear probes (Alain &amp; Bengio, 2017) read what a layer encodes; CKA (Kornblith et al., 2019) compares representations; effective rank (RankMe, Garrido et al., 2023), TwoNN intrinsic dimension (Facco et al., 2017) and anisotropy (Ethayarajh, 2019) describe their shape without labels.</p>
+
+<h2>3. Setup</h2>
+<p><b>Tasks.</b> 8 RelBench entity classification tasks: rel-f1 driver-dnf and driver-top3, rel-trial study-outcome, rel-event user-repeat and user-ignore, rel-avito user-visits and user-clicks, rel-hm user-churn. Official train/val/test tables; test AUROC by the official evaluator.</p>
+<p><b>Inputs.</b> For each task row (entity, time) we build a temporally safe 2-hop subgraph: the entity row, its latest 50 child rows of each kind with time &le; t, and its parent rows. Kumo Relational reads the subgraph directly. The tabular models read a flattened version: the entity's columns plus, per child table, the count, the days since the last event and the means of numeric columns.</p>
+<p><b>Context, probes, selection.</b> Each model is given a context of training rows with one of four label kinds: real labels, random labels, k-means cluster ids of the features, or zeros. We record every layer's output for the query rows: the row encoder, the graph layer (Kumo Relational), each transformer block, and the final norm. A logistic-regression probe (C = 0.1, standardised inputs) and a cosine kNN probe (k = 50) are trained on 4,000 training rows. The layer is picked by validation AUROC; <i>regret</i> is the gap to the best test layer. <i>Raw</i> is the same probe on the flattened features.</p>
+<p><b>Time split.</b> The probe-training rows are always strictly later than every context row, as the validation and test rows are (Section 4.5 shows why this matters).</p>
+<p><b>Models.</b> Kumo Relational (study J18, 8 tasks, 512 context entities); TabPFN v2 (J19, 8 tasks, 3,000 context rows, four label kinds); TabPFN v2, TabPFN-2.5, TabICLv2 and Kumo Tabular S/M/L with label-free geometry and CKA (J21, {{N_J21}} of 5 tasks so far: {{J21_TASKS}}).</p>
+
+<h2>4. Results</h2>
+</div>
+<table class="wide"><caption><b>Table 1.</b> Real labels in context, test AUROC. <i>own</i>: the model's own prediction; <i>last</i>: probe on the last layer; <i>val-picked</i>: probe on the layer with the best validation AUROC (layer in grey); <i>random ctx</i>: Kumo Relational's val-picked layer with random labels in context. Bold: best of the model's three columns.</caption>
+{{T_MAIN}}
+</table>
+<div class="cols">
+<h3>4.1 The last layer is rarely the best one</h3>
+<p><b>Kumo Relational: read the graph layer, not the head.</b> The val-picked layer is the graph layer or one of the first transformer layers on 7 of 8 tasks. It beats the model's own prediction on {{K_WIN_OWN}} of {{K_N}} tasks (mean {{K_VAL}} vs {{K_OWN}}) and the last layer on most (mean {{K_LAST}}). Later in-context layers lose linear signal step by step (Figure 1). On rel-event user-repeat the model's head is at chance (0.49) on probe-training and test rows alike; a direct check of its per-class outputs confirms this is the model, not our score extraction. The graph layer of the same forward pass reaches 0.79.</p>
+<p><b>TabPFN: blocks 8&ndash;9.</b> With real labels, the val-picked block is 8 or 9 on {{T_B89}} of 8 tasks, which is where the mechanistic study locates TabPFN's label read-out. The gain over the model's own prediction is small (mean {{T_VAL}} vs {{T_OWN}}; last layer {{T_LAST}}).</p>
+<figure class="wide"><img src="figures/fig_layers_depth.png"><figcaption><b>Figure 1.</b> Probe AUROC minus the raw-feature probe at each relative depth, mean over tasks, one panel per model, one line per kind of in-context label. Dashed: the model's own prediction with real labels.</figcaption></figure>
+
+<h3>4.2 Without real labels, embeddings are worth their input</h3>
+<table class="wide"><caption><b>Table 2.</b> Mean test AUROC of the val-picked layer by kind of in-context label, and the model's own prediction (real labels).</caption>
+{{T_CONTEXTS}}
+</table>
+<p>Kumo Relational with random labels matches a probe on hand-built relational features ({{K_RAND}} vs {{RAW}}) while reading the database with no feature engineering; it is above them on 4 of 8 tasks. TabPFN over the same features falls below them with every label-free context, and the k-means context, which recovers planted segments on synthetic data, does not help on real tasks. The tabular models in J21 behave alike: label-free layers are close to the raw features on average, with rel-trial the exception, where the early layers of TabICLv2 and Kumo Tabular beat them by 0.06&ndash;0.08.</p>
+
+<h3>4.3 Can label-free geometry pick the layer?</h3>
+<table class="wide"><caption><b>Table 3.</b> Regret (best test layer minus chosen layer, AUROC) of each way to choose a layer, over {{N_SEL}} model &times; task &times; context runs (J21). Geometry: choose the layer with the largest or smallest value; which one is decided leave-one-task-out. &rho;: mean Spearman correlation of the statistic with layer test AUROC.</caption>
+{{T_SELECTORS}}
+</table>
+<p>Validation labels are the best guide (mean regret {{REG_VAL}}), but the TwoNN intrinsic dimension is nearly as good ({{REG_ID}}) without any label, and better than taking the last layer ({{REG_LAST}}). Effective rank is the most consistent signal (&rho; = {{RHO_ER}}, negative in {{ER_NEG}} of runs): layers whose outputs spread over more directions are worse probes. Its mean regret ({{REG_ER}}) is hurt by a few large misses.</p>
+<figure class="wide"><img src="figures/fig_layers_geometry.png"><figcaption><b>Figure 2.</b> Label-free geometry of each layer, real labels in context, mean over tasks; colour within each model's row.</figcaption></figure>
+
+<h3>4.4 Models agree at the last layer, not at the best one</h3>
+<table><caption><b>Table 4.</b> Mean linear CKA between models (J21, real labels, test rows), at each model's val-picked layer and at its last layer.</caption>
+{{T_CKA}}
+</table>
+<p>The last layers of different models are similar to each other (CKA {{CKA_LAST}}): with real labels in context they converge on a representation of the label. The val-picked layers are less alike ({{CKA_BEST}}), except within the TabICL/Kumo Tabular family, which share an architecture. Both are far from the raw features ({{CKA_RAW_BEST}} and {{CKA_RAW_LAST}}). The useful layer keeps model-specific structure that the last layer has already projected away (Figure 3).</p>
+<figure><img src="figures/fig_layers_cka.png"><figcaption><b>Figure 3.</b> Layer-by-layer CKA inside each model on one task. Blocks of dark cells are layers that compute nearly the same representation.</figcaption></figure>
+
+<h3>4.5 A protocol trap for layer probes of in-context models</h3>
+<p>Our first runs drew the context rows and the probe-training rows at random from the same training table. Most probe-training rows then had their own entity in the context at a neighbouring date. With real labels, the late layers carry a copy of that neighbour's label, which validation and test rows, later than every context row, never get. A linear probe learns the copy and fails: two models' last layers scored 0.40 and 0.43, below chance, while a kNN probe on the same layers stayed at 0.75&ndash;0.79. The time split removes it:</p>
+<table><caption><b>Table 5.</b> The same runs under both splits, mean test AUROC.</caption>
+{{T_PROTOCOL}}
+</table>
+<p>With real labels, the last layer moves from {{P_LAST_RAND}} to {{P_LAST_TIME}} over {{P_N}} runs. Any layer study of an in-context model should keep probe rows out of the context's period, or it will find that the last layers &ldquo;forget&rdquo; when they have only specialised.</p>
+
+<h3>4.6 Retrieval: frozen embeddings are not recommendation embeddings</h3>
+<figure class="wide"><img src="figures/fig_retrieval.png"><figcaption><b>Figure 4.</b> RelBench rel-hm. Left: user-item-purchase, test MAP@12 (&times;100), training-free kNN over each customer representation. Right: user-churn, kNN-probe AUROC. Blue: a frozen model's hidden state as the embedding.</figcaption></figure>
+<p>On a synthetic shop database with planted segments, TabPFN's hidden state with k-means labels in context recovers the segments (P@10 0.82; a GNN trained on the database 0.88). On rel-hm, every frozen embedding (MAP@12 &times;100 0.18&ndash;0.24) is below hand aggregates (0.26) and far below cosine similarity on the purchase matrix (1.20). On TEmBed's text-heavy Wikidata triplets TabPFN rows score 0.55&ndash;0.61 against 0.77 for a small text encoder, whatever the in-context labels. Frozen hidden states summarise an entity's features; for item retrieval the interaction matrix is the right representation.</p>
+
+<h2>5. Discussion and limitations</h2>
+<p><b>What to use.</b> For an entity embedding from a frozen model on relational data: take Kumo Relational's graph layer, with random labels if no labels exist; with labels, probe the graph layer rather than trusting the head. For TabPFN with labels, use blocks 8&ndash;9. Without validation labels, prefer the layer with the lowest intrinsic dimension over the last layer.</p>
+<p><b>Limitations.</b> One seed and one context size per model; 4,000 probe-training rows; linear and kNN probes only. Several tasks are small (rel-f1 top3: 677 probe rows; rel-event repeat: 246 test rows), so per-task differences under 0.02 are noise; we report means over 8 tasks. The time split puts rel-f1's context before 1987, which lowers every score there equally. The flattened features drop text columns, which helps Kumo Relational on rel-trial. The six-model study (J21) covers {{N_J21}} of its 5 tasks in this draft.</p>
+<p><b>Conclusion.</b> The best embedding in a frozen tabular or relational foundation model is usually not its last layer. The last layers converge on the in-context label; the earlier layers keep the entity. A label-free statistic can find a good layer, and a simple time split is needed to see any of this.</p>
+
+<h2>References</h2>
+<div class="ref">Robinson, J. et al. (2024). RelBench: A Benchmark for Deep Learning on Relational Databases. NeurIPS Datasets and Benchmarks.</div>
+<div class="ref">Hollmann, N. et al. (2025). Accurate predictions on small data with a tabular foundation model. Nature.</div>
+<div class="ref">Qu, J. et al. (2025). TabICL: A Tabular Foundation Model for In-Context Learning on Large Data.</div>
+<div class="ref">NVIDIA (2026). Structured Data Models: Kumo Tabular and Kumo Relational (open weights).</div>
+<div class="ref">IBM Research (2026). Towards Universal Tabular Embeddings: A Benchmark Across Data Tasks (TEmBed). arXiv:2604.21696.</div>
+<div class="ref">Is One Layer Enough? Depth Redundancy in Tabular Foundation Models (2026). ICML.</div>
+<div class="ref">A Mechanistic Study of Tabular Foundation Models (2026). arXiv preprint.</div>
+<div class="ref">Alain, G. &amp; Bengio, Y. (2017). Understanding intermediate layers using linear classifier probes. ICLR Workshop.</div>
+<div class="ref">Kornblith, S. et al. (2019). Similarity of Neural Network Representations Revisited. ICML.</div>
+<div class="ref">Garrido, Q. et al. (2023). RankMe: Assessing the Downstream Performance of Pretrained Self-Supervised Representations by Their Rank. ICML.</div>
+<div class="ref">Facco, E. et al. (2017). Estimating the intrinsic dimension of datasets by a minimal neighborhood information. Scientific Reports.</div>
+<div class="ref">Ethayarajh, K. (2019). How Contextual are Contextualized Word Representations? EMNLP.</div>
+<p class="small">Experiments and this paper were produced with Claude Code; tables and the numbers in the text are filled from the run directories by <code>paper/build_paper.py</code>.</p>
+</div>
+</body></html>
