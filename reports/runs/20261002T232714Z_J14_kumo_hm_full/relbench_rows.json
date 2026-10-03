@@ -1,0 +1,92 @@
+{
+ "val": {
+  "split": "val",
+  "cutoff": "2020-09-07",
+  "n_queries": 74575,
+  "hist_days": 365,
+  "K": 12,
+  "rows": {
+   "GlobalPopularity": {
+    "map": 0.003417955724543488
+   },
+   "PastVisit": {
+    "map": 0.019035265558743804
+   },
+   "kNN-CF[purchase_matrix]": {
+    "map": 0.011636393134170656,
+    "seconds": 269.0
+   },
+   "Past+kNN-CF[purchase_matrix]": {
+    "map": 0.019193643852428804
+   },
+   "ItemKNN": {
+    "map": 0.010343014804899579,
+    "seconds": 195.7
+   },
+   "Past+ItemKNN": {
+    "map": 0.01901363475776056
+   },
+   "kNN-CF[agg]": {
+    "map": 0.0025793324729244073,
+    "seconds": 276.4
+   },
+   "Past+kNN-CF[agg]": {
+    "map": 0.01888794273017037
+   },
+   "kNN-CF[kumo_relational_kmeans]": {
+    "map": 0.002008849820332929,
+    "seconds": 2290.3
+   },
+   "Past+kNN-CF[kumo_relational_kmeans]": {
+    "map": 0.018813817630929243
+   }
+  },
+  "official_evaluator": true,
+  "seconds": 3042.9
+ },
+ "test": {
+  "split": "test",
+  "cutoff": "2020-09-14",
+  "n_queries": 67144,
+  "hist_days": 365,
+  "K": 12,
+  "rows": {
+   "GlobalPopularity": {
+    "map": 0.002924725433564016
+   },
+   "PastVisit": {
+    "map": 0.021985482465455758
+   },
+   "kNN-CF[purchase_matrix]": {
+    "map": 0.012034958608203186,
+    "seconds": 236.2
+   },
+   "Past+kNN-CF[purchase_matrix]": {
+    "map": 0.022160301644572913
+   },
+   "ItemKNN": {
+    "map": 0.010729442051346209,
+    "seconds": 166.4
+   },
+   "Past+ItemKNN": {
+    "map": 0.021965871274952267
+   },
+   "kNN-CF[agg]": {
+    "map": 0.0025877917430917833,
+    "seconds": 241.8
+   },
+   "Past+kNN-CF[agg]": {
+    "map": 0.02184266704885067
+   },
+   "kNN-CF[kumo_relational_kmeans]": {
+    "map": 0.0018440322284075364,
+    "seconds": 1869.7
+   },
+   "Past+kNN-CF[kumo_relational_kmeans]": {
+    "map": 0.021809009078791446
+   }
+  },
+  "official_evaluator": true,
+  "seconds": 2524.5
+ }
+}
