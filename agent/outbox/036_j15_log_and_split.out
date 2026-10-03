@@ -1,0 +1,57 @@
+# 036_j15_log_and_split  host=g0377  start=Sat Oct  3 05:58:21 UTC 2026  timeout=300s
+# HEAD=09f67e2
+# ---------------------------------------------------------
+== sbatch/logs/J15_selection_rules_50827.out
+[rescore] 20261002T155211Z_J2_heuristic_anneal anneal: 509s
+[rescore] 20261002T155211Z_J2_heuristic_blood-transfusion-service-center blood-transfusion-service-center: 143s
+[rescore] 20261002T155211Z_J2_heuristic_diabetes diabetes: 346s
+[rescore] 20261002T155220Z_J2_heuristic_QSAR_fish_toxicity QSAR_fish_toxicity: 136s
+[rescore] 20261002T155220Z_J2_heuristic_credit-g credit-g: 253s
+[rescore] 20261002T155220Z_J2_heuristic_maternal_health_risk maternal_health_risk: 225s
+[rescore] 20261002T155239Z_J2_heuristic_concrete_compressive_strength concrete_compressive_strength: 240s
+[rescore] 20261002T155339Z_J2_heuristic_qsar-biodeg qsar-biodeg: 1296s
+[rescore] 20261002T155549Z_J2_heuristic_healthcare_insurance_expenses healthcare_insurance_expenses: 374s
+[rescore] 20261002T155610Z_J2_heuristic_website_phishing website_phishing: 256s
+[rescore] 20261002T155640Z_J2_heuristic_airfoil_self_noise airfoil_self_noise: 555s
+[rescore] 20261002T155643Z_J2_heuristic_Fitness_Club Fitness_Club: 236s
+[rescore] 20261002T155709Z_J2_heuristic_Is-this-a-good-customer Is-this-a-good-customer: 744s
+[rescore] 20261002T155710Z_J2_heuristic_Another-Dataset-on-used-Fiat-500 Another-Dataset-on-used-Fiat-500: 513s
+[rescore] 20261002T155711Z_J2_heuristic_MIC MIC: 3506s
+[rescore] 20261002T155711Z_J2_heuristic_hazelnut-spread-contaminant-detection hazelnut-spread-contaminant-detection: 1399s
+[rescore] 20261002T155712Z_J2_heuristic_Marketing_Campaign Marketing_Campaign: 1080s
+[rescore] 20261002T191905Z_J8_pi_qwen3coder_blood-transfusion-service-center blood-transfusion-service-center: 74s
+[rescore] 20261002T192134Z_J8_pi_qwen3coder_diabetes diabetes: 248s
+[rescore] 20261002T192430Z_J8_pi_qwen3coder_anneal anneal: 414s
+[rescore] 20261002T192744Z_J8_pi_qwen3coder_QSAR_fish_toxicity QSAR_fish_toxicity: 106s
+[rescore] 20261002T193116Z_J8_pi_qwen3coder_credit-g credit-g: 569s
+[rescore] 20261002T193345Z_J8_pi_qwen3coder_maternal_health_risk maternal_health_risk: 145s
+[rescore] 20261002T193646Z_J8_pi_qwen3coder_concrete_compressive_strength concrete_compressive_strength: 243s
+[rescore] 20261002T193940Z_J8_pi_qwen3coder_qsar-biodeg qsar-biodeg: 857s
+[rescore] 20261002T194237Z_J8_pi_qwen3coder_healthcare_insurance_expenses healthcare_insurance_expenses: 300s
+[rescore] 20261002T194521Z_J8_pi_qwen3coder_website_phishing website_phishing: 232s
+[rescore] 20261002T194749Z_J8_pi_qwen3coder_Fitness_Club Fitness_Club: 240s
+[rescore] 20261002T194956Z_J8_pi_qwen3coder_airfoil_self_noise airfoil_self_noise: 302s
+[rescore] 20261002T195318Z_J8_pi_qwen3coder_Another-Dataset-on-used-Fiat-500 Another-Dataset-on-used-Fiat-500: 257s
+[rescore] 20261002T195641Z_J8_pi_qwen3coder_MIC MIC: 4054s
+[rescore] 20261002T195952Z_J8_pi_qwen3coder_Is-this-a-good-customer Is-this-a-good-customer: 389s
+[rescore] 20261002T200211Z_J8_pi_qwen3coder_Marketing_Campaign Marketing_Campaign: 1701s
+[rescore] 20261002T200518Z_J8_pi_qwen3coder_hazelnut-spread-contaminant-detection hazelnut-spread-contaminant-detection: 1641s
+[rescore] 20261002T194110Z_J8_openai_glm45air_blood-transfusion-service-center blood-transfusion-service-center: 75s
+== slowest
+J8_pi_qwen3coder_MIC MIC: 4054s
+J2_heuristic_MIC MIC: 3506s
+J8_pi_qwen3coder_Marketing_Campaign Marketing_Campaign: 1701s
+J8_pi_qwen3coder_hazelnut-spread-contaminant-detection hazelnut-spread-contaminant-detection: 1641s
+J2_heuristic_hazelnut-spread-contaminant-detection hazelnut-spread-contaminant-detection: 1399s
+J2_heuristic_qsar-biodeg qsar-biodeg: 1296s
+J2_heuristic_Marketing_Campaign Marketing_Campaign: 1080s
+J8_pi_qwen3coder_qsar-biodeg qsar-biodeg: 857s
+cancelled J15 50827
+J15b: 51090
+       50192           AGENT_runner  RUNNING   14:25:50 g0377
+       50827    J15_selection_rules COMPLETI    6:38:40 g0381
+       51089        J16_determinism  PENDING       0:00 (Resources)
+       51090     J15b_selection_glm  PENDING       0:00 (Priority)
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 05:58:22 UTC 2026
