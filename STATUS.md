@@ -102,3 +102,6 @@
   (>1% losses 6 -> 3), ensemble keeps gains. pi / GLM / budget-64 groups still re-scoring.
 - J14b: Kumo Relational random target at item level 0.24 (k-means 0.18, aggregates 0.26, purchase matrix 1.20). Retrieval
   study complete. Waiting on J15 groups 2-6 for the final recommendation.
+- J15 group 2 (pi): within J15, best +1.5%, ens3 +1.7%, gated1 +0.4%, gated2 -0.2%. BUT J15's P0 scores differ from J2/J8's on
+  the same splits (anneal 0.0118 -> 0.0163, airfoil 0.979 -> 1.118; identical across J15 run dirs, so deterministic within J15).
+  The Kumo-S wrapper never seeds torch. inbox 035 / J16: score P0 repeatedly with the current and the J8-era library.
