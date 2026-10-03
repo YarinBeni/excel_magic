@@ -1,0 +1,2 @@
+dataset,P*,P0,metric,tabfm,tabfm_auto_opus5,tabfm_auto_gemini38flash,our_gain_%,paper_gain_opus5_%,ours_vs_paper_tabfm
+blood-transfusion-service-center,0.24743188125681434,0.2473950589751214,1-auroc,0.2441,0.2431,0.2398,-0.014884000450729129,0.4096681687832859,1.0136496569308249
