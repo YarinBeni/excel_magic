@@ -1,0 +1,12 @@
+# 059_v2_v3smoke  host=g0374  start=Sat Oct  3 19:15:53 UTC 2026  timeout=120s
+# HEAD=1b25d75
+# ---------------------------------------------------------
+V2: 51819
+V3 smoke: 51820
+       51136           AGENT_runner  RUNNING    3:42:53 g0374
+       51816      V1_verifier_study  RUNNING       0:38 g0378
+       51819     V2_text_featurizer  PENDING       0:00 (Priority)
+       51820        V3_insightbench  PENDING       0:00 (Priority)
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 19:15:53 UTC 2026
