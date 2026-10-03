@@ -337,7 +337,11 @@ k-means target, below the aggregates (0.26) and two orders of magnitude below sp
   losing > 1%: 6 / 5 / 3 / 6. No rule turns the search into a reliable win: the 1-s.e. gate is marginally best and the
   2-s.e. gate is the loss limiter, but all four are within the ±1% the backbone's own nondeterminism produces, and each
   pick beats P0 on only 44–47% of the individual splits. (A first pass that accidentally scored with TabPFN v2 had
-  suggested the ensemble helped; that was an artifact and is withdrawn.) pi and GLM groups follow.
+  suggested the ensemble helped; that was an artifact and is withdrawn.)
+  On the 17 pi + Qwen3-Coder searches: best −0.95% (= J8), gated1 −0.68%, gated2 −0.63%, ens3 −0.80%; the −14.6% on
+  Marketing_Campaign passes even the 2-s.e. gate, i.e. it is CV-confident and wrong on fresh rows, which no CV-based rule
+  can catch. The remedy is an *acceptance slice*: 20% of the training split kept out of the search, on which the
+  candidate must beat P0 (`--accept-holdout 0.2`); J17 runs the recommended configuration end to end with it.
 - **Backbone nondeterminism (J16)**: the frozen Kumo Tabular-S gives different predictions on repeated calls with the
   same data (anneal r0f2 logloss 0.0035 / 0.0047 / 0.0045 in one process, 0.0031 / 0.0051 / 0.0073 in another; airfoil
   RMSE ±1%), independent of library version. Every P0-vs-P* comparison so far therefore carries this extra noise, which

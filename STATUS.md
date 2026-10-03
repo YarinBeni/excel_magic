@@ -112,3 +112,6 @@
   Fixed; runner seeds numpy/torch per evaluation; inbox 038 cancels J15b and runs J15c (3 groups in parallel, Kumo-S).
 - J15c group 1 (heuristic, Kumo-S, seeded): best +0.25%, gated1 +0.49%, gated2 +0.29% (losses>1%: 3), ens3 +0.25%. No rule
   rescues the search; all within backbone noise. pi / GLM groups running.
+- J15c group 2 (pi): best -0.95% (= J8), gated1 -0.68%, gated2 -0.63%, ens3 -0.80%; Marketing -14.6% passes the 2-s.e. gate
+  (CV-confident, wrong on fresh rows). Added --accept-holdout (20% acceptance slice of the train split, candidate must beat
+  P0 there). inbox 039 / J17: recommended config end to end on Kumo-L (heuristic, pi), cv-repeats auto, gated1, accept 0.2.

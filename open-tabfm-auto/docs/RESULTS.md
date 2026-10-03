@@ -488,3 +488,15 @@ Fitness_Club +0.7, website_phishing +0.5, maternal_health_risk -2.8/+0.6/+0.6/-2
 diabetes -1.9 all, qsar-biodeg -1.4, concrete -1.3, healthcare -1.3/-1.3/0.0/-1.3, the rest within +-0.7.
 The re-scored P0 agrees with J2's P0 within +-2% (backbone nondeterminism); the J2 run's own +0.47% for the CV-best pick
 is +0.25% here for the same reason.
+
+## Final-pick selection rules, corrected (J15c, 51106): pi + Qwen3-Coder searches re-scored with Kumo Tabular-S
+
+| rule | mean gain % | wins | losses > 1% | splits where the pick beats P0 |
+|---|---|---|---|---|
+| best | -0.95 | 6/17 | 3 | 40% |
+| gated 1 s.e. | -0.68 | 4/17 | 2 | 26% |
+| gated 2 s.e. | -0.63 | 1/17 | 1 | 8% |
+| top-3 ensemble | -0.80 | 7/17 | 3 | 49% |
+
+Marketing_Campaign -14.6% under every rule (the candidate is significantly better in CV and worse on all other splits);
+airfoil +3.8%, anneal -4.8% (gated: 0), credit-g -2.2%. Re-scored P0 within 3.7% of J8's.

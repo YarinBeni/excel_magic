@@ -76,10 +76,15 @@ def run_search(task: TabularTask, model_spec: str = "tabpfn", harness: str = "cl
                n_folds: int = 3, seed: int = 0, max_rows: int = 10000, eval_timeout_s: int = 900,
                baselines: tuple[str, ...] = ("hgb",), name: str | None = None, run_dir: Path | None = None,
                split: tuple[np.ndarray, np.ndarray] | None = None, llm_base_url: str | None = None,
-               agent_cmd: str | None = None, cv_repeats: int | str = 1, select_rule: str = "best") -> dict[str, Any]:
+               agent_cmd: str | None = None, cv_repeats: int | str = 1, select_rule: str = "best",
+               accept_holdout: float = 0.0) -> dict[str, Any]:
     """Run one TabFM-Auto search. ``split`` = (train_idx, test_idx) overrides the random hold-out (e.g. an
     official benchmark split); the agent only ever sees ``train_idx`` rows. ``cv_repeats``: repeats of the k-fold
-    judge (``"auto"`` = 3 when the training split has < 1000 rows, else 1)."""
+    judge (``"auto"`` = 3 when the training split has < 1000 rows, else 1). ``accept_holdout`` > 0 carves that fraction
+    of the training split out of the agent's workspace as an *acceptance* slice: the final candidate replaces P0 only
+    if it beats P0 there (fit on the workspace rows). This catches CV-confident candidates that fail on fresh rows
+    (Marketing_Campaign −15% under every CV-based rule). The held-out test is still scored with a fit on the whole
+    training split."""
     cfg = {k: v for k, v in locals().items() if k not in ("task", "run_dir", "split")}
     cfg.update({"dataset": task.name, "model": model_spec, "official_split": split is not None, **task.summary()})
     name = name or f"search_{task.name}_{model_spec.split(':')[0]}_{harness}"
@@ -92,9 +97,16 @@ def run_search(task: TabularTask, model_spec: str = "tabpfn", harness: str = "cl
         dte[task.y.name] = task.y.iloc[te_idx].to_numpy()
         dte.to_parquet(heldout / "test.parquet", index=False)
         reps = (3 if len(tr_idx) < 1000 else 1) if str(cv_repeats) == "auto" else int(cv_repeats)
-        ws = build_workspace(run, task, tr_idx, model_spec, budget_evals, budget_minutes, max_rows, n_folds, seed,
+        ws_idx, acc_idx = tr_idx, np.array([], dtype=int)
+        if accept_holdout and accept_holdout > 0:
+            strat = task.y.iloc[tr_idx] if task.task_type != "regression" else None
+            ws_idx, acc_idx = train_test_split(tr_idx, test_size=accept_holdout, random_state=seed + 1, stratify=strat)
+            ws_idx, acc_idx = np.sort(ws_idx), np.sort(acc_idx)
+            run.save_json("split.json", {"train_idx": tr_idx, "test_idx": te_idx, "workspace_idx": ws_idx, "acceptance_idx": acc_idx})
+        ws = build_workspace(run, task, ws_idx, model_spec, budget_evals, budget_minutes, max_rows, n_folds, seed,
                              eval_timeout_s, cv_repeats=reps)
-        run.event("workspace_ready", path=str(ws), n_train=len(tr_idx), n_test=len(te_idx), cv_repeats=reps)
+        run.event("workspace_ready", path=str(ws), n_train=len(ws_idx), n_acceptance=len(acc_idx), n_test=len(te_idx),
+                  cv_repeats=reps)
 
         # P0
         p0 = tabfm_eval(ws)
@@ -171,6 +183,18 @@ def run_search(task: TabularTask, model_spec: str = "tabpfn", harness: str = "cl
         Xtr, ytr = task.X.iloc[tr_idx].reset_index(drop=True), task.y.iloc[tr_idx].reset_index(drop=True)
         Xte, yte = task.X.iloc[te_idx].reset_index(drop=True), task.y.iloc[te_idx].reset_index(drop=True)
         p0_path = ws / "candidates" / "eval_001.py"
+        # acceptance: the candidate must beat P0 on rows the search never saw (fit on the workspace rows only)
+        if len(acc_idx) and best is not None and best["candidate"] != "eval_001.py" and p0_path.exists():
+            Xws, yws = task.X.iloc[ws_idx].reset_index(drop=True), task.y.iloc[ws_idx].reset_index(drop=True)
+            Xac, yac = task.X.iloc[acc_idx].reset_index(drop=True), task.y.iloc[acc_idx].reset_index(drop=True)
+            a0 = evaluate_holdout(p0_path, Xws, yws, Xac, yac, task.task_type, model_spec, seed, max_rows, run)
+            a1 = evaluate_holdout(ws / "candidates" / best["candidate"], Xws, yws, Xac, yac, task.task_type, model_spec, seed, max_rows, run)
+            accepted = a0.get("score") is not None and a1.get("score") is not None and a1["score"] < a0["score"]
+            metrics["acceptance"] = {"p0": a0.get("score"), "candidate": a1.get("score"), "candidate_name": best["candidate"],
+                                     "accepted": bool(accepted), "n_rows": int(len(acc_idx))}
+            run.event("acceptance", **metrics["acceptance"])
+            if not accepted:
+                best = next((r for r in ok if r["candidate"] == "eval_001.py"), best)
         if p0_path.exists():
             r = evaluate_holdout(p0_path, Xtr, ytr, Xte, yte, task.task_type, model_spec, seed, max_rows, run)
             metrics["p0_test"] = r.get("score")
