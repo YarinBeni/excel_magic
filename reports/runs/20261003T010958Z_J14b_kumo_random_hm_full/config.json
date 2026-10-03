@@ -1,0 +1,32 @@
+{
+  "name": "J14b_kumo_random_hm_full",
+  "config": {
+    "dataset": "rel-hm",
+    "task": "user-item-purchase",
+    "splits": "val,test",
+    "embedders": "agg,kumo_relational_random",
+    "hist_days": 365,
+    "k_neighbors": 50,
+    "sample_queries": null,
+    "device": "cuda",
+    "seed": 0,
+    "name": "J14b_kumo_random_hm_full"
+  },
+  "env": {
+    "python": "3.11.15",
+    "platform": "Linux-5.15.0-152-generic-x86_64-with-glibc2.35",
+    "cpu_count": 104,
+    "git_sha": "d98aabe",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "sklearn": "1.8.0",
+    "torch": "2.9.1+cu128",
+    "tabpfn": "9.1.0",
+    "tabicl": "?",
+    "torch_geometric": "2.8.0.post1",
+    "lightgbm": "4.7.0",
+    "torch_cuda": true,
+    "torch_threads": 16
+  },
+  "started_utc": "2026-10-03T01:10:10.335702+00:00"
+}
