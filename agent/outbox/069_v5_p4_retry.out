@@ -1,0 +1,11 @@
+# 069_v5_p4_retry  host=g0374  start=Sat Oct  3 21:21:54 UTC 2026  timeout=120s
+# HEAD=ff02c87
+# ---------------------------------------------------------
+V5 P4: 51972
+       51136           AGENT_runner  RUNNING    5:48:55 g0374
+       51838      V4_rel_capability  RUNNING    1:50:39 g0381
+       51914          V6_insight_pi  RUNNING      49:05 g0378
+       51972         V5_sql_harness  PENDING       0:00 (Resources)
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 21:21:55 UTC 2026
