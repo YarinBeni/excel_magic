@@ -37,7 +37,7 @@ Mechanics to replicate (copy chrono/agent/runner.sh + chrono/sbatch/AGENT_runner
 Scripts run with bash -e, repo root, conda env active, default timeout 30 min (`# TIMEOUT=7200` line overrides). Sorted order, one at a time; a name already in done/ never re-runs; new work needs a new number.
 Inbox scripts usually just call sbatch for the real jobs and echo the ids. Make them idempotent; the runner may start late and a human may have run the script by hand meanwhile. Guard resubmissions (check squeue for a live array before submitting a duplicate).
 The runner re-execs itself when runner.sh changes on the branch; a pushed empty agent/STOP file makes it exit and commit "agent: stopped".
-Rules agreed with Yarin (keep them): the runner lives one day max (--time=1-00:00:00), is started per session (`sbatch .../AGENT_runner.sbatch`, the ONE command Yarin runs), must be stopped at session end (push STOP or scancel), and YOU must remind him. Anything pushed to inbox/ runs as the cluster user; never widen push access to the repo while a runner is alive.
+Rules agreed with Yarin (keep them): the runner lives one day max (--time=1-00:00:00; on 2026-10-03 Yarin asked to extend the current runner by 2 days: sbatch/AGENT_runner_2d.sbatch queued after it via inbox 043; `scancel -n AGENT_runner` stops both), is started per session (`sbatch .../AGENT_runner.sbatch`, the ONE command Yarin runs), must be stopped at session end (push STOP or scancel), and YOU must remind him. Anything pushed to inbox/ runs as the cluster user; never widen push access to the repo while a runner is alive.
 
 ## 4. Git from inside jobs (the part that bites)
 Every job syncs the branch at start and pushes its results at exit. Copy chrono/sbatch/_sandbox.sh; it encodes all of this:

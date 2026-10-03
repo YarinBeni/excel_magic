@@ -126,3 +126,5 @@
 - inbox 042 / J21: all six open tabular FMs (TabPFN v2, TabPFN-2.5, TabICLv2, Kumo Tabular S/M/L), every layer, 5 RelBench
   entity tasks, targets random/k-means/label: probes (val-selected layer, official test), label-free geometry per layer
   (effective rank, TwoNN ID, anisotropy, k-means silhouette) and whether it predicts the best layer, CKA within/across models.
+- 2026-10-03: runner extended 2 days at Yarin's request (inbox 043: raise the limit in place if allowed, else a 2-day
+  successor queued afterany the current runner). Stop everything with `scancel -n AGENT_runner`.
