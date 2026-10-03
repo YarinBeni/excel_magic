@@ -120,5 +120,14 @@ Aggregator: `scripts/analyze_layers.py` -> `docs/layers/LAYERS.md` + 4 figures.
 
 **Preliminary (rel-f1 only, 2 tasks; not yet a result).** Kumo Relational, real-label context: the graph layer (before the
 in-context transformer) is val-picked on both tasks, 0.812 / 0.858 test vs its own prediction 0.783 / 0.877 and its last
-layer 0.787 / 0.771 (H5 holds, 2/2). TabPFN v2 over the flattened features: k-means context 0.833 mean val-picked vs
-all-zeros last layer 0.693 (H6 direction holds); no layer beats the raw-feature probe on average (0.842).
+layer 0.787 / 0.771. TabPFN v2 over the flattened features: k-means context 0.833 mean val-picked vs all-zeros last layer
+0.693; no layer beats the raw-feature probe on average (0.842).
+
+**Protocol correction (2026-10-03, J21 first pass).** These first-pass numbers used a random split of context vs
+probe-train rows, which leaks under a real-label context: probe-train rows had their own entity in context at a
+neighbouring date, so late layers carried a copied label that val/test rows never get. Six tabular FMs then showed
+below-chance late-layer linear probes (TabICLv2 0.40, Kumo-S 0.43) while kNN on the same layers held 0.75-0.79. The
+real-label "inner layer beats last layer" evidence above is therefore biased toward early layers. All studies rerun
+with a time split (probe-train rows strictly later than every context row). The leak itself is worth a paragraph in the
+paper: layer-probing studies of in-context models must keep probe rows out of the context's period, or late layers look
+uninformative when they are in fact specialised to the context.

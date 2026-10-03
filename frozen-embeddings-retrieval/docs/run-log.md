@@ -159,3 +159,25 @@ k-means last 0.55, layer 8 0.56. The k-means target does not help here: the rows
 TabPFN sees as arbitrary category codes. Entity-matching row similarity could not be run (TEmBed's preparation script
 fails with a missing-config error). Conclusion: the context-target effect, if real, is about numeric structure; text
 tables need a text encoder.
+
+## 2026-10-03 J21 first pass, rel-f1/driver-dnf (job 51155): six tabular FMs, every layer — exposes a probe-protocol leak
+Test AUROC, linear probe, layer picked on validation (raw-feature probe 0.795):
+
+| model | random context | k-means context | real-label context | its own prediction | last layer, real labels |
+|---|---|---|---|---|---|
+| TabPFN v2 | 0.785 (block 2) | 0.790 (block 7) | 0.808 (block 9) | 0.817 | 0.747 |
+| TabPFN-2.5 | 0.792 (block 9) | 0.748 (block 4) | 0.807 (block 14) | 0.809 | 0.724 |
+| TabICLv2 | 0.809 (row enc.) | 0.814 (row enc.) | 0.831 (ICL 0) | 0.811 | 0.400 |
+| Kumo Tabular S | 0.799 (ICL 1) | 0.801 (final) | 0.810 (row enc.) | 0.810 | 0.430 |
+| Kumo Tabular M | 0.780 (ICL 0) | 0.788 (row enc.) | 0.704 (ICL 0) | 0.799 | 0.505 |
+| Kumo Tabular L | 0.752 (ICL 14) | 0.753 (final) | 0.735 (ICL 0) | 0.815 | 0.673 |
+
+Reading: below-chance last layers (0.40, 0.43) under a real-label context are a protocol artifact, not a property of
+the layer. kNN on the same layers scores 0.75-0.79 and the models' own predictions 0.80-0.82, but the linear probe fails
+on validation too (0.44-0.55). The probe-train rows were drawn from the same period as the context rows, so each had its
+own entity in context at a neighbouring date; with real labels the late layers carry a copy of that neighbour's label,
+which validation and test rows (later than all context) never get. The linear probe learns the copy and does not
+transfer. The same split was used in J18 and J19, so their real-label results (graph layer > last layer) carry the same
+bias. Fix: time split (probe-train rows strictly later than every context row). Inbox 049 reruns J18/J19/J21 on all
+tasks under it; the first-pass rel-f1 runs stay as the random-split comparison (aggregator "protocol check" table).
+Run: reports/runs/20261003T092340Z_J21_model_layers_rel-f1_driver-dnf (cluster branch).
