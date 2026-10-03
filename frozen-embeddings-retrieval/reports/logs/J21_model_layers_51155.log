@@ -1,0 +1,73 @@
+# job 51155 J21_model_layers exit=0 Sat Oct  3 11:38:49 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J21_model_layers_51155.out
+=== J21 model layers === job 51155 Sat Oct  3 09:22:23 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--nvidia--Kumo-Tabular/snapshots/bd7fa122b516c7355583873ffcf38f5e79403ebd/medium/regressor.pt
+kumo-tabular-l:
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--nvidia--Kumo-Tabular/snapshots/bd7fa122b516c7355583873ffcf38f5e79403ebd/large/classifier.pt
+  ok /home/yarin.b/projects/excel_magic/artifacts/weights/hf-cache/hub/models--nvidia--Kumo-Tabular/snapshots/bd7fa122b516c7355583873ffcf38f5e79403ebd/large/regressor.pt
+| tabpfn           | tabular    | ready                    | not in pool; below RealTabPFN-2.5 (1522) | Prior Labs License (Apache-2.0 | yes (<=10k rows) |
+| tabpfn-2.5       | tabular    | ready                    | 1522 (RealTabPFN-2.5)              | TabPFN-2.5 license (non-commer | yes |
+| tabpfn-2.6       | tabular    | needs huggingface.co     | 1605                               | TabPFN-2.6 license (non-commer | yes |
+| tabpfn-3         | tabular    | needs huggingface.co     | 1660                               | non-commercial                 | slow (default limit 5000 rows) |
+| tabpfn-3.5       | tabular    | needs huggingface.co     | ~1855                              | academic + evaluation          | slow |
+| tabpfn-3.5-fast  | tabular    | needs huggingface.co     | ~1770                              | academic + evaluation          | probably |
+| tabicl           | tabular    | ready                    | 1590                               | BSD-3                          | yes (GPU recommended) |
+| tabiclv2-sdm     | tabular    | needs huggingface.co     | 1590                               | BSD-3                          | yes |
+| kumo-tabular-s   | tabular    | ready                    | ~1790                              | OpenMDW-1.1 (commercial OK)    | expected (TabICLv2-size) |
+| kumo-tabular-m   | tabular    | ready                    | ~1910                              | OpenMDW-1.1                    | slow |
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 2791.70it/s]
+2026-10-03 09:23:38,664 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T092230Z_J21_smoke_rel-f1_driver-dnf/metrics.json
+# rel-f1/driver-dnf: every model, every layer (test AUROC, official evaluator)
+
+| model | target | raw features | best layer by val | its test | last layer test | own prediction | geometry best predictor (rho) |
+|---|---|---|---|---|---|---|---|
+| tabpfn | label | 0.8200 | block_11 | 0.7444 | 0.7444 | 0.7779 | anisotropy (-0.45) |
+| kumo-s | label | 0.8200 | row_emb | 0.7504 | 0.6354 | 0.8080 | intrinsic_dim (-0.74) |
+tabpfn label layers 13 degenerate [] best {'layer': 'block_11', 'val_auroc': 0.7266938775510206, 'test_auroc': 0.744381008149124}
+kumo-s label layers 15 degenerate [] best {'layer': 'row_emb', 'val_auroc': 0.7295963718820861, 'test_auroc': 0.7503830576294345}
+--- rel-f1/driver-dnf Sat Oct  3 09:23:39 UTC 2026
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 8583.89it/s]
+2026-10-03 11:32:04,005 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T092340Z_J21_model_layers_rel-f1_driver-dnf/metrics.json
+# rel-f1/driver-dnf: every model, every layer (test AUROC, official evaluator)
+
+| model | target | raw features | best layer by val | its test | last layer test | own prediction | geometry best predictor (rho) |
+|---|---|---|---|---|---|---|---|
+| tabpfn | random | 0.7951 | block_02 | 0.7845 | 0.6430 |  | anisotropy (+0.57) |
+| tabpfn | kmeans | 0.7951 | block_07 | 0.7895 | 0.7969 |  | anisotropy (-0.33) |
+| tabpfn | label | 0.7951 | block_09 | 0.8081 | 0.7471 | 0.8167 | intrinsic_dim (+0.46) |
+| tabpfn-2.5 | random | 0.7951 | block_09 | 0.7922 | 0.7395 |  | effective_rank (-0.71) |
+| tabpfn-2.5 | kmeans | 0.7951 | block_04 | 0.7475 | 0.7694 |  | kmeans_silhouette (-0.34) |
+| tabpfn-2.5 | label | 0.7951 | block_14 | 0.8070 | 0.7236 | 0.8093 | anisotropy (+0.23) |
+| tabiclv2 | random | 0.7951 | row_emb | 0.8085 | 0.7639 |  | intrinsic_dim (+0.39) |
+| tabiclv2 | kmeans | 0.7951 | row_emb | 0.8142 | 0.7491 |  | effective_rank (-0.85) |
+| tabiclv2 | label | 0.7951 | icl_00 | 0.8309 | 0.4002 | 0.8105 | effective_rank (-0.89) |
+| kumo-s | random | 0.7951 | icl_01 | 0.7990 | 0.7033 |  | effective_rank (-0.89) |
+| kumo-s | kmeans | 0.7951 | final | 0.8006 | 0.8006 |  | effective_rank (-0.72) |
+| kumo-s | label | 0.7951 | row_emb | 0.8100 | 0.4303 | 0.8102 | effective_rank (-0.83) |
+| kumo-m | random | 0.7951 | icl_00 | 0.7804 | 0.7064 |  | effective_rank (-0.70) |
+| kumo-m | kmeans | 0.7951 | row_emb | 0.7883 | 0.7753 |  | intrinsic_dim (-0.61) |
+| kumo-m | label | 0.7951 | icl_00 | 0.7037 | 0.5054 | 0.7993 | anisotropy (-0.34) |
+| kumo-l | random | 0.7951 | icl_14 | 0.7523 | 0.6360 |  | intrinsic_dim (+0.61) |
+| kumo-l | kmeans | 0.7951 | final | 0.7528 | 0.7528 |  | anisotropy (+0.55) |
+| kumo-l | label | 0.7951 | icl_00 | 0.7350 | 0.6734 | 0.8147 | effective_rank (-0.68) |
+[collect] copied 2111 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 78f462b] J21: all-model layer sweep rel-f1/driver-dnf (job 51155)
+ 5 files changed, 16961 insertions(+)
+ create mode 100644 reports/runs/20261003T092340Z_J21_model_layers_rel-f1_driver-dnf/layers_rows.json
+ create mode 100644 reports/runs/20261003T092340Z_J21_model_layers_rel-f1_driver-dnf/metrics.json
+ create mode 100644 reports/runs/20261003T092340Z_J21_model_layers_rel-f1_driver-dnf/results.md
+ create mode 100644 reports/runs/20261003T112542Z_J19_tab_layers_rel-trial_study-outcome/config.json
+ create mode 100644 reports/runs/20261003T112552Z_J18_layers_rel-trial_study-outcome/config.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   861f18d..78f462b  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- rel-trial/study-outcome Sat Oct  3 11:32:37 UTC 2026
+Fetching 38 files:   0%|          | 0/38 [00:00<?, ?it/s]Fetching 38 files: 100%|██████████| 38/38 [00:00<00:00, 2401.73it/s]
+[2026-10-03T11:38:49.510] error: *** JOB 51155 ON g0381 CANCELLED AT 2026-10-03T11:38:49 DUE to SIGNAL Terminated ***

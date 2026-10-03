@@ -1,0 +1,29 @@
+# job 51256 J18_relbench_layers exit=0 Sat Oct  3 11:38:49 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J18_relbench_layers_51256.out
+=== J18 relbench layers === job 51256 Sat Oct  3 11:25:38 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 5778.94it/s]
+entity drivers driverId time date target did_not_finish train rows 11411
+children ['qualifying', 'standings', 'results']
+pre_gnn  dim 512 row-std 0.5122 unique 144
+gnn      dim 512 row-std 0.3323 unique 200
+icl_00   dim 512 row-std 0.3792 unique 200
+icl_01   dim 512 row-std 0.3435 unique 200
+icl_02   dim 512 row-std 0.4239 unique 200
+icl_03   dim 512 row-std 0.5102 unique 200
+icl_04   dim 512 row-std 0.6987 unique 200
+icl_05   dim 512 row-std 0.7660 unique 200
+icl_06   dim 512 row-std 0.7771 unique 200
+icl_07   dim 512 row-std 0.7281 unique 200
+icl_08   dim 512 row-std 0.8716 unique 200
+icl_09   dim 512 row-std 1.0036 unique 200
+icl_10   dim 512 row-std 1.2123 unique 200
+icl_11   dim 512 row-std 1.2144 unique 200
+final    dim 512 row-std 0.0300 unique 200
+icl scores range 0.006730010733008385 0.9990955591201782
+--- rel-trial/study-outcome Sat Oct  3 11:25:51 UTC 2026
+Fetching 38 files:   0%|          | 0/38 [00:00<?, ?it/s]Fetching 38 files: 100%|██████████| 38/38 [00:00<00:00, 11659.37it/s]
+[2026-10-03T11:38:49.494] error: *** JOB 51256 ON g0378 CANCELLED AT 2026-10-03T11:38:49 DUE to SIGNAL Terminated ***

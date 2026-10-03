@@ -1,0 +1,10 @@
+# job 51257 J19_relbench_tab_layers exit=0 Sat Oct  3 11:38:49 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J19_relbench_tab_layers_51257.out
+=== J19 relbench tabular layers === job 51257 Sat Oct  3 11:25:39 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+--- rel-trial/study-outcome Sat Oct  3 11:25:41 UTC 2026
+Fetching 38 files:   0%|          | 0/38 [00:00<?, ?it/s]Fetching 38 files: 100%|██████████| 38/38 [00:00<00:00, 6540.69it/s]
+[2026-10-03T11:38:49.501] error: *** JOB 51257 ON g0378 CANCELLED AT 2026-10-03T11:38:49 DUE to SIGNAL Terminated ***
