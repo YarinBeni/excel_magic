@@ -1,0 +1,155 @@
+{
+  "dataset": "maternal_health_risk",
+  "task_type": "multiclass",
+  "model": "kumo-tabular-l:n_estimators=8,device=cuda",
+  "metric": "logloss",
+  "harness": "heuristic",
+  "llm_model": null,
+  "n_evals": 24,
+  "n_evals_ok": 24,
+  "select_rule": "gated1",
+  "p0_cv": 0.5509684072663608,
+  "best_cv": 0.5476793787022112,
+  "best_candidate": "eval_014.py",
+  "agent": {
+    "harness": "heuristic",
+    "best_config": {
+      "regression": false,
+      "winsorize": true,
+      "count_encode": true,
+      "prior_correction": true
+    },
+    "best_cv": 0.5476793787022112,
+    "n_evals": 24,
+    "elapsed_s": 348.5
+  },
+  "acceptance": {
+    "p0": 0.35742164706829443,
+    "candidate": 0.3589842363072635,
+    "candidate_name": "eval_014.py",
+    "accepted": false,
+    "n_rows": 136
+  },
+  "p0_test": 0.3342044794901929,
+  "p0_test_secondary": {
+    "logloss": 0.3342044794901929,
+    "acc": 0.8875739644970414
+  },
+  "best_test": 0.3342044794901929,
+  "best_test_secondary": {
+    "logloss": 0.3342044794901929,
+    "acc": 0.8875739644970414
+  },
+  "best_test_info": {
+    "n_features": 6,
+    "t_features": 0.004,
+    "n_views": 1,
+    "view_sizes": [
+      676
+    ],
+    "t_model": 0.928,
+    "t_total": 0.932,
+    "model_spec": "kumo-tabular-l:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 0.0,
+  "cv_trajectory": [
+    [
+      1,
+      0.5509684072663608
+    ],
+    [
+      2,
+      0.5509684072663608
+    ],
+    [
+      3,
+      0.5508029307463889
+    ],
+    [
+      4,
+      0.5508029307463889
+    ],
+    [
+      5,
+      0.5504729708313079
+    ],
+    [
+      6,
+      0.5504952880993415
+    ],
+    [
+      7,
+      0.5734274209129491
+    ],
+    [
+      8,
+      0.5838932957449086
+    ],
+    [
+      9,
+      0.5504729708313079
+    ],
+    [
+      10,
+      0.5504729708313079
+    ],
+    [
+      11,
+      0.5504729708313079
+    ],
+    [
+      12,
+      0.5504729708313079
+    ],
+    [
+      13,
+      0.5509360210675163
+    ],
+    [
+      14,
+      0.5476793787022112
+    ],
+    [
+      15,
+      0.5586523635654742
+    ],
+    [
+      16,
+      0.5561644893433337
+    ],
+    [
+      17,
+      0.5476793787022112
+    ],
+    [
+      18,
+      0.5476793787022112
+    ],
+    [
+      19,
+      0.5476793787022112
+    ],
+    [
+      20,
+      0.5477080688209056
+    ],
+    [
+      21,
+      0.5703154692446697
+    ],
+    [
+      22,
+      0.5796772924541759
+    ],
+    [
+      23,
+      0.5476793787022112
+    ],
+    [
+      24,
+      0.5476793787022112
+    ]
+  ],
+  "elapsed_s": 368.1,
+  "status": "ok"
+}
