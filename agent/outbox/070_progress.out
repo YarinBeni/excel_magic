@@ -1,0 +1,27 @@
+# 070_progress  host=g0374  start=Sat Oct  3 21:54:32 UTC 2026  timeout=120s
+# HEAD=29d4397
+# ---------------------------------------------------------
+       51136           AGENT_runner  RUNNING    6:21:32 g0374
+       51838      V4_rel_capability  RUNNING    2:23:16 g0381
+       51914          V6_insight_pi  RUNNING    1:21:42 g0378
+       51972         V5_sql_harness  RUNNING      32:13 g0379
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+== V4 artifacts/runs/20261003T193118Z_V4_relbench_capability
+49
+{"auroc": 0.6525335770172394, "submitted": true, "coverage": 1.0, "config": "ER", "llm_calls": 18, "seconds": 48.6, "tools": {"sql": "11", "deep_fit_predict": "5", "relational_predict": "1", "submit":
+{"auroc": 0.6707050630174571, "submitted": true, "coverage": 1.0, "config": "ER", "llm_calls": 11, "seconds": 51.9, "tools": {"sql": "6", "deep_fit_predict": "4", "submit": "1"}, "task": "rel-avito/us
+{"auroc": 0.5416370693954493, "submitted": true, "coverage": 1.0, "config": "D", "llm_calls": 13, "seconds": 14.5, "tools": {"sql": "12", "submit": "1"}, "task": "rel-avito/user-clicks", "repeat": 0, 
+[cap] rel-avito/user-visits R rep1: auroc 0.6525335770172394 submitted True tools {'sql': np.int64(4), 'relational_predict': np.int64(1), 'submit': np.int64(1)}
+[cap] rel-avito/user-visits ER rep0: auroc 0.6525335770172394 submitted True tools {'sql': np.int64(11), 'deep_fit_predict': np.int64(5), 'relational_predict': np.int64(1), 'submit': np.int64(1)}
+[cap] rel-avito/user-visits ER rep1: auroc 0.6707050630174571 submitted True tools {'sql': np.int64(6), 'deep_fit_predict': np.int64(4), 'submit': np.int64(1)}
+[cap] rel-avito/user-clicks D rep0: auroc 0.5416370693954493 submitted True tools {'sql': np.int64(12), 'submit': np.int64(1)}
+== V6 artifacts/runs/20261003T203254Z_V6_insightbench_pi_all
+D 100
+E 74
+F agent/inbox/070_progress.sh: line 5: artifacts/runs/20261003T203254Z_V6_insightbench_pi_all/insights_piF.jsonl: No such file or directory
+0
+[pi] E flag-72: 8 insights, 0 rejected, 29.9s 
+[pi] E flag-73: 8 insights, 0 rejected, 39.5s 
+[pi] E flag-74: 8 insights, 0 rejected, 25.2s 
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 21:54:32 UTC 2026
