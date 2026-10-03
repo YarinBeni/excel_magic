@@ -1,0 +1,59 @@
+# 072_v4_tail  host=g0374  start=Sat Oct  3 22:28:12 UTC 2026  timeout=120s
+# HEAD=382c0fa
+# ---------------------------------------------------------
+== sbatch/logs/V4_rel_capability_51838.out
+�██| 20/20 [00:00<00:00, 9316.53it/s]
+[cap] rel-event/user-ignore D rep0: auroc 0.500105926105028 submitted True tools {'sql': np.int64(14), 'submit': np.int64(3)}
+[cap] rel-event/user-ignore D rep1: auroc 0.5001024719929076 submitted True tools {'sql': np.int64(13), 'submit': np.int64(2)}
+[cap] rel-event/user-ignore E rep0: auroc 0.5082288464416889 submitted True tools {'sql': np.int64(9), 'deep_fit_predict': np.int64(1), 'submit': np.int64(1)}
+[cap] rel-event/user-ignore E rep1: auroc 0.6266968325791855 submitted True tools {'sql': np.int64(4), 'deep_fit_predict': np.int64(2), 'submit': np.int64(1)}
+[cap] rel-event/user-ignore R rep0: auroc 0.8766812890746434 submitted True tools {'sql': np.int64(7), 'relational_predict': np.int64(1), 'submit': np.int64(1)}
+[cap] rel-event/user-ignore R rep1: auroc 0.8766812890746434 submitted True tools {'sql': np.int64(7), 'relational_predict': np.int64(1), 'submit': np.int64(1)}
+[cap] rel-event/user-ignore ER rep0: auroc 0.8034126627750338 submitted True tools {'sql': np.int64(5), 'deep_fit_predict': np.int64(1), 'relational_predict': np.int64(1), 'submit': np.int64(1)}
+[cap] rel-event/user-ignore ER rep1: auroc 0.8766812890746434 submitted True tools {'sql': np.int64(13), 'deep_fit_predict': np.int64(2), 'submit': np.int64(2), 'relational_predict': np.int64(1)}
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 2623.44it/s]
+[cap] rel-avito/user-visits D rep0: auroc 0.6482204627857003 submitted True tools {'sql': np.int64(13), 'submit': np.int64(1)}
+[cap] rel-avito/user-visits D rep1: auroc 0.6194834971485045 submitted True tools {'sql': np.int64(10), 'submit': np.int64(1)}
+[cap] rel-avito/user-visits E rep0: auroc 0.6559166696817906 submitted True tools {'sql': np.int64(12), 'deep_fit_predict': np.int64(1), 'submit': np.int64(1)}
+[cap] rel-avito/user-visits E rep1: auroc 0.6264593687259977 submitted True tools {'sql': np.int64(9), 'deep_fit_predict': np.int64(2), 'submit': np.int64(1)}
+[cap] rel-avito/user-visits R rep0: auroc 0.6525335770172394 submitted True tools {'sql': np.int64(8), 'relational_predict': np.int64(1), 'submit': np.int64(1)}
+[cap] rel-avito/user-visits R rep1: auroc 0.6525335770172394 submitted True tools {'sql': np.int64(4), 'relational_predict': np.int64(1), 'submit': np.int64(1)}
+[cap] rel-avito/user-visits ER rep0: auroc 0.6525335770172394 submitted True tools {'sql': np.int64(11), 'deep_fit_predict': np.int64(5), 'relational_predict': np.int64(1), 'submit': np.int64(1)}
+[cap] rel-avito/user-visits ER rep1: auroc 0.6707050630174571 submitted True tools {'sql': np.int64(6), 'deep_fit_predict': np.int64(4), 'submit': np.int64(1)}
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 6862.57it/s]
+[cap] rel-avito/user-clicks D rep0: auroc 0.5416370693954493 submitted True tools {'sql': np.int64(12), 'submit': np.int64(1)}
+0 %, 135115 MiB
+utilization.gpu [%], memory.used [MiB]
+0 %, 135115 MiB
+4006271    02:56:54  0.3 /home/yarin.b/miniconda3/envs/vllm/bin/python3.12 /home/yarin.b/miniconda3/envs/vllm/bin/vllm serve Qwen/Qwen3-Coder-30B-A3B-Instruct -
+4006381    02:56:41  0.0 /home/yarin.b/miniconda3/envs/vllm/bin/python3.12 -c from multiprocessing.resource_tracker import main;main(35)
+4006974    02:55:39  514 python vfd-agent/experiments/p3_relbench_capability.py --run /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T193118Z_V4_relb
+4006271    02:56:54  0.3 /home/yarin.b/miniconda3/envs/vllm/bin/python3.12 /home/yarin.b/miniconda3/envs/vllm/bin/vllm serve Qwen/Qwen3-Coder-30B-A3B-Instruct -
+4006381    02:56:41  0.0 /home/yarin.b/miniconda3/envs/vllm/bin/python3.12 -c from multiprocessing.resource_tracker import main;main(35)
+4006974    02:55:39  514 python vfd-agent/experiments/p3_relbench_capability.py --run /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T193118Z_V4_relb
+4006271    02:56:54  0.3 /home/yarin.b/miniconda3/envs/vllm/bin/python3.12 /home/yarin.b/miniconda3/envs/vllm/bin/vllm serve Qwen/Qwen3-Coder-30B-A3B-Instruct -
+4006381    02:56:41  0.0 /home/yarin.b/miniconda3/envs/vllm/bin/python3.12 -c from multiprocessing.resource_tracker import main;main(35)
+4006974    02:55:39  514 python vfd-agent/experiments/p3_relbench_capability.py --run /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T193118Z_V4_relb
+4006271    02:56:54  0.3 /home/yarin.b/miniconda3/envs/vllm/bin/python3.12 /home/yarin.b/miniconda3/envs/vllm/bin/vllm serve Qwen/Qwen3-Coder-30B-A3B-Instruct -
+4006381    02:56:41  0.0 /home/yarin.b/miniconda3/envs/vllm/bin/python3.12 -c from multiprocessing.resource_tracker import main;main(35)
+4006974    02:55:39  514 python vfd-agent/experiments/p3_relbench_capability.py --run /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T193118Z_V4_relb
+4006271    02:56:54  0.3 /home/yarin.b/miniconda3/envs/vllm/bin/python3.12 /home/yarin.b/miniconda3/envs/vllm/bin/vllm serve Qwen/Qwen3-Coder-30B-A3B-Instruct -
+4006381    02:56:41  0.0 /home/yarin.b/miniconda3/envs/vllm/bin/python3.12 -c from multiprocessing.resource_tracker import main;main(35)
+4006974    02:55:39  514 python vfd-agent/experiments/p3_relbench_capability.py --run /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T193118Z_V4_relb
+4006271    02:56:54  0.3 /home/yarin.b/miniconda3/envs/vllm/bin/python3.12 /home/yarin.b/miniconda3/envs/vllm/bin/vllm serve Qwen/Qwen3-Coder-30B-A3B-Instruct -
+4006381    02:56:41  0.0 /home/yarin.b/miniconda3/envs/vllm/bin/python3.12 -c from multiprocessing.resource_tracker import main;main(35)
+4006974    02:55:39  514 python vfd-agent/experiments/p3_relbench_capability.py --run /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T193118Z_V4_relb
+4006271    02:56:54  0.3 /home/yarin.b/miniconda3/envs/vllm/bin/python3.12 /home/yarin.b/miniconda3/envs/vllm/bin/vllm serve Qwen/Qwen3-Coder-30B-A3B-Instruct -
+4006381    02:56:41  0.0 /home/yarin.b/miniconda3/envs/vllm/bin/python3.12 -c from multiprocessing.resource_tracker import main;main(35)
+4006974    02:55:39  514 python vfd-agent/experiments/p3_relbench_capability.py --run /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T193118Z_V4_relb
+4006271    02:56:54  0.3 /home/yarin.b/miniconda3/envs/vllm/bin/python3.12 /home/yarin.b/miniconda3/envs/vllm/bin/vllm serve Qwen/Qwen3-Coder-30B-A3B-Instruct -
+4006381    02:56:41  0.0 /home/yarin.b/miniconda3/envs/vllm/bin/python3.12 -c from multiprocessing.resource_tracker import main;main(35)
+4006974    02:55:39  514 python vfd-agent/experiments/p3_relbench_capability.py --run /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T193118Z_V4_relb
+D 100 err 0 zero 15 ins 6.77 rej 0.0
+   []
+E 100 err 0 zero 17 ins 6.73 rej 0.0
+   []
+F 35 err 0 zero 12 ins 4.77 rej 5.69
+   []
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 22:28:13 UTC 2026
