@@ -1,0 +1,172 @@
+{
+ "initial": {
+  "link": null,
+  "link_k": 20,
+  "triage": false,
+  "triage_threshold": 0.5,
+  "n": 1,
+  "verifier": "greedy"
+ },
+ "final": {
+  "link": null,
+  "link_k": 20,
+  "triage": true,
+  "triage_threshold": 0.5,
+  "n": 1,
+  "verifier": "greedy"
+ },
+ "n_search": 298,
+ "n_accept": 75,
+ "n_heldout": 125,
+ "heldout_initial": 0.68,
+ "heldout_final": 0.72,
+ "heldout_delta": 0.04,
+ "heldout_se": 0.017597653802562396,
+ "attempts": 13,
+ "kept": 1,
+ "history": [
+  {
+   "i": 0,
+   "knob": "verifier",
+   "value": "self_consistency",
+   "hypothesis": "Using self-consistency verification instead of a greedy approach will improve reasoning by exploring multiple possible answers before selecting the best one, potentially increasing accuracy.",
+   "search_delta": -0.010067114093959731,
+   "search_se": 0.007493471165864548,
+   "accept_delta": 0.02666666666666667,
+   "kept": false,
+   "search_score": 0.7114093959731543
+  },
+  {
+   "i": 1,
+   "knob": "link",
+   "value": "gliclass",
+   "hypothesis": "Switching to 'gliclass' for link may improve retrieval, potentially boosting the search score.",
+   "search_delta": -0.020134228187919462,
+   "search_se": 0.017099720891152363,
+   "accept_delta": 0.0,
+   "kept": false,
+   "search_score": 0.7013422818791947
+  },
+  {
+   "i": 2,
+   "knob": "n",
+   "value": 4,
+   "hypothesis": "Increasing the number of generations (n) from 1 to 4 improves the score by allowing more diverse reasoning paths, potentially leading to better final answers.",
+   "search_delta": -0.010067114093959731,
+   "search_se": 0.0057926481060102146,
+   "accept_delta": 0.02666666666666667,
+   "kept": false,
+   "search_score": 0.7114093959731543
+  },
+  {
+   "i": 3,
+   "knob": "verifier",
+   "value": "stack",
+   "hypothesis": "Using the 'stack' verifier will improve performance by maintaining better context consistency during response generation.",
+   "search_delta": -0.010067114093959731,
+   "search_se": 0.007493471165864548,
+   "accept_delta": 0.02666666666666667,
+   "kept": false,
+   "search_score": 0.7114093959731543
+  },
+  {
+   "i": 4,
+   "knob": "triage",
+   "value": true,
+   "hypothesis": "Enabling triage will improve score by filtering out low-confidence queries before they reach the verifier, reducing noise and improving overall accuracy.",
+   "search_delta": 0.013422818791946308,
+   "search_se": 0.009475373986661866,
+   "accept_delta": 0.013333333333333334,
+   "kept": true,
+   "search_score": 0.7348993288590604
+  },
+  {
+   "i": 5,
+   "knob": "triage_threshold",
+   "value": 0.3,
+   "hypothesis": "Lowering the triage threshold may improve performance by allowing more documents to proceed to the verifier, potentially increasing recall.",
+   "search_delta": -0.003355704697986577,
+   "search_se": 0.0058187706651550404,
+   "accept_delta": 0.0,
+   "kept": false,
+   "search_score": 0.7315436241610739
+  },
+  {
+   "i": 6,
+   "knob": "link_k",
+   "value": 10,
+   "hypothesis": "Decreasing link_k from 20 to 10 may improve search performance by reducing noise, and the small negative impact on accept might be acceptable.",
+   "search_delta": -0.006711409395973154,
+   "search_se": 0.006711409395973154,
+   "accept_delta": -0.013333333333333334,
+   "kept": false,
+   "search_score": 0.7281879194630873
+  },
+  {
+   "i": 7,
+   "knob": "link_k",
+   "value": 40,
+   "hypothesis": "Increasing link_k from 20 to 40 will improve recall by retrieving more relevant links, potentially boosting the score.",
+   "search_delta": -0.006711409395973154,
+   "search_se": 0.006711409395973154,
+   "accept_delta": 0.0,
+   "kept": false,
+   "search_score": 0.7281879194630873
+  },
+  {
+   "i": 8,
+   "knob": "link",
+   "value": "rerank",
+   "hypothesis": "Changing the link mode from null to 'rerank' might improve performance by leveraging a different retrieval strategy, potentially addressing limitations of the current null setting.",
+   "search_delta": -0.06711409395973154,
+   "search_se": 0.020351496848088558,
+   "accept_delta": -0.013333333333333334,
+   "kept": false,
+   "search_score": 0.6677852348993288
+  },
+  {
+   "i": 9,
+   "knob": "n",
+   "value": 8,
+   "hypothesis": "Increasing n from 1 to 8 will improve the score by providing more context for the verifier to make better decisions.",
+   "search_delta": 0.003355704697986577,
+   "search_se": 0.0058187706651550404,
+   "accept_delta": -0.02666666666666667,
+   "kept": false,
+   "search_score": 0.738255033557047
+  },
+  {
+   "i": 10,
+   "knob": "n",
+   "value": 16,
+   "hypothesis": "Increasing n from 1 to 16 will improve performance by allowing more diverse reasoning paths",
+   "search_delta": -0.003355704697986577,
+   "search_se": 0.0058187706651550404,
+   "accept_delta": 0.0,
+   "kept": false,
+   "search_score": 0.7315436241610739
+  },
+  {
+   "i": 11,
+   "knob": "triage_threshold",
+   "value": 0.7,
+   "hypothesis": "(fallback: untried value)",
+   "search_delta": 0.0,
+   "search_se": 0.00823359059589065,
+   "accept_delta": 0.0,
+   "kept": false,
+   "search_score": 0.7348993288590604
+  },
+  {
+   "i": 12,
+   "knob": "triage",
+   "value": false,
+   "hypothesis": "(fallback: untried value)",
+   "search_delta": -0.013422818791946308,
+   "search_se": 0.009475373986661866,
+   "accept_delta": -0.013333333333333334,
+   "kept": false,
+   "search_score": 0.7214765100671141
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{"config": {"link": null, "link_k": 20, "triage": false, "triage_threshold": 0.5, "n": 1, "verifier": "greedy"}, "n": 373, "mean": 0.6943699731903485}
+{"config": {"link": null, "link_k": 20, "triage": false, "triage_threshold": 0.5, "n": 1, "verifier": "self_consistency"}, "n": 373, "mean": 0.6916890080428955}
+{"config": {"link": "gliclass", "link_k": 20, "triage": false, "triage_threshold": 0.5, "n": 1, "verifier": "greedy"}, "n": 373, "mean": 0.67828418230563}
+{"config": {"link": null, "link_k": 20, "triage": false, "triage_threshold": 0.5, "n": 4, "verifier": "greedy"}, "n": 373, "mean": 0.6916890080428955}
+{"config": {"link": null, "link_k": 20, "triage": false, "triage_threshold": 0.5, "n": 1, "verifier": "stack"}, "n": 373, "mean": 0.6916890080428955}
+{"config": {"link": null, "link_k": 20, "triage": true, "triage_threshold": 0.5, "n": 1, "verifier": "greedy"}, "n": 373, "mean": 0.707774798927614}
+{"config": {"link": null, "link_k": 20, "triage": true, "triage_threshold": 0.3, "n": 1, "verifier": "greedy"}, "n": 373, "mean": 0.7050938337801609}
+{"config": {"link": null, "link_k": 10, "triage": true, "triage_threshold": 0.5, "n": 1, "verifier": "greedy"}, "n": 373, "mean": 0.6997319034852547}
+{"config": {"link": null, "link_k": 40, "triage": true, "triage_threshold": 0.5, "n": 1, "verifier": "greedy"}, "n": 373, "mean": 0.7024128686327078}
+{"config": {"link": "rerank", "link_k": 20, "triage": true, "triage_threshold": 0.5, "n": 1, "verifier": "greedy"}, "n": 373, "mean": 0.6514745308310992}
+{"config": {"link": null, "link_k": 20, "triage": true, "triage_threshold": 0.5, "n": 8, "verifier": "greedy"}, "n": 373, "mean": 0.7050938337801609}
+{"config": {"link": null, "link_k": 20, "triage": true, "triage_threshold": 0.5, "n": 16, "verifier": "greedy"}, "n": 373, "mean": 0.7050938337801609}
+{"config": {"link": null, "link_k": 20, "triage": true, "triage_threshold": 0.7, "n": 1, "verifier": "greedy"}, "n": 373, "mean": 0.707774798927614}
+{"config": {"link": null, "link_k": 20, "triage": false, "triage_threshold": 0.5, "n": 1, "verifier": "greedy"}, "n": 373, "mean": 0.6943699731903485}
+{"config": {"link": null, "link_k": 20, "triage": false, "triage_threshold": 0.5, "n": 1, "verifier": "greedy"}, "n": 125, "mean": 0.68}
+{"config": {"link": null, "link_k": 20, "triage": true, "triage_threshold": 0.5, "n": 1, "verifier": "greedy"}, "n": 125, "mean": 0.72}
