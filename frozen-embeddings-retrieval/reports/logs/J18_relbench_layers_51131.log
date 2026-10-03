@@ -1,0 +1,86 @@
+# job 51131 J18_relbench_layers exit=0 Sat Oct  3 09:17:22 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J18_relbench_layers_51131.out
+=== J18 relbench layers === job 51131 Sat Oct  3 09:12:22 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files:   4%|▍         | 1/24 [00:00<00:11,  2.06it/s]Fetching 24 files:   8%|▊         | 2/24 [00:01<00:11,  1.91it/s]Fetching 24 files:  12%|█▎        | 3/24 [00:01<00:07,  2.86it/s]Fetching 24 files:  38%|███▊      | 9/24 [00:01<00:01,  9.97it/s]Fetching 24 files:  58%|█████▊    | 14/24 [00:01<00:00, 12.84it/s]Fetching 24 files:  92%|█████████▏| 22/24 [00:01<00:00, 18.45it/s]Fetching 24 files: 100%|██████████| 24/24 [00:02<00:00, 11.76it/s]
+entity drivers driverId time date target did_not_finish train rows 11411
+children ['qualifying', 'standings', 'results']
+icl scores range 0.008076579309999943 0.9989162683486938
+--- rel-f1/driver-dnf Sat Oct  3 09:13:16 UTC 2026
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 7691.27it/s]
+2026-10-03 09:13:39,071 ERROR run failed: max() arg is an empty sequence
+Traceback (most recent call last):
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/experiments/exp04_relbench_layers.py", line 36, in main
+    res = run_task(dataset, task_name, modes=tuple(a.modes.split(",")), n_ctx=a.n_ctx, n_train=a.n_train,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/relbench_layers.py", line 330, in run_task
+    best = max(m["layers"], key=lambda L: m["layers"][L][p]["val_auroc"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: max() arg is an empty sequence
+2026-10-03 09:13:39,164 INFO run finished (error) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T091317Z_J18_layers_rel-f1_driver-dnf/metrics.json
+Traceback (most recent call last):
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/experiments/exp04_relbench_layers.py", line 59, in <module>
+    main()
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/experiments/exp04_relbench_layers.py", line 36, in main
+    res = run_task(dataset, task_name, modes=tuple(a.modes.split(",")), n_ctx=a.n_ctx, n_train=a.n_train,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/relbench_layers.py", line 330, in run_task
+    best = max(m["layers"], key=lambda L: m["layers"][L][p]["val_auroc"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: max() arg is an empty sequence
+[J18] rel-f1/driver-dnf FAILED
+[collect] copied 2014 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 4a1809c] J18: layer sweep rel-f1/driver-dnf (job 51131)
+ 6 files changed, 106 insertions(+), 40 deletions(-)
+ rewrite reports/runs/20261002T195952Z_J8_pi_qwen3coder_Is-this-a-good-customer/search/Is-this-a-good-customer/best_pipeline.py (100%)
+ create mode 100644 reports/runs/20261003T091234Z_J19_tab_layers_rel-f1_driver-dnf/config.json
+ create mode 100644 reports/runs/20261003T091235Z_J21_smoke_rel-f1_driver-dnf/config.json
+ create mode 100644 reports/runs/20261003T091317Z_J18_layers_rel-f1_driver-dnf/config.json
+ create mode 100644 reports/runs/20261003T091317Z_J18_layers_rel-f1_driver-dnf/metrics.json
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+   fd2edc6..f968b37  claude/tabular-model-agent-exp-wvni5o -> origin/claude/tabular-model-agent-exp-wvni5o
+Rebasing (1/1)[KSuccessfully rebased and updated refs/heads/claude/tabular-model-agent-exp-wvni5o.
+To https://github.com/YarinBeni/excel_magic
+   f968b37..c3bce27  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- rel-f1/driver-top3 Sat Oct  3 09:14:12 UTC 2026
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 5980.12it/s]
+2026-10-03 09:14:30,491 ERROR run failed: max() arg is an empty sequence
+Traceback (most recent call last):
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/experiments/exp04_relbench_layers.py", line 36, in main
+    res = run_task(dataset, task_name, modes=tuple(a.modes.split(",")), n_ctx=a.n_ctx, n_train=a.n_train,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/relbench_layers.py", line 330, in run_task
+    best = max(m["layers"], key=lambda L: m["layers"][L][p]["val_auroc"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: max() arg is an empty sequence
+2026-10-03 09:14:30,496 INFO run finished (error) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T091412Z_J18_layers_rel-f1_driver-top3/metrics.json
+Traceback (most recent call last):
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/experiments/exp04_relbench_layers.py", line 59, in <module>
+    main()
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/experiments/exp04_relbench_layers.py", line 36, in main
+    res = run_task(dataset, task_name, modes=tuple(a.modes.split(",")), n_ctx=a.n_ctx, n_train=a.n_train,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yarin.b/projects/excel_magic/frozen-embeddings-retrieval/fer/relbench_layers.py", line 330, in run_task
+    best = max(m["layers"], key=lambda L: m["layers"][L][p]["val_auroc"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: max() arg is an empty sequence
+[J18] rel-f1/driver-top3 FAILED
+[collect] copied 2020 files into reports/runs
+[commit_push_sandbox] nothing to commit
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+Everything up-to-date
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+--- rel-trial/study-outcome Sat Oct  3 09:15:10 UTC 2026
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 38 files:   0%|          | 0/38 [00:00<?, ?it/s]Fetching 38 files:   3%|▎         | 1/38 [00:00<00:12,  2.96it/s]Fetching 38 files:   5%|▌         | 2/38 [00:00<00:18,  1.93it/s]Fetching 38 files:   8%|▊         | 3/38 [00:01<00:17,  2.03it/s]Fetching 38 files:  11%|█         | 4/38 [00:01<00:12,  2.66it/s]Fetching 38 files:  16%|█▌        | 6/38 [00:03<00:18,  1.71it/s]Fetching 38 files:  32%|███▏      | 12/38 [00:03<00:05,  4.54it/s]Fetching 38 files:  42%|████▏     | 16/38 [00:04<00:04,  5.33it/s]Fetching 38 files: 100%|██████████| 38/38 [00:04<00:00,  9.29it/s]
+[2026-10-03T09:17:22.160] error: *** JOB 51131 ON g0378 CANCELLED AT 2026-10-03T09:17:22 DUE to SIGNAL Terminated ***
