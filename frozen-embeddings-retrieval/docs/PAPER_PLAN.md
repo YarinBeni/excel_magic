@@ -91,3 +91,34 @@ a retrieval embedding for recommendation, where the interaction matrix itself is
 **2026-10-03 J14b, final.** Random-target Kumo Relational at item level: 0.24 (k-means 0.18, aggregates 0.26, purchase
 matrix 1.20). The retrieval study is complete; the item-level claim is closed for both model families, the entity-level
 gain of the relational model (0.660 vs 0.653) stands as the single small positive.
+
+## Layer study (J18 / J19 / J21, started 2026-10-03): which layer is the entity embedding?
+
+**Gap.** Layer-wise work on tabular FMs exists, but it covers *prediction*, not *label-free entity embeddings*:
+"Is One Layer Enough?" (ICML 2026) measures CKA / cosine redundancy across the layers of six TFMs; "A Mechanistic Study of
+Tabular Foundation Models" (May 2026) finds TabPFN v2's target probe jumps between layers 8 and 9 while TabICLv2 is readable
+early; TEmBed (IBM 2026) benchmarks only the last-layer `get_embeddings`. No one has asked, on real relational benchmarks,
+(a) which layer of a frozen FM gives the best entity embedding, (b) how the in-context target changes that, (c) whether a
+label-free statistic can pick the layer, and (d) whether a *relational* FM's layers behave like a tabular FM's.
+
+**Hypotheses.**
+- **H5 (depth)** An inner layer beats the last layer as an embedding; the last layers specialise to the in-context target.
+- **H6 (context)** With real labels in context, late layers become label read-outs; with random or k-means context the
+  embedding stays general. The best layer moves with the context.
+- **H7 (label-free selection)** A geometric statistic of the layer output (effective rank, TwoNN intrinsic dimension,
+  anisotropy, k-means silhouette) picks a layer close to the validation-picked one, with no labels.
+- **H8 (convergence)** Different models agree more at their best layers than at their last layers (CKA).
+
+**Protocol.** 8 RelBench entity classification tasks (rel-f1 driver-dnf / driver-top3, rel-trial study-outcome, rel-event
+user-repeat / user-ignore, rel-avito user-visits / user-clicks, rel-hm user-churn), official splits and evaluator. Each
+task row becomes a temporally safe 2-hop subgraph (Kumo Relational) or its flattened relational features (tabular FMs).
+Probe = logistic regression on the frozen layer output, trained on 4000 train rows disjoint from the context; layer picked
+on validation; test AUROC reported; kNN probe as a second view. Baselines: probe on the raw features; the model's own
+prediction (real-label context). Models: Kumo Relational (J18), TabPFN v2 with four context targets (J19), TabPFN v2,
+TabPFN-2.5, TabICLv2, Kumo Tabular S/M/L with random / k-means / real-label context plus geometry and CKA (J21; 5 tasks).
+Aggregator: `scripts/analyze_layers.py` -> `docs/layers/LAYERS.md` + 4 figures.
+
+**Preliminary (rel-f1 only, 2 tasks; not yet a result).** Kumo Relational, real-label context: the graph layer (before the
+in-context transformer) is val-picked on both tasks, 0.812 / 0.858 test vs its own prediction 0.783 / 0.877 and its last
+layer 0.787 / 0.771 (H5 holds, 2/2). TabPFN v2 over the flattened features: k-means context 0.833 mean val-picked vs
+all-zeros last layer 0.693 (H6 direction holds); no layer beats the raw-feature probe on average (0.842).
