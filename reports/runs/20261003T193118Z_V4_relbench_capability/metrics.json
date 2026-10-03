@@ -1,8 +1,8 @@
 {
  "mean_auroc": {
   "D": 0.57682,
-  "E": 0.66497,
-  "ER": 0.7317,
+  "E": 0.67854,
+  "ER": 0.73167,
   "R": 0.73597
  },
  "per_task": {
@@ -23,7 +23,7 @@
    "rel-event/user-repeat": 0.71063,
    "rel-f1/driver-dnf": 0.792,
    "rel-f1/driver-top3": 0.78381,
-   "rel-hm/user-churn": 0.57258,
+   "rel-hm/user-churn": 0.6811,
    "rel-trial/study-outcome": 0.59141
   },
   "ER": {
@@ -33,7 +33,7 @@
    "rel-event/user-repeat": 0.75445,
    "rel-f1/driver-dnf": 0.74375,
    "rel-f1/driver-top3": 0.86298,
-   "rel-hm/user-churn": 0.67379,
+   "rel-hm/user-churn": 0.67353,
    "rel-trial/study-outcome": 0.69017
   },
   "R": {

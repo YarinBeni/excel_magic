@@ -10,7 +10,7 @@ D = LLM + SQL; E = + Kumo Tabular-L fitted on LLM-built features; R = + Kumo Rel
 | rel-event/user-repeat   | 0.5559 | 0.7106 | 0.7544 | 0.7939 |
 | rel-f1/driver-dnf       | 0.5063 | 0.792  | 0.7437 | 0.7134 |
 | rel-f1/driver-top3      | 0.7486 | 0.7838 | 0.863  | 0.863  |
-| rel-hm/user-churn       | 0.5951 | 0.5726 | 0.6738 | 0.6738 |
+| rel-hm/user-churn       | 0.5951 | 0.6811 | 0.6735 | 0.6738 |
 | rel-trial/study-outcome | 0.491  | 0.5914 | 0.6902 | 0.6902 |
 
 Share of episodes that submitted:
@@ -26,4 +26,4 @@ Share of episodes that submitted:
 | rel-hm/user-churn       |   1 | 1   |    1 |   1 |
 | rel-trial/study-outcome |   1 | 1   |    1 |   1 |
 
-Mean over tasks: {'D': 0.5768, 'E': 0.665, 'ER': 0.7317, 'R': 0.736}
+Mean over tasks: {'D': 0.5768, 'E': 0.6785, 'ER': 0.7317, 'R': 0.736}
