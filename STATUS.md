@@ -105,3 +105,5 @@
 - J15 group 2 (pi): within J15, best +1.5%, ens3 +1.7%, gated1 +0.4%, gated2 -0.2%. BUT J15's P0 scores differ from J2/J8's on
   the same splits (anneal 0.0118 -> 0.0163, airfoil 0.979 -> 1.118; identical across J15 run dirs, so deterministic within J15).
   The Kumo-S wrapper never seeds torch. inbox 035 / J16: score P0 repeatedly with the current and the J8-era library.
+- J15 is ~3 h per group (5 rules x 30 splits, ens3 = 3 fits/split) and cannot finish the GLM group inside 8 h -> inbox 036
+  cancels it after the pi group and runs the GLM group alone (J15b); budget-64 groups skipped.
