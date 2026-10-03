@@ -203,6 +203,11 @@ def main() -> None:
                   "P_LAST_RAND": f3(proto[proto.split == "random"].loc[lab_both, "last"].mean()),
                   "P_LAST_TIME": f3(proto[proto.split == "time"].loc[lab_both, "last"].mean()),
                   "P_N": str(len(lab_both))})
+    j = Pt[Pt.study == "J21"]
+    jl, jk = j[j.target == "label"], j[j.target == "kmeans"]
+    sdm = jk[jk.model.isin(["tabiclv2", "kumo-s", "kumo-m", "kumo-l"])]
+    fills.update({"J21_WIN_OWN": str(int((jl.val_pick > jl.own).sum())), "J21_WIN_LAST": str(int((jl.val_pick > jl.last).sum())),
+                  "J21_PAIRS": str(len(jl)), "J21_KM_SDM": f3(sdm.val_pick.mean()), "J21_RAW": f3(j.raw.mean())})
     html = (HERE / "template.html").read_text()
     for k, v in fills.items():
         html = html.replace("{{" + k + "}}", v)

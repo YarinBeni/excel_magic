@@ -224,3 +224,12 @@ Reading:
   engineering. TabPFN over those features loses to them with every label-free context (0.70-0.72 vs 0.727); the k-means
   context, which helped on synthetic segments, does not help on real tasks.
 Runs: reports/runs/*J18_layers_* and *J19_tab_layers_* with ctx_split=time (cluster branch). Tables: docs/layers/.
+
+## 2026-10-03 J21 (job 51265), time split, 5 RelBench tasks x 6 tabular FMs: complete
+Real-label context: the val-picked layer beats the model's own prediction in 17 of 30 model-task pairs and the last
+layer in 17 of 30; for single-table in-context models the head is usually as good as any layer (contrast Kumo
+Relational, 7 of 8). k-means context is the best label-free choice for TabICLv2 and Kumo Tabular S/M/L (val-picked
+mean 0.788 vs raw 0.774); it hurts TabPFN v2/2.5. Layer selection over 90 model x task x context runs, mean regret:
+validation labels 0.018, TwoNN intrinsic dimension (min, direction chosen leave-one-task-out) 0.023, last layer 0.034,
+effective rank 0.042 (mean Spearman with layer AUROC -0.31, negative in 73% of runs). Cross-model CKA: best layers 0.68,
+last layers 0.83 (models converge at the last layer). Paper: paper/frozen-fm-layers-paper.pdf (rebuilt with 5 tasks).
