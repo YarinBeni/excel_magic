@@ -1,0 +1,99 @@
+{
+  "dataset": "anneal",
+  "task_type": "multiclass",
+  "model": "kumo-tabular-l:n_estimators=8,device=cuda",
+  "metric": "logloss",
+  "harness": "cli",
+  "llm_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "n_evals": 13,
+  "n_evals_ok": 12,
+  "select_rule": "gated1",
+  "p0_cv": 0.03450947190215197,
+  "best_cv": 0.03450947190215197,
+  "best_candidate": "eval_001.py",
+  "agent": {
+    "harness": "cli",
+    "rc": 0,
+    "elapsed_s": 272.3,
+    "agent_cmd": "pi -a --provider vllm --model Qwen/Qwen3-Coder-30B-A3B-Instruct --mode json @/home/yarin.b/projects/excel_magic/artifacts/runs/20261003T071146Z_J17_pi_qwen3coder_kumoL_rec_anneal/search/anneal/workspace/TASK.md",
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+  },
+  "p0_test": 0.016752588481691165,
+  "p0_test_secondary": {
+    "logloss": 0.016752588481691165,
+    "acc": 0.9966666666666667
+  },
+  "best_test": 0.016752588481691165,
+  "best_test_secondary": {
+    "logloss": 0.016752588481691165,
+    "acc": 0.9966666666666667
+  },
+  "best_test_info": {
+    "n_features": 38,
+    "t_features": 0.015,
+    "n_views": 1,
+    "view_sizes": [
+      598
+    ],
+    "t_model": 1.095,
+    "t_total": 1.111,
+    "model_spec": "kumo-tabular-l:n_estimators=8,device=cuda"
+  },
+  "test_improvement_pct": 0.0,
+  "cv_trajectory": [
+    [
+      1,
+      0.03450947190215197
+    ],
+    [
+      2,
+      0.03450947190215197
+    ],
+    [
+      3,
+      0.0380442915024594
+    ],
+    [
+      4,
+      0.03450947190215197
+    ],
+    [
+      5,
+      null
+    ],
+    [
+      6,
+      0.0380442915024594
+    ],
+    [
+      7,
+      0.03450947190215197
+    ],
+    [
+      8,
+      0.03771387849742965
+    ],
+    [
+      9,
+      0.03450947190215197
+    ],
+    [
+      10,
+      0.03771387849742965
+    ],
+    [
+      11,
+      0.03450947190215197
+    ],
+    [
+      12,
+      0.0345035870336288
+    ],
+    [
+      13,
+      0.03771444559154067
+    ]
+  ],
+  "elapsed_s": 294.21,
+  "status": "ok"
+}
