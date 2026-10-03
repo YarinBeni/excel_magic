@@ -1,0 +1,10 @@
+# 039_j17  host=g0377  start=Sat Oct  3 06:51:41 UTC 2026  timeout=300s
+# HEAD=efcd71b
+# ---------------------------------------------------------
+J17: 51110
+       50192           AGENT_runner  RUNNING   15:19:09 g0377
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+     51091_2   J15c_selection_rules  RUNNING      23:44 g0377
+ 51110_[0-1]        J17_recommended  PENDING       0:00 (None)
+# ---------------------------------------------------------
+# exit=0  end=Sat Oct  3 06:51:41 UTC 2026
