@@ -61,3 +61,18 @@ measures recall.
 Reading: with a strong generator on a corrected benchmark, the small models do not beat plain self-consistency.
 Schema linking halves the prompt but loses 2.6 points (top-20 linking misses a needed column in 38% of questions);
 triage recovers one point. All differences vs A are within about one standard error except B.
+
+## P4 guarded auto-research over the SQL harness (V5, job 51972): BIRD Arcwise-Plat, 498 questions
+Researcher GLM-4.5-Air proposes one knob change at a time; generator Qwen3-Coder-30B. Split fixed before the loop:
+search 298 / accept 75 / held-out 125. Keep rule: paired search gain > 1 SE and accept gain >= 0. Budget 13 attempts
+(the space ran out), 1 kept: `triage=True` (search +0.013, se 0.010; accept +0.013).
+
+Held-out (scored once): initial (greedy, full schema) 0.680 -> final (+ GLiClass triage and one revision) 0.720,
+paired +0.040 (se 0.018).
+
+Rejected: self-consistency, n = 4/8/16, stack verifier (search -0.010 to +0.003), GLiClass linking (-0.020),
+reranker linking (-0.067). Noise floor: link_k changes with linking off do not change the pipeline, yet moved search
+accuracy by -0.007 (vLLM greedy decoding is not bit-reproducible under batching).
+Reading: the guards worked as designed: 12 of 13 proposals were rejected, including three whose accept gain was
++0.027. The one kept change also helped on held-out. Caution: in P2 (all 498 questions, with linking) triage was
+-0.016 vs A, so the triage gain depends on the configuration and is at most a few points.
