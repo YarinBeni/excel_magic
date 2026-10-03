@@ -147,9 +147,11 @@ class RelEnv:
             return "no shared feature columns between train_sql and test_sql"
         dt = DeepTool(model=spec, max_context=10_000)
         q = dt.predict(tr[[self.tcol] + feats + [self.tgt]], self.tgt, time_col=self.tcol)  # held-out quality
-        rng = np.random.default_rng(self.seed)
         Xtr, Xte = encode_frames(tr[feats], te[feats])
-        p = dt._fit_predict(spec, "binary", Xtr, tr[self.tgt].astype(int).to_numpy(), Xte, rng)
+        ytr = tr[self.tgt].astype(int).to_numpy()
+        # predict the test rows in chunks: one pass over a large test table does not fit in GPU memory
+        p = np.concatenate([dt._fit_predict(spec, "binary", Xtr, ytr, Xte.iloc[i:i + 5000], np.random.default_rng(self.seed))
+                            for i in range(0, len(Xte), 5000)])
         out = te[[self.ent, self.tcol]].copy()
         out["score"] = p[:, 1]
         self.con.register("pred_deep", out)
