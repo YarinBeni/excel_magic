@@ -1,0 +1,63 @@
+# job 50921 J14b_relational_item_random exit=0 Sat Oct  3 02:42:52 UTC 2026
+# last 4000 lines of /home/yarin.b/projects/excel_magic/sbatch/logs/J14b_relational_item_random_50921.out
+=== J14b relational relbench === job 50921 Sat Oct  3 01:09:52 UTC 2026
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+python=/home/yarin.b/venvs/tabfm/bin/python Python 3.11.15 gpu=NVIDIA H200
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 4973.48it/s]
+[val] GlobalPopularity             map=0.342
+[val] PastVisit                    map=1.904
+[val] kNN-CF[purchase_matrix]      map=1.164
+[val] Past+kNN-CF[purchase_matrix] map=1.919
+[val] ItemKNN                      map=1.034
+[val] Past+ItemKNN                 map=1.901
+[val] kNN-CF[agg]                  map=0.258
+[val] Past+kNN-CF[agg]             map=1.889
+[val] kNN-CF[kumo_relational_random] map=0.253
+[val] Past+kNN-CF[kumo_relational_random] map=1.886
+[test] GlobalPopularity             map=0.292
+[test] PastVisit                    map=2.199
+[test] kNN-CF[purchase_matrix]      map=1.203
+[test] Past+kNN-CF[purchase_matrix] map=2.216
+[test] ItemKNN                      map=1.073
+[test] Past+ItemKNN                 map=2.197
+[test] kNN-CF[agg]                  map=0.259
+[test] Past+kNN-CF[agg]             map=2.184
+[test] kNN-CF[kumo_relational_random] map=0.244
+[test] Past+kNN-CF[kumo_relational_random] map=2.182
+2026-10-03 02:42:22,893 INFO run finished (ok) -> /home/yarin.b/projects/excel_magic/artifacts/runs/20261003T010958Z_J14b_kumo_random_hm_full/metrics.json
+| method | val MAP@K x100 | test MAP@K x100 |
+|---|---|---|
+| GlobalPopularity | 0.342 | 0.292 |
+| PastVisit | 1.904 | 2.199 |
+| kNN-CF[purchase_matrix] | 1.164 | 1.203 |
+| Past+kNN-CF[purchase_matrix] | 1.919 | 2.216 |
+| ItemKNN | 1.034 | 1.073 |
+| Past+ItemKNN | 1.901 | 2.197 |
+| kNN-CF[agg] | 0.258 | 0.259 |
+| Past+kNN-CF[agg] | 1.889 | 2.184 |
+| kNN-CF[kumo_relational_random] | 0.253 | 0.244 |
+| Past+kNN-CF[kumo_relational_random] | 1.886 | 2.182 |
+
+queries: val=74575, test=67144; hist_days=365; k_neighbors=50; published test rows (x100): GlobalPop 0.30, PastVisit 0.89, LightGBM 0.38, GraphSAGE 0.80, ID-GNN 2.81, KumoRFM zero-shot 2.73, ContextGNN 2.93
+[collect] copied 1639 files into reports/runs
+[claude/tabular-model-agent-exp-wvni5o 100a246] J14b: Kumo Relational (random target) rel-hm item-level rows (job 50921)
+ 9 files changed, 512 insertions(+)
+ create mode 100644 reports/runs/20261002T191905Z_J8_pi_qwen3coder_blood-transfusion-service-center/rescored.json
+ create mode 100644 reports/runs/20261002T191905Z_J8_pi_qwen3coder_blood-transfusion-service-center/selection_rules.csv
+ create mode 100644 reports/runs/20261002T191905Z_J8_pi_qwen3coder_blood-transfusion-service-center/selection_rules.md
+ create mode 100644 reports/runs/20261002T192134Z_J8_pi_qwen3coder_diabetes/rescored.json
+ create mode 100644 reports/runs/20261002T192134Z_J8_pi_qwen3coder_diabetes/selection_rules.csv
+ create mode 100644 reports/runs/20261002T192134Z_J8_pi_qwen3coder_diabetes/selection_rules.md
+ create mode 100644 reports/runs/20261003T010958Z_J14b_kumo_random_hm_full/metrics.json
+ create mode 100644 reports/runs/20261003T010958Z_J14b_kumo_random_hm_full/relbench_rows.json
+ create mode 100644 reports/runs/20261003T010958Z_J14b_kumo_random_hm_full/results.md
+From https://github.com/YarinBeni/excel_magic
+ * branch            claude/tabular-model-agent-exp-wvni5o -> FETCH_HEAD
+Current branch claude/tabular-model-agent-exp-wvni5o is up to date.
+To https://github.com/YarinBeni/excel_magic
+   030f4dd..100a246  HEAD -> claude/tabular-model-agent-exp-wvni5o
+[commit_push_sandbox] pushed to claude/tabular-model-agent-exp-wvni5o
+=== J14b done Sat Oct  3 02:42:52 UTC 2026 ===
