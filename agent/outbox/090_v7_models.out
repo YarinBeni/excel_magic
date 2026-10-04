@@ -1,0 +1,14 @@
+# 090_v7_models  host=g0374  start=Sun Oct  4 10:26:33 UTC 2026  timeout=60s
+# HEAD=c8e731b
+# ---------------------------------------------------------
+Submitted batch job 52319
+Submitted batch job 52320
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+       52318        V3_insightbench  PENDING       0:00 (Priority)
+       52317            V8_rel_hypo  PENDING       0:00 (Priority)
+       52316              V7_sql_h2  PENDING       0:00 (Priority)
+       52320              V7_sql_h2  PENDING       0:00 (Priority)
+       52319              V7_sql_h2  PENDING       0:00 (Priority)
+       51136           AGENT_runner  RUNNING   18:53:33 g0374
+# ---------------------------------------------------------
+# exit=0  end=Sun Oct  4 10:26:33 UTC 2026
