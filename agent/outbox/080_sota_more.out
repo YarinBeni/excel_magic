@@ -1,0 +1,123 @@
+# 080_sota_more  host=g0374  start=Sun Oct  4 06:03:28 UTC 2026  timeout=120s
+# HEAD=b87c766
+# ---------------------------------------------------------
+######## RelAgent table
+    Method                    f1                avito             event       trial      amazon            stack          hm  Avg    Rankdnf        top3      click     visit    repeat   ignore      out        user       item      
+
+    LightGBM68.56   73.92   53.60   53.05   68.04   79.93   70.09   52.22   62.54   63.39   63.43   55.21                          63.66   18.25
+    DS+LightGBM69.80   82.40   64.27   64.46   75.42   84.23   72.00                  67.60   81.80   90.30   86.20   69.00        75.62     8.42
+    DS+AutoGluon70.01   82.53   65.66   65.87   74.85   82.31   70.51   68.12   80.45   89.94   85.38   68.71                      75.36     9.25
+    DS+TabPFN-2.571.16   77.70   64.21   64.53   76.43   85.70   70.75   66.28   79.83   89.07   85.08   68.31                     74.92   10.25
+
+    GraphSAGE    72.62   75.54   65.90   66.20   76.89   81.62   68.60   70.4282.8190.59                         88.86    69.88    75.83     6.75
+    HGT            70.77   70.75   63.76   64.32   64.96   82.47   58.37   66.43   77.97   88.47   86.08   66.95                   71.78   13.58
+    HGTPE                71.17   76.27   64.57   64.95   65.36   81.61   59.21   66.19   78.03   88.17   85.66   65.69             72.24   12.75
+    RelGNN  75.29   85.69   68.23   66.18   79.61   86.18   71.2470.9982.6490.75   88.9870.93                                      78.06     3.83
+    RelGT       75.87   83.52   68.30   66.78   76.09   81.57   68.61   70.39   82.55   90.53   86.32   69.27                      76.65     6.38
+
+    LLM1                 75.80   91.40    59.80   62.70   71.40   69.30   57.40   58.10   62.10   78.00   80.00   59.80            68.82   15.04
+    LLM2                 80.03   87.11   53.36   54.07   70.11   68.65   59.17   62.55   73.41   81.23   79.99   63.81             69.46   14.75
+    Rel-Zero 71.84   70.64   62.28   56.17   68.12   61.32   59.02   60.07   64.10   69.46   62.12   55.95                         63.42   17.67
+    TabPFN-2.561.21   77.35   54.44   51.45   69.10   70.91   71.74   57.14   59.30   59.66   52.26   54.99                        61.63   18.08
+    Griffin             57.70   82.50   45.90   60.70   71.88   83.27   51.00   62.30   69.00   77.50   73.50   60.20              66.29   16.58
+    RTzero                  81.20   89.30   59.50   61.80   73.22   77.47   51.80   64.00   70.90   75.70   80.10   62.80          70.65   14.08
+    GNN+TabPFN64.26   74.67   60.68   65.35   73.58   84.13   56.68   64.30   77.89   87.48   85.34   64.34                        71.56   13.75
+    RDBLearn70.87   79.6969.0465.49   75.04   82.52   71.58   67.57   82.07   89.39   85.26   68.05                                75.55     8.92
+    KumoRFM-v182.41              91.07   64.85   64.11   76.08   89.20       70.79   67.29   79.93   87.09   80.00   67.71         76.71     8.71
+    KumoRFM-v284.59   92.1867.4269.41   81.66   90.8372.03                            69.10   82.17   89.40   87.15   69.27        79.603.38
+    FeatLLM           70.43   52.72   48.69   51.15   46.67   47.88   57.35           -   55.11   42.56           -           -         -           -
+    ReFuGe             76.26   83.04   63.20   66.43   77.14   83.4072.22  -   67.00   87.66   83.80   68.10                            -           -
+    RELAGENT        78.34   85.23   68.36         67.79    78.20   87.25   71.86   70.78       82.84    90.41   88.4271.07         78.38     3.17
+
+
+
+
+######## ReViSQL
+1:        Human-Level Text-to-SQL via Reinforcement Learning on
+19:tems and human experts persists on benchmarks, suggesting that
+21:   We show that human-level Text-to-SQL performance is achiev-
+24:ponents. In this paper, we identified the dominant bottleneck for                   Figure 1: On Arcwise-Plat-SQL, an expert-verified BIRD Mini-
+26:annotation errors that mislead optimization. To address this, we de-                achieves human-level performance [52] using RLVR (Kimi-
+42:ReViSQL-BIRD. On Arcwise-Plat,ReViSQL-BIRD-K2.6 is the first                        tems still underperform human experts by over 10% on BIRD [52],
+43:method to achieve human-level accuracy (92.96%), outperforming                      suggesting that pipeline engineering alone has hit a ceiling.
+44:the top five open-source systems on the leaderboard by 10–22%.                         We show that human-level Text-to-SQL performance (92.96%
+47:                                                                                    ingredients that together close the gap to human-level performance
+52:existing LLM-based methods still fall significantly short of human-                 3–4% of human parity, while domain-specific reward shaping closes
+58:unnecessary for reaching human-level accuracy.                                          signing rule-based process rewards in addition to the widely used
+62:[22, 33, 66], where over 50% of their public instances contain errors.                  Plat-Full and Arcwise-Plat-SQL [22]. With greedy decoding,ReViSQL-
+63:These errors lead to incorrect RLVR reward signals that cause fine-                     BIRD-K2.6 achieves 93.8% accuracy on Arcwise-Plat-Full and 91.4%
+64:tuned models to make similar mistakes, limiting the effectiveness of                    accuracy on Arcwise-Plat-SQL. With self-consistency over 16 candi-
+67:manual correction rounds per data instance by SQL experts. Using                        proxy human-level performance (92.96%) measured on BIRD Test
+70:errors across 52% of SQL queries, 26% of natural language ques-                         by 8.4% on Arcwise-Plat-SQL and 5.6% on Arcwise-Plat-Full.
+73:Section 3 for future Text-to-SQL data curation.                                              are the first to demonstrate that human-level Text-to-SQL is
+78:sions [22] of BIRD Mini-Dev, Arcwise-Plat-Full (errors in questions,                         a verified dataset with 2.5k high-quality Text-to-SQL instances.
+79:knowledge, and gold SQL fixed) and Arcwise-Plat-SQL (only gold                               We show that fine-tuning LLMs withReViSQL(RLVR on BIRD-
+89:235B achieves 4.4%, 0.6%, and 2.2% higher greedy-decoding accuracy                           human-level performance on Arcwise-Plat for the first time.
+90:on Arcwise-Plat-SQL, -Full, and Spider2-SQLite, with 7–8× lower
+91:costs. For Spider2-Snow,ReViSQL-235B with self-consistency            1 over            2    Related Work
+93:models such as DeepSeek-V3 and Qwen3-Coder.                                             methods (Section 2.1) and examine the critical limitations of current
+94:ReViSQL-BIRD: achieving human parity on BIRD.Although                                   Text-to-SQL datasets (Section 2.2).
+97:human parity by 3–4% on Arcwise-Plat datasets. To close the resid-                      We categorize prior work into three distinct paradigms: multi-stage
+112:1We use the standard self-consistency procedure for inference-time scaling [15, 17, 47, complex, leading to invalid column references and incorrect joins.
+114:                  Human-Level Text-to-SQL via Reinforcement Learning on Verified Data, Without Pipeline Engineering
+116:                 Table 1: Comparison of the pipeline complexity among top-                                model achieves human parity using model-free, self-consistency
+144:                  rewrite questions, and retrieve few-shot examples to narrow the                         human data and synthetic logic. These datasets typically gener-
+173:                  tions (Arcwise-Plat-Full) [22], greedy decoding from an RLVR model
+174:                  matches human-level accuracy without selection mechanisms. On                           Pervasive annotation errors hinder the rigorous evaluation and
+175:                  a benchmark with noisy questions (Arcwise-Plat-SQL), an RLVR                            training of Text-to-SQL models. In BIRD [30] and Spider2 [24], two
+188:        Correction            Arcwise-Plat-Full    Arcwise-Plat-SQL                      RLVR training, two properties of data cleaning are essential.
+207:that we used as our evaluation benchmarks: Arcwise-Plat-Full and                         (5)Do all filter conditions in the question constrain the result?
+208:Arcwise-Plat-SQL. These two benchmarks differ in which sources of                        For each external knowledge entry, we check:
+210:tative instance). Arcwise-Plat-Full delivers a fully cleaned version                     (2)Is the external knowledge consistent with the question?
+213:edge entries. Arcwise-Plat-SQL corrects only the gold SQL queries
+217:Full measures accuracy under clean inputs, while Arcwise-Plat-SQL                        (5)  Does the SQL query use the correct tables via appropriate joins
+227:underestimates the true noise level. To date, there are no large-scale,                  the precision of human expert judgment (Figure 2). The pipeline
+236:human-expert pipeline. In this section, we describe the design prin-                     scribing errors in the question, external knowledge, and SQL query,
+######## InsightBench
+39:           propose AgentPoirot, our baseline data analysis agent capable of performing end-to-end
+40:           data analytics.  Our evaluation on InsightBench shows that AgentPoirot outperforms
+41:           existing approaches (such as Pandas Agent) that focus on resolving single queries.
+93:summarizing both findings and recommending next steps (as demonstrated by AgentPoirot).
+98:Pandas Agent (LangChain, 2024) and Code Interpreter (OpenAI, 2024)) only focus on solving narrow,
+139:Therefore, we draw inspiration from G-Eval which is a state-of-the-art technique that uses GPT-4 to
+142:the technique LLaMA-3-Eval. Our experiments show that LLaMA-3-Eval and G-Evalproduce consistent
+144:We benchmark LLM-based agents on InsightBench, where we run a variant of the Pandas Agent that can
+146:We also propose a baseline agent, AgentPoirot, which can extract deeper insights and questions by carefully
+148:will likely happen), and Prescriptive (what actions to take) analytics. Our evaluation shows that AgentPoirot
+149:obtains a higher LLaMA-3-Eval score compared to Pandas Agent.
+154:  and different prompting strategies for evaluation on our benchmark. Our results show that AgentPoirot
+155:  outperforms existing analytics methods such as Pandas Agent and LLaMA-3-Eval is a feasible alternative
+156:  to using the closed-source G-Eval.
+287:language texts.   While multiple metrics have been proposed in the past,  like ROUGE (Lin, 2004),
+289:human preferences.  Recently, G-Eval (Liu et al., 2023) was shown to be highly aligned with human
+291:free-form sentences, we adopt an LLM-based evaluator as well.  Specifically, we use LLaMA-3-Eval,
+292:a variant of G-Eval that uses  LLaMA-3-70b  instead of a GPT model. We use LLaMA-3-Eval as the
+293:primary metric to measure the correctness of agent-provided insights.  We chose LLaMA-3-Eval over
+294:G-Eval because  LLaMA-3-70b  is open-sourced, allowing us to a) avoid API costs for using GPT
+296:G-Eval, whose output scores can change due to periodic updates to GPT endpoints.
+298:1.  Summary-level.  To obtain the summary-level score, we simply compute the LLaMA-3-Eval score
+300:2.  Insight-level. First, we select the most appropriate insight a∈A to evaluate against a given ground-truth
+301:   insight (gt∈GT), and then average the scores for all the ground-truth insights. The insight-level score
+303:   M represents LLaMA-3-Eval evaluator:
+307:We average the summary-level and insight-level scores for all 100 datasets in InsightBench to obtain a
+308:measure of the agent’s performance. Additionally, we compute scores using ROUGE-1 for comparison.
+373:a) Pandas Agent (PA) (LangChain, 2024). A data science agent by LangChain optimized for question-
+374:answering 1. Given a data frame and a question related to it, Pandas Agent first generates Python code
+378:b) AgentPoirot (Ours). We propose AgentPoirot that, given a dataset (D) in InsightBench and a goal (G),
+379:performs systematic data exploration aimed at achievingG. Figure 7 shows the working of AgentPoirot:
+391:   dataset. AgentPoirot extracts the name, type, total unique values, and total  NA  values for every column.
+395:2.  Generate Insights: Given the triplet (D,G,S), AgentPoirot uses the Question Generation Prompt to
+399:   Figure 7 to see a complete overview of AgentPoirot).
+400:3.  Generate Summary: AgentPoirot summarizes the insights from the previous step (using Prompt 7.)
+401:c) AgentPoirot (Ours) w/ generic goal. We use the generic goal, “I want to find interesting insights in this
+402:dataset,” instead of the carefully designed goal and run AgentPoirot on InsightBench as in b).
+403:d) AgentPoirot (Ours) non-diverse follow-ups. We use Prompt 4 instead of Prompt 3 to generate only
+404:one type of follow-up questions and run AgentPoirot on InsightBench as in b). Refer to Figure 7 in the
+425:evaluate  Python package to compute ROUGE-1 scores and Prompt 9 in Appendix D for computing
+426:LLaMA-3-Eval scores. We also fix the temperature of  LLaMA-3-70b  to 0 during evaluation. We repeat
+432:we note that AgentPoirot outperforms Pandas Agent in terms of ROUGE-1 and LLaMA-3-Eval scores.
+434:AgentPoirot with  LLaMA-3-70b  outperforms AgentPoirot with  gpt-3.5-turbo  and is close to
+435:gpt-4-turbo  in terms of LLaMA-3-Eval scores.
+437:agement,” ”Goal Management,” and ”Finance Management.” While AgentPoirot with  LLaMA-3-70b
+# ---------------------------------------------------------
+# exit=0  end=Sun Oct  4 06:03:29 UTC 2026
