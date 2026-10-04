@@ -1,0 +1,9 @@
+# 087_v7_qwen  host=g0374  start=Sun Oct  4 10:25:25 UTC 2026  timeout=60s
+# HEAD=c5e8f31
+# ---------------------------------------------------------
+Submitted batch job 52316
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+       52316              V7_sql_h2  PENDING       0:00 (Priority)
+       51136           AGENT_runner  RUNNING   18:52:25 g0374
+# ---------------------------------------------------------
+# exit=0  end=Sun Oct  4 10:25:25 UTC 2026
