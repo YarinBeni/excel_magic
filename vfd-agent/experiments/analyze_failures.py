@@ -80,10 +80,10 @@ def main():
     for r in rows:
         q = qs[r["qid"]]
         db = bird.find_db(a.db_root, q.db_id)
-        miss = literal_misses(db, r["sql"] or "")
-        lits["wrong" if not r["correct"] else "right", bool(miss)] += 1
         if r["correct"]:
             continue
+        miss = literal_misses(db, r["sql"] or "")
+        lits["wrong", bool(miss)] += 1
         c = classify(bird.execute(db, r["sql"] or "SELECT 1"), bird.execute(db, q.gold_sql, timeout_s=60))
         cats[c] += 1
         ex.setdefault(c, []).append((q.question[:120], q.evidence[:120], (r["sql"] or "")[:300], q.gold_sql[:300], miss))
@@ -91,7 +91,7 @@ def main():
     print(f"config {a.config}: {n} questions, {n - sum(cats.values())} correct")
     for c, k in cats.most_common():
         print(f"  {c:16s} {k:4d}  ({k / n:.1%} of all)")
-    print("literal not in DB (wrong answers):", lits["wrong", True], "| (right answers):", lits["right", True])
+    print("wrong answers with a compared literal that is not in the DB:", lits["wrong", True])
     for c in cats:
         print(f"\n== {c}")
         for e in ex[c][:3]:
