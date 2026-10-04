@@ -1,0 +1,10 @@
+# 088_v8_smoke  host=g0374  start=Sun Oct  4 10:25:27 UTC 2026  timeout=60s
+# HEAD=573de8e
+# ---------------------------------------------------------
+Submitted batch job 52317
+       JOBID                   NAME    STATE       TIME NODELIST(REASON)
+       52317            V8_rel_hypo  PENDING       0:00 (Priority)
+       52316              V7_sql_h2  PENDING       0:00 (Priority)
+       51136           AGENT_runner  RUNNING   18:52:27 g0374
+# ---------------------------------------------------------
+# exit=0  end=Sun Oct  4 10:25:27 UTC 2026
