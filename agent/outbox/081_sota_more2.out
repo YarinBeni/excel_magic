@@ -1,0 +1,124 @@
+# 081_sota_more2  host=g0374  start=Sun Oct  4 06:04:32 UTC 2026  timeout=120s
+# HEAD=b7f4cd5
+# ---------------------------------------------------------
+######## InsightBench results table
+Appendix for a visualization of our proposed method.
+In addition to PandasAgent, we also considered the following baselines: Insightpilot (Ma et al., 2023),
+but neither the code nor the prompts are available; Data-Copilot (Zhang et al., 2023b), but it is limited
+to Chinese financial data, which isn’t suitable for our task; OpenAgents (Xie et al., 2023), but the public
+version only allows 10 requests, which isn’t enough for meaningful benchmarking; InfiAgent-Dabench (Hu
+et al., 2024), but we excluded it due to its extremely poor performance in this benchmark. It handles only
+simple tasks like “Generate Python code to compute the mean of a list,” but struggles with more complex
+queries like “What is the distribution of incidents by category in this dataset?” Lastly, we considered using
+PowerBI 2, but it is a closed-source tool that is not suitable for large-scale benchmarking. We conducted a
+small-scale evaluation of PowerBI and found that it obtained low-quality insights and generated inconsistent
+outputs for the same prompt. Our benchmark emphasizes transparency and reproducibility, therefore we
+focussed on methods that the scientific community can easily inspect and scrutinize, which is not possible
+with the aforementioned baselines.
+
+3.2    IMPLEMENTATION DETAILS
+
+We use Python’s  openai  package to access the family of GPT models for our experiments and  vllm
+to host  LLaMA-3-70b   3  model on 4 A100 GPUs.   We use different LLMs as backbones in our
+experiments to benchmark, including  gpt-4o,  gpt-4-turbo,  gpt-3.5-turbo, and  llama-
+3-70b   4. All results are reported for the sampling temperature of 0.0, unless otherwise stated. We use the
+evaluate  Python package to compute ROUGE-1 scores and Prompt 9 in Appendix D for computing
+LLaMA-3-Eval scores. We also fix the temperature of  LLaMA-3-70b  to 0 during evaluation. We repeat
+all our experiments for 5 seeds and report the mean and standard deviation in our results.
+
+4    BENCHMARK RESULTS
+
+Main Results.    Table 1 shows the performance of different data analytics agents on InsightBench. First,
+we note that AgentPoirot outperforms Pandas Agent in terms of ROUGE-1 and LLaMA-3-Eval scores.
+We note that using  gpt-4o  consistently achieves the best overall performance.  We further see that
+AgentPoirot with  LLaMA-3-70b  outperforms AgentPoirot with  gpt-3.5-turbo  and is close to
+gpt-4-turbo  in terms of LLaMA-3-Eval scores.
+Our performance analysis by dataset categories (Figure 4a) shows agents performing best in ”Asset Man-
+agement,” ”Goal Management,” and ”Finance Management.” While AgentPoirot with  LLaMA-3-70b
+underperforms on combined datasets due to context limitations, PandasAgent excels in these categories.
+Performance varies by difficulty (Figure 4b), with strong results on ”Easy” and ”Medium” tasks but
+declining on ”Hard” ones. Across insight types (Figure 4c), agents show decreasing performance from
+
+
+    2https://app.powerbi.com/home
+    3https://github.com/meta-llama/llama3
+    4We use  gpt-4-turbo-2024-04-09  and  gpt-3.5-turbo-0125, specifically.
+
+
+                                                             7
+                                    Published as a conference paper at ICLR 2025
+
+
+
+
+                                                 Table 1: Performance of different agents on InsightBench. All results are for 5 different seeds.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+######## ReViSQL results table
+116:                 Table 1: Comparison of the pipeline complexity among top-                                model achieves human parity using model-free, self-consistency
+185:Table 2: Correction statistics of two expert-verified datasets                           3.1    Design Principles and Verification Checklist
+397:Table 3: Structural complexity comparison between the original BIRD Train and BIRD-Platinum. Values for the datasets
+719:Table 4:ReViSQL-235B (RLVR on BIRD-Platinum) outperforms the strongest prior open-source pipelines across two BIRD-
+1190:                 Table 6: Prompt and reward configuration of each method.                                 (4)  Process penalties (ReViSQL-BIRDonly).We deduct          𝜆𝑘 =
+pared to the best open-source LLM pipelines (Table 4),ReViSQL-                               show that fine-tuning Kimi-K2.6 usingReViSQL-BIRDachieves
+235B achieves 4.4%, 0.6%, and 2.2% higher greedy-decoding accuracy                           human-level performance on Arcwise-Plat for the first time.
+on Arcwise-Plat-SQL, -Full, and Spider2-SQLite, with 7–8× lower
+costs. For Spider2-Snow,ReViSQL-235B with self-consistency            1 over            2    Related Work
+128 candidates outperforms open-source LLM agents that use larger                       In this section, we review the landscape of existing Text-to-SQL
+models such as DeepSeek-V3 and Qwen3-Coder.                                             methods (Section 2.1) and examine the critical limitations of current
+ReViSQL-BIRD: achieving human parity on BIRD.Although                                   Text-to-SQL datasets (Section 2.2).
+ReViSQLsignificantly improves RLVR, fine-tuning one of the best
+open-source LLMs, Kimi-K2.6, usingReViSQLstill underperforms                            2.1    Text-to-SQL Methods
+human parity by 3–4% on Arcwise-Plat datasets. To close the resid-                      We categorize prior work into three distinct paradigms: multi-stage
+ual gap, we diagnosed two failure modes ofReViSQLand developed                          LLM pipelines, training with massive synthetic data, and RLVR.
+a reward shaping method,ReViSQL-BIRD, to address them (Sec-                             Multi-stage LLM pipelines.Advancements in Text-to-SQL, par-
+tion 4). First, we find that the result-based reward, the widely used                   ticularly on benchmarks including BIRD [30] and Spider2 [24], have
+reward in Text-to-SQL RLVR [12, 35, 68], leads to an empirical false                    been heavily driven by the development of complex multi-stage
+positive rate of 32.8%. This is because a semantically incorrect gen-                   LLM pipelines [14, 26, 29, 34, 39, 43, 47–49, 51, 62, 67]. As shown
+erated SQL query can yield the same results as the gold query on a                      in Table 1, top-ranking methods on BIRD rely on hand-engineered
+concrete database. We mitigate such false positive rewards by inte-                     auxiliary modules around the LLM at inference time. We summa-
+grating verification-based grading [20] with result-based grading                       rize prior work by the failure mode each component addresses, and
+[31, 35]. Second, we identify that fine-tuned models systematically                     argue that RLVR fine-tuning targets the same failure modes directly
+ignore the external-knowledge entries provided in BIRD instances,                       in the model, rather than working around them externally.
+defaulting to their pretraining priors over domain semantics. To                           General-purpose LLMs struggle to map natural-language en-
+address this failure, we incentivize the model to effectively leverage
+                                                                                        tities to the right tables and columns when the data schema is
+
+1We use the standard self-consistency procedure for inference-time scaling [15, 17, 47, complex, leading to invalid column references and incorrect joins.
+63, 67]. See Section 5.2 for full specification.                                        Schema linking and dynamic prompts patch this externally and are
+                  Human-Level Text-to-SQL via Reinforcement Learning on Verified Data, Without Pipeline Engineering
+
+                 Table 1: Comparison of the pipeline complexity among top-                                model achieves human parity using model-free, self-consistency
+                  30 BIRD Leaderboard methods that have disclosed techni-                                 generation with 16 candidates per question (Section 5.2).
+                  cal details. Each filled dot marks a component the method                                  While each module provides distinct utility in patching a spe-
+                  requires at inference in addition to SQL query generation.                              cific LLM failure mode, their composition introduces inference-time
+                  ReViSQL-BIRDexceeds these methods on accuracy while                                     overhead and cascading error propagation [7, 62]. For example, a
+                  requiring none of them.                                                                 wrong schema-linking result corrupts every downstream stage.
+                                                                                                          More fundamentally, these pipelines remain limited by the underly-
+                    Method               Dynamic     Dynamic     Schema     Iterative                     ing model’s intrinsic SQL capability.ReViSQL-BIRDinstead trains
+                                          pipeline    prompts     linking   revision      Selection       the model itself, using RLVR on clean data with tailored reward
+                    JoyDataAgent [5]                                                                      shaping, eliminating the external machinery that exists to compen-
+                    SiriusAI [21]                                                                         sate for gaps in the underlying model’s reasoning.
+                    Agentar-Scale [62]
+                    SHARE [43]                                                                            Training on synthetic data.In parallel to building LLM pipelines,
+                    OpenSearch [67]
+                    Distillery [36]                                                                       prior work has also explored data-centric approaches, developing
+                    CHASE-SQL [39]                                                                        large-scale synthetic Text-to-SQL data for training LLMs [28, 41, 65].
+                    ReasoningSQL [42]                                                                     SynSQL-2.5M [28] developed a pipeline to generate 2.5 million
+                    AskData [49]
+# ---------------------------------------------------------
+# exit=0  end=Sun Oct  4 06:04:32 UTC 2026
