@@ -1,0 +1,129 @@
+# 086_fail_analysis  host=g0374  start=Sun Oct  4 07:01:43 UTC 2026  timeout=2400s
+# HEAD=5ebb814
+# ---------------------------------------------------------
+config A: 498 questions, 345 correct
+  wrong_values       82  (16.5% of all)
+  wrong_row_count    26  (5.2% of all)
+  exec_error         16  (3.2% of all)
+  empty              12  (2.4% of all)
+  extra_columns      10  (2.0% of all)
+  missing_columns     5  (1.0% of all)
+  wrong_columns       2  (0.4% of all)
+wrong answers with a compared literal that is not in the DB: 12
+
+== wrong_values
+ Q: In 2012, who had the least consumption in LAM? 
+ E: Year 2012 can be presented as Between 201201 And 201212; The first 4 strings of the Date values in the yearmonth table c 
+ P: SELECT ym.CustomerID FROM yearmonth ym JOIN customers c ON ym.CustomerID = c.CustomerID WHERE ym.Date BETWEEN '201201' AND '201212' AND c.Segment = 'LAM' ORDER BY ym.Consumption ASC LIMIT 1 
+ G: SELECT T1.CustomerID FROM customers AS T1 INNER JOIN yearmonth AS T2 ON T1.CustomerID = T2.CustomerID WHERE T1.Segment = 'LAM' AND SUBSTR(T2.Date, 1, 4) = '2012' GROUP BY T1.CustomerID ORDER BY SUM(T2.Consumption) ASC LIMIT 1 
+ missing literals: []
+ Q: What is the difference in the annual average consumption of the customers with the least amount of consumption paid in C 
+ E: annual average consumption of customer with the lowest consumption in each segment = total consumption per year / the nu 
+ P: WITH segment_consumption AS (     SELECT          c.Segment,         AVG(ym.Consumption) AS avg_consumption     FROM yearmonth ym     JOIN customers c ON ym.CustomerID = c.CustomerID     WHERE ym.Date LIKE '2013%'     GROUP BY c.Segment ), segment_averages AS (     SELECT          MAX(CASE WHEN Segm 
+ G: WITH customer_consumption AS (SELECT c.Segment, c.CustomerID, SUM(ym.Consumption) AS TotalConsumption, COUNT(DISTINCT ym.CustomerID) AS CustomerCount FROM customers AS c JOIN yearmonth AS ym ON c.CustomerID = ym.CustomerID WHERE ym.Date BETWEEN '201301' AND '201312' AND c.Currency = 'CZK' GROUP BY c 
+ missing literals: []
+ Q: How many more "discount" gas stations does the Czech Republic have compared to Slovakia? 
+ E: Czech Republic can be represented as the Country value in gasstations table is 'CZE'; Slovakia can be represented as the 
+ P: SELECT      (SELECT COUNT(*) FROM gasstations WHERE Country = 'CZE' AND Segment = 'Value for money') -     (SELECT COUNT(*) FROM gasstations WHERE Country = 'SVK' AND Segment = 'Value for money') AS discount_difference 
+ G: SELECT SUM(IIF(Country = 'CZE', 1, 0)) - SUM(IIF(Country = 'SVK', 1, 0)) FROM gasstations WHERE Segment = 'Discount' 
+ missing literals: []
+
+== missing_columns
+ Q: Provide the percentage increase in consumption paid in EUR between 2012 and 2013 for SME, LAM, and KAM respectively. 
+ E: Increase = consumption for 2013 - consumption for 2012; Percentage of Increase = (Increase / consumption for 2012) * 100 
+ P: WITH consumption_by_segment AS (     SELECT          c.Segment,         SUBSTR(ym.Date, 1, 4) as Year,         SUM(ym.Consumption) as TotalConsumption     FROM yearmonth ym     JOIN customers c ON ym.CustomerID = c.CustomerID     WHERE c.Currency = 'EUR'          AND SUBSTR(ym.Date, 1, 4) IN ('2012' 
+ G: SELECT CAST((SUM(IIF(T1.Segment = 'SME' AND T2.Date LIKE '2013%', T2.Consumption, 0)) - SUM(IIF(T1.Segment = 'SME' AND T2.Date LIKE '2012%', T2.Consumption, 0))) AS FLOAT) * 100 / SUM(IIF(T1.Segment = 'SME' AND T2.Date LIKE '2012%', T2.Consumption, 0)), CAST(SUM(IIF(T1.Segment = 'LAM' AND T2.Date LI 
+ missing literals: ["Year='2012'", "Year='2013'"]
+ Q: What is the best lap time recorded? List the recorded lap time, driver, and race. 
+ E: the best lap time refers to min(milliseconds); List the driver refers to drivers.forename and drivers.surname; List the  
+ P: SELECT      lt.milliseconds AS best_lap_time,     d.forename || ' ' || d.surname AS driver,     r.name AS race FROM lapTimes lt JOIN drivers d ON lt.driverId = d.driverId JOIN races r ON lt.raceId = r.raceId WHERE lt.milliseconds = (SELECT MIN(milliseconds) FROM lapTimes) 
+ G: SELECT T2.milliseconds, T1.forename, T1.surname, T3.name FROM drivers AS T1 INNER JOIN lapTimes AS T2 ON T1.driverId = T2.driverId INNER JOIN races AS T3 ON T2.raceId = T3.raceId ORDER BY T2.milliseconds ASC LIMIT 1 
+ missing literals: []
+ Q: Between DC and Marvel Comics, which publisher has published more superheroes? Find the difference in the number of super 
+ E: DC refers to publisher_name = 'DC Comics'; Marvel Comics refers to publisher_name = 'Marvel Comics'; calculation = SUBTR 
+ P: SELECT      SUM(CASE WHEN p.publisher_name = 'Marvel Comics' THEN 1 ELSE 0 END) -      SUM(CASE WHEN p.publisher_name = 'DC Comics' THEN 1 ELSE 0 END) AS difference FROM superhero s JOIN publisher p ON s.publisher_id = p.id WHERE p.publisher_name IN ('DC Comics', 'Marvel Comics') 
+ G: SELECT CASE WHEN marvel_cnt > dc_cnt THEN 'Marvel Comics' ELSE 'DC Comics' END AS publisher_with_more_superheroes,        marvel_cnt - dc_cnt AS difference FROM (     SELECT SUM(CASE WHEN p.`publisher_name`='Marvel Comics' THEN 1 END) AS marvel_cnt,            SUM(CASE WHEN p.`publisher_name`='DC Co 
+ missing literals: []
+
+== extra_columns
+ Q: For all the people who paid more than 29.00 per unit of product id No.5. Give their consumption status in the August of  
+ E: August of 2012 refers to the Date value = '201208' ; Price per unit of product = Price / Amount; 
+ P: SELECT ym.CustomerID, ym.Consumption FROM yearmonth ym JOIN transactions_1k t ON ym.CustomerID = t.CustomerID WHERE ym.Date = '201208' AND t.ProductID = 5 AND (t.Price / t.Amount) > 29.00 
+ G: SELECT T2.Consumption FROM transactions_1k AS T1 INNER JOIN yearmonth AS T2 ON T1.CustomerID = T2.CustomerID WHERE T1.Price / T1.Amount > 29.00 AND T1.ProductID = 5 AND T2.Date = '201208' 
+ missing literals: []
+ Q: For the oldest SJS patient, on what date was their medical laboratory work last completed, and what age was the patient  
+ E: The larger the birthday value, the younger the person is, and vice versa; 'SJS' refers to Patient.Diagnosis = 'SJS'; age 
+ P: SELECT      MAX(p.Birthday) as oldest_birthday,     MAX(l.Date) as last_lab_date,     (strftime('%Y', p."First Date") - strftime('%Y', p.Birthday) -       (strftime('%m-%d', p."First Date") < strftime('%m-%d', p.Birthday))) as age_when_first_arrived FROM Patient p JOIN Laboratory l ON p.ID = l.ID WH 
+ G: SELECT T1.Date, STRFTIME('%Y', "First Date") - STRFTIME('%Y', Birthday) - CASE     WHEN strftime('%m-%d',"First Date") < strftime('%m-%d', Birthday) THEN 1     ELSE 0   END AS age FROM Laboratory AS T1 INNER JOIN Patient AS T2 ON T1.ID = T2.ID WHERE T2.Diagnosis = 'SJS' AND T2.Birthday IS NOT NULL O 
+ missing literals: []
+ Q: At present, calculate for the player's age who have a sprint speed of no less than 97 between 2013 to 2015. 
+ E: players age at present = SUBTRACT(SUBTRACT(year(current_timestamp), year(Birthday)), MMDD(current_timestamp) < MMDD(Birt 
+ P: SELECT      p.player_name,     CAST(strftime('%Y', 'now') AS INTEGER) - CAST(strftime('%Y', p.birthday) AS INTEGER) -      (CAST(strftime('%m-%d', 'now') AS TEXT) < CAST(strftime('%m-%d', p.birthday) AS TEXT)) AS current_age FROM Player p JOIN Player_Attributes pa ON p.player_api_id = pa.player_api_ 
+ G: SELECT DISTINCT STRFTIME('%Y', CURRENT_TIMESTAMP) - STRFTIME('%Y', T2.Birthday) - CASE     WHEN strftime('%m-%d','now') < strftime('%m-%d', Birthday) THEN 1     ELSE 0   END AS age FROM Player_Attributes AS t1 INNER JOIN Player AS t2 ON t1.player_api_id = t2.player_api_id  WHERE STRFTIME('%Y',t1."da 
+ missing literals: []
+
+== empty
+ Q: Was each expense in October Meeting on October 8, 2019 approved? Output 'true' or 'false' for each expense. 
+ E: event_name = 'October Meeting' where event_date = '2019-10-08'; approved = True means expenses was approved; approved =  
+ P: SELECT e.approved FROM expense e JOIN attendance a ON e.link_to_member = a.link_to_member JOIN event ev ON a.link_to_event = ev.event_id WHERE ev.event_name = 'October Meeting'  AND ev.event_date = '2019-10-08T00:00:00' AND e.expense_date = '2019-10-08' 
+ G: SELECT T3.approved FROM event AS T1 INNER JOIN budget AS T2 ON T1.event_id = T2.link_to_event INNER JOIN expense AS T3 ON T2.budget_id = T3.link_to_budget WHERE T1.event_name = 'October Meeting' AND T1.event_date LIKE '2019-10-08%' 
+ missing literals: ["event_date='2019-10-08T00:00:00'"]
+ Q: What is the status of the event which bought "Post Cards, Posters" on 2019/8/20? 
+ E: Post Cards, Posters' is an expense description; on 2019/8/20 refers to expense_date = '2019-08-20'; status of event refe 
+ P: SELECT DISTINCT e."status" FROM "expense" exp JOIN "budget" b ON exp."link_to_budget" = b."budget_id" JOIN "event" e ON b."link_to_event" = e."event_id" WHERE exp."expense_description" IN ('Post Cards', 'Posters') AND exp."expense_date" = '2019-08-20' 
+ G: SELECT T1.event_status FROM budget AS T1 INNER JOIN expense AS T2 ON T1.budget_id = T2.link_to_budget WHERE T2.expense_description = 'Post Cards, Posters' AND T2.expense_date = '2019-08-20' 
+ missing literals: []
+ Q: Which event has the highest cost? Break ties by name in ascending alphabetical order. 
+ E: event refers to event_name; highest cost means MAX(SUM(cost)) 
+ P: SELECT e.event_name FROM event e JOIN expense exp ON e.event_id = exp.link_to_budget GROUP BY e.event_name ORDER BY SUM(exp.cost) DESC, e.event_name ASC LIMIT 1 
+ G: SELECT e.event_name FROM event AS e JOIN budget AS b ON e.event_id = b.link_to_event JOIN expense AS ex ON b.budget_id = ex.link_to_budget GROUP BY e.event_id, e.event_name HAVING SUM(ex.cost) = (  SELECT MAX(total_cost) FROM ( SELECT SUM(ex2.cost) AS total_cost FROM event AS e2 JOIN budget AS b2 ON 
+ missing literals: []
+
+== wrong_row_count
+ Q: Among all the closed events, which event has the highest spend-to-budget ratio? 
+ E: closed events refers to event_name where status = 'Closed'; highest spend-to budget ratio refers to MAX(DIVIDE(SUM(spent 
+ P: SELECT e.event_name FROM event e JOIN budget b ON e.event_id = b.link_to_event WHERE e.status = 'Closed' GROUP BY e.event_id, e.event_name ORDER BY SUM(b.spent) * 1.0 / SUM(b.amount) DESC LIMIT 1 
+ G: SELECT e.event_name FROM event AS e JOIN budget AS b ON e.event_id = b.link_to_event WHERE e.status = 'Closed' GROUP BY e.event_id, e.event_name HAVING SUM(b.amount) > 0 AND SUM(b.spent) / SUM(b.amount) = ( SELECT MAX(ratio) FROM ( SELECT SUM(b2.spent) * 1.0 / SUM(b2.amount) AS ratio FROM budget AS  
+ missing literals: []
+ Q: List the IDs of patients who were examined between 1987/7/6 and 1996/1/31 had a GPT level greater than 30 and an ALB lev 
+ E: examined between 1987/7/6 and 1996/1/31 refers to Date BETWEEN '1987-07-06' AND '1996-01-31'; GPT level greater than 30  
+ P: SELECT DISTINCT e."ID" FROM Examination e JOIN Laboratory l ON e."ID" = l."ID" WHERE e."Examination Date" BETWEEN '1987-07-06' AND '1996-01-31'   AND l."GPT" > 30   AND l."ALB" < 4 ORDER BY e."ID" 
+ G: SELECT DISTINCT ID FROM Laboratory WHERE Date BETWEEN '1987-07-06' AND '1996-01-31' AND GPT > 30 AND ALB < 4 
+ missing literals: []
+ Q: Please provide the diagnosis of patients with ALT glutamic pylvic transaminase beyond the normal range by ascending orde 
+ E: ALT glutamic pylvic transaminase beyond the normal range refers to GPT >= 60; The larger the birthday value, the younger 
+ P: SELECT e."Diagnosis" FROM Examination e JOIN Laboratory l ON e."ID" = l."ID" JOIN Patient p ON e."ID" = p."ID" WHERE l."GPT" >= 60 ORDER BY p."Birthday" DESC 
+ G: SELECT p.Diagnosis FROM Patient AS p WHERE p.ID IN (SELECT DISTINCT l.ID FROM Laboratory AS l WHERE l.GPT >= 60) ORDER BY p.Birthday ASC; 
+ missing literals: []
+
+== exec_error
+ Q: For the patient who was born on 1959/2/18, what is the decrease rate for his/her total cholesterol from November to Dece 
+ E: born on 1959/2/18 refers to Birthday = '1959-02-18'; calculation = DIVISION(SUBTRACT(SUM(Birthday = '1959-02-18' and Dat 
+ P: SELECT      (SUM(CASE WHEN l.Date LIKE '1981-11-%' THEN l."T-CHO" ELSE 0 END) -       SUM(CASE WHEN l.Date LIKE '1981-12-%' THEN l."T-CHO" ELSE 0 END)) * 100.0 /      SUM(CASE WHEN l.Date LIKE '1981-11-%' THEN l."T-CHO" ELSE 0 END) AS decrease_rate FROM Patient p JOIN Laboratory l ON p."ID" = l."ID" 
+ G: SELECT CAST((SUM(CASE WHEN T2.Date LIKE '1981-11-%' THEN T2."T-CHO" ELSE 0 END) - SUM(CASE WHEN T2.Date LIKE '1981-12-%' THEN T2."T-CHO" ELSE 0 END)) AS REAL) / SUM(CASE WHEN T2.Date LIKE '1981-11-%' THEN T2."T-CHO" ELSE 0 END) FROM Patient AS T1 INNER JOIN Laboratory AS T2 ON T1.ID = T2.ID WHERE T1 
+ missing literals: []
+ Q: Among players born before 1986, how many have at least one record indicating they would stay back in their position to d 
+ E: players born before the year 1986 refers to strftime('%Y', birthday)<'1986'; players who would remain in his position an 
+ P: SELECT COUNT(DISTINCT player_api_id) FROM Player_Attributes pa JOIN Player p ON pa.player_api_id = p.player_api_id WHERE strftime('%Y', p.birthday) < '1986' AND pa.defensive_work_rate = 'High' 
+ G: SELECT COUNT(DISTINCT t1.player_name) FROM Player AS t1 INNER JOIN Player_Attributes AS t2 ON t1.player_api_id = t2.player_api_id WHERE STRFTIME('%Y',t1.birthday) < '1986' AND t2.defensive_work_rate = 'high' 
+ missing literals: ["defensive_work_rate='High'"]
+ Q: For the drivers who took part in the race in 1983/7/16, what's their race completion rate? 
+ E: DIVIDE(COUNT(driverid when when status = 'Finished'
+                          OR status LIKE '+% Lap%' ), COUNT(driverid 
+ P: SELECT      CAST(COUNT(CASE WHEN r.status IN ('Finished', 'Disqualified') OR r.status LIKE '+% Lap%' THEN 1 END) AS FLOAT) * 100 / COUNT(*) AS percentage FROM results r JOIN races ra ON r.raceId = ra.raceId WHERE ra.date = '1983-07-16' 
+ G: SELECT 100.0 * SUM(CASE                      WHEN s.`status` = 'Finished'                           OR s.`status` LIKE '+% Lap%'                    THEN 1 ELSE 0 END) / COUNT(*) AS completion_rate FROM `races` r JOIN `results` res ON res.`raceId` = r.`raceId` JOIN `status`  s   ON s.`statusId` = res 
+ missing literals: []
+
+== wrong_columns
+ Q: Rank heroes published by Marvel Comics by their height in descending order. Exclude any heroes whose height is missing. 
+ E: name refers to superhero_name; the tallest hero refers to MAX(height_cm); published by Marvel Comics refers to publisher 
+ P: SELECT      s.superhero_name,     s.height_cm FROM superhero s JOIN publisher p ON s.publisher_id = p.id WHERE p.publisher_name = 'Marvel Comics'     AND s.height_cm IS NOT NULL ORDER BY s.height_cm DESC 
+ G: SELECT superhero_name FROM superhero AS s JOIN publisher AS p ON s.publisher_id = p.id WHERE p.publisher_name = 'Marvel Comics' AND s.height_cm IS NOT NULL AND s.height_cm != 0 ORDER BY s.height_cm DESC 
+ missing literals: []
+ Q: Which state special schools have the highest number of enrollees from K-12? 
+ E: State Special Schools refers to DOC = 31;  
+ P: SELECT s."School", f."Enrollment (K-12)" FROM frpm f JOIN schools s ON f."CDSCode" = s."CDSCode" WHERE s."DOC" = '31' ORDER BY f."Enrollment (K-12)" DESC LIMIT 10 
+ G: SELECT T2.School  FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode  WHERE T2.DOC = 31 AND T2.school is not NULL ORDER BY T1."Enrollment (K-12)" DESC LIMIT 1 
+ missing literals: []
+# ---------------------------------------------------------
+# exit=0  end=Sun Oct  4 07:13:13 UTC 2026
