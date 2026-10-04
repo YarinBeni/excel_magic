@@ -1,7 +1,5 @@
-alive Sun Oct  4 17:32:21 UTC 2026
+alive Sun Oct  4 18:32:48 UTC 2026
 host g0374
 job 51136
-             52376 voltagepa V7_sql_h  yarin.b PD       0:00      1 (Priority)
-             52392 voltagepa V7_sql_h  yarin.b PD       0:00      1 (Priority)
-             52346 voltagepa V3_insig  yarin.b  R      20:47      1 g0374
-             51136 voltagepa AGENT_ru  yarin.b  R 1-01:59:21      1 g0374
+             52392 voltagepa V7_sql_h  yarin.b  R      17:43      1 g0374
+             51136 voltagepa AGENT_ru  yarin.b  R 1-02:59:48      1 g0374
