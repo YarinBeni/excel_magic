@@ -186,7 +186,16 @@ class RelEnv:
         Etr, _ = embed_rows(model, sub, ctx, y_ctx, prb, ent, tc, self.device)
         Eva, _ = embed_rows(model, sub, ctx, y_ctx, va, ent, tc, self.device)
         Ete, _ = embed_rows(model, sub, ctx, y_ctx, te, ent, tc, self.device)
-        pv, pt = probe_scores_multi(Etr["gnn"], prb[tgt].to_numpy().astype(int), [Eva["gnn"], Ete["gnn"]])
+        y_prb = prb[tgt].to_numpy().astype(int)
+        pv, pt = probe_scores_multi(Etr["gnn"], y_prb, [Eva["gnn"], Ete["gnn"]])
+        # out-of-fold scores on the probe rows, so a model stacked on top of the FM score sees honest scores (hypo.py)
+        from sklearn.model_selection import StratifiedKFold
+        oof = np.full(len(prb), np.nan)
+        for a, b in StratifiedKFold(2, shuffle=True, random_state=self.seed).split(Etr["gnn"], y_prb):
+            oof[b] = probe_scores_multi(Etr["gnn"][a], y_prb[a], [Etr["gnn"][b]])[0]["linear"]
+        self._fm = {"prb": prb[[ent, tc, tgt]].assign(fm=oof).reset_index(drop=True),
+                    "val": va[[ent, tc, tgt]].assign(fm=pv["linear"]).reset_index(drop=True),
+                    "test": te[[ent, tc]].assign(fm=pt["linear"]).reset_index(drop=True)}
         out = te[[ent, tc]].copy()
         out["score"] = pt["linear"]
         self.con.register("pred_relational", out)
