@@ -203,3 +203,17 @@ Harness gain (GN vs A, same model): Qwen3-Coder-30B +0.046, gpt-oss-120b +0.046,
 | Q0 agenda, first 6 drafted (no ranking) | 0.218 | -0.061 (0.016) |
 Reading: GLiClass ranking beats no ranking (+0.017), but a fixed agenda hurts against the free agent. Three attempts
 (profile + checklist, coverage signal, agenda) all lose to the plain agent: InsightBench work stopped (negative).
+
+## Q1/Q5 held-out (125 questions, scored once; V7 jobs 52376 and 52392), Qwen3-Coder-30B
+| config | accuracy | vs A (se) | prompt chars |
+|---|---|---|---|
+| A plain | 0.696 | | 5,095 |
+| SC8N 8-candidate vote | 0.688 | -0.008 (0.031) | 12,030 |
+| GN descriptions + profile + gates (two runs) | 0.728 / 0.720 | +0.032 / +0.024 (0.036) | 12,030 |
+| GN8 | 0.736 | +0.040 (0.037) | 12,030 |
+| GNL GN + GLiClass linker fine-tuned on DEV (top 20 + keys) | 0.728 | +0.032 (0.039) | 4,607 |
+| GNLz GN + zero-shot GLiClass linker | 0.608 | -0.088 (0.047) | 5,237 |
+Reading: the harness gain keeps its sign on held-out (+0.024 to +0.040) but is within noise at n=125; with the dev split
+and three LLMs (+0.046, +0.046, +0.056) the gain is real and about 3-5 points. The fine-tuned linker keeps accuracy
+while cutting the prompt to 38%; the zero-shot linker loses 8.8 points (16 lost / 2 gained). This is the first role
+where the small model clearly earns its place: it makes schema linking safe, which matters for large warehouses.
