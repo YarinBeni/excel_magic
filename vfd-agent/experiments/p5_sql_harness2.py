@@ -37,6 +37,7 @@ def main():
     ap.add_argument("--tag", default="", help="label for the model in the output rows")
     ap.add_argument("--workers", type=int, default=16)
     ap.add_argument("--gliclass", default="knowledgator/gliclass-large-v3.0")
+    ap.add_argument("--linker-tuned", default="artifacts/gliclass_ft/linker")
     a = ap.parse_args()
     run = Path(a.run)
     run.mkdir(parents=True, exist_ok=True)
@@ -65,6 +66,21 @@ def main():
                     return inner.scores(texts, labels)
 
         gli = Locked()
+    linkers = {}
+    for mode in {CONFIGS2[c].link for c in a.configs.split(",")} - {None}:
+        from vfd.schema_link import GLiClassLinker
+        from vfd.signals import GLiClassScorer
+
+        inner_l = GLiClassScorer(a.linker_tuned if mode == "tuned" else a.gliclass)
+        lock_l = threading.Lock()
+        lk = GLiClassLinker(inner_l)
+
+        def linked(sch, text, k, lk=lk, lock_l=lock_l):
+            from vfd.harness import Tools, link_schema
+            with lock_l:
+                return link_schema(sch, text, Tools(chat=None, linker=lk), k)
+
+        linkers[mode] = linked
     tag = a.tag or a.model.split("/")[-1]
     out = run / "harness2_rows.jsonl"
     done = {(r["qid"], r["config"], r["model"]) for r in map(json.loads, out.open())} if out.exists() else set()
@@ -77,7 +93,8 @@ def main():
             q = qs[i]
             sch = prof[q.db_id] if cfg.profile else desc[q.db_id] if cfg.desc else plain[q.db_id]
             try:
-                r = answer2(q, paths[q.db_id], bird.render_schema(sch), cfg, Chat(a.model), gli)
+                cols = linkers[cfg.link](sch, f"{q.question} {q.evidence}", cfg.link_k) if cfg.link else None
+                r = answer2(q, paths[q.db_id], bird.render_schema(sch, cols), cfg, Chat(a.model), gli)
                 r["correct"] = bool(golds[i].ok and r["result_key"] == golds[i].key)
             except Exception as e:
                 r = {"qid": i, "config": cname, "error": f"{type(e).__name__}: {str(e)[:200]}", "correct": False}

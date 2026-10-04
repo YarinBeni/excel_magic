@@ -154,3 +154,22 @@ relevance to the goal).
 Reading: gates with one candidate beat 8-way voting at about half the calls; extra candidates add little on top of
 the gates (GN -> GN8: +5 / -4 questions); with gates on, the rule card no longer matters (G vs GN: +22 / -24).
 Decision (dev only): final config GN. Held-out (125 questions) scored once for A, SC8N, GN, GN8: job 52376.
+
+## Q5 GLiClass fine-tuned on DEV questions only (V9, job 52390); the LLM is unchanged. Tested on the 125 HELDOUT questions
+| job | zero-shot GLiClass | fine-tuned GLiClass | LLM judge |
+|---|---|---|---|
+| column linker: recall of gold columns in top 10 | 0.610 | 0.955 | |
+| column linker: all gold columns in top 20 | 0.36 | 0.93 | |
+| SQL checker: AUROC over 1,125 candidates | 0.702 | 0.741 | 0.764 |
+| best-of-9 accuracy (greedy 0.680, oracle 0.736) | 0.736 | 0.720 | 0.712 |
+Training: checker 3,348 candidates of DEV questions; linker 1,119 (question, 40-label view) examples. Caveat: the held-out
+questions use the same 11 databases, so the linker partly learns these schemas (the realistic company setting: train
+on past queries over your own warehouse). Next: end-to-end harness with the tuned linker on held-out (GNL vs GNLz vs GN).
+
+## Q5b zero-shot GLi-family comparison (V10, job 52389): all questions / candidates, corrected descriptions in labels
+| model | checker AUROC | linker recall@10 | recall@20 |
+|---|---|---|---|
+| GLiClass large v3.0 | 0.643 | 0.641 | 0.770 |
+| GLiNER2 large v1 | 0.655 | 0.730 | 0.829 |
+| GLiNER2.5-Decide (340M) | 0.597 | 0.778 | 0.873 |
+GLiNER2.5-base (needs protobuf) and GLiNER2.5-Decide-1B (needs transformers 5) did not load. All ~5.5 ms per candidate.

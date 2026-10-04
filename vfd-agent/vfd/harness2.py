@@ -53,6 +53,8 @@ class Config2:
     doubt: bool = False
     doubt_threshold: float = 0.5
     n: int = 1
+    link: str | None = None        # Q5: "tuned" / "zero" GLiClass column linker; the LLM sees top link_k columns + keys
+    link_k: int = 20
 
 
 CONFIGS2 = {
@@ -68,6 +70,9 @@ CONFIGS2 = {
     "GN": Config2("GN", desc=True, profile=True, gates=True),
     "GN8": Config2("GN8", desc=True, profile=True, gates=True, n=8),
     "SC8N": Config2("SC8N", desc=True, profile=True, n=8),
+    # Q5: GN with schema linking by GLiClass fine-tuned on DEV questions (tuned) or zero-shot (zero); held-out only
+    "GNL": Config2("GNL", desc=True, profile=True, gates=True, link="tuned"),
+    "GNLz": Config2("GNLz", desc=True, profile=True, gates=True, link="zero"),
 }
 
 
