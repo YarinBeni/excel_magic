@@ -222,6 +222,90 @@ def fig_insight():
     plt.close(fig)
 
 
+def fig_bird_cost(h2):
+    """Accuracy against cost: estimated LLM input tokens per question (calls x prompt chars / 4) and wall-clock."""
+    h2 = h2.copy()
+    h2["tok"] = h2.llm_calls * (h2.schema_chars + 600) / 4
+    labs = {"A": "plain", "K2": "+ descriptions\n+ profile", "SC8N": "8-answer vote", "GN": "GN harness",
+            "GN8": "GN + 8 answers", "GNL": "GN + tuned\nGLiClass finder", "G": "checks + rules", "GD": "+ doubt"}
+    fig, axes = plt.subplots(1, 3, figsize=(13, 3.8))
+    for ax, split, title in [(axes[0], "dev", "design split (373 q)"), (axes[1], "heldout", "held-out (125 q)")]:
+        d = h2[(h2.model == "qwen3coder30b") & (h2.split == split)].drop_duplicates(["qid", "config"], keep="first")
+        g = d.groupby("config").agg(acc=("correct", "mean"), tok=("tok", "mean"), sec=("seconds", "mean"))
+        g = g[g.index.isin(labs) & (g.index != "GNLz")]
+        for c, r in g.iterrows():
+            col = BASE if c == "A" else NEU if c in ("SC8N", "K2") else GOOD
+            ax.scatter(r.tok, r.acc, s=55, color=col, zorder=3)
+            off = {"GNL": (-8, 8), "GD": (6, 2), "G": (6, -2)}.get(c, (6, -3))
+            ax.annotate(labs[c], (r.tok, r.acc), textcoords="offset points", xytext=off, fontsize=8, color=INK,
+                        ha="right" if c == "GNL" else "left")
+        ax.set_xscale("log")
+        ax.set_xlim(900, 20000)
+        ax.set_xlabel("LLM input tokens per question (estimated, log)")
+        ax.set_ylabel("execution accuracy")
+        ax.set_title(title, loc="left", fontsize=10, color=INK)
+    d = h2[(h2.model == "qwen3coder30b") & (h2.split == "heldout")].drop_duplicates(["qid", "config"], keep="first")
+    order = ["A", "GNL", "GN", "SC8N", "GN8"]
+    sec = d.groupby("config").seconds.mean().reindex(order)
+    calls = d.groupby("config").llm_calls.mean().reindex(order)
+    y = np.arange(len(order))[::-1]
+    axes[2].barh(y, sec.values, color=[BASE, GOOD, GOOD, NEU, GOOD], height=0.55)
+    for yi, v, c in zip(y, sec.values, calls.values):
+        axes[2].text(v + 0.15, yi, f"{v:.1f} s  ({c:.2f} LLM calls)", va="center", fontsize=8.5, color=INK)
+    axes[2].set_yticks(y, [labs[c].replace("\n", " ") for c in order])
+    axes[2].grid(axis="y", visible=False)
+    axes[2].set_xlim(0, 13)
+    axes[2].set_xlabel("seconds per question (16 questions in parallel)")
+    axes[2].set_title("latency, held-out", loc="left", fontsize=10, color=INK)
+    fig.suptitle("BIRD cost: the checks cost ~15% more calls; the tuned finder brings the prompt back to plain size; "
+                 "voting costs 3-4x", x=0.01, ha="left", color=INK, fontsize=11)
+    fig.tight_layout()
+    fig.savefig(OUT / "7_bird_cost.png")
+    plt.close(fig)
+
+
+def fig_other_cost():
+    cap = rows("*V4_relbench_capability", "capability_rows.jsonl")
+    cap = cap[cap._run == cap.groupby("_run").size().idxmax()]
+    hyp = rows("*V8_relbench_hypo", "hypo_rows.jsonl")
+    hyp = hyp[hyp._run == hyp.groupby("_run").size().idxmax()]
+    lab = {"D": "LLM + SQL", "E": "+ Kumo Tabular", "R": "+ Kumo Relational", "ER": "+ both",
+           "H": "relational + hypotheses"}
+    sec = cap.groupby("config").seconds.mean().to_dict()
+    calls = cap.groupby("config").llm_calls.mean().to_dict()
+    auc = cap.groupby("config").auroc.mean().to_dict()
+    sec["H"], calls["H"], auc["H"] = hyp.seconds.mean(), hyp.llm_calls.mean(), hyp.auroc.mean()
+    order = ["D", "E", "R", "ER", "H"]
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11, 3.2), gridspec_kw={"width_ratios": [1.4, 1]})
+    y = np.arange(len(order))[::-1]
+    ax1.barh(y, [sec[c] for c in order], color=[BASE, NEU, GOOD, NEU, GOOD], height=0.55)
+    for yi, c in zip(y, order):
+        ax1.text(sec[c] + 1.5, yi, f"{sec[c]:.0f} s, {calls[c]:.1f} LLM calls, AUROC {auc[c]:.3f}", va="center",
+                 fontsize=8.5, color=INK)
+    ax1.set_yticks(y, [lab[c] for c in order])
+    ax1.grid(axis="y", visible=False)
+    ax1.set_xlim(0, 170)
+    ax1.set_xlabel("seconds per prediction episode (hypotheses: FM scores computed once per task, not counted)")
+    ax1.set_title("RelBench: one episode = one prediction question", loc="left", fontsize=10, color=INK)
+    v = json.load(open(sorted(RUNS.glob("*V1_verifier_study_all"))[-1] / "metrics.json"))
+    lat = v["latency"]
+    names = ["GLiClass", "NLI cross-encoder", "LLM judge (GLM-4.5-Air)"]
+    ms = [lat["gliclass_s_per_item"] * 1000, lat["nli_s_per_item"] * 1000, lat["judge_s_per_call_sequential"] * 1000]
+    aucs = [v["signals"]["sig_gliclass"]["auroc"], v["signals"]["sig_nli"]["auroc"], v["signals"]["sig_judge"]["auroc"]]
+    y2 = np.arange(3)[::-1]
+    ax2.barh(y2, ms, color=[GOOD, NEU, BASE], height=0.55)
+    for yi, m, a in zip(y2, ms, aucs):
+        ax2.text(m + 1.5, yi, f"{m:.0f} ms, AUROC {a:.3f}", va="center", fontsize=8.5, color=INK)
+    ax2.set_yticks(y2, names)
+    ax2.grid(axis="y", visible=False)
+    ax2.set_xlim(0, 110)
+    ax2.set_xlabel("milliseconds per SQL answer checked (zero-shot)")
+    ax2.set_title("checking one answer", loc="left", fontsize=10, color=INK)
+    fig.tight_layout()
+    fig.savefig(OUT / "8_other_cost.png")
+    plt.close(fig)
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     h2 = rows("*V7_sql_harness2", "harness2_rows.jsonl")
@@ -231,6 +315,8 @@ def main():
     fig_gli()
     fig_relbench()
     fig_insight()
+    fig_bird_cost(h2)
+    fig_other_cost()
     print(sorted(p.name for p in OUT.glob("*.png")))
 
 
