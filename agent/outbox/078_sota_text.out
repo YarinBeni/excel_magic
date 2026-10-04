@@ -1,0 +1,93 @@
+# 078_sota_text  host=g0374  start=Sun Oct  4 06:01:12 UTC 2026  timeout=300s
+# HEAD=74742ee
+# ---------------------------------------------------------
+Rotated text discovered. Output will be incomplete.
+Rotated text discovered. Output will be incomplete.
+Rotated text discovered. Output will be incomplete.
+Rotated text discovered. Output will be incomplete.
+Rotated text discovered. Output will be incomplete.
+Rotated text discovered. Output will be incomplete.
+Rotated text discovered. Output will be incomplete.
+Rotated text discovered. Output will be incomplete.
+Rotated text discovered. Output will be incomplete.
+Rotated text discovered. Output will be incomplete.
+Rotated text discovered. Output will be incomplete.
+Rotated text discovered. Output will be incomplete.
+Rotated text discovered. Output will be incomplete.
+112984 2111.02705.txt
+106792 2407.06423.txt
+120337 2407.20060.txt
+147015 2603.20004.txt
+ 88854 2604.12596.txt
+133520 2605.07840.txt
+709502 total
+######## RelBench (2407.20060) entity classification
+237:                          user-churn                                entity-cls                 4,732,555       409,792       351,885     1,585,983     88.0                      —
+246:      rel-avito           user-clicks                             entity-cls                    59,454           21,183         47,996      66,449          45.3                      —
+247:                          user-visits                             entity-cls                    86,619           29,979         36,129      63,405          64.6                      —
+251:      rel-event           user-repeat                             entity-cls                     3,842              268              246         1,514            11.5                      —
+252:                          user-ignore                             entity-cls                    19,239            4,185           4,010       9,799            21.1                      —
+254:                          driver-dnf                                entity-cls                    11,411             566              702         821               50.0                      —
+255:      rel-f1              driver-top3                             entity-cls                     1,353              588              726         134               50.0                      —
+258:                          user-churn                                entity-cls                 3,871,410        76,556         74,575      1,002,984     89.7                      —
+268:                          study-outcome                         entity-cls                    11,994             960              825         13,779          0.0                        —
+312:                                                user-churn                    Val               52.05      70.45        35.35 %Test              52.22      70.42        34.86 %
+318:                                                user-visits                  Val               53.31      69.65        30.66 %Test              53.05      66.20        24.78 %
+321:                                                user-clicks                  Val               55.63      64.73        16.35 %Test              53.60      65.90        22.96 %
+324:                                                user-repeat                  Val               67.76      71.25          5.15 %Test              68.04      76.89        13.02 %
+327:                                                user-ignore                  Val               87.96      91.70          4.25 %Test              79.93      81.62          2.12 %
+330:                                                driver-dnf                    Val               68.42      71.36          4.31 %Test              68.56      72.62          5.93 %
+332:                                                driver-top3                  Val               67.76      77.64        14.57 %Test              73.92      75.54          2.20 %
+335:                              rel-hm               user-churn                    Val               56.05      70.42        25.63 %Test              55.21      69.88        26.59 %
+343:                              rel-trial         study-outcome             Val            68.30        68.18     −0.19 %Test           70.09        68.60     −2.13 %
+375:in all cases. Notably, LightGBM achieves similar performance to RDL on the study-outcome
+849:           (a)  user-churn: For each user, predict 1 if the customer does not review any product in
+866:           (a)  user-visits:  Predict whether each customer will visit more than one Ad in the
+868:           (b)  user-clicks: Predict whether each customer will click on more than one Ads in
+878:           (b)  driver-dnf: For each driver predict the if they will DNF (did not finish) a race in
+880:           (c)  driver-top3: For each driver predict if they will qualify in the top-3 for a race in
+884:           (a)  user-churn: Predict the churn for a customer (no transactions) in the next week.
+908:            (a)  study-outcome:  Predict if the trials in the next 1 year will achieve its primary
+921:            (b)  user-repeat:  Predict whether a user will attend an event(by responding yes or
+923:            (c)  user-ignore: Predict whether a user will ignore more than 2 event invitations in
+958:                                                           user-churn                    Val          52.05±0.06      70.45±0.06Test         52.22±0.06      70.42±0.05
+964:                                                           user-visits                  Val          53.31±0.09      69.65±0.04Test         53.05±0.32      66.20±0.10
+967:                                                           user-clicks                  Val          55.63±0.31      64.73±0.32Test         53.60±0.59      65.90±1.95
+970:                                                           user-repeat                  Val        67.76±0.97      71.25±2.53Test         68.04±1.82      76.89±1.59
+973:                                                           user-ignore                  Val          87.96±0.28      91.70±0.33Test         79.93±0.49      81.62±1.11
+976:                                                           driver-dnf                    Val          68.42±1.14      71.36±1.54Test       68.56±3.89      72.62±0.27
+979:                                                           driver-top3                  Val          67.76±2.75      77.64±3.16Test       73.92±5.75      75.54±0.63
+982:                                      rel-hm               user-churn                    Val          56.05±0.05      70.42±0.09Test         55.21±0.12      69.88±0.21
+991:                                      rel-trial         study-outcome             Val        68.30±0.53      68.18±0.49Test       70.09±1.41      68.60±1.01
+1194:In this section we provide a detailed description of the data scientist workflow for the user-churn
+1219:                 class than the rest? For example, in the user-churn task roughly 82% of the samples
+1248:user-churn task, a rather simple feature would be the customer’s age, which is a field directly
+######## KumoRFM-2 (2604.12596)
+524:                               the highest average AUROC of 79.60 and the best overall rank of 3.08 among all evaluated meth-
+528:Method                       f1             avito           event      trial     amazon          stack         hm  Avg   Rankdnf      top3     click    visit   repeat  ignore     out       user     item      eng     badge    churn↑  ↓Comparison to Tabular Models.As expected, tabular models such as LightGBM or TabPFN-2.5,
+549:                                DS+TabPFN-2.5 perform similarly on average, with minor variations across tasks. However, no such
+558:                                supervised  baseline  by  1.54  points  on  average  across  all  tasks.   To  our  knowledge,  this  is  the
+587:                                dependencies beyond column-level aggregations, resulting in average improvements of 8.04 points
+589:                                improvement over KumoRFM-1.  On average, KumoRFM-2 outperforms v1 by 2.89 points, with
+610:Method           mimic                ratebeer                 arxivAvg    Rank
+611:                 stay     beer-churn   user-churn   dormant   citation↑   ↓
+634:                               est average performance (79.96 AU-
+676:Method Plant               Shipping     Item       Header    Sales    Sales   Payment   ShippingAvg   Rank
+677:Method                  AB      OB      RR            SE        Avg    Rankchurn      ctr        cvr     upvote    churn↑   ↓Point     Incoterm  Incoterm  Office  Group    Terms    Condition↑  ↓
+701:                                 Table 7:Test results on the regression tasks in RelBenchV1.Lower is better (MAE). Average
+741:                                 regression  tasks  from  RelBenchV1  and  Rel-                  RelBenchV2.Lower is better (MAE). Average
+751:                                 malized average errorµn relative to the naive
+755:                                 best overall rank across the suite, outperforming the strongest baseline by 4.7% on average. Further-
+801:KumoRFM-2 achieves strong sample efficiency and scales effectively.   We evaluate average
+812:KumoRFM-2 benefits from increasing relational context.We evaluate average model perfor-
+825:average performance across tasks and representative task-specific examples. Overall, increasing the
+835:neighborhood size leads to steady improvements in average performance, indicating that broader
+837:neighborhood size is inherently task-dependent. For instance, performance on the driver-dnf task
+846:KumoRFM-2 remains robust under feature scarcity.   We evaluate average model performance
+855:average model performance on a subset of RelBenchV1-classification under varying levels of link
+863:KumoRFM-2 is highly robust to noisy and uninformative features.We evaluate average model
+893:   Average(↑)               0.77          0.79      0.83      0.89
+######## RelAgent (2605.07840)
+grep: 2605.07840.txt: binary file matches
+# ---------------------------------------------------------
+# exit=0  end=Sun Oct  4 06:01:21 UTC 2026
