@@ -88,13 +88,14 @@ def _descriptions(db_dir: Path, table: str) -> dict[str, tuple[str, str]]:
     return {}
 
 
-def load_schema(db_path: Path, n_values: int = 3) -> Schema:
+def load_schema(db_path: Path, n_values: int = 3, desc_dir: Path | None = None) -> Schema:
+    """`desc_dir`: folder holding database_description/ (default: next to the .sqlite file)."""
     con = sqlite3.connect(f"file:{db_path}?mode=ro", uri=True)
     con.text_factory = lambda b: b.decode(errors="replace")
     s = Schema(db_path.stem)
     tables = [r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'")]
     for t in tables:
-        desc = _descriptions(db_path.parent, t)
+        desc = _descriptions(Path(desc_dir) if desc_dir else db_path.parent, t)
         cols = []
         for _, name, typ, *_ in con.execute(f'PRAGMA table_info("{t}")'):
             try:
