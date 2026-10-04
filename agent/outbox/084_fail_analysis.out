@@ -1,0 +1,19 @@
+# 084_fail_analysis  host=g0374  start=Sun Oct  4 06:49:34 UTC 2026  timeout=600s
+# HEAD=ff90f23
+# ---------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/yarin.b/projects/excel_magic/vfd-agent/experiments/analyze_failures.py", line 103, in <module>
+    main()
+  File "/home/yarin.b/projects/excel_magic/vfd-agent/experiments/analyze_failures.py", line 78, in main
+    rows = [r for r in map(json.loads, open(a.rows)) if r["config"] == a.config]
+                                       ^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/runs/20261003T213056Z_V5_sql_harness/harness_rows.jsonl'
+Traceback (most recent call last):
+  File "/home/yarin.b/projects/excel_magic/vfd-agent/experiments/analyze_failures.py", line 103, in <module>
+    main()
+  File "/home/yarin.b/projects/excel_magic/vfd-agent/experiments/analyze_failures.py", line 78, in main
+    rows = [r for r in map(json.loads, open(a.rows)) if r["config"] == a.config]
+                                       ^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/runs/20261003T213056Z_V5_sql_harness/harness_rows.jsonl'
+# ---------------------------------------------------------
+# exit=0  end=Sun Oct  4 06:49:35 UTC 2026
