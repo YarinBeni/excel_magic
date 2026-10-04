@@ -1,0 +1,35 @@
+{
+ "knowledgator/gliclass-large-v3.0": {
+  "checker_ms": 5.551207766499851,
+  "checker_auroc_pos": 0.6128465367468778,
+  "checker_auroc_diff": 0.6430292443348359,
+  "linker_ms_per_question": 59.12463779909065,
+  "linker_recall@5": 0.4774089141559021,
+  "linker_recall@10": 0.6413432228191265,
+  "linker_recall@20": 0.7703586351176712
+ },
+ "fastino/gliner2-large-v1": {
+  "checker_ms": 5.494187082349921,
+  "checker_auroc_pos": 0.6548680671039899,
+  "checker_auroc_diff": 0.5945313883524497,
+  "linker_ms_per_question": 59.37232310513416,
+  "linker_recall@5": 0.6062179453745719,
+  "linker_recall@10": 0.7302092207212689,
+  "linker_recall@20": 0.8286554587759406
+ },
+ "fastino/gliner2.5-base-v1": {
+  "error": "ImportError: \n requires the protobuf library but it was not found in your environment. Check out the instructions on the\ninstallation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones\nthat match your environment. Please note that you may need to res"
+ },
+ "fastino/GLiNER2.5-Decide": {
+  "checker_ms": 5.50845286042904,
+  "checker_auroc_pos": 0.5763073554499446,
+  "checker_auroc_diff": 0.5966623227161201,
+  "linker_ms_per_question": 59.580012018900796,
+  "linker_recall@5": 0.6224551162804175,
+  "linker_recall@10": 0.7783015901991805,
+  "linker_recall@20": 0.8730991788220703
+ },
+ "fastino/GLiNER2.5-Decide-1B": {
+  "error": "ValueError: Tokenizer class TokenizersBackend does not exist or is not currently imported."
+ }
+}
