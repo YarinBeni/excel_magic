@@ -190,3 +190,16 @@ A 0.681 -> K2 0.694 (+0.013, se 0.020) -> GN 0.727 (+0.046, se 0.019). Same gain
 Accepted examples: "average qualifying position in the last 3 races", "recent top-3 frequency", "consecutive finishes in
 the last 4 races", "number of sponsors of a study". The avito loss: features that passed on the validation period hurt
 on the test period (drift).
+
+## Q2 harness gain on GLM-4.5-Air (V7, job 52340), BIRD dev split
+A 0.635 -> K2 0.611 (-0.024, se 0.021) -> GN 0.692 (+0.056, se 0.022).
+Harness gain (GN vs A, same model): Qwen3-Coder-30B +0.046, gpt-oss-120b +0.046, GLM-4.5-Air +0.056.
+
+## Q4 InsightBench question agenda (V3, job 52346)
+| config | g_eval | vs D (se) |
+|---|---|---|
+| D plain (third run; earlier 0.304, 0.315) | 0.278 | |
+| Q agenda of 6 questions, GLiClass ranks 12 drafted by goal relevance | 0.234 | -0.044 (0.019) |
+| Q0 agenda, first 6 drafted (no ranking) | 0.218 | -0.061 (0.016) |
+Reading: GLiClass ranking beats no ranking (+0.017), but a fixed agenda hurts against the free agent. Three attempts
+(profile + checklist, coverage signal, agenda) all lose to the plain agent: InsightBench work stopped (negative).
