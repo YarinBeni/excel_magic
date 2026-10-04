@@ -1,0 +1,16 @@
+# 091_v7_round2  host=g0374  start=Sun Oct  4 11:58:22 UTC 2026  timeout=60s
+# HEAD=979b008
+# ---------------------------------------------------------
+qwen run: artifacts/runs/20261004T104448Z_V7_sql_harness2
+Submitted batch job 52338
+Submitted batch job 52339
+Submitted batch job 52340
+       JOBID                   NAME    STATE       TIME   TIME_LIMIT NODELIST(REASON)
+       52318        V3_insightbench  PENDING       0:00     16:00:00 (Priority)
+       52340              V7_sql_h2  PENDING       0:00     12:00:00 (Priority)
+       52339              V7_sql_h2  PENDING       0:00     12:00:00 (Priority)
+       52338              V7_sql_h2  PENDING       0:00     12:00:00 (Priority)
+       52317            V8_rel_hypo  RUNNING       1:57     20:00:00 g0378
+       51136           AGENT_runner  RUNNING   20:25:24   2-00:00:00 g0374
+# ---------------------------------------------------------
+# exit=0  end=Sun Oct  4 11:58:24 UTC 2026
