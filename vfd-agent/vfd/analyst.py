@@ -70,13 +70,24 @@ class AnalystConfig:
     profile: bool = False           # v2: deterministic data profile in the prompt
     skill: bool = False             # v2: short analysis checklist (curated skill card)
     coverage: bool = False          # v2: GLiClass labels each insight; the reply lists analysis kinds still missing
+    plan: int = 0                   # v3: the LLM drafts 2*plan candidate questions; `plan` of them become the agenda
+    rank: bool = False              # v3: GLiClass ranks the candidate questions by relevance to the goal (else: first ones)
 
 
 CONFIGS = {"D": AnalystConfig("D"), "E": AnalystConfig("E", deep=True),
            "F": AnalystConfig("F", deep=True, text=True, verify=True),
            "P": AnalystConfig("P", profile=True, skill=True),
            "PC": AnalystConfig("PC", profile=True, skill=True, coverage=True),
-           "PCE": AnalystConfig("PCE", profile=True, skill=True, coverage=True, deep=True)}
+           "PCE": AnalystConfig("PCE", profile=True, skill=True, coverage=True, deep=True),
+           # v3 (InsightBench: the planted insights answer goal-specific questions): question-driven agenda
+           "Q0": AnalystConfig("Q0", profile=True, plan=6),
+           "Q": AnalystConfig("Q", profile=True, plan=6, rank=True)}
+
+PLAN_PROMPT = """Goal: {goal}
+Role: {role}. Dataset: {desc}
+{profile}
+Write {n} specific questions an analyst should answer with this data to serve the goal (each answerable with SQL on
+this table; mention the columns). Return only a JSON list of strings."""
 
 SKILL = """Analysis checklist (cover several kinds; every insight states the actual numbers from your query):
 1. Shares: how the goal's main measure splits across the main categories.
@@ -162,8 +173,14 @@ class Analyst:
                                  desc=str(meta.get("dataset_description", ""))[:1500],
                                  columns=", ".join(f"{c} ({t})" for c, t in zip(self.df.columns, self.df.dtypes.astype(str))),
                                  max_insights=self.cfg.max_insights, extra=extra)
-        msgs = [{"role": "system", "content": sys_text}, {"role": "user", "content": "Start the analysis."}]
         summary, calls = "", 0
+        self.agenda: list[str] = []
+        if self.cfg.plan:
+            self.agenda = self._agenda(meta)
+            calls += 1
+            sys_text += ("\nAgenda: answer these questions one by one with SQL and record one insight per question "
+                         "(with its numbers):\n" + "\n".join(f"{i + 1}. {q}" for i, q in enumerate(self.agenda)))
+        msgs = [{"role": "system", "content": sys_text}, {"role": "user", "content": "Start the analysis."}]
         for step in range(self.cfg.max_steps):
             if self.cfg.verify and step:
                 led = "\n".join(f"- {x['text']}" for x in self.ledger) or "(none yet)"
@@ -193,6 +210,22 @@ class Analyst:
         return {"config": self.cfg.name, "insights": [x["text"] for x in self.ledger], "summary": summary,
                 "n_rejected": len(self.rejected), "llm_calls": calls, "seconds": round(time.time() - t0, 1),
                 "tools_used": dict(pd.Series([x["tool"] for x in self.log]).value_counts()) if self.log else {}}
+
+    def _agenda(self, meta: dict) -> list[str]:
+        n = self.cfg.plan
+        msg = PLAN_PROMPT.format(goal=meta.get("goal", ""), role=meta.get("role", "analyst"),
+                                 desc=str(meta.get("dataset_description", ""))[:1500], profile=profile_frame(self.con), n=2 * n)
+        txt = self.chat.samples([{"role": "user", "content": msg}], n=1, temperature=0.3, max_tokens=1500)[0].text or ""
+        m = re.search(r"\[.*\]", txt, re.S)
+        try:
+            qs = [str(q) for q in json.loads(m.group(0))] if m else []
+        except json.JSONDecodeError:
+            qs = []
+        qs = qs or [ln.strip("-*0123456789. ") for ln in txt.splitlines() if ln.strip().endswith("?")]
+        if self.cfg.rank and self.gli is not None and len(qs) > n:
+            sc = self.gli.scores(qs, [f"relevant to the goal: {meta.get('goal', '')}"])[:, 0]
+            qs = [qs[i] for i in np.argsort(-sc, kind="stable")]
+        return qs[:n]
 
     # ----------------------------------------------------------------------------------------------- tools
     def call(self, name: str, a: dict) -> Any:

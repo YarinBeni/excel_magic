@@ -111,3 +111,36 @@ max_context rows (rel-hm and avito ran out of GPU memory and the agent fell back
 Reading: the clearest win of the project. With SQL only, the agent is near chance on 4 of 8 tasks; the tabular model on
 the agent's own features beats SQL on 8 of 8 tasks, and the relational model, which needs no feature SQL, is best on
 average. ER does not beat R: the agent mostly submits the relational scores as they are.
+
+# Round 2: harness engineering (no training; decisions on development splits only)
+
+## BIRD failure analysis (config A, 498 questions, 153 wrong)
+wrong values 82, wrong row count 26, query fails 16, empty result 12, wrong/extra/missing columns 17; 12 wrong answers
+compare a literal that is not stored in the database. Deterministic checks can reach at most ~30-45 questions.
+
+## Q1 harness v2 ladder (V7, job 52316): BIRD dev split (373 questions = P4 search + accept), Qwen3-Coder-30B
+| config | accuracy | vs A (se) | gained / lost vs previous step |
+|---|---|---|---|
+| A plain | 0.686 | | |
+| K1 + corrected column descriptions | 0.697 | +0.011 (0.015) | |
+| K2 + data profile | 0.697 | +0.011 (0.016) | |
+| K3 + rule card | 0.657 | -0.030 (0.022) | +20 / -35 |
+| G + deterministic gates (fail, empty, all-NULL, literal not stored -> closest stored values), <=2 revisions | 0.737 | +0.051 (0.021) | +34 / -4 |
+| GD + GLiClass doubt signal | 0.740 | +0.054 (0.022) | +7 / -6 |
+Reading: the deterministic gates are the gain; the rule card hurts (drops asked columns, LIMIT 1 where ties matter);
+the GLiClass doubt signal is noise. Round 2 removes the rule card (GN, GN8, SC8N) and repeats A/K2/GN on gpt-oss-120b
+and GLM-4.5-Air.
+
+## Q3 RelBench hypothesis loop, smoke (V8, job 52317): rel-f1 driver-dnf, 1 episode
+5 hypotheses tested (recent DNF rate, overall DNF rate, races in 3 months, days since last race, ...), no leakage,
+none passed the gate (best +0.0026, se 0.0024); system = FM = 0.748. Full run: job 52341.
+
+## Q4 InsightBench analyst v2 (V3, job 52318): 100 tables, Qwen3-Coder-30B, GLM-4.5-Air judge
+| config | g_eval | vs D (se) |
+|---|---|---|
+| D plain (rerun; first run 0.304) | 0.315 | |
+| P + data profile + analysis checklist | 0.298 | -0.017 (0.020) |
+| PC + GLiClass coverage signal | 0.280 | -0.035 (0.020) |
+Reading: negative. Generic analysis kinds pull the agent away from the goal-specific questions the planted insights
+answer. Next: a question-driven agenda (Q0: LLM's first 6 of 12 drafted questions; Q: GLiClass ranks the 12 by
+relevance to the goal).
