@@ -1,0 +1,38 @@
+{
+ "D": {
+  "g_eval": 0.2781,
+  "rouge1": 0.23707,
+  "tables": 100,
+  "insights": 5.61,
+  "rejected": 0.0,
+  "llm_calls": 15.16,
+  "seconds": 13.482,
+  "errors": 0,
+  "vs_D": 0.0,
+  "vs_D_se": 0.0
+ },
+ "Q": {
+  "g_eval": 0.23423,
+  "rouge1": 0.2295,
+  "tables": 100,
+  "insights": 5.77,
+  "rejected": 0.0,
+  "llm_calls": 16.64,
+  "seconds": 20.053,
+  "errors": 0,
+  "vs_D": -0.04387,
+  "vs_D_se": 0.01888
+ },
+ "Q0": {
+  "g_eval": 0.21757,
+  "rouge1": 0.22817,
+  "tables": 100,
+  "insights": 5.84,
+  "rejected": 0.0,
+  "llm_calls": 16.11,
+  "seconds": 17.943,
+  "errors": 0,
+  "vs_D": -0.06053,
+  "vs_D_se": 0.01602
+ }
+}
