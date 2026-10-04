@@ -11,6 +11,7 @@ set -uo pipefail
 echo "=== V9 gliclass fine-tune === job ${SLURM_JOB_ID} $(date)"
 cd ~/projects/excel_magic && source sbatch/_common.sh && job_prologue
 deactivate 2>/dev/null || true; source "$HOME/venvs/vfd/bin/activate"
+python -c "import accelerate" 2>/dev/null || pip install -q --no-deps "accelerate>=0.26" 2>&1 | tail -1
 export BIRD_ROOT="$REPO/artifacts/bird"
 P0=$(ls -td artifacts/runs/*V1_verifier_study_all | head -1)
 RUN="${RUN:-$TABFM_RUNS_ROOT/$(date -u +%Y%m%dT%H%M%SZ)_V9_gliclass_ft}"; mkdir -p "$RUN"
