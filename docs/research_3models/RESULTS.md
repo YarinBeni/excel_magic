@@ -173,3 +173,20 @@ on past queries over your own warehouse). Next: end-to-end harness with the tune
 | GLiNER2 large v1 | 0.655 | 0.730 | 0.829 |
 | GLiNER2.5-Decide (340M) | 0.597 | 0.778 | 0.873 |
 GLiNER2.5-base (needs protobuf) and GLiNER2.5-Decide-1B (needs transformers 5) did not load. All ~5.5 ms per candidate.
+
+## Q2 harness gain on another LLM (V7, job 52339): gpt-oss-120b, BIRD dev split
+A 0.681 -> K2 0.694 (+0.013, se 0.020) -> GN 0.727 (+0.046, se 0.019). Same gain as Qwen3-Coder-30B (+0.046).
+
+## Q3 RelBench hypothesis loop, full (V8, job 52341): 8 tasks x 2 episodes, budget 10 tests, Qwen3-Coder-30B
+| task | FM alone | FM + accepted LLM hypotheses | gain |
+|---|---|---|---|
+| f1 driver-top3 | 0.863 | 0.927 | +0.064 |
+| f1 driver-dnf | 0.749 | 0.752 | +0.003 |
+| trial study-outcome | 0.690 | 0.692 | +0.002 |
+| avito user-clicks | 0.624 | 0.604 | -0.020 |
+| avito visits, event repeat/ignore, hm churn | | nothing accepted | 0 |
+| mean | 0.740 | 0.746 | +0.006 (3 better, 1 worse) |
+145 hypotheses tested: 8 accepted, 102 rejected by the time-later gate, 28 constant, 7 caught leaking future data.
+Accepted examples: "average qualifying position in the last 3 races", "recent top-3 frequency", "consecutive finishes in
+the last 4 races", "number of sponsors of a study". The avito loss: features that passed on the validation period hurt
+on the test period (drift).
