@@ -64,6 +64,10 @@ CONFIGS2 = {
     "GD": Config2("GD", desc=True, profile=True, rules=True, gates=True, doubt=True),
     "SC8": Config2("SC8", desc=True, profile=True, rules=True, n=8),
     "G8": Config2("G8", desc=True, profile=True, rules=True, gates=True, n=8),
+    # round 2 (dev result: the rule card cost -0.030, the gates gave +0.080 on top of it): no rule card
+    "GN": Config2("GN", desc=True, profile=True, gates=True),
+    "GN8": Config2("GN8", desc=True, profile=True, gates=True, n=8),
+    "SC8N": Config2("SC8N", desc=True, profile=True, n=8),
 }
 
 
