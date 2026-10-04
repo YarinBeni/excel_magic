@@ -67,10 +67,44 @@ class AnalystConfig:
     verify: bool = False
     max_steps: int = 30
     max_insights: int = 8
+    profile: bool = False           # v2: deterministic data profile in the prompt
+    skill: bool = False             # v2: short analysis checklist (curated skill card)
+    coverage: bool = False          # v2: GLiClass labels each insight; the reply lists analysis kinds still missing
 
 
 CONFIGS = {"D": AnalystConfig("D"), "E": AnalystConfig("E", deep=True),
-           "F": AnalystConfig("F", deep=True, text=True, verify=True)}
+           "F": AnalystConfig("F", deep=True, text=True, verify=True),
+           "P": AnalystConfig("P", profile=True, skill=True),
+           "PC": AnalystConfig("PC", profile=True, skill=True, coverage=True),
+           "PCE": AnalystConfig("PCE", profile=True, skill=True, coverage=True, deep=True)}
+
+SKILL = """Analysis checklist (cover several kinds; every insight states the actual numbers from your query):
+1. Shares: how the goal's main measure splits across the main categories.
+2. Trend: how it changes over time (month or quarter), and when it changed most.
+3. Groups: which group differs most from the others (averages, rates, counts).
+4. Top and bottom: the entities (people, items, places) with the highest and lowest values.
+5. Outliers: unusual rows or periods, and how unusual they are.
+6. Relations: two measures that move together, or a factor that goes with a worse outcome."""
+
+KINDS = ["share or distribution across categories", "trend or change over time", "difference between groups",
+         "top or bottom entities", "outlier or unusual case", "relation between two measures"]
+
+
+def profile_frame(con) -> str:
+    """Deterministic profile of table `data`: per column type, distinct count, NULL share, range or frequent values."""
+    summ = con.execute("SUMMARIZE data").fetchdf()
+    lines = []
+    for _, r in summ.iterrows():
+        c, typ = r["column_name"], str(r["column_type"])
+        part = f"- {c} ({typ}): ~{int(r['approx_unique'])} distinct, {float(r['null_percentage']):.0f}% null"
+        if int(r["approx_unique"]) <= 12 or typ in ("VARCHAR",):
+            top = con.execute(f'SELECT "{c}" v, COUNT(*) n FROM data GROUP BY 1 ORDER BY 2 DESC LIMIT 5').fetchall()
+            part += "; top: " + ", ".join(f"{str(v)[:25]} ({n})" for v, n in top)
+        else:
+            part += f"; range {str(r['min'])[:25]} to {str(r['max'])[:25]}"
+        lines.append(part)
+    n = con.execute("SELECT COUNT(*) FROM data").fetchone()[0]
+    return f"Data profile ({n} rows):\n" + "\n".join(lines)
 
 
 def tool_specs(cfg: AnalystConfig) -> list[dict]:
@@ -119,7 +153,11 @@ class Analyst:
         self.ledger: list[dict] = []
         self.rejected: list[dict] = []
         t0 = time.time()
-        extra = "\n".join(x for x, on in ((EXTRA_DEEP, self.cfg.deep), (EXTRA_TEXT, self.cfg.text)) if on)
+        extra = "\n".join(x for x, on in ((EXTRA_DEEP, self.cfg.deep), (EXTRA_TEXT, self.cfg.text), (SKILL, self.cfg.skill))
+                           if on)
+        if self.cfg.profile:
+            extra += "\n" + profile_frame(self.con)
+        self.covered: set[str] = set()
         sys_text = SYSTEM.format(goal=meta.get("goal", ""), role=meta.get("role", "analyst"),
                                  desc=str(meta.get("dataset_description", ""))[:1500],
                                  columns=", ".join(f"{c} ({t})" for c, t in zip(self.df.columns, self.df.dtypes.astype(str))),
@@ -180,7 +218,7 @@ class Analyst:
     def _record(self, text: str, sql: str) -> str:
         if not self.cfg.verify:
             self.ledger.append({"text": text, "sql": sql})
-            return "recorded"
+            return "recorded" + self._coverage(text)
         try:
             res = self.con.execute(sql).fetchdf()
         except Exception as e:
@@ -198,7 +236,17 @@ class Analyst:
                 self.rejected.append({"text": text, "why": f"not supported (score {p:.2f})"})
                 return f"REJECTED: the evidence does not seem to support it (score {p:.2f}). Check and rephrase."
         self.ledger.append({"text": text, "sql": sql})
-        return "ACCEPTED"
+        return "ACCEPTED" + self._coverage(text)
+
+    def _coverage(self, text: str) -> str:
+        """Online signal: which analysis kinds the recorded insights cover so far, and which are still missing."""
+        if not (self.cfg.coverage and self.gli is not None):
+            return ""
+        sc = self.gli.scores([text], KINDS)[0]
+        self.covered |= {k for k, v in zip(KINDS, sc) if v > 0.5} or {KINDS[int(np.argmax(sc))]}
+        missing = [k for k in KINDS if k not in self.covered]
+        return (f". Covered so far: {', '.join(sorted(self.covered))}."
+                + (f" Not yet covered: {', '.join(missing)}." if missing else " All kinds covered."))
 
     def _frame(self, exclude: list[str] | None = None) -> pd.DataFrame:
         """The frame the DEEP tool sees: date strings parsed to datetimes first; then long free text and unique string
