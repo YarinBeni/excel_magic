@@ -144,3 +144,13 @@ none passed the gate (best +0.0026, se 0.0024); system = FM = 0.748. Full run: j
 Reading: negative. Generic analysis kinds pull the agent away from the goal-specific questions the planted insights
 answer. Next: a question-driven agenda (Q0: LLM's first 6 of 12 drafted questions; Q: GLiClass ranks the 12 by
 relevance to the goal).
+
+## Q1 round 2 (V7, job 52338): same dev split, no rule card
+| config | accuracy | vs A (se) | LLM calls |
+|---|---|---|---|
+| SC8N descriptions + profile, 8 candidates, majority vote | 0.713 | +0.027 (0.017) | 2 (8 samples) |
+| GN descriptions + profile + gates | 0.732 | +0.046 (0.018) | 1.14 |
+| GN8 GN with 8 candidates, vote among candidates that pass the gates | 0.735 | +0.048 (0.018) | 3.24 |
+Reading: gates with one candidate beat 8-way voting at about half the calls; extra candidates add little on top of
+the gates (GN -> GN8: +5 / -4 questions); with gates on, the rule card no longer matters (G vs GN: +22 / -24).
+Decision (dev only): final config GN. Held-out (125 questions) scored once for A, SC8N, GN, GN8: job 52376.
