@@ -1,0 +1,90 @@
+# 082_revisql_t4  host=g0374  start=Sun Oct  4 06:05:36 UTC 2026  timeout=120s
+# HEAD=5fa6320
+# ---------------------------------------------------------
+Furthermore, reward shaping bridges the residual gap, improving                       5.3    BIRD-Platinum Generalizes Across
+the accuracy by 2.8% and 3.8%. While these absolute gains appear                              Benchmarks
+modest, they are decisive at this accuracy level. Reward shaping
+removes 24.6% and 38.0% of the errors that verified data alone leaves                 We evaluate whether our curated training data, BIRD-Platinum, and
+behind. It is what liftsReViSQL-BIRD-K2.6 to human parity.                            ourReViSQLrecipe (RLVR on BIRD-Platinum) generalize beyond
+The residual gap is dominated by question ambiguity.To char-                          BIRD. To isolate the data-quality contribution from any algorithmic
+acterize the residual gap, we manually inspected everyReViSQL-                        effect, we trained Qwen3-235B-A22B usingReViSQLwithout the
+BIRD-K2.6 self-consistency failure across both Arcwise-Plat bench-                    reward shaping methods discussed in Section 4. We then evaluated
+marks, classifying each as (1) question ambiguity, where the model                    ReViSQL-235B on all four benchmarks.
+produces a valid reading of a natural question that differs from the                     ReViSQL-235B is trained on BIRD-Platinum, where all SQL queries
+gold’s, or (2) a genuine model failure. We find that 69% of the cases                 are in SQLite syntax. Therefore, evaluating it on Spider2-Snow,
+are attributable to question ambiguity, and 31% to model defects.                     which only accepts Snowflake-dialect queries, requires two inference-
+Specifically, Arcwise-Plat-SQL carries more ambiguity-driven fail-                    time adaptations without re-training. First, we translated the inter-
+ures than Arcwise-Plat-Full (24 vs. 20), which is consistent with its                 mediate exploratory SQL queries issued by the model from SQLite to
+preserved noisy questions. Among genuine model failures, 60% of                       Snowflake using SQLGlot [59]. When SQLGlot fails, we fall back to
+the cases are due to omitting a schema-induced filter (e.g., filtering                a minimal automatic conversion that quotes identifiers with double
+                                                                                      quotes. Second, because Spider2-Snow databases have schemas and
+                                                                                                                       Yuxuan Zhu, Tengjun Jin, Yoojin Choi, and Daniel Kang
+
+Table 4:ReViSQL-235B (RLVR on BIRD-Platinum) outperforms the strongest prior open-source pipelines across two BIRD-
+derived benchmarks (Arcwise-Plat-SQL, Arcwise-Plat-Full) and the out-of-distribution Spider 2-SQLite benchmark, at lower
+per-query cost, demonstrating the generalizability of BIRD-Platinum.
+
+     Method                                   Arcwise-Plat-SQL (%)    Arcwise-Plat-Full (%)    Spider 2-SQLite (%)    Per-query cost (USD)
+     SHARE (GPT-5.2)                               71.29                                   75.70                                 21.48                             5.6×10         −3
+     CSC-SQL (XiYan-32B)                  71.08                                   75.70                                 10.37                             2.9×10           −3
+     Contextual-SQL (XiYan-32B)       75.10                                   79.12                                 11.11                             3.8×10           −1
+     GenaSQL (GPT-5.2)                            81.73                                   84.94                                 34.81                             6.3×10         −2
+     OpenSearch (GPT-5.2)                       82.93                                   88.15                                 34.07       ∗                           5.6×10  −2
+     ReViSQL-235B (greedy)                      87.34                               88.75                             37.04                   7.7×10        −3
+
+     ∗  OpenSearch [67] relies on training data for dynamic few-shot prompting, which Spider 2 does not provide. We tested with substituting the BIRD and Spider 1 training
+       sets, as well as disabling the module entirely. We report the performance with dynamic few-shot disabled, as it achieved the highest performance.
+
+                                                                                           top 5 open-source pipelines on the BIRD Leaderboard. On Spider2-
+                                                                                           SQLite, with greedy decoding,ReViSQL-235B achieves 37.04% accu-
+                                                                                           racy at $0.0077 per query, outperforming the previous best pipeline
+                                                                                           (GenaSQL) by 2.2% at 8× lower cost, and outperforming OpenSearch
+                                                                                           by 3% at 7× lower cost.ReViSQL-235B also leads on Arcwise-Plat-
+                                                                                           SQL and Arcwise-Plat-Full, outperforming baselines by 0.6–16.3%.
+                                                                                           BIRD-Platinum generalizes to Snowflake dialects.On the more
+                                                                                           challenging Spider2-Snow benchmark, which requires Snowflake-
+                                                                                           dialect SQL,ReViSQL-235B with self-consistency over 128 candi-
+                                                                                           dates achieves 55.58% accuracy, outperforming agentic pipelines
+                                                                                           built on substantially larger models, including ReFoRCE and Au-
+                                                                                           toLink on DeepSeek (671B) and Spider-Agent on Qwen3-Coder
+                                                                                           (480B), by 17.55%, 0.74%, and 24.5% [58]. Since Spider2-Snow is
+                                                                                           held out fromReViSQL’s BIRD-Platinum training data, this result
+Figure 8: Training Qwen3-235B-A22B with RLVR on BIRD-                                      provides evidence thatReViSQL’s improvements transfer to new
+Platinum  (ReViSQL)  yields  consistent  accuracy  improve-                                SQL dialects.
+ments (11.0–16.1%) over training on the original BIRD Train,
+across Arcwise-Plat and Spider2 benchmarks.                                                6    Conclusion
+                                                                                           We show that human-level Text-to-SQL accuracy is achievable by
+                                                                                           fine-tuning a single LLM with RLVR on clean data, without the
+                                                                                           complex pipelines that dominate top-ranking LLM-based meth-
+questions whose combined length exceeds our fine-tuned model’s                             ods. We introduce two advances in RLVR for Text-to-SQL. First,
+context window, we applied the column- and table-filtering proce-                          we develop BIRD-Platinum, a 2.5k-instance verified dataset con-
+dure from ReFoRCE [13] to select schema elements relevant to each                          structed through a hybrid LLM–human verification pipeline. We
+question. All other inference settings match our BIRD evaluation.                          repair the annotation errors in 61% of the sampled instances from
+                                                                                           BIRD Train, yielding 11–16% accuracy improvements over train-
+ReViSQLimproves accuracy on all benchmarks.In Figure 8,                                    ing on BIRD Train under the same RLVR algorithm. Second, we
+we compareReViSQL-235B trained on BIRD-Platinum against the                                introduceReViSQL-BIRD, a specialized reward shaping method
+same base model trained on the original BIRD Train, under greedy                           designed for the failure modes of RLVR in Text-to-SQL tasks. We
+decoding. On the BIRD-derived Arcwise-Plat benchmarks,ReViSQL-                             propose a verification-aware outcome reward to mitigate the false
+235B outperforms its BIRD Train counterpart by 16.1% on Arcwise-                           positive rewards in standard result-based rewards, and leverage
+Plat-SQL and 11.0% on Arcwise-Plat-Full. Furthermore, the improve-                         rule-based process rewards to prevent models from ignoring exter-
+ment  persists  on  Spider2  benchmarks.ReViSQL-235B  achieves                             nal knowledge. We trainedReViSQL-BIRD-K2.6, the first method
+11.8% and 14.0% higher accuracy on Spider2-SQLite and Spider2-                             to match human-level accuracy (92.96%) on expert-verified variants
+Snow compared to training on BIRD Train. The improvements                                  of BIRD, outperforming top open-source methods by 10–22%.
+across benchmarks (different SQL query complexities and dialects)
+demonstrate that the data-quality effect is not specific to BIRD.                          Acknowledgments
+#### InsightBench numbers
+523:PA (gpt-4o)                       0.35±0.03          0.54±0.01         0.35±0.01         0.40±0.04        8
+524:Ours (gpt-4o)                      0.32±0.02         0.60±0.03         0.37±0.09         0.44±0.03
+525:  - w/ generic goal              0.30±0.03         0.40±0.03         0.30±0.08         0.33±0.12
+526:Ours (gpt-4-turbo)                0.30±0.02         0.56±0.02         0.35±0.08         0.35±0.04- w/ generic goal              0.28±0.01         0.38±0.03         0.29±0.02         0.27±0
+528:Ours (gpt-3.5-turbo)             0.34±0.01         0.50±0.02         0.27±0.14         0.31±0.06
+529:  - w/ generic goal              0.30±0.02         0.36±0.03         0.24±0.03         0.25±0.06
+530:Ours (llama-3-70b)               0.33±0.02         0.52±0.04         0.36±0.01         0.33±0.01
+531:  - non-diverse follow-ups     0.29±0.01         0.51±0.03         0.32±0.01         0.28±0.03
+532:  - w/ generic goal              0.27±0.03         0.35±0.01         0.23±0.03         0.23±0.02
+1275:     Ours (gpt-4o)               0.53±0.01          0.57±0.02               0.43±0.03          0.55±0.01          0.58±0.03
+1276:     Ours (gpt-4-turbo)        0.52±0.02          0.55±0.02               0.40±0.02          0.54±0.03          0.58±0.02
+1277:     Ours (gpt-3.5-turbo)     0.46±0.01          0.50±0.01               0.35±0.02          0.48±0.01          0.50±0.01
+1278:     Ours (llama-3-70b)       0.45±0.01          0.50±0.02               0.34±0.03          0.47±0.01          0.49±0.01
+# ---------------------------------------------------------
+# exit=0  end=Sun Oct  4 06:05:36 UTC 2026
