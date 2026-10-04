@@ -1,0 +1,14 @@
+# 095_v9  host=g0374  start=Sun Oct  4 15:30:26 UTC 2026  timeout=60s
+# HEAD=fc6d7fe
+# ---------------------------------------------------------
+Submitted batch job 52388
+       JOBID                   NAME    STATE       TIME   TIME_LIMIT NODELIST(REASON)
+       52340              V7_sql_h2  PENDING       0:00     12:00:00 (Priority)
+       52341            V8_rel_hypo  PENDING       0:00     20:00:00 (Priority)
+       52346        V3_insightbench  PENDING       0:00     16:00:00 (Priority)
+       52376              V7_sql_h2  PENDING       0:00     12:00:00 (Priority)
+       52388              V9_gli_ft  PENDING       0:00      6:00:00 (Priority)
+       52339              V7_sql_h2  RUNNING      35:24     12:00:00 g0374
+       51136           AGENT_runner  RUNNING   23:57:26   2-00:00:00 g0374
+# ---------------------------------------------------------
+# exit=0  end=Sun Oct  4 15:30:26 UTC 2026
