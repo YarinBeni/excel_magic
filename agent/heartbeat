@@ -1,5 +1,4 @@
-alive Sat Oct  3 23:36:09 UTC 2026
+alive Sun Oct  4 00:36:23 UTC 2026
 host g0374
 job 51136
-             52074 voltagepa V4_rel_c  yarin.b PD       0:00      1 (Resources)
-             51136 voltagepa AGENT_ru  yarin.b  R    8:03:09      1 g0374
+             51136 voltagepa AGENT_ru  yarin.b  R    9:03:23      1 g0374
