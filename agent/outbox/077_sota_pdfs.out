@@ -1,0 +1,26 @@
+# 077_sota_pdfs  host=g0374  start=Sun Oct  4 06:00:01 UTC 2026  timeout=300s
+# HEAD=a4bc600
+# ---------------------------------------------------------
+total 14018
+drwx------ 2 yarin.b pwuser    4096 Oct  4 06:00 .
+drwx------ 2 yarin.b root      4096 Oct  4 06:00 ..
+-rw------- 1 yarin.b pwuser  923177 Oct  4 06:00 2111.02705.pdf
+-rw------- 1 yarin.b pwuser 4655321 Oct  4 06:00 2407.06423.pdf
+-rw------- 1 yarin.b pwuser 2020684 Oct  4 06:00 2407.20060.pdf
+-rw------- 1 yarin.b pwuser 2343838 Oct  4 06:00 2603.20004.pdf
+-rw------- 1 yarin.b pwuser 1116636 Oct  4 06:00 2604.12596.pdf
+-rw------- 1 yarin.b pwuser 3293621 Oct  4 06:00 2605.07840.pdf
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+WARNING: Ignoring invalid distribution ~orch (/home/yarin.b/miniconda3/envs/thesis/lib/python3.11/site-packages)
+Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+ModuleNotFoundError: No module named 'pypdf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+ModuleNotFoundError: No module named 'pypdf'
+# ---------------------------------------------------------
+# exit=1  end=Sun Oct  4 06:00:08 UTC 2026
